@@ -150,3 +150,42 @@ def hostname_of(url: str) -> str:
         return (urlparse(url).hostname or "").lower()
     except Exception:
         return ""
+
+
+def _normalize_domain(domain: str) -> str:
+    return (domain or "").strip().lower().lstrip(".").rstrip(".")
+
+
+def matches_domain_filter(
+    hostname: str,
+    *,
+    include_domains: list[str] | None = None,
+    exclude_domains: list[str] | None = None,
+) -> bool:
+    """Case-insensitive real-subdomain filter for final structured results.
+
+    Rules:
+      * ``exclude`` wins over ``include`` (a host matching both is dropped).
+      * ``include`` matches exact host or any real subdomain (``www.example.com``
+        matches ``example.com`` but ``notexample.com`` does not).
+      * A URL with no hostname is dropped when ``include_domains`` is set and
+        kept otherwise (even when only ``exclude_domains`` is configured).
+    """
+    host = (hostname or "").strip().lower().rstrip(".")
+
+    if host and exclude_domains:
+        for raw in exclude_domains:
+            domain = _normalize_domain(raw)
+            if domain and (host == domain or host.endswith("." + domain)):
+                return False
+
+    if not host:
+        return not include_domains
+
+    if include_domains:
+        for raw in include_domains:
+            domain = _normalize_domain(raw)
+            if domain and (host == domain or host.endswith("." + domain)):
+                return True
+        return False
+    return True

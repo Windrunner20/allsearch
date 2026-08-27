@@ -6,7 +6,7 @@ from dataclasses import dataclass
 
 from allsearch.config import AllSearchConfig
 from allsearch.models import ProviderSearchResult, ResultItem
-from allsearch.security import hostname_of
+from allsearch.security import hostname_of, matches_domain_filter
 
 
 @dataclass(slots=True)
@@ -23,6 +23,7 @@ def evaluate_primary_sufficiency(
     *,
     depth: str,
     include_domains: list[str] | None = None,
+    exclude_domains: list[str] | None = None,
     comparison: bool = False,
     recency: bool = False,
     vertical_expected: bool = False,
@@ -35,6 +36,16 @@ def evaluate_primary_sufficiency(
     urls = [c.get("url", "") for c in citations]
     if not urls:
         urls = [r.url for r in primary.results if r.url]
+    # Apply the same final domain filter used for structured results.
+    urls = [
+        u
+        for u in urls
+        if matches_domain_filter(
+            hostname_of(u),
+            include_domains=include_domains,
+            exclude_domains=exclude_domains,
+        )
+    ]
     citation_count = len({u for u in urls if u})
     domains = {hostname_of(u) for u in urls if hostname_of(u)}
     unique_domains = len(domains)
@@ -53,10 +64,8 @@ def evaluate_primary_sufficiency(
     if unique_domains < min_domains:
         reasons.append(f"domains_below_threshold:{unique_domains}<{min_domains}")
 
-    if include_domains:
-        allowed = {d.lower().lstrip(".") for d in include_domains}
-        if domains and not any(any(host == a or host.endswith("." + a) for a in allowed) for host in domains):
-            reasons.append("domain_filter_not_satisfied")
+    if include_domains and not domains:
+        reasons.append("domain_filter_not_satisfied")
 
     if comparison and unique_domains < 2:
         reasons.append("comparison_needs_multiple_domains")

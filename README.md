@@ -4,7 +4,7 @@
 
 AllSearch 适合接入 Pi、OpenClaw 或其他 MCP Host。它提供统一的搜索结果结构、Provider 路由记录、引用去重、垂直领域检索和网页正文抓取，并附带一个防止搜索结果撑爆上下文的 Pi Extension。
 
-> **项目状态：** `v0.1.0`，已完成真实 Provider 与 MCP stdio 调用验证，适合本地使用和边用边调。搜索质量策略仍会继续迭代。
+> **项目状态：** `v0.2.0`，已完成真实 Provider 与 MCP stdio 调用验证，适合本地使用和边用边调。搜索质量策略仍会继续迭代。
 
 ## 它解决什么问题
 
@@ -74,12 +74,22 @@ ALLSEARCH_XAI_API_KEY=
 ALLSEARCH_XAI_BASE_URL=https://your-responses-compatible-endpoint/v1
 ALLSEARCH_XAI_RESPONSES_PATH=/responses
 ALLSEARCH_XAI_MODEL=grok-4.5
+# Optional same-endpoint model fallback. Set to none to go straight to the
+# endpoint-level fallback below when the primary model fails.
 ALLSEARCH_XAI_FALLBACK_MODELS=grok-4.3
 ALLSEARCH_XAI_REASONING_EFFORT=low
 ALLSEARCH_XAI_MAX_TOOL_CALLS=4
+# Optional endpoint-level fallback (OpenAI-compatible chat gateway; used on 402/429/5xx).
+# protocol is openai-only (chat completions); the "responses" protocol is rejected at load.
+# ALLSEARCH_XAI_FALLBACK_BASE_URL=https://fallback.example/v1
+# ALLSEARCH_XAI_FALLBACK_API_KEY=
+# ALLSEARCH_XAI_FALLBACK_MODEL=grok-4.3-fast
+# ALLSEARCH_XAI_FALLBACK_PROTOCOL=openai
 
 # Supplements
 ALLSEARCH_TAVILY_API_KEY=
+# Optional Tavily key pool (comma-separated extra keys; round-robin + quota failover):
+# ALLSEARCH_TAVILY_API_KEYS=key2,key3,key4
 ALLSEARCH_ANYSEARCH_API_KEY=
 ALLSEARCH_FIRECRAWL_API_KEY=
 ```
@@ -116,6 +126,8 @@ Responses 推理参数使用嵌套格式：
 ```
 
 兼容网关会接收你的查询和凭据。请仅使用你信任的服务，并自行确认其隐私、计费和数据保留政策。
+
+> 端点级 fallback 仅支持 `openai`（chat completions）协议；配置为 `responses` 会在加载配置时直接报错。
 
 </details>
 
@@ -321,10 +333,14 @@ Pi Extension 不会把完整 MCP JSON 和网页正文直接放入模型上下文
 
 - `.env`、虚拟环境、缓存和 Agent 临时文件均被 Git 忽略；
 - Provider 错误在返回给 Agent 前会进行常见密钥模式脱敏；
-- `fetch` 会拒绝 localhost、私有 IP、嵌入凭据和非 HTTP(S) URL；
+- `fetch` 会拒绝 localhost、私有 IP、嵌入凭据和非 HTTP(S) URL，并且自动抓取（auto-scrape）和显式 `fetch` 都会对原始 URL 与最终重定向 URL（`final_url`）做同样的 SSRF 校验；
 - URL 合并会去除常见追踪参数并按规范化 URL 去重；
 - 搜索和网页内容始终被标记为不可信外部数据；
-- `ALLSEARCH_ALLOW_DEGRADED_SEARCH=false` 时，Grok 不可用会返回明确错误，而不是悄悄改成其他搜索结果。
+- 最终的结构化结果、引用与证据会按 `include_domains` / `exclude_domains` 做大小写不敏感、真实子域匹配的过滤（exclude 优先）；自然语言 `answer` 不会被改写；
+- 自动抓取每页正文有内部 30000 字符上限（截断时会加 warning），并拒绝空内容 / 过短 / 反爬壳页面（拒绝的页面不计入 `pages_fetched`）；
+- 搜索整体受硬总截止时间约束（`ALLSEARCH_TOTAL_BUDGET_SECONDS`）：超时后不再启动后续阶段并取消未完成任务，超时响应不缓存；若主搜索已完成则返回 `partial`，严格模式下主搜索未完成则返回 `error`；
+- `health` 在 xAI 处于 `idle` / `healthy` 时报告 `ok`，处于 `degraded` / `half_open` / `open` 时报告 `degraded`（熔断打开时附加 `primary_circuit_open` warning）；
+- `ALLSEARCH_ALLOW_DEGRADED_SEARCH=false` 时，Grok 不可用会在任何补充源（Tavily/AnySearch）执行前直接返回明确错误，而不是悄悄改成其他搜索结果。
 
 ## 测试
 
@@ -333,23 +349,29 @@ source .venv/bin/activate
 pytest -q
 ```
 
-当前测试覆盖：
+当前测试覆盖（默认全离线，不调用外网 Provider）：
 
-- Provider 请求与响应契约；
-- Grok 模型 fallback 和 reasoning 参数；
+- Provider 请求与响应契约（respx mock）；
+- Grok 模型 fallback、reasoning 参数和端点级 fallback（OpenAI chat）；
+- Tavily 多 Key 轮换与配额故障切换；
 - AnySearch 两种 Markdown 格式；
 - 路由、合并、缓存、熔断和 SSRF 检查；
-- MCP 工具注册；
-- Pi bridge 的严格字节预算和 artifact 路径保留。
+- 严格模式下的主搜索门禁（补充源零调用）、group1 并发与确定顺序、单源失败不阻塞；
+- 硬总截止时间：阶段不悬挂、超时不缓存、不重复报错、取消不触发熔断计数；
+- 最终域过滤（大小写不敏感、真实子域、exclude 优先）；
+- 自动抓取的原 URL / final URL DNS 校验、低质量拒绝与 30000 字符截断；
+- 配置脱敏、fallback 协议校验、Tavily pool-only 配置；
+- health 的熔断到 degraded / primary_circuit_open 映射；
+- MCP 工具注册与 Pi bridge 的严格字节预算和 artifact 路径保留。
 
-真实 Provider 测试默认不在 CI / 普通测试中运行，以避免消耗额度和依赖外部网络。
+真实 Provider 测试只是占位模板，默认不在 CI / 普通测试中运行，以避免消耗额度和依赖外部网络。
 
 ## 已知限制
 
 - 搜索排序和查询改写仍需要根据真实任务持续调优；
 - Responses-compatible 网关的模型可用性、延迟和计费可能随时变化；
 - 当前缓存仅为进程内存缓存，没有 Redis 或跨进程共享；
-- HTTP 总 deadline 仍属于软预算，极端重试情况下可能超过目标时间；
+- 搜索整体已有硬总截止时间，但 Provider 内部的重试与响应解析仍可能占用全部预算，极端情况下留给后续阶段的时间会变少；
 - 当前没有 Docker 镜像、管理 UI 或第二次模型综合层。
 
 ## 参与贡献

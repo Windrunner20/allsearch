@@ -9,7 +9,7 @@ from allsearch.models import (
     ProviderSearchResult,
     ResultItem,
 )
-from allsearch.security import canonicalize_url, hostname_of
+from allsearch.security import canonicalize_url, hostname_of, matches_domain_filter
 
 
 def _quality_score(item: ProviderResultItem | ResultItem) -> tuple[int, int, int]:
@@ -24,8 +24,42 @@ def merge_provider_results(
     *,
     max_results: int,
     primary_provider: str = "xai",
+    include_domains: list[str] | None = None,
+    exclude_domains: list[str] | None = None,
 ) -> tuple[list[ResultItem], list[CitationItem], EvidenceMetrics]:
-    """Merge with primary-first rank, URL canonicalization, and provenance."""
+    """Merge with primary-first rank, URL canonicalization, and provenance.
+
+    When domain filters are supplied they are applied before variant/citation
+    construction, so the final structured results, citations, and evidence all
+    respect include/exclude. Items without a URL are dropped when
+    ``include_domains`` is set and kept otherwise.
+    """
+    if include_domains or exclude_domains:
+        provider_results = [
+            pr.model_copy(
+                update={
+                    "results": [
+                        i
+                        for i in pr.results
+                        if matches_domain_filter(
+                            hostname_of(i.url or ""),
+                            include_domains=include_domains,
+                            exclude_domains=exclude_domains,
+                        )
+                    ],
+                    "citations": [
+                        c
+                        for c in pr.citations
+                        if matches_domain_filter(
+                            hostname_of(c.get("url") or ""),
+                            include_domains=include_domains,
+                            exclude_domains=exclude_domains,
+                        )
+                    ],
+                }
+            )
+            for pr in provider_results
+        ]
     # Preserve provider order with primary first
     ordered = sorted(
         provider_results,

@@ -46,3 +46,48 @@ def test_redact_common_secret_assignments():
     assert "***" in redact_text("Authorization: Bearer abcdef123456")
     # non-secret text survives
     assert redact_text("plain status message") == "plain status message"
+
+
+def test_domain_filter_case_insensitive_real_subdomain():
+    from allsearch.security import matches_domain_filter
+
+    assert matches_domain_filter("www.Example.COM", include_domains=["example.com"]) is True
+    assert matches_domain_filter("example.com", include_domains=["example.com"]) is True
+    assert matches_domain_filter("deep.sub.example.com", include_domains=["Example.COM"]) is True
+    # NOT a real subdomain: suffix boundary must be respected.
+    assert matches_domain_filter("notexample.com", include_domains=["example.com"]) is False
+    assert matches_domain_filter("example.com.evil.net", include_domains=["example.com"]) is False
+
+
+def test_domain_filter_exclude_wins():
+    from allsearch.security import matches_domain_filter
+
+    assert (
+        matches_domain_filter(
+            "www.example.com",
+            include_domains=["example.com"],
+            exclude_domains=["example.com"],
+        )
+        is False
+    )
+    assert matches_domain_filter("example.com", exclude_domains=["Example.COM"]) is False
+    assert matches_domain_filter("www.example.com", exclude_domains=["example.com"]) is False
+    assert matches_domain_filter("other.org", exclude_domains=["example.com"]) is True
+
+
+def test_domain_filter_no_url_rules():
+    from allsearch.security import matches_domain_filter
+
+    # include set -> no-URL item dropped
+    assert matches_domain_filter("", include_domains=["example.com"]) is False
+    # only exclude -> no-URL item kept
+    assert matches_domain_filter("", exclude_domains=["example.com"]) is True
+    # neither -> kept
+    assert matches_domain_filter("") is True
+
+
+def test_domain_filter_normalizes_dots_and_whitespace():
+    from allsearch.security import matches_domain_filter
+
+    assert matches_domain_filter("example.com", include_domains=[" .example.com. "]) is True
+    assert matches_domain_filter("Example.COM", exclude_domains=["example.com."]) is False

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import asyncio
 import os
 from dataclasses import replace
 from typing import Any
@@ -45,6 +46,47 @@ class FakeClock:
 
     def advance(self, seconds: float) -> None:
         self.t += seconds
+
+
+@pytest.fixture
+async def loop_clock(monkeypatch):
+    """Patch the running loop's monotonic clock so timeout_at + Deadline share
+    a controllable timeline. Returns the LoopClock instance."""
+    clock = LoopClock()
+    loop = asyncio.get_running_loop()
+    monkeypatch.setattr(loop, "time", clock)
+    return clock
+
+
+class LoopClock:
+    """Controllable monotonic clock; assignable to loop.time."""
+
+    def __init__(self, start: float = 0.0) -> None:
+        self.t = start
+
+    def __call__(self) -> float:
+        return self.t
+
+    def advance(self, seconds: float) -> None:
+        self.t += seconds
+
+
+@pytest.fixture
+def no_dns(monkeypatch):
+    """Neutralize DNS resolution in orchestrator URL validation while keeping
+    literal-IP/localhost/scheme checks. Records validation calls so tests can
+    assert original + final URLs were both validated with resolve_dns=True."""
+    import allsearch.orchestrator as orch_mod
+    from allsearch.security import validate_public_http_url as real_validate
+
+    calls: list[tuple[str, bool]] = []
+
+    def fake_validate(url: str, *, resolve_dns: bool = True) -> str:
+        calls.append((url, resolve_dns))
+        return real_validate(url, resolve_dns=False)
+
+    monkeypatch.setattr(orch_mod, "validate_public_http_url", fake_validate)
+    return calls
 
 
 class FakeXAI:
@@ -206,9 +248,11 @@ def make_orchestrator(
     tavily: Any = None,
     anysearch: Any = None,
     firecrawl: Any = None,
+    health: HealthRegistry | None = None,
+    cache: MemoryCache | None = None,
 ) -> Orchestrator:
-    cache = MemoryCache(max_entries=config.cache.max_entries)
-    health = HealthRegistry(cache=cache)
+    cache = cache or MemoryCache(max_entries=config.cache.max_entries)
+    health = health or HealthRegistry(cache=cache)
     transport = HttpTransport(timeout_seconds=5, max_retries=0)
     return Orchestrator(
         config,

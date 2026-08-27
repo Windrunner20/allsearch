@@ -63,3 +63,55 @@ def test_provider_content_is_not_counted_as_firecrawl_fetch():
     )
     _, _, evidence = merge_provider_results([anysearch], max_results=5)
     assert evidence.pages_fetched == 0
+
+
+def test_merge_include_domains_filters_results_citations_and_no_url():
+    xai = ProviderSearchResult(
+        provider="xai",
+        query="q",
+        answer="ans",
+        results=[
+            ProviderResultItem(title="A", url="https://example.com/a", snippet="s", provider="xai"),
+            ProviderResultItem(title="B", url="https://other.org/b", snippet="s", provider="xai"),
+            ProviderResultItem(title="NoUrl", url="", snippet="s", provider="xai"),
+        ],
+        citations=[
+            {"title": "A", "url": "https://example.com/a"},
+            {"title": "B", "url": "https://other.org/b"},
+        ],
+    )
+    results, citations, evidence = merge_provider_results(
+        [xai], max_results=5, primary_provider="xai", include_domains=["example.com"]
+    )
+    assert len(results) == 1
+    assert results[0].url == "https://example.com/a"
+    assert len(citations) == 1
+    assert citations[0].url == "https://example.com/a"
+    assert evidence.unique_urls == 1
+    assert evidence.unique_domains == 1
+
+
+def test_merge_exclude_domains_keeps_no_url_items():
+    xai = ProviderSearchResult(
+        provider="xai",
+        query="q",
+        answer="ans",
+        results=[
+            ProviderResultItem(title="A", url="https://example.com/a", snippet="s", provider="xai"),
+            ProviderResultItem(title="B", url="https://other.org/b", snippet="s", provider="xai"),
+            ProviderResultItem(title="NoUrl", url="", snippet="s", provider="xai"),
+        ],
+        citations=[
+            {"title": "A", "url": "https://example.com/a"},
+            {"title": "B", "url": "https://other.org/b"},
+        ],
+    )
+    results, citations, _ = merge_provider_results(
+        [xai], max_results=5, primary_provider="xai", exclude_domains=["example.com"]
+    )
+    urls = [r.url for r in results]
+    assert "https://example.com/a" not in urls
+    assert "https://other.org/b" in urls
+    # no-URL item kept when only exclude is set
+    assert any(r.url == "" for r in results)
+    assert all("example.com" not in c.url for c in citations)

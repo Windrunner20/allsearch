@@ -44,6 +44,11 @@ class TimeoutError_(AllSearchError):
         super().__init__(message, code="timeout", retryable=True)
 
 
+class DeadlineExceededError(AllSearchError):
+    def __init__(self, message: str = "overall search deadline exceeded") -> None:
+        super().__init__(message, code="deadline_exceeded", retryable=True)
+
+
 class CircuitOpenError(AllSearchError):
     def __init__(self, message: str, *, provider: str) -> None:
         super().__init__(message, code="circuit_open", retryable=True)

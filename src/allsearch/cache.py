@@ -90,8 +90,18 @@ class MemoryCache:
         if ttl_seconds <= 0:
             return
         self._purge_expired()
-        self._evict_if_needed()
         now = self._now()
+        if key in self._data:
+            # Overwrite in place — never evict another entry just to refresh an
+            # already-present key, even at capacity.
+            self._data[key] = _Entry(
+                value=copy.deepcopy(value),
+                expires_at=now + float(ttl_seconds),
+                created_at=now,
+            )
+            self.stats.sets += 1
+            return
+        self._evict_if_needed()
         self._data[key] = _Entry(
             value=copy.deepcopy(value),
             expires_at=now + float(ttl_seconds),

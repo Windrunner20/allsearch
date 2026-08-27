@@ -95,6 +95,33 @@ def _safe_repr_secret(value: str | None) -> str:
 
 
 @dataclass(slots=True, frozen=True)
+class XAIFallbackEndpoint:
+    """A secondary, independently-credentialed xAI-compatible endpoint used when the
+    primary Responses endpoint fails. Typically an OpenAI-compatible chat gateway."""
+
+    api_key: str
+    base_url: str
+    chat_path: str
+    model: str
+    # Whether the fallback gateway speaks OpenAI chat completions. Only
+    # ``openai`` is supported; the ``responses`` protocol is rejected at load.
+    protocol: Literal["openai"] = "openai"
+    # Optional per-endpoint reasoning effort. Defaults to None because many
+    # OpenAI-compatible gateways mis-handle reasoning_effort and return empty content.
+    reasoning_effort: Literal["low", "medium", "high"] | None = None
+
+    def configured(self) -> bool:
+        return bool(self.api_key) and bool(self.base_url)
+
+    def __repr__(self) -> str:  # pragma: no cover
+        return (
+            f"XAIFallbackEndpoint(api_key={_safe_repr_secret(self.api_key)!r}, "
+            f"base_url={self.base_url!r}, chat_path={self.chat_path!r}, model={self.model!r}, "
+            f"protocol={self.protocol!r}, reasoning_effort={self.reasoning_effort!r})"
+        )
+
+
+@dataclass(slots=True, frozen=True)
 class XAIConfig:
     api_key: str | None
     base_url: str
@@ -104,14 +131,17 @@ class XAIConfig:
     reasoning_effort: Literal["low", "medium", "high"] | None
     allowed_models: tuple[str, ...]
     max_tool_calls: int
+    # Endpoint-level fallback (independent base_url + api_key + model).
+    fallback_endpoint: XAIFallbackEndpoint | None = None
 
     def configured(self) -> bool:
         return bool(self.api_key)
 
     def __repr__(self) -> str:  # pragma: no cover - defensive
+        fb = "yes" if self.fallback_endpoint and self.fallback_endpoint.configured() else "no"
         return (
             f"XAIConfig(api_key={_safe_repr_secret(self.api_key)!r}, base_url={self.base_url!r}, "
-            f"responses_path={self.responses_path!r}, model={self.model!r})"
+            f"responses_path={self.responses_path!r}, model={self.model!r}, fallback_endpoint={fb})"
         )
 
 
@@ -122,13 +152,26 @@ class TavilyConfig:
     search_path: str
     default_depth: Literal["basic", "advanced"]
     max_results: int
+    # Additional keys forming a rotation pool (excludes api_key, which is always index 0).
+    extra_api_keys: tuple[str, ...] = ()
 
     def configured(self) -> bool:
-        return bool(self.api_key)
+        return bool(self.all_keys())
+
+    def all_keys(self) -> tuple[str, ...]:
+        """Return the full deduped key pool, primary key first."""
+        keys: list[str] = []
+        if self.api_key:
+            keys.append(self.api_key)
+        for k in self.extra_api_keys:
+            if k and k not in keys:
+                keys.append(k)
+        return tuple(keys)
 
     def __repr__(self) -> str:  # pragma: no cover
         return (
-            f"TavilyConfig(api_key={_safe_repr_secret(self.api_key)!r}, base_url={self.base_url!r}, "
+            f"TavilyConfig(api_key={_safe_repr_secret(self.api_key)!r}, "
+            f"extra_keys={len(self.extra_api_keys)}, base_url={self.base_url!r}, "
             f"search_path={self.search_path!r})"
         )
 
@@ -228,7 +271,11 @@ class AllSearchConfig:
     def public_dict(self) -> dict[str, Any]:
         data = asdict(self)
         data["xai"]["api_key"] = bool(self.xai.api_key)
+        fallback = self.xai.fallback_endpoint
+        if fallback is not None and isinstance(data["xai"].get("fallback_endpoint"), dict):
+            data["xai"]["fallback_endpoint"]["api_key"] = bool(fallback.api_key)
         data["tavily"]["api_key"] = bool(self.tavily.api_key)
+        data["tavily"]["extra_api_keys"] = len(self.tavily.extra_api_keys)
         data["anysearch"]["api_key"] = bool(self.anysearch.api_key)
         data["firecrawl"]["api_key"] = bool(self.firecrawl.api_key)
         return data
@@ -262,13 +309,29 @@ def load_config(*, env_file: str | Path | None = None) -> AllSearchConfig:
         raise ConfigError("ALLSEARCH_TAVILY_DEFAULT_DEPTH must be basic|advanced")
 
     model = _env_str("ALLSEARCH_XAI_MODEL", default="grok-4.5")
-    fallback_models = tuple(
-        candidate
-        for candidate in _csv_list(
-            _env_str("ALLSEARCH_XAI_FALLBACK_MODELS", default="grok-4.3")
-        )
-        if candidate != model
+    tavily_primary_key = _env_str("ALLSEARCH_TAVILY_API_KEY") or None
+    # Pool keys: tokens separated by commas or newlines; whitespace/quotes trimmed.
+    # Supports ALLSEARCH_TAVILY_API_KEYS (preferred, plural) and legacy ALLSEARCH_TAVILY_EXTRA_API_KEYS.
+    tavily_pool_raw = _env_str(
+        "ALLSEARCH_TAVILY_API_KEYS", "ALLSEARCH_TAVILY_EXTRA_API_KEYS", default=""
     )
+    tavily_extra_keys: tuple[str, ...] = ()
+    if tavily_pool_raw:
+        tokens = [t.strip().strip("'\"") for t in tavily_pool_raw.replace("\n", ",").split(",")]
+        seen: set[str] = set()
+        for tok in tokens:
+            if tok and tok not in seen and tok != tavily_primary_key:
+                seen.add(tok)
+                tavily_extra_keys += (tok,)
+    fallback_models_raw = _env_str("ALLSEARCH_XAI_FALLBACK_MODELS", default="grok-4.3")
+    if fallback_models_raw.strip().lower() in {"none", "off"}:
+        fallback_models: tuple[str, ...] = ()
+    else:
+        fallback_models = tuple(
+            candidate
+            for candidate in _csv_list(fallback_models_raw)
+            if candidate != model
+        )
     reasoning_effort_raw = _env_str("ALLSEARCH_XAI_REASONING_EFFORT", default="low").lower()
     if reasoning_effort_raw in {"", "none", "off"}:
         reasoning_effort = None
@@ -292,6 +355,42 @@ def load_config(*, env_file: str | Path | None = None) -> AllSearchConfig:
     verticals = tuple(
         _csv_list(_env_str("ALLSEARCH_ANYSEARCH_VERTICALS", default=DEFAULT_VERTICALS))
     )
+
+    # Optional endpoint-level fallback: a second xAI-compatible gateway used when the
+    # primary Responses endpoint fails. OpenAI-compatible chat gateways use /chat/completions.
+    xai_fb_endpoint = _env_str("ALLSEARCH_XAI_FALLBACK_BASE_URL", default="")
+    xai_fb_key = _env_str("ALLSEARCH_XAI_FALLBACK_API_KEY", default="")
+    xai_fallback_endpoint: XAIFallbackEndpoint | None = None
+    if xai_fb_endpoint and xai_fb_key:
+        xai_fb_protocol_raw = _env_str(
+            "ALLSEARCH_XAI_FALLBACK_PROTOCOL", default="openai"
+        ).lower()
+        if xai_fb_protocol_raw != "openai":
+            raise ConfigError(
+                "ALLSEARCH_XAI_FALLBACK_PROTOCOL must be openai; "
+                "the responses protocol is not supported"
+            )
+        xai_fb_reasoning_raw = _env_str(
+            "ALLSEARCH_XAI_FALLBACK_REASONING_EFFORT", default=""
+        ).lower()
+        if xai_fb_reasoning_raw in {"", "none", "off"}:
+            xai_fb_reasoning: Literal["low", "medium", "high"] | None = None
+        elif xai_fb_reasoning_raw in {"low", "medium", "high"}:
+            xai_fb_reasoning = xai_fb_reasoning_raw  # type: ignore[assignment]
+        else:
+            raise ConfigError(
+                "ALLSEARCH_XAI_FALLBACK_REASONING_EFFORT must be low|medium|high|none"
+            )
+        xai_fallback_endpoint = XAIFallbackEndpoint(
+            api_key=xai_fb_key,
+            base_url=_normalize_base_url(xai_fb_endpoint),
+            chat_path=_normalize_path(
+                _env_str("ALLSEARCH_XAI_FALLBACK_CHAT_PATH", default="/chat/completions")
+            ),
+            model=_env_str("ALLSEARCH_XAI_FALLBACK_MODEL", default=model),
+            protocol=xai_fb_protocol_raw,  # type: ignore[arg-type]
+            reasoning_effort=xai_fb_reasoning,  # type: ignore[arg-type]
+        )
 
     return AllSearchConfig(
         server_name=_env_str("ALLSEARCH_SERVER_NAME", default="AllSearch"),
@@ -340,9 +439,11 @@ def load_config(*, env_file: str | Path | None = None) -> AllSearchConfig:
             reasoning_effort=reasoning_effort,  # type: ignore[arg-type]
             allowed_models=allowed_models,
             max_tool_calls=_env_int("ALLSEARCH_XAI_MAX_TOOL_CALLS", 4, min_value=1, max_value=20),
+            fallback_endpoint=xai_fallback_endpoint,
         ),
         tavily=TavilyConfig(
-            api_key=_env_str("ALLSEARCH_TAVILY_API_KEY") or None,
+            api_key=tavily_primary_key,
+            extra_api_keys=tavily_extra_keys,
             base_url=_normalize_base_url(
                 _env_str("ALLSEARCH_TAVILY_BASE_URL", default="https://api.tavily.com")
             ),

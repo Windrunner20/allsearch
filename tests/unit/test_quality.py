@@ -43,3 +43,71 @@ def test_select_urls_prefers_empty_snippet():
 def test_content_quality_markers():
     assert content_quality_issue("") == "empty_content"
     assert content_quality_issue("please complete the captcha challenge to continue browsing this site now") == "anti_bot_shell"
+
+
+def test_sufficiency_domain_include_blocks_all(base_config):
+    primary = ProviderSearchResult(
+        provider="xai",
+        query="q",
+        answer="ok",
+        results=[
+            ProviderResultItem(title="a", url="https://a.com/1", provider="xai"),
+            ProviderResultItem(title="b", url="https://b.com/2", provider="xai"),
+        ],
+        citations=[
+            {"title": "a", "url": "https://a.com/1"},
+            {"title": "b", "url": "https://b.com/2"},
+        ],
+    )
+    result = evaluate_primary_sufficiency(
+        primary, base_config, depth="balanced", include_domains=["example.com"]
+    )
+    assert result.sufficient is False
+    assert "domain_filter_not_satisfied" in result.reasons
+    assert result.citation_count == 0
+
+
+def test_sufficiency_domain_include_keeps_matching_only(base_config):
+    primary = ProviderSearchResult(
+        provider="xai",
+        query="q",
+        answer="ok",
+        results=[
+            ProviderResultItem(title="a", url="https://example.com/a", provider="xai"),
+            ProviderResultItem(title="b", url="https://b.com/2", provider="xai"),
+        ],
+        citations=[
+            {"title": "a", "url": "https://example.com/a"},
+            {"title": "b", "url": "https://b.com/2"},
+        ],
+    )
+    result = evaluate_primary_sufficiency(
+        primary, base_config, depth="balanced", include_domains=["example.com"]
+    )
+    assert result.citation_count == 1
+    assert result.unique_domains == 1
+    assert "domain_filter_not_satisfied" not in result.reasons
+
+
+def test_sufficiency_exclude_reduces_counts(base_config):
+    primary = ProviderSearchResult(
+        provider="xai",
+        query="q",
+        answer="ok",
+        results=[
+            ProviderResultItem(title="a", url="https://a.com/1", provider="xai"),
+            ProviderResultItem(title="b", url="https://b.com/2", provider="xai"),
+            ProviderResultItem(title="c", url="https://c.com/3", provider="xai"),
+        ],
+        citations=[
+            {"title": "a", "url": "https://a.com/1"},
+            {"title": "b", "url": "https://b.com/2"},
+            {"title": "c", "url": "https://c.com/3"},
+        ],
+    )
+    result = evaluate_primary_sufficiency(
+        primary, base_config, depth="balanced", exclude_domains=["c.com"]
+    )
+    # Excluded domain no longer counts toward evidence.
+    assert result.citation_count == 2
+    assert result.unique_domains == 2
