@@ -1,0 +1,120 @@
+[
+  {
+    "id": "ho-hn-boring-tech",
+    "channel": "hackernews",
+    "language": "en",
+    "kind": "search",
+    "query": "Hacker News discussion of Dan McKinley's essay Choose Boring Technology, quote one reader comment",
+    "dimensions": ["discovery", "comments"],
+    "task_requires": ["discovery", "comments"],
+    "expected_access": "public",
+    "targets": [{"id": "hn-thread", "host": "news.ycombinator.com", "path_contains": "item?id=", "discovery_evidence": ["Boring"]}],
+    "comment_targets": [{"match": "content", "evidence": []}],
+    "key_facts": []
+  },
+  {
+    "id": "ho-hn-netscape-comment",
+    "channel": "hackernews",
+    "language": "en",
+    "kind": "search",
+    "query": "In a Hacker News thread about Joel Spolsky's Things You Should Never Do Part I, find a comment that mentions Netscape",
+    "dimensions": ["comments"],
+    "task_requires": ["comments"],
+    "expected_access": "public",
+    "targets": [{"id": "hn-thread", "host": "news.ycombinator.com", "path_contains": "item?id="}],
+    "comment_targets": [{"match": "content", "evidence": ["Netscape"]}],
+    "key_facts": []
+  },
+  {
+    "id": "ho-v2ex-orbstack",
+    "channel": "v2ex",
+    "language": "zh",
+    "kind": "search",
+    "query": "V2EX 上讨论用 OrbStack 替代 Docker Desktop 的主题帖，并给出一条回复原文",
+    "dimensions": ["discovery", "comments"],
+    "task_requires": ["discovery", "comments"],
+    "expected_access": "public",
+    "targets": [{"id": "v2ex-topic", "host": "v2ex.com", "path_contains": "/t/", "discovery_evidence": ["OrbStack"]}],
+    "comment_targets": [{"match": "content", "evidence": []}],
+    "key_facts": []
+  },
+  {
+    "id": "ho-so-undo-commit",
+    "channel": "stackoverflow",
+    "language": "en",
+    "kind": "search",
+    "query": "Stack Overflow question on how to undo the most recent local commits in Git, and the command from the top answer",
+    "dimensions": ["discovery", "synthesis"],
+    "task_requires": ["discovery", "synthesis"],
+    "expected_access": "public",
+    "targets": [{"id": "so-q", "host": "stackoverflow.com", "path_contains": "/questions/927358"}],
+    "key_facts": ["git reset"]
+  },
+  {
+    "id": "ho-cross-mdn-flatmap",
+    "channel": "docs",
+    "language": "zh",
+    "kind": "search",
+    "query": "用中文找 MDN 上 Array.prototype.flatMap 的英文文档原文",
+    "dimensions": ["discovery", "cross_language"],
+    "task_requires": ["discovery", "cross_language"],
+    "expected_access": "public",
+    "targets": [{"id": "mdn-flatmap", "host": "developer.mozilla.org", "path_regex": "/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap"}],
+    "cross_language_hosts": ["developer.mozilla.org"],
+    "key_facts": []
+  },
+  {
+    "id": "ho-dual-go-rust",
+    "channel": "docs",
+    "language": "en",
+    "kind": "search",
+    "query": "Compare the Go language specification section on defer statements with the Rust Reference page on destructors",
+    "dimensions": ["discovery"],
+    "task_requires": ["discovery"],
+    "expected_access": "public",
+    "require_all_targets": true,
+    "targets": [
+      {"id": "go-spec", "host": "go.dev", "path_contains": "/ref/spec"},
+      {"id": "rust-destructors", "host": "doc.rust-lang.org", "path_contains": "destructors"}
+    ],
+    "key_facts": []
+  },
+  {
+    "id": "ho-zhwiki-https",
+    "channel": "encyclopedia",
+    "language": "zh",
+    "kind": "search",
+    "query": "中文维基百科 HTTPS 条目里写的默认端口号",
+    "dimensions": ["discovery", "synthesis"],
+    "task_requires": ["discovery", "synthesis"],
+    "expected_access": "public",
+    "targets": [{"id": "zhwiki-https", "host": "zh.wikipedia.org", "path_regex": "/wiki/"}],
+    "key_facts": ["443"]
+  },
+  {
+    "id": "ho-reddit-rust",
+    "channel": "reddit",
+    "language": "en",
+    "kind": "search",
+    "query": "Reddit r/rust thread discussing that async-std is discontinued",
+    "dimensions": ["discovery"],
+    "task_requires": ["discovery"],
+    "expected_access": "public",
+    "targets": [{"id": "reddit-thread", "host": "reddit.com", "path_contains": "/r/rust/comments/", "discovery_evidence": ["async-std"]}],
+    "key_facts": []
+  },
+  {
+    "id": "ho-news-fresh",
+    "channel": "news",
+    "language": "zh",
+    "kind": "search",
+    "query": "过去 72 小时内关于 AI 芯片的一条新闻",
+    "dimensions": ["discovery", "freshness"],
+    "task_requires": ["discovery", "freshness"],
+    "expected_access": "public",
+    "dynamic_url": true,
+    "freshness": {"window_hours": 72, "require_published_at": true},
+    "targets": [],
+    "key_facts": []
+  }
+]
