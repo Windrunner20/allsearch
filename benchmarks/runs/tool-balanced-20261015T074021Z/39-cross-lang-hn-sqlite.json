@@ -1,0 +1,494 @@
+{
+  "id": "cross-lang-hn-sqlite",
+  "executed_at": "2026-10-15T07:58:46.373195+00:00",
+  "depth": "balanced",
+  "provider_query": "用中文找 Hacker News 上把 SQLite 当作应用程序文件格式来讨论的英文帖子",
+  "answer": "以下是 Hacker News 上讨论「把 SQLite 当作应用程序文件格式」的英文帖，按相关度整理，最多 8 条。\n\n1. **[SQLite as an Application File Format](https://news.ycombinator.com/item?id=46076642)**  \n   直接讨论官方文章 [sqlite.org/appfileformat.html](https://sqlite.org/appfileformat.html)。约 178 分、99 条评论。话题包括 MBTiles、树形数据是否适合用表、WAL/单文件文档等。\n\n2. **[SQLite as an Application File Format (2014)](https://news.ycombinator.com/item?id=18754634)**  \n   同一主题的较早讨论。约 211 分、161 条评论（2018-12）。涉及国会图书馆推荐、文件格式公开性，以及 WAL/`-wal`/`-shm` 对“单文件文档”的影响。\n\n3. **[What If OpenDocument Used SQLite?](https://news.ycombinator.com/item?id=45132498)**  \n   讨论官方设想：用 SQLite 代替 ZIP 类容器做 ODF。约 279 分（2025-09）。评论集中在 `secure_delete`、不可信文件安全，以及多数真实用法其实就是应用文件格式（Firefox、聊天记录等）。\n\n4. **[The killer feature… SQLite is as an application file format](https://news.ycombinator.com/item?id=40655974)**  \n   评论串直接引用官方 app file format 页。提到 Audacity 把工程（含音频）存进 SQLite、游戏数据用 SQLite 方便用现成 GUI 编辑，以及 journal/WAL 对用户可见文件的麻烦。\n\n5. **[Show HN: SQLite files as applications - uApps](https://news.ycombinator.com/item?id=49421475)**  \n   Show HN：`.uapp` 是基于 SQLite Archive（sqlar）的自包含应用文件，内含网页资源和用户数据，由本地 runtime 打开。偏“文件即应用”，不是纯数据格式。\n\n6. **[gzipped JSON vs SQLite（Apple `.car` 讨论下）](https://news.ycombinator.com/item?id=47046185)**  \n   在 Apple `.car` 帖下主张：带二进制 blob 的应用格式更适合 SQLite，而不是 base64 塞进 gzip JSON。举例 Firefox、iOS 照片、Kodi、MSVC，并再次提到 Audacity。\n\n7. **[Pack 容器格式讨论中的 SQLite 对比](https://news.ycombinator.com/item?id=39797104)**  \n   有人认为 SQLite 很适合“某一应用自己的文件格式”，但不适合通用交换格式（必须捆绑 SQLite）。同帖还提到 header 里的 Application ID，用来让 `file(1)` 识别具体应用类型。\n\n8. **[标题被理解成“用 SQLite 当可执行文件格式”](https://news.ycombinator.com/item?id=46079326)**  \n   挂在「SQLite as an Application File Format」下的偏题讨论：有人联想到用 SQLite 替代 ELF，并提到 [sqlelf](https://github.com/fzakaria/sqlelf)。主线仍是应用文档格式，这条是衍生想法。\n\n核心原文都指向 SQLite 官方说明：[SQLite As An Application File Format](https://sqlite.org/appfileformat.html)。",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://news.ycombinator.com/item?id=40655974",
+      "url": "https://news.ycombinator.com/item?id=40655974",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "周e信 存档",
+      "url": "https://www.zhouexin.com/archives",
+      "snippet": "前端\n\n负字间距过渡：纯 CSS 低成本做文字渐显交互🔗\n\n得克萨斯州女子因发布关于城镇水质的Facebook帖子被捕🔗\n\n数据库\n\n厌倦了与AI交谈🔗\n\nSQLite是持久化工作流所需的全部🔗\n\n人工智能\n\n我认为Anthropic和OpenAI已找到产品市场契合点🔗\n\n在谷歌表示人们喜欢AI模式后，DuckDuckGo搜索访问量增长了28%🔗\n\nDeepSeek reasonix，高缓存低成本的DeepSeek原生编码代理🔗\n\nAI将导致大规模失业消费崩溃和民主制度瓦解🔗\n\n运维\n\n加州拟豁免开源操作系统（如Linux）免受年龄验证法约束🔗\n\n教宗良十四世在人工智能时代呼吁回归人的尊严与共同善🔗\n\nBricks and Minifigs偷走了一名男子价值20万美元的乐高收藏品🔗\n\n其他\n\n我花了50小时画一个折线图🔗\n\n由于AI,Sentry 开源负责人宣布退出科技行业🔗\n\nLast.fm现已独立🔗\n\nGTA 6开发者成立工会🔗\n\n第 370 期 — 2026-05-30\n\nNode.js\n\n告别 Next.js RSC：回归 SPA 与独立后端🔗 [...] 服务端组件的性能比较🔗\n\n移动端\n\nGrapheneOS 是唯一提供完整安全补丁的 Android 操作系统🔗\n\nApple 锁定了我的 Apple ID，我无计可施。求助信🔗\n\n人工智能\n\n让 AI 工具 Claude 反复 “优化” 自己的小应用代码库🔗\n\n获取 Gemini API 密钥令人沮丧🔗\n\nOxide公司如何使用大型语言模型🔗\n\n运维\n\nLinux内核中的 Rust 已成为核心组成部分🔗\n\n其他\n\n用事后诸葛的眼光自动评分十年前的 Hacker News 讨论🔗\n\n澳大利亚开始执行全球首个青少年社交媒体禁令🔗\n\nLets Encrypt 十周年🔗\n\n第 346 期 — 2025-12-13\n\nNode.js\n\nts-exec - 无需预先编译运行.ts和.tsx🔗\n\nnpm 完成经典令牌的淘汰并推出多项安全更新🔗\n\nnpm 发布安全防护方案🔗\n\nJavascript\n\nIBM CEO表示，AI数据中心支出根本“不可能”收回成本🔗\n\nVScode插件 JSTS Modernize - 轻松给老的 JSTS 项目升级换代🔗\n\n前端 [...] 15个实用vue组件🔗\n\niframe-resizer-react react iframe自动适应大小组件🔗\n\n数据库\n\n炒一吵- Hack News: Mysql 还是 Postgres🔗\n\nSQLTools - VSCode SQL数据库客户端插件支持提示🔗\n\n人工智能\n\ngenerated.photos 十万份AI画的人脸,非商业免费用🔗\n\n其他\n\n游戏-飞翔的鸡蛋(Aero Egg)🔗)\n\n第 21 期 — 2019-09-22\n\nNode.js\n\ngit-quick-stats git统计命令行工具🔗\n\n为什么0.1+0.2 不等于 0.3🔗\n\nnpm公共仓库限流政策🔗\n\nHumanizeDuration.js-将毫秒格式为可读的字符串-支持多语言🔗\n\nradar开源其google球面积几何地图库s2的typescript绑定实现🔗\n\n十大 npm 最佳安全指南，教你如何避免安全漏洞！🔗\n\nOpenSSL 九月的security发布对nodejs没有影响🔗\n\nJavascript\n\ngeometric-几何学库🔗\n\n前端\n\n教程-炫酷按钮动画-hover时颜色波浪变化🔗",
+      "content": null,
+      "published_at": "Sat, 10 Oct 2026 07:00:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.14011282,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://news.ycombinator.com/item?id=48046007",
+      "url": "https://news.ycombinator.com/item?id=48046007",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "Product Hunt日榜：产品冷启动的实时市场信号仪",
+      "url": "https://bbs.csdn.net/weixin_28559803/article/details/100470563",
+      "snippet": "cnracht8153\n\n 310海外App排名不升？掌握ASO底层逻辑与关键词优化实战\n\n本文深入解析Google Play与App Store的ASO底层算法逻辑，强调转化率（CTR/CVR）比关键词覆盖更重要；系统阐述关键词选词策略（竞品反推、联想词拓展、四维评估）、布局方法（标题/副标题/关键词字段/描述协同）及本地化要点；详解元数据优化（图标、截图、视频、描述）、评分评论运营、版本更新对排名的影响，以及数据驱动的监测体系与冷启动路径。\n\nweixin\\_34021089\n\n 374基于Hacker News API的竞品分析：从992条帖子精准定位7个真对手\n\n本文基于Hacker News的Show HN板块，利用Algolia Search API获取992条帖子，通过数据清洗、领域粗筛、语义向量匹配（sentence-transformers）与人工复核四步法，精准识别7个直接竞品。重点阐述语义相似度替代关键词搜索的必要性、TF-IDF到句向量的升级逻辑、阈值设定方法及工程化落地建议，为早期产品验证提供可复用的技术路径。\n\nweixin\\_33888907 [...] ### 5.3 预判「技术趋势拐点」\n\nPH是技术采用曲线的前哨站。当某个技术词在Top 10评论区出现频率突破阈值，就是拐点信号：\n\n 2022年Q2，“WebAssembly”在评论区出现127次，当时主流还在谈JS优化；\n 2023年Q1，“Rust”出现频次超“Go”，我们立刻把核心模块重写为Rust；\n 2023年Q4，“SQLite”在B2B工具评论区爆发（用户说“终于不用为小团队搭PostgreSQL了”），我们随即推出SQLite嵌入式版本，成为增长最快的产品线。\n\n这不是跟风，而是用真实用户语言校准技术投入方向。\n\n### 5.4 建立「人才雷达」——从评论区挖人\n\nPH评论区是顶级工程师的简历墙。我们曾通过一条评论挖到CTO：用户在某数据库工具下写“建议用WASM编译SQLite，我去年用这方案把查询提速4倍，代码在github.com/xxx”，点开GitHub发现他Star数超2000，立刻发出offer。比猎头高效10倍，因为这是他主动展示的、未经修饰的技术实力。\n\n## 6. 终极心法：日榜不是目的地，而是校准罗盘 [...] 规则2：评论区「自我回复」有严格限制  \n 创始人可以回复用户问题，但禁止：①用多个小号轮番点赞自己的回复；②回复超过3次/条（会被视为刷屏）；③在非自己产品页评论区推销。我们曾因工程师用个人号在竞品页写“我们也有类似功能，且支持XX”，账号被限流7天。\n\n规则3：「重复上线」是双刃剑  \n PH允许产品重大更新后重新上线，但间隔不得少于90天，且需在描述中注明“V2.0重制版”。否则会被判为“刷榜”。我们V1版上线后排名第32，V2重构UI后等足92天重发，首日冲到#1——因为算法识别到“全新版本”，给予初始权重加成。\n\n规则4：「媒体背书」的正确用法  \n 可以写“Featured in TechCrunch”，但必须附原文链接。如果写“As seen on Hacker News”，而HN上实际只有2条评论，会被用户举报，PH团队会人工核查。我们吃过亏：某次写“Covered by Product Hunt Newsletter”，结果Newsletter当期根本没提我们，被用户截图举报，排名直接腰斩。",
+      "content": null,
+      "published_at": "Fri, 02 Oct 2026 00:00:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.07727375,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://news.ycombinator.com/item?id=46079326",
+      "url": "https://news.ycombinator.com/item?id=46079326",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "Hermes Agent 实践案例与真实工作流 | HermesCN",
+      "url": "https://hermescn.org/best-practices",
+      "snippet": "社区记录\n\n### 将每次工具调用记录到 SQLite，并提供 Grafana 仪表板\n\n我创建了一个小型 Hermes 插件，将每次工具调用和 LLM API 调用记录到本地 SQLite 数据库（每个配置一个数据库），并附带 5 个开箱即用的 Grafana 仪表板。\n\n@bert\\_71849个人助理Discord\n\n2026-04-10\n\n### 我如何使用 Hermes 记忆：持久事实、会话搜索与 Skill\n\nmemory 工具用于跨会话保存和读取持久事实：用户偏好、环境细节、工具特性和稳定约定，并注入每一轮对话。我只保留未来仍有价值的事实，不保存任务进度或临时状态。session\\_search 用于回顾历史对话；skill\\_manage 用于保存程序化记忆。复杂任务（5 次以上工具调用）、棘手修复或非简单工作流完成后，我会将方法保存为 Skill。\n\n@tonywhelan个人助理博客\n\n2026-03\n\n### “每天早上 9 点查看 HN 的 AI 新闻并通过 Telegram 私信我” [...] 10 天前我安装了一个开源 Agent。今天它比我更了解自己的代码库。第一次构建代码审查工作流时还很笨拙；到第五次时，Agent 已经记住了我的偏好：先检查哪些文件、标记哪些模式，以及如何格式化输出。\n\n@techNmak开发工作流Discord\n\n2026-04-04\n\n### 在 Hermes 底层构建 2.2 万行记忆内核\n\n我在 Hermes 底层用 Python 构建了一个约 2.2 万行的自定义记忆内核，而不是只依赖文本生成。它像编译器一样，将所有内容解析为 SQLite 中的时序上下文图，并实现真正的生命周期管理，包括衰减、提升和替换。因此当我的谈判策略发生变化时，内核会主动降低旧信息的优先级，而不是把所有内容一股脑塞进提示词。\n\n@lauratom研究分析Discord\n\n社区记录\n\n### 将完整的 Python 气象技术栈移植到 Rust，作为 Hermes 插件基础 [...] 我如何将 Obsidian 作为 AI 助手的长期记忆骨干。（获得 794 赞的示意图展示了 Hermes Agent 将结构化 Markdown 笔记写回同步的 Obsidian 知识库，并把它作为能够跨越上下文重置和设备迁移的持久记忆层。）\n\nu/Jonathan\\_Rivera集成连接Gist\n\n2026\n\n### 通过 hermes mcp serve 将重型 Agent 变成轻量工具 Provider\n\nhermes mcp serve 将 Hermes 从单体 Agent 变成可组合的能力层。任何 MCP 客户端都可以借用 Hermes 的 15+ 个消息平台、SQLite FTS5 持久化和 73 个 Skill 的工具面，而无需将 Hermes 作为主 Agent 运行。\n\nnazt (GitHub Gist)开发工作流Discord\n\n2026-05-06\n\n### 我不会写代码，Codex 帮我构建了 VPN 服务",
+      "content": null,
+      "published_at": "Fri, 09 Oct 2026 07:00:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.06261143,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://news.ycombinator.com/item?id=42965198",
+      "url": "https://news.ycombinator.com/item?id=42965198",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "Hermes Agent：实践者参考指南（2026）",
+      "url": "https://blakecrosley.com/zh-Hans/guides/hermes",
+      "snippet": "gateway 的 POSIX 锁——堪称损坏 SQLite 的经典做法）；`doctor --fix` 也会拒绝执行无法确认安全的 checkpoint。除写入方问题外：FTS 索引损坏现在只会使搜索功能降级，并在之后重建索引，不会再导致整个轮次失败并关闭；单条损坏记录也不会再让 `sessions list`、导出或洞察功能整体失效（异常记录会显示为 `?`，同时给出标明相应会话的警告）；会话绝不会绑定或读取其他 profile 的数据库；只读打开也不再获取写入锁，因此在繁忙 gateway 后运行的一次性 `hermes`，等待后失败的耗时从4至20秒缩短至0.01秒。48 [...] `hermes sessions set-journal-mode delete|wal`：离线日志模式转换器。 这是针对 `state.db` 卡在错误 SQLite 日志模式时提供的自助解决方案——此前需要手动运行 `PRAGMA journal_mode=DELETE`。请先停止 gateway、dashboard 和所有 CLI：只要有任何其他进程持有该数据库，命令就会拒绝执行；它不会等待占用进程退出，而是直接拒绝转换，并会在转换后验证 SQLite 文件头字节。Windows 不支持占用者扫描，因此必须先自行停止所有 Hermes 进程，再传入 `--force`，否则命令会拒绝执行。`hermes doctor` 现在会指引您使用此命令。顶级命令中的 `hermes sessions` 行已收录该功能。51 [...] ██╗ ██╗███████╗██████╗ ███╗ ███╗███████╗███████╗ █████╗ ██████╗ ███████╗███╗ ██╗████████╗ ██║ ██║██╔════╝██╔══██╗████╗ ████║██╔════╝██╔════╝ ██╔══██╗██╔════╝ ██╔════╝████╗ ██║╚══██╔══╝ ███████║█████╗ ██████╔╝██╔████╔██║█████╗ ███████╗█████╗███████║██║ ███╗█████╗ ██╔██╗ ██║ ██║ ██╔══██║██╔══╝ ██╔══██╗██║╚██╔╝██║██╔══╝ ╚════██║╚════╝██╔══██║██║ ██║██╔══╝ ██║╚██╗██║ ██║ ██║ ██║███████╗██║ ██║██║ ╚═╝ ██║███████╗███████║ ██║ ██║╚██████╔╝███████╗██║ ╚████║ ██║ ╚═╝ ╚═╝╚══════╝╚═╝ ╚═╝╚═╝",
+      "content": null,
+      "published_at": "Tue, 13 Oct 2026 00:00:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.04621015,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://news.ycombinator.com/item?id=40655974",
+      "url": "https://news.ycombinator.com/item?id=40655974",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "周e信 存档",
+      "url": "https://www.zhouexin.com/archives",
+      "result_id": "r2",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://news.ycombinator.com/item?id=48046007",
+      "url": "https://news.ycombinator.com/item?id=48046007",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "Product Hunt日榜：产品冷启动的实时市场信号仪",
+      "url": "https://bbs.csdn.net/weixin_28559803/article/details/100470563",
+      "result_id": "r4",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://news.ycombinator.com/item?id=46079326",
+      "url": "https://news.ycombinator.com/item?id=46079326",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "Hermes Agent 实践案例与真实工作流 | HermesCN",
+      "url": "https://hermescn.org/best-practices",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://news.ycombinator.com/item?id=42965198",
+      "url": "https://news.ycombinator.com/item?id=42965198",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "Hermes Agent：实践者参考指南（2026）",
+      "url": "https://blakecrosley.com/zh-Hans/guides/hermes",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://news.ycombinator.com/item?id=18754634",
+      "url": "https://news.ycombinator.com/item?id=18754634",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://simonwillison.net/2026/Aug/24/your-executable-is-a-sqlite-database/",
+      "url": "https://simonwillison.net/2026/Aug/24/your-executable-is-a-sqlite-database",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://news.ycombinator.com/item?id=47046185",
+      "url": "https://news.ycombinator.com/item?id=47046185",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://marcobambini.substack.com/p/we-solved-sqlites-single-writer-limitation",
+      "url": "https://marcobambini.substack.com/p/we-solved-sqlites-single-writer-limitation",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://news.ycombinator.com/item?id=46076642",
+      "url": "https://news.ycombinator.com/item?id=46076642",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://news.ycombinator.com/item?id=37558809",
+      "url": "https://news.ycombinator.com/item?id=37558809",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://wizardforcel.gitbooks.io/sqlite-doc-en/50.html",
+      "url": "https://wizardforcel.gitbooks.io/sqlite-doc-en/50.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://x.com/evoluhq/status/2108308261266956638",
+      "url": "https://x.com/evoluhq/status/2108308261266956638",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://www.weaving.news/news/019acaaa-47ce-7724-80ac-9da4051fb2b9",
+      "url": "https://www.weaving.news/news/019acaaa-47ce-7724-80ac-9da4051fb2b9",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://devdocs.io/sqlite/affcase1",
+      "url": "https://devdocs.io/sqlite/affcase1",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "https://news.ycombinator.com/item?id=33381514",
+      "url": "https://news.ycombinator.com/item?id=33381514",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "https://news.ycombinator.com/item?id=45134010",
+      "url": "https://news.ycombinator.com/item?id=45134010",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c21",
+      "title": "https://news.ycombinator.com/front?day=2026-10-15",
+      "url": "https://news.ycombinator.com/front?day=2026-10-15",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c22",
+      "title": "https://www.linuxcompatible.org/story/sqlite-3540-release-faster-engine-new-cli-features-and-dropped-windows-xp-support/",
+      "url": "https://www.linuxcompatible.org/story/sqlite-3540-release-faster-engine-new-cli-features-and-dropped-windows-xp-support",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c23",
+      "title": "https://news.ycombinator.com/item?id=39797104",
+      "url": "https://news.ycombinator.com/item?id=39797104",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c24",
+      "title": "https://news.ycombinator.com/item?id=45132498",
+      "url": "https://news.ycombinator.com/item?id=45132498",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c25",
+      "title": "https://news.ycombinator.com/item?id=43682006",
+      "url": "https://news.ycombinator.com/item?id=43682006",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c26",
+      "title": "https://news.ycombinator.com/item?id=45132488",
+      "url": "https://news.ycombinator.com/item?id=45132488",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c27",
+      "title": "https://news.ycombinator.com/item?id=49421475",
+      "url": "https://news.ycombinator.com/item?id=49421475",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c28",
+      "title": "https://news.ycombinator.com/item?id=29413800",
+      "url": "https://news.ycombinator.com/item?id=29413800",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c29",
+      "title": "AI Daily Picks | Maomao AI Lab",
+      "url": "https://maomaoailab.com/news",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c30",
+      "title": "GitHub Repositories Ranking",
+      "url": "https://wangchujiang.com/github-rank/repos.html",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c31",
+      "title": "GitHub - shelken/awesome-stars · GitHub",
+      "url": "https://github.com/shelken/awesome-stars",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c32",
+      "title": "awesome-dsh-plugin/README.zh.md at main · awesome-dsh-plugin/awesome-dsh-plugin · GitHub",
+      "url": "https://github.com/awesome-dsh-plugin/awesome-dsh-plugin/blob/main/README.zh.md",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 18927,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "conditional_supplement",
+        "latency_ms": 5086,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "recency_signal"
+    ]
+  },
+  "cache": {
+    "hit": false,
+    "age_seconds": 0.0,
+    "ttl_seconds": 120,
+    "namespace": "search"
+  },
+  "elapsed_ms": 24017,
+  "api_calls": {
+    "xai": 1,
+    "tavily": 1
+  },
+  "score": {
+    "id": "cross-lang-hn-sqlite",
+    "scores": {
+      "discovery": {
+        "status": "fail",
+        "matched_targets": [],
+        "required": 1
+      },
+      "cross_language": {
+        "status": "fail",
+        "matched_hosts": []
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "discovery:fail",
+        "cross_language:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true
+  }
+}

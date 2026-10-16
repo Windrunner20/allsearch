@@ -1,0 +1,500 @@
+{
+  "id": "reddit-localllama",
+  "executed_at": "2026-10-15T08:27:23.888503+00:00",
+  "depth": "deep",
+  "provider_query": "Reddit thread in r/LocalLLaMA about running a quantized local model on one GPU",
+  "answer": "Relevant r/LocalLLaMA threads on running quantized local models on one GPU:\n\n1. **Qwen 3.8 27B ~140 tok/s on a single RTX 3090** — Q4_K_M megakernel vs llama.cpp; single-GPU only, 24 GB+ (RTX 30/40/50).  \n   https://www.reddit.com/r/LocalLLaMA/comments/1x37q7b/update_qwen_38_27b_140_toks_on_single_rtx_3090/ [[1]](https://www.reddit.com/r/LocalLLaMA/comments/1x37q7b/update_qwen_38_27b_140_toks_on_single_rtx_3090/)\n\n2. **Ornith-1.0-35B Q3_K_M ~17 GB VRAM** — Built to fit one GPU; ~240 tok/s single-stream on llama.cpp CUDA, with KLD vs BF16.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1ugqipi/ornith1035b_q3_k_m_17_gb_vram_kldchecked_against [[2]](https://www.reddit.com/r/LocalLLaMA/comments/1ugqipi/ornith1035b_q3_k_m_17_gb_vram_kldchecked_against)\n\n3. **Qwen3.5-35B-A3B quants on one RTX 5080 16GB** — Q8_0 vs Q4_K_M vs UD-Q4_K_XL; partial MoE offload, ~70 tok/s at Q4_K_M with ~2.1% PPL loss vs Q8.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1rei65v/ [[3]](https://www.reddit.com/r/LocalLLaMA/comments/1rei65v/)\n\n4. **Gemma 4 12B QAT ~120 tok/s on 12GB** — Unsloth Q4 GGUF plus MTP draft model fully in VRAM on an RTX 4070 Super.  \n   https://old.reddit.com/r/LocalLLaMA/comments/1typjmc/120_toks_on_12gb_vram_with_gemma_4_12b_qat_mtp.json [[4]](https://old.reddit.com/r/LocalLLaMA/comments/1typjmc/120_toks_on_12gb_vram_with_gemma_4_12b_qat_mtp.json)\n\n5. **Qwen 3.8 27B GSQ-RCO IQ3_S on 16GB** — Fits one 16GB GPU with KV streaming for long context; measured decode speeds by context length.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1wzfv45/just_my_how_i_run_qwen38_27b_on_16gb_experience/ [[5]](https://ssl.reddit.com/r/LocalLLaMA/comments/1wzfv45/just_my_how_i_run_qwen38_27b_on_16gb_experience/)\n\n6. **Qwen3.6 35B-A3B Q4_K_S on RTX 5070 12GB** — Unsloth GGUF, 64K context + thinking; ~9.5 GiB model on GPU, ~41–47 tok/s generation.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1st9egv/qwen36_35ba3b_gguf_q4_k_s_em_rtx_5070_12gb_teste [[6]](https://www.reddit.com/r/LocalLLaMA/comments/1st9egv/qwen36_35ba3b_gguf_q4_k_s_em_rtx_5070_12gb_teste)\n\n7. **Coding stack on one 16GB GPU** — Autocomplete + agentic Qwen3.6 35B-A3B with CPU MoE offload on a single RTX 5080; Q4 vs Q8 notes.  \n   https://old.reddit.com/r/LocalLLaMA/comments/1tb3zxp/local_llm_autocomplete_agentic_coding_on_a_single.json [[7]](https://old.reddit.com/r/LocalLLaMA/comments/1tb3zxp/local_llm_autocomplete_agentic_coding_on_a_single.json)\n\n8. **Which GGUF quants fit one GPU** — Tool that ranks ~3,000 GGUFs by full-GPU vs partial offload and prints a llama.cpp command.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1wii3pl/made_a_tool_that_tells_you_which_gguf_quants_will/ [[8]](https://www.reddit.com/r/LocalLLaMA/comments/1wii3pl/made_a_tool_that_tells_you_which_gguf_quants_will/)",
+  "results": [
+    {
+      "id": "r1",
+      "title": "1",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1x37q7b/update_qwen_38_27b_140_toks_on_single_rtx_3090",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "Multi-GPU system for Local LLM? : r/LocalLLaMA",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1huughr/multigpu_system_for_local_llm",
+      "snippet": "Quantitizing a model seems to be the best way to squeeze a lot of additional performance out of it, GPUs seem to work perfectly fine with",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.7785319,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "2",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ugqipi/ornith1035b_q3_k_m_17_gb_vram_kldchecked_against",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "Llama 405B Q4_K_M Quantization Running Locally with",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1eb6to7/llama_405b_q4_k_m_quantization_running_locally",
+      "snippet": "r/LocalLLaMA Comparison of Q4_K_M. It is slow and cumbersome, You might be able to get it running, the quantized file was ~246GB you could",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.63615024,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "3",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rei65v",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "Goodbye, VRAM Limits: How to Run Massive LLMs Across Your GPUs 🚀 | by Saman Chitsazian | Medium",
+      "url": "https://medium.com/@samanch70/goodbye-vram-limits-how-to-run-massive-llms-across-your-gpus-b2636f6ae6cf",
+      "snippet": "Sources:\n\n Ollama Team. (2025). Ollama. Retrieved July 16, 2025, from \n Ollama Team. (2025). ollama/ollama. GitHub. Retrieved July 16, 2025, from \n Ollama Team. (2025). Ollama Discord Server. Discord. Retrieved July 16, 2025, from \n NVIDIA Corporation. (2025). NVIDIA System Management Interface (nvidia-smi). NVIDIA Developer. Retrieved July 16, 2025, from \n Advanced Micro Devices, Inc. (2025). ROCm System Management Interface (rocm-smi). AMD ROCm™ Documentation. Retrieved July 16, 2025, from \n Hugging Face, Inc. (2025). Hugging Face Model Hub. Retrieved July 16, 2025, from \n r/LocalLLaMA Community. (2025). LocalLLaMA Subreddit. Reddit. Retrieved July 16, 2025, from \n Gerganov, G., et al. (2023). GGUF File Format Documentation. GGML Repository on GitHub. Retrieved July 16, 2025, from [...] ## The Core Concept: Splitting the Load with a `Modelfile`\n\nBy default, when Ollama loads a model, it tries to fit all the model’s layers onto a single GPU. If the model is too big, it places as many layers as it can on `gpu0` and then offloads the rest to your system's RAM, relying on the CPU to process them. This CPU offloading is a major bottleneck and leads to painfully slow inference speeds.\n\nThe solution is to tell Ollama to explicitly distribute the layers across all available GPUs. This is achieved using a custom configuration file called a `Modelfile`.\n\nThe `Modelfile` is a plain text recipe that tells Ollama how to build or modify a model. To enable multi-GPU support, we only need two key instructions: [...] VRAM Usage: Both (or all) of your GPUs will show significant VRAM being consumed. This is the model being loaded onto each card.\n GPU Utilization: As you send prompts to the model, you should see the `GPU-Util` percentage spike on all cards simultaneously.\n\nIf you see activity across multiple GPUs, you’ve done it! You are now running a single, massive LLM in parallel. Congratulations, you’ve unlocked a new level of local AI capability. 🚀\n\nSources:",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.6100127,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "4",
+      "url": "https://old.reddit.com/r/LocalLLaMA/comments/1typjmc/120_toks_on_12gb_vram_with_gemma_4_12b_qat_mtp.json",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "LocalLlama",
+      "url": "https://www.reddit.com/r/LocalLLaMA/top",
+      "snippet": "Train LoRA directly on Quantized GGUFs, no PyTorch, no Parent(FP16) needed, just your GGUF and the data\n\nu/ZenZombie117 [...] clickup.com\n\nView More\n\n  \n\nJetBrains Mellum 2.1 12B A2.5B MoE is a very good model.\n\nImage 53: u/Shadow_s_Bane avataru/Shadow_s_Bane\n\n•8 hr. agoJetBrains Mellum 2.1 12B A2.5B MoE is a very good model.New ModelIt runs at around m4 16 at 60 tps at full 130k context, you can easily run a Q8 if you have a 16 GB GPU, I was able to get 140TPS on 9070xt, It’s an MoE so I think we can run it well on smaller cards too, 8GB, 12GB should be possible to get upwards of 30-40 tps. I have used it a bit, it can code, but I think having a bigger model plan tasks in detail would make it quite good for quick task execution.\n\n  \n\nGPT-Image-style photo editing on your own GPU (12 GB+): I built a zero-setup app for Qwen-Image 2.1 on stable-diffusion.cpp\n\nu/Ok-Director4174 [...] •18 hr. agoTrain LoRA directly on Quantized GGUFs, no PyTorch, no Parent(FP16) needed, just your GGUF and the dataTutorial | GuideI've seen this one floating around quite a bit now and since this is something that can be done without the parent and or other dependencies i thought i'd share something. Usually when you fine-tune a model you can't: - train against the quantized GGUF file itself - do it without PyTorch, transformers or a separate Python setup - use the exact same GGUF for inference afterwards, without converting the model (QLoRA does train through a 4-bit base, but in PyTorch and on its own NF4 format, not on the GGUF you serve.) With runner the 16-bit nor the PyTorch package is needed, this is done through \"freezing\" the weights of the current X-bit GGUF, only a \"small\" LoRA",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.5951402,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "1",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1x37q7b/update_qwen_38_27b_140_toks_on_single_rtx_3090",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "Multi-GPU system for Local LLM? : r/LocalLLaMA",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1huughr/multigpu_system_for_local_llm",
+      "result_id": "r2",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "2",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ugqipi/ornith1035b_q3_k_m_17_gb_vram_kldchecked_against",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "Llama 405B Q4_K_M Quantization Running Locally with",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1eb6to7/llama_405b_q4_k_m_quantization_running_locally",
+      "result_id": "r4",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "3",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rei65v",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "Goodbye, VRAM Limits: How to Run Massive LLMs Across Your GPUs 🚀 | by Saman Chitsazian | Medium",
+      "url": "https://medium.com/@samanch70/goodbye-vram-limits-how-to-run-massive-llms-across-your-gpus-b2636f6ae6cf",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "4",
+      "url": "https://old.reddit.com/r/LocalLLaMA/comments/1typjmc/120_toks_on_12gb_vram_with_gemma_4_12b_qat_mtp.json",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "LocalLlama",
+      "url": "https://www.reddit.com/r/LocalLLaMA/top",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "5",
+      "url": "https://ssl.reddit.com/r/LocalLLaMA/comments/1wzfv45/just_my_how_i_run_qwen38_27b_on_16gb_experience",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "6",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1st9egv/qwen36_35ba3b_gguf_q4_k_s_em_rtx_5070_12gb_teste",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "7",
+      "url": "https://old.reddit.com/r/LocalLLaMA/comments/1tb3zxp/local_llm_autocomplete_agentic_coding_on_a_single.json",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "8",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1wii3pl/made_a_tool_that_tells_you_which_gguf_quants_will",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "r/LocalLLaMA",
+      "url": "https://www.reddit.com/r/LocalLLaMA/hot",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "How are you using these local models? : r/LocalLLaMA",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1c5549e/how_are_you_using_these_local_models",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "Is running quantized but bigger model worth it?",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/13aidav/is_running_quantized_but_bigger_model_worth_it",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "Visualizing Quantization Types : r/LocalLLaMA",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1opeu1w/visualizing_quantization_types",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "provider": "firecrawl",
+      "code": "unsafe_url",
+      "message": "resolved destination is private/reserved and not allowed",
+      "retryable": false
+    },
+    {
+      "provider": "firecrawl",
+      "code": "unsafe_url",
+      "message": "resolved destination is private/reserved and not allowed",
+      "retryable": false
+    },
+    {
+      "provider": "firecrawl",
+      "code": "unsafe_url",
+      "message": "resolved destination is private/reserved and not allowed",
+      "retryable": false
+    }
+  ],
+  "route": {
+    "primary": "xai",
+    "depth": "deep",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 11009,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "deep_supplement",
+        "latency_ms": 6404,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "error",
+        "reason": "post_discovery",
+        "latency_ms": null,
+        "detail": "unsafe_url"
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "error",
+        "reason": "post_discovery",
+        "latency_ms": null,
+        "detail": "unsafe_url"
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "error",
+        "reason": "post_discovery",
+        "latency_ms": null,
+        "detail": "unsafe_url"
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_deep_supplement",
+      "depth_deep"
+    ]
+  },
+  "cache": {
+    "hit": false,
+    "age_seconds": 0.0,
+    "ttl_seconds": 120,
+    "namespace": "search"
+  },
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://medium.com/@samanch70/goodbye-vram-limits-how-to-run-massive-llms-across-your-gpus-b2636f6ae6cf",
+      "final_url": "https://medium.com/@samanch70/goodbye-vram-limits-how-to-run-massive-llms-across-your-gpus-b2636f6ae6cf",
+      "title": "Goodbye, VRAM Limits: How to Run Massive LLMs Across Your GPUs 🚀 | by Saman Chitsazian | Medium",
+      "content": "[Sitemap](https://medium.com/sitemap/sitemap.xml)\n\n[Open in app](https://play.google.com/store/apps/details?id=com.medium.reader&referrer=utm_source%3DmobileNavBar&source=---top_nav_layout_nav-------------------------------------------)\n\nSign up\n\n[Sign in](https://medium.com/m/signin?operation=login&redirect=https%3A%2F%2Fmedium.com%2F%40samanch70%2Fgoodbye-vram-limits-how-to-run-massive-llms-across-your-gpus-b2636f6ae6cf&source=post_page---top_nav_layout_nav-----------------------global_nav--------------------)\n\n[Medium Logo](https://medium.com/?source=---top_nav_layout_nav-------------------------------------------)\n\nGet app\n\n[Write](https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2Fnew-story&source=---top_nav_layout_nav-----------------------new_post_topnav--------------------)\n\n[Search](https://medium.com/search?source=---top_nav_layout_nav-------------------------------------------)\n\nSign up\n\n[Sign in](https://medium.com/m/signin?operation=login&redirect=https%3A%2F%2Fmedium.com%2F%40samanch70%2Fgoodbye-vram-limits-how-to-run-massive-llms-across-your-gpus-b2636f6ae6cf&source=post_page---top_nav_layout_nav-----------------------global_nav--------------------)\n\n![Unknown user](https://miro.medium.com/v2/resize:fill:32:32/1*dmbNkD5D-u45r44go_cf0g.png)\n\n[LLM](https://medium.com/tag/llm?source=post_page---header_tags--b2636f6ae6cf-----------------------------------------)\n\n[Machine Learning](https://medium.com/tag/machine-learning?source=post_page---header_tags--b2636f6ae6cf-----------------------------------------)\n\n[Deepl](https://medium.com/tag/deepl?source=post_page---header_tags--b2636f6ae6cf-----------------------------------------)\n\n[Ollama](https://medium.com/tag/ollama?source=post_page---header_tags--b2636f6ae6cf-----------------------------------------)\n\n[Gpu](https://medium.com/tag/gpu?source=post_page---header_tags--b2636f6ae6cf-----------------------------------------)\n\n# Goodbye, VRAM Limits: How to Run Massive LLMs Across Your GPUs 🚀\n\n[![Saman Chitsazian](https://miro.medium.com/v2/resize:fill:32:32/1*BM-TodwSVlSKv_2jdXshhw@2x.jpeg)](https://medium.com/@samanch70?source=post_page---byline--b2636f6ae6cf-----------------------------------------)\n\n[Saman Chitsazian](https://medium.com/@samanch70?source=post_page---byline--b2636f6ae6cf-----------------------------------------)\n\nFollow\n\n5 min read\n\n·\n\nJul 16, 2025\n\n4\n\n[Listen](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2Fplans%3Fdimension%3Dpost_audio_button%26postId%3Db2636f6ae6cf&operation=register&redirect=https%3A%2F%2Fmedium.com%2F%40samanch70%2Fgoodbye-vram-limits-how-to-run-massive-llms-across-your-gpus-b2636f6ae6cf&source=---header_actions--b2636f6ae6cf---------------------post_audio_button--------------------)\n\nShare\n\n## Stop offloading to your CPU. It’s time to unleash the full parallel power of your rig for massive local LLMs.\n\nPress enter or click to view image in full size\n\n![](https://miro.medium.com/v2/resize:fit:700/1*XHSDBJIlabphE7exeAp_2Q.png)\n\nThe pace of AI is relentless. We’ve barely finished exploring the capabilities of Llama 3, and already the community is buzzing about what comes next. Imagine a model like “Llama 4: Maverick” — a hypothetical, ultra-capable model that pushes the VRAM limits of even the beefiest consumer GPUs.\n\nRunning a 70B model on a single 24GB card is already a stretch. So how can a developer or enthusiast hope to run a future 100B+ parameter model locally? The answer isn’t necessarily a single, prohibitively expensive NVIDIA H100. The answer is likely already in your machine: multiple GPUs.\n\nThanks to the elegant simplicity of **Ollama**, harnessing the combined power of two, three, or even four GPUs to run a single, massive model is easier than you think. Let’s explore how to achieve true model parallelism.\n\n## Why Ollama is a Game-Changer\n\nIf you’re not yet familiar with it, [Ollama](https://ollama.com/) is a powerful tool that streamlines running open-source LLMs locally. It packages everything you need — model weights, configuration, and a server — into a simple, all-in-one experience. What used to be a complex process of wrangling Python dependencies and CUDA versions now boils down to a single command:\n\n```\nollama run mistral\n```\n\nIts true power, however, lies in its flexible and straightforward configuration.\n\n## The Core Concept: Splitting the Load with a `Modelfile`\n\nBy default, when Ollama loads a model, it tries to fit all the model’s layers onto a single GPU. If the model is too big, it places as many layers as it can on `gpu0` and then offloads the rest to your system's RAM, relying on the CPU to process them. This CPU offloading is a major bottleneck and leads to painfully slow inference speeds.\n\nThe solution is to tell Ollama to explicitly distribute the layers across _all_ available GPUs. This is achieved using a custom configuration file called a `Modelfile`.\n\nThe `Modelfile` is a plain text recipe that tells Ollama how to build or modify a model. To enable multi-GPU support, we only need two key instructions:\n\n1. `FROM`: This specifies the base model we want to use from the Ollama library.\n2. `PARAMETER num_gpu`: This is the magic instruction. It tells Ollama how many layers of the model to offload to the GPU(s).\n\nYou might think you need to calculate the perfect number of layers per GPU, but Ollama is smarter than that. By setting `num_gpu` to a very high number (e.g., `999`), you essentially tell Ollama: \"Use all the GPU power you can find. Distribute the layers across all available GPUs as efficiently as possible.\"\n\n## Get Saman Chitsazian’s stories in your inbox\n\nJoin Medium for free to get updates from this writer.\n\nSubscribe\n\nSubscribe\n\nRemember me for faster sign in\n\nHere’s what the `Modelfile` looks like to create a multi-GPU version of a hypothetical `llama4:maverick` model.\n\n```\n# Modelfile to run llama4:maverick on all available GPUs\n\n# Start from the base model\nFROM llama4:maverick\n\n# Set the number of GPU layers to a high value\n# Ollama will automatically split these layers across all detected GPUs.\nPARAMETER num_gpu 999\n```\n\nOllama will then handle the complex task of splitting the model’s tensor layers evenly. With two identical GPUs, it will put roughly 50% of the layers on the first GPU and 50% on the second.\n\n## Practical Walkthrough: Building and Running Your Multi-GPU Model\n\nLet’s turn theory into practice. Assume you have a model named `llama4:maverick` available in your Ollama library.\n\n### Step 1: Create the `Modelfile`\n\nIn an empty directory, create a new file named `Modelfile` (no file extension) and add the two lines of configuration from the example above.\n\n### Step 2: Create the New Model Version\n\nOpen your terminal in the same directory as your `Modelfile`. Use the `ollama create` command to build a new, multi-GPU-enabled version of the model. We'll give it a descriptive name like `llama4:maverick-multi`.\n\n```\nollama create llama4:maverick-multi -f ./Modelfile\n```\n\nOllama will instantly create a new model entry that inherits from `llama4:maverick` but applies your new `PARAMETER` setting.\n\n### Step 3: Run the Parallelized Model\n\nYou can now run your powerful new model with the standard `run` command.\n\n```\nollama run llama4:maverick-multi\n```\n\nWhen Ollama starts, it will detect all your GPUs and begin loading the model layers, distributing them across each card’s VRAM.\n\n## Verification: Is It Actually Working?\n\nDon’t just take our word for it — verify it! While the model is loading or running, open another terminal and use your system’s GPU monitoring tool.\n\n- **For NVIDIA GPUs:**`watch -n 1 nvidia-smi`\n- **For AMD GPUs:**`watch -n 1 rocm-smi`\n\n![](https://miro.medium.com/v2/resize:fit:577/1*XmVWyzj0uNKzz8C0gNzmWw.png)\n\nThe `watch` command will refresh the stats every second. You should see two key indicators:\n\n- **VRAM Usage:** Both (or all) of your GPUs will show significant VRAM being consumed. This is the model being loaded onto each card.\n- **GPU Utilization:** As you send prompts to the model, you should see the `GPU-Util` percentage spike on all cards simultaneously.\n\nIf you see activity across multiple GPUs, you’ve done it! You are now running a single, massive LLM in parallel. Congratulations, you’ve unlocked a new level of local AI capability. 🚀\n\nSources:\n\n- Ollama Team. (2025). _Ollama_. Retrieved July 16, 2025, from [https://ollama.com/](https://ollama.com/)\n- Ollama Team. (2025). _ollama/ollama_. GitHub. Retrieved July 16, 2025, from [https://github.com/ollama/ollama](https://github.com/ollama/ollama)\n- Ollama Team. (2025). _Ollama Discord Server_. Discord. Retrieved July 16, 2025, from [https://discord.gg/ollama](https://www.google.com/search?q=https%3A%2F%2Fdiscord.gg%2Follama)\n- NVIDIA Corporation. (2025). _NVIDIA System Management Interface (nvidia-smi)_. NVIDIA Developer. Retrieved July 16, 2025, from [https://developer.nvidia.com/nvidia-system-management-interface](https://developer.nvidia.com/nvidia-system-management-interface)\n- Advanced Micro Devices, Inc. (2025). _ROCm System Management Interface (rocm-smi)_. AMD ROCm™ Documentation. Retrieved July 16, 2025, from [https://rocm.docs.amd.com/en/latest/tools/rocm-smi.html](https://www.google.com/search?q=https%3A%2F%2Frocm.docs.amd.com%2Fen%2Flatest%2Ftools%2Frocm-smi.html)\n- Hugging Face, Inc. (2025). _Hugging Face Model Hub_. Retrieved July 16, 2025, from [https://huggingface.co/models](https://huggingface.co/models)\n- r/LocalLLaMA Community. (2025). _LocalLLaMA Subreddit_. Reddit. Retrieved July 16, 2025, from [https://www.reddit.com/r/LocalLLaMA/](https://www.reddit.com/r/LocalLLaMA/)\n- Gerganov, G., et al. (2023). _GGUF File Format Documentation_. GGML Repository on GitHub. Retrieved July 16, 2025, from [https://github.com/ggerganov/ggml/blob/master/docs/gguf.md](https://www.google.com/search?q=https%3A%2F%2Fgithub.com%2Fggerganov%2Fggml%2Fblob%2Fmaster%2Fdocs%2Fgguf.md)\n\n[LLM](https://medium.com/tag/llm?source=post_page---footer_tags--b2636f6ae6cf-----------------------------------------)\n\n[Machine Learning](https://medium.com/tag/machine-learning?source=post_page---footer_tags--b2636f6ae6cf-----------------------------------------)\n\n[Deepl](https://medium.com/tag/deepl?source=post_page---footer_tags--b2636f6ae6cf-----------------------------------------)\n\n[Ollama](https://medium.com/tag/ollama?source=post_page---footer_tags--b2636f6ae6cf-----------------------------------------)\n\n[Gpu](https://medium.com/tag/gpu?source=post_page---footer_tags--b2636f6ae6cf-----------------------------------------)\n\n[![Saman Chitsazian](https://miro.medium.com/v2/resize:fill:48:48/1*BM-TodwSVlSKv_2jdXshhw@2x.jpeg)](https://medium.com/@samanch70?source=post_page---post_author_info--b2636f6ae6cf-----------------------------------------)\n\n[![Saman Chitsazian](https://miro.medium.com/v2/resize:fill:64:64/1*BM-TodwSVlSKv_2jdXshhw@2x.jpeg)](https://medium.com/@samanch70?source=post_page---post_author_info--b2636f6ae6cf-----------------------------------------)\n\nFollow\n\n[**Written by Saman Chitsazian**](https://medium.com/@samanch70?source=post_page---post_author_info--b2636f6ae6cf-----------------------------------------)\n\n[4 followers](https://medium.com/@samanch70/followers?source=post_page---post_author_info--b2636f6ae6cf-----------------------------------------)\n\n· [3 following](https://medium.com/@samanch70/following?source=post_page---post_author_info--b2636f6ae6cf-----------------------------------------)\n\nFollow\n\n[Help](https://help.medium.com/hc/en-us?source=post_page-----b2636f6ae6cf-----------------------------------------)\n\n[Status](https://status.medium.com/?source=post_page-----b2636f6ae6cf-----------------------------------------)\n\n[About](https://medium.com/about?autoplay=1&source=post_page-----b2636f6ae6cf-----------------------------------------)\n\n[Careers](https://medium.com/jobs-at-medium/work-at-medium-959d1a85284e?source=post_page-----b2636f6ae6cf-----------------------------------------)\n\n[Press](mailto:pressinquiries@medium.com)\n\n[Blog](https://blog.medium.com/?source=post_page-----b2636f6ae6cf-----------------------------------------)\n\n[Store](https://medium.com/store)\n\n[Privacy](https://policy.medium.com/medium-privacy-policy-f03bf92035c9?source=post_page-----b2636f6ae6cf-----------------------------------------)\n\n[Rules](https://policy.medium.com/medium-rules-30e5502c4eb4?source=post_page-----b2636f6ae6cf-----------------------------------------)\n\n[Terms](https://policy.medium.com/medium-terms-of-service-9db0094a1e0f?source=post_page-----b2636f6ae6cf-----------------------------------------)\n\n[Text to speech](https://speechify.com/medium?source=post_page-----b2636f6ae6cf-----------------------------------------)",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "article:published_time": "2025-07-16T15:45:05.538Z",
+        "twitter:image:src": "https://miro.medium.com/v2/resize:fit:1200/1*XHSDBJIlabphE7exeAp_2Q.png",
+        "viewport": [
+          "width=device-width, initial-scale=1",
+          "width=device-width,minimum-scale=1,initial-scale=1,maximum-scale=1"
+        ],
+        "twitter:site": "@Medium",
+        "language": "en",
+        "al:android:app_name": [
+          "Medium",
+          "Medium"
+        ],
+        "al:ios:url": "medium://p/b2636f6ae6cf",
+        "robots": "index,follow,max-image-preview:large",
+        "al:ios:app_store_id": "828256236",
+        "twitter:card": "summary_large_image",
+        "og:type": "article",
+        "al:android:url": "medium://p/b2636f6ae6cf",
+        "fb:app_id": "542599432471018",
+        "ogSiteName": "Medium",
+        "og:image": "https://miro.medium.com/v2/resize:fit:1200/1*XHSDBJIlabphE7exeAp_2Q.png",
+        "referrer": "unsafe-url",
+        "title": "Goodbye, VRAM Limits: How to Run Massive LLMs Across Your GPUs 🚀 | by Saman Chitsazian | Medium",
+        "al:ios:app_name": "Medium",
+        "ogTitle": "Goodbye, VRAM Limits: How to Run Massive LLMs Across Your GPUs 🚀",
+        "theme-color": "#000000",
+        "apple-itunes-app": "app-id=828256236, app-argument=/@samanch70/goodbye-vram-limits-how-to-run-massive-llms-across-your-gpus-b2636f6ae6cf, affiliate-data=pt=698524&ct=smart_app_banner&mt=8",
+        "og:site_name": "Medium",
+        "publishedTime": "2025-07-16T15:45:05.538Z",
+        "al:android:package": "com.medium.reader",
+        "twitter:label1": "Reading time",
+        "twitter:title": "Goodbye, VRAM Limits: How to Run Massive LLMs Across Your GPUs 🚀",
+        "og:title": "Goodbye, VRAM Limits: How to Run Massive LLMs Across Your GPUs 🚀",
+        "twitter:app:url:iphone": "medium://p/b2636f6ae6cf",
+        "article:author": "https://medium.com/@samanch70",
+        "twitter:app:id:iphone": "828256236",
+        "ogDescription": "Stop offloading to your CPU. It’s time to unleash the full parallel power of your rig for massive local LLMs.",
+        "og:url": "https://medium.com/@samanch70/goodbye-vram-limits-how-to-run-massive-llms-across-your-gpus-b2636f6ae6cf",
+        "og:description": "Stop offloading to your CPU. It’s time to unleash the full parallel power of your rig for massive local LLMs.",
+        "author": "Saman Chitsazian",
+        "twitter:data1": "5 min read",
+        "description": "Goodbye, VRAM Limits: How to Run Massive LLMs Across Your GPUs 🚀 Stop offloading to your CPU. It’s time to unleash the full parallel power of your rig for massive local LLMs. The pace of AI is …",
+        "twitter:description": "Stop offloading to your CPU. It’s time to unleash the full parallel power of your rig for massive local LLMs.",
+        "ogImage": "https://miro.medium.com/v2/resize:fit:1200/1*XHSDBJIlabphE7exeAp_2Q.png",
+        "al:web:url": "https://medium.com/@samanch70/goodbye-vram-limits-how-to-run-massive-llms-across-your-gpus-b2636f6ae6cf",
+        "ogUrl": "https://medium.com/@samanch70/goodbye-vram-limits-how-to-run-massive-llms-across-your-gpus-b2636f6ae6cf",
+        "twitter:app:name:iphone": "Medium",
+        "favicon": "https://miro.medium.com/v2/5d8de952517e8160e40ef9841c781cdc14a5db313057fa3c3de41c6f5b494b19",
+        "scrapeId": "01a13eac-9e17-71bd-b984-1309a768d416",
+        "sourceURL": "https://medium.com/@samanch70/goodbye-vram-limits-how-to-run-massive-llms-across-your-gpus-b2636f6ae6cf",
+        "url": "https://medium.com/@samanch70/goodbye-vram-limits-how-to-run-massive-llms-across-your-gpus-b2636f6ae6cf",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "proxyUsed": "basic",
+        "cacheState": "hit",
+        "cachedAt": "2026-10-15T08:06:23.639Z",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 1388,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 1447
+    }
+  ],
+  "comments": [
+    {
+      "url": "https://medium.com/@samanch70/goodbye-vram-limits-how-to-run-massive-llms-across-your-gpus-b2636f6ae6cf",
+      "text": "[Sitemap](https://medium.com/sitemap/sitemap.xml)\n\n[Open in app](https://play.google.com/store/apps/details?id=com.medium.reader&referrer=utm_source%3DmobileNavBar&source=---top_nav_layout_nav-------------------------------------------)\n\nSign up\n\n[Sign in](https://medium.com/m/signin?operation=login&redirect=https%3A%2F%2Fmedium.com%2F%40samanch70%2Fgoodbye-vram-limits-how-to-run-massive-llms-across-your-gpus-b2636f6ae6cf&source=post_page---top_nav_layout_nav-----------------------global_nav--------------------)\n\n[Medium Logo](https://medium.com/?source=---top_nav_layout_nav-------------------------------------------)\n\nGet app\n\n[Write](https://medium.com/m/signin?operation=register&redirect=https%3A%2F%2Fmedium.com%2Fnew-story&source=---top_nav_layout_nav-----------------------new_post_topnav--------------------)\n\n[Search](https://medium.com/search?source=---top_nav_layout_nav-------------------------------------------)\n\nSign up\n\n[Sign in](https://medium.com/m/signin?operation=login&redirect=https%3A%2F%2Fmedium.com%2F%40samanch70%2Fgoodbye-vram-limits-how-to-run-massive-llms-across-your-gpus-b2636f6ae6cf&source=post_page---top_nav_layout_nav-----------------------global_nav--------------------)\n\n![Unknown user](https://miro.medium.com/v2/resize:fill:32:32/1*dmbNkD5D-u45r44go_cf0g.png)\n\n[LLM](https://medium.com/tag/llm?source=post_page---header_tags--b2636f6ae6cf-----------------------------------------)\n\n[Machine Learning](https://medium.com/tag/machine-learning?source=post_page---header_tags--b2636f6ae6cf-----------------------------------------)\n\n[Deepl](https://medium.com/tag/deepl?source=post_page---header_tags--b2636f6ae6cf-----------------------------------------)\n\n[Ollama](https://medium.com/tag/ollama?source=post_page---header_tags--b2636f6ae6cf-----------------------------------------)\n\n[Gpu](https://medium.com/tag/gpu?source=post_page---header_tags--b2636f6ae6cf-----------------------------------------)\n\n# Goodbye, VRAM Limits: How to Run Massive LLMs Across Your GPUs 🚀\n\n[![Saman Chitsazian](https://miro.medium.com/v2/resize:fill:32:32/1*BM-TodwSVlSKv_2jdXshhw@2x.jpeg)](https://medium.com/@samanch70?source=post_page---byline--b2636f6ae6cf-----------------------------------------)\n\n[Saman Chitsazian](https://medium.com/@samanch70?source=post_page---byline--b2636f6ae6cf-----------------------------------------)\n\nFollow\n\n5 min read\n\n·\n\nJul 16, 2025\n\n4\n\n[Listen](https://medium.com/m/signin?actionUrl=https%3A%2F%2Fmedium.com%2Fplans%3Fdimension%3Dpost_audio_button%26postId%3Db2636f6ae6cf&operation=register&redirect=https%3A%2F%2Fmedium.com%2F%40samanch70%2Fgoodbye-vram-limits-how-to-run-massive-llms-across-your-gpus-b2636f6ae6cf&source=---header_actions--b2636f6ae6cf---------------------post_audio_button--------------------)\n\nShare\n\n## Stop offloading to your CPU. It’s time to unleash the full parallel power of your rig for massive local LLMs.\n\nPress enter or click to view image in full size\n\n![](https://miro.medium.com/v2/resize:fit:700/1*XHSDBJIlabphE7exeAp_2Q.png)\n\nThe pace of AI is relentless. We’ve barely finished exploring the capabilities of Llama 3, and already the community is buzzing about what comes next. Imagine a model like “Llama 4: Maverick” — a hypothetical, ultra-capable model that pushes the VRAM limits of even the beefiest consumer GPUs.\n\nRunning a 70B model on a single 24GB card is already a stretch. So how can a developer or enthusiast hope to run a future 100B+ parameter model locally? The answer isn’t necessarily a single, prohibitively expensive NVIDIA H100. The answer is likely already in your machine: multiple GPUs.\n\nThanks to the elegant simplicity of **Ollama**, harnessing the combined power of two, three, or even four GPUs to run a single, massive model is easier than you think. Let’s explore how to achieve true model parallelism.\n\n## Why Ollama is a Game-Changer\n\nIf you’re not yet familiar with it, [Ollama](https://ollama.com/) is a powerful tool that streamlines running open-source LLMs loc"
+    }
+  ],
+  "elapsed_ms": 19245,
+  "api_calls": {
+    "xai": 1,
+    "tavily": 1,
+    "firecrawl": 4
+  },
+  "score": {
+    "id": "reddit-localllama",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "reddit-thread"
+        ],
+        "required": 1
+      },
+      "comments": {
+        "status": "fail",
+        "matched_comments": []
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "comments:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true
+  }
+}

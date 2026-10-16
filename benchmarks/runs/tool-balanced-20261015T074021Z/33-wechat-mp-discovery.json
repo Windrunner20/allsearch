@@ -1,0 +1,400 @@
+{
+  "id": "wechat-mp-discovery",
+  "executed_at": "2026-10-15T07:55:57.115129+00:00",
+  "depth": "balanced",
+  "provider_query": "找一篇讲解 Python GIL 的微信公众号文章原文链接",
+  "answer": "以下是能直接打开、且正文在讲 Python GIL 的微信公众号原文（最多 8 条）：\n\n1. **CPython 的线程与 GIL**  \n   https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ  \n   以 CPython 3.8 源码说明 GIL 是什么、为何存在，以及字节码级原子性与一行 Python 代码仍可能不安全的关系。\n\n2. **什么是 Python 的 GIL？**（真格量化，2019-07-11）  \n   http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA==&mid=2247484178&idx=1&sn=fa385d6a50de9262cf16f8b737b20b80  \n   概述 GIL 原理、I/O 时释放、CPU 密集时的检查间隔，以及多线程协作执行模型。\n\n3. **Python 新版本去 GIL 刷屏…**（InfoQ，2025-10-12）  \n   https://mp.weixin.qq.com/s/2Ictx9VbqNTuBw1yZQDIOg  \n   结合 Python 3.14，讲 GIL 如何限制 CPU 密集多线程，以及自由线程（no-GIL）的收益与代价（单线程变慢、内存约增 10%）。\n\n4. **深入理解 Python 异步编程**（驹说码事，系列中篇/下篇涉及 GIL）  \n   https://mp.weixin.qq.com/s/cc_yM0waqSOqq8xfg1G79Q  \n   下篇安排包括「GIL 对异步编程的影响」；同账号相关页 https://mp.weixin.qq.com/s/H-0pd3NcAJDbUckNi0-IEw 说明进程内因 GIL 同时只有一个线程跑 Python，但阻塞系统调用会释放 GIL。\n\n5. **多进程绕过 GIL 的讲解（公众号文）**  \n   https://mp.weixin.qq.com/s/-0wQCHrTO6JXRQNLO0i7WQ  \n   把 GIL 比作单通道收费站，说明 CPU 密集多线程仍近似串行，以及 I/O（sleep、网络、读文件）时自动释放 GIL。\n\n6. **性能与 GIL 的常见说法**  \n   http://mp.weixin.qq.com/s?__biz=MzA4MjEyNTA5Mw==&mid=2652568514&idx=1&sn=9a5f20e1141dad543ae7f9e765a660b7  \n   从引用计数解释为何需要 GIL，并讨论单线程不受影响、IO 密集多线程会有锁竞争（引用 David Beazley 的可视化）。\n\n7. **子解释器与自由线程**  \n   https://mp.weixin.qq.com/s/gX_-JECFEFKaK0AyJiUjTw  \n   说明每个子解释器有自己的 GIL；并介绍 3.13 实验性、3.14 受支持的自由线程，以及默认仍启用 GIL。\n\n说明：微信文章常需在微信内打开；搜狗微信等镜像有时打不开原链。若只要「专门讲 GIL 原理」的一篇，优先看第 1、2 条。",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://juejin.cn/post/6844903686515195917",
+      "url": "https://juejin.cn/post/6844903686515195917",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "https://cloud.tencent.cn/developer/article/2712622",
+      "url": "https://cloud.tencent.cn/developer/article/2712622",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://cloud.tencent.com/developer/article/2309121",
+      "url": "https://cloud.tencent.com/developer/article/2309121",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA==&mid=2247484178&idx=1&sn=fa385d6a50de9262cf16f8b737b20b80&chksm=fdc603edcab18afbbb665903d4ff939c9b3fdf6c8d6b2065d8dfa60ff4002eae495eeb5560ea&scene=21",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA%3D%3D&chksm=fdc603edcab18afbbb665903d4ff939c9b3fdf6c8d6b2065d8dfa60ff4002eae495eeb5560ea&idx=1&mid=2247484178&scene=21&sn=fa385d6a50de9262cf16f8b737b20b80",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "http://mp.weixin.qq.com/s?__biz=MzA4MjEyNTA5Mw==&mid=2652568514&idx=1&sn=9a5f20e1141dad543ae7f9e765a660b7&chksm=8464d388b3135a9e76bfe57603b4518ae4e12018c45a120fd30229e14970687881e307fb8b85&scene=21",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzA4MjEyNTA5Mw%3D%3D&chksm=8464d388b3135a9e76bfe57603b4518ae4e12018c45a120fd30229e14970687881e307fb8b85&idx=1&mid=2652568514&scene=21&sn=9a5f20e1141dad543ae7f9e765a660b7",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ",
+      "url": "https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://mp.weixin.qq.com/s/cc_yM0waqSOqq8xfg1G79Q",
+      "url": "https://mp.weixin.qq.com/s/cc_yM0waqSOqq8xfg1G79Q",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "https://segmentfault.com/a/1190000044303840",
+      "url": "https://segmentfault.com/a/1190000044303840",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://juejin.cn/post/6844903686515195917",
+      "url": "https://juejin.cn/post/6844903686515195917",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "https://cloud.tencent.cn/developer/article/2712622",
+      "url": "https://cloud.tencent.cn/developer/article/2712622",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://cloud.tencent.com/developer/article/2309121",
+      "url": "https://cloud.tencent.com/developer/article/2309121",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA==&mid=2247484178&idx=1&sn=fa385d6a50de9262cf16f8b737b20b80&chksm=fdc603edcab18afbbb665903d4ff939c9b3fdf6c8d6b2065d8dfa60ff4002eae495eeb5560ea&scene=21",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA%3D%3D&chksm=fdc603edcab18afbbb665903d4ff939c9b3fdf6c8d6b2065d8dfa60ff4002eae495eeb5560ea&idx=1&mid=2247484178&scene=21&sn=fa385d6a50de9262cf16f8b737b20b80",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "http://mp.weixin.qq.com/s?__biz=MzA4MjEyNTA5Mw==&mid=2652568514&idx=1&sn=9a5f20e1141dad543ae7f9e765a660b7&chksm=8464d388b3135a9e76bfe57603b4518ae4e12018c45a120fd30229e14970687881e307fb8b85&scene=21",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzA4MjEyNTA5Mw%3D%3D&chksm=8464d388b3135a9e76bfe57603b4518ae4e12018c45a120fd30229e14970687881e307fb8b85&idx=1&mid=2652568514&scene=21&sn=9a5f20e1141dad543ae7f9e765a660b7",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ",
+      "url": "https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://mp.weixin.qq.com/s/cc_yM0waqSOqq8xfg1G79Q",
+      "url": "https://mp.weixin.qq.com/s/cc_yM0waqSOqq8xfg1G79Q",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "https://segmentfault.com/a/1190000044303840",
+      "url": "https://segmentfault.com/a/1190000044303840",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://jishuzhan.net/article/1977761533863198721",
+      "url": "https://jishuzhan.net/article/1977761533863198721",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://juejin.cn/post/6923082673388781582",
+      "url": "https://juejin.cn/post/6923082673388781582",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://mp.weixin.qq.com/s/H-0pd3NcAJDbUckNi0-IEw",
+      "url": "https://mp.weixin.qq.com/s/H-0pd3NcAJDbUckNi0-IEw",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://developer.volcengine.com/articles/7382991428827234331",
+      "url": "https://developer.volcengine.com/articles/7382991428827234331",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://www.chenxutan.com/d/7828.html",
+      "url": "https://www.chenxutan.com/d/7828.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://mp.weixin.qq.com/s/-0wQCHrTO6JXRQNLO0i7WQ",
+      "url": "https://mp.weixin.qq.com/s/-0wQCHrTO6JXRQNLO0i7WQ",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://juejin.cn/post/7694834709337145385",
+      "url": "https://juejin.cn/post/7694834709337145385",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://www.biaodianfu.com/python-concurrency/",
+      "url": "https://www.biaodianfu.com/python-concurrency",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://cloud.tencent.com/developer/article/2754723",
+      "url": "https://cloud.tencent.com/developer/article/2754723",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://www.cnblogs.com/angrycode/p/11391635.html",
+      "url": "https://www.cnblogs.com/angrycode/p/11391635.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "https://blog.csdn.net/m0_46339652/article/details/122795547",
+      "url": "https://blog.csdn.net/m0_46339652/article/details/122795547",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "https://www.17golang.com/article/632084.html",
+      "url": "https://www.17golang.com/article/632084.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c21",
+      "title": "https://mp.weixin.qq.com/s/2Ictx9VbqNTuBw1yZQDIOg",
+      "url": "https://mp.weixin.qq.com/s/2Ictx9VbqNTuBw1yZQDIOg",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c22",
+      "title": "https://mp.weixin.qq.com/s/gX_-JECFEFKaK0AyJiUjTw",
+      "url": "https://mp.weixin.qq.com/s/gX_-JECFEFKaK0AyJiUjTw",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 14944,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced"
+    ]
+  },
+  "cache": {
+    "hit": false,
+    "age_seconds": 0.0,
+    "ttl_seconds": 120,
+    "namespace": "search"
+  },
+  "elapsed_ms": 14947,
+  "api_calls": {
+    "xai": 1
+  },
+  "score": {
+    "id": "wechat-mp-discovery",
+    "scores": {
+      "discovery": {
+        "status": "fail",
+        "matched_targets": [],
+        "required": 1
+      },
+      "reading": {
+        "status": "not_attempted"
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "discovery:fail"
+      ]
+    },
+    "expected_access": "login",
+    "observed_failure": null,
+    "algorithm_miss": true
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "wechat-mp-discovery",
+  "query": "找一篇讲解 Python GIL 的微信公众号文章原文链接",
+  "elapsed_ms": 64437,
+  "returncode": 0,
+  "tools": [
+    "mcp__allsearch__search",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result"
+  ],
+  "answer": "已打开并核对到一篇微信公众号原文，标题是《CPython的线程与GIL》，公众号为 **leveryd**，页面显示时间为 2021-03-29。\n\n原文链接：https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ\n\n正文从 CPython 3.8.0 源码讲 GIL：它是全局解释器锁，用来保证同一时刻只有一个线程执行字节码，从而避免引用计数在多线程下出错。文中还说明，一行 Python（例如 `n=n+1`）会拆成多条字节码，所以有 GIL 仍要考虑线程安全；持锁线程会在 I/O、sleep 或被其他线程请求让出时释放 GIL。\n\n这次抓到的页面只有评论框界面，没有读者留言正文，因此没有可引用的评论原句。",
+  "stderr": "",
+  "score": {
+    "id": "wechat-mp-discovery",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "wechat-article"
+        ],
+        "required": 1
+      },
+      "reading": {
+        "status": "not_attempted"
+      }
+    },
+    "task": {
+      "status": "pass",
+      "reasons": []
+    },
+    "expected_access": "login",
+    "observed_failure": null,
+    "algorithm_miss": false
+  }
+}

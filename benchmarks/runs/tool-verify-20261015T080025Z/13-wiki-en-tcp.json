@@ -1,0 +1,416 @@
+{
+  "id": "wiki-en-tcp",
+  "executed_at": "2026-10-15T08:10:33.818452+00:00",
+  "depth": "verify",
+  "provider_query": "English Wikipedia HTTP article: the default TCP port",
+  "answer": "The English Wikipedia article on **HTTP** states that unencrypted HTTP typically uses **TCP port 80** (port 443 when encrypted).\n\nRelevant results:\n\n1. **HTTP – Wikipedia** — TCP/IP connections use well-known ports, typically **port 80** if unencrypted or **port 443** if encrypted. HTTP/1.x and HTTP/2 use TCP; HTTP/3 uses QUIC over UDP.  \n   https://en.wikipedia.org/wiki/HTTP [web:10][web:17]\n\n2. **List of TCP and UDP port numbers – Wikipedia** — Port **80** is assigned to Hypertext Transfer Protocol (HTTP); versions 1.x and 2 use TCP. Port **443** is HTTPS (TCP for 1.x and 2).  \n   https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers [web:7][web:9]\n\n3. **Port (computer networking) – Wikipedia** — Well-known port **80** is HTTP. By default, HTTP uses port 80 and HTTPS uses 443; a non-default port must appear in the URL (e.g. `:8080`).  \n   https://en.wikipedia.org/wiki/Port_(computer_networking) [web:12]\n\n4. **Port 80 – Wikipedia** (disambiguation) — TCP port 80 is most often used by HTTP.  \n   https://en.wikipedia.org/wiki/Port_80 [web:8]\n\n5. **IANA Service Name and Port Number Registry** — `http` / `www` on **80/tcp** is “World Wide Web HTTP” (reference RFC 9110); `https` is **443/tcp**.  \n   https://www.iana.org/assignments/service-names-port-numbers [web:2][web:5]\n\n6. **MDN Glossary: Port** — Default port for HTTP is **80**; for HTTPS, **443**.  \n   https://developer.mozilla.org/en-US/docs/Glossary/Port [web:4]\n\n7. **Historical assignment** — Tim Berners-Lee’s early HTTP text assumed port 80 when unspecified; RFC 1340 (1992) listed `www` as **80/tcp**.  \n   https://superuser.com/questions/996828/why-was-port-80-chosen-as-the-default-http-port-and-443-as-the-default-https-por [web:0]\n\n8. **HTTP/3 note** — On Wikipedia’s port list, HTTP/3 uses QUIC on top of UDP (often still associated with port 443), while classic HTTP remains TCP port 80.  \n   https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers [web:9]",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://geek-university.com/hypertext-transfer-protocol-http/",
+      "url": "https://geek-university.com/hypertext-transfer-protocol-http",
+      "snippet": "",
+      "content": "[Skip to content](https://geek-university.com/hypertext-transfer-protocol-http/#main)\n\n# Hypertext Transfer Protocol (HTTP)\n\nLearn how HTTP clients and web servers exchange resources, how URLs and requests work, why TCP port 80 is the default, and how HTTP differs from HTTPS.\n\n**Hypertext Transfer Protocol (HTTP)** is an application-layer protocol for exchanging web resources between clients and servers. It defines how a client requests content or asks a server to perform an action, and how the server returns a response.\n\nWeb resources can include HTML documents, plain text, images, style sheets, JavaScript files, videos, downloadable files, and data returned by web applications.\n\n## What HTTP Does\n\nHTTP provides the communication rules used by web applications. A browser sends an HTTP request to a web server. The server processes that request and sends an HTTP response containing a result, such as a requested HTML document or an error message.\n\nHTTP is an **application-layer protocol**. The application layer contains protocols that provide network services directly to applications. HTTP depends on lower-layer protocols for tasks such as addressing, reliable delivery, and connection management.\n\n## The HTTP Client-Server Model\n\nAn HTTP exchange has two primary roles:\n\n| Component | Role | Typical Example |\n| --- | --- | --- |\n| HTTP client | Initiates a request for a resource or service. | A web browser, mobile application, or command-line tool such as curl |\n| HTTP server | Receives requests, processes them, and sends responses. | Web-server software hosting a website or web application |\n| Requested resource | The content or service identified by the request. | An HTML page, image, style sheet, script, or API data |\n\nA web browser is the most familiar HTTP client. It requests an initial HTML document and then commonly makes additional requests for resources referenced by that document, such as images, CSS style sheets, and scripts.\n\n### Typical page-loading sequence\n\n1. A user enters a URL, such as `http://www.example.com`, into a browser.\n2. The browser resolves the host name to an IP address using DNS.\n3. For ordinary HTTP, the browser establishes a TCP connection to the server on port 80 unless another port is specified.\n4. The browser sends an HTTP `GET` request for the selected resource.\n5. The server returns an HTTP response with a status code, headers, and usually a response body.\n6. The browser processes the HTML and may send more requests for images, style sheets, scripts, and other referenced resources.\n\n## HTTP Requests and Responses\n\nAn **HTTP request** is a message sent by a client to obtain a resource or perform an action. An **HTTP response** is the message returned by the server. The response reports the outcome and may contain the requested content.\n\n| Message Type | Key Elements | Purpose |\n| --- | --- | --- |\n| Request | Method, target resource, headers, and sometimes a body | Asks for a resource or asks the server to perform an operation |\n| Response | Status code, headers, and usually a response body | Reports the result and may return content or data |\n\n### Request methods\n\nThe **method** indicates the intended action. `GET` is primarily used to retrieve a resource, such as a web page. `POST` is commonly used to submit data to a server, such as login information, a form submission, or a new record for an application.\n\nA simplified request might look like this:\n\n```\nGET /index.html HTTP/1.1\nHost: www.example.com\n```\n\nHere, `GET` is the method, `/index.html` is the target path, and the `Host` header identifies the intended website. Real requests usually contain additional headers, such as accepted content types and client information. A request body may carry submitted data, especially with methods such as `POST`.\n\n### Response status codes\n\nAn **HTTP status code** is a numeric result in a response. It tells the client whether the request succeeded, needs further action, or failed.\n\n| Status Code | Meaning | Example Situation |\n| --- | --- | --- |\n| 200 OK | The request succeeded. | The server returns the requested HTML page. |\n| 301 or 302 redirect | The client should request another URL. | A site redirects an old address to a new address or redirects HTTP to HTTPS. |\n| 403 Forbidden | The server understood the request but refuses access. | A user is not authorized to view a protected resource. |\n| 404 Not Found | The requested resource was not located. | The URL path is incorrect or the resource was removed. |\n| 500 Internal Server Error | The server encountered an unexpected problem. | An application or server-side component failed while processing the request. |\n\nA simplified successful response might look like this:\n\n```\nHTTP/1.1 200 OK\nContent-Type: text/html\n\n<html>...page content...</html>\n```\n\nThe first line gives the HTTP version and status. Headers provide metadata about the response. The body contains the returned representation, such as HTML.\n\n## URLs and HTTP Resource Access\n\nA **URL**, or Uniform Resource Locator, identifies a resource and describes how to access it. A URL used with HTTP can contain these main components:\n\n- **Scheme:** identifies the protocol, such as `http://` or `https://`.\n- **Host name:** identifies the destination, such as `www.example.com`.\n- **Port:** optionally identifies the transport-layer service port, such as `:80`.\n- **Path:** identifies a resource or application route, such as `/products/index.html`.\n- **Query string:** begins with `?` and supplies parameters, such as `?category=books`.\n- **Fragment:** begins with `#` and identifies a portion of a resource, such as `#details`.\n\nFor example:\n\n```\nhttp://www.example.com:80/products/index.html?category=books#details\n```\n\nIn this URL, `http` is the scheme, `www.example.com` is the host name, `80` is the explicit port, `/products/index.html` is the path, `category=books` is the query string, and `details` is the fragment.\n\nThe fragment is normally handled by the client, usually the browser. It identifies a location within the returned document and is generally **not sent in the HTTP request**. The server receives the scheme-relevant destination, path, and query string, but not the fragment identifier.\n\n## TCP and HTTP Port 80\n\nTraditional HTTP/1.1 communication uses **TCP**, a reliable transport-layer protocol. TCP uses port numbers to identify services on a host.\n\n**TCP port 80** is the well-known default port for HTTP. When a URL begins with `http://` and does not include a port, the client normally assumes port 80.\n\nThese URLs normally identify the same service endpoint:\n\n```\nhttp://www.example.com/\nhttp://www.example.com:80/\n```\n\nThe first URL relies on the default. The second explicitly specifies TCP port 80. They can differ only if the server or network uses unusual configuration.\n\n## HTTP Versions\n\n| Version | Underlying Transport | High-Level Characteristic |\n| --- | --- | --- |\n| HTTP/1.1 | TCP | A longstanding and widely supported version using text-based message conventions and persistent TCP connections. |\n| HTTP/2 | TCP | Preserves HTTP semantics while improving efficiency with features such as binary framing and multiplexed streams over a TCP connection. |\n| HTTP/3 | QUIC, normally over UDP | Uses QUIC as its transport foundation to provide modern connection and stream behavior while retaining HTTP concepts such as methods, URLs, headers, and status codes. |\n\nHTTP/2 changes how messages are transported and organized, but the fundamental web concepts remain: clients make requests, servers return responses, and resources are identified by URLs. HTTP/3 uses QUIC rather than TCP, so the statement that HTTP uses TCP applies specifically to HTTP/1.1 and HTTP/2, not to every modern HTTP version.\n\n## HTTP Versus HTTPS\n\n**HTTPS** is HTTP protected by **TLS**, or Transport Layer Security. TLS provides encryption, helps authenticate the server, and helps detect tampering while HTTP data crosses the network.\n\n| Protocol/Scheme | Transport | Default Port | Security Characteristics |\n| --- | --- | --- | --- |\n| HTTP (`http://`) | TCP for HTTP/1.1 and HTTP/2 | 80 | HTTP data is not protected by TLS and can be observed or modified on an untrusted path. |\n| HTTPS (`https://`) | Usually TCP for HTTP/1.1 and HTTP/2; QUIC for HTTP/3 | 443 | HTTP is protected by TLS, providing encryption and server authentication. |\n\nHTTPS is expected for login pages, private information, payments, and most modern websites. For example, `http://www.example.com` normally uses port 80 without TLS, while `https://www.example.com` normally uses port 443 and establishes TLS protection before exchanging HTTP data.\n\n## Inspecting HTTP with curl\n\n`curl` is a command-line HTTP client useful for observing request and response behavior.\n\n```\ncurl -I http://www.example.com\n```\n\nThe `-I` option requests response headers only. It exposes the response status line and headers without downloading the normal response body.\n\n```\ncurl -v http://www.example.com/\n```\n\nThe `-v` option displays connection details, the outgoing request, and response information. It can help show which host and port are being contacted.\n\n```\ncurl -I http://www.example.com:80/\n```\n\nThis command tests an explicitly specified default HTTP port and demonstrates that `:80` normally has the same endpoint meaning as omitting the port.\n\n```\ncurl -I https://www.example.com/\n```\n\nThis command inspects a secure HTTP endpoint and contrasts HTTPS, conventionally using port 443, with unencrypted HTTP.\n\n## Troubleshooting HTTP Access\n\n### The browser cannot connect to an HTTP site\n\nPossible causes include failed DNS resolution, an offline server, a firewall blocking TCP port 80, or a service listening on a nondefault port.\n\n- Verify that the host name resolves to an IP address.\n- Confirm the URL spelling and port.\n- Test TCP connectivity to the server's HTTP port.\n- Verify that the web-server service is running and listening.\n\n### The server returns 404 Not Found\n\nA 404 response means the server did not locate the requested resource. The path may be incorrect, the resource may have been renamed or removed, or server routing may map the URL incorrectly.\n\n- Review the URL path and spelling.\n- Confirm that the target file or application route exists.\n- Check the server's routing and document-root configuration.\n\n### The site redirects from HTTP to HTTPS\n\nThe server may enforce encrypted access or the application may require HTTPS. Inspect the response's `Location` header, follow the destination, and verify that port 443 is reachable.\n\n### An HTTP URL works without a port but fails with a custom port\n\nThe custom port may have no listening service, may be blocked by a firewall, or may be incorrect. Use port 80 when the service is ordinary HTTP, or confirm the configured listening port and its firewall rules.\n\n## Exam-Ready Summary\n\n- HTTP is an application-layer protocol for exchanging web resources between clients and servers.\n- A browser commonly acts as the HTTP client; a web server receives requests and returns responses.\n- Requests include a method, target resource, headers, and sometimes a body.\n- Responses include a status code, headers, and usually a body.\n- `GET` commonly retrieves a resource; `POST` commonly submits data.\n- The `http://` scheme implies TCP port 80 when no port is written.\n- `http://www.example.com/` and `http://www.example.com:80/` normally address the same HTTP service.\n- HTTP/1.1 and HTTP/2 use TCP; HTTP/3 uses QUIC.\n- HTTPS is HTTP protected by TLS and conventionally uses port 443.\n- A URL fragment is generally processed by the client and is not sent in the HTTP request.\n\nFor a related lesson, see [Hypertext Transfer Protocol (HTTP)](https://geek-university.com/hypertext-transfer-protocol-http/).\n\n**Cookies**\n\nWe use cookies for analytics and Google AdSense. Ads run on lesson and course pages to fund the site, including if you choose Essential only. Read the [privacy policy](https://geek-university.com/privacy/).\n\nAcceptEssential only",
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "firecrawl"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "List of TCP and UDP port numbers - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers",
+      "snippet": "352. 1 2 \"VMware Server 2.0 RC 2 Release Notes\". VMware Documentation. VMware (published 2008-08-26). 2008-08-19. Archived from the original on 2017-09-06. Retrieved 2017-09-04. ... The default VI Web Access HTTP connection port is 8222 and the default HTTPS port is 8333. ...\n353. ↑ \"jBASE Connectivity Server (jRCS)\". rocketsoftware.com. 2023-02-15. Retrieved 2023-02-20.\n354. 1 2 \"Apache Synapse\". apache.org. 2012-01-06. Retrieved 2014-05-27.\n355. ↑ \"Remote Access Update API – CheckIP Tool FAQ\". dyn.com. Retrieved 2015-08-21.\n356. ↑ \"WinBox – RouterOS\". MikroTik Documentation. Retrieved 2026-01-29.\n357. ↑ \"Bitcoin – Open source P2P money\". bitcoin.org.\n358. ↑ Stetzinger, Andy (September 1, 2015). \"Are ISPs Intentionally Blocking Bitcoin?\". CCN.com.\n359. ↑ \"Filestash server\". [...] 50. 1 2 Fielding, Roy T.; Reschke, Julian F., eds. (June 2014). Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing. IETF. pp. 11, 17, 19, 42–43, 50. doi \"Doi (identifier)\"):10.17487/RFC7230. RFC \"RFC (identifier)\") 7230. Retrieved 2016-10-16.\n51. 1 2 Belshe, Mike; Peon, Roberto (May 2015). \"Starting HTTP/2\". In Thomson, Martin (ed.). Hypertext Transfer Protocol Version 2 (HTTP/2). IETF. p. 7. sec. 3. doi \"Doi (identifier)\"):10.17487/RFC7540. RFC \"RFC (identifier)\") 7540. Retrieved 2016-10-16. ... HTTP/2 uses the same \"http\" and \"https\" URI schemes used by HTTP/1.1. HTTP/2 shares the same default port numbers: 80 for \"http\" URIs and 443 for \"https\" URIs. ... [...] | 9003 | Unofficial | Xdebug default client port |\n| 9006 | Unofficial | Tomcat in standalone mode |\n| 9008 | Unofficial | Zerto VRA encrypted communications listener |\n| 9030 | Unofficial | Tor \"Tor (anonymity network)\") network default (DirPort) |\n| 9042 | Unofficial | Apache Cassandra native protocol clients |\n| 9043 | Unofficial | WebSphere Application Server Administration Console secure |\n| 9050–9051 | Unofficial | Tor \"Tor (anonymity network)\") (SOCKS-5 proxy) |\n| 9060 | Unofficial | WebSphere Application Server Administration Console |\n| 9080 | Yes | glrpc, Groove Collaboration software GLRPC |\n| Unofficial | WebSphere Application Server HTTP Transport (port 1) default \"Default (computer science)\") |\n| Unofficial | Remote Potato by FatAttitude, Windows Media Center addon |",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "tavily"
+      ],
+      "score": 0.5809471,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://networkengineering.stackexchange.com/questions/17316/why-is-http-port-80",
+      "url": "https://networkengineering.stackexchange.com/questions/17316/why-is-http-port-80",
+      "snippet": "",
+      "content": "The 2026 Annual Developer Survey Results Site is live—\n[view the results here!](https://survey.stackoverflow.co/2026/?utm_medium=referral&utm_source=stackoverflow-community&utm_campaign=dev-survey-2026&utm_content=announcement-banner-results).\n\n\n[dismiss](https://networkengineering.stackexchange.com/questions/17316/why-is-http-port-80# \"dismiss\")\n\n# [Why is HTTP Port 80? \\[closed\\]](https://networkengineering.stackexchange.com/questions/17316/why-is-http-port-80)\n\n[Ask Question](https://networkengineering.stackexchange.com/questions/ask)\n\nAsked11 years, 7 months ago\n\nModified [7 years, 9 months ago](https://networkengineering.stackexchange.com/questions/17316/why-is-http-port-80?lastactivity \"2019-01-19 00:03:58Z\")\n\nViewed\n687 times\n\n\nThis question shows research effort; it is useful and clear\n\n2\n\nThis question does not show any research effort; it is unclear or not useful\n\nSave this question.\n\n[Timeline](https://networkengineering.stackexchange.com/posts/17316/timeline)\n\nShow activity on this post.\n\nI get the reasoning why there is only a single port for http connections, but why was the number chosen to be 80? Why not 76, or 111 or 2? What is the reason behind the number 80? (Or why 443 for https? Or 21 for ftp?)\n\n- [tcp](https://networkengineering.stackexchange.com/questions/tagged/tcp \"show questions tagged 'tcp'\")\n\n[Share](https://networkengineering.stackexchange.com/q/17316)\n\nShare a link to this question\n\nCopy link [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/ \"The current license for this post: CC BY-SA 3.0\")\n\nShort permalink to this question\n\n[Improve this question](https://networkengineering.stackexchange.com/posts/17316/edit \"\")\n\nFollow\n\n\n\nFollow this question to receive notifications\n\n[edited Feb 16, 2018 at 4:08](https://networkengineering.stackexchange.com/posts/17316/revisions \"show all edits to this post\")\n\n[![Ron Maupin's user avatar](https://i.sstatic.net/jQsNL.png?s=64)](https://networkengineering.stackexchange.com/users/8499/ron-maupin)\n\n[Ron Maupin](https://networkengineering.stackexchange.com/users/8499/ron-maupin) ♦\n\n103k2626 gold badges128128 silver badges211211 bronze badges\n\nasked Mar 17, 2015 at 0:08\n\n[![Brad Thiessen's user avatar](https://www.gravatar.com/avatar/d8718e4f065a0c13c001943899ddfc32?s=64&d=identicon&r=PG&f=y&so-version=2)](https://networkengineering.stackexchange.com/users/14404/brad-thiessen)\n\n[Brad Thiessen](https://networkengineering.stackexchange.com/users/14404/brad-thiessen)\n\n14122 bronze badges\n\n1\n\n- Unfortunately, questions that are \" _historical trivia that does not allow for a concise and non-subjective answer or is trivial/irrelevant to modern networking_\" are explicitly off-topic here.\n\n\n\nRon Maupin\n\n\n–\n[Ron Maupin](https://networkengineering.stackexchange.com/users/8499/ron-maupin \"102,581 reputation\") ♦\n\n\n\n2019-01-20 01:25:29 +00:00\n\n[CommentedJan 20, 2019 at 1:25](https://networkengineering.stackexchange.com/questions/17316/why-is-http-port-80#comment97459_17316)\n\n\n[Add a comment](https://networkengineering.stackexchange.com/questions/17316/why-is-http-port-80# \"Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.\") \\| [Expand to show all comments on this post](https://networkengineering.stackexchange.com/questions/17316/why-is-http-port-80# \"Expand to show all comments on this post\")\n\n## 1 Answer 1\n\nSorted by:\n[Reset to default](https://networkengineering.stackexchange.com/questions/17316/why-is-http-port-80?answertab=scoredesc#tab-top)\n\nHighest score (default)\n\nDate modified (newest first)\n\nDate created (oldest first)\n\n\nThis answer is useful\n\n4\n\nThis answer is not useful\n\nSave this answer.\n\nLoading when this answer was accepted…\n\n[Timeline](https://networkengineering.stackexchange.com/posts/17322/timeline)\n\nShow activity on this post.\n\nTim Berners Lee (aka TBL) [choose port 80](https://lists.w3.org/Archives/Public/www-talk/1992NovDec/0149.html) in the early 1990s; at one time, TCP port 2784 was used, but TBL deprecated it in favor of using port 80.\n\nTBL came up with [ENQUIRE](http://en.wikipedia.org/wiki/ENQUIRE), which was the building block for hypertext [in 1980](http://en.wikipedia.org/wiki/History_of_the_World_Wide_Web#1980.E2.80.931991:_Invention_and_Implementation_of_the_Web), but it took almost a decade for the protocol to mature. One might speculate that 80 is a reference to 1980, but that's pure speculation AFAICT.\n\nThere is no real reason we have to choose port 80, other than the need to have a [well-known port](https://networkengineering.stackexchange.com/a/1986/775), and that IANA standardized on port 80 so long ago.\n\n[Share](https://networkengineering.stackexchange.com/a/17322)\n\nShare a link to this answer\n\nCopy link [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/ \"The current license for this post: CC BY-SA 4.0\")\n\nShort permalink to this answer\n\n[Improve this answer](https://networkengineering.stackexchange.com/posts/17322/edit \"\")\n\nFollow\n\n\n\nFollow this answer to receive notifications\n\n[edited Jan 19, 2019 at 0:03](https://networkengineering.stackexchange.com/posts/17322/revisions \"show all edits to this post\")\n\nanswered Mar 17, 2015 at 2:13\n\n[![Mike Pennington's user avatar](https://i.sstatic.net/BPTe1.jpg?s=64)](https://networkengineering.stackexchange.com/users/775/mike-pennington)\n\n[Mike Pennington](https://networkengineering.stackexchange.com/users/775/mike-pennington)\n\n30.1k1212 gold badges8383 silver badges155155 bronze badges\n\n1\n\n- Also view the explanation [here](http://superuser.com/questions/996828/why-was-port-80-chosen-as-the-default-http-port-and-443-as-the-default-https-por), which suggests that 80 was used since it was free and 79 and 81 were not (couldn't find the primary source though)\n\n\n\nJedi\n\n\n–\n[Jedi](https://networkengineering.stackexchange.com/users/25877/jedi \"136 reputation\")\n\n\n\n2016-06-04 04:57:25 +00:00\n\n[CommentedJun 4, 2016 at 4:57](https://networkengineering.stackexchange.com/questions/17316/why-is-http-port-80#comment48085_17322)\n\n\n[Add a comment](https://networkengineering.stackexchange.com/questions/17316/why-is-http-port-80# \"Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.\") \\| [Expand to show all comments on this post](https://networkengineering.stackexchange.com/questions/17316/why-is-http-port-80# \"Expand to show all comments on this post\")\n\nStart asking to get answers\n\nFind the answer to your question by asking.\n\n[Ask question](https://networkengineering.stackexchange.com/questions/ask)\n\nExplore related questions\n\n- [tcp](https://networkengineering.stackexchange.com/questions/tagged/tcp \"show questions tagged 'tcp'\")\n\nSee similar questions with these tags.",
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "firecrawl"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "What is the default TCP port for HTTPS?",
+      "url": "https://www.facebook.com/groups/229217769972914/posts/996174743277209",
+      "snippet": "HTTPS uses port 443, while HTTP uses port 80. WWW Stands for World Wide Web, and is a set of linked hypertext documents that can be viewed on",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.575517,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://www.iana.org/assignments/service-names-port-numbers?search=http+80",
+      "url": "https://www.iana.org/assignments/service-names-port-numbers?search=http+80",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "HTTP",
+      "url": "https://en.wikipedia.org/wiki/HTTP",
+      "snippet": "In HTTP implementations, TCP/IP connections are used using well-known ports (typically port 80 if the connection is unencrypted or port 443 if the connection",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "tavily"
+      ],
+      "score": 0.5752307,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://www.empsn.org.uk/knowledge-base/ip-security-https-hypertext-transfer-protocol-port-443/",
+      "url": "https://www.empsn.org.uk/knowledge-base/ip-security-https-hypertext-transfer-protocol-port-443",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "Default Port Numbers",
+      "url": "https://docs.oracle.com/en/storage/tape-storage/sl4000/slklg/default-port-numbers.html",
+      "snippet": "| 443 | TCP | HTTPS | Default port for browser and web services interfaces. | To library |\n| 7104 | TCP | HTTP | Alternate port for browser access. | To library |\n| 7102 | TCP | HTTPS | Alternate port for browser and web services interfaces. | To library |\n| 7104 | TCP | HTTP | Browser GUI based access to WebLogic console running on the library. Only accessible by an \"Escalation\" user. | To library |\n| 7105 | TCP | HTTPS | Browser GUI based access to WebLogic console running on the library. Only accessible by an \"Escalation\" user. | To library | [...] | Port | IP | Protocol | Description | Direction |\n ---  --- \n|  |  |  | SSH access to Linux running on library. Only enabled for 72 hours after an \"Escalation\" role service user is created. | To library |\n| 25 | TCP | SMTP | Connection to external SMTP (Simple Mail Transfer Protocol) server. Required if you have configured any e-mail destinations. | From library |\n| 53 | TCP & UDP | DNS | DNS (domain name server) lookup. | From library |\n| 80 | TCP | HTTP | Default port for browser access. | To library |\n| 161 | UDP | SNMP | Inbound GET requests using SNMP. | To library |\n| 162 | UDP | SNMP | Outbound SNMP TRAPs. | From library |\n| 123 | TCP | NTP | Connection from library to an external NTP server. | From library | [...] Browser and Web Services Interface Ports\n\nThe GUI and SCI protocols use default ports that can be modified using the configuration wizard.\n\nThe GUI can use both HTTP and HTTPS. The SCI protocol uses only HTTPS to secure for the credentials passed in each request. By default, these two protocols are on their standard port number of 80 for HTTP and 443 for HTTPS. You can modify these ports in the GUI (see Launch the Configuration Wizard).\n\nService Access Ports\n\nThe library enables or disables service ports depending on if a Service user has been created for the library.",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.562874,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://geek-university.com/hypertext-transfer-protocol-http/",
+      "url": "https://geek-university.com/hypertext-transfer-protocol-http",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "List of TCP and UDP port numbers - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers",
+      "result_id": "r2",
+      "providers": [
+        "xai",
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://networkengineering.stackexchange.com/questions/17316/why-is-http-port-80",
+      "url": "https://networkengineering.stackexchange.com/questions/17316/why-is-http-port-80",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "What is the default TCP port for HTTPS?",
+      "url": "https://www.facebook.com/groups/229217769972914/posts/996174743277209",
+      "result_id": "r4",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://www.iana.org/assignments/service-names-port-numbers?search=http+80",
+      "url": "https://www.iana.org/assignments/service-names-port-numbers?search=http+80",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "HTTP",
+      "url": "https://en.wikipedia.org/wiki/HTTP",
+      "result_id": "r6",
+      "providers": [
+        "xai",
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://www.empsn.org.uk/knowledge-base/ip-security-https-hypertext-transfer-protocol-port-443/",
+      "url": "https://www.empsn.org.uk/knowledge-base/ip-security-https-hypertext-transfer-protocol-port-443",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "Default Port Numbers",
+      "url": "https://docs.oracle.com/en/storage/tape-storage/sl4000/slklg/default-port-numbers.html",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://www.darazhost.com/http-port-80-and-https-port-443-what-they-do-and-how-to-change-them/",
+      "url": "https://www.darazhost.com/http-port-80-and-https-port-443-what-they-do-and-how-to-change-them",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://developer.mozilla.org/en-US/docs/Glossary/Port",
+      "url": "https://developer.mozilla.org/en-US/docs/Glossary/Port",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://en.wikipedia.org/wiki/Port_80",
+      "url": "https://en.wikipedia.org/wiki/Port_80",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://en.wikipedia.org/wiki/Ephemeral_port",
+      "url": "https://en.wikipedia.org/wiki/Ephemeral_port",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://x.com/IconNoving/status/2108972500587606431",
+      "url": "https://x.com/IconNoving/status/2108972500587606431",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://en.wikipedia.org/wiki/Tcp_and_udp_port",
+      "url": "https://en.wikipedia.org/wiki/Tcp_and_udp_port",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://web.archive.org/web/20200909161945/https:/en.wikipedia.org/wiki/TCP_port",
+      "url": "https://web.archive.org/web/20200909161945/https:/en.wikipedia.org/wiki/TCP_port",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://www.iana.org/assignments/service-names-port-numbers?search=9110",
+      "url": "https://www.iana.org/assignments/service-names-port-numbers?search=9110",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://superuser.com/questions/996828/why-was-port-80-chosen-as-the-default-http-port-and-443-as-the-default-https-por",
+      "url": "https://superuser.com/questions/996828/why-was-port-80-chosen-as-the-default-http-port-and-443-as-the-default-https-por",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://en.wikipedia.org/wiki/UDP_Port",
+      "url": "https://en.wikipedia.org/wiki/UDP_Port",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "Port 80 (HTTP) vs. Port 443 (HTTPS): Everything You Need to Know",
+      "url": "https://www.ssl2buy.com/wiki/port-80-http-vs-port-443-https",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "Port (computer networking)",
+      "url": "https://en.wikipedia.org/wiki/Port_(computer_networking)",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c21",
+      "title": "HTTP vs. TCP: What's the Difference?",
+      "url": "https://www.goanywhere.com/blog/http-vs-tcp-whats-the-difference",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "verify",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 11526,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "verify_supplement",
+        "latency_ms": 5197,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "ok",
+        "reason": "post_discovery",
+        "latency_ms": 2538,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "ok",
+        "reason": "post_discovery",
+        "latency_ms": 3626,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_verify_supplement",
+      "depth_verify"
+    ]
+  },
+  "cache": {
+    "hit": false,
+    "age_seconds": 0.0,
+    "ttl_seconds": 120,
+    "namespace": "search"
+  },
+  "elapsed_ms": 21041,
+  "api_calls": {
+    "xai": 1,
+    "tavily": 1,
+    "firecrawl": 2
+  },
+  "score": {
+    "id": "wiki-en-tcp",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "en-http"
+        ],
+        "required": 1
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "pass",
+      "reasons": []
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": false
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "id": "wiki-zh-tcp",
+  "query": "中文维基百科 HTTP 条目里的默认 TCP 端口",
+  "elapsed_ms": 62981,
+  "returncode": 0,
+  "tools": [
+    "mcp__allsearch__search",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__search"
+  ],
+  "answer": "中文维基百科「超文本传输协议」条目写明，HTTP 的默认 TCP 端口是 **80**。\n\n条目原句是：「通常，由HTTP客户端发起一个请求，建立一个到服务器指定端口（默认是80端口）的TCP连接。HTTP服务器则在那个端口监听客户端的请求。」\n\n可核对链接：\n\n- https://zh.wikipedia.org/zh-cn/超文本传输协议\n- https://zh.wikipedia.org/zh-cn/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE\n\n该句同时出现在 xAI 与 Tavily 对上述页面的检索摘要中。整页抓取被拒绝（`unsafe_url`：解析目标被标为私有/保留地址），因此没有读到讨论页或评论，也没有评论原句可引。",
+  "stderr": "",
+  "score": {
+    "id": "wiki-zh-tcp",
+    "scores": {
+      "discovery": {
+        "status": "fail",
+        "matched_targets": [],
+        "required": 1
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "discovery:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true
+  }
+}

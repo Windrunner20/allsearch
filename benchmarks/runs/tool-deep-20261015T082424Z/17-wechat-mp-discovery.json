@@ -1,0 +1,376 @@
+{
+  "id": "wechat-mp-discovery",
+  "executed_at": "2026-10-15T08:35:25.297285+00:00",
+  "depth": "deep",
+  "provider_query": "找一篇讲解 Python GIL 的微信公众号文章原文链接",
+  "answer": "以下是偏「讲解 Python GIL」的微信公众号原文链接（最多 8 条），优先选专门讲原理的文章。\n\n1. **《CPython的线程与GIL》**  \n   对照 CPython 3.8 源码讲 GIL 是什么、为何存在、何时释放/获取，以及「字节码安全 ≠ 一行 Python 代码安全」。  \n   https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ  \n   [[1]](https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ)\n\n2. **《Python 有可能删除 GIL 吗？》**（公众号：Python七号，2021-02-18）  \n   从引用计数讲 GIL 的由来、细粒度锁的历史尝试，以及当时为何认为去掉 GIL 很难。  \n   https://mp.weixin.qq.com/s/1YajqhcWoGGPQcOQiAATgA  \n   [[2]](https://mp.weixin.qq.com/s/1YajqhcWoGGPQcOQiAATgA)\n\n3. **《什么是Python的GIL？》**（公众号：真格量化，2019-07-11）  \n   入门向：GIL 原理、线程协作执行模型、I/O 时释放与 CPU 密集时按 ticks 检查。  \n   http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA==&mid=2247484178&idx=1&sn=fa385d6a50de9262cf16f8b737b20b80&chksm=fdc603edcab18afbbb665903d4ff939c9b3fdf6c8d6b2065d8dfa60ff4002eae495eeb5560ea&scene=21  \n   [[3]](http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA==&mid=2247484178&idx=1&sn=fa385d6a50de9262cf16f8b737b20b80&chksm=fdc603edcab18afbbb665903d4ff939c9b3fdf6c8d6b2065d8dfa60ff4002eae495eeb5560ea&scene=21)\n\n4. **GIL 与多进程对照讲解**（标题侧重 Python 并发选型）  \n   把 GIL 比作「单通道收费站」，说明 CPU 密集为何多线程几乎不加速、多进程为何能绕开。  \n   https://mp.weixin.qq.com/s/-0wQCHrTO6JXRQNLO0i7WQ  \n   [[4]](https://mp.weixin.qq.com/s/-0wQCHrTO6JXRQNLO0i7WQ)\n\n5. **《Python新版本去GIL刷屏…》**  \n   围绕 Python 3.14 自由线程（可选 no-GIL）：GIL 的历史作用、去掉后的收益与单线程/内存代价。  \n   https://mp.weixin.qq.com/s/2Ictx9VbqNTuBw1yZQDIOg  \n   [[5]](https://mp.weixin.qq.com/s/2Ictx9VbqNTuBw1yZQDIOg)\n\n6. **自由线程与子解释器说明**  \n   讲每个子解释器自有 GIL、以及 3.14 自由线程仍默认开启 GIL、需单独构建才能关掉。  \n   https://mp.weixin.qq.com/s/gX_-JECFEFKaK0AyJiUjTw  \n   [[6]](https://mp.weixin.qq.com/s/gX_-JECFEFKaK0AyJiUjTw)\n\n7. **多线程场景里顺带讲 GIL**  \n   定义 Global Interpreter Lock，并说明 Python 多线程实际是切换而非真并行。  \n   https://mp.weixin.qq.com/s/LXYy-caA9R1VKZ4SZCNODQ  \n   [[7]](https://mp.weixin.qq.com/s/LXYy-caA9R1VKZ4SZCNODQ)\n\n8. **GIL 对性能影响的说明**（含引用计数与 IO/CPU 差异）  \n   http://mp.weixin.qq.com/s?__biz=MzA4MjEyNTA5Mw==&mid=2652568514&idx=1&sn=9a5f20e1141dad543ae7f9e765a660b7&chksm=8464d388b3135a9e76bfe57603b4518ae4e12018c45a120fd30229e14970687881e307fb8b85&scene=21  \n   [[8]](http://mp.weixin.qq.com/s?__biz=MzA4MjEyNTA5Mw==&mid=2652568514&idx=1&sn=9a5f20e1141dad543ae7f9e765a660b7&chksm=8464d388b3135a9e76bfe57603b4518ae4e12018c45a120fd30229e14970687881e307fb8b85&scene=21)\n\n若只要一篇讲得比较透的，优先看第 1 条（源码向）或第 2 条（原理+历史）。公众号链接有时会要求在微信内打开。",
+  "results": [
+    {
+      "id": "r1",
+      "title": "1",
+      "url": "https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ",
+      "snippet": "",
+      "content": "# CPython的线程与GIL\n\nOriginalleverydleveryd\nleveryd\n\n_Mar 29, 2021, 12:52 AM_\n\n在小说阅读器读本章\n\n去阅读\n\n在公众号小说中沉浸阅读\n\n## 问题背景\n\nCPython程序的GIL会导致在CPU密集型任务中，多线程并不能提高运算速度。\n\n比如test.py\\[1\\]例子中，从执行test2函数和test1函数时间对比可以看出来，多线程并没有比单线程跑得更快。\n\n本文主要学习总结GIL、线程和GIL的关系，回答以下问题：\n\n- GIL\n\n  - GIL是什么？\n  - 为什么存在GIL？\n  - 能否去掉GIL，让Python程序应用层加锁来代替GIL的作用？\n\n- 线程和GIL的关系\n\n  - Python的线程是真线程吗？\n  - 既然GIL能保证只有一个线程在执行字节码，为什么我们用Python多线程时还需要考虑线程安全？\n  - 持有GIL的线程什么时候释放GIL？\n  - 未持有GIL的线程什么时候申请GIL？\n  - 怎么保证两个线程不会同时抢到GIL？\n  - 为什么CPython要保证只有一个线程在执行字节码？\n  - CPython线程什么时候切换？\n\n分析的CPython是3.8.0版本，commit id是fa919fdf2583bdfead1df00e842f24f30b2a34bf\n\n# 分析过程\n\n## GIL\n\n1. GIL是什么？\n\n\n\nCPython的一个全局解释锁。\n\n2. 为什么存在GIL？\n\n\n\nGIL\\[2\\]文档中写到，GIL可以保证多线程场景中，只有一个线程在执行字节码。\n\n\n\n这样可以避免确保在CPython源码层面是线程安全的。\n\n\n\n假设没有了GIL，多线程运行时，引用计数就有可能出现问题。\n\n3. 能否去掉GIL，让Python程序应用层加锁来代替？\n\n\n\n如果python程序多线程全部在消费者代码第一行就加锁，就可以代替GIL。（只是我的推测，没有验证过，结论不一定对。）\n\n\n\n但是实际编写Python代码时，不可能要求所有的线程都加锁。如下的代码中，单线程和多线程也就没有区别了。\n\n\n\n```\nlock = threading.Lock()\n\nclass Worker2(threading.Thread):\n     def run(self):\n       with lock:\n         ....\n```\n\n\n## 线程和GIL\n\n1. Python的线程是真线程吗？\n\n\n\nUnix/Linux上的Python线程是真线程（Windows平台的不清楚）。是操作系统层面的线程，会受操作系统调度。\n\n\n\n在Python/thread\\_pthread.h文件中，可以看到调用pthread\\_create函数创建系统线程。\n\n\n\n```\nunsigned long\nPyThread_start_new_thread(void (*func)(void *), void *arg)\n{\n       pthread_t th;\n       ...\n\n       status = pthread_create(&th,   // 调用pthread_create函数创建系统线程\n         ...\n```\n\n2. 既然GIL能保证只有一个线程在执行字节码，为什么我们用Python多线程时还需要考虑线程安全？\n\n\n\n因为一行Python代码，可能会包含多个字节码。GIL可以保证字节码执行时是线程安全的，但是无法保证每一行Python代码是线程安全的。\n\n\n\n比如 n=n+1 一行代码，会被解释成多个字节码\n\n\n\n```\n>>> import dis\n>>> dis.dis(\"n=n+1\")\n     1           0 LOAD_NAME                0 (n)\n                 2 LOAD_CONST               0 (1)\n                 4 BINARY_ADD\n                 6 STORE_NAME               0 (n)\n                 8 LOAD_CONST               1 (None)\n                10 RETURN_VALUE\n```\n\n\n\n可以见参考文章详解。\n\n3. 持有GIL的线程什么时候释放GIL？\n\n\n\n先说结论：如果未持有GIL的线程太久没有获取GIL，已经持有GIL的线程就会释放锁。\n\n\n\n在ceval.c#1237行中可以看到：ceval->gil\\_drop\\_request 被标记时，会释放锁。\n\n\n\n```\nmain_loop:\n       for (;;) {\n         ...\n\n         if (_Py_atomic_load_relaxed(&ceval->gil_drop_request)) {  // 其他线程要求当前线程释放锁\n              /* Give another thread a chance */\n              if (_PyThreadState_Swap(&runtime->gilstate, NULL) != tstate) {\n                  Py_FatalError(\"ceval: tstate mix-up\");\n              }\n              drop_gil(ceval, tstate);   // 当前线程释放锁\n\n              /* Other threads may run now */\n\n              take_gil(ceval, tstate);   // 当前线程尝试再获取锁\n\n              ...\n          }\n```\n\n\n\neval->gil\\_drop\\_request 什么时候被标记呢？\n\n\n\n看下面的代码可以得出结论：如果 未持有GIL的线程 超过了等待时间 且 GIL是锁住的状态 且 GIL的持有者没有变更过，就会标记 ceval->gil\\_drop\\_request变量。\n\n\n\n```\nstatic void take_gil(PyThreadState *tstate)\n{\n       ...\n       while (_Py_atomic_load_relaxed(&_PyRuntime.ceval.gil.locked)) {  // 只要 gil 是锁住的状态, 进入这个循环\n           int timed_out = 0;\n           unsigned long saved_switchnum;\n\n           saved_switchnum = _PyRuntime.ceval.gil.switch_number;   // 保存当前持有GIL的身份\n\n           // 释放 gil.mutex, 并在以下两种条件下唤醒\n           // 1. 等待 INTERVAL 微秒(默认 5000)\n           // 2. 还没有等待到 5000 微秒但是收到了 gil.cond 的信号\n\n           COND_TIMED_WAIT(_PyRuntime.ceval.gil.cond, _PyRuntime.ceval.gil.mutex,\n                           INTERVAL, timed_out);\n\n           // 如果超过了等待时间 && GIL是锁住的状态 && GIL的持有者没有变更过\n           if (timed_out &&\n               _Py_atomic_load_relaxed(&_PyRuntime.ceval.gil.locked) &&\n               _PyRuntime.ceval.gil.switch_number == saved_switchnum) {\n\n               SET_GIL_DROP_REQUEST();  // 把 gil_drop_request 值设为 1, 持有GIL的线程看到这个值的时候, 会尝试释放GIL\n           }\n       }\n       ...\n}\n```\n\n\n\n所以，当未持有GIL的线程太久没有获取GIL了，就会设置一个全局变量。当前持有GIL的线程看到全局变量后，就知道自己要释放GIL。\n\n4. 未持有GIL的线程什么时候申请GIL？\n\n\n\n先说结论：正在持有GIL的线程释放后，未持有GIL的线程可以获得GIL。\n\n\n\n申请GIL的代码在Python/ceval\\_gil.h#take\\_gil中，可以看到 未持有GIL的线程 通过while循环 来等GIL释放。\n\n\n\n```\nstatic void\ntake_gil(struct _ceval_runtime_state *ceval, PyThreadState *tstate)\n{\n     ...\n     while (_Py_atomic_load_relaxed(&gil->locked)) { // gil 不是锁住状态时跳出循环\n         ...\n     }\n     _ready:\n     ...\n     /* We now hold the GIL */\n     _Py_atomic_store_relaxed(&gil->locked, 1);    // 抢到了锁\n     _Py_ANNOTATE_RWLOCK_ACQUIRED(&gil->locked, /*is_write=*/1);\n```\n\n\n\n这里我有一个疑问：上面的代码中，如果多个线程同时跳出while循环，就会出现多个线程同时抢到GIL。\n\n\n\n我的疑问肯定是不对的，两个线程肯定不会同时抢到GIL，那是怎么做到的呢？见后面分析\n\n5. 怎么保证两个线程不会同时抢到GIL？\n\n\n\n在ceval\\_gil.h#184行代码中，可以看到，用了一个互斥锁。\n\n\n\n```\nstatic void\ntake_gil(struct _ceval_runtime_state *ceval, PyThreadState *tstate)\n{\n       ...\n       struct _gil_runtime_state *gil = &ceval->gil;\n       int err = errno;\n       MUTEX_LOCK(gil->mutex);   // gil->mutex是互斥锁\n       ...\n       MUTEX_UNLOCK(gil->mutex);\n```\n\n\n\n这样在多个线程都调用take\\_gil来申请GIL时，只有一个线程能够跳出while循环申请到GIL。\n\n\n\n现在已经知道了什么时候释放和申请GIL，可以做一个小结：\n\n\n\n```\n* 已经获得GIL的线程在执行字节码前，如果有其他线程要求释放GIL，它就会释放GIL。\n* 没有获得GIL的线程可以分为两种情况：\n     * 有一个线程可以要求\"已经获得GIL的线程\"释放GIL，并且循环等待释放GIL\n     * 其他线程在等 gil->mutex 锁\n```\n\n6. 为什么CPython要保证只有一个线程在执行字节码？\n\n\n\n换句话说，CPython中在执行字节码时，哪一部分不是线程安全的？\n\n\n\n在CPython中引用计数的实现就不是线程安全的，为啥呢？\n\n\n\n首先需要理解一个知识点：如果多线程场景中线程中的操作全部都是读操作，是线程安全的；如果多线程场景中线程中对同一个变量做修改操作，就不是线程安全的。\n\n\n\n```\nfrom threading import Thread\n\nn = 1\n\ndef CountDown(_):\n       print(n)  # 仅仅是打印n，是线程安全的\n       # n += 1    # 修改n的值，这里是非线程安全\n\ndef test():\n       t1 = Thread(target=CountDown, args=[1])\n       t2 = Thread(target=CountDown, args=[1])\n       t1.start()\n       t2.start()\n       t1.join()\n       t2.join()\n\n\nif __name__ == \"__main__\":\n       test()\n```\n\n\n\n从写Python脚本的角度看：上面的Python代码中，我们不加锁是没有问题的。\n\n\n\n从CPython角度看：在上面代码中，CPython在多线程中修改变量n的引用计数时，就会有\"多线程对同一个变量做修改操作\"，这个变量就是n的引用计数。这里就不是线程安全的，所以要加GIL。加了GIL后，只会有一个线程在修改n的引用计数。\n\n7. CPython线程什么时候切换？\n\n\n\n上面已经讲了一种切换方式：非持有GIL的线程过了一段时间就可以获得GIL，然后执行opcode。\n\n\n\n除了这种，在线程等待io、调用sleep函数时，也会主动释放GIL，以便其他线程有机会获得GIL。\n\n\n\n所以存在切换存在两种方式：主动调度和抢占式调度\n\n\n\n```\n* 主动调度\n       * 等待io\n       * sleep\n* 抢占式\n       * 执行N个opcode （python3.2之前）\n       * 过了一段时间之后 （python3.2之后）\n```\n\n\n### 参考资料\n\n\\[1\\]\ntest.py: _https://gist.github.com/leveryd/55adf1303fa7e528cc446d4e41526604_\n\\[2\\]\nGIL: _https://wiki.python.org/moin/GlobalInterpreterLock_\n\\[3\\]\n23 \\| 你真的懂Python GIL（全局解释器锁）吗？: _https://time.geekbang.org/column/article/103834_\n\\[4\\]\nPython3 源码阅读-深入了解Python GIL: _https://my.oschina.net/u/4419179/blog/4305933_\n\\[5\\]\ngil: _https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/gil/gil\\_cn.md_\n\n预览时标签不可点\n\n**微信扫一扫赞赏作者**Like Author\n\nClose\n\n**1人喜欢**\n\n更多\n\nLoading...\n\nLoading...\n\nClose\n\n更多\n\nName cleared\n\n**微信扫一扫赞赏作者**\n\nGive AuthorOther Amount\n\n赞赏后展示我的头像\n\n作品\n\n暂无作品\n\nGive Author\n\nOther Amount\n\n¥\n\n最低赞赏 ¥0\n\nOK\n\nBack\n\n**Other Amount**\n\n更多\n\n赞赏金额\n\n¥\n\n最低赞赏 ¥0\n\n1\n\n2\n\n3\n\n4\n\n5\n\n6\n\n7\n\n8\n\n9\n\n0\n\n.\n\nPython · Table of Contents\n\n#Python\n\nPreviousPython库的ReDos漏洞检测Nextrequests.get卡住\n\nRead more\n\nClose\n\n更多\n\n搜索「」网络结果\n\nClose\n\n**调整当前正文文字大小**\n\n更多\n\n100%\n\n此设置仅对当前内容生效，如需全局调整，请前往微信系统设置\n\nRead more不喜欢\n\n​\n\nScan to Follow\n\n当前内容可能存在未经审核的第三方商业营销信息，请确认是否继续访问。\n\n继续访问Cancel\n\n[微信公众平台广告规范指引](javacript:;)\n\nGot It\n\nScan with Weixin to\n\nuse this Mini Program\n\nCancelAllow\n\nCancelAllow\n\nCancelAllow\n\n×分析\n\n![跳转二维码](https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ)\n\n![作者头像](http://mmbiz.qpic.cn/mmbiz_png/FwyeCXsWiaYzLqic1QRTmPcgwxruJG9yRD0jsKyhb8rL8oHWWCMyAIibge74Wy4jF0epz8iblImDLmxGibwcf9wVPibg/0?wx_fmt=png)\n\n微信扫一扫可打开此内容，\n\n使用完整服务\n\n![](https://mmbiz.qpic.cn/mmbiz_png/FwyeCXsWiaYzLqic1QRTmPcgwxruJG9yRD0jsKyhb8rL8oHWWCMyAIibge74Wy4jF0epz8iblImDLmxGibwcf9wVPibg/0?wx_fmt=png)\n\nleveryd\n\n已关注\n\nLike\n\nShare\n\nBoost\n\nComment\n\n: ，，，，，，，，，，，，.VideoMini ProgramLike，轻点两下取消赞Wow，轻点两下取消在看ShareCommentFavorite听过\n\n可在「公众号 \\> 右上角  \\> 划线」找到划线过的内容\n\n![划线引导图](https://res.wx.qq.com/op_res/opqv3ix6k9E4e64ZzO7uIqE3ZblwIojfmt7u70m59yS1ylFK-hTu6Ra8V_LaWQJ1P4OlUJPdXLfVBtrm3TwRrw)\n\nOK\n\n,\n\n,\n\n选择留言身份\n\nClose\n\n**Comment**\n\n更多\n\nClose\n\n更多\n\nBack\n\n**的内容会推荐给朋友和关注你的人**\n\n更多\n\n对关注你的人展示公众号身份\n\n![](https://res.wx.qq.com/op_res/RCdSzC74aDD_QnWHvT8sNtESWCvezsiPOk6PEvubsj8wv5t3hSJndZcCOdHhYDBlk8xXexSC1CZccFnFO5JCHg)![](https://res.wx.qq.com/op_res/RCdSzC74aDD_QnWHvT8sNnXUvwtSaR2y5wHybXLJy_bhOTBTw97S11whc3dq9C0qRKv2tXjGNhrEXV4-6jYgIQ)\n\nOK\n\nClose\n\n**Python**\n\nDetails\n\n更多\n\nLoading...\n\n关闭\n\n## 确认提交投诉\n\n你可以补充投诉原因（选填）\n\n确定\n\nwxa-pcopensdk",
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "firecrawl"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "Python的全局解释器锁（GIL）GIL是什么为什么会有GILGIL的影响顺序执行的单线程(single_thread.py)同时执行的两个并发线程(multi_thread.py)当前GIL设计的-腾讯云开发者社区-腾讯云",
+      "url": "https://developer.cloud.tencent.com/article/1106632",
+      "snippet": "1.9K0\n\n举报\n\n文章被收录于专栏：SeanCheney的专栏SeanCheney的专栏\n\n> 转一篇关于Python GIL的文章。 归纳一下，CPU的大规模电路设计基本已经到了物理意义的尽头，所有厂商们都开始转向多核以进一步提高性能。Python为了能利用多核多线程的的优势，但又要保证线程之间数据完整性和状态同步，就采用了最简单的加锁的方式（所以说Python的GIL是设计之初一时偷懒造成的！）。Python库的开发者们接受了这个设定，即默认Python是thread-safe，所以开始大量依赖这个特性，无需在实现时考虑额外的内存锁和同步操作。但是GIL的设计有时会显得笨拙低效，但是此时由于内置库和第三方库已经对GIL形成了牢不可破的依赖，想改革GIL反而变得困难了（晕！）。所以目前的现状就是，Python的多线程在多核CPU上，只对于IO密集型计算产生正面效果；而当有至少有一个CPU密集型线程存在，那么多线程效率会由于GIL而大幅下降。虽然Python社区也在不断为此努力改进，但恐怕短时间内不会有改变，所以想规避GIL的，可以使用多进程的multiprocessing或concurrent.futures模块，或者换个Python的解析器。\n>\n> 多进程有一些缺点，它必须启动Python的多个实例，启动时间长，耗费内存多。同时，使用多进程并行运行任务，有一些极好的优点。多进程有它们各自的内存空间，使用的是无共享架构，数据访问十分清晰。也更容易移植到分布式系统中。\n>\n> Python的解析器 —— 含有GIL的有：CPython、PyPy、Psyco； 没有GIL的有：JPython，IronPython。\n\n> 原文地址：\n\n## GIL是什么 [...] > 原文地址：\n\n## GIL是什么\n\n首先需要明确的一点是GIL并不是Python的特性，它是在实现Python解析器(CPython)时所引入的一个概念。就好比C++是一套语言（语法）标准，但是可以用不同的编译器来编译成可执行代码。有名的编译器例如GCC，INTEL C++，Visual C++等。Python也一样，同样一段代码可以通过CPython，PyPy，Psyco等不同的Python执行环境来执行。像其中的JPython就没有GIL。然而因为CPython是大部分环境下默认的Python执行环境。所以在很多人的概念里CPython就是Python，也就想当然的把GIL归结为Python语言的缺陷。所以这里要先明确一点：GIL并不是Python的特性，Python完全可以不依赖于GIL\n\n那么CPython实现中的GIL又是什么呢？GIL全称Global Interpreter Lock为了避免误导，我们还是来看一下官方给出的解释：\n\n> In CPython, the global interpreter lock, or GIL, is a mutex that prevents multiple native threads from executing Python bytecodes at once. This lock is necessary mainly because CPython’s memory management is not thread-safe. (However, since the GIL exists, other features have grown to depend on the guarantees that it enforces.) [...] 因为GIL的存在，只有IO Bound场景下得多线程会得到较好的性能\n 如果对并行计算性能较高的程序可以考虑把核心部分也改成C模块，或者索性用其他语言实现\n GIL在较长一段时间内将会继续存在，但是会不断对其进行改进\n\n进一步参考资料：  \n\n本文参与 腾讯云自媒体同步曝光计划，分享自作者个人站点/博客。\n\n原始发表：2017.11.18 ，如有侵权请联系 cloudcommunity@tencent.com 删除\n\npython\n\n目录\n\n GIL是什么\n\n 为什么会有GIL\n\n GIL的影响\n\n 顺序执行的单线程(single\\_thread.py)\n\n 同时执行的两个并发线程(multi\\_thread.py)\n\n 当前GIL设计的缺陷\n  + 基于pcode数量的调度方式\n\n 如何避免受到GIL的影响\n  + 用multiprocessing替代Thread\n  + 用其他解析器\n  + 所以没救了么？\n\n 总结\n\n相关产品与服务\n\nGPU 云服务器\n\nGPU 云服务器（Cloud GPU Service，GPU）是提供 GPU 算力的弹性计算服务，具有超强的并行计算能力，作为 IaaS 层的尖兵利器，服务于生成式AI，自动驾驶，深度学习训练、科学计算、图形图像处理、视频编解码等场景。腾讯云随时提供触手可得的算力，有效缓解您的计算压力，提升业务效率与竞争力。\n\n产品介绍产品文档\n\n4核4G3M云服务器 新用户低至38元/年！\n\n ### 社区\n\n  + 技术文章\n  + 技术问答\n  + 技术沙龙\n  + 技术视频\n  + 学习中心\n  + 技术百科\n  + 技术专区\n ### 活动\n\n  + 自媒体同步曝光计划\n  + 邀请作者入驻\n  + 自荐上首页\n  + 技术竞赛\n ### 圈层",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.7763013,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "2",
+      "url": "https://mp.weixin.qq.com/s/1YajqhcWoGGPQcOQiAATgA",
+      "snippet": "",
+      "content": "# Python 有可能删除 GIL 吗？\n\nOriginalsomenzzsomenzz\nPython七号\n\n_Feb 18, 2021, 10:53 PM_\n\n在小说阅读器读本章\n\n去阅读\n\n在公众号小说中沉浸阅读\n\n我们知道，在 CPython 中，有一个全局解释器锁，英文叫 global interpreter lock，简称 GIL，是一个互斥锁，用来保护 Python 世界里的对象，防止同一时刻多个线程执行 Python 的字节码，从而确保线程安全，这导致了 Python 的线程无法利用多核 CPU 的优势，因此有人说 Python 的多线程是伪多线程，性能不高，那么 Python 将来有可能去除 GIL 吗？\n\n要回答这个问题，先从 GIL 的起源进行分析。\n\n### GIL 的起源\n\nPython 第一次发布是在 1991 年，当时的 CPU 都是单核，单核中，多线程主要为了一边做IO，一边做 CPU 计算而设计的，Python 编译器是由 C 语言编写的，因此也叫 CPython，那时候很多编程语言没有自动内存管理的功能，为了实现自动垃圾回收，Python 为每一个对象进行了引用计数，当引用计数为 0 的时候说明该对象可以回收，从而释放内存了，比如：\n\n```\n>>> import sys\n>>> data = { 'gzh': 'Python七号'}\n>>> var1 = data\n>>> sys.getrefcount(data)\n3\n>>>\n```\n\n这里 data 对象就有 3 个引用， 一个是本身，一个是变量 var1，一个是 getrefcount 函数的参数，如果此时又有一个线程引用了 data，那么引用计数再增加 1，如果某个线程使用了 data 后运行结束，那么引用计数就减少 1，多线程对同一个变量「引用计数」进行修改，就会遇到 race conditions（竞争），为了避免 race conditions，最简单有效的办法就是加一个互斥锁。\n\n如果对每一个对象都加锁，有可能引发另一个问题，就是死锁，而且频繁的获取和释放会导致性能下降，最简单有效的方法就是加一个解释器锁，线程在执行任何字节码时都先获取解释器锁，这就避免了死锁，而且不会有太多的性能消耗。当时 CPU 都是单核，而且这种 GIL 设计简单，并不会影响性能，因此一直沿用至今天。GIL 存在最主要的原因，就是因为 Python 的内存管理不是线程安全的，这就是 GIL 产生并存在的主要缘由。\n\n### 尝试消除 GIL\n\nCPU 进入多核时代后，可以同时做多个计算任务, GIL 才真正变成问题。在 1999 年，有个叫 Greg Stein 的大佬基于 Python 1.5 版本消除了 GIL，取代代之的是在可变数据结构上加上更细粒度的锁，也提交了补丁用于去除对全局可变对象的依赖，然后在标准测试时表明去除 GIL 后单线程比不去除时慢了近 2 倍，测试的机器还是当时性能最好 Windows 机器。也就是说除去了 GIL 后，你使用 2 个 CPU 才能获取比原来 1 个 CPU 稍微好一点的性能，这种提升明显得不偿失，Greg Stein 的尝试也就失败告终。\n\nPython 之父 Guido van Rossum 也欢迎社区的志愿者去尝试去除 GIL，只要不降低单线程的性能，但他也提到，去掉 GIL 不是一件容易的事。\n\nPython 开发者邮件列表中也偶尔会有去除 GIL 的议题，但是以下需求必须满足：\n\n1. 简单。从长远来看该方案必须是可实施、可维护的。\n2. 并发。去除 GIL 必须能提升多线程的性能。\n3. 速度。去除 GIL 不能降低单线程的性能。\n4. 满足 CPython 的特性。该方案必须支持 CPython 的功能，比如 `__del__` 和弱引用。\n5. API 的兼容性。该方案应与所有现有CPython扩展使用的宏在源方面兼容。\n6. 及时销毁不可达对象，回收内存。\n7. 有序销毁，比如不可达对象 X 引用了 A，那么应该在销毁 A 之前先销毁 X（有些垃圾回收算法并不能做到这一点）。\n\n有些需求不容易被满足，比如 4，5，7，目前，还没有人满足以上需求的同时去除 GIL 成功的。\n\n### 积重难返\n\n这些年 Python 实在太火了，很多优秀的库都是基于 CPython 进行编写的，很多都是 90 年代的 C 扩展库，如果要除去 GIL，那么很多基于 GIL 编写的 C 扩展便无法使用，也就是去了 GIL，Python 生态有很多扩展或三方库者无法使用。\n\n还有一个很明显的例子，Python 解释器不止有 CPython，还有用 Java 编写的 Python，.NET 实现的 IronPython，这些解释器完全没有 GIL，可是有多少人为它们编写扩展呢？\n\nPython 之所以如此火爆，与它有着丰富的三方库开箱即用有着很大的关系，积重难返，去除 GIL 很困难。\n\n### 为什么 Python3 一开始时不去除 GIL\n\nPython3 在最开始时是有机会实现很多新功能，在此过程中，打破了一些现有的 C 扩展，然后需要更新和移植更改以配合 Python 3，这也是 Python3 一开始不被社区所接受的原因。\n\n与 Python2 相比，删除 GIL 将使 Python3 在单线程性能方面更慢，而且很多优秀的扩展将不能再使用，如果真的这样，可以想象 Python3 不可能有未来，最终的结果是 Python3 仍然保持有 GIL。\n\n但 Python3 也为现有的 GIL 带来了重大改进，在 Python 3.2 版本中，确保了计算密集型线程和 I/O 密集型线程并存时， I/O 密集型长期获取不到 GIL 而无法执行的问题，提升了多线程的性能。\n\n### 最后的话\n\nPython 因为内存管理不是线程安全的，因此自出生起就自带 GIL，然后很多扩展都是在 GIL 的保护下编写的，时间一长积重难反，Python3 一开始也因去除 GIL 导致单线程性能下降的问题而保留 GIL，现在已经是 Python3.9 版本了，将来 Python 去除 GIL 的可能性微乎其微，换句话说，去除 GIL 的 Python 也就不是我们认识的 Python 了。\n\n不过不必沮丧，GIL 影响的也仅仅是多线程执行计算密集型的任务罢了，这种场景大多数程序员都很少遇到，即使有，可以使用多进程来避免 GIL 的影响，或者使用其他编程语言实现，任何编程语言或技术都不是十全十美的，发挥所长是最重要的，即使有 GIL，我也不在乎，也会依然使用 Python。\n\n推荐阅读： [是的，Python是慢，但我不在乎](http://mp.weixin.qq.com/s?__biz=MzU0OTg3NzU2NA==&mid=2247484992&idx=1&sn=104120e56f563a23dc359859fba320f1&chksm=fba86413ccdfed05d8d8d91d7ed300aeab2bfda3cbddaa331a62df5e82bfbace1379c8b4b64d&scene=21#wechat_redirect)\n\n如果文章对你有用，请点赞、再看、转发，让更多的朋友看到，你的每一次再看，我都当成了喜欢！感谢支持！\n\n[留言讨论](https://mp.weixin.qq.com/s/1YajqhcWoGGPQcOQiAATgA)\n\n![](http://mmbiz.qpic.cn/mmbiz_png/EnE7vpEWFnr6XrUI5Jbq6WkDLoicia7XROdXbWgiajCPqRa2X2V6sULA2iahqP4IoODQ1yHibfswp5oLrnfeGV4gMyg/300?wx_fmt=png&wxfrom=19)\n\n**Python七号**\n\n一个玩鲁班七号的程序员，带你玩转 Python。专注于分享 Python 编程和实战，关注后回复【2048】，获取我珍藏的学习资源，交个朋友，一起用 Python 超神。\n\n454篇原创内容\n\nOfficial Account\n\n\n，\n\n预览时标签不可点\n\n**微信扫一扫赞赏作者**Like Author\n\n一元或点「在看」都是莫大的鼓舞\n\nClose\n\n**0人付费**\n\n更多\n\nLoading...\n\nLoading...\n\nClose\n\n更多\n\nName cleared\n\n**微信扫一扫赞赏作者**\n\nGive AuthorOther Amount\n\n赞赏后展示我的头像\n\n作品\n\n暂无作品\n\nGive Author\n\nOther Amount\n\n¥\n\n最低赞赏 ¥0\n\nOK\n\nBack\n\n**Other Amount**\n\n更多\n\n赞赏金额\n\n¥\n\n最低赞赏 ¥0\n\n1\n\n2\n\n3\n\n4\n\n5\n\n6\n\n7\n\n8\n\n9\n\n0\n\n.\n\n编程 · Table of Contents\n\n#编程\n\nPreviousPython批量下载抖音大V主页视频Next下次别用递归了\n\nClose\n\n更多\n\n搜索「」网络结果\n\nClose\n\n**调整当前正文文字大小**\n\n更多\n\n100%\n\n此设置仅对当前内容生效，如需全局调整，请前往微信系统设置\n\n不喜欢\n\n​\n\nScan to Follow\n\n当前内容可能存在未经审核的第三方商业营销信息，请确认是否继续访问。\n\n继续访问Cancel\n\n[微信公众平台广告规范指引](javacript:;)\n\nGot It\n\nScan with Weixin to\n\nuse this Mini Program\n\nCancelAllow\n\nCancelAllow\n\nCancelAllow\n\n×分析\n\n![跳转二维码](https://mp.weixin.qq.com/s/1YajqhcWoGGPQcOQiAATgA)\n\n![作者头像](http://mmbiz.qpic.cn/mmbiz_png/EnE7vpEWFnr6XrUI5Jbq6WkDLoicia7XROdXbWgiajCPqRa2X2V6sULA2iahqP4IoODQ1yHibfswp5oLrnfeGV4gMyg/0?wx_fmt=png)\n\n微信扫一扫可打开此内容，\n\n使用完整服务\n\n![](https://mmbiz.qpic.cn/mmbiz_png/EnE7vpEWFnr6XrUI5Jbq6WkDLoicia7XROdXbWgiajCPqRa2X2V6sULA2iahqP4IoODQ1yHibfswp5oLrnfeGV4gMyg/0?wx_fmt=png)\n\nPython七号\n\n已关注\n\nLike\n\nShare\n\nBoost\n\nComment\n\n: ，，，，，，，，，，，，.VideoMini ProgramLike，轻点两下取消赞Wow，轻点两下取消在看ShareCommentFavorite听过\n\n可在「公众号 \\> 右上角  \\> 划线」找到划线过的内容\n\n![划线引导图](https://res.wx.qq.com/op_res/opqv3ix6k9E4e64ZzO7uIqE3ZblwIojfmt7u70m59yS1ylFK-hTu6Ra8V_LaWQJ1P4OlUJPdXLfVBtrm3TwRrw)\n\nOK\n\n,\n\n,\n\n选择留言身份\n\n该账号因违规无法跳转\n\nClose\n\n**Comment**\n\n更多\n\nClose\n\n更多\n\nBack\n\n**的内容会推荐给朋友和关注你的人**\n\n更多\n\n对关注你的人展示公众号身份\n\n![](https://res.wx.qq.com/op_res/RCdSzC74aDD_QnWHvT8sNtESWCvezsiPOk6PEvubsj8wv5t3hSJndZcCOdHhYDBlk8xXexSC1CZccFnFO5JCHg)![](https://res.wx.qq.com/op_res/RCdSzC74aDD_QnWHvT8sNnXUvwtSaR2y5wHybXLJy_bhOTBTw97S11whc3dq9C0qRKv2tXjGNhrEXV4-6jYgIQ)\n\nOK\n\nClose\n\n**编程**\n\nDetails\n\n更多\n\nLoading...\n\n关闭\n\n## 确认提交投诉\n\n你可以补充投诉原因（选填）\n\n确定\n\nwxa-pcopensdk",
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "firecrawl"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "[译] Python全局解释器锁(GIL)是什么 - Aiar's Site",
+      "url": "https://aiar.site/post/37e820d83e914ea38386ad1aa323f3c5",
+      "snippet": "[![Featured image of post [译] Python全局解释器锁(GIL)是什么](\n\n译文\n\n## [[译] Python全局解释器锁(GIL)是什么](/post/37e820d83e914ea38386ad1aa323f3c5/)\n\n### 在这篇文章中，你将会学习到GIL是如何影响Python程序性能的，以及如何缓解这些影响\n\n> 原文标题：What Is the Python Global Interpreter Lock (GIL)?  \n> 原文作者： Abhinav Ajitsaria  \n> 原文链接：\n\n简单来说，Python 的全局解释器锁(GIL)是一种互斥元(或锁)，同一时刻它只允许一个线程持有对 Python 解释器的控制权。\n\n这意味着，在任意一个时间点都只能有一个线程处于执行状态。GIL 带来的影响对于只执行单线程程序的开发者几乎不可见，但是它会成为计算密集型或多线程代码的性能瓶颈。\n\n由于即使在拥有多个 CPU 的多线程架构中，GIL 也只允许同一时刻仅有一个线程可执行，因此 GIL 已经臭名昭著了。\n\n在这篇文章中，你将会学习到GIL是如何影响Python程序性能的，以及如何缓解这些影响\n\n## GIL 解决了 Python 中 的什么问题\n\nPython 使用引用计数进行内存管理，这意味着每一个在 Python 中创建的对象都有一个引用数变量，用于保持追踪有多少指向该变量的引用。当这个数量变为零时，该变量占用的内存将被释放。（译者注：详见CPython 的垃圾回收）\n\n来看一段代码演示下引用计数是如何工作的： [...] 来看一段代码演示下引用计数是如何工作的：\n\n```\n>>> import sys >>> import sys >>> import sys>>> a = [] >>> a = [] >>> a =[]>>> b = a >>> b = a >>> b = a>>> sys.getrefcount(a) >>> sys.getrefcount(a) >>> sys. getrefcount(a) 3 3 3\n```\n\n在上面的例子中，空列表对象 `[]` 的引用计数是 3。该对象被 `a`、`b` 以及传入 `sys.getrefcount()` 方法的参数所引用。\n\n回到 GIL：\n\n问题在于，这个引用计数变量需要避免竞争局面的产生，比如两个线程同时增加或者减少这个值。这种局面一旦出现，轻则造成一部分内存永远不会被释放，重则导致一些还拥有引用的对象的内存被释放。而这可能会导致 Python 程序崩溃，或者其他奇奇怪怪的 bug。\n\n比较容易想到的解决方案是，为所有跨线程共享的数据结构加锁，这样可以通过保证数据结构修改的一致性，进而保证引用计数变量的安全性。\n\n但是，为每一个对象或每一组对象加锁意味着会有多个锁同时存在，这将造成另外一个问题——死锁(死锁只会发生在同时存在超过一个锁的情况下)。从另一个角度来看，频繁申请和释放锁资源也会降低程序性能。\n\nGIL 是添加在解释器自身上的一个简单的锁，它有这样一个规则：执行任何字节码都需要申请解释器锁。这防止了死锁(因为只有一个锁存在)，也不会对性能造成过多的影响。但是它实际上造成任何计算密集型 Python 程序只能是单线程。\n\n尽管 GIL 也被其他语言的解释器使用，比如 Ruby，但它并不是这个问题唯一的解决方案。一些语言通过使用引用计数之外的方法(如垃圾回收)来避免 GIL 对线程安全内存管理的依赖。 [...] 在我的机器上执行会有这样的输出：\n\n```\n$ python multiprocess.py $ python multiprocess.py Time taken in seconds - 4.060242414474487 Time taken in seconds - 4.060242414474487 \n```\n\n相较于多线程版本，这样能有一个不错的性能提升，还可以吧~\n\n我们看到，时间花费并没有下降为原本的一半，这是因为进程管理也有它自己的花费。多进程比多线程更重，所以要考虑清楚，这可能会成为新的瓶颈。\n\n使用其他解释器： Python 有很多解释器的实现版本，最受欢迎的有 CPython、Jython、IronPython 以及 PyPy，它们分别是由 C、Java、C# 和 Python 实现的版本。GIL 仅存在于最初的实现版本 CPython 中。如果你的程序以及它依赖的一些库对于一种或多种解释器都适用，那么你也可以尝试使用别的解释器。\n\n敬候佳音： 尽管有很多 Python 的使用者在利用 GIL 在单线程程序上的性能优势，但是多线程开发人员也不用太过发愁，因为 Python 社区中一些最聪明的人正致力于将 GIL 从 CPython 中移除，比如 Gilectomy 这个尝试。(译者注：可惜这个尝试已经有8年没有更新了，最后截至到Python3.6版本)\n\nPython 的 GIL 经常被看作是一个神秘而又困难的主题，但作为 Pythonista，通常你只会在写 C 扩展或者计算密集型程序时，才会被它影响。\n\n因此，本文为你介绍了 GIL 是什么以及在程序中如何处理它。如果你想继续了解 GIL 底层工作原理，建议观看 David Beazley 的《理解 Python GIL》这场演讲。",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.73755574,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "3",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA%3D%3D&chksm=fdc603edcab18afbbb665903d4ff939c9b3fdf6c8d6b2065d8dfa60ff4002eae495eeb5560ea&idx=1&mid=2247484178&scene=21&sn=fa385d6a50de9262cf16f8b737b20b80",
+      "snippet": "",
+      "content": ": ，.VideoMini ProgramLike，轻点两下取消赞Wow，轻点两下取消在看\n\n验证码\n\n返回\n\n确定\n\n![](<Base64-Image-Removed>)\n\n图片加载失败，请点击刷新\n\n![success](<Base64-Image-Removed>)\n\n验证成功！\n\n我不会\n\n常规验证\n\n换一组\n\n确定\n\nRefreshing too often\n\nVerification Code will refresh in 2 sec.",
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "firecrawl"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "Python3_LEARN/14-Python-GIL（全局解释器锁）.md at master · lichangke/Python3_LEARN · GitHub",
+      "url": "https://github.com/lichangke/Python3_LEARN/blob/master/14-Python-GIL%EF%BC%88%E5%85%A8%E5%B1%80%E8%A7%A3%E9%87%8A%E5%99%A8%E9%94%81%EF%BC%89.md",
+      "snippet": "115 lines (75 loc) · 4.92 KB\n\nRaw\n\nCopy raw file\n\nDownload raw file\n\nOutline\n\nEdit and raw actions\n\n目录链接：\n\nGIL（Global Interpreter Lock， 即全局解释器锁）\n\n## 一个不解之谜\n\n假设有下面这段很简单的 cpu-bound 代码：\n\n```\ndef CountDown n while n> 0 n -= 1\n```\n\n如果有一个很大的数 n = 100000000，单线程与多线程的情况下执行CountDown(n)\n\n### 单线程\n\n### 多线程\n\n多线程试了2个线程，5个线程其耗时和单线程基本相同\n\n## 为什么有 GIL？\n\n是什么导致上面的情况出现呢？“罪魁祸首”就是 GIL， 导致了 Python 线程的性能并不像我们期望的那样。\n\nGIL， 是Python 解释器 CPython 中的一个技术术语。 它的意思是全局解释器锁， 本质上是类似操作系统的 Mutex。 每一个 Python 线程， 在 CPython 解释器中执行时， 都会先锁住自己的线程， 阻止别的线程执行。当然， CPython 会 轮流执行 Python 线程，用户看到的就是“伪并行”——Python 线程在交错执行， 来模拟真正并行的线程。\n\n为什么 CPython 需要 GIL 呢？这和 CPython 的实现有关。CPython 使用引用计数来管理内存， 所有 Python 脚本中创建的实例， 都会有一个引用计数， 来记录有多少个指针指向它。 当引用计数只有 0 时， 则会自动释放内存。\n\na 的引用计数是 3， 因为有 a、 b 和作为参数传递的 getrefcount 这三个地方， 都引用个一空列表。 [...] a 的引用计数是 3， 因为有 a、 b 和作为参数传递的 getrefcount 这三个地方， 都引用个一空列表。\n\n这样一来， 如果有两个 Python 线程同时引用了 a， 就会造成引用计数的 race condition， 引用计数可能最终只增加 1， 这样就会造成内存被污染。 第一个线程结束时， 会把引用计数减少 1，这时可能达到条件释放内存， 当第二个线程再试图访问 a 时， 就找不到有效的内存了。\n\nCPython 引进 GIL 其实主要就是这么两个原因：\n\n 设计者为了规避类似于内存管理这样的复杂的竞争风险问题（race condition） ；\n 因为 CPython 大量使用 C 语言库， 但大部分 C 语言库都不是原生线程安全的（线程安全会降低性能和增加复杂度） 。\n\n## GIL 是如何工作的？\n\n如下图， 就是一个 GIL 在 Python 程序的工作示例。\n\nThread 1、 2、 3 轮流执行， 每一个线程在开始执行时， 都会锁住 GIL， 以阻止别的线程执行；同样的， 每一个线程执行完一段后，会释放 GIL， 以允许别的线程开始利用资源\n\nPython 线程会去主动释放 GIL，不然别的线程就都没有了运行的机会。CPython 中还有另⼀个机制， 叫做 check\\_interval， 意思是 CPython 解释器会去轮询检查线程 GIL 的锁住情况。 每隔一段时间， Python 解释器就会强制当前线程去释放 GIL， 这样让别的线程有执行机会。\n\n## Python 的线程安全\n\n有了 GIL， 并不意味着我们 Python 编程者就不用去考虑线程安全了。虽然 GIL仅允许一个 Python 线程执行，Python 还有 check interval 这样的抢占机制。 [...] ```\nimport threading n = 0 def foo global n n += 1 threads = for i in range 100 t = threading Thread target = foo threads append t for t in threads t start for t in threads t join print n\n```\n\n会发现出现打印 99 或者 98的情况。因为， n+=1 这一句代码让线程并不安全。作为 Python 的使用者， 我们还是需要 lock 等工具， 来确保线程安全。\n\n```\nn = 0 lock = threading Lock def foo global n with lock n += 1\n```\n\n## 如何绕过 GIL？\n\n绕过 GIL 的大致思路有这么两种：\n\n1. 绕过 CPython， 使用 JPython（Java 实现的 Python 解释器） 等别的实现；\n2. 把关键性能代码， 放到别的语言（一般是 C++） 中实现。\n\n极客时间 Python核心技术与实战学习\n\nPython核心技术与实战（极客时间）链接： \n\n> GitHub链接： \n\n> 知乎个人首页： \n\n> 简书个人首页： \n\n> 个人Blog: \n\nYou can’t perform that action at this time.",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.7300017,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "4",
+      "url": "https://mp.weixin.qq.com/s/-0wQCHrTO6JXRQNLO0i7WQ",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "Python的GIL是什么鬼，多线程性能究竟如何 • cenalulu's Tech Blog",
+      "url": "http://cenalulu.github.io/python/gil-in-python",
+      "snippet": "cenalulu's Tech Blog\n\n> 前言：博主在刚接触Python的时候时常听到GIL这个词，并且发现这个词经常和Python无法高效的实现多线程划上等号。本着不光要知其然，还要知其所以然的研究态度，博主搜集了各方面的资料，花了一周内几个小时的闲暇时间深入理解了下GIL，并归纳成此文，也希望读者能通过次本文更好且客观的理解GIL。\n\n> 文章欢迎转载，但转载时请保留本段文字，并置于文章的顶部 作者：卢钧轶(cenalulu) 本文原文地址：\n\n## GIL是什么\n\n首先需要明确的一点是`GIL`并不是Python的特性，它是在实现Python解析器(CPython)时所引入的一个概念。就好比C++是一套语言（语法）标准，但是可以用不同的编译器来编译成可执行代码。有名的编译器例如GCC，INTEL C++，Visual C++等。Python也一样，同样一段代码可以通过CPython，PyPy，Psyco等不同的Python执行环境来执行。像其中的JPython就没有GIL。然而因为CPython是大部分环境下默认的Python执行环境。所以在很多人的概念里CPython就是Python，也就想当然的把`GIL`归结为Python语言的缺陷。所以这里要先明确一点：GIL并不是Python的特性，Python完全可以不依赖于GIL\n\n那么CPython实现中的GIL又是什么呢？GIL全称`Global Interpreter Lock`为了避免误导，我们还是来看一下官方给出的解释： [...] 当然multiprocessing也不是万能良药。它的引入会增加程序实现时线程间数据通讯和同步的困难。就拿计数器来举例子，如果我们要多个线程累加同一个变量，对于thread来说，申明一个global变量，用thread.Lock的context包裹住三行就搞定了。而multiprocessing由于进程之间无法看到对方的数据，只能通过在主线程申明一个Queue，put再get或者用share memory的方法。这个额外的实现成本使得本来就非常痛苦的多线程程序编码，变得更加痛苦了。具体难点在哪有兴趣的读者可以扩展阅读这篇文章\n\n#### 用其他解析器\n\n之前也提到了既然GIL只是CPython的产物，那么其他解析器是不是更好呢？没错，像JPython和IronPython这样的解析器由于实现语言的特性，他们不需要GIL的帮助。然而由于用了Java/C#用于解析器实现，他们也失去了利用社区众多C语言模块有用特性的机会。所以这些解析器也因此一直都比较小众。毕竟功能和性能大家在初期都会选择前者，`Done is better than perfect`。\n\n#### 所以没救了么？\n\n当然Python社区也在非常努力的不断改进GIL，甚至是尝试去除GIL。并在各个小版本中有了不少的进步。有兴趣的读者可以扩展阅读这个Slide 另一个改进Reworking the GIL\n\n 将切换颗粒度从基于opcode计数改成基于时间片计数\n 避免最近一次释放GIL锁的线程再次被立即调度\n 新增线程优先级功能（高优先级线程可以迫使其他线程释放所持有的GIL锁）\n\n## 总结\n\nPython GIL其实是功能和性能之间权衡后的产物，它尤其存在的合理性，也有较难改变的客观因素。从本分的分析中，我们可以做以下一些简单的总结： [...] > In CPython, the global interpreter lock, or GIL, is a mutex that prevents multiple native threads from executing Python bytecodes at once. This lock is necessary mainly because CPython’s memory management is not thread-safe. (However, since the GIL exists, other features have grown to depend on the guarantees that it enforces.)\n\n好吧，是不是看上去很糟糕？一个防止多线程并发执行机器码的一个Mutex，乍一看就是个BUG般存在的全局锁嘛！别急，我们下面慢慢的分析。\n\n## 为什么会有GIL\n\n由于物理上得限制，各CPU厂商在核心频率上的比赛已经被多核所取代。为了更有效的利用多核处理器的性能，就出现了多线程的编程方式，而随之带来的就是线程间数据一致性和状态同步的困难。即使在CPU内部的Cache也不例外，为了有效解决多份缓存之间的数据同步时各厂商花费了不少心思，也不可避免的带来了一定的性能损失。\n\nPython当然也逃不开，为了利用多核，Python开始支持多线程。而解决多线程之间数据完整性和状态同步的最简单方法自然就是加锁。 于是有了GIL这把超级大锁，而当越来越多的代码库开发者接受了这种设定后，他们开始大量依赖这种特性（即默认python内部对象是thread-safe的，无需在实现时考虑额外的内存锁和同步操作）。",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.7135319,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "1",
+      "url": "https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "Python的全局解释器锁（GIL）GIL是什么为什么会有GILGIL的影响顺序执行的单线程(single_thread.py)同时执行的两个并发线程(multi_thread.py)当前GIL设计的-腾讯云开发者社区-腾讯云",
+      "url": "https://developer.cloud.tencent.com/article/1106632",
+      "result_id": "r2",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "2",
+      "url": "https://mp.weixin.qq.com/s/1YajqhcWoGGPQcOQiAATgA",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "[译] Python全局解释器锁(GIL)是什么 - Aiar's Site",
+      "url": "https://aiar.site/post/37e820d83e914ea38386ad1aa323f3c5",
+      "result_id": "r4",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "3",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA%3D%3D&chksm=fdc603edcab18afbbb665903d4ff939c9b3fdf6c8d6b2065d8dfa60ff4002eae495eeb5560ea&idx=1&mid=2247484178&scene=21&sn=fa385d6a50de9262cf16f8b737b20b80",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "Python3_LEARN/14-Python-GIL（全局解释器锁）.md at master · lichangke/Python3_LEARN · GitHub",
+      "url": "https://github.com/lichangke/Python3_LEARN/blob/master/14-Python-GIL%EF%BC%88%E5%85%A8%E5%B1%80%E8%A7%A3%E9%87%8A%E5%99%A8%E9%94%81%EF%BC%89.md",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "4",
+      "url": "https://mp.weixin.qq.com/s/-0wQCHrTO6JXRQNLO0i7WQ",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "Python的GIL是什么鬼，多线程性能究竟如何 • cenalulu's Tech Blog",
+      "url": "http://cenalulu.github.io/python/gil-in-python",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "5",
+      "url": "https://mp.weixin.qq.com/s/2Ictx9VbqNTuBw1yZQDIOg",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "6",
+      "url": "https://mp.weixin.qq.com/s/gX_-JECFEFKaK0AyJiUjTw",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "7",
+      "url": "https://mp.weixin.qq.com/s/LXYy-caA9R1VKZ4SZCNODQ",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "8",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzA4MjEyNTA5Mw%3D%3D&chksm=8464d388b3135a9e76bfe57603b4518ae4e12018c45a120fd30229e14970687881e307fb8b85&idx=1&mid=2652568514&scene=21&sn=9a5f20e1141dad543ae7f9e765a660b7",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "它来了！真正的 python 多线程 - 咸鱼Linux运维 - 博客园",
+      "url": "https://www.cnblogs.com/edisonfish/p/17431316.html",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "一文详解 Python GIL 设计-阿里云开发者社区",
+      "url": "https://developer.aliyun.com/article/1127998",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "聊聊Python中的GIL - 青山牧云人",
+      "url": "https://www.cnblogs.com/ArsenalfanInECNU/p/9968621.html",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "你真的懂Python GIL（全局解释器锁）吗？ - 极客时间",
+      "url": "https://time.geekbang.org/column/article/103834",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "deep",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 18463,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "deep_supplement",
+        "latency_ms": 5780,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "ok",
+        "reason": "post_discovery",
+        "latency_ms": 20528,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "ok",
+        "reason": "post_discovery",
+        "latency_ms": 10924,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "ok",
+        "reason": "post_discovery",
+        "latency_ms": 9806,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_deep_supplement",
+      "depth_deep",
+      "domains_below_threshold:1<2"
+    ]
+  },
+  "cache": {
+    "hit": false,
+    "age_seconds": 0.0,
+    "ttl_seconds": 120,
+    "namespace": "search"
+  },
+  "elapsed_ms": 44856,
+  "api_calls": {
+    "xai": 1,
+    "tavily": 1,
+    "firecrawl": 3
+  },
+  "score": {
+    "id": "wechat-mp-discovery",
+    "scores": {
+      "discovery": {
+        "status": "fail",
+        "matched_targets": [],
+        "required": 1
+      },
+      "reading": {
+        "status": "not_attempted"
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "discovery:fail"
+      ]
+    },
+    "expected_access": "login",
+    "observed_failure": null,
+    "algorithm_miss": true
+  }
+}

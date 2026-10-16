@@ -1,0 +1,86 @@
+{
+  "id": "hn-comment-dissent",
+  "executed_at": "2026-10-15T08:33:55.269082+00:00",
+  "depth": "deep",
+  "provider_query": "In the Hacker News thread about SQLite as an application file format, find a comment that says the user interface should not wait on disk before responding",
+  "answer": "",
+  "results": [],
+  "citations": [],
+  "errors": [
+    {
+      "provider": "allsearch",
+      "code": "deadline_exceeded",
+      "message": "overall search deadline exceeded",
+      "retryable": true
+    }
+  ],
+  "route": {
+    "primary": "xai",
+    "depth": "deep",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "deadline_exceeded",
+        "latency_ms": null,
+        "detail": null
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "deadline_exceeded",
+        "latency_ms": null,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_deep_supplement",
+      "depth_deep",
+      "recency_signal"
+    ]
+  },
+  "cache": {
+    "hit": false,
+    "age_seconds": 0.0,
+    "ttl_seconds": 120,
+    "namespace": "search"
+  },
+  "fetched": [],
+  "comments": [],
+  "elapsed_ms": 90027,
+  "api_calls": {},
+  "score": {
+    "id": "hn-comment-dissent",
+    "scores": {
+      "discovery": {
+        "status": "fail",
+        "matched_targets": [],
+        "required": 1
+      },
+      "comments": {
+        "status": "fail",
+        "matched_comments": []
+      },
+      "synthesis": {
+        "status": "fail",
+        "reason": "empty_answer"
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "comments:fail",
+        "synthesis:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true
+  }
+}

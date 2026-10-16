@@ -1,0 +1,48 @@
+{
+  "id": "antibot-shell",
+  "query": "Open the Chiphell viewthread page and record whether the body is a captcha shell",
+  "elapsed_ms": 141175,
+  "returncode": 0,
+  "tools": [
+    "mcp__allsearch__search",
+    "mcp__allsearch__health",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result"
+  ],
+  "answer": "**不是验证码壳。** 抓到的是正常 Discuz 帖子正文，不是验证码或人机验证页。\n\n核对页：https://www.chiphell.com/forum.php?mod=viewthread&tid=350093  \n最终 URL 未跳转。同帖短链：https://www.chiphell.com/thread-350093-1-1.html\n\n- 标题：水冷/MOD区 精华作品，MOD案例，典型问答索引（持续更新） - 电脑讨论(新) - Chiphell - 分享与交流用户体验\n- 版块路径落到「电脑讨论(新)」，统计为「查看:119190|回复:13」。\n- 一楼作者 witson，发表于 2011-9-5 14:38。开头原文是：「一楼和二楼为精华作品索引（淡黄背景）三楼和四楼为MOD案例 （蓝灰色背景)五楼为典型问答索引(橙色背景）」。\n- 已读正文里没有验证码、captcha、seccode 或人机验证壳。Firecrawl 在 30000 字处截断，截断点仍在一楼评分表，后面的楼层回复不在这次正文里。\n\n读到的评分理由原句：\n\n- fatsnail：「拖版辛苦。造福水友了」\n- seawolf1：「拖版辛苦了！」\n- nlelkey：「辛苦了！」\n- jackdn 只有 +100，理由格是空的。评分表写明参与人数 6，其余条目被截断，没有读到。",
+  "stderr": "",
+  "score": {
+    "id": "antibot-shell",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "chiphell-shell"
+        ],
+        "required": 1
+      },
+      "reading": {
+        "status": "not_attempted"
+      }
+    },
+    "task": {
+      "status": "blocked",
+      "reasons": [
+        "reading:not_attempted"
+      ]
+    },
+    "expected_access": "anti_bot",
+    "observed_failure": "anti_bot",
+    "algorithm_miss": false
+  }
+}

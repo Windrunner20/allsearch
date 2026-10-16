@@ -1,0 +1,33 @@
+{
+  "id": "fetch-python-venv",
+  "query": "请读取这个 URL 并说明页面是否在讲 venv 模块：https://docs.python.org/3/library/venv.html",
+  "elapsed_ms": 52442,
+  "returncode": 0,
+  "tools": [
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result"
+  ],
+  "answer": "是的。这个页面就是 Python 标准库文档里的 `venv` 模块说明，讲的是如何创建轻量级虚拟环境。\n\n可核对链接：https://docs.python.org/3/library/venv.html\n\n抓取结果里，最终 URL 与请求 URL 相同，标题是 `venv — Creation of virtual environments — Python 3.15.0 documentation`（Python 3.15.0 文档）。页面位于 “The Python standard library” → “Software Packaging and Distribution” 下，标题为 `` `venv` — Creation of virtual environments ``，并标注 Added in version 3.3。源码链接是 https://github.com/python/cpython/tree/3.15/Lib/venv/。\n\n正文原句：\n\n> The `venv` module supports creating lightweight “virtual environments”, each with their own independent set of Python packages installed in their `site` directories.\n\n后面还说明：虚拟环境建立在已有的 “base” Python 之上，默认与基础环境里的包隔离；在虚拟环境内使用 pip 时，包会装进该环境。页面还指向 PEP 405：https://peps.python.org/pep-0405/。\n\n这次读到的是文档正文，没有读者评论，所以没有可引用的评论原句。",
+  "stderr": "",
+  "score": {
+    "id": "fetch-python-venv",
+    "scores": {
+      "reading": {
+        "status": "not_attempted"
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "reading:not_attempted"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true
+  }
+}

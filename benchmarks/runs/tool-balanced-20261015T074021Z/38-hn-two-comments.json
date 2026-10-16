@@ -1,0 +1,76 @@
+{
+  "id": "hn-two-comments",
+  "executed_at": "2026-10-15T07:57:16.341118+00:00",
+  "depth": "balanced",
+  "provider_query": "In the Hacker News discussion of SQLite as an application file format, read both the comment that rejects waiting on disk in the interface and the comment about Windows file-system snapshots",
+  "answer": "",
+  "results": [],
+  "citations": [],
+  "errors": [
+    {
+      "provider": "allsearch",
+      "code": "deadline_exceeded",
+      "message": "overall search deadline exceeded",
+      "retryable": true
+    }
+  ],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "deadline_exceeded",
+        "latency_ms": null,
+        "detail": null
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "deadline_exceeded",
+        "latency_ms": null,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "recency_signal"
+    ]
+  },
+  "cache": {
+    "hit": false,
+    "age_seconds": 0.0,
+    "ttl_seconds": 120,
+    "namespace": "search"
+  },
+  "fetched": [],
+  "comments": [],
+  "elapsed_ms": 90031,
+  "api_calls": {},
+  "score": {
+    "id": "hn-two-comments",
+    "scores": {
+      "comments": {
+        "status": "fail",
+        "matched_comments": []
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "comments:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true
+  }
+}

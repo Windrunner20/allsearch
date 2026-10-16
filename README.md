@@ -1,137 +1,28 @@
-# AllSearch MCP
+# AllSearch
 
-面向 AI Agent 的 **Grok-first 多源搜索 MCP**：先用 Grok 建立答案与引用基线，再按任务需要调用 Tavily、AnySearch 和 Firecrawl 补充证据。
+给 Pi 和其他 MCP Host 用的搜索服务：Grok 先给出带引用的答案，需要时再补 Tavily、AnySearch 和 Firecrawl。默认走一条长期 stdio 连接，搜索摘要和完整结果分开，避免把整页 JSON 塞进模型上下文。
 
-AllSearch 适合接入 Pi、OpenClaw 或其他 MCP Host。它提供统一的搜索结果结构、Provider 路由记录、引用去重、垂直领域检索和网页正文抓取，并附带一个防止搜索结果撑爆上下文的 Pi Extension。
+适合已经有 Grok（或兼容的 Responses 端点）以及按需补充源密钥的本地 Agent。它不替代浏览器，也不保证能读登录墙、验证码或付费墙后面的内容。
 
-> **项目状态：** `v0.2.0`，已完成真实 Provider 与 MCP stdio 调用验证，适合本地使用和边用边调。搜索质量策略仍会继续迭代。
-
-## 它解决什么问题
-
-一个 Agent 的外部搜索通常不是“选一个搜索 API”这么简单：
-
-- Grok 擅长搜索、理解问题并生成带引用的初步答案；
-- Tavily 适合补充网页结果和做独立交叉验证；
-- AnySearch 对 CVE、金融、学术、法律等垂直领域更有结构化优势；
-- Firecrawl 适合在已经发现 URL 后抓取完整正文。
-
-AllSearch 将这些能力收进一个 MCP，并保持明确的优先级：
-
-```mermaid
-flowchart LR
-    A[Agent / MCP Host] --> B[AllSearch search]
-    B --> C[Grok primary search]
-    C --> D{Coverage & query signals}
-    D -->|Need web corroboration| E[Tavily]
-    D -->|Vertical domain| F[AnySearch]
-    C --> G[Merge, rank, deduplicate]
-    E --> G
-    F --> G
-    G --> H{Need full content?}
-    H -->|Yes| I[Firecrawl]
-    H -->|No| J[Structured evidence]
-    I --> J
-```
-
-### Provider 职责
-
-| Provider | 在 AllSearch 中的职责 |
-| --- | --- |
-| Grok / xAI-compatible Responses | 默认主搜索、答案与引用基线 |
-| Tavily | 网页补充、官方来源发现、`verify` / `deep` 交叉验证 |
-| AnySearch | CVE、金融、学术、法律、健康、代码等垂直领域检索 |
-| Firecrawl | 已知 URL 的正文抓取，不作为默认发现引擎 |
+当前版本 `0.2.0`。MCP Python SDK 固定在 `1.26.0`，不要升到 2.x：2.x 会拆掉现在的 `FastMCP` 接口。项目元数据声明为 MIT；仓库里还没有单独的 `LICENSE` 文件。
 
 ## 快速开始
 
-### 1. 安装
-
-要求：
-
-- Python 3.11+
-- 至少一个支持 `web_search` 的 OpenAI Responses-compatible Grok 端点
-- Tavily、AnySearch、Firecrawl 按需配置
+需要 Python 3.11+。
 
 ```bash
 git clone https://github.com/Windrunner20/allsearch.git
 cd allsearch
-
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -e '.[dev]'
-
 cp .env.example .env
 chmod 600 .env
 ```
 
-### 2. 配置 Provider
+至少填 `ALLSEARCH_XAI_API_KEY`。Tavily、AnySearch、Firecrawl 可以留空，对应能力会跳过。进程环境变量优先于 `.env`。
 
-编辑 `.env`。下面是最常用的配置项：
-
-```env
-# Grok primary search
-ALLSEARCH_XAI_API_KEY=
-ALLSEARCH_XAI_BASE_URL=https://your-responses-compatible-endpoint/v1
-ALLSEARCH_XAI_RESPONSES_PATH=/responses
-ALLSEARCH_XAI_MODEL=grok-4.5
-# Optional same-endpoint model fallback. Set to none to go straight to the
-# endpoint-level fallback below when the primary model fails.
-ALLSEARCH_XAI_FALLBACK_MODELS=grok-4.3
-ALLSEARCH_XAI_REASONING_EFFORT=low
-ALLSEARCH_XAI_MAX_TOOL_CALLS=4
-# Optional endpoint-level fallback (OpenAI-compatible chat gateway; used on 402/429/5xx).
-# protocol is openai-only (chat completions); the "responses" protocol is rejected at load.
-# ALLSEARCH_XAI_FALLBACK_BASE_URL=https://fallback.example/v1
-# ALLSEARCH_XAI_FALLBACK_API_KEY=
-# ALLSEARCH_XAI_FALLBACK_MODEL=grok-4.3-fast
-# ALLSEARCH_XAI_FALLBACK_PROTOCOL=openai
-
-# Supplements
-ALLSEARCH_TAVILY_API_KEY=
-# Optional Tavily key pool (comma-separated extra keys; round-robin + quota failover):
-# ALLSEARCH_TAVILY_API_KEYS=key2,key3,key4
-ALLSEARCH_ANYSEARCH_API_KEY=
-ALLSEARCH_FIRECRAWL_API_KEY=
-```
-
-`.env.example` 包含所有可配置项。进程或 MCP Host 注入的环境变量优先于 `.env`。
-
-<details>
-<summary>Responses-compatible 端点配置</summary>
-
-官方 xAI：
-
-```env
-ALLSEARCH_XAI_BASE_URL=https://api.x.ai/v1
-```
-
-使用其他 OpenAI Responses-compatible 网关时，只需替换 base URL、模型名称和 API key：
-
-```env
-ALLSEARCH_XAI_BASE_URL=https://your-gateway.example/v1
-ALLSEARCH_XAI_RESPONSES_PATH=/responses
-ALLSEARCH_XAI_MODEL=your-primary-model
-ALLSEARCH_XAI_FALLBACK_MODELS=your-fallback-model
-ALLSEARCH_XAI_REASONING_EFFORT=low
-```
-
-Responses 推理参数使用嵌套格式：
-
-```json
-{
-  "reasoning": {
-    "effort": "low"
-  }
-}
-```
-
-兼容网关会接收你的查询和凭据。请仅使用你信任的服务，并自行确认其隐私、计费和数据保留政策。
-
-> 端点级 fallback 仅支持 `openai`（chat completions）协议；配置为 `responses` 会在加载配置时直接报错。
-
-</details>
-
-### 3. 运行健康检查
+健康检查不发起搜索：
 
 ```bash
 python - <<'PY'
@@ -152,195 +43,94 @@ asyncio.run(main())
 PY
 ```
 
-预期能看到已配置 Provider，例如：
+配好 Grok 密钥时，应看到 `xai True`，状态一般是 `idle` 或 `healthy`。
 
-```text
-xai True idle
-tavily True idle
-anysearch True idle
-firecrawl True idle
-```
+## 接到 Pi
 
-### 4. 启动 MCP
-
-stdio：
-
-```bash
-python -m allsearch --transport stdio
-```
-
-Streamable HTTP：
-
-```bash
-python -m allsearch \
-  --transport streamable-http \
-  --host 127.0.0.1 \
-  --port 8000 \
-  --path /mcp
-```
-
-MCP Host 的通用 stdio 配置大致如下；配置键名可能因 Host 而异：
+推荐用 Pi 自带的 MCP，而不是仓库里的旧 Extension。`integrations/pi/mcp.native.json` 是一份可复制的 stdio 配置：`exposure` 为 `direct`，并打开 Compact Output。
 
 ```json
 {
   "mcpServers": {
     "allsearch": {
+      "type": "stdio",
+      "exposure": "direct",
       "command": "/absolute/path/to/allsearch/.venv/bin/python",
-      "args": ["-m", "allsearch", "--transport", "stdio"],
-      "cwd": "/absolute/path/to/allsearch"
+      "args": ["-m", "allsearch", "--transport", "stdio", "--log-level", "WARNING"],
+      "cwd": "/absolute/path/to/allsearch",
+      "timeout": 180,
+      "env": {
+        "ALLSEARCH_COMPACT_OUTPUT": "true"
+      }
     }
   }
 }
 ```
 
-密钥可以继续留在仓库目录的 gitignored `.env` 中，不需要复制到 Host 配置文件。
+密钥留在 `.env`。不要把这份配置和 `integrations/pi` Extension 同时启用，否则模型可能对同一个问题搜两次。回滚步骤在 [integrations/pi/ROLLBACK.md](integrations/pi/ROLLBACK.md)。
 
-## MCP 工具
+新开一个 Pi 会话后，`pi mcp list` 或 `/mcp` 里应能看到 `search`、`fetch`、`health`、`read_result`，状态为 connected。
 
-### `search`
-
-统一搜索入口。
-
-```json
-{
-  "query": "核实 Python 当前最新稳定版本和发布日期",
-  "mode": "auto",
-  "depth": "verify",
-  "max_results": 8,
-  "include_domains": ["python.org"],
-  "fresh": true
-}
-```
-
-返回包含：
-
-- `answer`：Grok 主答案；
-- `results` / `citations`：去重后的证据与引用；
-- `route.stages`：实际调用了哪些 Provider、原因和延迟；
-- `evidence`：唯一 URL、独立域名、跨 Provider 命中、抓取页数；
-- `warnings` / `errors`：模型 fallback、Provider 错误和降级状态。
-
-### `fetch`
-
-通过 Firecrawl 抓取已知公共 URL 的正文，并进行 SSRF 目标检查。
-
-```json
-{
-  "url": "https://example.com/article",
-  "max_chars": 30000,
-  "fresh": true
-}
-```
-
-### `health`
-
-查看 Provider 配置、熔断和缓存状态，不返回密钥内容。
-
-```json
-{
-  "probe": false
-}
-```
-
-## 搜索深度
-
-| Depth | 行为 | 适合场景 |
-| --- | --- | --- |
-| `fast` | Grok 优先；证据不足时才补 Tavily；不自动抓正文 | 普通查询、当前版本、低延迟任务 |
-| `balanced` | Grok 优先；按需 Tavily；高置信度垂直问题使用 AnySearch | 默认日常研究 |
-| `verify` | Grok 后强制 Tavily 交叉验证；垂直问题加 AnySearch；有限 Firecrawl | 事实核验、多个来源、官方依据 |
-| `deep` | 更完整的补充搜索与正文抓取 | 深度研究、需要原文的任务 |
-
-所有深度都保持 Grok 先执行。Tavily 与 AnySearch 属于后续补充阶段，Firecrawl 只在发现 URL 后工作。
-
-## AnySearch 垂直检索
-
-AllSearch 会先读取目标领域的能力目录，再选择 `sub_domain` 和必填参数。
-
-例如：
-
-```text
-CVE-2024-1234 的影响范围和修复建议
-```
-
-会被路由为：
-
-```json
-{
-  "domain": "security",
-  "sub_domain": "security.vuln",
-  "sub_domain_params": {
-    "type": "cve",
-    "value": "CVE-2024-1234"
-  }
-}
-```
-
-适配器同时兼容 AnySearch 的旧版表格目录和当前分节 Markdown 目录，并会过滤非法 URL。
-
-## Pi 集成：防止搜索撑爆上下文
-
-仓库自带 Pi Extension：
+其他 Host 也可以直接启动 stdio：
 
 ```bash
-mkdir -p ~/.pi/agent/extensions
-ln -s "$(pwd)/integrations/pi" ~/.pi/agent/extensions/allsearch
+python -m allsearch --transport stdio
 ```
 
-重启 Pi，或在当前会话执行：
+日志在 stderr。stdout 只留给 MCP JSON-RPC。
 
-```text
-/reload
+## 工具
+
+`ALLSEARCH_COMPACT_OUTPUT` 默认关闭，此时 `search` 和 `fetch` 仍返回完整 JSON，方便已有调用方。设为 `true` 后，同一次进程里的工具变成：
+
+| 工具 | 模型看到的内容 |
+| --- | --- |
+| `search` | 状态、答案摘要、引用 URL、证据计数、错误码，以及 `result_id`。单次不超过 8KB |
+| `fetch` | 短预览、正文字数和 `result_id` |
+| `read_result` | 按 `result_id`、字段、`offset` / `limit` 翻页。不重新调用搜索 API |
+| `health` | Provider 是否配置、熔断和缓存。`probe` 默认 `false` |
+
+完整响应写在 `ALLSEARCH_RECORD_DIR`，默认是 `~/.local/state/allsearch/records`。目录 `0700`，文件 `0600`，默认保留 1 小时、最多 200 条。Pi 会在会话期间复用这条 stdio 进程，所以内存缓存和熔断在同一次会话里有效；进程重启后缓存清空，未过期的磁盘记录仍可 `read_result`。
+
+`search` 的常用参数：
+
+```json
+{
+  "query": "Python venv 模块的官方文档在哪",
+  "mode": "auto",
+  "depth": "balanced",
+  "max_results": 8,
+  "fresh": false
+}
 ```
 
-检查状态：
+`mode` 可以是 `auto`、`web`、`news`、`docs`、`research`、`vertical`。`fresh: true` 会跳过本次搜索缓存。
 
-```text
-/allsearch-status
+## 搜索怎么走
+
+Grok 先搜。主结果达到 3 条带 URL 的引用、并且来自至少 2 个域名时，`fast` 和 `balanced` 通常不再调用 Tavily。查询里有“最新”“新闻”“today”这类时效信号时，`balanced` 仍会补一次 Tavily。`verify` 和 `deep` 总会补 Tavily。
+
+| 深度 | 补充搜索 | 正文 |
+| --- | --- | --- |
+| `fast` | 主结果不够才用 Tavily | 不抓 |
+| `balanced` | 不够或有时效信号时用 Tavily；垂直题可能用 AnySearch | 不抓 |
+| `verify` | 总是 Tavily，垂直题再加 AnySearch | 最多 2 页 Firecrawl |
+| `deep` | 同 verify | 最多 3 页 Firecrawl |
+
+因此，点名 V2EX、知乎或 Reddit 时，如果 Grok 已经交了三个别的网站，`balanced` 会停，不一定再去那个论坛。评论正文也没有单独的数据源；登录、验证码和付费墙不会被绕过。
+
+总时长默认 45 秒（`ALLSEARCH_TOTAL_BUDGET_SECONDS`）。超时后不再开下一阶段。Grok 不可用时，默认直接失败，除非把 `ALLSEARCH_ALLOW_DEGRADED_SEARCH` 设为 `true`。
+
+## 评测
+
+离线题集和评分器在 [benchmarks/README.md](benchmarks/README.md)。默认命令不调用付费 API：
+
+```bash
+python -m benchmarks.harness budget --depth balanced
+python -m benchmarks.harness plan --depth verify
 ```
 
-Pi 中会出现：
-
-```text
-allsearch_search
-allsearch_fetch
-allsearch_health
-```
-
-### 上下文预算
-
-Pi Extension 不会把完整 MCP JSON 和网页正文直接放入模型上下文。
-
-| 工具 | 单次摘要上限 | 单轮共享上限 |
-| --- | ---: | ---: |
-| `allsearch_search` | 8KB | 16KB |
-| `allsearch_fetch` | 6KB | 16KB |
-| `allsearch_health` | 4KB | 16KB |
-
-当 Pi 当前上下文使用率超过 75% / 90% 时，单次摘要会自动收紧到 4KB / 2KB。
-
-完整 MCP 响应保存到私有临时文件：
-
-```text
-/tmp/pi-allsearch-*/search.json
-```
-
-文件权限为 `0600`，目录权限为 `0700`。摘要不足时，Agent 可以通过 `read` 的 `offset` / `limit` 增量查看，而不是一次吞入完整结果。会话关闭时临时文件会自动清理。
-
-> Pi Extension 与所有本地 Extension 一样，使用当前用户权限执行。只从你信任的仓库版本加载它。
-
-## 运行与安全边界
-
-- `.env`、虚拟环境、缓存和 Agent 临时文件均被 Git 忽略；
-- Provider 错误在返回给 Agent 前会进行常见密钥模式脱敏；
-- `fetch` 会拒绝 localhost、私有 IP、嵌入凭据和非 HTTP(S) URL，并且自动抓取（auto-scrape）和显式 `fetch` 都会对原始 URL 与最终重定向 URL（`final_url`）做同样的 SSRF 校验；
-- URL 合并会去除常见追踪参数并按规范化 URL 去重；
-- 搜索和网页内容始终被标记为不可信外部数据；
-- 最终的结构化结果、引用与证据会按 `include_domains` / `exclude_domains` 做大小写不敏感、真实子域匹配的过滤（exclude 优先）；自然语言 `answer` 不会被改写；
-- 自动抓取每页正文有内部 30000 字符上限（截断时会加 warning），并拒绝空内容 / 过短 / 反爬壳页面（拒绝的页面不计入 `pages_fetched`）；
-- 搜索整体受硬总截止时间约束（`ALLSEARCH_TOTAL_BUDGET_SECONDS`）：超时后不再启动后续阶段并取消未完成任务，超时响应不缓存；若主搜索已完成则返回 `partial`，严格模式下主搜索未完成则返回 `error`；
-- `health` 在 xAI 处于 `idle` / `healthy` 时报告 `ok`，处于 `degraded` / `half_open` / `open` 时报告 `degraded`（熔断打开时附加 `primary_circuit_open` warning）；
-- `ALLSEARCH_ALLOW_DEGRADED_SEARCH=false` 时，Grok 不可用会在任何补充源（Tavily/AnySearch）执行前直接返回明确错误，而不是悄悄改成其他搜索结果。
+`live` 会拒绝执行。一次真实的 39 题 balanced 评测，以及随后对未通过题目做的 verify / deep，结果摘要写在 [benchmarks/runs/REPORT.md](benchmarks/runs/REPORT.md)。那次结果说明：公开文档和一部分新闻较好；中文论坛、指定评论和登录墙后的正文不是靠加深搜索就能稳定补上。
 
 ## 测试
 
@@ -349,35 +139,15 @@ source .venv/bin/activate
 pytest -q
 ```
 
-当前测试覆盖（默认全离线，不调用外网 Provider）：
+默认测试使用 Mock，不访问付费 Provider。带 `live` 标记的用例只有在 `ALLSEARCH_RUN_LIVE_TESTS=1` 时才会跑。
 
-- Provider 请求与响应契约（respx mock）；
-- Grok 模型 fallback、reasoning 参数和端点级 fallback（OpenAI chat）；
-- Tavily 多 Key 轮换与配额故障切换；
-- AnySearch 两种 Markdown 格式；
-- 路由、合并、缓存、熔断和 SSRF 检查；
-- 严格模式下的主搜索门禁（补充源零调用）、group1 并发与确定顺序、单源失败不阻塞；
-- 硬总截止时间：阶段不悬挂、超时不缓存、不重复报错、取消不触发熔断计数；
-- 最终域过滤（大小写不敏感、真实子域、exclude 优先）；
-- 自动抓取的原 URL / final URL DNS 校验、低质量拒绝与 30000 字符截断；
-- 配置脱敏、fallback 协议校验、Tavily pool-only 配置；
-- health 的熔断到 degraded / primary_circuit_open 映射；
-- MCP 工具注册与 Pi bridge 的严格字节预算和 artifact 路径保留。
+## 限制
 
-真实 Provider 测试只是占位模板，默认不在 CI / 普通测试中运行，以避免消耗额度和依赖外部网络。
+- 搜索质量仍取决于 Grok 返回的引用。引用数量够，不代表来源就是用户点名的那个站。
+- 缓存只在当前进程的内存里，没有跨进程共享。
+- 兼容网关的模型名、延迟和计费会变。端点级 fallback 只接受 OpenAI chat completions，不接受 Responses。
+- 没有 Docker 镜像、管理界面，也没有第二层模型来重写答案。
 
-## 已知限制
+## 许可与贡献
 
-- 搜索排序和查询改写仍需要根据真实任务持续调优；
-- Responses-compatible 网关的模型可用性、延迟和计费可能随时变化；
-- 当前缓存仅为进程内存缓存，没有 Redis 或跨进程共享；
-- 搜索整体已有硬总截止时间，但 Provider 内部的重试与响应解析仍可能占用全部预算，极端情况下留给后续阶段的时间会变少；
-- 当前没有 Docker 镜像、管理 UI 或第二次模型综合层。
-
-## 参与贡献
-
-欢迎提交 Issue 或 Pull Request。涉及 Provider 契约变化时，请附上脱敏后的响应结构或 fixture，不要提交真实 API key、完整私密查询或用户数据。
-
-## License
-
-项目元数据当前声明为 MIT。仓库尚未加入独立的 `LICENSE` 文件；正式分发或二次使用前，请先确认许可证文本。
+欢迎 Issue 和 Pull Request。不要提交真实 API key、`.env` 或未脱敏的用户查询。Provider 契约有变化时，请附上脱敏后的响应样例。

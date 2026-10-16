@@ -1,0 +1,46 @@
+{
+  "id": "wiki-en-tcp",
+  "query": "English Wikipedia HTTP article: the default TCP port",
+  "elapsed_ms": 107393,
+  "returncode": 0,
+  "tools": [
+    "mcp__allsearch__search",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__search",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result"
+  ],
+  "answer": "**80。** 英文维基百科 HTTP 条目写的是：未加密的 TCP 连接通常用端口 80（加密则是 443）。\n\n条目原文（Data exchange 一节）：\n\n> In HTTP implementations, TCP/IP connections are used using well-known ports (typically port 80 if the connection is unencrypted or port 443 if the connection is encrypted, see also List of TCP and UDP port numbers).\n\n可核对链接：\n\n- 条目：https://en.wikipedia.org/wiki/HTTP\n- 本次实际读到的存档（2026-10-14）：https://web.archive.org/web/20261014122756/https://en.wikipedia.org/wiki/HTTP\n\n直接抓取 `en.wikipedia.org` 被拦截（解析到私有/保留地址），所以原文来自上述 Wayback 快照。这次没有读到评论。",
+  "stderr": "",
+  "score": {
+    "id": "wiki-en-tcp",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "en-http"
+        ],
+        "required": 1
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "pass",
+      "reasons": []
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": false
+  }
+}

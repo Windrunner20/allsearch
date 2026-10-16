@@ -1,0 +1,54 @@
+{
+  "id": "cross-lang-hn-sqlite",
+  "query": "用中文找 Hacker News 上把 SQLite 当作应用程序文件格式来讨论的英文帖子",
+  "elapsed_ms": 138686,
+  "returncode": 0,
+  "tools": [
+    "mcp__allsearch__search",
+    "mcp__allsearch__health",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result"
+  ],
+  "answer": "Hacker News 上直接讨论「把 SQLite 当作应用程序文件格式」的英文帖，主要都指向同一篇官方说明：https://sqlite.org/appfileformat.html。下面的链接和原句都来自刚才打开的 HN 页面或 HN Algolia 索引。\n\n## 主讨论串\n\n1. **SQLite as an Application File Format (2014)**  \n   https://news.ycombinator.com/item?id=23508923  \n   afiori，2020-06-13，567 分，301 条评论。外链是 https://sqlite.org/appfileformat.html。  \n   TheRealPomax（https://news.ycombinator.com/item?id=23510209）原句：  \n   > The great thing about applications that use sqlite as their application file format is that you can write secondary apps and utilities to supplement the applications themselves.  \n   > For example, Adobe's Lightroom uses sqlite as their application file format, which means that it's almost trivial to write an application to help it do things it's either really bad/exceedingly slow at [...]  \n   同帖里 pvg（https://news.ycombinator.com/item?id=23511467）指向更早的一次讨论：  \n   > Previously: https://news.ycombinator.com/item?id=18754634\n\n2. **更早的同题帖**  \n   https://news.ycombinator.com/item?id=18754634  \n   kjeetgill，2018-12-24，211 分，161 条评论。标题同样是 “SQLite as an Application File Format (2014)”，外链 https://www.sqlite.org/appfileformat.html。\n\n3. **2025 年再次提交**  \n   https://news.ycombinator.com/item?id=46076642  \n   gjvc，2025-11-28，178 分，99 条评论。  \n   incanus77（https://news.ycombinator.com/item?id=46080301）原句：  \n   > I did this for MBTiles, for storing (at the time, raster) map tiles at Mapbox.  \n   > Bundled the tiles into SQLite (I was inspired by seeing Dr. Hipp speak at a conference) and voila, things both easy to move and to checksum.  \n   out_of_protocol（https://news.ycombinator.com/item?id=46083208）原句：  \n   > Also, tested .zip vs .tar vs sqlite vs file system. Of this bunch, sqlite was the most compact format with minimal overhead.\n\n4. **评论里把这件事称为 killer feature**  \n   https://news.ycombinator.com/item?id=40655974  \n   这不是独立故事，而是 OskarS 在 2024-06-12 写在父帖 https://news.ycombinator.com/item?id=40654734（Discussion on why SQLite is gaining popularity）下的评论。原句：  \n   > The killer feature for me with SQLite is as an application file format: https://sqlite.org/appfileformat.html  \n   > One notable application that uses SQLite for this is Audacity: all the stuff you record is streamed into a SQLite database (the project file).  \n   boffinAudio（https://news.ycombinator.com/item?id=40656327）原句：  \n   > I used SQLite as the file format for a game system, and it was probably one of the most successful technical decisions I've made in 40 years.\n\n5. **Ask HN: Has Anyone Used SQLite as an Application File Format?**  \n   https://news.ycombinator.com/item?id=28113093  \n   ghoward，2021-08-09，4 分，2 条评论。提问原句：  \n   > I am considering using SQLite as an application file format, for many reasons, of which the first is \"free\" ACID semantics.\n\n## 同一主题的案例讨论\n\n**What If OpenDocument Used SQLite?**  \nhttps://news.ycombinator.com/item?id=45132498  \nwhatisabcdefgh，2025-09-04，279 分，105 条评论。外链是官方案例 https://www.sqlite.org/affcase1.html。  \nagwa（https://news.ycombinator.com/item?id=45134010）原句：  \n> If you're going to use SQLite as an application file format, you should:  \n> 1. Enable the secure_delete pragma [...] so that when your user deletes something, the data is actually erased.\n\n## 顺带提到这个用法的评论\n\n- kortex，https://news.ycombinator.com/item?id=31326930，父帖 https://news.ycombinator.com/item?id=31318708：  \n  > That seems exactly opposite to the growing trend of \"sqlite-as-application-file-format\".\n- srcreigh，https://news.ycombinator.com/item?id=31156251，父帖 https://news.ycombinator.com/item?id=31152490：  \n  > Considering adobe Photoshop use(d) SQLite for application file format, this could be very far from unusual.\n\n同题但几乎没有讨论的重复提交还有 https://news.ycombinator.com/item?id=10308691（2015，12 分，0 评论）和 https://news.ycombinator.com/item?id=8201992（2014，标题是 “SQLite as an application file format”，指向一场 EuroTcl 演讲，1 分，0 评论）。分数和评论数是这次抓取时的快照。",
+  "stderr": "",
+  "score": {
+    "id": "cross-lang-hn-sqlite",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "hn-item-zh"
+        ],
+        "required": 1
+      },
+      "cross_language": {
+        "status": "pass",
+        "matched_hosts": [
+          "news.ycombinator.com"
+        ]
+      }
+    },
+    "task": {
+      "status": "pass",
+      "reasons": []
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": false
+  }
+}

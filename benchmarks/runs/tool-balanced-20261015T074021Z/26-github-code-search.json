@@ -1,0 +1,611 @@
+{
+  "id": "github-code-search",
+  "executed_at": "2026-10-15T07:52:39.234745+00:00",
+  "depth": "balanced",
+  "provider_query": "CPython source file that defines PyObject_Malloc",
+  "answer": "**`PyObject_Malloc` is defined in `Objects/obmalloc.c`.**\n\nOn current CPython `main`, the public function is the object-domain allocator entry point (size check, stats, then `_PyObject.malloc`). The underlying pymalloc/mimalloc implementations live in the same file.\n\nRelevant sources:\n\n1. **Definition (current main)** — `Objects/obmalloc.c`  \n   https://github.com/python/cpython/blob/main/Objects/obmalloc.c  \n   Contains `void * PyObject_Malloc(size_t size)` under “the object allocator,” dispatching via `_PyObject.malloc`.\n\n2. **Same file, older snapshot (3.7-era shape)** — function body shown as a thin wrapper over `_PyObject.malloc` after a `PY_SSIZE_T_MAX` check.  \n   https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c\n\n3. **Historical direct pymalloc implementation** — older `obmalloc.c` defined `PyObject_Malloc` inline (pool/block path, `#undef PyObject_Malloc`).  \n   https://github.com/python/cpython/blob/7aace7a2dc40562ecb7d59b49925948411e9d171/Objects/obmalloc.c\n\n4. **Docs (API, not the definition)** — `Doc/c-api/memory.rst` documents `PyObject_Malloc` and the default object allocator (pymalloc, or mimalloc in free-threaded builds).  \n   https://github.com/python/cpython/blob/main/Doc/c-api/memory.rst\n\n5. **Related docs** — `Doc/c-api/allocation.rst` notes `PyObject_New` calls `PyObject_Malloc`; lists soft-deprecated `PyObject_MALLOC`.  \n   https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst\n\n6. **Domain declaration (header)** — `Include/pymem.h` associates `PyObject_Malloc` / `Realloc` / `Free` with `PYMEM_DOMAIN_OBJ` (declaration/API, not the body).  \n   https://github.com/python/cpython/blob/d8f0d922d53a8f7bb64c1fda26be386bd2e3d958/Include/pymem.h\n\n7. **Callers** — `Objects/object.c` uses `PyObject_Malloc` from `_PyObject_New` / `_PyObject_NewVar` (not the definition).  \n   https://github.com/python/cpython/blob/55fee9cf216abe4ec0d1139f94b1930fbd0c7644/Objects/object.c\n\n8. **File history** — commit history for `Objects/obmalloc.c` (pymalloc, debug hooks, per-interpreter state, free-threading/mimalloc).  \n   https://github.com/python/cpython/commits/main/Objects/obmalloc.c",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://github.com/python/cpython/commits/451d1edaf4d27c4e632d81246d308e8dd6ea945f/Objects/obmalloc.c",
+      "url": "https://github.com/python/cpython/commits/451d1edaf4d27c4e632d81246d308e8dd6ea945f/Objects/obmalloc.c",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md",
+      "url": "https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://hg.python.org/lookup/8543ce8ffd57d770b57fe653e0ab7fada1a4c343",
+      "url": "https://hg.python.org/lookup/8543ce8ffd57d770b57fe653e0ab7fada1a4c343",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+      "url": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://github.com/python/cpython/blob/main/Objects/obmalloc.c",
+      "url": "https://github.com/python/cpython/blob/main/Objects/obmalloc.c",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "https://github.com/python/cpython/pull/23587",
+      "url": "https://github.com/python/cpython/pull/23587",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://github.com/python/cpython/commits/a73515e7475c7abc7614c9f59d497af5b8709585/Objects/obmalloc.c",
+      "url": "https://github.com/python/cpython/commits/a73515e7475c7abc7614c9f59d497af5b8709585/Objects/obmalloc.c",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "https://git.joshthomas.dev/mirrors/cpython/commit/ec2cbdd1dff2c51788136480b2085e77506ebf34?files=Doc/c-api",
+      "url": "https://git.joshthomas.dev/mirrors/cpython/commit/ec2cbdd1dff2c51788136480b2085e77506ebf34?files=Doc%2Fc-api",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://github.com/python/cpython/commits/451d1edaf4d27c4e632d81246d308e8dd6ea945f/Objects/obmalloc.c",
+      "url": "https://github.com/python/cpython/commits/451d1edaf4d27c4e632d81246d308e8dd6ea945f/Objects/obmalloc.c",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md",
+      "url": "https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://hg.python.org/lookup/8543ce8ffd57d770b57fe653e0ab7fada1a4c343",
+      "url": "https://hg.python.org/lookup/8543ce8ffd57d770b57fe653e0ab7fada1a4c343",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+      "url": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://github.com/python/cpython/blob/main/Objects/obmalloc.c",
+      "url": "https://github.com/python/cpython/blob/main/Objects/obmalloc.c",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "https://github.com/python/cpython/pull/23587",
+      "url": "https://github.com/python/cpython/pull/23587",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://github.com/python/cpython/commits/a73515e7475c7abc7614c9f59d497af5b8709585/Objects/obmalloc.c",
+      "url": "https://github.com/python/cpython/commits/a73515e7475c7abc7614c9f59d497af5b8709585/Objects/obmalloc.c",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "https://git.joshthomas.dev/mirrors/cpython/commit/ec2cbdd1dff2c51788136480b2085e77506ebf34?files=Doc/c-api",
+      "url": "https://git.joshthomas.dev/mirrors/cpython/commit/ec2cbdd1dff2c51788136480b2085e77506ebf34?files=Doc%2Fc-api",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://github.com/python/cpython/blob/55fee9cf216abe4ec0d1139f94b1930fbd0c7644/Objects/object.c",
+      "url": "https://github.com/python/cpython/blob/55fee9cf216abe4ec0d1139f94b1930fbd0c7644/Objects/object.c",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://github.com/python/cpython/blob/d8f0d922d53a8f7bb64c1fda26be386bd2e3d958/Include/pymem.h",
+      "url": "https://github.com/python/cpython/blob/d8f0d922d53a8f7bb64c1fda26be386bd2e3d958/Include/pymem.h",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://github.com/python/cpython/blob/3.10/Doc/c-api/memory.rst",
+      "url": "https://github.com/python/cpython/blob/3.10/Doc/c-api/memory.rst",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c",
+      "url": "https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://raw.githubusercontent.com/python/cpython/main/Include/internal/pycore_obmalloc.h",
+      "url": "https://raw.githubusercontent.com/python/cpython/main/Include/internal/pycore_obmalloc.h",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://raw.githubusercontent.com/python/cpython/HEAD/Doc/c-api/allocation.rst",
+      "url": "https://raw.githubusercontent.com/python/cpython/HEAD/Doc/c-api/allocation.rst",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://github.com/python/cpython/blob/master/Doc/c-api/memory.rst",
+      "url": "https://github.com/python/cpython/blob/master/Doc/c-api/memory.rst",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://github.com/python/cpython/blob/7aace7a2dc40562ecb7d59b49925948411e9d171/Objects/obmalloc.c",
+      "url": "https://github.com/python/cpython/blob/7aace7a2dc40562ecb7d59b49925948411e9d171/Objects/obmalloc.c",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://github.com/python/cpython/blob/d36cf5f1d20ce9f111a8fc997104785086e8eee6/Objects/obmalloc.c",
+      "url": "https://github.com/python/cpython/blob/d36cf5f1d20ce9f111a8fc997104785086e8eee6/Objects/obmalloc.c",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://github.com/python/cpython/blob/8246d588e48f7072c283db3e4eb1795a9a9780bf/Include/internal/pycore_object_alloc.h",
+      "url": "https://github.com/python/cpython/blob/8246d588e48f7072c283db3e4eb1795a9a9780bf/Include/internal/pycore_object_alloc.h",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "https://git.joshthomas.dev/mirrors/cpython/commit/1221c0a435135143632d986e861d9243d3d2ad35?style=split&whitespace=show-all&show-outdated=",
+      "url": "https://git.joshthomas.dev/mirrors/cpython/commit/1221c0a435135143632d986e861d9243d3d2ad35?show-outdated=&style=split&whitespace=show-all",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 15012,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced"
+    ]
+  },
+  "cache": {
+    "hit": false,
+    "age_seconds": 0.0,
+    "ttl_seconds": 120,
+    "namespace": "search"
+  },
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://github.com/python/cpython/commits/451d1edaf4d27c4e632d81246d308e8dd6ea945f/Objects/obmalloc.c",
+      "final_url": "https://github.com/python/cpython/commits/451d1edaf4d27c4e632d81246d308e8dd6ea945f/Objects/obmalloc.c",
+      "title": "History for Objects/obmalloc.c - python/cpython · GitHub",
+      "content": "[Skip to content](https://github.com/python/cpython/commits/451d1edaf4d27c4e632d81246d308e8dd6ea945f/Objects/obmalloc.c#start-of-content)\n\nYou signed in with another tab or window. [Reload](https://github.com/python/cpython/commits/451d1edaf4d27c4e632d81246d308e8dd6ea945f/Objects/obmalloc.c) to refresh your session.You signed out in another tab or window. [Reload](https://github.com/python/cpython/commits/451d1edaf4d27c4e632d81246d308e8dd6ea945f/Objects/obmalloc.c) to refresh your session.You switched accounts on another tab or window. [Reload](https://github.com/python/cpython/commits/451d1edaf4d27c4e632d81246d308e8dd6ea945f/Objects/obmalloc.c) to refresh your session.Dismiss alert\n\n{{ message }}\n\n## Breadcrumbs\n\nHistory for\n\non [451d1ed](https://github.com/python/cpython/tree/451d1edaf4d27c4e632d81246d308e8dd6ea945f)\n\n## User selector\n\nAll users\n\n## Datepicker\n\nAll time\n\n## Commit history\n\n01. ### Commits on Feb 4, 2018\n\n\n\n\n\n\n\n    - #### [bpo-32746](https://bugs.python.org/issue?@action=redirect&bpo=32746) [: Fix multiple typos (](https://github.com/python/cpython/commit/c3d9508ff22ece9a96892b628dd5813e2fb0cd80 \"bpo-32746: Fix multiple typos (GH-5144)  Fix typos found by codespell in docs, docstrings, and comments.\") [GH-5144](https://github.com/python/cpython/pull/5144) [)](https://github.com/python/cpython/commit/c3d9508ff22ece9a96892b628dd5813e2fb0cd80 \"bpo-32746: Fix multiple typos (GH-5144)  Fix typos found by codespell in docs, docstrings, and comments.\")\n\n      Show description for c3d9508\n\n\n\n\n\n\n\n\n\n\n      ![Leo Arias](https://github.githubassets.com/images/gravatars/gravatar-user-420.png?size=32)![terryjreedy](https://avatars.githubusercontent.com/u/19036496?v=4&size=32)\n\n\n\n\n      Leo Arias\n\n\n\n      authored and\n\n      [terryjreedy](https://github.com/python/cpython/commits?author=terryjreedy)\n\n      committedon Feb 3, 2018Feb 4, 2018\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n      [c3d9508](https://github.com/python/cpython/commit/c3d9508ff22ece9a96892b628dd5813e2fb0cd80) View commit details\n\n      Copy full SHA for c3d9508\n\n\n\n      View code at this pointBrowse repository at this point\n\n\n02. ### Commits on Dec 12, 2017\n\n\n\n\n\n\n\n    - #### [bpo-32241](https://bugs.python.org/issue?@action=redirect&bpo=32241) [: Add the const qualifire to declarations of umodifiable strings. (](https://github.com/python/cpython/commit/4ae06c5337e01bdde28bce57b6b9166ad50947e3 \"bpo-32241: Add the const qualifire to declarations of umodifiable strings. (\\#4748)\") [\\#4748](https://github.com/python/cpython/pull/4748) [)](https://github.com/python/cpython/commit/4ae06c5337e01bdde28bce57b6b9166ad50947e3 \"bpo-32241: Add the const qualifire to declarations of umodifiable strings. (\\#4748)\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n      [![serhiy-storchaka](https://avatars.githubusercontent.com/u/3659035?v=4&size=32)](https://github.com/serhiy-storchaka)[serhiy-storchaka](https://github.com/python/cpython/commits?author=serhiy-storchaka)\n\n      authoredon Dec 12, 2017Dec 12, 2017\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n      [4ae06c5](https://github.com/python/cpython/commit/4ae06c5337e01bdde28bce57b6b9166ad50947e3) View commit details\n\n      Copy full SHA for 4ae06c5\n\n\n\n      View code at this pointBrowse repository at this point\n\n\n03. ### Commits on Dec 6, 2017\n\n\n\n\n\n\n\n    - #### [bpo-32030](https://bugs.python.org/issue?@action=redirect&bpo=32030) [: Add pymain\\_get\\_global\\_config() (](https://github.com/python/cpython/commit/6bf992a1ac6f3f4d0f83ead9c6403a76afdbe6eb \"bpo-32030: Add pymain_get_global_config() (\\#4735)  * Py_Main() now starts by reading Py_xxx configuration variables to   only work on its own private structure, and then later writes back   the configuration into these variables. * Replace Py_GETENV() with pymain_get_env_var() which ignores empty   variables. * Add _PyCoreConfig.dump_refs * Add _PyCoreConfig.malloc_stats * _PyObject_DebugMallocStats() is now responsible to check if debug   hooks are installed. The function returns 1 if stats were written,   or 0 if the hooks are disabled. Mark _PyMem_PymallocEnabled() as   static.\") [\\#4735](https://github.com/python/cpython/pull/4735) [)](https://github.com/python/cpython/commit/6bf992a1ac6f3f4d0f83ead9c6403a76afdbe6eb \"bpo-32030: Add pymain_get_global_config() (\\#4735)  * Py_Main() now starts by reading Py_xxx configuration variables to   only work on its own private structure, and then later writes back   the configuration into these variables. * Replace Py_GETENV() with pymain_get_env_var() which ignores empty   variables. * Add _PyCoreConfig.dump_refs * Add _PyCoreConfig.malloc_stats * _PyObject_DebugMallocStats() is now responsible to check if debug   hooks are installed. The function returns 1 if stats were written,   or 0 if the hooks are disabled. Mark _PyMem_PymallocEnabled() as   static.\")\n\n      Show description for 6bf992a\n\n\n\n\n\n\n\n\n\n\n\n      [![vstinner](https://avatars.githubusercontent.com/u/194129?v=4&size=32)](https://github.com/vstinner)[vstinner](https://github.com/python/cpython/commits?author=vstinner)\n\n      authoredon Dec 6, 2017Dec 6, 2017\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n      [6bf992a](https://github.com/python/cpython/commit/6bf992a1ac6f3f4d0f83ead9c6403a76afdbe6eb) View commit details\n\n      Copy full SHA for 6bf992a\n\n\n\n      View code at this pointBrowse repository at this point\n\n\n04. ### Commits on Dec 1, 2017\n\n\n\n\n\n\n\n    - #### [bpo-32030](https://bugs.python.org/issue?@action=redirect&bpo=32030) [: Cleanup \"path config\" code (](https://github.com/python/cpython/commit/b64de46aae148cfab0980e0ad478da7aafc44900 \"bpo-32030: Cleanup \\\"path config\\\" code (\\#4663)  * Rename PyPathConfig structure to _PyPathConfig and move it to   Include/internal/pystate.h * Rename path_config to _Py_path_config * _PyPathConfig: Rename program_name field to program_full_path * Add assert(str != NULL); to _PyMem_RawWcsdup(), _PyMem_RawStrdup()   and _PyMem_Strdup(). * Rename calculate_path() to pathconfig_global_init(). The function   now does nothing if it's already initiallized.\") [\\#4663](https://github.com/python/cpython/pull/4663) [)](https://github.com/python/cpython/commit/b64de46aae148cfab0980e0ad478da7aafc44900 \"bpo-32030: Cleanup \\\"path config\\\" code (\\#4663)  * Rename PyPathConfig structure to _PyPathConfig and move it to   Include/internal/pystate.h * Rename path_config to _Py_path_config * _PyPathConfig: Rename program_name field to program_full_path * Add assert(str != NULL); to _PyMem_RawWcsdup(), _PyMem_RawStrdup()   and _PyMem_Strdup(). * Rename calculate_path() to pathconfig_global_init(). The function   now does nothing if it's already initiallized.\")\n\n      Show description for b64de46\n\n\n\n\n\n\n\n\n\n\n\n      [![vstinner](https://avatars.githubusercontent.com/u/194129?v=4&size=32)](https://github.com/vstinner)[vstinner](https://github.com/python/cpython/commits?author=vstinner)\n\n      authoredon Dec 1, 2017Dec 1, 2017\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n      [b64de46](https://github.com/python/cpython/commit/b64de46aae148cfab0980e0ad478da7aafc44900) View commit details\n\n      Copy full SHA for b64de46\n\n\n\n      View code at this pointBrowse repository at this point\n\n\n05. ### Commits on Nov 29, 2017\n\n\n\n\n\n\n\n    - #### [bpo-32030](https://bugs.python.org/issue?@action=redirect&bpo=32030) [: Rework memory allocators (](https://github.com/python/cpython/commit/5d39e0429029324cae90bba2f19fb689b007c7d6 \"bpo-32030: Rework memory allocators (\\#4625)  * Fix _PyMem_SetupAllocators(\\\"debug\\\"): always restore allocators to   the defaults, rather than only caling _PyMem_SetupDebugHooks(). * Add _PyMem_SetDefaultAllocator() helper to set the \\\"default\\\"   allocator. * Add _PyMem_GetAllocatorsName(): get the name of the allocators * main() now uses debug hooks on memory allocators if Py_DEBUG is   defined, rather than calling directly malloc() * Document default memory allocators in C API documentation * _Py_InitializeCore() now fails with a fatal user error if   PYTHONMALLOC value is an unknown memory allocator, instead of   failing with a fatal internal error. * Add new tests on the PYTHONMALLOC environment variable * Add support.with_pymalloc() * Add the _testcapi.WITH_PYMALLOC constant and expose it as    support.with_pymalloc(). * sysconfig.get_config_var('WITH_PYMALLOC') doesn't work on Windows, so    replace it with support.with_pymalloc(). * pythoninfo: add _testcapi collector for pymem\") [\\#4625](https://github.com/python/cpython/pull/4625) [)](https://github.com/python/cpython/commit/5d39e0429029324cae90bba2f19fb689b007c7d6 \"bpo-32030: Rework memory allocators (\\#4625)  * Fix _PyMem_SetupAllocators(\\\"debug\\\"): always restore allocators to   the defaults, rather than only caling _PyMem_SetupDebugHooks(). * Add _PyMem_SetDefaultAllocator() helper to set the \\\"default\\\"   allocator. * Add _PyMem_GetAllocatorsName(): get the name of the allocators * main() now uses debug hooks on memory allocators if Py_DEBUG is   defined, rather than calling directly malloc() * Document default memory allocators in C API documentation * _Py_InitializeCore() now fails with a fatal user error if   PYTHONMALLOC value is an unknown memory allocator, instead of   failing with a fatal internal error. * Add new tests on the PYTHONMALLOC environment variable * Add support.with_pymalloc() * Add the _testcapi.WITH_PYMALLOC constant and expose it as    support.with_pymalloc(). * sysconfig.get_config_var('WITH_PYMALLOC') doesn't work on Windows, so    replace it with support.with_pymalloc(). * pythoninfo: add _testcapi collector for pymem\")\n\n      Show description for 5d39e04\n\n\n\n\n\n\n\n\n\n\n\n      [![vstinner](https://avatars.githubusercontent.com/u/194129?v=4&size=32)](https://github.com/vstinner)[vstinner](https://github.com/python/cpython/commits?author=vstinner)\n\n      authoredon Nov 29, 2017Nov 29, 2017\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n      [5d39e04](https://github.com/python/cpython/commit/5d39e0429029324cae90bba2f19fb689b007c7d6) View commit details\n\n      Copy full SHA for 5d39e04\n\n\n\n      View code at this pointBrowse repository at this point\n\n\n06. ### Commits on Nov 24, 2017\n\n\n\n\n\n\n\n    - #### [bpo-32030](https://bugs.python.org/issue?@action=redirect&bpo=32030) [: Add \\_PyMainInterpreterConfig\\_ReadEnv() (](https://github.com/python/cpython/commit/46972b7bc385ec2bdc7f567bbd22c9e56ffdf003 \"bpo-32030: Add _PyMainInterpreterConfig_ReadEnv() (\\#4542)  Py_GetPath() and Py_Main() now call _PyMainInterpreterConfig_ReadEnv() to share the same code to get environment variables.  Changes:  * Add _PyMainInterpreterConfig_ReadEnv() * Add _PyMainInterpreterConfig_Clear() * Add _PyMem_RawWcsdup() * _PyMainInterpreterConfig: rename pythonhome to home * Rename _Py_ReadMainInterpreterConfig() to   _PyMainInterpreterConfig_Read() * Use _Py_INIT_USER_ERR(), instead of _Py_INIT_ERR(), for decoding   errors: the user is able to fix the issue, it's not a bug in   Python. Same change was made in _Py_INIT_NO_MEMORY(). * Remove _Py_GetPythonHomeWithConfig()\") [\\#4542](https://github.com/python/cpython/pull/4542) [)](https://github.com/python/cpython/commit/46972b7bc385ec2bdc7f567bbd22c9e56ffdf003 \"bpo-32030: Add _PyMainInterpreterConfig_ReadEnv() (\\#4542)  Py_GetPath() and Py_Main() now call _PyMainInterpreterConfig_ReadEnv() to share the same code to get environment variables.  Changes:  * Add _PyMainInterpreterConfig_ReadEnv() * Add _PyMainInterpreterConfig_Clear() * Add _PyMem_RawWcsdup() * _PyMainInterpreterConfig: rename pythonhome to home * Rename _Py_ReadMainInterpreterConfig() to   _PyMainInterpreterConfig_Read() * Use _Py_INIT_USER_ERR(), instead of _Py_INIT_ERR(), for decoding   errors: the user is able to fix the issue, it's not a bug in   Python. Same change was made in _Py_INIT_NO_MEMORY(). * Remove _Py_GetPythonHomeWithConfig()\")\n\n      Show description for 46972b7\n\n\n\n\n\n\n\n\n\n\n\n      [![vstinner](https://avatars.githubusercontent.com/u/194129?v=4&size=32)](https://github.com/vstinner)[vstinner](https://github.com/python/cpython/commits?author=vstinner)\n\n      authoredon Nov 24, 2017Nov 24, 2017\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n      [46972b7](https://github.com/python/cpython/commit/46972b7bc385ec2bdc7f567bbd22c9e56ffdf003) View commit details\n\n      Copy full SHA for 46972b7\n\n\n\n      View code at this pointBrowse repository at this point\n\n    - #### [bpo-32096](https://bugs.python.org/issue?@action=redirect&bpo=32096) [: Remove obj and mem from \\_PyRuntime (](https://github.com/python/cpython/commit/9e87e7776f7ace66baaf7247233afdabd00c2b44 \"bpo-32096: Remove obj and mem from _PyRuntime (\\#4532)  bpo-32096, bpo-30860:  Partially revert the commit 2ebc5ce42a8a9e047e790aefbf9a94811569b2b6:  * Move structures back from Include/internal/mem.h to   Objects/obmalloc.c * Remove _PyObject_Initialize() and _PyMem_Initialize() * Remove Include/internal/pymalloc.h * Add test_capi.test_pre_initialization_api():    Make sure that it's possible to call Py_DecodeLocale(), and then call    Py_SetProgramName() with the decoded string, before Py_Initialize().  PyMem_RawMalloc() and Py_DecodeLocale() can be called again before _PyRuntimeState_Init().  Co-Authored-By: Eric Snow <ericsnowcurrently@gmail.com>\") [\\#4532](https://github.com/python/cpython/pull/4532) [)](https://github.com/python/cpython/commit/9e87e7776f7ace66baaf7247233afdabd00c2b44 \"bpo-32096: Remove obj and mem from _PyRuntime (\\#4532)  bpo-32096, bpo-30860:  Partially revert the commit 2ebc5ce42a8a9e047e790aefbf9a94811569b2b6:  * Move structures back from Include/internal/mem.h to   Objects/obmalloc.c * Remove _PyObject_Initialize() and _PyMem_Initialize() * Remove Include/internal/pymalloc.h * Add test_capi.test_pre_initialization_api():    Make sure that it's possible to call Py_DecodeLocale(), and then call    Py_SetProgramName() with the decoded string, before Py_Initialize().  PyMem_RawMalloc() and Py_DecodeLocale() can be called again before _PyRuntimeState_Init().  Co-Authored-By: Eric Snow <ericsnowcurrently@gmail.com>\")\n\n      Show description for 9e87e77\n\n\n\n\n\n\n\n\n\n\n      ![vstinner](https://avatars.githubusercontent.com/u/194129?v=4&size=32)![ericsnowcurrently](https://avatars.githubusercontent.com/u/1152074?v=4&size=32)\n\n\n      [vstinner](https://github.com/python/cpython/commits?author=vstinner)\n\n      and\n\n      [ericsnowcurrently](https://github.com/python/cpython/commits?author=ericsnowcurrently)\n\n      authoredon Nov 24, 2017Nov 24, 2017\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n      [9e87e77](https://github.com/python/cpython/commit/9e87e7776f7ace66baaf7247233afdabd00c2b44) View commit details\n\n      Copy full SHA for 9e87e77\n\n\n\n      View code at this pointBrowse repository at this point\n\n\n07. ### Commits on Nov 16, 2017\n\n\n\n\n\n\n\n    - #### [bpo-32043](https://bugs.python.org/issue?@action=redirect&bpo=32043) [: New \"developer mode\": \"-X dev\" option (](https://github.com/python/cpython/commit/ccb0442a338066bf40fe417455e5a374e5238afb \"bpo-32043: New \\\"developer mode\\\": \\\"-X dev\\\" option (\\#4413)  Add a new \\\"developer mode\\\": new \\\"-X dev\\\" command line option to enable debug checks at runtime.  Changes:  * Add unit tests for -X dev * test_cmd_line: replace test.support with support. * Fix _PyRuntimeState_Fini(): Use the same memory allocator    than _PyRuntimeState_Init(). * Fix _PyMem_GetDefaultRawAllocator()\") [\\#4413](https://github.com/python/cpython/pull/4413) [)](https://github.com/python/cpython/commit/ccb0442a338066bf40fe417455e5a374e5238afb \"bpo-32043: New \\\"developer mode\\\": \\\"-X dev\\\" option (\\#4413)  Add a new \\\"developer mode\\\": new \\\"-X dev\\\" command line option to enable debug checks at runtime.  Changes:  * Add unit tests for -X dev * test_cmd_line: replace test.support with support. * Fix _PyRuntimeState_Fini(): Use the same memory allocator    than _PyRuntimeState_Init(). * Fix _PyMem_GetDefaultRawAllocator()\")\n\n      Show description for ccb0442\n\n\n\n\n\n\n\n\n\n\n\n      [![vstinner](https://avatars.githubusercontent.com/u/194129?v=4&size=32)](https://github.com/vstinner)[vstinner](https://github.com/python/cpython/commits?author=vstinner)\n\n      authoredon Nov 16, 2017Nov 16, 2017\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n      [ccb0442](https://github.com/python/cpython/commit/ccb0442a338066bf40fe417455e5a374e5238afb) View commit details\n\n      Copy full SHA for ccb0442\n\n\n\n      View code at this pointBrowse repository at this point\n\n\n08. ### Commits on Nov 15, 2017\n\n\n\n\n\n\n\n    - #### [bpo-32030](https://bugs.python.org/issue?@action=redirect&bpo=32030) [: Split Py\\_Main() into subfunctions (](https://github.com/python/cpython/commit/f7e5b56c37eb859e225e886c79c5d742c567ee95 \"bpo-32030: Split Py_Main() into subfunctions (\\#4399)  * Don't use \\\"Python runtime\\\" anymore to parse command line options or   to get environment variables: pymain_init() is now a strict   separation. * Use an error message rather than \\\"crashing\\\" directly with   Py_FatalError(). Limit the number of calls to Py_FatalError(). It   prepares the code to handle errors more nicely later. * Warnings options (-W, PYTHONWARNINGS) and \\\"XOptions\\\" (-X) are now   only added to the sys module once Python core is properly   initialized. * _PyMain is now the well identified owner of some important strings   like: warnings options, XOptions, and the \\\"program name\\\". The   program name string is now properly freed at exit.   pymain_free() is now responsible to free the \\\"command\\\" string. * Rename most methods in Modules/main.c to use a \\\"pymain_\\\" prefix to   avoid conflits and ease debug. * Replace _Py_CommandLineDetails_INIT with memset(0) * Reorder a lot of code to fix the initialization ordering. For   example, initializing standard streams now comes before parsing   PYTHONWARNINGS. * Py_Main() now handles errors when adding warnings options and   XOptions. * Add _PyMem_GetDefaultRawAllocator() private function. * Cleanup _PyMem_Initialize(): remove useless global constants: move   them into _PyMem_Initialize(). * Call _PyRuntime_Initialize() as soon as possible:   _PyRuntime_Initialize() now returns an error message on failure. * Add _PyInitError structure and following macros:    * _Py_INIT_OK()   * _Py_INIT_ERR(msg)   * _Py_INIT_USER_ERR(msg): \\\"user\\\" error, don't abort() in that case   * _Py_INIT_FAILED(err)\") [\\#4399](https://github.com/python/cpython/pull/4399) [)](https://github.com/python/cpython/commit/f7e5b56c37eb859e225e886c79c5d742c567ee95 \"bpo-32030: Split Py_Main() into subfunctions (\\#4399)  * Don't use \\\"Python runtime\\\" anymore to parse command line options or   to get environment variables: pymain_init() is now a strict   separation. * Use an error message rather than \\\"crashing\\\" directly with   Py_FatalError(). Limit the number of calls to Py_FatalError(). It   prepares the code to handle errors more nicely later. * Warnings options (-W, PYTHONWARNINGS) and \\\"XOptions\\\" (-X) are now   only added to the sys module once Python core is properly   initialized. * _PyMain is now the well identified owner of some important strings   like: warnings options, XOptions, and the \\\"program name\\\". The   program name string is now properly freed at exit.   pymain_free() is now responsible to free the \\\"command\\\" string. * Rename most methods in Modules/main.c to use a \\\"pymain_\\\" prefix to   avoid conflits and ease debug. * Replace _Py_CommandLineDetails_INIT with memset(0) * Reorder a lot of code to fix the initialization ordering. For   example, initializing standard streams now comes before parsing   PYTHONWARNINGS. * Py_Main() now handles errors when adding warnings options and   XOptions. * Add _PyMem_GetDefaultRawAllocator() private function. * Cleanup _PyMem_Initialize(): remove useless global constants: move   them into _PyMem_Initialize(). * Call _PyRuntime_Initialize() as soon as possible:   _PyRuntime_Initialize() now returns an error message on failure. * Add _PyInitError structure and following macros:    * _Py_INIT_OK()   * _Py_INIT_ERR(msg)   * _Py_INIT_USER_ERR(msg): \\\"user\\\" error, don't abort() in that case   * _Py_INIT_FAILED(err)\")\n\n      Show description for f7e5b56\n\n\n\n\n\n\n\n\n\n\n\n      [![vstinner](https://avatars.githubusercontent.com/u/194129?v=4&size=32)](https://github.com/vstinner)[vstinner](https://github.com/python/cpython/commits?author=vstinner)\n\n      authoredon Nov 15, 2017Nov 15, 2017\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n      [f7e5b56](https://github.com/python/cpython/commit/f7e5b56c37eb859e225e886c79c5d742c567ee95) View commit details\n\n      Copy full SHA for f7e5b56\n\n\n\n      View code at this pointBrowse repository at this point\n\n\n09. ### Commits on Nov 11, 2017\n\n\n\n\n\n\n\n    - #### [Add the const qualifier to \"char \\*\" variables that refer to literal strings. (](https://github.com/python/cpython/commit/e2f92de6a90ae11a6d8e01bd17fd88b005516835 \"Add the const qualifier to \\\"char *\\\" variables that refer to literal strings. (\\#4370)\") [\\#4370](https://github.com/python/cpython/pull/4370) [)](https://github.com/python/cpython/commit/e2f92de6a90ae11a6d8e01bd17fd88b005516835 \"Add the const qualifier to \\\"char *\\\" variables that refer to literal strings. (\\#4370)\")\n\n\n\n\n\n\n\n\n\n\n\n\n\n      [![serhiy-storchaka](https://avatars.githubusercontent.com/u/3659035?v=4&size=32)](https://github.com/serhiy-storchaka)[serhiy-storchaka](https://github.com/python/cpython/commits?author=serhiy-storchaka)\n\n      authoredon Nov 11, 2017Nov 11, 2017\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n      [e2f92de](https://github.com/python/cpython/commit/e2f92de6a90ae11a6d8e01bd17fd88b005516835) View commit details\n\n      Copy full SHA for e2f92de\n\n\n\n      View code at this pointBrowse repository at this point\n\n\n10. ### Commits on Nov 7, 2017\n\n\n\n\n\n\n\n    - #### [bpo-31626](https://bugs.python.org/issue?@action=redirect&bpo=31626) [: Mark ends of the reallocated block in debug build. (](https://github.com/python/cpython/commit/3cc4c53a64bdcf21431ad306eca0e568f88735a2 \"bpo-31626: Mark ends of the reallocated block in debug build. (\\#4210)  Few bytes at the begin and at the end of the reallocated blocks, as well as the header and the trailer, now are erased before calling realloc() in debug build.  This will help to detect using or double freeing the reallocated block.\") [\\#4210](https://github.com/python/cpython/pull/4210) [)](https://github.com/python/cpython/commit/3cc4c53a64bdcf21431ad306eca0e568f88735a2 \"bpo-31626: Mark ends of the reallocated block in debug build. (\\#4210)  Few bytes at the begin and at the end of the reallocated blocks, as well as the header and the trailer, now are erased before calling realloc() in debug build.  This will help to detect using or double freeing the reallocated block.\")\n\n      Show description for 3cc4c53\n\n\n\n\n\n\n\n\n\n\n\n      [![serhiy-storchaka](https://avatars.githubusercontent.com/u/3659035?v=4&size=32)](https://github.com/serhiy-storchaka)[serhiy-storchaka](https://github.com/python/cpython/commits?author=serhiy-storchaka)\n\n      authoredon Nov 7, 2017Nov 7, 2017\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n      [3cc4c53](https://github.com/python/cpython/commit/3cc4c53a64bdcf21431ad306eca0e568f88735a2) View commit details\n\n      Copy full SHA for 3cc4c53\n\n\n\n      View code at this pointBrowse repository at this point\n\n\n11. ### Commits on Oct 31, 2017\n\n\n\n\n\n\n\n    - #### [bpo-18835](https://bugs.python.org/issue?@action=redirect&bpo=18835) [: Cleanup pymalloc (](https://github.com/python/cpython/commit/9ed83c40855b57c10988f76770a4eb825e034cd8 \"bpo-18835: Cleanup pymalloc (\\#4200)  Cleanup pymalloc:  * Rename _PyObject_Alloc() to pymalloc_alloc() * Rename _PyObject_FreeImpl() to pymalloc_free() * Rename _PyObject_Realloc() to pymalloc_realloc() * pymalloc_alloc() and pymalloc_realloc() don't fallback on the raw   allocator anymore, it now must be done by the caller * Add \\\"success\\\" and \\\"failed\\\" labels to pymalloc_alloc() and   pymalloc_free() * pymalloc_alloc() and pymalloc_free() don't update   num_allocated_blocks anymore: it should be done in the caller * _PyObject_Calloc() is now responsible to fill the memory block   allocated by pymalloc with zeros * Simplify pymalloc_alloc() prototype * _PyObject_Realloc() now calls _PyObject_Malloc() rather than   calling directly pymalloc_alloc()  _PyMem_DebugRawAlloc() and _PyMem_DebugRawRealloc():  * document the layout of a memory block * don't increase the serial number if the allocation failed * check for integer overflow before computing the total size * add a 'data' variable to make the code easiler to follow  test_setallocators() of _testcapimodule.c now test also the context.\") [\\#4200](https://github.com/python/cpython/pull/4200) [)](https://github.com/python/cpython/commit/9ed83c40855b57c10988f76770a4eb825e034cd8 \"bpo-18835: Cleanup pymalloc (\\#4200)  Cleanup pymalloc:  * Rename _PyObject_Alloc() to pymalloc_alloc() * Rename _PyObject_FreeImpl() to pymalloc_free() * Rename _PyObject_Realloc() to pymalloc_realloc() * pymalloc_alloc() and pymalloc_realloc() don't fallback on the raw   allocator anymore, it now must be done by the caller * Add \\\"success\\\" and \\\"failed\\\" labels to pymalloc_alloc() and   pymalloc_free() * pymalloc_alloc() and pymalloc_free() don't update   num_allocated_blocks anymore: it should be done in the caller * _PyObject_Calloc() is now responsible to fill the memory block   allocated by pymalloc with zeros * Simplify pymalloc_alloc() prototype * _PyObject_Realloc() now calls _PyObject_Malloc() rather than   calling directly pymalloc_alloc()  _PyMem_DebugRawAlloc() and _PyMem_DebugRawRealloc():  * document the layout of a memory block * don't increase the serial number if the allocation failed * check for integer overflow before computing the total size * add a 'data' variable to make the code easiler to follow  test_setallocators() of _testcapimodule.c now test also the context.\")\n\n      Show description for 9ed83c4\n\n\n\n\n\n\n\n\n\n\n\n      [![vstinner](https://avatars.githubusercontent.com/u/194129?v=4&size=32)](https://github.com/vstinner)[vstinner](https://github.com/python/cpython/commits?author=vstinner)\n\n      authoredon Oct 31, 2017Oct 31, 2017\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n      [9ed83c4](https://github.com/python/cpython/commit/9ed83c40855b57c10988f76770a4eb825e034cd8) View commit details\n\n      Copy full SHA for 9ed83c4\n\n\n\n      View code at this pointBrowse repository at this point\n\n    - #### [bpo-31626](https://bugs.python.org/issue?@action=redirect&bpo=31626) [: Fixed a bug in debug memory allocator. (](https://github.com/python/cpython/commit/b484d5606ca76f9bbd0f5de7a6ef753400213e94 \"bpo-31626: Fixed a bug in debug memory allocator. (\\#3844)  Removed a code that incorrectly detected in-place resizing in realloc()  and wrote to freed memory.\") [\\#3844](https://github.com/python/cpython/pull/3844) [)](https://github.com/python/cpython/commit/b484d5606ca76f9bbd0f5de7a6ef753400213e94 \"bpo-31626: Fixed a bug in debug memory allocator. (\\#3844)  Removed a code that incorrectly detected in-place resizing in realloc()  and wrote to freed memory.\")\n\n      Show description for b484d56\n\n\n\n\n\n\n\n\n\n\n\n      [![serhiy-storchaka](https://avatars.githubusercontent.com/u/3659035?v=4&size=32)](https://github.com/serhiy-storchaka)[serhiy-storchaka](https://github.com/python/cpython/commits?author=serhiy-storchaka)\n\n      authoredon Oct 31, 2017Oct 31, 2017\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n      [b484d56](https://github.com/python/cpython/commit/b484d5606ca76f9bbd0f5de7a6ef753400213e94) View commit details\n\n      Copy full SHA for b484d56\n\n\n\n      View code at this pointBrowse repository at this point\n\n\n12. ### Commits on Sep 14, 2017\n\n\n\n\n\n\n\n    - #### [bpo-30860](https://bugs.python.org/issue?@action=redirect&bpo=30860) [: Fix deadcode in obmalloc.c (](https://github.com/python/cpython/commit/ccb3c7654cc3d031fb93bf443a6ef9cfb11f6b43 \"bpo-30860: Fix deadcode in obmalloc.c (\\#3499)  Fix Coverity CID 1417587: _PyMem_Initialize() contains code which is never executed.  Replace the runtime check with a build assertion.\") [\\#3499](https://github.com/python/cpython/pull/3499) [)](https://github.com/python/cpython/commit/ccb3c7654cc3d031fb93bf443a6ef9cfb11f6b43 \"bpo-30860: Fix deadcode in obmalloc.c (\\#3499)  Fix Coverity CID 1417587: _PyMem_Initialize() contains code which is never executed.  Replace the runtime check with a build assertion.\")\n\n      Show description for ccb3c76\n\n\n\n\n\n\n\n\n\n\n\n      [![vstinner](https://avatars.githubusercontent.com/u/194129?v=4&size=32)](https://github.com/vstinner)[vstinner](https://github.com/python/cpython/commits?author=vstinner)\n\n      authoredon Sep 14, 2017Sep 14, 2017\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n      [ccb3c76](https://github.com/python/cpython/commit/ccb3c7654cc3d031fb93bf443a6ef9cfb11f6b43) View commit details\n\n      Copy full SHA for ccb3c76\n\n\n\n      View code at this pointBrowse repository at this point\n\n\n13. ### Commits on Sep 8, 2017\n\n\n\n\n\n\n\n    - #### [bpo-30860](https://bugs.python.org/issue?@action=redirect&bpo=30860) [: Consolidate stateful runtime globals. (](https://github.com/python/cpython/commit/2ebc5ce42a8a9e047e790aefbf9a94811569b2b6 \"bpo-30860: Consolidate stateful runtime globals. (\\#3397)  * group the (stateful) runtime globals into various topical structs * consolidate the topical structs under a single top-level _PyRuntimeState struct * add a check-c-globals.py script that helps identify runtime globals  Other globals are excluded (see globals.txt and check-c-globals.py).\") [\\#3397](https://github.com/python/cpython/pull/3397) [)](https://github.com/python/cpython/commit/2ebc5ce42a8a9e047e790aefbf9a94811569b2b6 \"bpo-30860: Consolidate stateful runtime globals. (\\#3397)  * group the (stateful) runtime globals into various topical structs * consolidate the topical structs under a single top-level _PyRuntimeState struct * add a check-c-globals.py script that helps identify runtime globals  Other globals are excluded (see globals.txt and check-c-globals.py).\")\n\n      Show description for 2ebc5ce\n\n\n\n\n\n\n\n\n\n\n\n      [![ericsnowcurrently](https://avatars.githubusercontent.com/u/1152074?v=4&size=32)](https://github.com/ericsnowcurrently)[ericsnowcurrently](https://github.com/python/cpython/commits?author=ericsnowcurrently)\n\n ",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": true,
+      "metadata": {
+        "og:url": "https://github.com/python/cpython",
+        "title": "History for Objects/obmalloc.c - python/cpython · GitHub",
+        "request-id": "9FF9:3650B9:18896D1:1FF8CD1:6AD08657",
+        "og:image:height": "600",
+        "apple-itunes-app": "app-id=1477376905, app-argument=https://github.com/python/cpython/commits/451d1edaf4d27c4e632d81246d308e8dd6ea945f/Objects/obmalloc.c",
+        "twitter:image": "https://opengraph.githubassets.com/645792716041718f92d16d29296615ec14cc1db236f67ef6cb5e37e964110262/python/cpython",
+        "octolytics-dimension-user_login": "python",
+        "disable-turbo": "false",
+        "ui-target": "full",
+        "og:image": "https://opengraph.githubassets.com/645792716041718f92d16d29296615ec14cc1db236f67ef6cb5e37e964110262/python/cpython",
+        "og:image:width": "1200",
+        "og:title": "History for Objects/obmalloc.c - python/cpython",
+        "go-import": "github.com/python/cpython git https://github.com/python/cpython.git",
+        "octolytics-url": "https://collector.github.com/github/collect",
+        "twitter:site": "@github",
+        "twitter:card": "summary_large_image",
+        "hostname": "github.com",
+        "route-pattern": "/:user_id/:repository/commits(/*name)",
+        "release": "bc3651571c4f03107ee34f5fda34870e64bc5639",
+        "react-import-map": "react,react-dom,react-dom/client,react-dom/profiling,react-is,react-reconciler,react/compiler-runtime,react/jsx-dev-runtime,react/jsx-runtime,scheduler@777f63f87cd0",
+        "expected-hostname": "github.com",
+        "ogImage": "https://opengraph.githubassets.com/645792716041718f92d16d29296615ec14cc1db236f67ef6cb5e37e964110262/python/cpython",
+        "ogSiteName": "GitHub",
+        "twitter:title": "History for Objects/obmalloc.c - python/cpython",
+        "octolytics-dimension-repository_nwo": "python/cpython",
+        "theme-color": "#1e2327",
+        "color-scheme": "light dark",
+        "og:type": "object",
+        "octolytics-dimension-user_id": "1525981",
+        "visitor-payload": "eyJyZWZlcnJlciI6Imh0dHBzOi8vZ2l0aHViLmNvbS9weXRob24vY3B5dGhvbi9jb21taXRzLzQ1MWQxZWRhZjRkMjdjNGU2MzJkODEyNDZkMzA4ZThkZDZlYTk0NWYvT2JqZWN0cy9vYm1hbGxvYy5jIiwicmVxdWVzdF9pZCI6IjlGRjk6MzY1MEI5OjE4ODk2RDE6MUZGOENEMTo2QUQwODY1NyIsInZpc2l0b3JfaWQiOiIyODg3MDY3NTkwNzEwMDM2MDU1IiwicmVnaW9uX2VkZ2UiOiJpYWQiLCJyZWdpb25fcmVuZGVyIjoiaWFkIn0=",
+        "user-login": "",
+        "route-controller": "commits",
+        "description": "The Python programming language. Contribute to python/cpython development by creating an account on GitHub.",
+        "octolytics-dimension-repository_id": "81598961",
+        "current-catalog-service-hash": "f3abb0cc802f3d7b95fc8762b94bdcb13bf39634c40c357301c4aa1d67a256fb",
+        "html-safe-nonce": "89bba2b4e0b378a42cd4bd29f633d1b7d58d93229a19d1afb4c2250115105fc0",
+        "browser-errors-url": "https://api.github.com/_private/browser/errors",
+        "google-site-verification": "Apib7-x98H0j5cPqHWwSMm6dNU4GmODRoqxLiDzdx9I",
+        "og:image:alt": "The Python programming language. Contribute to python/cpython development by creating an account on GitHub.",
+        "octolytics-dimension-repository_is_fork": "false",
+        "hovercard-subject-tag": "repository:81598961",
+        "octolytics-dimension-repository_network_root_id": "81598961",
+        "ogDescription": "The Python programming language. Contribute to python/cpython development by creating an account on GitHub.",
+        "github-keyboard-shortcuts": "repository,commit-list,copilot",
+        "fetch-nonce": "v2:5d867efc-***",
+        "octolytics-dimension-repository_public": "true",
+        "ogUrl": "https://github.com/python/cpython",
+        "react-profiling": "0",
+        "fb:app_id": "1401488693436528",
+        "og:site_name": "GitHub",
+        "turbo-cache-control": [
+          "no-preview",
+          "no-cache"
+        ],
+        "react-app-name": "commits",
+        "analytics-location": "/<user-name>/<repo-name>/commits/show",
+        "route-action": "show",
+        "visitor-hmac": "7eae214a2f43c69c16259b264f0e70b2a9ace8cf11bc5a1e8ab42e01a3bf1ba9",
+        "twitter:description": "The Python programming language. Contribute to python/cpython development by creating an account on GitHub.",
+        "turbo-body-classes": "logged-out env-production page-responsive",
+        "octolytics-dimension-repository_network_root_nwo": "python/cpython",
+        "viewport": "width=device-width",
+        "ogTitle": "History for Objects/obmalloc.c - python/cpython",
+        "language": "en",
+        "og:description": "The Python programming language. Contribute to python/cpython development by creating an account on GitHub.",
+        "browser-stats-url": "https://api.github.com/_private/browser/stats",
+        "favicon": "https://github.githubassets.com/favicons/favicon.svg",
+        "scrapeId": "01a13e8c-c461-722c-8f36-6bb8ea05e929",
+        "sourceURL": "https://github.com/python/cpython/commits/451d1edaf4d27c4e632d81246d308e8dd6ea945f/Objects/obmalloc.c",
+        "url": "https://github.com/python/cpython/commits/451d1edaf4d27c4e632d81246d308e8dd6ea945f/Objects/obmalloc.c",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "cacheState": "miss",
+        "indexId": "6e6a7e3b-4292-4a7c-86a1-6bff5bb84de6",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 4780,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 4824
+    },
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md",
+      "final_url": "https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md",
+      "title": "CPython-Internals/Interpreter/pyobject/pyobject.md at master · zpoint/CPython-Internals · GitHub",
+      "content": "[Skip to content](https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md#start-of-content)\n\nYou signed in with another tab or window. [Reload](https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md) to refresh your session.You signed out in another tab or window. [Reload](https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md) to refresh your session.You switched accounts on another tab or window. [Reload](https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md) to refresh your session.Dismiss alert\n\n{{ message }}\n\n## Collapse file tree\n\n## Files\n\nmaster\n\nSearch this repository(forward slash)` forward slash/`\n\n/\n\n# pyobject.md\n\nCopy path\n\nBlame\n\nMore file actions\n\nBlame\n\nMore file actions\n\n## Latest commit\n\n![zpoint](https://avatars.githubusercontent.com/u/18083296?v=4&size=40)![claude](https://avatars.githubusercontent.com/u/81847?v=4&size=40)\n\n[zpoint](https://github.com/zpoint/CPython-Internals/commits?author=zpoint)\n\nand\n\n[claude](https://github.com/zpoint/CPython-Internals/commits?author=claude)\n\n[Improve English grammar and readability across documentation](https://github.com/zpoint/CPython-Internals/commit/1c8da8473880c324554bd5db3f86466724944529)\n\nOpen commit details\n\n8 months agoFeb 3, 2026\n\n[1c8da84](https://github.com/zpoint/CPython-Internals/commit/1c8da8473880c324554bd5db3f86466724944529) · 8 months agoFeb 3, 2026\n\n## History\n\n[History](https://github.com/zpoint/CPython-Internals/commits/master/Interpreter/pyobject/pyobject.md)\n\nOpen commit details\n\n[View commit history for this file.](https://github.com/zpoint/CPython-Internals/commits/master/Interpreter/pyobject/pyobject.md) History\n\n84 lines (53 loc) · 3.05 KB\n\n/\n\n# pyobject.md\n\nCopy path\n\nTop\n\n## File metadata and controls\n\n- Preview\n\n- Code\n\n- Blame\n\n\n84 lines (53 loc) · 3.05 KB\n\n[Raw](https://github.com/zpoint/CPython-Internals/raw/refs/heads/master/Interpreter/pyobject/pyobject.md)\n\nCopy raw file\n\nDownload raw file\n\nYou must be signed in to make or propose changes\n\nMore edit options\n\nOutline\n\nEdit and raw actions\n\n# PyObject\n\n[Permalink: PyObject](https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md#pyobject)\n\n# contents\n\n[Permalink: contents](https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md#contents)\n\n- [related file](https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md#related-file)\n- [memory layout](https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md#memory-layout)\n- [overview](https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md#overview)\n- [ceval](https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md#ceval)\n- [interpreter and thread](https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md#interpreter-and-thread)\n- [read more](https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md#read-more)\n\n# related file\n\n[Permalink: related file](https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md#related-file)\n\n- cpython/Include/object.h\n- cpython/Include/cpython/object.h\n- cpython/Python/ceval.c\n- cpython/Include/ceval.h\n- cpython/Python/pythonrun.c\n\n# memory layout\n\n[Permalink: memory layout](https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md#memory-layout)\n\nThis is the layout of **PyObject**. It's the basic part of every other Python object\n\nEvery object in Python can be cast to **PyObject**, e.g., list, tuple, etc.\n\n`PyObject_HEAD_EXTRA` is the head of the double linked list, it's used for keeping track in [Garbage Collection](https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/gc/gc.md)\n\n`ob_refcnt` stores reference count of the current object, it's also used in [Garbage Collection](https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/gc/gc.md)\n\n`ob_type` is a pointer to its type object. For example, `type(\"abc\") ===> str`, `\"abc\"` is the PyObject, and `ob_type` in the PyObject will point to `str`\n\n[![PyObject](https://github.com/zpoint/CPython-Internals/raw/master/Interpreter/pyobject/PyObject.png)](https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/PyObject.png)\n\n# overview\n\n[Permalink: overview](https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md#overview)\n\nWhenever you execute a Python program from a `.py` file, the compile phase will translate the human-readable source code to a form called Python bytecode\n\nThe `pyc` file will be generated if necessary, and the interpreter phase will start the main loop, executing the bytecode in the `pyc` file line by line\n\nThe compiled `pyc` file will not boost the runtime of the program. Instead, the load time of the program will be faster because it doesn't need to generate the `pyc` file again\n\nAccording to [PEP 3147](https://www.python.org/dev/peps/pep-3147/), after Python 3.3, `pyc` files will only be generated through the `import` mechanism, and `pyc` files will exist under the `__pycache__` directory\n\n[![executePy](https://github.com/zpoint/CPython-Internals/raw/master/Interpreter/pyobject/executePy.png)](https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/executePy.png)\n\n# ceval\n\n[Permalink: ceval](https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md#ceval)\n\nThe main loop of the interpreter is defined in `cpython/Python/ceval.c`\n\n```\nmain_loop:\n    for (;;) {\n    \t// jump to fast_next_opcode if necessary\n    \t// check for signal hndler/async io handler\n        // drop gil if needed\n\t\tfast_next_opcode:\n            switch (opcode) {\n                /* ... */\n            }\n    }\n```\n\nWe can draw the procedure\n\n[![ceval](https://github.com/zpoint/CPython-Internals/raw/master/Interpreter/pyobject/ceval.png)](https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/ceval.png)\n\n# interpreter and thread\n\n[Permalink: interpreter and thread](https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md#interpreter-and-thread)\n\nThis is the definition of **PyInterpreterState**\n\n[![PyInterpreterState](https://github.com/zpoint/CPython-Internals/raw/master/Interpreter/pyobject/PyInterpreterState.png)](https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/PyInterpreterState.png)\n\nThis is the definition of **PyThreadState**\n\n[![PyThreadState](https://github.com/zpoint/CPython-Internals/raw/master/Interpreter/pyobject/PyThreadState.png)](https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/PyThreadState.png)\n\nIf we have two threads currently running\n\n[![organize](https://github.com/zpoint/CPython-Internals/raw/master/Interpreter/pyobject/organize.png)](https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/organize.png)\n\n# read more\n\n[Permalink: read more](https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md#read-more)\n\n- [pep-3147](https://www.python.org/dev/peps/pep-3147/)\n- [Junnplus's blog: Python中的code对象](https://github.com/Junnplus/blog/issues/16)\n\nYou can’t perform that action at this time.",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "analytics-location": "/<user-name>/<repo-name>/blob/show",
+        "og:type": "object",
+        "octolytics-dimension-repository_id": "181513363",
+        "octolytics-dimension-repository_network_root_nwo": "zpoint/CPython-Internals",
+        "octolytics-dimension-repository_is_fork": "false",
+        "google-site-verification": "Apib7-x98H0j5cPqHWwSMm6dNU4GmODRoqxLiDzdx9I",
+        "twitter:card": "summary_large_image",
+        "twitter:title": "CPython-Internals/Interpreter/pyobject/pyobject.md at master · zpoint/CPython-Internals",
+        "hovercard-subject-tag": "repository:181513363",
+        "user-login": "",
+        "octolytics-dimension-user_id": "18083296",
+        "viewport": "width=device-width",
+        "ogSiteName": "GitHub",
+        "ogDescription": "Dive into CPython internals, trying to illustrate every detail of CPython implementation - zpoint/CPython-Internals",
+        "route-action": "show",
+        "og:image:alt": "Dive into CPython internals, trying to illustrate every detail of CPython implementation - zpoint/CPython-Internals",
+        "fetch-nonce": "v2:8bff8a3d-11e2-4cdc-10c9-c7ae8831c807",
+        "description": "Dive into CPython internals, trying to illustrate every detail of CPython implementation - CPython-Internals/Interpreter/pyobject/pyobject.md at master · zpoint/CPython-Internals",
+        "theme-color": "#1e2327",
+        "disable-turbo": "false",
+        "react-import-map": "react,react-dom,react-dom/client,react-dom/profiling,react-is,react-reconciler,react/compiler-runtime,react/jsx-dev-runtime,react/jsx-runtime,scheduler@777f63f87cd0",
+        "release": "bc3651571c4f03107ee34f5fda34870e64bc5639",
+        "og:url": "https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md",
+        "title": "CPython-Internals/Interpreter/pyobject/pyobject.md at master · zpoint/CPython-Internals · GitHub",
+        "browser-errors-url": "https://api.github.com/_private/browser/errors",
+        "visitor-hmac": "001d223254abfc1b220a5ffc5850d10cdf0b27f5adf2b16897c7b7ab1123d77a",
+        "expected-hostname": "github.com",
+        "octolytics-dimension-repository_network_root_id": "181513363",
+        "octolytics-dimension-repository_nwo": "zpoint/CPython-Internals",
+        "route-pattern": "/:user_id/:repository/blob/*name(/*path)",
+        "og:image:height": "600",
+        "octolytics-dimension-user_login": "zpoint",
+        "twitter:site": "@github",
+        "github-keyboard-shortcuts": "repository,source-code,file-tree,copilot",
+        "octolytics-url": "https://collector.github.com/github/collect",
+        "hostname": "github.com",
+        "request-id": "8243:ED305:213A9B3:2C7D8A4:6AD0865B",
+        "og:description": "Dive into CPython internals, trying to illustrate every detail of CPython implementation - zpoint/CPython-Internals",
+        "twitter:image": "https://opengraph.githubassets.com/9d616dd9344ae5aef28e5c12fd132adff88bfe9a2e5132223702513a2db836ef/zpoint/CPython-Internals",
+        "og:image": "https://opengraph.githubassets.com/9d616dd9344ae5aef28e5c12fd132adff88bfe9a2e5132223702513a2db836ef/zpoint/CPython-Internals",
+        "browser-stats-url": "https://api.github.com/_private/browser/stats",
+        "current-catalog-service-hash": "f3abb0cc802f3d7b95fc8762b94bdcb13bf39634c40c357301c4aa1d67a256fb",
+        "language": "en",
+        "fb:app_id": "1401488693436528",
+        "og:image:width": "1200",
+        "twitter:description": "Dive into CPython internals, trying to illustrate every detail of CPython implementation - zpoint/CPython-Internals",
+        "route-controller": "blob",
+        "color-scheme": "light dark",
+        "react-profiling": "0",
+        "apple-itunes-app": "app-id=1477376905, app-argument=https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md",
+        "og:site_name": "GitHub",
+        "ogTitle": "CPython-Internals/Interpreter/pyobject/pyobject.md at master · zpoint/CPython-Internals",
+        "ogUrl": "https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md",
+        "visitor-payload": "eyJyZWZlcnJlciI6Imh0dHBzOi8vZ2l0aHViLmNvbS96cG9pbnQvQ1B5dGhvbi1JbnRlcm5hbHMvYmxvYi9tYXN0ZXIvSW50ZXJwcmV0ZXIvcHlvYmplY3QvcHlvYmplY3QubWQiLCJyZXF1ZXN0X2lkIjoiODI0MzpFRDMwNToyMTNBOUIzOjJDN0Q4QTQ6NkFEMDg2NUIiLCJ2aXNpdG9yX2lkIjoiNjA2MzY3OTgzNzI0NzE0NTU2MyIsInJlZ2lvbl9lZGdlIjoiaWFkIiwicmVnaW9uX3JlbmRlciI6ImlhZCJ9",
+        "og:title": "CPython-Internals/Interpreter/pyobject/pyobject.md at master · zpoint/CPython-Internals",
+        "html-safe-nonce": "3c5545a3702da0c76268a63e6b136e12ebf9db1b40f00f1c3df5cfe35e41c1df",
+        "go-import": "github.com/zpoint/CPython-Internals git https://github.com/zpoint/CPython-Internals.git",
+        "octolytics-dimension-repository_public": "true",
+        "ogImage": "https://opengraph.githubassets.com/9d616dd9344ae5aef28e5c12fd132adff88bfe9a2e5132223702513a2db836ef/zpoint/CPython-Internals",
+        "ui-target": "full",
+        "turbo-cache-control": [
+          "no-preview",
+          "no-cache"
+        ],
+        "turbo-body-classes": "logged-out env-production page-responsive",
+        "favicon": "https://github.githubassets.com/favicons/favicon.svg",
+        "scrapeId": "01a13e8c-d505-75fe-8de7-4bfced188529",
+        "sourceURL": "https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md",
+        "url": "https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "cacheState": "miss",
+        "indexId": "4477ad9e-0bce-4d45-92ca-f568060b151a",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 2172,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 2254
+    }
+  ],
+  "elapsed_ms": 22141,
+  "api_calls": {
+    "xai": 1,
+    "firecrawl": 2
+  },
+  "score": {
+    "id": "github-code-search",
+    "scores": {
+      "discovery": {
+        "status": "fail",
+        "matched_targets": [],
+        "required": 1
+      },
+      "reading": {
+        "status": "pass"
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "discovery:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true
+  }
+}

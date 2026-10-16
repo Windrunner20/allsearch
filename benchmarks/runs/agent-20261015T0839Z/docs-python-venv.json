@@ -1,0 +1,41 @@
+{
+  "id": "docs-python-venv",
+  "query": "Python standard library documentation for the venv module",
+  "elapsed_ms": 41619,
+  "returncode": 0,
+  "tools": [
+    "mcp__allsearch__search",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result"
+  ],
+  "answer": "Python 标准库 `venv` 的官方文档是 **venv — Creation of virtual environments**，当前 `/3/` 页面对应 **Python 3.15.0 documentation**。\n\n已核对页面：https://docs.python.org/3/library/venv.html\n\n页面位置是 The Python standard library → Software Packaging and Distribution。文档原文：\n\n> Added in version 3.3.\n>\n> The `venv` module supports creating lightweight “virtual environments”, each with their own independent set of Python packages installed in their `site` directories.\n>\n> A virtual environment is created on top of an existing Python installation, known as the virtual environment’s “base” Python, and by default is isolated from the packages in the base environment, so that only those explicitly installed in the virtual environment are available.\n\n创建方式原文：\n\n> Virtual environments are created by executing the `venv` module:\n>\n> `python -m venv /path/to/new/virtual/environment`\n\n同页还写明：\n\n- 源码：https://github.com/python/cpython/tree/3.15/Lib/venv/\n- 背景：PEP 405，https://peps.python.org/pep-0405/\n- Availability: not Android, not iOS, not WASI.\n- Changed in version 3.5: The use of `venv` is now recommended for creating virtual environments.\n- Deprecated since version 3.6, removed in version 3.8: **pyvenv** was the recommended tool for creating virtual environments for Python 3.3 and 3.4, and replaced in 3.5 by executing `venv` directly.\n\n搜索结果里还有固定版本页 https://docs.python.org/3.14/library/venv.html（本次未抓取正文）。教程不是标准库参考，而是 https://docs.python.org/dev/tutorial/venv.html。",
+  "stderr": "",
+  "score": {
+    "id": "docs-python-venv",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "py-venv"
+        ],
+        "required": 1
+      },
+      "reading": {
+        "status": "not_attempted"
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "pass",
+      "reasons": []
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": false
+  }
+}

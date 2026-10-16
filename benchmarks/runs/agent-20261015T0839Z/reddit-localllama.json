@@ -1,0 +1,43 @@
+{
+  "id": "reddit-localllama",
+  "query": "Reddit thread in r/LocalLLaMA about running a quantized local model on one GPU",
+  "elapsed_ms": 136722,
+  "returncode": 0,
+  "tools": [
+    "mcp__allsearch__search",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__search",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__search"
+  ],
+  "answer": "最贴题、且被两个搜索源同时命中的是这条 r/LocalLLaMA 帖：在一张 RTX 3090 上跑量化后的 Qwen3.8-27B（Unsloth Q4_K_M）。\n\n**主帖（更新帖）**  \nhttps://www.reddit.com/r/LocalLLaMA/comments/1x37q7b/update_qwen_38_27b_140_toks_on_single_rtx_3090\n\n检索摘要原句：\n\n> The megakernel is a CUDA engine for Qwen3.8-27B that runs 1.4-1.9x faster than llama.cpp on a single 3090. Only Q4_K_M is benchmarked so far,\n\n**同主题原帖**  \nhttps://www.reddit.com/r/LocalLLaMA/comments/1x2erdj/qwen3827b_on_a_single_3090_140_toks_on_code_with\n\n检索摘要原句：\n\n> it's built for one model (unsloth's Q4_K_M) on 3090s only.\n\n直接打开 Reddit 页面失败（解析到 private/reserved，抓取被拒绝），所以没有读到评论正文，不能引用评论原句。上面两句来自搜索摘要，不是评论。\n\n同方向、但这次没有第二源交叉核对的链接：\n\n- 16GB 上跑 Qwen 3.8 27B：https://www.reddit.com/r/LocalLLaMA/comments/1wzfv45/just_my_how_i_run_qwen38_27b_on_16gb_experience\n- 单卡 3090 上的 Llama 3.1 70B AQLM-PV：https://www.reddit.com/r/LocalLLaMA/comments/1fiscnl/release_of_llama3170b_weights_with_aqlmpv",
+  "stderr": "",
+  "score": {
+    "id": "reddit-localllama",
+    "scores": {
+      "discovery": {
+        "status": "fail",
+        "matched_targets": [],
+        "required": 1
+      },
+      "comments": {
+        "status": "not_attempted"
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "discovery:fail",
+        "comments:not_attempted"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true
+  }
+}

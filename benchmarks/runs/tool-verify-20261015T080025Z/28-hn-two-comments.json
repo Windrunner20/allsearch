@@ -1,0 +1,1124 @@
+{
+  "id": "hn-two-comments",
+  "executed_at": "2026-10-15T08:21:28.255624+00:00",
+  "depth": "verify",
+  "provider_query": "In the Hacker News discussion of SQLite as an application file format, read both the comment that rejects waiting on disk in the interface and the comment about Windows file-system snapshots",
+  "answer": "Both comments are in the June 2020 Hacker News thread on [SQLite as an Application File Format (2014)](https://news.ycombinator.com/item?id=23508923) (sqlite.org/appfileformat.html).\n\n**Rejects waiting on disk in the UI**\n\n1. **lillecarl** ([comment](https://news.ycombinator.com/item?id=23552225)): “If the user interface depends on synchronous IO something is very wrong.”\n2. **sdinsn** ([comment](https://news.ycombinator.com/item?id=23514509)): blocking the UI thread is poor design and cannot be blamed on SQLite.\n3. **yellowapple** ([comment](https://news.ycombinator.com/item?id=23513977)): do not block the UI thread; show a loading indicator while another thread does the transaction. The slow part is the disk, not SQLite.\n4. **ori_b** ([comment](https://news.ycombinator.com/item?id=23510880)), the parent they reply to: a later UI action may still need the previous disk operation to finish.\n\n**Windows file-system snapshots**\n\n5. **int_19h** ([comment](https://news.ycombinator.com/item?id=23546691)): Windows once had snapshot-based transactions across the whole NTFS filesystem; that feature was deprecated, and the filesystem model has not moved on.\n6. **corysama** ([comment](https://news.ycombinator.com/item?id=23510271)), the parent: atomic file writes are harder than they look; a mid-write shutdown garbles custom formats, which is why the author used SQLite or LMDB (and points at danluu.com/file-consistency/).\n7. **hedora** ([comment](https://news.ycombinator.com/item?id=23510704)): POSIX (and, the author believes, Windows) can durably replace a file with temp write, fsync, close, rename, and sync; skipping the syncs loses data on some systems.\n8. **SonOfLilit** ([comment](https://news.ycombinator.com/item?id=23511635)): journals keep the filesystem consistent, not arbitrary application files; SQLite’s own journaling and careful flush is what gives durability without rewriting the whole document.",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://hn.algolia.com/api/v1/search?query=wait&tags=comment,story_23508923&hitsPerPage=20",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=20&query=wait&tags=comment%2Cstory_23508923",
+      "snippet": "",
+      "content": "```json\n{\"exhaustive\":{\"nbHits\":false,\"typo\":false},\"exhaustiveNbHits\":false,\"exhaustiveTypo\":false,\"hits\":[{\"_highlightResult\":{\"author\":{\"matchLevel\":\"none\",\"matchedWords\":[],\"value\":\"yellowapple\"},\"comment_text\":{\"fullyHighlighted\":false,\"matchLevel\":\"full\",\"matchedWords\":[\"wait\"],\"value\":\"On top of that, even if you did have the game \"phone home\", that doesn't do much against someone inspecting the memory of a running game; one could just wait until the game does have the decryption key.\"},\"story_title\":{\"matchLevel\":\"none\",\"matchedWords\":[],\"value\":\"SQLite as an Application File Format (2014)\"},\"story_url\":{\"matchLevel\":\"none\",\"matchedWords\":[],\"value\":\"https://sqlite.org/appfileformat.html\"}},\"_tags\":[\"comment\",\"author_yellowapple\",\"story_23508923\"],\"author\":\"yellowapple\",\"comment_text\":\"On top of that, even if you did have the game \"phone home\", that doesn't do much against someone inspecting the memory of a running game; one could just wait until the game does have the decryption key.\",\"created_at\":\"2020-06-14T00:00:18Z\",\"created_at_i\":1592092818,\"objectID\":\"23513934\",\"parent_id\":23510305,\"story_id\":23508923,\"story_title\":\"SQLite as an Application File Format (2014)\",\"story_url\":\"https://sqlite.org/appfileformat.html\",\"updated_at\":\"2024-09-20T06:21:53Z\"}],\"hitsPerPage\":20,\"nbHits\":1,\"nbPages\":1,\"page\":0,\"params\":\"query=wait&hitsPerPage=20&tags=comment%2Cstory_23508923&advancedSyntax=true&analyticsTags=backend\",\"processingTimeMS\":5,\"processingTimingsMS\":{\"_request\":{\"roundTrip\":15},\"fetch\":{\"query\":3,\"total\":4},\"total\":5},\"query\":\"wait\",\"serverTimeMS\":5}\n\n```",
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "firecrawl"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "Capsule: Single-file web apps with SQLite database | AI-Driven Engineering posted on the topic | LinkedIn",
+      "url": "https://www.linkedin.com/posts/ai-driven-engineering_a-new-tool-called-capsule-packages-a-small-activity-7508629267564658688-9Iuj",
+      "snippet": "It showed up on Hacker News on September 15 under the title \"Capsule – Single-file web apps that save their data into SQLite,\" and pulled in 379 upvotes and 167 comments, a level of engagement that's uncommon for a first-week open-source release. The project is free and open source, built on Rust and Tauri, and currently at version 0.5.2 for macOS, Windows, and Linux, with mobile versions listed as coming soon.\nIt's a narrow idea, but one that quietly blurs the line between an app and a document: something you pass around instead of deploy. [...] Redacting a log doesn't un-send anything, so rotate whatever it finds.\nMIT licensed, and it runs on macOS, Linux and Windows.\nLink in the first comment.\n#ClaudeCode #AI [...] The upgrade is one command: coffeeql-server start\nAs a thank you, the first 100 people who sign up get the Pro plan free for 30 days. The link is in the first comment.\nWhat's the one dev tool you trust enough to just leave running?\nCheck Comments for site links.\nP.S. If anything breaks on your setup, tell me below. I read every comment.",
+      "content": null,
+      "published_at": "Wed, 23 Sep 2026 20:52:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.17401722,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://news.ycombinator.com/item?id=32628367",
+      "url": "https://news.ycombinator.com/item?id=32628367",
+      "snippet": "",
+      "content": "|     |     |     |\n| --- | --- | --- |\n| |     |     |     |\n| --- | --- | --- |\n| [![](https://news.ycombinator.com/y18.svg)](https://news.ycombinator.com/) | **[Hacker News](https://news.ycombinator.com/news)** [new](https://news.ycombinator.com/newest) \\| [past](https://news.ycombinator.com/front) \\| [comments](https://news.ycombinator.com/newcomments) \\| [ask](https://news.ycombinator.com/ask) \\| [show](https://news.ycombinator.com/show) \\| [jobs](https://news.ycombinator.com/jobs) \\| [submit](https://news.ycombinator.com/submit) | [login](https://news.ycombinator.com/login?goto=item%3Fid%3D32628367) | |\n\n| |     |     |     |\n| --- | --- | --- |\n|  |  | [Show HN: Versioning Filesystem for SQLite](https://github.com/sudeep9/mojo) ( [github.com/sudeep9](https://news.ycombinator.com/from?site=github.com/sudeep9)) |\n|  | 110 points by [devnull3](https://news.ycombinator.com/user?id=devnull3) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32628367) \\| [hide](https://news.ycombinator.com/hide?id=32628367&goto=item%3Fid%3D32628367) \\| [past](https://hn.algolia.com/?query=Show%20HN%3A%20Versioning%20Filesystem%20for%20SQLite&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0) \\| [favorite](https://news.ycombinator.com/fave?id=32628367) \\| [40 comments](https://news.ycombinator.com/item?id=32628367) |\n|  |  |\n\n|     |     |     |\n| --- | --- | --- |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [devnull3](https://news.ycombinator.com/user?id=devnull3) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32629548) \\| [next](https://news.ycombinator.com/item?id=32628367#32629171)\\[–\\]<br>(I am the author) Some of the use-cases of mojo I could think of:<br>1\\. Rollbacking DDL changes (like create table, adding columns, etc)<br>2\\. (My use-case) Multiple readers-single writer. Readers read old versions. Writers do not block readers and vice-versa. Note: this is different than reading+writing in the same version can still happen but with database-level locking.<br>3\\. Extension of #2: The older versions read from S3 so that lamda can read.<br>4\\. Extension of #3: Readers reading from old immutable snapshots makes the database as a queue of complex changes with indexes and all the benefits of SQL.<br>5\\. Backups and replication.<br>Oh: I have change the license to MIT | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [quietbritishjim](https://news.ycombinator.com/user?id=quietbritishjim) [on Aug 29, 2022](https://news.ycombinator.com/item?id=32633452) \\| [parent](https://news.ycombinator.com/item?id=32628367#32629548) \\| [next](https://news.ycombinator.com/item?id=32628367#32629171)\\[–\\]<br>For no. 2, WAL mode has this property, why not just use that? Is it for finer control over which version the readers see? | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [devnull3](https://news.ycombinator.com/user?id=devnull3) [on Aug 29, 2022](https://news.ycombinator.com/item?id=32634691) \\| [root](https://news.ycombinator.com/item?id=32628367#32629548) \\| [parent](https://news.ycombinator.com/item?id=32628367#32633452) \\| [next](https://news.ycombinator.com/item?id=32628367#32629171)\\[–\\]<br>There is a requirement where I need data which existed at timestamp T or version V. So even a WAL needs to be versioned. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [phil294](https://news.ycombinator.com/user?id=phil294) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32629171) \\| [prev](https://news.ycombinator.com/item?id=32628367#32629548) \\| [next](https://news.ycombinator.com/item?id=32628367#32629034)\\[–\\]<br>This seems great, also in performance, but why would you use this over making plain file copy-based backups, since SQLite is single file based? I'd assume this solution might be preferable because it saves deltas instead of absolute, but the Readme does not say so. If the main advantage here is on-the-fly selecting from different versions, granted, that is unique, even though I cannot really imagine a production use case for this.<br>So far, I have been using file copies and GFS backup scheme based solutions like Borg, which also does deltas in chunks, compression, and encryption. Perhaps with Borg one should better even backup SQL dumps instead of db files, I don't know. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [devnull3](https://news.ycombinator.com/user?id=devnull3) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32629320) \\| [parent](https://news.ycombinator.com/item?id=32628367#32629171) \\| [next](https://news.ycombinator.com/item?id=32628367#32630892)\\[–\\]<br>Only modified pages go into a version data file \\[1\\]<br>\\[1\\] [https://github.com/sudeep9/mojo/blob/main/design.md](https://github.com/sudeep9/mojo/blob/main/design.md) | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [rahimiali](https://news.ycombinator.com/user?id=rahimiali) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32631981) \\| [root](https://news.ycombinator.com/item?id=32628367#32629171) \\| [parent](https://news.ycombinator.com/item?id=32628367#32629320) \\| [next](https://news.ycombinator.com/item?id=32628367#32630339)\\[–\\]<br>don't you get the same benefit if you version controlled the db file with git? with git, each commit saves a diff from the previous one as a blob. the difference is that in git, in addition to the diffs, you also have to create a working copy of the db, which means you use up at least 2x the storage your system uses. in your implementation, the diff blobs _are_ the live db, which saves you ~2x storage. is that the main benefit? | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [devnull3](https://news.ycombinator.com/user?id=devnull3) [on Aug 29, 2022](https://news.ycombinator.com/item?id=32634304) \\| [root](https://news.ycombinator.com/item?id=32628367#32629171) \\| [parent](https://news.ycombinator.com/item?id=32628367#32631981) \\| [next](https://news.ycombinator.com/item?id=32628367#32630339)\\[–\\]<br>In git, each version of the database will be a full copy. The git has to perform diff i.e. scan the database file. Imagine doing commits & creating snapshots very frequently.<br>Have a look at [https://github.com/sudeep9/mojo/blob/main/design.md#index](https://github.com/sudeep9/mojo/blob/main/design.md#index) | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [rahimiali](https://news.ycombinator.com/user?id=rahimiali) [on Aug 29, 2022](https://news.ycombinator.com/item?id=32634530) \\| [root](https://news.ycombinator.com/item?id=32628367#32629171) \\| [parent](https://news.ycombinator.com/item?id=32628367#32634304) \\| [next](https://news.ycombinator.com/item?id=32628367#32630339)\\[–\\]<br>sorry, yes, you mention in another comment the use case of multiple readers operating on different versions of the db simultaneously. that'd be difficult to do with git for the reason you mention. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [arjvik](https://news.ycombinator.com/user?id=arjvik) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32630339) \\| [root](https://news.ycombinator.com/item?id=32628367#32629171) \\| [parent](https://news.ycombinator.com/item?id=32628367#32629320) \\| [prev](https://news.ycombinator.com/item?id=32628367#32631981) \\| [next](https://news.ycombinator.com/item?id=32628367#32630892)\\[–\\]<br>Could you achieve the same by using BTRFS to store the db file? | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [devnull3](https://news.ycombinator.com/user?id=devnull3) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32630394) \\| [root](https://news.ycombinator.com/item?id=32628367#32629171) \\| [parent](https://news.ycombinator.com/item?id=32628367#32630339) \\| [next](https://news.ycombinator.com/item?id=32628367#32630892)\\[–\\]<br>Yes. But you need to have such a filesystem installed at the first place.<br>Mojo can run on any filesystem which does not support snapshots/versions. This makes it portable not only across different fs but also across OS. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [Lex-2008](https://news.ycombinator.com/user?id=Lex-2008) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32630892) \\| [parent](https://news.ycombinator.com/item?id=32628367#32629171) \\| [prev](https://news.ycombinator.com/item?id=32628367#32629320) \\| [next](https://news.ycombinator.com/item?id=32628367#32629034)\\[–\\]<br>re: backup SQL dumps instead of db files - indeed! In my small experiment (SQL databases in a browser profile, \\[1\\]), simple \\`sqlite3 \"$file\" .dump \\| gzip >\"$file.sql.gz\"\\` decreased size of files to be backed up about 10 times!<br>I'm not sure how it compares to Borg's delta- and zstd-compression, though.<br>\\[1\\]: [http://alexey.shpakovsky.ru/en/minimizing-size-of-browser-pr...](http://alexey.shpakovsky.ru/en/minimizing-size-of-browser-profiles-backups.html) | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [phil294](https://news.ycombinator.com/user?id=phil294) [on Aug 29, 2022](https://news.ycombinator.com/item?id=32637388) \\| [root](https://news.ycombinator.com/item?id=32628367#32629171) \\| [parent](https://news.ycombinator.com/item?id=32628367#32630892) \\| [next](https://news.ycombinator.com/item?id=32628367#32629034)\\[–\\]<br>hm but can't you do the same thing (gzipping) with the db itself?<br>Edit. Regardless of if you maybe even meant that, I made a small test too: A 42 MB db zipped is 8.8M, but its sql dump zipped is 4.9M, so almost half the size. Pretty good already. If you don't just \\`.dump\\` but actually output the tables in a consistently sorted manner, the size might go down even more and will enable very efficient delta-ing. Questionable value to effort ratio though... | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [Lex-2008](https://news.ycombinator.com/user?id=Lex-2008) [on Aug 29, 2022](https://news.ycombinator.com/item?id=32638192) \\| [root](https://news.ycombinator.com/item?id=32628367#32629171) \\| [parent](https://news.ycombinator.com/item?id=32628367#32637388) \\| [next](https://news.ycombinator.com/item?id=32628367#32629034)\\[–\\]<br>re: gzipping the db itself - yep, I tried and saw the same effect as you did: about half a size. I think it's because of indexes (I once played with sqlite3\\_analyzer\\[1\\] and on some databases it showed about half of disk space was used by indexes) and unused pages (all the space which can be vacuum'ed - again, size of some databases can be decreased almost twice by vacuum'ing).<br>\\[1\\]: [https://www.sqlite.org/sqlanalyze.html](https://www.sqlite.org/sqlanalyze.html)<br>On the other side, indeed, text dump is likely not the most space-efficient way of storing raw DB data (compared to some binary one), so I wouldn't be surprised to find databases for which gzipped sql dump is bigger than (gzipped) database itself. I would even say that I'm surprised that it's not true for most databases :) | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [ctas](https://news.ycombinator.com/user?id=ctas) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32629034) \\| [prev](https://news.ycombinator.com/item?id=32628367#32629171) \\| [next](https://news.ycombinator.com/item?id=32628367#32628551)\\[–\\]<br>Is there a way to provide the same functionality via extensions instead of VFS? Recently, there's been a few other interesting projects adding backup and replication to SQLite, but they all use VFS. AFAIK only one VFS can be active at a time. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [devnull3](https://news.ycombinator.com/user?id=devnull3) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32629338) \\| [parent](https://news.ycombinator.com/item?id=32628367#32629034) \\| [next](https://news.ycombinator.com/item?id=32628367#32628551)\\[–\\]<br>I am the author. Mojo is both an extension and a VFS implementation.<br>\\> AFAIK only one VFS can be active at a time.<br>You can specify VFS as a part of connect URI. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [koeng](https://news.ycombinator.com/user?id=koeng) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32628551) \\| [prev](https://news.ycombinator.com/item?id=32628367#32629034) \\| [next](https://news.ycombinator.com/item?id=32628367#32632126)\\[–\\]<br>How would something like this work with litestream? I imagine that the WAL file gets written the same way, but would recovering the database allow for mojo to continue working? | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [devnull3](https://news.ycombinator.com/user?id=devnull3) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32629484) \\| [parent](https://news.ycombinator.com/item?id=32628367#32628551) \\| [next](https://news.ycombinator.com/item?id=32628367#32632126)\\[–\\]<br>From what I know of litestream, it should be decoupled from VFS implementation. The versions/snapshots are not known to the database. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [rnavi](https://news.ycombinator.com/user?id=rnavi) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32632126) \\| [prev](https://news.ycombinator.com/item?id=32628367#32628551) \\| [next](https://news.ycombinator.com/item?id=32628367#32629413)\\[–\\]<br>Would love to learn more on the motivation behind the project | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [devnull3](https://news.ycombinator.com/user?id=devnull3) [on Aug 29, 2022](https://news.ycombinator.com/item?id=32634681) \\| [parent](https://news.ycombinator.com/item?id=32628367#32632126) \\| [next](https://news.ycombinator.com/item?id=32628367#32629413)\\[–\\]<br>This is a part of a larger system which requires versioning of data. So there is a requirement of reading the data as of timestamp T. The sqlite is supposed to be metadata of that large data. Since the larger data itself is versioned I need metadata to be versioned.<br>Some of the use-cases are mentioned at: [https://news.ycombinator.com/item?id=32629548](https://news.ycombinator.com/item?id=32629548) | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [rnavi](https://news.ycombinator.com/user?id=rnavi) [on Aug 29, 2022](https://news.ycombinator.com/item?id=32637016) \\| [root](https://news.ycombinator.com/item?id=32628367#32632126) \\| [parent](https://news.ycombinator.com/item?id=32628367#32634681) \\| [next](https://news.ycombinator.com/item?id=32628367#32629413)\\[–\\]<br>Ah cool. We are defaulting to using sqlite for storing metadata too.<br>Happy to chat and exchange notes - my email is in the profile. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [punnerud](https://news.ycombinator.com/user?id=punnerud) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32629413) \\| [prev](https://news.ycombinator.com/item?id=32628367#32632126) \\| [next](https://news.ycombinator.com/item?id=32628367#32631083)\\[–\\]<br>Could this be used to have multiple writes? where every write have their own sqlite3 and read is a combination of all the files | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [Lex-2008](https://news.ycombinator.com/user?id=Lex-2008) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32630970) \\| [parent](https://news.ycombinator.com/item?id=32628367#32629413) \\| [next](https://news.ycombinator.com/item?id=32628367#32629440)\\[–\\]<br>regarding multiple writes - I think hardest part would be to find an sqlite version where \"read is a combination of all the files\".<br>Speaking of multiple writers, I've recently heard about \"BEGIN CONCURRENT\" feature of SQLite \\[1\\] - currently it lives on its separate branch, but I hope they will eventually merge it to the main branch. Not sure if it can be used in your case, but worth mentioning anyway, I think.<br>\\[1\\]: [https://www.sqlite.org/cgi/src/doc/begin-concurrent/doc/begi...](https://www.sqlite.org/cgi/src/doc/begin-concurrent/doc/begin_concurrent.md) | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [devnull3](https://news.ycombinator.com/user?id=devnull3) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32629440) \\| [parent](https://news.ycombinator.com/item?id=32628367#32629413) \\| [prev](https://news.ycombinator.com/item?id=32628367#32630970) \\| [next](https://news.ycombinator.com/item?id=32628367#32630747)\\[–\\]<br>Not sure I understood your question fully, but if there are multiple versions, then read will be over multiple files but writes go to a single active version. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [remram](https://news.ycombinator.com/user?id=remram) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32630747) \\| [parent](https://news.ycombinator.com/item?id=32628367#32629413) \\| [prev](https://news.ycombinator.com/item?id=32628367#32629440) \\| [next](https://news.ycombinator.com/item?id=32628367#32631083)\\[–\\]<br>Each writer can get its own branch but you would never be able to re-combine them. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [TheRealPomax](https://news.ycombinator.com/user?id=TheRealPomax) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32631083) \\| [prev](https://news.ycombinator.com/item?id=32628367#32629413) \\| [next](https://news.ycombinator.com/item?id=32628367#32628975)\\[–\\]<br>Given that sqlite databases are just files, what is the benefit of this vs. version controlling the database file itself? | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [operator-name](https://news.ycombinator.com/user?id=operator-name) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32631171) \\| [parent](https://news.ycombinator.com/item?id=32628367#32631083) \\| [next](https://news.ycombinator.com/item?id=32628367#32628975)\\[–\\]<br>\\> The main feature of the fs is versioning/snapshotting. Only one version is writable and all the old versions are immutable. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [TheRealPomax](https://news.ycombinator.com/user?id=TheRealPomax) [on Aug 29, 2022](https://news.ycombinator.com/item?id=32640920) \\| [root](https://news.ycombinator.com/item?id=32628367#32631083) \\| [parent](https://news.ycombinator.com/item?id=32628367#32631171) \\| [next](https://news.ycombinator.com/item?id=32628367#32628975)\\[–\\]<br>Yes, that's what version control does. \\`git init\\` followed by git commits every time you update the db would do exactly the same, so: what is the specific benefit of this approach compared to just version controlling the db file itself? | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [dkjaudyeqooe](https://news.ycombinator.com/user?id=dkjaudyeqooe) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32628975) \\| [prev](https://news.ycombinator.com/item?id=32628367#32631083)\\[–\\]<br>\\> At present there is no license and to my knowledge it is very restrictive. This will change. I have not made up my mind on the exact license.<br>There might be something lost in translation but since there is no licence this is a copyrighted work and cannot be used without permission. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [devnull3](https://news.ycombinator.com/user?id=devnull3) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32629592) \\| [parent](https://news.ycombinator.com/item?id=32628367#32628975) \\| [next](https://news.ycombinator.com/item?id=32628367#32630112)\\[–\\]<br>I have changed the license to MIT. Sorry for the wrong impression. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [squeaky-clean](https://news.ycombinator.com/user?id=squeaky-clean) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32630112) \\| [parent](https://news.ycombinator.com/item?id=32628367#32628975) \\| [prev](https://news.ycombinator.com/item?id=32628367#32629592) \\| [next](https://news.ycombinator.com/item?id=32628367#32629006)\\[–\\]<br>That's exactly how I read that sentence. There was no license, and ironically no license is more restrictive than most licenses.<br>Once you release code under a certain license you can pretty much never undo that. You can change the license, but the previous version under the previous license will still be valid. So I understand wanting to take time to think about what license you will use. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [wruza](https://news.ycombinator.com/user?id=wruza) [on Aug 29, 2022](https://news.ycombinator.com/item?id=32633604) \\| [root](https://news.ycombinator.com/item?id=32628367#32628975) \\| [parent](https://news.ycombinator.com/item?id=32628367#32630112) \\| [next](https://news.ycombinator.com/item?id=32628367#32629006)\\[–\\]<br>Why ironically? License (aka permit) is a document which gives someone a set of rights. No license no permission, that’s by default. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [hot\\_gril](https://news.ycombinator.com/user?id=hot_gril) [on Aug 29, 2022](https://news.ycombinator.com/item?id=32635445) \\| [root](https://news.ycombinator.com/item?id=32628367#32628975) \\| [parent](https://news.ycombinator.com/item?id=32628367#32633604) \\| [next](https://news.ycombinator.com/item?id=32628367#32629006)\\[–\\]<br>It's ironic because usually when there's no license, it's cause the author doesn't care what you do with the code. Anyone who actually cares will say \"proprietary\" or whatever. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [raro11](https://news.ycombinator.com/user?id=raro11) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32629006) \\| [parent](https://news.ycombinator.com/item?id=32628367#32628975) \\| [prev](https://news.ycombinator.com/item?id=32628367#32630112) \\| [next](https://news.ycombinator.com/item?id=32628367#32629263)\\[–\\]<br>You are correct | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) | ![](https://news.ycombinator.com/s.gif) | [metadat](https://news.ycombinator.com/user?id=metadat) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32629263) \\| [parent](https://news.ycombinator.com/item?id=32628367#32628975) \\| [prev](https://news.ycombinator.com/item?id=32628367#32629006)\\[8 more\\]<br>\\[flagged\\] | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [devnull3](https://news.ycombinator.com/user?id=devnull3) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32629332) \\| [root](https://news.ycombinator.com/item?id=32628367#32628975) \\| [parent](https://news.ycombinator.com/item?id=32628367#32629263)\\[–\\]<br>\\> is it some kind of a tease<br>(I am the author). It's definitely not a tease. The license will change within a week (max 2). This is my first open source project. The purpose is to validate the approach.<br>This has been a private project for a very long time. It can be argued that I should have figured out the license but the delay from my side reached a tipping point. I just thought \"make it public, figure the rest later\". | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [metadat](https://news.ycombinator.com/user?id=metadat) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32629605) \\| [root](https://news.ycombinator.com/item?id=32628367#32628975) \\| [parent](https://news.ycombinator.com/item?id=32628367#32629332) \\| [next](https://news.ycombinator.com/item?id=32628367#32629449)\\[–\\]<br>Got it, if you're open to feedback: in the future, a few more words of explanation about the reasoning in the readme will be appreciated by folks and go a long way in making it clear you are reasonable and thoughtful person. Otherwise it's up to the reader to guess what kind of individual sits on the other side of the screen.<br>Unfortunately there is a lot of code license drama these days compared to a decade ago. For reference, see the Elasticsearch OSS License renege fiasco from January 2021.<br>[https://www.infoq.com/news/2021/01/elastic-aws-open-source/](https://www.infoq.com/news/2021/01/elastic-aws-open-source/)<br>[https://en.wikipedia.org/wiki/Elasticsearch#Licensing\\_change...](https://en.wikipedia.org/wiki/Elasticsearch#Licensing_changes)<br>Keep up the good work! | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [kevinmgranger](https://news.ycombinator.com/user?id=kevinmgranger) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32630413) \\| [root](https://news.ycombinator.com/item?id=32628367#32628975) \\| [parent](https://news.ycombinator.com/item?id=32628367#32629605) \\| [next](https://news.ycombinator.com/item?id=32628367#32629664)\\[–\\]<br>Isn't \"...and to my knowledge it is very restrictive. This will change.\" enough of an explanation? | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [devnull3](https://news.ycombinator.com/user?id=devnull3) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32629664) \\| [root](https://news.ycombinator.com/item?id=32628367#32628975) \\| [parent](https://news.ycombinator.com/item?id=32628367#32629605) \\| [prev](https://news.ycombinator.com/item?id=32628367#32630413) \\| [next](https://news.ycombinator.com/item?id=32628367#32629449)\\[–\\]<br>Noted.<br>I have changed the license to MIT. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [GoOnThenDoTell](https://news.ycombinator.com/user?id=GoOnThenDoTell) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32629449) \\| [root](https://news.ycombinator.com/item?id=32628367#32628975) \\| [parent](https://news.ycombinator.com/item?id=32628367#32629332) \\| [prev](https://news.ycombinator.com/item?id=32628367#32629605)\\[–\\]<br>Should we avoid even reading this code if there is no license? Its currently proprietary code? | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [devnull3](https://news.ycombinator.com/user?id=devnull3) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32629465) \\| [root](https://news.ycombinator.com/item?id=32628367#32628975) \\| [parent](https://news.ycombinator.com/item?id=32628367#32629449)\\[–\\]<br>I think you can read the code. I knowingly made the repo public. You do not even have to login to github. I think it should be ok. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [dkjaudyeqooe](https://news.ycombinator.com/user?id=dkjaudyeqooe) [on Aug 28, 2022](https://news.ycombinator.com/item?id=32630744) \\| [root](https://news.ycombinator.com/item?id=32628367#32628975) \\| [parent](https://news.ycombinator.com/item?id=32628367#32629465)\\[–\\]<br>It's just a matter of legalities. Even if you share it openly, it doesn't change its copyright status. Unless you offer a licence or make a statement putting it in the public domain (this doesn't work in all jurisdictions), it remains proprietary.<br>Of course that doesn't matter too much because you're not going to sue people who use it, but it can still have potentially significant consequences for people who use the code. | | |\n| ![](https://news.ycombinator.com/s.gif)\n\n|     |\n| --- |\n|  |\n\n[Consider applying for YC's Winter 2027 batch! Applications are open till November 2.](https://www.ycombinator.com/apply/)\n\n[Guidelines](https://news.ycombinator.com/newsguidelines.html) \\| [FAQ](https://news.ycombinator.com/newsfaq.html) \\| [Lists](https://news.ycombinator.com/lists) \\| [API](https://github.com/HackerNews/API) \\| [Security](https://news.ycombinator.com/security.html) \\| [Legal](https://www.ycombinator.com/legal/) \\| [Apply to YC](https://www.ycombinator.com/apply/) \\| [Contact](mailto:hn@ycombinator.com)\n\nSearch: |",
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "firecrawl"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "SQLITE: THE TINY DATABASE POWERING BILLIONS OF ...",
+      "url": "https://www.instagram.com/p/DeboRVyzKpT",
+      "snippet": "SQLite is one of the most widely deployed database engines in the world. SQLite has NO server, NO background daemon, and NO TCP socket. It is a single C",
+      "content": null,
+      "published_at": null,
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.13340418,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://docs.w3cub.com/sqlite/appfileformat.html",
+      "url": "https://docs.w3cub.com/sqlite/appfileformat.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "Get started with the SQLite integrations | Aspire",
+      "url": "https://aspire.dev/integrations/databases/sqlite/sqlite-get-started",
+      "snippet": "Share on LinkedInShare on XShare on ThreadsShare on BlueskyShare on FacebookShare on RedditShare on Hacker NewsShare on EmailShare on WhatsAppShare on Telegram\n\n⭐ Community Toolkit SQLite logo\n\nSQLite is a lightweight, serverless, self-contained SQL database engine. It stores the entire database as a single file on disk — no separate server process to run or configure. The Aspire SQLite integration (from the Aspire Community Toolkit) lets you model a SQLite database as a first-class resource in your AppHost, then hand the file-path connection information to any consuming app — regardless of language.\n\n## Why use SQLite with Aspire\n\nSection titled “Why use SQLite with Aspire”\n\nAdding SQLite through Aspire — rather than hardcoding file paths and connection strings — gives you: [...] Ideal for local development, unit tests, and desktop apps. No container to spin up, no server to configure — SQLite runs in-process directly from a single file on disk.\n Consistent connection info across languages. Once you reference the SQLite resource from a consuming app, Aspire injects the database file path as an environment variable in a predictable format that works from C#, TypeScript, Python, Go, or any other language.\n Optional browser-based UI. The `WithSqliteWeb` method adds a lightweight `sqlite-web` container alongside your database so you can inspect and query it during development. [...] The hosting integration lives in your AppHost project and models the SQLite database file as a resource. Because SQLite is an embedded, file-based database, there is no container to start — Aspire simply tracks the database file path and injects it into consuming apps as environment variables.\n\nGetting there is a two-step process: model the SQLite resource in your AppHost, then connect to the database from each app that needs it.\n\n1. ### Model SQLite in your AppHost\n\n   Section titled “Model SQLite in your AppHost”",
+      "content": null,
+      "published_at": "Tue, 29 Sep 2026 00:00:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.12972236,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://news.ycombinator.com/item?id=25873029",
+      "url": "https://news.ycombinator.com/item?id=25873029",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "The most reliable database server might be no server at all",
+      "url": "https://www.facebook.com/thanhhm/videos/the-most-reliable-database-server-might-be-no-server-at-all/963905406280544",
+      "snippet": "This video tells the story of SqLite, a highly reliable database server, which was developed by Richard Hipp in 2000. The server was designed to solve the",
+      "content": null,
+      "published_at": null,
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.09562799,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://hn.algolia.com/api/v1/search?query=wait&tags=comment,story_23508923&hitsPerPage=20",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=20&query=wait&tags=comment%2Cstory_23508923",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "Capsule: Single-file web apps with SQLite database | AI-Driven Engineering posted on the topic | LinkedIn",
+      "url": "https://www.linkedin.com/posts/ai-driven-engineering_a-new-tool-called-capsule-packages-a-small-activity-7508629267564658688-9Iuj",
+      "result_id": "r2",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://news.ycombinator.com/item?id=32628367",
+      "url": "https://news.ycombinator.com/item?id=32628367",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "SQLITE: THE TINY DATABASE POWERING BILLIONS OF ...",
+      "url": "https://www.instagram.com/p/DeboRVyzKpT",
+      "result_id": "r4",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://docs.w3cub.com/sqlite/appfileformat.html",
+      "url": "https://docs.w3cub.com/sqlite/appfileformat.html",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "Get started with the SQLite integrations | Aspire",
+      "url": "https://aspire.dev/integrations/databases/sqlite/sqlite-get-started",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://news.ycombinator.com/item?id=25873029",
+      "url": "https://news.ycombinator.com/item?id=25873029",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "The most reliable database server might be no server at all",
+      "url": "https://www.facebook.com/thanhhm/videos/the-most-reliable-database-server-might-be-no-server-at-all/963905406280544",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://news.ycombinator.com/item?id=48954157",
+      "url": "https://news.ycombinator.com/item?id=48954157",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://news.ycombinator.com/item?id=45134010",
+      "url": "https://news.ycombinator.com/item?id=45134010",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://hn.algolia.com/?dateRange=all&page=0&prefix=true&query=wiki+static+sqlite&sort=byPopularity&type=all",
+      "url": "https://hn.algolia.com/?dateRange=all&page=0&prefix=true&query=wiki+static+sqlite&sort=byPopularity&type=all",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://news.ycombinator.com/item?id=44671373",
+      "url": "https://news.ycombinator.com/item?id=44671373",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://hn.algolia.com/api/v1/items/23510271",
+      "url": "https://hn.algolia.com/api/v1/items/23510271",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://news.ycombinator.com/item?id=40655974",
+      "url": "https://news.ycombinator.com/item?id=40655974",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://news.ycombinator.com/item?id=43857834",
+      "url": "https://news.ycombinator.com/item?id=43857834",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://x.com/phoronix/status/2108719851673993627",
+      "url": "https://x.com/phoronix/status/2108719851673993627",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://news.ycombinator.com/item?id=41085529",
+      "url": "https://news.ycombinator.com/item?id=41085529",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://news.ycombinator.com/item?id=42358471",
+      "url": "https://news.ycombinator.com/item?id=42358471",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "https://news.ycombinator.com/item?id=23546691",
+      "url": "https://news.ycombinator.com/item?id=23546691",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "https://news.ycombinator.com/item?id=49124652",
+      "url": "https://news.ycombinator.com/item?id=49124652",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c21",
+      "title": "https://news.ycombinator.com/item?id=50008427",
+      "url": "https://news.ycombinator.com/item?id=50008427",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c22",
+      "title": "https://marcobambini.substack.com/p/we-solved-sqlites-single-writer-limitation",
+      "url": "https://marcobambini.substack.com/p/we-solved-sqlites-single-writer-limitation",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c23",
+      "title": "https://x.com/shahidcodes/status/2108554390718365805",
+      "url": "https://x.com/shahidcodes/status/2108554390718365805",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c24",
+      "title": "https://news.ycombinator.com/item?id=44259132",
+      "url": "https://news.ycombinator.com/item?id=44259132",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c25",
+      "title": "https://github.com/Maxworkinghard/Application-Snapshot-for-system",
+      "url": "https://github.com/Maxworkinghard/Application-Snapshot-for-system",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c26",
+      "title": "https://news.ycombinator.com/item?id=39003944",
+      "url": "https://news.ycombinator.com/item?id=39003944",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c27",
+      "title": "https://news.ycombinator.com/item?id=45147835",
+      "url": "https://news.ycombinator.com/item?id=45147835",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c28",
+      "title": "https://www.sqlite.org/howtocorrupt.html",
+      "url": "https://www.sqlite.org/howtocorrupt.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c29",
+      "title": "https://github.com/duplicati/duplicati/blob/master/Duplicati/Library/Snapshots/WindowsSnapshot.cs",
+      "url": "https://github.com/duplicati/duplicati/blob/master/Duplicati/Library/Snapshots/WindowsSnapshot.cs",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c30",
+      "title": "https://hn.algolia.com/api/v1/search?query=%22waiting%22%20disk%20interface%20sqlite&tags=comment&hitsPerPage=10",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=10&query=%22waiting%22+disk+interface+sqlite&tags=comment",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c31",
+      "title": "https://hn.algolia.com/api/v1/search?query=disk%20interface&tags=comment,story_23508923&hitsPerPage=15",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=15&query=disk+interface&tags=comment%2Cstory_23508923",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c32",
+      "title": "https://news.ycombinator.com/item?id=44671740",
+      "url": "https://news.ycombinator.com/item?id=44671740",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c33",
+      "title": "https://news.ycombinator.com/item?id=27897427",
+      "url": "https://news.ycombinator.com/item?id=27897427",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c34",
+      "title": "https://techdows.com/download-sqlite-for-pc-windows-11-10-mac.html",
+      "url": "https://techdows.com/download-sqlite-for-pc-windows-11-10-mac.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c35",
+      "title": "https://news.ycombinator.com/item?id=23510271",
+      "url": "https://news.ycombinator.com/item?id=23510271",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c36",
+      "title": "https://hn.algolia.com/api/v1/search?query=%22I%20don%27t%20want%22%20OR%20%22should%20not%20wait%22%20OR%20%22never%20wait%22%20sqlite&tags=comment&hitsPerPage=8",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=8&query=%22I+don%27t+want%22+OR+%22should+not+wait%22+OR+%22never+wait%22+sqlite&tags=comment",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c37",
+      "title": "https://news.ycombinator.com/item?id=47046185",
+      "url": "https://news.ycombinator.com/item?id=47046185",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c38",
+      "title": "https://news.ycombinator.com/item?id=50088935",
+      "url": "https://news.ycombinator.com/item?id=50088935",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c39",
+      "title": "https://news.ycombinator.com/item?id=49272832",
+      "url": "https://news.ycombinator.com/item?id=49272832",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c40",
+      "title": "https://hn.algolia.com/api/v1/search?query=interface&tags=comment,story_23508923&hitsPerPage=20",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=20&query=interface&tags=comment%2Cstory_23508923",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c41",
+      "title": "https://news.ycombinator.com/item?id=50031926",
+      "url": "https://news.ycombinator.com/item?id=50031926",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c42",
+      "title": "https://news.ycombinator.com/item?id=46079326",
+      "url": "https://news.ycombinator.com/item?id=46079326",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c43",
+      "title": "https://news.ycombinator.com/item?id=23552225",
+      "url": "https://news.ycombinator.com/item?id=23552225",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c44",
+      "title": "https://x.com/theo/status/2110330976446677262",
+      "url": "https://x.com/theo/status/2110330976446677262",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c45",
+      "title": "https://hn.algolia.com/api/v1/search?query=%22wait%20for%20the%20disk%22%20OR%20%22waiting%20for%20disk%22%20OR%20%22wait%20on%20the%20disk%22%20sqlite&tags=comment&hitsPerPage=8",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=8&query=%22wait+for+the+disk%22+OR+%22waiting+for+disk%22+OR+%22wait+on+the+disk%22+sqlite&tags=comment",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c46",
+      "title": "https://www.sqlite.org/draft/fileio.html",
+      "url": "https://www.sqlite.org/draft/fileio.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c47",
+      "title": "https://hn.algolia.com/api/v1/items/23510271?hitsPerPage=1",
+      "url": "https://hn.algolia.com/api/v1/items/23510271?hitsPerPage=1",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c48",
+      "title": "https://www.sqlite.org/news.html",
+      "url": "https://www.sqlite.org/news.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c49",
+      "title": "https://cubexgroup.com/rss_feeds/the-king-is-dead-long-live-the-king-windows-10-eol-and-windows-11-forensic-artifacts/",
+      "url": "https://cubexgroup.com/rss_feeds/the-king-is-dead-long-live-the-king-windows-10-eol-and-windows-11-forensic-artifacts",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c50",
+      "title": "https://laptopjudge.com/windows-backup-drive-failure-errors/",
+      "url": "https://laptopjudge.com/windows-backup-drive-failure-errors",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c51",
+      "title": "https://hn.algolia.com/api/v1/search?query=interface%20disk%20OR%20fsync%20OR%20block&tags=comment,story_23508923&hitsPerPage=15",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=15&query=interface+disk+OR+fsync+OR+block&tags=comment%2Cstory_23508923",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c52",
+      "title": "https://news.ycombinator.com/item?id=46076642",
+      "url": "https://news.ycombinator.com/item?id=46076642",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c53",
+      "title": "https://github.com/libyal/libvshadow/blob/main/documentation/Volume%20Shadow%20Snapshot%20(VSS)%20format.asciidoc",
+      "url": "https://github.com/libyal/libvshadow/blob/main/documentation/Volume%20Shadow%20Snapshot%20(VSS)%20format.asciidoc",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c54",
+      "title": "https://news.ycombinator.com/item?id=38823297",
+      "url": "https://news.ycombinator.com/item?id=38823297",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c55",
+      "title": "https://github.com/asg017/sqlite-vss/blob/main/docs.md",
+      "url": "https://github.com/asg017/sqlite-vss/blob/main/docs.md",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c56",
+      "title": "https://news.ycombinator.com/item?id=44674547",
+      "url": "https://news.ycombinator.com/item?id=44674547",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c57",
+      "title": "https://news.ycombinator.com/item?id=42965198",
+      "url": "https://news.ycombinator.com/item?id=42965198",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c58",
+      "title": "https://news.ycombinator.com/front?day=2026-10-15",
+      "url": "https://news.ycombinator.com/front?day=2026-10-15",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c59",
+      "title": "https://news.ycombinator.com/item?id=39797104",
+      "url": "https://news.ycombinator.com/item?id=39797104",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c60",
+      "title": "https://news.ycombinator.com/item?id=39139026",
+      "url": "https://news.ycombinator.com/item?id=39139026",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c61",
+      "title": "https://hn.algolia.com/api/v1/search?query=wait%20disk%20interface&tags=comment,story_23508923&hitsPerPage=10",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=10&query=wait+disk+interface&tags=comment%2Cstory_23508923",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c62",
+      "title": "https://news.ycombinator.com/item?id=44624786",
+      "url": "https://news.ycombinator.com/item?id=44624786",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c63",
+      "title": "https://hn.algolia.com/api/v1/search?query=snapshot%20windows&tags=comment,story_23508923&hitsPerPage=10",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=10&query=snapshot+windows&tags=comment%2Cstory_23508923",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c64",
+      "title": "https://github.com/sqliteai/sqlite-multiwriter",
+      "url": "https://github.com/sqliteai/sqlite-multiwriter",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c65",
+      "title": "https://npmjs.com/package/@effect-vfs/persistence",
+      "url": "https://npmjs.com/package/@effect-vfs/persistence",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c66",
+      "title": "https://hn.algolia.com/?query=What%20is%20Local%20first%20development&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0",
+      "url": "https://hn.algolia.com/?dateRange=all&page=0&prefix=&query=What+is+Local+first+development&sort=byDate&storyText=false&type=story",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c67",
+      "title": "https://hn.algolia.com/api/v1/search?query=%22on%20disk%22&tags=comment,story_18754634&hitsPerPage=10",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=10&query=%22on+disk%22&tags=comment%2Cstory_18754634",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c68",
+      "title": "https://sources.debian.org/src/sqlite3/3.8.7.1-1%2Bdeb8u2/www/appfileformat.html",
+      "url": "https://sources.debian.org/src/sqlite3/3.8.7.1-1%2Bdeb8u2/www/appfileformat.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c69",
+      "title": "https://x.com/theo/status/2110321385105166643",
+      "url": "https://x.com/theo/status/2110321385105166643",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c70",
+      "title": "https://news.ycombinator.com/item?id=48422083",
+      "url": "https://news.ycombinator.com/item?id=48422083",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c71",
+      "title": "https://windowsforum.com/tutorials/windows-11-10-backup-never-finishes-fix-drive-vss-and-file-history-errors.447334/",
+      "url": "https://windowsforum.com/tutorials/windows-11-10-backup-never-finishes-fix-drive-vss-and-file-history-errors.447334",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c72",
+      "title": "https://news.ycombinator.com/item?id=49421475",
+      "url": "https://news.ycombinator.com/item?id=49421475",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c73",
+      "title": "https://news.ycombinator.com/item?id=45066999",
+      "url": "https://news.ycombinator.com/item?id=45066999",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c74",
+      "title": "https://www.linuxcompatible.org/story/sqlite-3540-release-faster-engine-new-cli-features-and-dropped-windows-xp-support/",
+      "url": "https://www.linuxcompatible.org/story/sqlite-3540-release-faster-engine-new-cli-features-and-dropped-windows-xp-support",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c75",
+      "title": "https://www.sqlite.org/walformat.html",
+      "url": "https://www.sqlite.org/walformat.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c76",
+      "title": "https://news.ycombinator.com/item?id=31403349",
+      "url": "https://news.ycombinator.com/item?id=31403349",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c77",
+      "title": "https://news.ycombinator.com/item?id=23510880",
+      "url": "https://news.ycombinator.com/item?id=23510880",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c78",
+      "title": "https://hn.algolia.com/api/v1/search?query=SQLite%20application%20file%20format%20windows%20snapshot&tags=comment",
+      "url": "https://hn.algolia.com/api/v1/search?query=SQLite+application+file+format+windows+snapshot&tags=comment",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c79",
+      "title": "https://hn.algolia.com/api/v1/search?query=%22file-system%20snapshots%22%20sqlite&tags=comment&hitsPerPage=10",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=10&query=%22file-system+snapshots%22+sqlite&tags=comment",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c80",
+      "title": "https://news.ycombinator.com/item?id=33933939",
+      "url": "https://news.ycombinator.com/item?id=33933939",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c81",
+      "title": "https://hn.algolia.com/api/v1/search?query=blocking%20OR%20synchronous%20OR%20latency&tags=comment,story_23508923&hitsPerPage=10",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=10&query=blocking+OR+synchronous+OR+latency&tags=comment%2Cstory_23508923",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c82",
+      "title": "https://hn.algolia.com/api/v1/search?query=SQLite%20as%20an%20Application%20File%20Format&tags=story&hitsPerPage=15",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=15&query=SQLite+as+an+Application+File+Format&tags=story",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c83",
+      "title": "https://learn.microsoft.com/en-us/windows/win32/vss/shadow-copies-and-shadow-copy-sets",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/vss/shadow-copies-and-shadow-copy-sets",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c84",
+      "title": "https://news.ycombinator.com/item?id=40613406",
+      "url": "https://news.ycombinator.com/item?id=40613406",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c85",
+      "title": "https://news.ycombinator.com/item?id=45132498",
+      "url": "https://news.ycombinator.com/item?id=45132498",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c86",
+      "title": "The most reliable database server might be no server at all. ...",
+      "url": "https://www.facebook.com/thanhhm/posts/the-most-reliable-database-server-might-be-no-server-at-allin-2000-richard-hipps/10165710306463126",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c87",
+      "title": "SQLite 3.54 Released With Faster Performance, Drops ...",
+      "url": "https://www.facebook.com/Phoronix/posts/sqlite-354-released-with-faster-performance-drops-windows-xp-support/1695965255383622",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c88",
+      "title": "X-plore File Manager - Apps on Google Play",
+      "url": "https://play.google.com/store/apps/details?hl=en_US&id=com.lonelycatgames.Xplore",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c89",
+      "title": "NTDS secrets | The Hacker Recipes",
+      "url": "https://www.thehacker.recipes/ad/movement/credentials/dumping/ntds",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "verify",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 45824,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "verify_supplement",
+        "latency_ms": 8413,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "ok",
+        "reason": "post_discovery",
+        "latency_ms": 1507,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "ok",
+        "reason": "post_discovery",
+        "latency_ms": 2431,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_verify_supplement",
+      "depth_verify",
+      "recency_signal"
+    ]
+  },
+  "cache": {
+    "hit": false,
+    "age_seconds": 0.0,
+    "ttl_seconds": 120,
+    "namespace": "search"
+  },
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=20&query=wait&tags=comment%2Cstory_23508923",
+      "final_url": "https://hn.algolia.com/api/v1/search?hitsPerPage=20&query=wait&tags=comment%2Cstory_23508923",
+      "title": "",
+      "content": "```json\n{\"exhaustive\":{\"nbHits\":false,\"typo\":false},\"exhaustiveNbHits\":false,\"exhaustiveTypo\":false,\"hits\":[{\"_highlightResult\":{\"author\":{\"matchLevel\":\"none\",\"matchedWords\":[],\"value\":\"yellowapple\"},\"comment_text\":{\"fullyHighlighted\":false,\"matchLevel\":\"full\",\"matchedWords\":[\"wait\"],\"value\":\"On top of that, even if you did have the game \"phone home\", that doesn't do much against someone inspecting the memory of a running game; one could just wait until the game does have the decryption key.\"},\"story_title\":{\"matchLevel\":\"none\",\"matchedWords\":[],\"value\":\"SQLite as an Application File Format (2014)\"},\"story_url\":{\"matchLevel\":\"none\",\"matchedWords\":[],\"value\":\"https://sqlite.org/appfileformat.html\"}},\"_tags\":[\"comment\",\"author_yellowapple\",\"story_23508923\"],\"author\":\"yellowapple\",\"comment_text\":\"On top of that, even if you did have the game \"phone home\", that doesn't do much against someone inspecting the memory of a running game; one could just wait until the game does have the decryption key.\",\"created_at\":\"2020-06-14T00:00:18Z\",\"created_at_i\":1592092818,\"objectID\":\"23513934\",\"parent_id\":23510305,\"story_id\":23508923,\"story_title\":\"SQLite as an Application File Format (2014)\",\"story_url\":\"https://sqlite.org/appfileformat.html\",\"updated_at\":\"2024-09-20T06:21:53Z\"}],\"hitsPerPage\":20,\"nbHits\":1,\"nbPages\":1,\"page\":0,\"params\":\"query=wait&hitsPerPage=20&tags=comment%2Cstory_23508923&advancedSyntax=true&analyticsTags=backend\",\"processingTimeMS\":5,\"processingTimingsMS\":{\"_request\":{\"roundTrip\":15},\"fetch\":{\"query\":3,\"total\":4},\"total\":5},\"query\":\"wait\",\"serverTimeMS\":5}\n\n```",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "scrapeId": "01a13ea7-cc5e-725d-99df-74c0f13c6360",
+        "sourceURL": "https://hn.algolia.com/api/v1/search?hitsPerPage=20&query=wait&tags=comment%2Cstory_23508923",
+        "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=20&query=wait&tags=comment%2Cstory_23508923",
+        "statusCode": 200,
+        "contentType": "application/json",
+        "proxyUsed": "basic",
+        "cacheState": "hit",
+        "cachedAt": "2026-10-15T08:22:24.698Z",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 400,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 862
+    },
+    {
+      "schema_version": "1.0",
+      "status": "error",
+      "url": "https://www.linkedin.com/posts/ai-driven-engineering_a-new-tool-called-capsule-packages-a-small-activity-7508629267564658688-9Iuj",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "auth_error"
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "auth_error",
+          "message": "authentication failed (403)",
+          "retryable": false
+        }
+      ],
+      "timing_ms": 422
+    }
+  ],
+  "comments": [
+    {
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=20&query=wait&tags=comment%2Cstory_23508923",
+      "text": "```json\n{\"exhaustive\":{\"nbHits\":false,\"typo\":false},\"exhaustiveNbHits\":false,\"exhaustiveTypo\":false,\"hits\":[{\"_highlightResult\":{\"author\":{\"matchLevel\":\"none\",\"matchedWords\":[],\"value\":\"yellowapple\"},\"comment_text\":{\"fullyHighlighted\":false,\"matchLevel\":\"full\",\"matchedWords\":[\"wait\"],\"value\":\"On top of that, even if you did have the game \"phone home\", that doesn't do much against someone inspecting the memory of a running game; one could just wait until the game does have the decryption key.\"},\"story_title\":{\"matchLevel\":\"none\",\"matchedWords\":[],\"value\":\"SQLite as an Application File Format (2014)\"},\"story_url\":{\"matchLevel\":\"none\",\"matchedWords\":[],\"value\":\"https://sqlite.org/appfileformat.html\"}},\"_tags\":[\"comment\",\"author_yellowapple\",\"story_23508923\"],\"author\":\"yellowapple\",\"comment_text\":\"On top of that, even if you did have the game \"phone home\", that doesn't do much against someone inspecting the memory of a running game; one could just wait until the game does have the decryption key.\",\"created_at\":\"2020-06-14T00:00:18Z\",\"created_at_i\":1592092818,\"objectID\":\"23513934\",\"parent_id\":23510305,\"story_id\":23508923,\"story_title\":\"SQLite as an Application File Format (2014)\",\"story_url\":\"https://sqlite.org/appfileformat.html\",\"updated_at\":\"2024-09-20T06:21:53Z\"}],\"hitsPerPage\":20,\"nbHits\":1,\"nbPages\":1,\"page\":0,\"params\":\"query=wait&hitsPerPage=20&tags=comment%2Cstory_23508923&advancedSyntax=true&analyticsTags=backend\",\"processingTimeMS\":5,\"processingTimingsMS\":{\"_request\":{\"roundTrip\":15},\"fetch\":{\"query\":3,\"total\":4},\"total\":5},\"query\":\"wait\",\"serverTimeMS\":5}\n\n```"
+    }
+  ],
+  "elapsed_ms": 59524,
+  "api_calls": {
+    "xai": 1,
+    "tavily": 1,
+    "firecrawl": 4
+  },
+  "score": {
+    "id": "hn-two-comments",
+    "scores": {
+      "comments": {
+        "status": "fail",
+        "matched_comments": []
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "comments:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true
+  }
+}

@@ -1,0 +1,557 @@
+{
+  "id": "hn-sqlite",
+  "executed_at": "2026-10-15T08:06:48.103138+00:00",
+  "depth": "verify",
+  "provider_query": "Hacker News discussion of SQLite as an application file format",
+  "answer": "Here are up to eight relevant Hacker News threads on SQLite as an application file format.\n\n1. **[SQLite as an Application File Format](https://news.ycombinator.com/item?id=46076642)** — 178 points, 99 comments (sqlite.org). Direct discussion of the official essay. Comments cover MBTiles at Mapbox, when tree-shaped data is a poor fit, and practical benefits (migrations, constraints, off-the-shelf GUIs).\n\n2. **[What If OpenDocument Used SQLite?](https://news.ycombinator.com/item?id=45132498)** — 279 points, 105 comments (sqlite.org). Treats SQLite as a document format and flags caveats: `secure_delete`, hardening for untrusted files, and SQLite’s stance that untrusted DB files are a niche case. Also notes real app use (Firefox, messaging apps) and the ~2 GiB BLOB limit.\n\n3. **[The killer feature for me with SQLite is as an application file format](https://news.ycombinator.com/item?id=40655974)** — Comment thread on the official page. Praises incremental updates versus ZIP-style bundles; cites Audacity project files and a game system where artists edited levels in a normal SQLite GUI. Also discusses WAL/journal side files as a user-facing hazard.\n\n4. **[Looks very much like a format that should just have been gzipped JSON](https://news.ycombinator.com/item?id=47046185)** — On Apple’s `.car` format. Argues SQLite beats base64-in-gzipped-JSON for binary blobs, with examples (Firefox favicons, iOS photos, Kodi, Visual C++ browse data) and another note on Audacity streaming audio into SQLite.\n\n5. **[Executable Is a SQLite Database](https://news.ycombinator.com/item?id=49415271)** — 563 points, 109 comments (fzakaria.com). Extends the “app file format” idea to replacing ELF: a SELF executable is a SQLite file (application ID `SELF`) with segments in tables, runnable via a small interpreter / `binfmt_misc`.\n\n6. **[Somehow my first thought… using sqlite as a format for applications](https://news.ycombinator.com/item?id=46079326)** — On the main “application file format” thread. Same ELF-replacement idea; links [sqlelf](https://github.com/fzakaria/sqlelf) and discusses fat binaries as SQL tables of function bodies.\n\n7. **[Show HN: SQLite files as applications - uApps](https://news.ycombinator.com/item?id=49421475)** — Low-traffic Show HN. `.uapp` files are SQLite archives (sqlar-style) holding a web app plus user data, opened by a Tauri shell for local-first internal tools.\n\n8. **[sqlite is great as a \"file format\"…](https://news.ycombinator.com/item?id=39797104)** — Critique of a custom pack format built on SQLite. Useful adjacent discussion of the header **application ID** at offset 68 so `file(1)` can tell app documents apart from generic SQLite databases.\n\nPrimary source the threads keep linking: [SQLite As An Application File Format](https://www.sqlite.org/appfileformat.html).",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://www.sqlite.org/forum/forumpost/f21062af30f83989?raw",
+      "url": "https://www.sqlite.org/forum/forumpost/f21062af30f83989?raw=",
+      "snippet": "",
+      "content": "[Chronological](https://www.sqlite.org/forum/forumpost/f21062af30f83989?t=c&unf) [Hierarchical](https://www.sqlite.org/forum/forumpost/f21062af30f83989?t=h&unf) UnformattedHistory\n\n```\nThe [document about application file format](https://sqlite.org/appfileformat.html) says that Microsoft Office format is a \"fully custom\" format and is not a wrapped pile of files; actually, Microsoft Office format does use a wrapped pile of files, although it isn't ZIP (it uses \"Microsoft Compound\" format; 7-Zip can still read such files). The format of the pieces is still a custom format though (although that is true for many \"pile-of-files\" and \"wrapped-pile-of-files\" format, too)\n\nThere are other variants, too, such as \"pile-of-wrapped-pile-of-files\", \"SQL-of-wrapped-pile-of-files\", \"wrapped-pile-of-wrapped-pile-of-files\", etc. Also, for some uses, text file is useful that you can edit using a text editor. There is also other structured data formats that other programs might use, such as CSV, JSON, XML, RDF, RELOAD, PostScript tokens (which is available both as a text and as a binary format; there is another message in this forum with a SQLite extension to produce output in the PostScript text format), etc.\n\nThere are also other archive formats, including SQLite, tape archive, and Hamster archive (consists of a sequence of lumps, where each lump consists of the null-terminated ASCII file name, the 32-bit PDP-endian data size, and then the data; that is the entire specification). However, ZIP has the advantage that EPUB files can be displayed in web browsers with the `jar:` URI scheme (which Firefox does, although you will have to save the file and then write the URL by yourself; it will not do that automatically).\n\nSQLite does have many advantages (as well as a few problems).\n\nThe use of SQL queries is helpful, even to allow it to be exposed to the user too, in addition to the internal use by the program (if the program uses it, then it can be available that the end user also can use it, without needing to add another programming language too). This can be useful even if the application file format isn't SQLite, or if it is but it also uses some data which isn't, by the use of virtual tables.\n\nThe 32-bit application ID number is too short than a UUID. (Also, I am not sure how to propose adding new things to the list of application ID numbers into the `magic.txt`; I and some others wrote on this forum and mail list before and had not gotten a response about such things.)\n\nUsing separate journal files, etc doesn't seem the best way to me (since if the application file is copied, it might be copied improperly if there is a hot journal, or if the database is currently in use). I do have some ideas about how to put it in a single file by storing changed stuff on free pages, and using a new write version number but keeping read version number 1 except while a transaction is being committed; recovery will only be needed if it crashes during a commit, otherwise it is already rolled back (the new data may be present in the database, but it is on free pages, so they will be overwritten by any new data that will be written), so a `ROLLBACK` command simply unlocks the database and discards the in memory cache data, making it very fast. The disadvantage of this is that the database file might be up to twice as big (depending on how much data is changed in a single transaction) unless it is vacuumed.\n\nThe use of Unicode text is problematic I think, since it is inappropriate for many applications (no single character set is good for all applications, even though they keep insisting Unicode; a few people prefer TRON, which has advantages and disadvantages compared with Unicode). Although you can store blobs, custom collation does not work with blobs, and the built-in SQLite text functions assume that you are working with Unicode, even if you aren't. So, this requires making a mess in order to get it to work properly with anything other than UTF-8, UTF-16, or ASCII text (which is a subset of UTF-8) that lacks null characters; sometimes a blob will work, and other times, \"false encoding\" (i.e. treat the input as ISO-8859-1 (even though it isn't) and convert it to UTF-8 except that nulls become Unicode code point 256 instead of 0) is what I have considered (although it is messy, it is simpler than trying to convert to Unicode, which is often impossible anyways (despite what they say)). So, if you want to use TRON character encoding, PC character encoding, UTF-32, APL, etc, it doesn't do. (I know, because I have experience in programming these things.)\n\nAlso, some programming languages don't have SQLite, such as PostScript (which doesn't have good FFI anyways, unfortunately; you would have to communicate with an external program (possibly by using `printobject` or `writeobject`, which is a structured format which is fortunately is simple to implement in other programming languages (perhaps 10-20 lines of C `#define`s) even without having to parse the entire structure (it can be used in memory as is), but hardly any program expects such a format)), and probably many others that I have forgotten or am unaware of (I am glad that it is implemented in C, since I like the C programming language; its worst feature is probably the confusing syntax for types, I think). (Although, this is not really a problem with SQLite itself.)\n```",
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "firecrawl"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "Capsule: Single-file web apps with SQLite database | AI-Driven Engineering posted on the topic | LinkedIn",
+      "url": "https://www.linkedin.com/posts/ai-driven-engineering_a-new-tool-called-capsule-packages-a-small-activity-7508629267564658688-9Iuj",
+      "snippet": "It showed up on Hacker News on September 15 under the title \"Capsule – Single-file web apps that save their data into SQLite,\" and pulled in 379 upvotes and 167 comments, a level of engagement that's uncommon for a first-week open-source release. The project is free and open source, built on Rust and Tauri, and currently at version 0.5.2 for macOS, Windows, and Linux, with mobile versions listed as coming soon.\nIt's a narrow idea, but one that quietly blurs the line between an app and a document: something you pass around instead of deploy. [...] To view or add a comment, sign in [...] To view or add a comment, sign in",
+      "content": null,
+      "published_at": "Wed, 23 Sep 2026 20:52:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.7316155,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://news.ycombinator.com/item?id=46076642",
+      "url": "https://news.ycombinator.com/item?id=46076642",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "apsw: Another Python SQLite Wrapper | Hacker News",
+      "url": "https://news.ycombinator.com/item?id=50045273",
+      "snippet": "| |  |  |  |  ---  |  |  | arc-in-space 2 days ago  | parent | next (javascript:void(0))   One of the reasons is high resilience, practically state of the art as far as writing to a single storage device allows. You're less likely to end up with corrupted files with sqlite. This is much more difficult to get right when manipulating files yourself than you might think. For your consideration (I'll add that I used to think similarly as you, and I still wouldn't use sqlite for everything, but it's shockingly effective):        reply | | [...] | |  |  |  |  ---  |  |  | HelloNurse 2 days ago  | parent | prev | next (javascript:void(0))   For most uses, SQL databases are easy to use and general enough to allow practically unlimited growth, \"stringy queries\" usually need less \"wrangling\" than accessing bare files correctly, and designing and implementing file formats is a luxury (usually done because optimizing for file size and compression is traditional).  reply | | [...] | |  |  |  |  ---  |  |  | TZubiri 3 days ago  | prev | next (javascript:void(0))   This might not be a relevant place to comment, but it also might be. Has anyone ever gone through a phase (or is in a phase), of just writing and reading from files instead of cajoling everything into SQL databases and wrangling stringy queries? I find you can just make files with your own file formats and be fine, as long as your magic numbers make a cool mnemonic when read as hex. I'm sure I'll face a huge wall at some point in my development career, or I'll be forced to adopt SQL when inheriting a codebase, but I don't quite know what the main issue with this approach is with this. For the time being, whenever I read articles or Readmes like this it feels like my approach at least has the pro of not",
+      "content": null,
+      "published_at": null,
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.6429039,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://news.ycombinator.com/item?id=43682006",
+      "url": "https://news.ycombinator.com/item?id=43682006",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "Capsule Turns Web Apps Into Portable SQLite Files — No ...",
+      "url": "https://www.instagram.com/p/DdW4upeCTHm",
+      "snippet": "Capsule, a project that just surfaced on Hacker News, attacks. It packs an entire HTML application, its assets, and its user data into a single portable SQLite",
+      "content": null,
+      "published_at": null,
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.56719416,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://news.ycombinator.com/item?id=47046185",
+      "url": "https://news.ycombinator.com/item?id=47046185",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "Get started with the SQLite integrations | Aspire",
+      "url": "https://aspire.dev/integrations/databases/sqlite/sqlite-get-started",
+      "snippet": "Share on LinkedInShare on XShare on ThreadsShare on BlueskyShare on FacebookShare on RedditShare on Hacker NewsShare on EmailShare on WhatsAppShare on Telegram\n\n⭐ Community Toolkit SQLite logo\n\nSQLite is a lightweight, serverless, self-contained SQL database engine. It stores the entire database as a single file on disk — no separate server process to run or configure. The Aspire SQLite integration (from the Aspire Community Toolkit) lets you model a SQLite database as a first-class resource in your AppHost, then hand the file-path connection information to any consuming app — regardless of language.\n\n## Why use SQLite with Aspire\n\nSection titled “Why use SQLite with Aspire”\n\nAdding SQLite through Aspire — rather than hardcoding file paths and connection strings — gives you: [...] Ideal for local development, unit tests, and desktop apps. No container to spin up, no server to configure — SQLite runs in-process directly from a single file on disk.\n Consistent connection info across languages. Once you reference the SQLite resource from a consuming app, Aspire injects the database file path as an environment variable in a predictable format that works from C#, TypeScript, Python, Go, or any other language.\n Optional browser-based UI. The `WithSqliteWeb` method adds a lightweight `sqlite-web` container alongside your database so you can inspect and query it during development. [...] The hosting integration lives in your AppHost project and models the SQLite database file as a resource. Because SQLite is an embedded, file-based database, there is no container to start — Aspire simply tracks the database file path and injects it into consuming apps as environment variables.\n\nGetting there is a two-step process: model the SQLite resource in your AppHost, then connect to the database from each app that needs it.\n\n1. ### Model SQLite in your AppHost\n\n   Section titled “Model SQLite in your AppHost”",
+      "content": null,
+      "published_at": "Tue, 29 Sep 2026 00:00:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.49816954,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://www.sqlite.org/forum/forumpost/f21062af30f83989?raw",
+      "url": "https://www.sqlite.org/forum/forumpost/f21062af30f83989?raw=",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "Capsule: Single-file web apps with SQLite database | AI-Driven Engineering posted on the topic | LinkedIn",
+      "url": "https://www.linkedin.com/posts/ai-driven-engineering_a-new-tool-called-capsule-packages-a-small-activity-7508629267564658688-9Iuj",
+      "result_id": "r2",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://news.ycombinator.com/item?id=46076642",
+      "url": "https://news.ycombinator.com/item?id=46076642",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "apsw: Another Python SQLite Wrapper | Hacker News",
+      "url": "https://news.ycombinator.com/item?id=50045273",
+      "result_id": "r4",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://news.ycombinator.com/item?id=43682006",
+      "url": "https://news.ycombinator.com/item?id=43682006",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "Capsule Turns Web Apps Into Portable SQLite Files — No ...",
+      "url": "https://www.instagram.com/p/DdW4upeCTHm",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://news.ycombinator.com/item?id=47046185",
+      "url": "https://news.ycombinator.com/item?id=47046185",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "Get started with the SQLite integrations | Aspire",
+      "url": "https://aspire.dev/integrations/databases/sqlite/sqlite-get-started",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://x.com/betterhn20/status/2109496281890521598",
+      "url": "https://x.com/betterhn20/status/2109496281890521598",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://file-extensions.com/docs/db",
+      "url": "https://file-extensions.com/docs/db",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://news.ycombinator.com/item?id=49415271",
+      "url": "https://news.ycombinator.com/item?id=49415271",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://x.com/evoluhq/status/2108308261266956638",
+      "url": "https://x.com/evoluhq/status/2108308261266956638",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://www.weaving.news/news/019acaaa-47ce-7724-80ac-9da4051fb2b9",
+      "url": "https://www.weaving.news/news/019acaaa-47ce-7724-80ac-9da4051fb2b9",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://file-extensions.com/docs/sqlite",
+      "url": "https://file-extensions.com/docs/sqlite",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://www.file-extension.info/format/sqlite",
+      "url": "https://www.file-extension.info/format/sqlite",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://news.ycombinator.com/item?id=45132488",
+      "url": "https://news.ycombinator.com/item?id=45132488",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://news.ycombinator.com/item?id=40655974",
+      "url": "https://news.ycombinator.com/item?id=40655974",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://news.ycombinator.com/item?id=49421475",
+      "url": "https://news.ycombinator.com/item?id=49421475",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "https://www.linuxcompatible.org/story/sqlite-3540-release-faster-engine-new-cli-features-and-dropped-windows-xp-support/",
+      "url": "https://www.linuxcompatible.org/story/sqlite-3540-release-faster-engine-new-cli-features-and-dropped-windows-xp-support",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "https://news.ycombinator.com/item?id=48046007",
+      "url": "https://news.ycombinator.com/item?id=48046007",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c21",
+      "title": "https://powerdrill.ai/blog/sqlite-files-explained",
+      "url": "https://powerdrill.ai/blog/sqlite-files-explained",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c22",
+      "title": "https://simonwillison.net/2026/Aug/24/your-executable-is-a-sqlite-database/",
+      "url": "https://simonwillison.net/2026/Aug/24/your-executable-is-a-sqlite-database",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c23",
+      "title": "https://fzakaria.com/2026/08/23/your-executable-is-a-sqlite-database",
+      "url": "https://fzakaria.com/2026/08/23/your-executable-is-a-sqlite-database",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c24",
+      "title": "https://news.ycombinator.com/item?id=46079326",
+      "url": "https://news.ycombinator.com/item?id=46079326",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c25",
+      "title": "https://wizardforcel.gitbooks.io/sqlite-doc-en/content/50.html",
+      "url": "https://wizardforcel.gitbooks.io/sqlite-doc-en/content/50.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c26",
+      "title": "https://news.ycombinator.com/item?id=39797104",
+      "url": "https://news.ycombinator.com/item?id=39797104",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c27",
+      "title": "https://news.ycombinator.com/item?id=46435308",
+      "url": "https://news.ycombinator.com/item?id=46435308",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c28",
+      "title": "https://www.sqlite.org/forum/info/754211336c2d0c12",
+      "url": "https://www.sqlite.org/forum/info/754211336c2d0c12",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c29",
+      "title": "https://www.sqlite.org/onefile.html",
+      "url": "https://www.sqlite.org/onefile.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c30",
+      "title": "https://spec-zone.ru/sqlite/appfileformat",
+      "url": "https://spec-zone.ru/sqlite/appfileformat",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c31",
+      "title": "https://www.chiark.greenend.org.uk/doc/sqlite3/appfileformat.html",
+      "url": "https://www.chiark.greenend.org.uk/doc/sqlite3/appfileformat.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c32",
+      "title": "https://news.ycombinator.com/item?id=45132498",
+      "url": "https://news.ycombinator.com/item?id=45132498",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c33",
+      "title": "Hackernews Intel by Varnan-Tech — AI Skill for Any LLM | TypingMind",
+      "url": "https://www.typingmind.com/skills/varnan-tech-hackernews-intel",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c34",
+      "title": "sqlite package - modernc.org/sqlite - Go Packages",
+      "url": "https://pkg.go.dev/modernc.org/sqlite",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c35",
+      "title": "Simon Willison on hacker-news",
+      "url": "https://simonwillison.net/tags/hacker-news",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c36",
+      "title": "SQLite 3.54 Released with Performance Boost, Query Optimizations",
+      "url": "https://linuxiac.com/sqlite-3-54-released-with-performance-boost-query-optimizations",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "provider": "firecrawl",
+      "code": "unsafe_url",
+      "message": "resolved destination is private/reserved and not allowed",
+      "retryable": false
+    }
+  ],
+  "route": {
+    "primary": "xai",
+    "depth": "verify",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 16967,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "verify_supplement",
+        "latency_ms": 11667,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "ok",
+        "reason": "post_discovery",
+        "latency_ms": 4211,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "error",
+        "reason": "post_discovery",
+        "latency_ms": null,
+        "detail": "unsafe_url"
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_verify_supplement",
+      "depth_verify",
+      "recency_signal"
+    ]
+  },
+  "cache": {
+    "hit": false,
+    "age_seconds": 0.0,
+    "ttl_seconds": 120,
+    "namespace": "search"
+  },
+  "elapsed_ms": 32980,
+  "api_calls": {
+    "xai": 1,
+    "tavily": 1,
+    "firecrawl": 2
+  },
+  "score": {
+    "id": "hn-sqlite",
+    "scores": {
+      "discovery": {
+        "status": "fail",
+        "matched_targets": [],
+        "required": 1
+      },
+      "synthesis": {
+        "status": "fail",
+        "missing": [
+          "23508923"
+        ]
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "discovery:fail",
+        "synthesis:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true
+  }
+}

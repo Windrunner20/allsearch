@@ -1,0 +1,54 @@
+{
+  "id": "hn-sqlite",
+  "query": "Hacker News discussion of SQLite as an application file format",
+  "elapsed_ms": 232712,
+  "returncode": 0,
+  "tools": [
+    "mcp__allsearch__search",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__search",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result"
+  ],
+  "answer": "Hacker News 上讨论这篇官方文章的主帖是 2020 年那条，标题就是 **SQLite as an Application File Format (2014)**。\n\n- 讨论：https://news.ycombinator.com/item?id=23508923\n- 作者 afiori，2020-06-13，567 分，301 条评论（其中 49 条是顶层回复）\n- 原文：https://sqlite.org/appfileformat.html（也见 https://www.sqlite.org/appfileformat.html）\n\n官方页标题是 “SQLite As An Application File Format”。开头原句是：\n\n> An SQLite database file with a defined schema often makes an excellent application file format.\n\n同一篇文章在 HN 上还被投过几次。Algolia 按 `appfileformat.html` 检索到 7 条 story：\n\n| 时间 | 分数 / 评论 | 作者 | 链接 |\n|---|---|---|---|\n| 2025-11-28 | 178 / 99 | gjvc | https://news.ycombinator.com/item?id=46076642 |\n| 2021-08-09 | 4 / 2 | ghoward | https://news.ycombinator.com/item?id=28113093（Ask HN: Has Anyone Used SQLite as an Application File Format?） |\n| 2020-12-18 | 4 / 0 | gilad | https://news.ycombinator.com/item?id=25462773 |\n| 2020-06-13 | 567 / 301 | afiori | https://news.ycombinator.com/item?id=23508923 |\n| 2018-12-24 | 211 / 161 | kjeetgill | https://news.ycombinator.com/item?id=18754634 |\n| 2016-11-23 | 5 / 0 | noufalibrahim | https://news.ycombinator.com/item?id=13021541 |\n| 2015-10-01 | 12 / 0 | otoolep | https://news.ycombinator.com/item?id=10308691 |\n\n主帖里几条顶层评论原句（Algolia 的 `comment_text`，换行被折成空格）：\n\n- michaelbuckbee（https://news.ycombinator.com/item?id=23509335）：“IIRC one of the attempts to deliver on \"Github but for Design files\" used SQLite as an app file format.”\n- chocolatkey（https://news.ycombinator.com/item?id=23514796）：“When I was reversing the XMDF E-Book format, I was surprised to find an embedded SQLite database... in an E-Book?? After reading this article, it makes more sense why someone would make that decision”\n- gwbas1c（https://news.ycombinator.com/item?id=23512883）：“Using SQLite as your application file format locks you into the SQLite source code.” 后面接着：“This is why the browser vendors decided not to put SQLite into the HTML and JavaScript standards.”\n- blackrock（https://news.ycombinator.com/item?id=23525972）：“Is SQLite able to handle multiple processes that want to read or write to the file database at the same time? Or nearly at the same time.They say that SQLite is more in competition with fopen, for file open, rather than a true RDMS system.”\n- geff82（https://news.ycombinator.com/item?id=23513519）：“Haha!! I thought it was only me using sqlite as my go-to file format in apps.”\n\n讨论大致分成三路：拿它当单文件文档格式（电子书、设计文件、应用状态），担心并发读写和被 SQLite 实现绑死，以及它更像 `fopen` 的替代，而不是服务器数据库。news.ycombinator.com 页面本身这次抓取被拦截，上面的分数、时间和原句来自 HN Algolia API。",
+  "stderr": "",
+  "score": {
+    "id": "hn-sqlite",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "hn-item"
+        ],
+        "required": 1
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "pass",
+      "reasons": []
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": false
+  }
+}

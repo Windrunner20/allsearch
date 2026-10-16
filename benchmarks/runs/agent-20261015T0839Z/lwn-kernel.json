@@ -1,0 +1,49 @@
+{
+  "id": "lwn-kernel",
+  "query": "LWN.net article explaining RCU in the Linux kernel",
+  "elapsed_ms": 124822,
+  "returncode": 0,
+  "tools": [
+    "mcp__allsearch__search",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__search",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result"
+  ],
+  "answer": "最直接的讲解是 Paul McKenney 与 Jonathan Walpole 的 LWN 文章 [What is RCU, Fundamentally?](https://lwn.net/Articles/262464/)，2007 年 12 月 17 日发表，是三篇系列 “What is RCU, Really?” 的第一篇。\n\n正文写明：Read-copy update (RCU) 于 2002 年 10 月加入 Linux 内核。它允许读与更新并发，读侧靠保留多个版本保持一致，旧版本要等到已有的读侧临界区结束后才能释放。文章把 RCU 拆成三部分：\n\n1. **发布-订阅**（插入）：`rcu_assign_pointer()` 发布新对象，`rcu_dereference()` 订阅；链表侧对应 `list_add_rcu()` / `list_for_each_entry_rcu()`。\n2. **等待已有读者结束**（删除）：例如 `synchronize_rcu()` 之后才能 `kfree()`。\n3. **同时保留多个近期版本**，让读者在更新进行时仍看到自洽数据。\n\n在不可抢占内核里，`rcu_read_lock()` / `rcu_read_unlock()` 可以不生成代码。\n\n检索还列出后续文章，标题来自检索摘要，未再逐篇抓全文：\n\n- [https://lwn.net/Articles/263130/](https://lwn.net/Articles/263130/)（检索标为 *What is RCU? Part 2: Usage*）\n- [Hierarchical RCU](https://lwn.net/Articles/305782/)\n- [The RCU API, 2019 edition](https://lwn.net/Articles/777036/)\n- [The RCU API, 2024 edition](https://lwn.net/Articles/988638/)\n\n评论原句（永久链接）：\n\nunion，2007-12-26，[https://lwn.net/Articles/263168/](https://lwn.net/Articles/263168/)：\n\n> Since nobody else said it. Thanks for a great article. I liked the articles about memory and this looks like another great miniseries.\n\nPaulMcKenney 回复，2007-12-27，[https://lwn.net/Articles/263221/](https://lwn.net/Articles/263221/)：\n\n> Glad you liked it!!! ;-) Garbage-collected languages such as Java implement RCU's \"wait for pre-existing RCU readers to complete\" implicitly via the garbage collector.",
+  "stderr": "",
+  "score": {
+    "id": "lwn-kernel",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "lwn-rcu"
+        ],
+        "required": 1
+      },
+      "reading": {
+        "status": "not_attempted"
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "reading:not_attempted"
+      ]
+    },
+    "expected_access": "paywall",
+    "observed_failure": null,
+    "algorithm_miss": true
+  }
+}

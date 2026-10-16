@@ -1,0 +1,506 @@
+{
+  "id": "hn-sqlite",
+  "executed_at": "2026-10-15T08:28:12.066404+00:00",
+  "depth": "deep",
+  "provider_query": "Hacker News discussion of SQLite as an application file format",
+  "answer": "Here are relevant Hacker News threads on SQLite as an application file format (up to 8):\n\n1. **[SQLite as an Application File Format](https://news.ycombinator.com/item?id=46076642)** — Direct discussion of the official SQLite essay (~178 points, ~99 comments). Topics include Mapbox MBTiles, when tree-shaped data fits poorly, SQLite Archive vs ZIP, and practical benefits (constraints, tooling, migrations).\n\n2. **[What If OpenDocument Used SQLite?](https://news.ycombinator.com/item?id=45132498)** — ~279 points, ~105 comments. Covers security when sharing files (`secure_delete`, untrusted DB hardening), whether this use is “niche” for SQLite’s CVE stance, real apps (Firefox, chat apps), and the ~2 GiB BLOB limit.\n\n3. **[“The killer feature… is as an application file format”](https://news.ycombinator.com/item?id=40655974)** — Comment thread on incremental updates, Audacity project files, a game using SQLite so non-engineers edit data with ordinary DB tools, and pitfalls of journal/WAL sidecar files when users copy documents.\n\n4. **[Show HN: SQLite files as applications – uApps](https://news.ycombinator.com/item?id=49421475)** — `.uapp` files as SQLite archives (sqlar-style) holding a web app plus data, opened by a small local runtime.\n\n5. **[Executable Is a SQLite Database](https://news.ycombinator.com/item?id=49415271)** — ~563 points. SELF prototype that makes the executable itself an SQLite file (application ID, segments as BLOBs); commenters link it to the app-file-format idea and ZIP-style containers.\n\n6. **[SQLite vs gzipped JSON for app formats](https://news.ycombinator.com/item?id=47046185)** — On Apple’s `.car` format; argues SQLite is the usual choice for binary blobs (Firefox favicons, photos, Kodi, VC++ browsing DB) and highlights Audacity’s crash-safe streaming into SQLite.\n\n7. **[SQLite as a format for applications (ELF-like)](https://news.ycombinator.com/item?id=46079326)** — Side thread under the main app-file-format post: using SQLite instead of ELF, fat binaries as tables of functions, and `sqlelf`.\n\n8. **[SQLite as a file format vs custom pack formats](https://news.ycombinator.com/item?id=39797104)** — Debate on custom magic, the header `application_id` at offset 68 so `file(1)` can distinguish app types, versioning, and chunked BLOBs.",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://www.sqlite.org/onefile.html",
+      "url": "https://www.sqlite.org/onefile.html",
+      "snippet": "",
+      "content": "[![SQLite](https://www.sqlite.org/images/sqlite370_banner.svg)](https://www.sqlite.org/index.html)\n\nSmall. Fast. Reliable.\n\nChoose any three.\n\nSearch DocumentationSearch Changelog\n\n## Single-file Cross-platform Database\n\nA database in SQLite is a single disk file¹.\nFurthermore, the [file format](https://www.sqlite.org/fileformat2.html) is cross-platform.\nA database that is created on one machine can be\ncopied and used on a different machine with\na different architecture. SQLite databases\nare portable across 32-bit and 64-bit machines\nand between\n[big-endian](http://en.wikipedia.org/wiki/Endianness) and\n[little-endian](http://en.wikipedia.org/wiki/Endianness)\narchitectures.\n\nThe SQLite database file format is also stable.\nAll releases of SQLite version 3 can read and write database\nfiles created by the very first SQLite 3 release (version 3.0.0)\ngoing back to 2004-06-18. This is \"backwards compatibility\".\nThe developers promise to maintain backwards compatibility of\nthe database file format for all future releases of SQLite 3.\n\"Forwards compatibility\" means that older releases\nof SQLite can also read and write databases created by newer\nreleases. SQLite is usually, but not completely forwards\ncompatible.\n\nThe stability of the SQLite database file format and the fact\nthat the file format is cross-platform combine to make SQLite\ndatabase files an excellent choice as an\n[Application File Format](https://www.sqlite.org/appfileformat.html).\nThe US Library Of Congress acknowledges this by listing SQLite\nas a [recommended storage format](https://www.sqlite.org/locrsf.html) for long-term preservation of\ndigital content.\n\n* * *\n\nNotes:\n\n1. Temporary journal files are created as part of transaction control,\nbut those extra files are not part of the steady-state database.",
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "firecrawl"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "Capsule: Single-file web apps with SQLite database | AI-Driven Engineering posted on the topic | LinkedIn",
+      "url": "https://www.linkedin.com/posts/ai-driven-engineering_a-new-tool-called-capsule-packages-a-small-activity-7508629267564658688-9Iuj",
+      "snippet": "It showed up on Hacker News on September 15 under the title \"Capsule – Single-file web apps that save their data into SQLite,\" and pulled in 379 upvotes and 167 comments, a level of engagement that's uncommon for a first-week open-source release. The project is free and open source, built on Rust and Tauri, and currently at version 0.5.2 for macOS, Windows, and Linux, with mobile versions listed as coming soon.\nIt's a narrow idea, but one that quietly blurs the line between an app and a document: something you pass around instead of deploy. [...] To view or add a comment, sign in [...] To view or add a comment, sign in",
+      "content": null,
+      "published_at": "Wed, 23 Sep 2026 20:52:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.7316155,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://fzakaria.com/2026/08/23/your-executable-is-a-sqlite-database",
+      "url": "https://fzakaria.com/2026/08/23/your-executable-is-a-sqlite-database",
+      "snippet": "",
+      "content": "[Skip to content](https://fzakaria.com/2026/08/23/your-executable-is-a-sqlite-database#main)\n\nI have been probably obsessed with two things in the last few years: Nix as a tool to explore\ninnovative ideas that require the capability to rebuild the world and replacing ELF with SQLite as an executable format. You might have noticed that these two ideas are well suited to each other.\n\nI explored the idea during my PhD thesis but found feedback from others unmotivating.\nRadical ideas are hard to sell, as you are working against the inertia of the established\nsolution.\n\n![Four-panel comic. A crow at a microphone says \"Nix is great\"; the audience boos and shouts \"get better material\"; the crow looks stricken; the last panel shows its remaining cue cards, which read \"SQLite can be an object file format\".](https://fzakaria.com/assets/images/get-better-material-sqlite.png)\n\nOne of the end results of that exploration was [sqlelf](https://fzakaria.com/2023/03/19/sqlelf-and-20-years-of-nix),\na tool that lets you explore an ELF file declaratively using SQL.11I wrote a paper, [arXiv:2405.03883](https://arxiv.org/abs/2405.03883),\nthat I failed to get published and a follow-up post on [querying with it](https://fzakaria.com/2023/09/11/quick-insights-using-sqlelf). `SELECT name FROM elf_symbols` instead of fiddling with `readelf` and `grep`.\nIt was remarkably simple by leveraging _virtual tables_ over the ELF: however I found it\nto be a refreshing improvement to explore the ELF file format. I knew however that\nthere is still something much bigger to be done.\n\nI never let the idea go and with the recent improvements with LLMs, I find it compelling to revisit these ideas to explore further. Specifically, can we replace ELF with SQLite as an executable format? 🤔\n\nNot “a database that describes an executable”, but the actual file you `chmod +x`\nand run.\n\n```\n$ file hello\nhello: SQLite 3.x database, application id 0x53454c46, user version 1\n\n$ ./hello\nHello, world!\n\n$ sqlite3 hello 'SELECT soname FROM ldd'\nlibc.so.6\n```\n\nI developed a pretty fleshed out prototype. It is called **SELF**, the _Structured Executable & Linkable Format_, because I am unoriginal. It is on [GitHub](https://github.com/fzakaria/selfdb) if you are interested. I’m surprised about all the interesting things that fall out of this idea.\n\n# [§](https://fzakaria.com/2026/08/23/your-executable-is-a-sqlite-database\\#elf-is-a-database-that-refuses-to-admit-it) ELF is a database that refuses to admit it\n\nWorking through my PhD, I realized something that bugged me. ELF is _already_ a database. It just implements many database primitives by hand, along with a surprising number of\ndata structures for performance, like a bloom filter for symbol lookup.\n\n| ELF mechanism | The database primitive it reinvents |\n| --- | --- |\n| `.strtab` / `.dynstr` | string interning |\n| `.hash` / `.gnu.hash` | an index (`CREATE INDEX`) |\n| section header table | `sqlite_schema`, a table of tables |\n| `st_name` → offset into `.strtab` | a foreign key, done by hand |\n| `sh_offset` / `sh_size` | the record layout of a b-tree page |\n| `.gnu.version_r` | a column |\n| `objcopy --strip-debug` | `DELETE` \\+ `VACUUM` |\n| `ldconfig` cache, `debuginfod` | out-of-band indexes over the above |\n\nIf you ever have to analyze or parse ELF, the kernel, `ld.so`, binutils, LIEF, goblin, `readelf`, you are re-implementing the same parser over and over again. Every producer re-implements the same serializer.\n\nThe format itself is incredibly terse, designed for a world where disk space and network\nbandwidth was at an extreme premium. Modifying the format is hard, you often have to zero out\nsections and add new ones since it is packed so tightly. There is also no self-describing schema. ELF itself is a very generic format that supports sections of data that by convention\nare interpreted in specific ways but the format does not enforce it.\n\nSQLite is the counter-example. They are a self-describing\nformat that is extremely stable. It is designed to be extended to support new features without breaking existing consumers and supporting a wide range of queries performantly.\n\nIf we were to replace ELF with SQLite, what would fall out and can all of the necessary information be represented in a SQLite database? The answer is yes, and it is surprisingly simple.\n\n# [§](https://fzakaria.com/2026/08/23/your-executable-is-a-sqlite-database\\#what-falls-away) What falls away\n\nA SELF file needs two tables to run: `self_meta` is the ELF header as key/value\npairs and `segments` is the load image, one row per program header with the bytes\nin a `BLOB`:\n\n```\nCREATE TABLE segments (\n  -- original phdr index\n  id      INTEGER PRIMARY KEY,\n  -- 'load' | 'tls' | 'stack' | 'relro'\n  type    TEXT NOT NULL,\n  -- original file offset\n  offset  INTEGER NOT NULL,\n  vaddr   INTEGER NOT NULL,\n  filesz  INTEGER NOT NULL,\n  memsz   INTEGER NOT NULL,\n  r INTEGER, w INTEGER, x INTEGER,\n  align   INTEGER NOT NULL DEFAULT 4096,\n  -- the segment bytes; NULL for pure BSS\n  content BLOB\n);\n```\n\nA single table for the symbol table replaces many of the ELF sections and the `.gnu.hash` index. It is a single table with a single index:\n\n```\nCREATE TABLE symbols (\n  id      INTEGER PRIMARY KEY,\n  name    TEXT NOT NULL,\n  -- 'GLIBC_2.2.5'\n  version TEXT,\n  value   INTEGER,\n  size    INTEGER,\n  -- 'func' | 'object' | 'tls' | ...\n  type    TEXT,\n  -- 'global' | 'weak' | 'local'\n  bind    TEXT,\n  defined  INTEGER NOT NULL,\n  exported INTEGER NOT NULL\n);\nCREATE INDEX idx_symbols_name ON symbols(name, version);\n```\n\nOur capability to include an index is equivalent to `.gnu.hash` and `.hash` in ELF, but it is a proper b-tree index maintained by SQLite instead of a hand-rolled bloom filter.22`.gnu.hash` is a bloom filter plus bucket chains, laid out so\n`ld.so` can reject a miss without touching the chain during symbol discovery.\n\nSurprisingly a lot more falls out as well: `.dynstr` is gone, because `name` is `TEXT` and SQLite already interns strings, symbol versioning is a column, not the `.gnu.version_r` / `.gnu.version_d` contraption and there is no need for a `strings` table.\n\nOther tables exist as well for metadata which exist for tooling: `sections`,\n`notes`, `dynamic_entries`. Delete them and the program still\nruns, which means `strip(1)` is a transaction:\n\n```\n# ldd(1)\n$ sqlite3 hello 'SELECT soname FROM ldd'\nlibc.so.6\n\n# nm -D --undefined\n$ sqlite3 hello 'SELECT name,version FROM imports LIMIT 3'\n__libc_start_main|GLIBC_2.34\n_ITM_deregisterTMCloneTable|\nputs|GLIBC_2.2.5\n\n# readelf -l\n$ sqlite3 hello \\\n    \"SELECT type,vaddr,memsz,r,w,x FROM segments WHERE type='load'\"\nload|0|1744|1|0|0\nload|4096|361|1|0|1\nload|8192|312|1|0|0\nload|15768|640|1|1|0\n\n# strip(1)\n$ sqlite3 hello 'DELETE FROM sections; DELETE FROM notes; VACUUM;'\n# 57344 -> 49152 bytes\n\n# still runs,  the optional tables were optional\n$ ./hello\nHello, world!\n```\n\nAll the tools that operate on ELF files for reading, reduce to queries over the database.\nAny tool that modifies an ELF file, like `strip`, can operate on the database within a transaction rather than performing fragile offset surgery: `strip` is a `DELETE` and `VACUUM`. `patchelf` is an `UPDATE`.\n\nAny information missing from the schema can be easily exposed via a view. For example, `ldd` is a query over the `needed` table, which is a join of the `symbols` table with the `segments` table to find the sonames of the libraries needed by the program.\n\n```\nCREATE VIEW exports AS SELECT name, version, type, size FROM symbols WHERE exported = 1;\nCREATE VIEW imports AS SELECT name, version FROM symbols WHERE defined = 0;\nCREATE VIEW ldd     AS SELECT ord, soname FROM needed ORDER BY ord;\n```\n\n# [§](https://fzakaria.com/2026/08/23/your-executable-is-a-sqlite-database\\#how-does-it-work) How does it work?\n\nSQLite reserves a 4-byte\n[`application_id`](https://sqlite.org/pragma.html#pragma_application_id) at byte\noffset 68 of its header, for exactly this purpose. We stamp it `SELF`, so an\nordinary SQLite database never matches:\n\n```\n$ xxd -s 64 -l 8 hello\n00000040: 0000 0001 5345 4c46                      ....SELF\n```\n\nWe can now leverage [binfmt\\_misc](https://docs.kernel.org/admin-guide/binfmt-misc.html), the subsystem that allows you to invoke any binary as if it were native. We need only to register\nthe magic to trigger on and an interpreter that will invoke our new file format.\n\nOn NixOS the registration is a few lines matching the SQLite magic at offset 0\n_and_`SELF` at 68:\n\n```\nboot.binfmt.registrations.self = {\n  recognitionType = \"magic\";\n  offset = 0;\n  # bytes 0-15, 68-71\n  magicOrExtension = \"SQLite format 3\\\\x00\" + ... + \"SELF\";\n  # ignore the middle\n  mask = \"\\\\xff..\\\\x00..\\\\xff\";\n  interpreter = \"${self-exec}/bin/self-exec\";\n};\n```\n\nFor now, I have a small tool `elf2self` that converts an ELF file into a SELF file. It is a simple `postFixup` hook you can opt into per package on NixOS. The tool reads the ELF, extracts the program headers and symbol table, and writes them into the SQLite database. We could look at extending `gcc` or `ld` to emit SELF directly, but for now this is a simple way to explore the idea.\n\n[elfhello(ELF)convelf2selfelf->convselfhello(SQLite db)conv->selfkrnexecve()binfmt\\_miscself->krnmagic SELF@68interpself-exec(interpreter)krn->interprunrunningprocessinterp->run](https://fzakaria.com/assets/graphviz/8a5734ed8c432d24.svg \"Open this diagram on its own\")\n\n`self-exec` is the interpreter. It is a small C program linked against `libsqlite3`.\nIts implementation is remarkably similar to that of `ld.so` but it fetches the program headers and symbol table from the database instead of reading them from the ELF file.\nIt maps the loadable segments into memory, relocates them, and jumps to the entry point.\n\n> **Note**`self-exec` has to stay an ELF file. An interpreter that also matches the\n> registration recurses straight into `-ELOOP`.\n\n# [§](https://fzakaria.com/2026/08/23/your-executable-is-a-sqlite-database\\#dynamic-linking) Dynamic linking\n\nRunning a static program was quick and easy but _boring_ and unimaginative. The interesting part is dynamic linking, which is where the database shines.\n\nI explored two different ways to do dynamic linking. The first is to keep `ld.so` and just replace the lookup with a SQL query via `glibc` [rtld-audit](https://man7.org/linux/man-pages/man7/rtld-audit.7.html) interface, to quickly iterate on the design. The second is to replace `ld.so` entirely with a new dynamic linker that does the entire lookup and binding in SQL.\n\nglibc’s rtld-audit interface lets an audit library intercept every shared object lookup (`la_objsearch`) before any filesystem search happens, `dlopen` included. The audit library can then answer the question “which library satisfies this symbol?” with a SQL query instead of walking the `RUNPATH` and `LD_LIBRARY_PATH`. Stock `ld.so` maps and relocates it, so the full gamut of glibc features work: lazy PLT, IFUNCs, TLS and symbol versioning, while library storage are rows and library lookups are queries.\n\n```\n# no ELF library anywhere on disk\n$ rm libgreet.so.1\n$ ./app\n./app: error while loading shared libraries:\n       libgreet.so.1: cannot open ...\n\n$ self scan --db system.db .\n$ SELF_SYSTEM_DB=system.db LD_AUDIT=libself-audit.so ./app\nHello, world, from a SQLite library!\n```\n\nI was curious what a fully SQL dynamic linker would look like, so I prototyped one. It is called `self-ld` and it is a small C program that implements the dynamic linker entirely in SQL. It is a proof-of-concept, but it works. It maps every object’s segments, publishes their exports, and for each relocation patches the GOT and jumps to the start.\n\n```\nSELECT s.value + o.load_bias\nFROM   relocations r\nJOIN   symbols s ON r.symbol = s.id\nJOIN   objects o ON s.object = o.id\nWHERE  r.id = ?\nORDER BY o.load_order\nLIMIT  1;\n```\n\n# [§](https://fzakaria.com/2026/08/23/your-executable-is-a-sqlite-database\\#cost--benchmark) Cost & Benchmark\n\nThe two things that often matter when replacing a well-established format are size and latency. How much bigger is a SELF file than an ELF file, and how much slower is it to run?\n\n**Size.** A SELF file carries SQLite’s b-tree overhead and lands at roughly\ndouble the ELF.\n\n[1980-01-01T00:00:00+00:00image/svg+xmlMatplotlib v3.10.5, https://matplotlib.org/101001K10K100Kgdbgitcurlhello2.3x2.2x2.5x3.6xon-disk size (KiB, log scale)ELFSELF](https://fzakaria.com/assets/plotnine/af65825d55c3bbc6.svg \"Open this chart on its own\")\n\nSimilar to ELF binaries, most of that is recoverable, because the overhead is mostly the optional tables for debugging and tooling. Stripping them and deleting them is a transaction. A stripped `coreutils` SELF is 1,794,048 B against the ELF’s 1,768,632 B, that is **within 1%**.\n\nWe will see though that there are interesting ways to amortise the overhead even more which I found very unique and interesting.\n\n**Latency.** I benchmarked various binaries from a 15 KiB `hello` to a 42 MiB `gdb`\nlinking 47 libraries:\n\n[1980-01-01T00:00:00+00:00image/svg+xmlMatplotlib v3.10.5, https://matplotlib.org/hellocurlgitgdb131030100exec latency (ms, log scale)ELFSELF](https://fzakaria.com/assets/plotnine/5cf8068d137427be.svg \"Open this chart on its own\")\n\nThere is a fixed ~5 ms to open SQLite and start the interpreter, plus a copy proportional\nto the image. That copy is worse than it looks, because the b-tree pages are not mapped into memory. Two processes running the same SELF binary do not share text pages the way a normally-`mmap`‘d ELF does, because the bytes are copied out of the b-tree rather than mapped.33You might notice that `curl` (274 KiB, 27 libraries) starts slower than ELF `git`\n(4.6 MiB, 5 libraries). That is `ld.so` doing work proportional to the\nnumber of objects rather than the number of bytes, which I have\n[complained about before](https://fzakaria.com/2024/05/03/speeding-up-elf-relocations-for-store-based-systems).\n\n# [§](https://fzakaria.com/2026/08/23/your-executable-is-a-sqlite-database\\#the-system-is-a-closure) The system is a closure\n\nA SQLite database though need not merely be a single executable. It can be a _closure_, a single file that contains a program and all of its transitive dependencies. The `ldd` output of a program is ambiguous: it only lists the sonames of the libraries it needs, not the specific files that satisfy those needs. Nix improves upon this by explicitly resolving every edge to a specific store path via the use of `RUNPATH`.44I have written about `RUNPATH` on Nix before such as\n[making it redundant](https://fzakaria.com/2022/09/12/making-runpath-redundant-for-nix) or\n[speeding it up](https://fzakaria.com/2022/03/14/shrinkwrap-taming-dynamic-shared-objects).\n\nWe can do the same in SELF by storing the resolved path of each edge in the database:\n\n```\nCREATE TABLE objects (id INTEGER PRIMARY KEY, path TEXT UNIQUE,\n                      soname TEXT, kind TEXT, is_root INTEGER);\nCREATE TABLE needs (\n  object_id     INTEGER REFERENCES objects(id),\n  ord           INTEGER NOT NULL,\n  soname        TEXT NOT NULL,\n  -- the FK that kills ambiguity\n  resolved_path TEXT REFERENCES objects(path)\n);\n```\n\n`self closure` packs a binary and its transitive dependencies into **one database**\nwith those edges filled in. Shared library resolution stops being a guess and\nbecomes a foreign key and `ldd` becomes a `JOIN` 🤯:\n\n```\n$ self closure \"$(readlink -f $(command -v ls))\" coreutils.db\nls + closure -> coreutils.db\n\n$ sqlite3 -column coreutils.db \\\n    \"SELECT n.soname, substr(n.resolved_path, 12, 20)\n     FROM needs n JOIN objects o ON o.id = n.object_id\n     WHERE o.is_root = 1\"\nlibgmp.so.10          rfabfsmwq02sn94mb3qg\nlibacl.so.1           x0zgiss9hdzcsll3cswg\nlibattr.so.1          08nfpyc4qhzdkc37nznv\nlibc.so.6             8kvxvr3pmsypxiypq4g8\n```\n\nThis single database is a closure of the `ls` executable and its five libraries:\nsix objects, segment bytes and all, in one 4.8 MiB file. There is no soname ambiguity inside a closure, because a closure by\nconstruction contains exactly one provider per edge.\n\n[lsls(is\\_root)libclibc.so.6ls->libcgmplibgmp.so.10ls->gmpacllibacl.so.1ls->aclattrlibattr.so.1ls->attrgmp->libcacl->libcacl->attrattr->libc](https://fzakaria.com/assets/graphviz/de1faf3d4a95ebe1.svg \"Open this diagram on its own\")\n\n# [§](https://fzakaria.com/2026/08/23/your-executable-is-a-sqlite-database\\#how-far-does-this-go-one-file-one-userland) How far does this go? One file, one userland\n\nI hope you’ve been with me so far, because this is where it gets really interesting.\nWe can go even further and pack **multiple closures** into a single database.\n\n![Five-panel Inception meme. Cobb: \"your executable is a SQLite database.\" Fischer: \"and the libraries it links?\" Cobb: \"also SQLite, so is the whole userland, one file.\" Fischer: \"how far down does this go?\" Cobb, winking: \"you are in one right now.\"](https://fzakaria.com/assets/images/inception-one-file-one-userland.png)\n\nI pointed `self closure` at every ELF binary on this system’s `PATH`: 723 executables,\nwhich pull in 400 distinct shared libraries. 1,123 objects, 346,386 symbols,\n3,808 dependency edges, all as **one SQLite file**.\n\nTurns out when you do that, the database is much smaller than you would expect.\n\n[1980-01-01T00:00:00+00:00image/svg+xmlMatplotlib v3.10.5, https://matplotlib.org/0200400600segment payload(program bytes)one SQLitedatabasethe member ELFfiles on disk644.4 MiB611.9 MiB576.9 MiBtotal size (MiB)](https://fzakaria.com/assets/plotnine/3327d564ee621b89.svg \"Open this chart on its own\")\n\n**611.9 MiB of database against 644.4 MiB of ELF files.** The whole userland,\nas one queryable file, is _smaller_ than the files it came from. The b-tree cost that doubled a single `hello` amortises to nearly nothing across 1,123 objects and is roughly 6% over\nthe actual program bytes.\n\nThe libraries and closure are shared across the executables very similar to how Nix might share them across multiple closures, if the store-path was the same. If every root shipped its own private closure (i.e. the AppImage model), the same 723 programs would come to\n5.53 GiB but the deduplication of libraries and symbols falls out naturally from the database schema.\n\n```\n$ sqlite3 userland.db \\\n    'SELECT count(DISTINCT soname), count(*)\n     FROM objects WHERE soname IS NOT NULL'\n345|399\n\n$ sqlite3 -column userland.db \\\n    'SELECT soname, count(*) FROM objects\n     WHERE soname IS NOT NULL\n     GROUP BY soname HAVING count(*) > 1\n     ORDER BY 2 DESC LIMIT 4'\nlibsystemd.so.0   3\nlibpthread.so.0   3\nlibgcc_s.so.1     3\nlibc.so.6         3\n\n$ sqlite3 userland.db \\\n    \"SELECT count(*)\n    FROM needs\n    WHERE resolved_path IS NULL AND soname NOT LIKE 'ld-%'\"\n4\n```\n\nMany common idioms we use in ELF immediately fall out of the database. For example, `LD_PRELOAD` is a row in a table rather than an environment variable. The `preload` table is a list of objects to map last, so their exports win. This means that turning `LD_PRELOAD` on and off is a transaction.\n\n```\n$ ./app.self; echo $?\n13\n\n$ sqlite3 system.db \"BEGIN;\n    CREATE TABLE preload(ord INTEGER PRIMARY KEY, path TEXT);\n    INSERT INTO preload VALUES (0, 'libmul.so.1.self');\n  COMMIT;\"\n\n# same binary, no env var, no relink\n$ ./app.self; echo $?\n42\n\n$ sqlite3 system.db 'DELETE FROM preload;'\n$ ./app.self; echo $?\n13\n```\n\nWe were able to accomplish an atomic `LD_PRELOAD` across a whole userland\nin one file, “interpose a tracing `malloc` everywhere, then `ROLLBACK`” is a\nsingle transaction. 😈\n\n# [§](https://fzakaria.com/2026/08/23/your-executable-is-a-sqlite-database\\#where-it-stands) Where it stands\n\nThe format is done and round-trips between ELF and SELF losslessly. The tooling is done and can query, modify, and pack closures. Lookup through SQL works on unmodified glibc programs perfectly and the native-SQL loader works enough to explore it as a possibility for ideas.\n\nThe whole thing is at [fzakaria/selfdb](https://github.com/fzakaria/selfdb).\n`nix run .#self-vm` boots a NixOS VM where `hello` is a SQLite database. 🙌\n\nNix lets us explore radical ideas like this. We can rebuild the world down to the Linux kernel if needed. We need not be constrained by the existing decisions and constraints of the past. We can explore new ideas and see what falls out. I hope you find this idea as interesting as I do.",
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "firecrawl"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "apsw: Another Python SQLite Wrapper | Hacker News",
+      "url": "https://news.ycombinator.com/item?id=50045273",
+      "snippet": "| |  |  |  |  ---  |  |  | arc-in-space 2 days ago  | parent | next (javascript:void(0))   One of the reasons is high resilience, practically state of the art as far as writing to a single storage device allows. You're less likely to end up with corrupted files with sqlite. This is much more difficult to get right when manipulating files yourself than you might think. For your consideration (I'll add that I used to think similarly as you, and I still wouldn't use sqlite for everything, but it's shockingly effective):        reply | | [...] | |  |  |  |  ---  |  |  | HelloNurse 2 days ago  | parent | prev | next (javascript:void(0))   For most uses, SQL databases are easy to use and general enough to allow practically unlimited growth, \"stringy queries\" usually need less \"wrangling\" than accessing bare files correctly, and designing and implementing file formats is a luxury (usually done because optimizing for file size and compression is traditional).  reply | | [...] | |  |  |  |  ---  |  |  | TZubiri 3 days ago  | prev | next (javascript:void(0))   This might not be a relevant place to comment, but it also might be. Has anyone ever gone through a phase (or is in a phase), of just writing and reading from files instead of cajoling everything into SQL databases and wrangling stringy queries? I find you can just make files with your own file formats and be fine, as long as your magic numbers make a cool mnemonic when read as hex. I'm sure I'll face a huge wall at some point in my development career, or I'll be forced to adopt SQL when inheriting a codebase, but I don't quite know what the main issue with this approach is with this. For the time being, whenever I read articles or Readmes like this it feels like my approach at least has the pro of not",
+      "content": null,
+      "published_at": null,
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.6429039,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://news.ycombinator.com/item?id=46079326",
+      "url": "https://news.ycombinator.com/item?id=46079326",
+      "snippet": "",
+      "content": "|     |     |     |\n| --- | --- | --- |\n| |     |     |     |\n| --- | --- | --- |\n| [![](https://news.ycombinator.com/y18.svg)](https://news.ycombinator.com/) | **[Hacker News](https://news.ycombinator.com/news)** [new](https://news.ycombinator.com/newest) \\| [past](https://news.ycombinator.com/front) \\| [comments](https://news.ycombinator.com/newcomments) \\| [ask](https://news.ycombinator.com/ask) \\| [show](https://news.ycombinator.com/show) \\| [jobs](https://news.ycombinator.com/jobs) \\| [submit](https://news.ycombinator.com/submit) | [login](https://news.ycombinator.com/login?goto=item%3Fid%3D46079326) | |\n\n| |     |     |     |\n| --- | --- | --- |\n|  |  | [askl](https://news.ycombinator.com/user?id=askl) [10 months ago](https://news.ycombinator.com/item?id=46079326) \\| [parent](https://news.ycombinator.com/item?id=46076642) \\| [context](https://news.ycombinator.com/item?id=46076642#46079326) \\| [favorite](https://news.ycombinator.com/fave?id=46079326) \\| on: [SQLite as an Application File Format](https://news.ycombinator.com/item?id=46076642 \"SQLite as an Application File Format\")<br>Somehow my first thought from the title was using sqlite as a format for applications. So like a replacement for ELF. I think this idea is both fascinating and horrifying. |\n\n|     |     |     |\n| --- | --- | --- |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [trws](https://news.ycombinator.com/user?id=trws) [10 months ago](https://news.ycombinator.com/item?id=46079377) \\| [next](https://news.ycombinator.com/item?id=46079326#46091335)\\[–\\]<br>I worked @fzakaria on developing that idea. It actually worked surprisingly well. The benefits are mostly in the ability to analyze the binary afterward though rather than any measurable benefit in load time or anything like that though. I don’t have the repo for the musl-based loader handy, but here’s the one for the virtual table plugin for SQLite to read from raw ELF files: [https://github.com/fzakaria/sqlelf](https://github.com/fzakaria/sqlelf) | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [yellowapple](https://news.ycombinator.com/user?id=yellowapple) [10 months ago](https://news.ycombinator.com/item?id=46091335) \\| [prev](https://news.ycombinator.com/item?id=46079326#46079377) \\| [next](https://news.ycombinator.com/item?id=46079326#46079841)\\[–\\]<br>I've been pondering something similar as a modern approach to fat binaries, basically around a table like<br>```<br>    CREATE TABLE functions (name TEXT, arch TEXT, body BLOB);<br>```<br>The advantage would be that binaries could be partially fattened, i.e. every function would have at least one implementation in some cross-platform bytecode (like WASM), and then some functions would get compiled to machine code as necessary, and then the really-performance-dependent functions would have extra rows for different combinations of CPU extensions or compiler optimization levels or whatever — and you could store all of these in the same executable instead of having a bunch of executables for each target.<br>As a bonus, it'd be possible to embed functions' source code into the executable directly this way, whether for development purposes (kinda like how things are sometimes done in the old-school Smalltalk and Lisp worlds) or for debugging purposes (e.g. when printing stack traces). | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [giancarlostoro](https://news.ycombinator.com/user?id=giancarlostoro) [10 months ago](https://news.ycombinator.com/item?id=46079841) \\| [prev](https://news.ycombinator.com/item?id=46079326#46091335) \\| [next](https://news.ycombinator.com/item?id=46079326#46079609)\\[–\\]<br>Forget elf, imagine having a SQLite file that stores elf, exe and DMG binaries. I would not mind working on something like this. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [actionfromafar](https://news.ycombinator.com/user?id=actionfromafar) [10 months ago](https://news.ycombinator.com/item?id=46080830) \\| [parent](https://news.ycombinator.com/item?id=46079326#46079841) \\| [next](https://news.ycombinator.com/item?id=46079326#46079609)\\[–\\]<br>Not that at all, but interesting in its own right - [https://pypi.org/project/sqlelf/](https://pypi.org/project/sqlelf/) explore ELF via SQL. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [giancarlostoro](https://news.ycombinator.com/user?id=giancarlostoro) [10 months ago](https://news.ycombinator.com/item?id=46083270) \\| [root](https://news.ycombinator.com/item?id=46079326#46079841) \\| [parent](https://news.ycombinator.com/item?id=46079326#46080830) \\| [next](https://news.ycombinator.com/item?id=46079326#46079609)\\[–\\]<br>Yeah I'm thinking of like \"appimage\" but you can use it to run on any platform. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [gjvc](https://news.ycombinator.com/user?id=gjvc) [10 months ago](https://news.ycombinator.com/item?id=46079609) \\| [prev](https://news.ycombinator.com/item?id=46079326#46079841) \\| [next](https://news.ycombinator.com/item?id=46079326#46079974)\\[–\\]<br>wonder if this would make hot-swap functions easier, if every function had its own section and every section was in the db | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [kstrauser](https://news.ycombinator.com/user?id=kstrauser) [10 months ago](https://news.ycombinator.com/item?id=46080024) \\| [parent](https://news.ycombinator.com/item?id=46079326#46079609) \\| [next](https://news.ycombinator.com/item?id=46079326#46079974)\\[–\\]<br>I think we could call it Library Internal Sequel Procedures. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [yread](https://news.ycombinator.com/user?id=yread) [10 months ago](https://news.ycombinator.com/item?id=46079974) \\| [prev](https://news.ycombinator.com/item?id=46079326#46079609)\\[–\\]<br>Or a replacement for Access | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [actionfromafar](https://news.ycombinator.com/user?id=actionfromafar) [10 months ago](https://news.ycombinator.com/item?id=46081009) \\| [parent](https://news.ycombinator.com/item?id=46079326#46079974)\\[–\\]<br>[https://docs.devart.com/odbc/sqlite/access.htm](https://docs.devart.com/odbc/sqlite/access.htm) <br>[https://github.com/sam-ludlow/access-linker](https://github.com/sam-ludlow/access-linker) | | |\n| ![](https://news.ycombinator.com/s.gif)\n\n|     |\n| --- |\n|  |\n\n[Consider applying for YC's Winter 2027 batch! Applications are open till November 2.](https://www.ycombinator.com/apply/)\n\n[Guidelines](https://news.ycombinator.com/newsguidelines.html) \\| [FAQ](https://news.ycombinator.com/newsfaq.html) \\| [Lists](https://news.ycombinator.com/lists) \\| [API](https://github.com/HackerNews/API) \\| [Security](https://news.ycombinator.com/security.html) \\| [Legal](https://www.ycombinator.com/legal/) \\| [Apply to YC](https://www.ycombinator.com/apply/) \\| [Contact](mailto:hn@ycombinator.com)\n\nSearch: |",
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "firecrawl"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "Capsule Turns Web Apps Into Portable SQLite Files — No ...",
+      "url": "https://www.instagram.com/p/DdW4upeCTHm",
+      "snippet": "Capsule, a project that just surfaced on Hacker News, attacks. It packs an entire HTML application, its assets, and its user data into a single portable SQLite",
+      "content": null,
+      "published_at": null,
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.56719416,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://news.ycombinator.com/item?id=43682006",
+      "url": "https://news.ycombinator.com/item?id=43682006",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "Get started with the SQLite integrations | Aspire",
+      "url": "https://aspire.dev/integrations/databases/sqlite/sqlite-get-started",
+      "snippet": "Share on LinkedInShare on XShare on ThreadsShare on BlueskyShare on FacebookShare on RedditShare on Hacker NewsShare on EmailShare on WhatsAppShare on Telegram\n\n⭐ Community Toolkit SQLite logo\n\nSQLite is a lightweight, serverless, self-contained SQL database engine. It stores the entire database as a single file on disk — no separate server process to run or configure. The Aspire SQLite integration (from the Aspire Community Toolkit) lets you model a SQLite database as a first-class resource in your AppHost, then hand the file-path connection information to any consuming app — regardless of language.\n\n## Why use SQLite with Aspire\n\nSection titled “Why use SQLite with Aspire”\n\nAdding SQLite through Aspire — rather than hardcoding file paths and connection strings — gives you: [...] Ideal for local development, unit tests, and desktop apps. No container to spin up, no server to configure — SQLite runs in-process directly from a single file on disk.\n Consistent connection info across languages. Once you reference the SQLite resource from a consuming app, Aspire injects the database file path as an environment variable in a predictable format that works from C#, TypeScript, Python, Go, or any other language.\n Optional browser-based UI. The `WithSqliteWeb` method adds a lightweight `sqlite-web` container alongside your database so you can inspect and query it during development. [...] The hosting integration lives in your AppHost project and models the SQLite database file as a resource. Because SQLite is an embedded, file-based database, there is no container to start — Aspire simply tracks the database file path and injects it into consuming apps as environment variables.\n\nGetting there is a two-step process: model the SQLite resource in your AppHost, then connect to the database from each app that needs it.\n\n1. ### Model SQLite in your AppHost\n\n   Section titled “Model SQLite in your AppHost”",
+      "content": null,
+      "published_at": "Tue, 29 Sep 2026 00:00:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.49816954,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://www.sqlite.org/onefile.html",
+      "url": "https://www.sqlite.org/onefile.html",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "Capsule: Single-file web apps with SQLite database | AI-Driven Engineering posted on the topic | LinkedIn",
+      "url": "https://www.linkedin.com/posts/ai-driven-engineering_a-new-tool-called-capsule-packages-a-small-activity-7508629267564658688-9Iuj",
+      "result_id": "r2",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://fzakaria.com/2026/08/23/your-executable-is-a-sqlite-database",
+      "url": "https://fzakaria.com/2026/08/23/your-executable-is-a-sqlite-database",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "apsw: Another Python SQLite Wrapper | Hacker News",
+      "url": "https://news.ycombinator.com/item?id=50045273",
+      "result_id": "r4",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://news.ycombinator.com/item?id=46079326",
+      "url": "https://news.ycombinator.com/item?id=46079326",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "Capsule Turns Web Apps Into Portable SQLite Files — No ...",
+      "url": "https://www.instagram.com/p/DdW4upeCTHm",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://news.ycombinator.com/item?id=43682006",
+      "url": "https://news.ycombinator.com/item?id=43682006",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "Get started with the SQLite integrations | Aspire",
+      "url": "https://aspire.dev/integrations/databases/sqlite/sqlite-get-started",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://file-extensions.com/docs/sqlite",
+      "url": "https://file-extensions.com/docs/sqlite",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://www.linuxcompatible.org/story/sqlite-3540-release-faster-engine-new-cli-features-and-dropped-windows-xp-support/",
+      "url": "https://www.linuxcompatible.org/story/sqlite-3540-release-faster-engine-new-cli-features-and-dropped-windows-xp-support",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://news.ycombinator.com/item?id=48046007",
+      "url": "https://news.ycombinator.com/item?id=48046007",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://news.ycombinator.com/item?id=39797104",
+      "url": "https://news.ycombinator.com/item?id=39797104",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://file-extensions.com/docs/db",
+      "url": "https://file-extensions.com/docs/db",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://www.file-extension.info/format/sqlite",
+      "url": "https://www.file-extension.info/format/sqlite",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://news.ycombinator.com/item?id=45132498",
+      "url": "https://news.ycombinator.com/item?id=45132498",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://news.ycombinator.com/item?id=49415271",
+      "url": "https://news.ycombinator.com/item?id=49415271",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://news.ycombinator.com/item?id=46076642",
+      "url": "https://news.ycombinator.com/item?id=46076642",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://news.ycombinator.com/item?id=49421475",
+      "url": "https://news.ycombinator.com/item?id=49421475",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "https://news.ycombinator.com/item?id=45132488",
+      "url": "https://news.ycombinator.com/item?id=45132488",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "https://www.sqlite.org/forum/forumpost/f21062af30f83989?raw",
+      "url": "https://www.sqlite.org/forum/forumpost/f21062af30f83989?raw=",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c21",
+      "title": "https://news.ycombinator.com/item?id=40655974",
+      "url": "https://news.ycombinator.com/item?id=40655974",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c22",
+      "title": "https://news.ycombinator.com/item?id=46435308",
+      "url": "https://news.ycombinator.com/item?id=46435308",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c23",
+      "title": "https://www.chiark.greenend.org.uk/doc/sqlite3/appfileformat.html",
+      "url": "https://www.chiark.greenend.org.uk/doc/sqlite3/appfileformat.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c24",
+      "title": "https://powerdrill.ai/blog/sqlite-files-explained",
+      "url": "https://powerdrill.ai/blog/sqlite-files-explained",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c25",
+      "title": "https://news.ycombinator.com/item?id=47046185",
+      "url": "https://news.ycombinator.com/item?id=47046185",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c26",
+      "title": "https://spec-zone.ru/sqlite/appfileformat",
+      "url": "https://spec-zone.ru/sqlite/appfileformat",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c27",
+      "title": "Hackernews Intel by Varnan-Tech — AI Skill for Any LLM | TypingMind",
+      "url": "https://www.typingmind.com/skills/varnan-tech-hackernews-intel",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c28",
+      "title": "sqlite package - modernc.org/sqlite - Go Packages",
+      "url": "https://pkg.go.dev/modernc.org/sqlite",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c29",
+      "title": "Simon Willison on hacker-news",
+      "url": "https://simonwillison.net/tags/hacker-news",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c30",
+      "title": "SQLite 3.54 Released with Performance Boost, Query Optimizations",
+      "url": "https://linuxiac.com/sqlite-3-54-released-with-performance-boost-query-optimizations",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "deep",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 16634,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "deep_supplement",
+        "latency_ms": 1093,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "ok",
+        "reason": "post_discovery",
+        "latency_ms": 2231,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "ok",
+        "reason": "post_discovery",
+        "latency_ms": 1311,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "ok",
+        "reason": "post_discovery",
+        "latency_ms": 2528,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_deep_supplement",
+      "depth_deep",
+      "recency_signal"
+    ]
+  },
+  "cache": {
+    "hit": false,
+    "age_seconds": 0.0,
+    "ttl_seconds": 120,
+    "namespace": "search"
+  },
+  "elapsed_ms": 21635,
+  "api_calls": {
+    "xai": 1,
+    "tavily": 1,
+    "firecrawl": 3
+  },
+  "score": {
+    "id": "hn-sqlite",
+    "scores": {
+      "discovery": {
+        "status": "fail",
+        "matched_targets": [],
+        "required": 1
+      },
+      "synthesis": {
+        "status": "fail",
+        "missing": [
+          "23508923"
+        ]
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "discovery:fail",
+        "synthesis:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true
+  }
+}

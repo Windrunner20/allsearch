@@ -1,0 +1,425 @@
+{
+  "id": "wiki-zh-tcp",
+  "executed_at": "2026-10-15T08:09:44.268224+00:00",
+  "depth": "verify",
+  "provider_query": "中文维基百科 HTTP 条目里的默认 TCP 端口",
+  "answer": "中文维基百科「超文本传输协议」（HTTP）条目写明：默认 TCP 端口为 **80**。\n\n1. **超文本传输协议（简体）** — 客户端向服务器指定端口发请求，「默认端口为 80」；通常建立到该端口的 TCP 连接，服务器在该端口监听。示例会话写明运行于端口 80。  \n   https://zh.wikipedia.org/zh-cn/超文本传输协议\n\n2. **超文本传输协定（简体异体/zh-hans）** — 同样表述：默认端口为 80，默认是 80 端口的 TCP 连接。  \n   https://zh.wikipedia.org/zh-hans/超文本传输协议\n\n3. **超文本傳輸協定（繁体）** — 「默認端口為 80」；「默認是 80 端口」的 TCP 连接；示例为端口 80。  \n   https://zh.wikipedia.org/zh-hant/超文本传输协议\n\n4. **TCP/UDP端口列表** — `80/TCP,UDP`：HTTP（超文本传输协议）或快速 UDP 网络连接，用于传输网页（官方）。同页 `443/TCP` 为 HTTPS。  \n   https://zh.wikipedia.org/wiki/TCP/UDP端口列表\n\n5. **通讯端口** — 公认端口号示例：HTTP 默认使用 80 端口，HTTPS 默认使用 443 端口。  \n   https://zh.wikipedia.org/zh-my/通讯端口\n\n6. **传输控制协议** — 将 HTTP 列为使用众所周知端口号的应用之一（与 FTP、TELNET、SMTP 等并列），未在摘录中改写 80 这一约定。  \n   https://zh.wikipedia.org/wiki/传输控制协议\n\n条目还说明：HTTP 假定下层提供可靠传输，在 TCP/IP 中用 TCP 作传输层，但并未规定只能跑在 TCP 上。未写端口时，浏览器按约定连 **80**。",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://learnku.com/articles/6485/understanding-and-distinguishing-tcp-http-socket-ports-connections-concurrency-and-qps",
+      "url": "https://learnku.com/articles/6485/understanding-and-distinguishing-tcp-http-socket-ports-connections-concurrency-and-qps",
+      "snippet": "",
+      "content": "[微信登录](https://learnku.com/auth/oauth?driver=wechat)\n\n# 理解和区分,TCP,HTTP,Socket,端口,连接数,并发和 QPS\n\n[![](https://cdn.learnku.com/uploads/avatars/2996_1487755339.jpg!/both/100x100) garguntua 的个人博客](https://learnku.com/blog/haitun)/ 8/ 1/\n创建于 8年前\n\n# 概述 [\\#](https://learnku.com/articles/6485/understanding-and-distinguishing-tcp-http-socket-ports-connections-concurrency-and-qps\\#a4d3b0)\n\n这篇文章主要介绍一些常见且容易混淆的概念\n\n# TCP [\\#](https://learnku.com/articles/6485/understanding-and-distinguishing-tcp-http-socket-ports-connections-concurrency-and-qps\\#b136ef)\n\nTCP 是传输层的协议，也是一种封包格式，TCP 协议按这个格式封装成 IP 包，发送到网络中进行传输\n\n## TCP 报文格式 [\\#](https://learnku.com/articles/6485/understanding-and-distinguishing-tcp-http-socket-ports-connections-concurrency-and-qps\\#76e090)\n\n![](http://upload-images.jianshu.io/upload_images/2964446-ab077ff3902529a3.jpg?imageMogr2/auto-orient/strip)\n\n我们看到 TCP 报文源端口和目的端口都是 16 位，0-65535, 这个是计算机系统端口数最大 65535 的原因.\n\n## TCP 三次握手 [\\#](https://learnku.com/articles/6485/understanding-and-distinguishing-tcp-http-socket-ports-connections-concurrency-and-qps\\#e518c6)\n\n这方面的资料太多，这里就不赘述了\n\n[http://www.jianshu.com/p/ef892323e68f](http://www.jianshu.com/p/ef892323e68f)\n\n# HTTP [\\#](https://learnku.com/articles/6485/understanding-and-distinguishing-tcp-http-socket-ports-connections-concurrency-and-qps\\#293c9e)\n\nHTTP 是 TCP 协议之上的一层封装\n\n## HTTP 请求报文格式 [\\#](https://learnku.com/articles/6485/understanding-and-distinguishing-tcp-http-socket-ports-connections-concurrency-and-qps\\#777702)\n\n![](http://s2.51cto.com/wyfs02/M02/59/16/wKioL1THNfahGAkDAAFu--59S3M173.jpg)\n\n## HTTP 响应报文格式 [\\#](https://learnku.com/articles/6485/understanding-and-distinguishing-tcp-http-socket-ports-connections-concurrency-and-qps\\#4fdfa6)\n\n![](http://img.blog.csdn.net/20150126110634828?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvY2hlbmhhbnpodW4=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center)\n\n# Socket [\\#](https://learnku.com/articles/6485/understanding-and-distinguishing-tcp-http-socket-ports-connections-concurrency-and-qps\\#69f69b)\n\nSocket 其实是操作系统提供的用于操作网络传输协议 (TCP,UDP 等) 的 API, 相当于操作系统负责把 TCP,UDP 等协议翻译成 IP 包发送和接收\n\n![](http://images.cnblogs.com/cnblogs_com/goodcandle/socket2.jpg)\n\n# 端口 [\\#](https://learnku.com/articles/6485/understanding-and-distinguishing-tcp-http-socket-ports-connections-concurrency-and-qps\\#c76cfe)\n\n我们通常谈论的端口，一般是指 Socket 端口，Socket 可以操作多种协议，包括 UDP,TCP 等\n\n# 连接数 [\\#](https://learnku.com/articles/6485/understanding-and-distinguishing-tcp-http-socket-ports-connections-concurrency-and-qps\\#d97285)\n\n通常连接数指 Socket 连接数，注意 Socket 区分一个连接的唯一标识是:\n\n源 IP - 源端口 - 传输协议 - 目的 IP - 目的端口\n\n所以连接数不等于端口数，并没有 65535 限制\n\n# 并发 [\\#](https://learnku.com/articles/6485/understanding-and-distinguishing-tcp-http-socket-ports-connections-concurrency-and-qps\\#065a9b)\n\n我们使用 ab 测试的时候，会用到 -c 参数，concurrent, 这个是同时发起的请求数，不等于 QPS\n\n# QPS [\\#](https://learnku.com/articles/6485/understanding-and-distinguishing-tcp-http-socket-ports-connections-concurrency-and-qps\\#c01848)\n\nQPS 是每秒处理的请求数\n\n> 本作品采用 [《CC 协议》](https://learnku.com/docs/guide/cc4.0/6589)，转载必须注明作者和本文链接\n\n本帖由系统于 7年前 自动加精\n\n\n[![](https://cdn.learnku.com/uploads/avatars/2996_1487755339.jpg!/both/100x100)](https://learnku.com/users/2996)\n\n[garguntua](https://learnku.com/users/2996)\n\n[课程读者](https://learnku.com/roles/CourseAttendees) [307 声望](https://learnku.com/users/2996/reputation_logs)\n\n暂无个人描述~\n\n\n\n\n\n\n[17 人点赞](https://learnku.com/articles/6485/understanding-and-distinguishing-tcp-http-socket-ports-connections-concurrency-and-qps# \"Vote Up\")\n\n[![](https://cdn.learnku.com/uploads/avatars/21742_1529884126.jpg!/both/100x100)](https://learnku.com/users/21742)[![](https://cdn.learnku.com/uploads/avatars/6993_1479889581.jpg!/both/100x100)](https://learnku.com/users/6993)[![](https://cdn.learnku.com/uploads/avatars/21449_1516703274.jpg!/both/100x100)](https://learnku.com/users/21449)[![](https://cdn.learnku.com/uploads/avatars/6357_1476522375.jpeg!/both/100x100)](https://learnku.com/users/6357)[![](https://cdn.learnku.com/uploads/images/201801/03/1/CSBCkyd2E8.jpg)](https://learnku.com/users/23119)[![](https://cdn.learnku.com/uploads/avatars/1528_1431356877.png!/both/100x100)](https://learnku.com/users/1528)[![](https://cdn.learnku.com/uploads/avatars/88_1427370668.png!/both/100x100)](https://learnku.com/users/88)[![](https://cdn.learnku.com/uploads/avatars/16153_1493881495.jpeg!/both/100x100)](https://learnku.com/users/16153)[![](https://cdn.learnku.com/uploads/avatars/9385_1483616873.png!/both/100x100)](https://learnku.com/users/9385)[![](https://cdn.learnku.com/uploads/avatars/4269_1639362096.jpeg!/both/100x100)](https://learnku.com/users/4269)[![](https://cdn.learnku.com/uploads/avatars/6621_1477564360.jpeg!/both/100x100)](https://learnku.com/users/6621)[![](https://cdn.learnku.com/uploads/avatars/15129_1551317323.jpg!/both/100x100)](https://learnku.com/users/15129)[![](https://cdn.learnku.com/uploads/avatars/4880_1468312588.jpeg!/both/100x100)](https://learnku.com/users/4880)[![](https://cdn.learnku.com/uploads/avatars/5807_1473672276.jpeg!/both/100x100)](https://learnku.com/users/5807)[![](https://cdn.learnku.com/uploads/avatars/19472_1514946424.jpg!/both/100x100)](https://learnku.com/users/19472)[![](https://cdn.learnku.com/uploads/avatars/4132_1460525377.png!/both/100x100)](https://learnku.com/users/4132)[![](https://cdn.learnku.com/uploads/avatars/7684_1481685655.jpeg!/both/100x100)](https://learnku.com/users/7684)\n\n[![《L03 构架 API 服务器》](https://cdn.learnku.com/uploads/banners/tEd4GxhMp6VMh9e0hrUH.jpg!large)](https://laravel-china.org/topics/7657)\n\n你将学到如 RESTFul 设计风格、PostMan 的使用、OAuth 流程，JWT 概念及使用 和 API 开发相关的进阶知识。\n\n[![《L05 电商实战》](https://cdn.learnku.com/uploads/banners/kIaDSZN9YCMfJYjT0dpT.jpg!large)](https://laravel-china.org/topics/13206/laravel-shop-course)\n\n从零开发一个电商项目，功能包括电商后台、商品 & SKU 管理、购物车、订单管理、支付宝支付、微信支付、订单退款流程、优惠券等\n\n### [推荐文章：](https://learnku.com/articles/6485/understanding-and-distinguishing-tcp-http-socket-ports-connections-concurrency-and-qps\\#recommended)\n\n[更多推荐...](https://learnku.com/laravel/search?q=%E7%90%86%E8%A7%A3%E5%92%8C%E5%8C%BA%E5%88%86%2CTCP%2CHTTP%2CSocket%2C%E7%AB%AF%E5%8F%A3%2C%E8%BF%9E%E6%8E%A5%E6%95%B0%2C%E5%B9%B6%E5%8F%91%E5%92%8C%20QPS)\n\n[![苏近之](https://cdn.learnku.com/uploads/avatars/121814_1714650988.jpeg!/both/100x100)](https://learnku.com/articles/88123)\n\n[博客](https://learnku.com/articles/88123)\n\n[花了四个月打磨的 Laravel Plus 开源\\\\\n\\\\\n35\\\\\n/ 104\\\\\n\\|2年前](https://learnku.com/articles/88123)\n\n[![cclilshy](https://cdn.learnku.com/uploads/avatars/114411_1728982384.jpeg!/both/100x100)](https://learnku.com/laravel/t/87746)\n\n[分享创造](https://learnku.com/laravel/t/87746)\n\n[无需修改任何代码和扩展将你的Laravel项目性能提高20倍\\\\\n\\\\\n104\\\\\n/ 101\\\\\n\\|2年前](https://learnku.com/laravel/t/87746)\n\n[![家猪配种专家](https://cdn.learnku.com/uploads/avatars/31070_1590336402.jpg!/both/100x100)](https://learnku.com/laravel/t/87594)\n\n[分享创造](https://learnku.com/laravel/t/87594)\n\n[nuxt + laravel 第一次做全栈，AI 考研英语，希望听听大家的意见和批评，谢谢各位！\\\\\n\\\\\n24\\\\\n/ 26\\\\\n\\|2年前](https://learnku.com/laravel/t/87594)\n\n[![xuchunyang](https://cdn.learnku.com/uploads/avatars/72619_1605010781.png!/both/100x100)](https://learnku.com/laravel/t/86234)\n\n[分享创造](https://learnku.com/laravel/t/86234)\n\n[使用 Laravel Reverb 和 Vue SPA 搭建的聊天室\\\\\n\\\\\n11\\\\\n/ 10\\\\\n\\|2年前](https://learnku.com/laravel/t/86234)\n\n[![mowangjuanzi](https://cdn.learnku.com/uploads/avatars/23254_1584280134.jpg!/both/100x100)](https://learnku.com/articles/85883)\n\n[博客](https://learnku.com/articles/85883)\n\n[PHP 基金会：2023 年影响力和透明度报告\\\\\n\\\\\n19\\\\\n/ 11\\\\\n\\|2年前](https://learnku.com/articles/85883)\n\n[![快乐的皮拉夫](https://cdn.learnku.com/uploads/avatars/109766_1684571201.jpeg!/both/100x100)](https://learnku.com/articles/84557)\n\n[博客](https://learnku.com/articles/84557)\n\n[冯老师的困惑 —— 测试和正式环境掐架篇（二）\\\\\n\\\\\n13\\\\\n/ 12\\\\\n\\|2年前](https://learnku.com/articles/84557)\n\n讨论数量: 1\n\n[![](https://cdn.learnku.com/uploads/avatars/10960_1545872237.png!/both/100x100)](https://learnku.com/users/10960)\n\n[weiwenhao](https://learnku.com/users/10960)\n\n[768 声望](https://learnku.com/users/10960/reputation_logs)\n\n这是一个深坑\n\n8年前\n\n评论\n\n\n评论\n\n讨论应以学习和精进为目的。请勿发布不友善或者负能量的内容，与人为善，比聪明更重要！\n\n\n|     |     |     |     |     |     |\n| --- | --- | --- | --- | --- | --- |\n|  |  |  |  |  |  |\n\n![:joy:](https://cdn.learnku.com/assets/images/blank.gif):joy:![:kissing_heart:](https://cdn.learnku.com/assets/images/blank.gif):kissing\\_heart:![:heart:](https://cdn.learnku.com/assets/images/blank.gif):heart:![:heart_eyes:](https://cdn.learnku.com/assets/images/blank.gif):heart\\_eyes:![:blush:](https://cdn.learnku.com/assets/images/blank.gif):blush:![:grin:](https://cdn.learnku.com/assets/images/blank.gif):grin:![:+1:](https://cdn.learnku.com/assets/images/blank.gif):+1:![:relaxed:](https://cdn.learnku.com/assets/images/blank.gif):relaxed:![:pensive:](https://cdn.learnku.com/assets/images/blank.gif):pensive:![:smile:](https://cdn.learnku.com/assets/images/blank.gif):smile:![:sob:](https://cdn.learnku.com/assets/images/blank.gif):sob:![:kiss:](https://cdn.learnku.com/assets/images/blank.gif):kiss:![:unamused:](https://cdn.learnku.com/assets/images/blank.gif):unamused:![:flushed:](https://cdn.learnku.com/assets/images/blank.gif):flushed:![:stuck_out_tongue_winking_eye:](https://cdn.learnku.com/assets/images/blank.gif):stuck\\_out\\_tongue\\_winking\\_eye:![:see_no_evil:](https://cdn.learnku.com/assets/images/blank.gif):see\\_no\\_evil:![:wink:](https://cdn.learnku.com/assets/images/blank.gif):wink:![:smiley:](https://cdn.learnku.com/assets/images/blank.gif):smiley:![:cry:](https://cdn.learnku.com/assets/images/blank.gif):cry:![:stuck_out_tongue_closed_eyes:](https://cdn.learnku.com/assets/images/blank.gif):stuck\\_out\\_tongue\\_closed\\_eyes:![:scream:](https://cdn.learnku.com/assets/images/blank.gif):scream:![:rage:](https://cdn.learnku.com/assets/images/blank.gif):rage:![:smirk:](https://cdn.learnku.com/assets/images/blank.gif):smirk:![:disappointed:](https://cdn.learnku.com/assets/images/blank.gif):disappointed:![:sweat_smile:](https://cdn.learnku.com/assets/images/blank.gif):sweat\\_smile:![:kissing_closed_eyes:](https://cdn.learnku.com/assets/images/blank.gif):kissing\\_closed\\_eyes:![:speak_no_evil:](https://cdn.learnku.com/assets/images/blank.gif):speak\\_no\\_evil:![:relieved:](https://cdn.learnku.com/assets/images/blank.gif):relieved:![:grinning:](https://cdn.learnku.com/assets/images/blank.gif):grinning:![:yum:](https://cdn.learnku.com/assets/images/blank.gif):yum:![:ok_hand:](https://cdn.learnku.com/assets/images/blank.gif):ok\\_hand:![:neutral_face:](https://cdn.learnku.com/assets/images/blank.gif):neutral\\_face:![:confused:](https://cdn.learnku.com/assets/images/blank.gif):confused:\n\n支持 MD\n\n帮助\n\n\n关注本文\n\n评论\n\n\n[Scroll to top](https://learnku.com/articles/6485/understanding-and-distinguishing-tcp-http-socket-ports-connections-concurrency-and-qps#top)",
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "firecrawl"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "超文本传输协议- 维基百科，自由的百科全书",
+      "url": "https://zh.wikipedia.org/zh-hans/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE",
+      "snippet": "通常,由HTTP客户端发起一个请求,建立一个到服务器指定端口(默认是80端口)的TCP连接。HTTP服务器则在那个端口监听客户端的请求。",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "tavily"
+      ],
+      "score": 0.7845341,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://juejin.cn/post/7579093412331962378",
+      "url": "https://juejin.cn/post/7579093412331962378",
+      "snippet": "",
+      "content": "# 使用tcp协议的常用端口号\n\n[哈里谢顿](https://juejin.cn/user/3678304397695056/posts)\n\n2025-12-02\n\n1,121\n\n阅读3分钟\n\n\n专栏：\n\n\n计算机网络专家之路\n\n\n关注\n\nTCP 协议本身并不“定义”端口，而是 **由各种应用层协议** 在 TCP 之上 **注册/约定** 了若干“知名端口”（Well-Known Ports，0-1023）。下面把日常运维、开发、安全审计时 **最常碰到的 TCP 端口** 按功能分组，给出 **端口号+对应服务+一句话备注**，方便速查。\n\n* * *\n\n### 🌐 Web & 文件传输\n\n| 端口 | 服务/协议 | 备注 |\n| --- | --- | --- |\n| 80 | HTTP | 未加密的 Web 流量，Nginx/Apache 默认。 |\n| 443 | HTTPS | TLS 加密的 Web 流量，HTTP/2、HTTP/3 也先走 443。 |\n| 8080 | HTTP-Alt | 开发、代理、Tomcat 常用“备胎”端口。 |\n| 8443 | HTTPS-Alt | Tomcat、Spring Boot 测试 HTTPS 常用。 |\n| 21 | FTP 控制通道 | 传文件先连 21，再协商数据通道。 |\n| 22 | SSH/SFTP | 远程 shell 与加密文件传输，Linux 标配。 |\n| 20 | FTP 数据通道 | 主动模式下 FTP 服务器用 20 发数据。 |\n\n* * *\n\n### 📧 邮件系统\n\n| 端口 | 服务/协议 | 备注 |\n| --- | --- | --- |\n| 25 | SMTP | 服务器之间转发邮件（不加密）。 |\n| 587 | SMTP-Submission | 用户客户端提交邮件，强制 STARTTLS。 |\n| 465 | SMTPS | 老标准里“SMTP over SSL”，现仍有不少服务商开。 |\n| 110 | POP3 | 收邮件，传统明文端口。 |\n| 995 | POP3S | POP3 over TLS。 |\n| 143 | IMAP | 收邮件/文件夹同步，明文。 |\n| 993 | IMAPS | IMAP over TLS，主流邮件客户端默认。 |\n\n* * *\n\n### 🗄️ 远程桌面 & 数据库\n\n| 端口 | 服务/协议 | 备注 |\n| --- | --- | --- |\n| 3389 | RDP | Windows 远程桌面。 |\n| 3306 | MySQL | 世界上最流行的开源库。 |\n| 5432 | PostgreSQL | 高级开源关系库。 |\n| 1433 | SQL Server | 微软数据库默认端口。 |\n| 1521 | Oracle TNS | Oracle 监听端口。 |\n| 27017 | MongoDB | NoSQL 文档库默认。 |\n| 6379 | Redis | 内存 KV 缓存/数据库。 |\n\n* * *\n\n### 🛠️ 运维 & 安全\n\n| 端口 | 服务/协议 | 备注 |\n| --- | --- | --- |\n| 23 | Telnet | 远古明文远程管理，现已被 SSH 取代。 |\n| 53 | DNS _TCP_ | 区域传输（AXFR）或大响应时走 TCP；日常查询走 UDP。 |\n| 135 | MS RPC | Windows 远程过程调用，很多服务依赖它。 |\n| 139 & 445 | NetBIOS / SMB | 文件共享、打印机共享、永恒之蓝漏洞点。 |\n| 993/995 已列 | — | 见邮件系统。 |\n| 161 | SNMP _TCP/UDP_ | 网络设备监控，常配 UDP，但某些实现也开 TCP。 |\n\n* * *\n\n### 🧪 开发/微服务常用\n\n| 端口 | 服务/协议 | 备注 |\n| --- | --- | --- |\n| 3000 | Node/Dev | React、Vue、Express 脚手架默认。 |\n| 5000 | Flask/Bottle | Python 轻量框架开发服务器。 |\n| 5601 | Kibana | Elasticsearch 可视化。 |\n| 6379 已列 | Redis | — |\n| 5672 | AMQP (RabbitMQ) | 消息队列。 |\n| 9092 | Kafka | 分布式流处理。 |\n\n* * *\n\n### 📊 速记口诀（背下来够用）\n\n> Web 80 443，\n>\n> 文件 21 22，\n>\n> 邮箱 25 587 993，\n>\n> 数据库 3306 5432 1433，\n>\n> 远程 3389 22，\n>\n> Windows 共享 445，\n>\n> 开发 3000 5000 8080。\n\n* * *\n\n### ⚠️ 小贴士\n\n1. 0-1023 是 **系统端口**，普通用户进程在 Linux 上绑定需要 root。\n2. 同一台机器 TCP 与 UDP 端口 **独立**，如 DNS 53/TCP 与 53/UDP 可同时存在。\n3. 云主机必须去 **安全组/防火墙** 放行对应 TCP 端口，服务才能真正对外。\n4. 扫描工具（nmap、masscan）就是靠这些“常用端口表”做默认列表。\n\n需要更详细的“注册表”可查阅 IANA 官方列表： [www.iana.org/assignments…](https://link.juejin.cn/?target=https%3A%2F%2Fwww.iana.org%2Fassignments%2Fservice-names-port-numbers%2Fservice-names-port-numbers.xhtml \"https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml\")\n\n标签：\n\n[TCP/IP](https://juejin.cn/tag/TCP%2FIP)\n\n本文收录于以下专栏\n\n1 / 2\n\n\n![cover](https://p26-juejin-sign.byteimg.com/tos-cn-i-k3u1fbpfcp/95414745836549ce9143753e2a30facd~tplv-k3u1fbpfcp-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZOI6YeM6LCi6aG_:q75.awebp?rk3s=f64ab15b&x-expires=1792656632&x-signature=oSwRsvjOe6kksk26z98JHJ11htE%3D)\n\n计算机网络专家之路\n\n\n专栏目录\n\n\n计算机网络专家之路\n\n\n1 订阅\n\n·\n\n19 篇文章\n\n订阅\n\n上一篇\n\nhttp面试题详解\n\n\n下一篇\n\ndocker三种网络类型详解\n\n\n![cover](https://p26-juejin-sign.byteimg.com/tos-cn-i-k3u1fbpfcp/95414745836549ce9143753e2a30facd~tplv-k3u1fbpfcp-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg5ZOI6YeM6LCi6aG_:q75.awebp?rk3s=f64ab15b&x-expires=1792656632&x-signature=oSwRsvjOe6kksk26z98JHJ11htE%3D)\n\n环境配置专家之路\n\n\n专栏目录\n\n\n记录环境配置的一系列文章\n\n\n0 订阅\n\n·\n\n11 篇文章\n\n订阅\n\n上一篇\n\nlinux系统，常见端口介绍\n\n\n下一篇\n\n\\`127.0.0.1\\` 和 \\`0.0.0.0\\` 有何区别？通过验证 demo来展示\n\n\n评论 0\n\n![avatar](https://lf-web-assets.juejin.cn/obj/juejin-web/xitu_juejin_web/58aaf1326ac763d8a1054056f3b7f2ef.svg)\n\n0/ 1000\n\n标点符号、链接等不计算在有效字数内\n\n\nCtrl + Enter\n\n\n发送\n\n\n登录 / 注册即可发布评论！\n\n最热\n\n\n最新\n\n\n![](https://lf-web-assets.juejin.cn/obj/juejin-web/xitu_juejin_web/c12d6646efb2245fa4e88f0e1a9565b7.svg)点赞\n\n![](https://lf-web-assets.juejin.cn/obj/juejin-web/xitu_juejin_web/336af4d1fafabcca3b770c8ad7a50781.svg)评论\n\n![](https://lf-web-assets.juejin.cn/obj/juejin-web/xitu_juejin_web/3d482c7a948bac826e155953b2a28a9e.svg)\n收藏\n\n\n加个关注，精彩更新不错过~\n\n![avatar](https://p3-passport.byteacctimg.com/img/mosaic-legacy/3796/2975850990~40x40.awebp)\n\n关注\n\n\n![image](https://lf-web-assets.juejin.cn/obj/juejin-web/xitu_juejin_web/img/cartoon.31472f0.png)\n\nAI代码助手上线啦\n\n选中代码，体验AI替你一键快速解读代码\n\n立即体验\n\nAPP内打开\n\n- ![下载掘金APP](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2ad212d53ccd44569d10317171664bae~tplv-k3u1fbpfcp-jj:90:0:0:0:q75.avis)下载APP\n\n\n\n\n\n\n\n\n\n\n下载APP\n- ![微信扫一扫](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9f4933cc8fdb411cba89904f14a3ec0a~tplv-k3u1fbpfcp-jj:90:0:0:0:q75.avis)微信扫一扫\n\n\n\n\n\n\n\n\n\n\n微信公众号\n- [新浪微博](https://weibo.com/xitucircle)\n\n![](https://lf-web-assets.juejin.cn/obj/juejin-web/xitu_juejin_web/img/MaskGroup.13dfc4f.png)选择你感兴趣的技术方向\n\n后端\n\n\n前端\n\n\nAndroid\n\n\niOS\n\n\n人工智能\n\n\n开发工具\n\n\n代码人生\n\n\n阅读\n\n\n跳过\n\n上一步\n\n至少选择1个分类\n\n\n![](https://lf-web-assets.juejin.cn/obj/juejin-web/xitu_juejin_web/8867e249c23a7c0ea596c139befc04d7.svg)\n\n温馨提示\n\n当前操作失败，如有疑问，可点击申诉\n\n前往申诉我知道了\n\n确定屏蔽该用户\n\n屏蔽后，对方将不能关注你、与你产生任何互动，无法查看你的主页",
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "firecrawl"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "http 默认端口 - aspirant - 博客园",
+      "url": "https://www.cnblogs.com/aspirant/p/11727120.html",
+      "snippet": "POP3 Post Office Protocol（E-mail），默认端口号为110/tcp\n\nWebshpere应用程序，默认端口号为9080\n\nwebshpere管理工具，默认端口号9090\n\nJBOSS，默认端口号为8080\n\nTOMCAT，默认端口号为8080\n\nWIN2003远程登录，默认端口号为3389\n\nSymantec AV/Filter for MSE,默认端口号为 8081\n\nOracle 数据库，默认的端口号为1521\n\nORACLE EMCTL，默认的端口号为1158\n\nOracle XDB（XML 数据库），默认的端口号为8080\n\nOracle XDB FTP服务，默认的端口号为2100\n\nMS SQL\\SERVER数据库server，默认的端口号为1433/tcp 1433/udp\n\nMS SQL\\SERVER数据库monitor，默认的端口号为1434/tcp 1434/udp\n\n参考：HTTP默认端口\n\n参考：HTTP、HTTPS常用的默认端口号\n\n本文来自博客园，作者：aspirant，转载请注明原文链接：\n\n### 公告 [...] 博客园logo\n搜索\n搜索\n搜索\n搜索\n写随笔\n我的博客\n短消息\n简洁模式\n用户头像\n返回主页\n\n# 朝北教室的风筝\n\n## 用心做每一件事\n\n订阅\n\n# http 默认端口\n\n80是http协议的默认端口，是在输入网站的时候其实浏览器（非IE）已经帮你输入协议了，所以你输入\n\n443是https的默认端口\n\n端口号标识了一个主机上进行通信的不同的应用程序。\n\n1.HTTP协议代理服务器常用端口号：80/8080/3128/8081/9098\n\n2.SOCKS代理协议服务器常用端口号：1080\n\n3.FTP（文件传输）协议代理服务器常用端口号：21\n\n4.Telnet（远程登录）协议代理服务器常用端口号：23\n\nHTTP服务器，默认端口号为80/tcp（木马Executor开放此端口）\n\nHTTPS（securely transferring web pages）服务器，默认端口号为443/tcp  443/udp\n\nTelnet（不安全的文本传送），默认端口号为23/tcp（木马Tiny Telnet Server所开放的端口）\n\nFTP，默认的端口号为21/tcp（木马Doly Trojan、Fore、Invisible FTP、WebEx、WinCrash和Blade Runner所开放的端口）\n\nTFTP（Trivial File Transfer Protocol），默认端口号为69/udp\n\nSSH（安全登录）、SCP（文件传输）、端口号重定向，默认的端口号为22/tcp\n\nSMTP Simple Mail Transfer Protocol（E-mail），默认端口号为25/tcp（木马Antigen、Email Password Sender、Haebu Coceda、Shtrilitz Stealth、WinPC、WinSpy都开放这个端口）",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "tavily"
+      ],
+      "score": 0.7795405,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://cloud.tencent.com/developer/article/1150239",
+      "url": "https://cloud.tencent.com/developer/article/1150239",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "超文本传输安全协议 - 维基百科",
+      "url": "https://zh.wikipedia.org/zh-hans/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE",
+      "snippet": "编辑 HTTP的URL是由“ http:// ”起始与默认使用端口80,而HTTPS的URL则是由“ https:// ”起始与默认使用端口443。 ,默认使用TCP 443。",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.7724109,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://zh.wikipedia.org/zh-my/%E9%80%9A%E8%A8%8A%E5%9F%A0",
+      "url": "https://zh.wikipedia.org/zh-my/%E9%80%9A%E8%A8%8A%E5%9F%A0",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "TCP/UDP端口列表 - 维基百科，自由的百科全书",
+      "url": "https://zh.wikipedia.org/zh-hans/TCP/UDP%E7%AB%AF%E5%8F%A3%E5%88%97%E8%A1%A8",
+      "snippet": "| 7890/TCP | Clash 代理 | 非官方 |\n| 8000/TCP | iRDMI - often mistakenly used instead of port 8080 (The Internet Assigned Numbers Authority (iana.org) officially lists this port for iRDMI protocol) | 官方 |\n| 8000/TCP | Common port used for internet radio streams such as those using SHOUTcast | 非官方 |\n| 8002/TCP | Cisco Systems Unified Call Manager Intercluster Port |  |\n| 8008/TCP | 超文本传输协议 替代端口 | 官方 |\n| 8008/TCP | IBM HTTP Server（英语：IBM HTTP Server） 默认管理端口 | 非官方 |\n| 8009/TCP | 阿帕契族 JServ（英语：JServ） 协议 v13 (ajp13) 例如：Apache mod\\_jk Tomcat会使用。 | 非官方 |\n| 8010/TCP | XMPP/Jabber 文件传输 | 非官方 |\n| 8074/TCP | Gadu-Gadu（英语：Gadu-Gadu） | 非官方 |\n| 8080/TCP | 超文本传输协议 替代端口 （http\\_alt） - commonly used for 代理服务器 and caching（英语：caching） server, or for running a web server as a non-Root user | 官方 | [...] | 10017 | AIX,NeXT, HPUX - rexd daemon control port | 非官方 |\n| 10024/TCP | Zimbra - smtp [mta] - to amavis from postfix | 非官方 |\n| 10025/TCP | Ximbra - smtp [mta] - back to postfix from amavis | 非官方 |\n| 10050/TCP | Zabbix-Agent |  |\n| 10051/TCP | Zabbix-Server |  |\n| 10113/TCP,UDP | NetIQ Endpoint | 官方 |\n| 10114/TCP,UDP | NetIQ Qcheck | 官方 |\n| 10115/TCP,UDP | NetIQ Endpoint | 官方 |\n| 10116/TCP,UDP | NetIQ VoIP Assessor | 官方 |\n| 10480 | SWAT 4 Dedicated Server | 非官方 |\n| 10808 | V2RayN默认端口 | 非官方 |\n| 11211 | Memcached | 非官方 |\n| 11235 | Savage:Battle for Newerth Server Hosting | 非官方 |\n| 11294 | Blood Quest Online Server | 非官方 |\n| 11371 | PGP HTTP Keyserver | 官方 |\n| 11576 | IPStor Server management communication | 非官方 | [...] | 80/TCP,UDP | HTTP（超文本传输协议）或快速UDP网络连接- 用于传输网页 | 官方 |\n| 81/TCP | XB Browser - Tor | 非官方 |\n| 82/UDP | XB Browser - 控制端口 | 非官方 |\n| 88/TCP | Kerberos - 认证代理 | 官方 |\n| 101/TCP | 主机名 | 官方 |\n| 102/TCP | ISO-TSAP协议 | 官方 |\n| 107/TCP | 远程Telnet协议 | 官方 |\n| 109/TCP | 邮局协定（POP），第2版（POP2） | 官方 |\n| 110/TCP | 邮局协定，第3版 - 用于接收电子邮件 （未加密的POP3） | 官方 |\n| 111/TCP,UDP | Sun远程过程调用协议 | 官方 |\n| 113/TCP | Ident（英语：Ident protocol） - 旧的服务器身份识别系统，仍然被IRC服务器用来认证它的用户 | 官方 |\n| 115/TCP | 简单文件传输协议 | 官方 |\n| 117/TCP | UNIX间复制协议（Unix to Unix Copy Protocol，UUCP）的路径确定服务 | 官方 |\n| 118/TCP,UDP | SQL服务 | 官方 |\n| 119/TCP | 网络新闻传输协议 - 用来收取新闻组的消息 | 官方 |\n| 123/UDP | NTP（Network Time Protocol） - 用于时间同步 | 官方 |\n| 135/TCP,UDP | 分散式运算环境（Distributed Computing Environment，DCE）终端解决方案及定位服务 | 官方 |",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.7552947,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://learnku.com/articles/6485/understanding-and-distinguishing-tcp-http-socket-ports-connections-concurrency-and-qps",
+      "url": "https://learnku.com/articles/6485/understanding-and-distinguishing-tcp-http-socket-ports-connections-concurrency-and-qps",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "超文本传输协议- 维基百科，自由的百科全书",
+      "url": "https://zh.wikipedia.org/zh-hans/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE",
+      "result_id": "r2",
+      "providers": [
+        "xai",
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://juejin.cn/post/7579093412331962378",
+      "url": "https://juejin.cn/post/7579093412331962378",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "http 默认端口 - aspirant - 博客园",
+      "url": "https://www.cnblogs.com/aspirant/p/11727120.html",
+      "result_id": "r4",
+      "providers": [
+        "xai",
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://cloud.tencent.com/developer/article/1150239",
+      "url": "https://cloud.tencent.com/developer/article/1150239",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "超文本传输安全协议 - 维基百科",
+      "url": "https://zh.wikipedia.org/zh-hans/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%AE%89%E5%85%A8%E5%8D%8F%E8%AE%AE",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://zh.wikipedia.org/zh-my/%E9%80%9A%E8%A8%8A%E5%9F%A0",
+      "url": "https://zh.wikipedia.org/zh-my/%E9%80%9A%E8%A8%8A%E5%9F%A0",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "TCP/UDP端口列表 - 维基百科，自由的百科全书",
+      "url": "https://zh.wikipedia.org/zh-hans/TCP/UDP%E7%AB%AF%E5%8F%A3%E5%88%97%E8%A1%A8",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://zh.wikipedia.org/zh-my/%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE",
+      "url": "https://zh.wikipedia.org/zh-my/%E4%BC%A0%E8%BE%93%E6%8E%A7%E5%88%B6%E5%8D%8F%E8%AE%AE",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://www.darazhost.com/http-port-80-and-https-port-443-what-they-do-and-how-to-change-them/",
+      "url": "https://www.darazhost.com/http-port-80-and-https-port-443-what-they-do-and-how-to-change-them",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://juejin.cn/post/7634388862739480628",
+      "url": "https://juejin.cn/post/7634388862739480628",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://zh.wikipedia.org/zh-cn/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE",
+      "url": "https://zh.wikipedia.org/zh-cn/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://zh.wikipedia.org/zh-hant/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE",
+      "url": "https://zh.wikipedia.org/zh-hant/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://juejin.cn/post/7111666884264591391",
+      "url": "https://juejin.cn/post/7111666884264591391",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://superuser.com/questions/996828/why-was-port-80-chosen-as-the-default-http-port-and-443-as-the-default-https-por",
+      "url": "https://superuser.com/questions/996828/why-was-port-80-chosen-as-the-default-http-port-and-443-as-the-default-https-por",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://developer.mozilla.org/en-US/docs/Glossary/Port",
+      "url": "https://developer.mozilla.org/en-US/docs/Glossary/Port",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://zh.wikipedia.org/w/index.php?title=TCP/UDP%E7%AB%AF%E5%8F%A3%E5%88%97%E8%A1%A8&oldid=88529165",
+      "url": "https://zh.wikipedia.org/w/index.php?oldid=88529165&title=TCP%2FUDP%E7%AB%AF%E5%8F%A3%E5%88%97%E8%A1%A8",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://cloud.tencent.com/developer/article/2038194",
+      "url": "https://cloud.tencent.com/developer/article/2038194",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "TCP/UDP端口列表 - 维基百科，自由的百科全书",
+      "url": "https://zh.wikipedia.org/wiki/TCP/UDP%E7%AB%AF%E5%8F%A3%E5%88%97%E8%A1%A8",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "TCP/UDP埠列表 - 維基百科，自由的百科全書",
+      "url": "https://zh.wikipedia.org/zh-tw/TCP/UDP%E7%AB%AF%E5%8F%A3%E5%88%97%E8%A1%A8",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c21",
+      "title": "http默认的80端口和https默认的443端口原创",
+      "url": "https://blog.csdn.net/qq_15821487/article/details/146057517",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c22",
+      "title": "什么是TCP端口？端口号及常见端口详解",
+      "url": "https://www.dotcom-monitor.com/zh-hans/%E4%BD%BF%E7%94%A8%E7%BD%91%E7%BB%9C%E7%9B%91%E8%A7%86%E5%99%A8%E5%AD%A6%E4%B9%A0/%E6%9C%AF%E8%AF%AD%E8%A1%A8/%E4%BB%80%E4%B9%88%E6%98%AF-tcp-%E7%AB%AF%E5%8F%A3%EF%BC%9F",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "verify",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 19043,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "verify_supplement",
+        "latency_ms": 5622,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "ok",
+        "reason": "post_discovery",
+        "latency_ms": 19241,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "ok",
+        "reason": "post_discovery",
+        "latency_ms": 24608,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_verify_supplement",
+      "depth_verify"
+    ]
+  },
+  "cache": {
+    "hit": false,
+    "age_seconds": 0.0,
+    "ttl_seconds": 120,
+    "namespace": "search"
+  },
+  "elapsed_ms": 49537,
+  "api_calls": {
+    "xai": 1,
+    "tavily": 1,
+    "firecrawl": 2
+  },
+  "score": {
+    "id": "wiki-zh-tcp",
+    "scores": {
+      "discovery": {
+        "status": "fail",
+        "matched_targets": [],
+        "required": 1
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "discovery:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true
+  }
+}

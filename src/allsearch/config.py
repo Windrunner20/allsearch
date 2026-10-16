@@ -256,6 +256,14 @@ class AllSearchConfig:
     anysearch: AnySearchConfig
     firecrawl: FirecrawlConfig
     route_policy_version: str = "1"
+    # Opt-in bounded MCP responses. The default keeps the full tool payload so
+    # the existing Pi extension and tests stay compatible.
+    compact_output: bool = False
+    record_dir: str = ""
+    record_ttl_seconds: int = 3600
+    record_max_entries: int = 200
+    record_max_bytes: int = 33_554_432
+    compact_max_bytes: int = 8192
 
     def enabled_provider_fingerprint(self) -> str:
         flags = [
@@ -475,6 +483,16 @@ def load_config(*, env_file: str | Path | None = None) -> AllSearchConfig:
             ),
             only_main_content=_env_bool("ALLSEARCH_FIRECRAWL_ONLY_MAIN_CONTENT", True),
             max_pages=_env_int("ALLSEARCH_FIRECRAWL_MAX_PAGES", 3, min_value=0, max_value=10),
+        ),
+        compact_output=_env_bool("ALLSEARCH_COMPACT_OUTPUT", False),
+        record_dir=_env_str("ALLSEARCH_RECORD_DIR", default=""),
+        record_ttl_seconds=_env_int("ALLSEARCH_RECORD_TTL_SECONDS", 3600, min_value=1),
+        record_max_entries=_env_int("ALLSEARCH_RECORD_MAX_ENTRIES", 200, min_value=1),
+        record_max_bytes=_env_int(
+            "ALLSEARCH_RECORD_MAX_BYTES", 33_554_432, min_value=4096
+        ),
+        compact_max_bytes=_env_int(
+            "ALLSEARCH_COMPACT_MAX_BYTES", 8192, min_value=1024, max_value=16384
         ),
     )
 

@@ -1,0 +1,546 @@
+{
+  "id": "cross-lang-hn-sqlite",
+  "executed_at": "2026-10-15T08:22:27.816712+00:00",
+  "depth": "verify",
+  "provider_query": "用中文找 Hacker News 上把 SQLite 当作应用程序文件格式来讨论的英文帖子",
+  "answer": "以下是 Hacker News 上讨论「把 SQLite 当作应用程序文件格式」的英文帖（最多 8 条），按相关度排列。\n\n1. **[SQLite as an Application File Format](https://news.ycombinator.com/item?id=46076642)**  \n   直接讨论官方文章 [sqlite.org/appfileformat](https://sqlite.org/appfileformat.html)。约 178 分、99 条评论。评论提到 Mapbox 的 MBTiles、树形数据是否适合用表存储，以及 SQLite Archive 与 ZIP/tar 的对比。\n\n2. **[SQLite as an Application File Format (2014)](https://news.ycombinator.com/item?id=18754634)**  \n   同一主题的较早讨论（2018 年重发）。约 211 分、161 条评论。涉及单文件文档、WAL/SHM 副作用、国会图书馆推荐，以及文件格式是否公开规范。\n\n3. **[What If OpenDocument Used SQLite?](https://news.ycombinator.com/item?id=45132498)**  \n   官方设想：若 ODP 等文档格式改用 SQLite。约 279 分、105 条评论。重点包括 `secure_delete`、打开不可信数据库的安全选项，以及 Firefox、聊天应用等实际用法。\n\n4. **[The killer feature for me with SQLite is as an application file format](https://news.ycombinator.com/item?id=40655974)**  \n   评论串。称增量可更新、可同时当文件包和结构化数据；举例 Audacity 工程文件、游戏关卡数据用标准数据库工具编辑。\n\n5. **[Show HN: SQLite files as applications - uApps](https://news.ycombinator.com/item?id=49421475)**  \n   把 SQLite 档案（基于 sqlar）做成可分发的本地应用容器：网页资源 + 用户数据放在同一文件里，用 Tauri 壳打开。\n\n6. **[Apple .car 格式讨论中的相关评论](https://news.ycombinator.com/item?id=47046185)**  \n   对比 gzipped JSON。认为存二进制（图片等）时业界更常选「SQLite 当文件格式」，并再次以 Audacity 为例说明崩溃安全与廉价更新。\n\n7. **[sqlite is great as a \"file format\"…](https://news.ycombinator.com/item?id=39797104)**  \n   区分「某个应用的私有文件格式」与「交换格式」。讨论自定义 magic、Application ID（文件头偏移 68）、以及与 ZIP/tar 相比必须捆绑 SQLite 库的代价。\n\n8. **[I see no downside in using sqlite as an application file format](https://news.ycombinator.com/item?id=46079942)**  \n   短评：主要「缺点」是格式开放、第三方可直接改内容；有人提到可改头或加密（如 SQLCipher）来限制随意打开。\n\n核心原文多指向 SQLite 官方说明：[SQLite As An Application File Format](https://sqlite.org/appfileformat.html)。",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://news.ycombinator.com/item?id=37558809",
+      "url": "https://news.ycombinator.com/item?id=37558809",
+      "snippet": "",
+      "content": "|     |     |     |\n| --- | --- | --- |\n| |     |     |     |\n| --- | --- | --- |\n| [![](https://news.ycombinator.com/y18.svg)](https://news.ycombinator.com/) | **[Hacker News](https://news.ycombinator.com/news)** [new](https://news.ycombinator.com/newest) \\| [past](https://news.ycombinator.com/front) \\| [comments](https://news.ycombinator.com/newcomments) \\| [ask](https://news.ycombinator.com/ask) \\| [show](https://news.ycombinator.com/show) \\| [jobs](https://news.ycombinator.com/jobs) \\| [submit](https://news.ycombinator.com/submit) | [login](https://news.ycombinator.com/login?goto=item%3Fid%3D37558809) | |\n\n| |     |     |     |\n| --- | --- | --- |\n|  |  | [SQLite](https://news.ycombinator.com/user?id=SQLite) [on Sept 18, 2023](https://news.ycombinator.com/item?id=37558809) \\| [parent](https://news.ycombinator.com/item?id=37555075) \\| [context](https://news.ycombinator.com/item?id=37553574#37558809) \\| [favorite](https://news.ycombinator.com/fave?id=37558809) \\| on: [What if OpenDocument used SQLite? (2014)](https://news.ycombinator.com/item?id=37553574 \"What if OpenDocument used SQLite? (2014)\")<br>SQLite file format spec: [https://www.sqlite.org/fileformat2.html](https://www.sqlite.org/fileformat2.html) <br>Complete version history: [https://sqlite.org/docsrc/finfo/pages/fileformat2.in](https://sqlite.org/docsrc/finfo/pages/fileformat2.in)<br>Note that there have been no breaking changes since the file format was designed in 2004. The changes shows in the version history above have all be one of (1) typo fixes, (2) clarifications, or (3) filling in the \"reserved for future extensions\" bits with descriptions of those extensions as they occurred. |\n\n|     |     |     |\n| --- | --- | --- |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [throwaway894345](https://news.ycombinator.com/user?id=throwaway894345) [on Sept 19, 2023](https://news.ycombinator.com/item?id=37565344)\\[–\\]<br>Thanks for elaborating so thoroughly. I didn’t even realize you were on this platform! | | |\n| ![](https://news.ycombinator.com/s.gif)\n\n|     |\n| --- |\n|  |\n\n[Consider applying for YC's Winter 2027 batch! Applications are open till November 2.](https://www.ycombinator.com/apply/)\n\n[Guidelines](https://news.ycombinator.com/newsguidelines.html) \\| [FAQ](https://news.ycombinator.com/newsfaq.html) \\| [Lists](https://news.ycombinator.com/lists) \\| [API](https://github.com/HackerNews/API) \\| [Security](https://news.ycombinator.com/security.html) \\| [Legal](https://www.ycombinator.com/legal/) \\| [Apply to YC](https://www.ycombinator.com/apply/) \\| [Contact](mailto:hn@ycombinator.com)\n\nSearch: |",
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "firecrawl"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "10/12 矽谷今天在瘋什麼：Product Hunt × Hacker News 六大新工具拆解｜AI x 生產力領域策略師",
+      "url": "https://vocus.cc/article/6acc3f3bfd89780001d4cd61",
+      "snippet": "HN 146 分；GitHub：opennookorg/betterwispr；Apache 2.0 授權\n 用法：點進任何文字欄，按住 ⌥Space 說、放開轉文字，直接貼進你正在用的 App；貼不進去的安全欄位會改放剪貼簿，不會弄丟\n 本機模型：Apple 內建語音（免下載）、Parakeet v3（25 種歐洲語言）、Parakeet v2（英文）、Whisper large-v3 turbo；模型下載一次後可完全離線用\n 會學你的修正：在歷史紀錄裡糾正一次拼錯的專有名詞，下次自動拼對；可設專屬詞彙表\n 語音指令：說 \"comma\"、\"new line\"、\"scratch that\" 直接下標點、換行、刪掉重來\n 會議模式：即時逐字稿＋本機生成的標題、摘要、待辦（走 Apple Intelligence 或本地 Ollama 模型）\n 需求：macOS 14 以上，Apple Silicon 建議；錄音最長 2 分鐘自動停止\n\n台灣電商人怎麼用：短影音腳本、商品文案、LINE 回客戶——用說的比打字快好幾倍，專有名詞（品牌名、型號）教一次就記住，等於有個聽得懂行話的打字員。但老實說：官方列的語言支援以英文和歐洲語系為主，中文辨識品質一定要自己實測；錄音 2 分鐘自動停，長篇口述要分段錄。Mac 用戶先裝免費版玩玩看，不好用刪掉也不心疼。\n\n## 2. apsw：Python 玩 SQLite 的「完全體」——內建 sqlite3 只給你樣子，它給你全部，HN 55 分\n\n一句話：Roger Binns 寫的 Another Python SQLite Wrapper：不像內建 sqlite3 只求「長得像普通資料庫驅動」，apsw 把整個 SQLite C API 原汁原味搬進 Python，SQLite 能做的它全能做。 [...] HN 55 分；作者 Roger Binns；PyPI 月下載 139 萬（pypistats 數據）；版本跟著 SQLite 走（最新 3.53.4.0）\n 定位差異（官方說法）：內建 sqlite3 模組追求「跟其他資料庫驅動可互換」；apsw 追求「把 SQLite 用到滿」——全文檢索、virtual tables、VFS、JSON、CArray、備份、blob I/O 全開\n 同步寫法＋所有 async 框架都支援；文件有專門一章講跟 sqlite3 的差異\n 免費開源（PyPI 標示 any-OSI 授權），`pip install apsw` 就裝好\n\n台灣電商人怎麼用：先說清楚，這是工程師工具。但如果你是「一人公司＋會寫一點 Python」：選品資料庫、價格追蹤、庫存小系統，用 SQLite＋apsw 撐到天荒地老，不用架資料庫伺服器、不用付雲端資料庫錢。但老實說：不會寫 Python 的人完全用不到；而且內建 sqlite3 對九成需求已經夠了，別為了「完全體」三個字去重寫本來跑得好好的 code。\n\n## 3. FlowCE：TI-84 計算機上的免費微積分系統——數學照課本的樣子打，答案給精確值，HN 22 分\n\n一句話：給 TI-84 Plus CE 計算機的開源計算代數系統（引擎用 Giac）：專為大一微積分設計，輸入時數學式即時排版，答案給 π²/6 這種精確值而不是 1.64493。 [...] AI x 生產力領域策略師\n\n 10/12 矽谷今天在瘋什麼：Product Hunt × Hacker News 六大新工具拆解\n Product Hunt 今日前三\n 1. HireKey：前招募老手下場做的 AI 求職 copilot——履歷客製化＋AI 語音面試陪練\n 2. kōdlo：業務的「第二個大腦」——找客戶、做功課、寫開發信、做簡報，上下文全都記得\n 3. Automations in Perplexity Computer：AI agent 終於有「長期記憶」了——排程＋事件觸發，接續上次的進度一直做下去\n Hacker News 今日前三\n 1. BetterWispr：免費開源的 Mac 語音輸入——按住說話、放開打字，全在本機跑，HN 146 分\n 2. apsw：Python 玩 SQLite 的「完全體」——內建 sqlite3 只給你樣子，它給你全部，HN 55 分\n 3. FlowCE：TI-84 計算機上的免費微積分系統——數學照課本的樣子打，答案給精確值，HN 22 分\n\n# 10/12 矽谷今天在瘋什麼：Product Hunt × Hacker News 六大新工具拆解\n\nLoco Bryant-avatar-img\n\nLoco Bryant\n\n更新 發佈閱讀 12 分鐘\n\n## 10/12 矽谷今天在瘋什麼：Product Hunt × Hacker News 六大新工具拆解\n\n每天矽谷都有上百個新工具上線，但值得你花時間的不到五個。這個專欄每天從 Product Hunt 和 Hacker News 撈出當天排名前三的新工具，拆成白話文，再加一段「台灣電商人怎麼用」——不只告訴你這是什麼，還告訴你能拿它幹什麼。",
+      "content": null,
+      "published_at": "Mon, 12 Oct 2026 02:18:16 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.57408494,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://news.ycombinator.com/item?id=45132488",
+      "url": "https://news.ycombinator.com/item?id=45132488",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "克隆Hacker News：像素级还原与全栈实践指南",
+      "url": "https://bbs.csdn.net/weixin_34101914/article/details/100547824",
+      "snippet": "SQLite 是刻意选择的：数据量不大，单文件部署方便，不需要单独维护一个数据库服务。前端则在模板里直接写HTML 和原生CSS，只加了一小段原生JavaScript 用于折叠评论和展开",
+      "content": null,
+      "published_at": "Sat, 10 Oct 2026 08:00:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.45086768,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://news.ycombinator.com/item?id=46076642",
+      "url": "https://news.ycombinator.com/item?id=46076642",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "Hacker News 技术趋势分析与摘要工具实战指南",
+      "url": "https://bbs.csdn.net/weixin_33139275/article/details/100551524",
+      "snippet": "宋虎辉MandyHacker News Digest核心功能解析：从LLM摘要到多源内容聚合的完整指南\n\nHacker News Digest是一个开源AI工具，利用LLM（如GPT-3.5-turbo、T5、Llama等）自动抓取、提取、摘要Hacker News技术新闻，并支持多源内容聚合、智能图片提取、自动翻译与多语言渲染。其数据流程涵盖新闻抓取、内容清洗、AI摘要生成、Jinja2模板渲染及GitHub Pages静态部署。系统采用SQLite/PostgreSQL数据库、智能缓存、模型降级和GitHub Actions自动化，具备高可用性与可扩展性。\n\n郦蜜玲\n\n 433[Hacker News API完全指南：5分钟解锁技术社区数据宝库 [特殊字符]\n\n本文系统介绍Hacker News官方API的核心架构与使用方法，涵盖基于Firebase的实时数据访问、项目（Item）统一数据结构、热门/分类内容获取、用户资料查询、实时监听、性能优化及常见错误处理。重点解析id、type、by、time、title、url、score等关键字段，强调HTML内容清洗、Unix时间戳转换、ID引用解析等数据处理实践，适用于构建技术趋势分析、阅读器和社区监控类应用。\n\n葛依励Kenway\n\n 873]( News爬虫工具\n\nHNCrawl是基于Scrapy框架开发的轻量级爬虫工具，用于抓取Hacker News首页链接的HTML内容。其核心技术栈包括Scrapy和Beautiful Soup，适用于数据分析、内容聚合等场景。具有轻量级、高效抓取等特点，支持将结果以JSON格式输出，采用MIT许可证。\n\n水珊习Gale\n\n 1012BuilderPulse信号分析技术栈深度解析：如何从Hacker News到GitHub Trending抓取每日机会信号 [...] tt\\_jishu\n\n 638Hacker News API架构深度解析：构建实时技术资讯监控系统\n\n本文深度解析基于Firebase构建的Hacker News官方API架构，涵盖统一项目数据模型、实时同步机制（/v0/updates与/v0/maxitem）、事件驱动设计及热门内容聚合策略；介绍客户端异步实现、两级缓存优化、大规模数据管道（Kafka+Spark/Flink）、混合存储架构（PostgreSQL/InfluxDB/S3）及GraphQL查询服务；并探讨其在技术资讯监控、社区分析与招聘趋势挖掘中的落地应用。\n\n魏栋赢\n\n 1056Hacker News 开源项目教程\n\n本教程介绍了Hacker News开源项目，包括项目介绍、快速启动指南、应用案例和最佳实践。项目旨在提供一个Python库，方便用户访问和处理Hacker News上的数据。教程涵盖了安装、基本使用、数据分析、自动化报告、错误处理和缓存机制等关键内容。\n\n仰北帅Bobbie\n\n 853使用 LangChain 爬取 Hacker News 数据：一个实用指南\n\n本文介绍如何使用 LangChain 库中的 HNLoader 爬取 Hacker News 数据。先阐述 HNLoader 是专门从 Hacker News 提取数据的文档加载器，接着说明爬取数据的步骤，给出爬取并分析热门帖子的代码示例，还提及常见问题及解决方案，为分析技术话题和创业趋势提供便利。\n\nqq\\_37836323\n\n 605使用LangChain从Hacker News中提取数据的实战指南 [...] 771Hacker-job 完整指南：利用 AI 智能解析 Hacker News 招聘帖子的 10 个技巧\n\nHacker-job是一个开源AI工具，专用于解析Hacker News月度'Who is Hiring?'自由文本招聘帖，将其转化为结构化数据。项目基于LLM提取薪资、技术栈、远程类型、签证支持等字段，支持历史回溯（2012年起）、趋势分析、地理热图、自定义导出与自动化更新。采用零数据库JSON架构，前端为React+TypeScript，数据管道可扩展，适用于求职者精准匹配、招聘者市场洞察及研究人员就业趋势分析。\n\n宋虎辉Mandy\n\n 348如何使用SMQ在5分钟内分析Hacker News十年热门话题\n\n本文介绍如何使用SMQ（社交媒体SQL查询集合）在5分钟内完成Hacker News十年热门话题分析。涵盖核心流程：克隆项目、执行年度热门submissions查询、按域名和作者维度进行热点与影响力分析。重点利用现成SQL脚本实现时间序列趋势挖掘、领域热度统计及h-index作者评估，显著降低数据准备成本，提升技术趋势洞察效率。\n\n范宁月Mountain\n\n 961Hacker News API 终极指南：从零开始掌握技术社区数据获取\n\n本文详细介绍Hacker News官方API的使用方法，涵盖数据模型、项目与用户信息获取、实时数据监控及实用场景如资讯聚合与用户行为分析，并提供最佳实践与进阶资源，帮助开发者高效利用技术社区数据。\n\n贾嘉月Kirstyn\n\n 729SMQ数据洞察：从Hacker News和Reddit中挖掘创业趋势",
+      "content": null,
+      "published_at": "Sun, 11 Oct 2026 08:00:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.25326535,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://news.ycombinator.com/item?id=46079326",
+      "url": "https://news.ycombinator.com/item?id=46079326",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "用Python追踪Hacker News评论热点：从词频到趋势曲线",
+      "url": "https://bbs.csdn.net/weixin_28221501/article/details/100504180",
+      "snippet": "> 提示：不要完全丢弃非英文评论，它们仍然计入\"总评论数\"用于归一化。只是在关键词提取阶段跳过它们。\n\n### 5.3 代码块和引用块的误伤\n\n前面提到过要过滤  `标签，但还有一个容易忽略的地方：HN 评论里用 > 开头的引用块。用户经常引用别人的话然后回复，引用内容里的关键词如果被统计进去，会导致\"某个词被反复提到\"的假象——实际上只是一个人在引用另一个人的话。`\n\n我的做法是：在 HTML 解析阶段，识别 ````\n 和以 > 开头的段落，把它们标记为\"非原创内容\"，不参与关键词统计。这个规则虽然简单，但能显著提升趋势曲线的准确性。\n````\n\n### 5.4 性能优化：从 30 秒到 3 秒\n\n最初版本每次分析都要重新拉取所有评论、重新解析 HTML、重新计算词频，一个 500 条评论的帖子要跑 30 秒以上。后来做了三个优化：评论内容缓存（SQLite 存储，避免重复请求）、HTML 解析结果缓存（把清洗后的纯文本存下来）、词频统计增量计算（只对新增评论做 n-gram 提取，然后合并到已有统计中）。优化之后，同一个帖子的二次分析基本在 3 秒内完成。\n\n## 6. 这个工具还能怎么扩展\n\n### 6.1 跨帖子对比：追踪一个话题在多个帖子里的热度\n\n目前的分析是单个帖子维度的。但有时候你想知道\"Rust vs Go\"这个话题在最近一周的所有 HN 帖子里是怎么被讨论的。这需要把多个帖子的评论合并到一个时间轴上，然后做全局的词频统计。实现上就是把每个帖子的评论按时间排序后合并，再统一分桶。难点在于不同帖子的讨论节奏不同，直接合并可能会导致某个帖子的评论\"淹没\"另一个帖子的信号。一个折中方案是按帖子分别归一化后再平均，这样每个帖子的贡献权重相同。\n\n### 6.2 情感分析：不只是\"被提到\"，还要知道\"被怎么评价\" [...] ### 2.2 递归拉取评论的工程细节\n\n递归拉取评论时，最容易忽略的是深度优先还是广度优先的选择。如果你用深度优先，一条深层嵌套的评论会阻塞后续顶层评论的获取，导致整体耗时很长。更合理的做法是用广度优先：先拿到所有顶层评论 id，批量请求，然后再处理第二层、第三层。这样每一层的请求可以并行化，整体速度会快很多。\n\n另一个细节是缓存策略。HN 的评论一旦发布，除非被删除或编辑，内容基本不变。所以你可以把已经拉取过的评论 id 和内容存到本地数据库（SQLite 或 Redis 都行），下次再分析同一个帖子时直接读缓存，避免重复请求。我实测下来，一个 500 条评论的帖子，首次全量拉取大约需要 30-60 秒（取决于网络和并发数），有缓存之后基本是秒级响应。\n\nPYTHON\n\nimport requests\n\nimport time\n\nfrom collections import deque\n\ndef fetch\\_comment\\_tree(story\\_id, max\\_depth=10):\n\nbase = \"\n\nstory = requests.get(base.format(story\\_id)).json()\n\nif not story or 'kids' not in story:\n\nreturn []\n\n11\n\nall\\_comments = []\n\n12\n\nqueue = deque([(kid, 0) for kid in story['kids']])\n\n13\n\n14\n\nwhile queue:\n\n15\n\ncomment\\_id, depth = queue.popleft()\n\n16\n\nif depth > max\\_depth:\n\n17\n\ncontinue\n\n18 [...] J.Gan\n\n 230Mread：命令行工具解析Medium付费墙，实现终端无干扰阅读\n\nMread是一款轻量级命令行工具，专用于解析Medium付费文章并以纯文本格式输出至终端。它基于Python开发，依赖HTTP请求库（如requests）、HTML解析器（如BeautifulSoup）及命令行参数处理模块，支持单篇阅读、批量抓取、管道集成与文件导出。文章详述其安装部署、功能测试、API调用、性能表现及合规边界，强调仅限个人学习、须规避版权风险，并提醒其对富媒体内容支持有限。\n\nweixin\\_34248705Markov模型实战：用二阶概率建模抓住文本的呼吸节奏\n\n本文详解二阶Markov模型在文本建模中的工业级应用，涵盖语言局部性认知基础、工程三重优势（高效/低数据/可解释）、数据清洗三步法、加一法平滑实践、稀疏存储与量化压缩、可控生成（种子引导/Beam Search/约束解码）及四维评估体系（HPR为核心）。强调其作为NLP地基模型在响应速度敏感、逻辑清晰场景下的不可替代性，并提供状态坍缩、语义鸿沟、线上漂移、置信度校准等真实问题的工程解法。AI技能市场化：RAG与Agent工程化落地全指南\n\nweixin\\_30697239基于嵌入向量的智能对话话题聚类：从原理到工程实践\n\nweixin\\_30527423AI Newsletter如何成为RAG系统可信度提升的工程指南",
+      "content": null,
+      "published_at": "Tue, 06 Oct 2026 03:00:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.25276703,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://news.ycombinator.com/item?id=37558809",
+      "url": "https://news.ycombinator.com/item?id=37558809",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "10/12 矽谷今天在瘋什麼：Product Hunt × Hacker News 六大新工具拆解｜AI x 生產力領域策略師",
+      "url": "https://vocus.cc/article/6acc3f3bfd89780001d4cd61",
+      "result_id": "r2",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://news.ycombinator.com/item?id=45132488",
+      "url": "https://news.ycombinator.com/item?id=45132488",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "克隆Hacker News：像素级还原与全栈实践指南",
+      "url": "https://bbs.csdn.net/weixin_34101914/article/details/100547824",
+      "result_id": "r4",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://news.ycombinator.com/item?id=46076642",
+      "url": "https://news.ycombinator.com/item?id=46076642",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "Hacker News 技术趋势分析与摘要工具实战指南",
+      "url": "https://bbs.csdn.net/weixin_33139275/article/details/100551524",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://news.ycombinator.com/item?id=46079326",
+      "url": "https://news.ycombinator.com/item?id=46079326",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "用Python追踪Hacker News评论热点：从词频到趋势曲线",
+      "url": "https://bbs.csdn.net/weixin_28221501/article/details/100504180",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://news.ycombinator.com/item?id=29413800",
+      "url": "https://news.ycombinator.com/item?id=29413800",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://news.ycombinator.com/item?id=48046007",
+      "url": "https://news.ycombinator.com/item?id=48046007",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://news.ycombinator.com/item?id=46079377",
+      "url": "https://news.ycombinator.com/item?id=46079377",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://www.chiark.greenend.org.uk/doc/sqlite3/appfileformat.html",
+      "url": "https://www.chiark.greenend.org.uk/doc/sqlite3/appfileformat.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://devdocs.io/sqlite/affcase1",
+      "url": "https://devdocs.io/sqlite/affcase1",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://news.ycombinator.com/item?id=45147835",
+      "url": "https://news.ycombinator.com/item?id=45147835",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://www.sqlite.org/forum/forumpost/f21062af30f83989?raw",
+      "url": "https://www.sqlite.org/forum/forumpost/f21062af30f83989?raw=",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://spec-zone.ru/sqlite/appfileformat",
+      "url": "https://spec-zone.ru/sqlite/appfileformat",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://news.ycombinator.com/item?id=33381514",
+      "url": "https://news.ycombinator.com/item?id=33381514",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://www.linuxcompatible.org/story/sqlite-3540-release-faster-engine-new-cli-features-and-dropped-windows-xp-support/",
+      "url": "https://www.linuxcompatible.org/story/sqlite-3540-release-faster-engine-new-cli-features-and-dropped-windows-xp-support",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "https://news.ycombinator.com/item?id=40655974",
+      "url": "https://news.ycombinator.com/item?id=40655974",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "https://news.ycombinator.com/item?id=43682006",
+      "url": "https://news.ycombinator.com/item?id=43682006",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c21",
+      "title": "https://x.com/dcolascione/status/2108641862232023258",
+      "url": "https://x.com/dcolascione/status/2108641862232023258",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c22",
+      "title": "https://news.ycombinator.com/item?id=18754634",
+      "url": "https://news.ycombinator.com/item?id=18754634",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c23",
+      "title": "https://news.ycombinator.com/item?id=47046185",
+      "url": "https://news.ycombinator.com/item?id=47046185",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c24",
+      "title": "https://news.ycombinator.com/item?id=45132498",
+      "url": "https://news.ycombinator.com/item?id=45132498",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c25",
+      "title": "https://news.ycombinator.com/item?id=39797104",
+      "url": "https://news.ycombinator.com/item?id=39797104",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c26",
+      "title": "https://simonwillison.net/2026/Aug/24/your-executable-is-a-sqlite-database/",
+      "url": "https://simonwillison.net/2026/Aug/24/your-executable-is-a-sqlite-database",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c27",
+      "title": "https://www.weaving.news/news/019acaaa-47ce-7724-80ac-9da4051fb2b9",
+      "url": "https://www.weaving.news/news/019acaaa-47ce-7724-80ac-9da4051fb2b9",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c28",
+      "title": "https://news.ycombinator.com/item?id=45134010",
+      "url": "https://news.ycombinator.com/item?id=45134010",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c29",
+      "title": "https://news.ycombinator.com/item?id=49421475",
+      "url": "https://news.ycombinator.com/item?id=49421475",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c30",
+      "title": "https://news.ycombinator.com/item?id=46079942",
+      "url": "https://news.ycombinator.com/item?id=46079942",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c31",
+      "title": "https://news.ycombinator.com/item?id=42965198",
+      "url": "https://news.ycombinator.com/item?id=42965198",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c32",
+      "title": "Mistral Large 4 开放预览，权重计划月底发布 | Hacker News 摘要 (2026-10-07) | 每日黑客新闻摘要",
+      "url": "https://hacknews-recap.vercel.app/posts/hacknews_summary_20261007_0933",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c33",
+      "title": "这一个repo，让Claude 替你查全网🔍 做内容、找客户，最费 ...",
+      "url": "https://www.instagram.com/p/Ddq2SnSjrw2",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c34",
+      "title": "小笨羊MCP服务",
+      "url": "https://xiaobenyang.com/mcp.html",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c35",
+      "title": "12 个最佳数据工程项目：上手实践 | DataCamp",
+      "url": "https://www.datacamp.com/zh/blog/data-engineering-projects",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "provider": "firecrawl",
+      "code": "unsafe_url",
+      "message": "resolved destination is private/reserved and not allowed",
+      "retryable": false
+    }
+  ],
+  "route": {
+    "primary": "xai",
+    "depth": "verify",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 20858,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "verify_supplement",
+        "latency_ms": 10854,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "ok",
+        "reason": "post_discovery",
+        "latency_ms": 2819,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "error",
+        "reason": "post_discovery",
+        "latency_ms": null,
+        "detail": "unsafe_url"
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_verify_supplement",
+      "depth_verify",
+      "recency_signal"
+    ]
+  },
+  "cache": {
+    "hit": false,
+    "age_seconds": 0.0,
+    "ttl_seconds": 120,
+    "namespace": "search"
+  },
+  "elapsed_ms": 35555,
+  "api_calls": {
+    "xai": 1,
+    "tavily": 1,
+    "firecrawl": 2
+  },
+  "score": {
+    "id": "cross-lang-hn-sqlite",
+    "scores": {
+      "discovery": {
+        "status": "fail",
+        "matched_targets": [],
+        "required": 1
+      },
+      "cross_language": {
+        "status": "fail",
+        "matched_hosts": []
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "discovery:fail",
+        "cross_language:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true
+  }
+}

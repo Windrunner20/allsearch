@@ -1,0 +1,1063 @@
+{
+  "id": "hn-two-comments",
+  "executed_at": "2026-10-15T08:37:15.343808+00:00",
+  "depth": "deep",
+  "provider_query": "In the Hacker News discussion of SQLite as an application file format, read both the comment that rejects waiting on disk in the interface and the comment about Windows file-system snapshots",
+  "answer": "The discussion is the 2020 HN thread on the 2014 SQLite essay, [SQLite as an Application File Format (2014)](https://news.ycombinator.com/item?id=23508923). A later repost is [SQLite as an Application File Format](https://news.ycombinator.com/item?id=46076642).\n\n**Windows file-system snapshots (found).** [int_19h](https://news.ycombinator.com/item?id=23546691), replying under the atomic-file-write thread:\n\n> Windows had a feature that had snapshot-based transactions across the entire file system (NTFS-only, though). Unfortunately, it has been deprecated… it's such a shame that we can't seem to move on from the notion of filesystem from 40 years ago, apparently.\n\nThat is Transactional NTFS (TxF): NTFS operations inside a kernel transaction, deprecated by Microsoft. Parent context is [corysama](https://news.ycombinator.com/item?id=23510271) on why ordinary file formats need real atomic commits (crash mid-write), and why SQLite or LMDB is preferable to hand-rolled atomic rename.\n\n**“Reject waiting on disk in the interface” (not found as that wording).** In the same thread, comments treat durability as *requiring* a wait for disk, not rejecting it:\n\n- [hedora](https://news.ycombinator.com/item?id=23510704): POSIX (and, they think, Windows) durable overwrite is write temp file, `fsync`, close, `rename`, then `sync()`. Skipping `fsync`/`sync` loses data on some systems.\n- [hansvm](https://news.ycombinator.com/item?id=23534027): the kernel may commit a `write()` immediately; `fsync` or close is what *guarantees* the commit. Partial updates inside one file can still leave an illegal application state even if the filesystem journal is fine.\n- [SonOfLilit](https://news.ycombinator.com/item?id=23511635): journals protect the filesystem, not your file format. Cursor APIs plus careful flushing (what SQLite does) are how you get durability without rewriting the whole file.\n\nA nearby but different claim is on the SQLite site, not that HN thread: the old async VFS was dropped because WAL plus `synchronous=NORMAL` avoids `fsync` on commit, and background writes give up durability ([asyncvfs.html](https://sqlite.org/asyncvfs.html)).\n\n**Other relevant comments from the same 2020 thread**\n\n- [dfox](https://news.ycombinator.com/item?id=23510484) / [hyc_symas](https://news.ycombinator.com/item?id=23520129): LMDB as a lower-level transactional B+tree; SQLite is SQL on top of a B+tree. Latency is the stated reason to prefer LMDB; writers not blocking readers is a bonus.\n- [derefr](https://news.ycombinator.com/item?id=23510365) (in the same story): XML-style snapshot-and-serialize is fine for small documents and bad once the working set no longer fits in memory; an SQLite store can be the canonical state with only a cache in RAM.\n- [bob1029](https://news.ycombinator.com/item?id=23510506): blobs kept outside the DB break consistency with VM snapshots and cleanup.\n\nNo comment in the fetched thread uses the phrase “reject waiting on disk in the interface.” The Windows snapshot remark is int_19h’s TxF note above.",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://sqlite.org/forum/forumpost/a255d27b82",
+      "url": "https://sqlite.org/forum/forumpost/a255d27b82",
+      "snippet": "",
+      "content": "[Chronological](https://sqlite.org/forum/forumpost/a255d27b82?t=c) UnformattedHistory\n\n# Broken UWP support?\n\n### (1.1) By Richard Szabo ( [richard.szabo](https://sqlite.org/forum/timeline?ss=v&y=f&vfx&u=richard.szabo)) on 2026-05-08 16:52:36 edited from [1.0](https://sqlite.org/forum/forumpost/306894e900?hist) [\\[link\\]](https://sqlite.org/forum/forumpost/a336c55a6d4e1b45) [\\[source\\]](https://sqlite.org/forum/forumpost/a336c55a6d4e1b45?raw)\n\nWith the latest minor release, the SQLITE\\_OS\\_WINRT flag was removed ( [checkin](https://sqlite.org/src/info/108691a3cb2f296f0ede06c34271ee185f299bfd76e97a1bd06c730a28d94ff4)). This change causes the SQLite amalgamation to fail compilation for UWP (Universal Windows Platform) targets.\n\nIn UWP environments, standard Win32 file APIs like CreateFile are restricted. Previously, SQLITE\\_OS\\_WINRT enabled the use of UWP-compliant alternatives like CreateFile2. Without this flag, SQLite defaults to the standard Win32 VFS, which is incompatible with the UWP AppContainer sandbox.\n\nI have two questions regarding this change:\n\n1. Was the reasoning for this removal based on the assumption that \"WinRT\" refers to the discontinued Windows RT (ARM OS)? If so, please note that WinRT as in the Windows Runtime remains the primary framework for modern Windows Store applications and WinUI 3.\n\n2. What is the recommended way to compile SQLite for sandboxed UWP apps now that this VFS abstraction has been removed? Is there a new flag we should be using, or is the intention to have UWP users provide a custom VFS?\n\n\n### (2) By Richard Hipp ( [drh](https://sqlite.org/forum/timeline?ss=v&y=f&vfx&u=drh)) on 2026-05-08 17:22:48 in reply to [1.1](https://sqlite.org/forum/forumpost/a336c55a6d) [\\[link\\]](https://sqlite.org/forum/forumpost/3958211aeb31b95c) [\\[source\\]](https://sqlite.org/forum/forumpost/3958211aeb31b95c?raw)\n\nI didn't know that there was such a thing as UWP.\n\nSuppose I were to restore support for UWP. How would I go about testing it? Do I need special hardware?\nAm I going to need to write new test programs, makefiloes, and test procedures specifically for UWP?\n\nFor UWP, besides CreateFile(), what other interfaces are missing and would need to be worked around.\nNote also that in the trunk (which will become 3.54.0) we have also dropped support for WindowsXP and\nearlier. How does that affect usage on UWP? If you try to compile the latest trunk code for UWP,\nwhat other interfaces are missing, beyond those that are missing in 3.53.1?\n\n### (3) By Richard Szabo ( [richard.szabo](https://sqlite.org/forum/timeline?ss=v&y=f&vfx&u=richard.szabo)) on 2026-05-08 20:47:34 in reply to [2](https://sqlite.org/forum/forumpost/3958211aeb) [\\[link\\]](https://sqlite.org/forum/forumpost/19350c14560babb3) [\\[source\\]](https://sqlite.org/forum/forumpost/19350c14560babb3?raw)\n\nUWP was the recommended way of building apps for Windows before WinUI. It was called universal because it was supported on Windows mobile devices and desktops too. But testing does not need special hardware; any Windows 10 or 11 PC with Visual Studio can test this. Haven't looked into the details yet, but when I tried to build our app with 3.53.1 fs-related calls were failing with the following errors:\n\n```\nsqlite3.c(49270,56): error C2065: 'AreFileApisANSI': undeclared identifier\nsqlite3.c(49300,52): error C2065: 'CreateFileA': undeclared identifier\nsqlite3.c(49309,52): error C2065: 'CreateFileW': undeclared identifier\nsqlite3.c(49458,52): error C2065: 'GetFileSize': undeclared identifier\nsqlite3.c(49588,53): error C2065: 'HeapValidate': undeclared identifier\nsqlite3.c(49268,3): error C2099: initializer is not a constant\n```\n\nUWP apps are not running on Windows XP, it's a newer technology introduced with Windows 10 and it uses the Windows Runtime. So far, we had just passed the `SQLITE_OS_WINRT` flag and the amalgamation was built successfully.\n\n### (4) By Richard Hipp ( [drh](https://sqlite.org/forum/timeline?ss=v&y=f&vfx&u=drh)) on 2026-05-13 20:09:46 in reply to [1.1](https://sqlite.org/forum/forumpost/a336c55a6d) [\\[link\\]](https://sqlite.org/forum/forumpost/b5a2f9413108b36b) [\\[source\\]](https://sqlite.org/forum/forumpost/b5a2f9413108b36b?raw)\n\nThe [latest trunk check-in](https://sqlite.org/src/rchvdwnld/trunk) contains patches which _should_ enable\nSQLite to compile for and operate on UWP. You will need to add the compile-time\noption **-DSQLITE\\_UWP** but otherwise it should just work.\n\nIf you commonly build UWP applications, please try out\nthese changes and let me know whether or not they are working for you.\n\n### (5) By Richard Szabo ( [richard.szabo](https://sqlite.org/forum/timeline?ss=v&y=f&vfx&u=richard.szabo)) on 2026-05-18 10:39:38 in reply to [4](https://sqlite.org/forum/forumpost/b5a2f94131) [\\[link\\]](https://sqlite.org/forum/forumpost/ca51c2187d63105e) [\\[source\\]](https://sqlite.org/forum/forumpost/ca51c2187d63105e?raw)\n\nWow, this is great news, thanks! Will check it and let you know.\n\n### (6) By Ryn\\_Casper ( [Saskia03](https://sqlite.org/forum/timeline?ss=v&y=f&vfx&u=Saskia03)) on 2026-05-29 06:40:18 in reply to [5](https://sqlite.org/forum/forumpost/ca51c2187d) [\\[link\\]](https://sqlite.org/forum/forumpost/7a30926e9010465f) [\\[source\\]](https://sqlite.org/forum/forumpost/7a30926e9010465f?raw)\n\nReally nice to see such a quick turnaround on this. The new SQLITE\\_UWP flag sounds like a much cleaner solution, and having explicit support for UWP again will definitely help people maintaining existing Windows Store and WinUI apps. Looking forward to hearing how the testing results turn out.\n\n### (7) By Richard Hipp ( [drh](https://sqlite.org/forum/timeline?ss=v&y=f&vfx&u=drh)) on 2026-05-29 10:03:13 in reply to [6](https://sqlite.org/forum/forumpost/7a30926e90) [\\[link\\]](https://sqlite.org/forum/forumpost/632c9f581b289c3c) [\\[source\\]](https://sqlite.org/forum/forumpost/632c9f581b289c3c?raw)\n\nYou speak as if you are one of those people maintaining Windows Store and/or WinUI apps.\nIf so, please go test the latest code yourself and report your results here. Don't wait for\nother people to do this for you.\n\n### (8) By Richard Szabo ( [richard.szabo](https://sqlite.org/forum/timeline?ss=v&y=f&vfx&u=richard.szabo)) on 2026-06-05 15:29:45 in reply to [4](https://sqlite.org/forum/forumpost/b5a2f94131) [\\[source\\]](https://sqlite.org/forum/forumpost/a255d27b82515905?raw)\n\nI tried to build it with the new compile-time option, but I'm getting the following errors:\n\n```\nsqlite3.c(49290,56): error C2065: 'AreFileApisANSI': undeclared identifier\nsqlite3.c(49297,52): error C2065: 'CreateFileW': undeclared identifier\nsqlite3.c(49289,3): error C2099: initializer is not a constant\n```\n\nThe last one is probably a side-effect of the other two. When I'm adding the UWP guard to these two syscalls, it compiles, but it looks that results in a runtime error:\n\n```\nSystem.AccessViolationException: 'Attempted to read or write protected memory. This is often an indication that other memory is corrupt.'\n```\n\nCouldn't check it in detail yet.",
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "firecrawl"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "Capsule: Single-file web apps with SQLite database | AI-Driven Engineering posted on the topic | LinkedIn",
+      "url": "https://www.linkedin.com/posts/ai-driven-engineering_a-new-tool-called-capsule-packages-a-small-activity-7508629267564658688-9Iuj",
+      "snippet": "It showed up on Hacker News on September 15 under the title \"Capsule – Single-file web apps that save their data into SQLite,\" and pulled in 379 upvotes and 167 comments, a level of engagement that's uncommon for a first-week open-source release. The project is free and open source, built on Rust and Tauri, and currently at version 0.5.2 for macOS, Windows, and Linux, with mobile versions listed as coming soon.\nIt's a narrow idea, but one that quietly blurs the line between an app and a document: something you pass around instead of deploy. [...] Redacting a log doesn't un-send anything, so rotate whatever it finds.\nMIT licensed, and it runs on macOS, Linux and Windows.\nLink in the first comment.\n#ClaudeCode #AI [...] The upgrade is one command: coffeeql-server start\nAs a thank you, the first 100 people who sign up get the Pro plan free for 30 days. The link is in the first comment.\nWhat's the one dev tool you trust enough to just leave running?\nCheck Comments for site links.\nP.S. If anything breaks on your setup, tell me below. I read every comment.",
+      "content": null,
+      "published_at": "Wed, 23 Sep 2026 20:52:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.17401722,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://www.cs.utexas.edu/~witchel/pubs/hu17hotos-txfs.pdf",
+      "url": "https://www.cs.utexas.edu/~witchel/pubs/hu17hotos-txfs.pdf",
+      "snippet": "",
+      "content": "# From Crash Consistency to Transactions\n\nYige Hu Youngjin Kwon Vijay Chidambaram Emmett Witchel\n\nThe University of Texas at Austin\n\nACM Reference format:\n\nYige Hu, Youngjin Kwon, Vijay Chidambaram, and Emmett Witchel. 2017.\nFrom Crash Consistency to Transactions. In *Proceedings of HotOS ’17, Whistler,*\n*BC, Canada, May 08-10, 2017,*6 pages.\n\nhttps://doi.org/10.1145/3102980.3102997\n\n## Abstract\n\nModern applications use multiple storage abstractions such as the\nfile system, key-value stores, and embedded databases such as\nSQLite. Maintaining consistency of data spread across multiple\nabstractions is complex and error-prone. Applications are forced to\ncopy data unnecessarily and use long sequences of system calls to\nupdate state in a consistent manner. Not only does this create implementation complexity, it also introduces potential performance\nproblems from redundant IO and fsync() calls, which fragment\ndisk writes into small, random IOs. In this paper, we propose that\nthe operating system should provide transactions across multiple storage abstractions; we can build such transactions with low\ndevelopment cost by taking advantage of a well-tested piece of\nsoftware: the file-system journal. We present the design of our\ncross-abstraction transactions and some preliminary results, showing such transactions can increase performance by 31% in certain\ncases.\n\n## 1 INTRODUCTION\n\nThe interface to the file system is a defining feature of operating\nsystems. Early operating systems like the IBM 360 had indexed files\nto support database-like access to file data; early MacOS supported\nextended file metadata using resource forks; and UNIX beat all\ncompetitors by treating files as a simple sequence of bytes accessed\nvia read(), write(), and seek() system calls.\n\nUnfortunately, modern applications have certain requirements\nthat do not fit well with the current interface: for example, storing\nstructured data, and performing rich, complex queries on the data.\nApplications have turned to new abstractions such as embedded\ndatabases (*e.g.,* SQLite [28]) and key-value stores (*e.g.,* LevelDB [7])\nto meet their needs. Unfortunately, since these abstractions operate\non top of the file system, they have to work with or around the\nsimplistic API.\n\nSuch attempts have led to either poor performance or loss of\ncorrectness in the face of a crash [18]. For example, databases and\n\nkey-value stores often maintain an application-level log. The metadata for those logs is written twice: once to the kernel’s file-system\njournal and once in-place in the file system (this is called the double journaling problem [11]). These additional IOs along with the\nsync() system call overheads severely degrade throughput on modern SSDs and the situation will be even worse for faster devices like\nnon-volatile memory. As storage devices approach memory latency,\nsoftware overheads such as the processing required for system calls\nbegin to dominate latency (e.g., an fsync() in the Redis key-value\nstore takes 137*us* [17]).\n\nEven if a particular abstraction works well with the file system,\nmodern applications often store *across* different abstractions. For\nexample, the Android Mail client stores email messages in SQLite,\nattachments as files, and the backup of mailbox information in a\nkey-value store [26]. For such applications, a single logical update\nfrom the user’s point of view may require writes across different\nabstractions that all need to be performed atomically. Accomplishing this with user-level logs results in poor performance and added\ncomplexity (see §2).\n\nWe believe that file-system transactions can fix these performance and correctness problems while simplifying user-level code.\nTransactions have been attempted in file systems before, but have\nfailed due to either low performance or hard-to-use interfaces (see\n§5). We believe both of these problems can be surmounted, and\nthat they are not fundamental features of transactional systems.\nAnother challenge in building transactional interfaces is the high\nimplementation cost. We propose to build ACID transactions on\ntop of the file-system journal, a novel approach that will greatly reduce implementation complexity by leveraging well-tested, mature\nkernel code.\n\nWe describe the design of T2FS, a file system which leverages\nthe failure-atomic file-system journal to provide ACID transactions\nto user-space applications (§3). T2FS uses lazy version management\nand eager conflict detection, maintaining in-kernel logs to buffer\ntransactional updates. T2FS will be the first system to provide transactions across different storage abstractions, enabling applications\nsuch as MediaWiki and Android Mail to transactionally update\nstate distributed among different abstractions such as file systems,\nembedded databases, and key-value stores (§4).\n\nT2FS will reduce application complexity and increase performance. Application performance will increase due to several factors: reduced IO (e.g., metadata is written only once and editors\nwould not have to make copies of edited files to ensure logical\nupdates), batching of updates in transactions (especially benefiting\nsmall writes [19]), fewer system calls (e.g., fewer calls to fsync()),\nand fine-grained conflict detection.\n\n## 2 HOW APPLICATIONS UPDATE STATE TODAY\n\nPermission to make digital or hard copies of all or part of this work for personal or\nclassroom use is granted without fee provided that copies are not made or distributed\nfor profit or commercial advantage and that copies bear this notice and the full citation\non the first page. Copyrights for components of this work owned by others than the\nauthor(s) must be honored. Abstracting with credit is permitted. To copy otherwise, or\nrepublish, to post on servers or to redistribute to lists, requires prior specific permission\nand/or a fee. Request permissions from permissions@acm.org.\n\nGiven that applications do not have access to transactions across\nstorage abstractions today, how do they consistently update state?\n\n*HotOS ’17, May 08-10, 2017, Whistler, BC, Canada*\n\n© 2017 Copyright held by the owner/author(s). Publication rights licensed to Association for Computing Machinery.\nACM ISBN 978-1-4503-5068-6/17/05. . . $15.00\nhttps://doi.org/10.1145/3102980.3102997\n\n---\n\nFigure 1: Different protocols used by applications to make\nconsistent updates to persistent data.\n\nEven if the system crashes or power fails, applications need to\nmaintain invariants across state in different abstractions (*e.g.,* an\nimage file should match thumbnail in a picture Gallery). Applications achieve this by using ad-hoc protocols that are complex and\nerror-prone.\n\nIn this section, we show how complex it is to implement seemingly simple protocols for consistent updates to storage. There are\nmany details that often get overlooked, like the persistence of directory contents. These protocols are complex, error prone, and\ninefficient. With current storage technologies, these protocols must\nsacrifice performance to be correct because there is no efficient way\nto order storage updates.\n\nCurrently, applications use the fsync() system call to order\nupdates to storage [4]; since fsync() forces durability of data,\nthe latency of a fsync() call varies from a few milliseconds to\nseveral seconds. As a result, applications do not call fsync() at all\nthe places in the update protocol where it is necessary, leading to\nsevere data loss and corruption bugs [18].\n\nWe now describe two common techniques used by applications\nto consistently update state on storage. Figure 1 illustrates these\nprotocols.\n\nAtomic Rename. Protocol (a) shows how a file can be updated via\natomic rename. The application writes new data to a temporary\nfile, persists it with an fsync() call, updates the parent directory\nwith another fsync() call, and then renames the temporary file\n*over* the original file, effectively causing the directory entry of the\noriginal file to point to the temporary file instead. The old contents\nof the original file are unlinked and deleted. Finally, to ensure that\nthe temporary file has been unlinked properly, the application calls\nfsync() on the parent directory.\n\nFigure 2: T2FS relies on ext4’s own journal for atomic updates. At commit time, the transaction-local operations are\nmade global, and are recorded into the global in-memory\nfile system transaction. The following**sync()** then forces the\nwrites of the transaction into the journal. Finally, the asynchronous journal checkpoint updates the in-place file data\nand metadata blocks.\n\nLogging. Protocol (b) shows another popular technique for atomic\nupdates, logging [8] (either write-ahead-logging or undo logging).\nThe log file is written with new contents, and both the log file and\nthe parent directory (with new pointer to log file) are persisted. The\napplication then updates the original file, and persists the original\nfile (since it already existed, the parent directory has not changed).\nFinally, the log is unlinked, and the parent directory is persisted.\n\nThe situation becomes more complex when applications use\nmore than one storage abstraction. Protocol (c) illustrates how the\nAndroid Mail application adds a new email with an attachment. The\nattachment is stored on the file system, while the email message\n(along with metadata) is stored in the database. Since the database\nhas a pointer to the attachment (i.e., a file name), the attachment\nmust be persisted first. Persisting the attachment requires two\nfsync() calls (to the file and its containing directory) [1, 18]. SQLite\nhas been configured to use write-ahead-logging to then atomically\nupdate the database; it follows a protocol similar to Protocol (b).\n\nThus we see how complex the protocols are, and that they lead to\nlow performance (e.g., Android Mail uses*six* fsync() calls to persist\na single email with an attachment). System support for transactions\nover multiple storage abstractions is required to maintain high\nperformance for these applications for current and emerging highperformance storage devices.\n\n## 3 T2FS TRANSACTIONS\n\nT2FS builds upon the atomic update mechanism of the file system\n(such as journaling [21]) to provide ACID transactions to applications. Although most file systems contain a well-tested, mature\nmechanism to atomically update multiple blocks on storage, this\nmechanism is not exposed to applications; rather it is used internally to guarantee the integrity of updates to file-system metadata.\n\nWe propose building on this mechanism to reduce the implementation complexity in building a transactional system. We use\nthe running example of ext4 and its journaling mechanism, although similar mechanisms such as copy-on-write [10] in the ZFS file system [29] would also work. ext4 guarantees that all the updates within a journal transaction are applied to the file system\natomically; T2FS guarantees that an application-level transaction\nis contained within a single journal transaction, thus ensuring it\nis atomically applied to the file system. While the file system by\ndefault writes only metadata to the journal, T2FS also journals data\nblocks. Journaling data can significantly degrade performance; to\nminimize this, T2FS employs selective data journaling [4], only\njournaling data blocks that were already allocated (*i.e.,* data blocks\nthat are being updated), and avoiding journaling newly allocated\ndata blocks. This optimization does not harm crash consistency\nbecause ext4’s ordered mode forces data to be sync-ed before its\ncorresponding metadata.\n\nAPI. T2FS provides developers with three system call interfaces:\nfs_tx_begin(), which begins a transaction; fs_tx_commit(), which\nends a transaction and attempts to commit it, and fs_tx_abort(),\nwhich discards all file-system updates done as part of the preceding\ntransaction. On commit, all file-system updates in an applicationlevel transaction are persisted in an atomic fashion – after a crash,\nusers see none of the transaction updates, or all of them. fs_tx_-\ncommit() returns an error code indicating whether the transaction\nwas committed successfully (the commit may fail for various reasons, such as a conflict, the transaction is too big, or the file system\nhas run out of space); the application can then choose to retry the\ntransaction.\n\nT2FS provides isolation for its transactions; transactional updates are not visible to other threads until commit. T2FS isolates\nfile-system updates only, the application is responsible for synchronizing access to its own data structures.\n\nA user can surround any sequence of file-system related system\ncalls with fs_tx_begin() and fs_tx_commit() and the system\nwill execute those system calls in a single transaction. This interface makes it possible to bring the power of file-system transactions\nselectively to existing applications piecemeal and with little porting\neffort. This interface is easy for programmers to use and makes it\nsimple to incrementally deploy file system transactions into existing\napplications. In contrast, some high-profile transactional file systems (namely Window’s TxF [23]) had far more complex, difficult\nto use interfaces.\n\nFigure 2 shows how T2FS transactions proceed from processlocal in-memory modifications to durable, in-place file system updates. The kernel buffers a process’ modifications to files, eventually\nmaking them globally visible when the transaction commits. When\nthe transaction is made durable, it is first written to the file system journal. The journal contents are eventually, asynchronously\nwritten back to the file system (a process called check pointing\nthe journal). The checkpoint latency does not affect the latency of\ncommitting a durable transaction.\n\nIsolation. While ext4 journaling provides atomic, durable updates,\nit does not provide isolation. Thus the central challenge of T2FS\nis adding isolation. To support isolation, T2FS maintains an inmemory log to track local modifications to the kernel data structures. T2FS makes local copies of dentries and inodes (the in-memory\ndata structures for directories and files) for a user transaction at\nlookup time. It does copy-on-write for pages and then inserts them\n\ninto a transaction-local radix tree. File-system code that can potentially change global on-disk state is split into two parts: (1) that only\nchanges the in-memory status of the data structures, which should\nbe invoked immediately on the local copies when a system call is\nperformed. This enables later operations inside the same transaction to read earlier writes; (2) one that changes the on-disk state,\nwhich should not be performed until commit time. T2FS monitors\nfile access and guarantees that no other concurrent T2FS transactions can read the data from an uncommitted one and that any\ntransaction is aborted if its data is written.\n\nIf fs_tx_abort() is called on a T2FS transaction, it simply\naborts the recorded local copies of in-memory data structures, and\nrecovers some potential side effects on the global data structures\n(which cannot be read by other transactions due to conflict detection). If fs_tx_commit() is called, T2FS first checks if there is\nany confict or if an error happened during the transaction. If so,\nit aborts the transaction. Otherwise, it starts the commit protocol.\nThe protocol traverses all recorded data structures modified inside\nthe local transaction, and performs two phase locking. It makes\nthe transaction updates durable on the persistent journal (newly\nallocated blocks are made durable on the file system), then copies\nback the local dentries, inodes and pages to their global counterparts. We currently rely on application writers to call a flavor of the\nsync() system call to explicitly make transactions durable on disk.\nThis adds flexibility to users to trade off between durability and\nperformance. Future work will include a flag to fs_tx_commit()\nthat achieves durability synchronously.\n\nConflict detection. We believe conflicts will be infrequent for\nthe applications we target, therefore we keep conflict detection\nand resolution simple. Prior work has shown that multiple threads\nreading and writing the same file at the same time is rare [18].\nAccordingly, T2FS uses a lightweight isolation mechanism that\nprovides isolation at the level of repeatable reads [3]. T2FS stores\ntransaction-local copies of written pages, and tracks pages that are\nread by the transaction.\n\nT2FS performs eager conflict detection to provide isolation with\nrespect to non-transactional writes: a non-transactional write will\nabort any active transaction that has read or written the same data.\nNested T2FS transactions are flattened into a single transaction.\nWe detect conflicts for file-system data structures, e.g. dentries,\ninodes and pages. We use fine-grained per-page conflict resolution\nto resolve page-level read and write conflicts. If two threads are\nmodifying only data blocks from the same file, writes to different\ndata blocks would not cause any conflict. By avoiding transactions\nbeing aborted by such kind of false conflicts, we expect better\nparallelism in applications using T2FS.\n\nLimitations. Our current design has two main limitations. First,\nthe maximum size of a T2FS transaction is limited by the size of\nthe journal (similar to size limitations of transactional memory\nsystems [12]). Second, although parallel transactions can proceed\nwith ACID guarantees, each transaction can only contain operations\nfrom a single process. Transactions spanning multiple processes\nare future work.\n\n---\n\nFigure 3: T2FS guarantees on-disk consistency for transactions by utilizing Ext4’s own journal. The figure illustrates\nthe memory and storage updates during a transaction with\nan update to a database row. Writes to persistent storage are\nlisted as followed. (1) Data journal for the update; (2) Metadata journal for the update; (3) Asynchronous write-back for\nthe database data; (4) Asynchronous write-back for the metadata.\n\n## 4 INTEGRATING T2FS WITH APPLICATIONS\n\nTo demonstrate the power and usefulness of T2FS, we plan to modify several applications to use T2FS transactions. We describe how\nwe modified SQLite, and how we plan to modify Cloudstone, MediaWiki, and a couple of version control systems.\n\nSQLite. We modified SQLite to use T2FS transactions. Figure 3\nillustrates the flow of updates when SQLite uses T2FS transactions.\nData and metadata are first written safely to the journal, and then\ncheckpointed in-place into the file system. Note that the metadata is\nwritten into the file system exactly once. With Write-ahead-logging\n(WAL) mode in SQLite, there would be 2× the metadata updates:\nonce to the log, and once to the actual database file. When SQLite\nis run in its safest configuration, there are more metadata updates\nbecause it must update the parent directory whenever log files\nare created or deleted [28]. Furthermore, SQLite with T2FS neatly\navoids having to clean up log files in the event of a crash: user-level\nsees only the database file, not messy in-flight data.\n\nPreliminary Evaluation. We run SQLite modified to use T2FS\ntransactions on a 6 core Intel Xeon E5-2620 CPU, with 8 GB DDR3\nRAM, 250 GB Samsung SSD 850 and 512 GB Samsung SSD 850. We\nuse Ubuntu 16.04 LTS and Linux kernel 3.18.22.\n\nOur prototype can run limited-size single-threaded benchmarks.\nTable 1 reports a sequence of insert or update operations for a single\ndatabase table grouped into a transaction. Performance is reported\nas operations per second (so larger is better) and compared with\ndifferent SQLite journaling modes (where the default is rollback\njournaling).\n\nUsing T2FS is faster than any existing SQLite journaling scheme\nfor updating, and it is competitive for inserting (with no mode dominating insert performance). The updating workload is 31% faster\nthan the default. No journaling is an unsafe mode that would make\n\nSQLite vulnerable to corruption on a crash, but represents the best\npossible performance for the workload. Several choices for SQLite\nlogging mode, including T2FS, result in similar levels of IO that\nresemble the no journal lower bound. Write-ahead logging mode\n(WAL) does write more data for the insert workload, which harms\nits performance. Note that T2FS does not suffer WAL’s performance\nshortfall on insert, and it surpasses its performance on update, making it a better alternative. Although the file system journal shares\nsimilarity with a WAL log, T2FS does not generate redundant IO\non insert because of its selective data journaling. Newly allocated\nblocks in a T2FS transaction are not journaled.\n\nT2FS’s improved performance for the update workload is due\nto several factors. T2FS reduces the number of data syncs from 10\n(in Rollback and Truncate mode) or 3 (in WAL mode) to only 1,\nwhich leads to better batching and re-ordering of writes inside a\nsingle transaction. It performs half its IO to the journal, which is\nwritten sequentially. The remaining IO is done asynchronously via\na periodic file-system checkpoint that writes the journaled blocks\nto in-place files. T2FS does not suffer from the double journaling\nproblem [24].\n\nThese preliminary measurements convince us that T2FS is a\npromising research direction. We anticipate higher performance\ngains for multi-threaded workloads.\n\nPHP and MediaWiki. MediaWiki [2] is an open source Wiki written in PHP and originally used for Wikipedia. It stores binary files\ndirectly in a file system and metadata (such as file size and location)\nin a database. High-level actions such as uploading an image results\nin updates to both the file system and database; these updates must\nbe done atomically to ensure the consistency of MediaWiki.\n\nWe plan to augment the PHP API with transactional calls (such\nas tx_begin() and tx_end()) and use these calls to transactionally\nupdate MediaWiki state. Using transactions reduces the number of\nfsync() calls and efficiently batches IO. Transactions also reduce\ncomplexity of supporting rollback of operations such as file updates,\neven in the presence of crashes.\n\nCloudstone. The Cloudstone WEB 2.0 benchmark simulates a social event website. Cloudstone models a LAMP stack, consisting of\na web server (nginx), PHP, and MySQL. Cloudstone uses files (e.g.,\nfor storing images) and a database for storing information about\nevents and people. Cloudstone provides a performance framework\nto evaluate T2FS in the context of a realistic web application. Making consistent updates to events requires transactions that update\nfiles and a database.\n\nVersion Control Systems. Git and Mercurial are widely-used version control systems that would benefit from file-system transactions. To enable high performance, git does not order its operations\nvia fsync() [18] leaving it vulnerable to garbage files and outright\ndata corruption on a system crash. The git commit command\nrequires two file system operations to be atomic: a file append\n(logs/HEAD) and a file rename (to a lock file). Failure to achieve\natomicity results in data loss and a corrupted repository [18].\n\nMercurial uses a combination of different files (journal, filelog,\nmanifest) to consistently update state. Mercurial’s commit command requires a long sequence of file-system operations including\nfile creations, appends, and renames be atomic; if not, the repository is corrupted [18]. With simple changes, T2FS transactions will\n\n---\n\n|  | Performance(Ops/s) |  | IO(MB) |  | Sync/tx |  |\n| --- | --- | --- | --- | --- | --- | --- |\n| Journal mode | Insert | Update | Insert | Update | Insert | Update |\n| Rollback(default) | 53899.7 | 28001 | 1977 | 3946 | 4 | 10 |\n| Truncate | 53496.3(0.99×) | 28907(1.03×) | 1976 | 3944 | 4 | 10 |\n| WAL | 39774.5(0.74×) | 34551.9(1.23×) | 3944 | 3928 | 3 | 3 |\n| T2FS | 51398.5(0.95×) | 36695.8(1.31×) | 1970 | 3916 | 1 | 1 |\n| No journal(unsafe) | 54888.4(1.02×) | 50608(1.81×) | 1966 | 1956 | 1 | 1 |\n\nTable 1: The table compares operations per second (larger is better) and total amount of IO for SQLite executing 1.5M 1KB\noperations grouping 10K operations in a transaction using different journaling modes (including T2FS). The database is prepopulated with 15M rows. All experiments use SQLite’s NORMAL synchronization mode (the most widely used mode by applications).\n\nallow these programs to provide stronger failure guarantees more\nefficiently.\n\n## 5 RELATED WORK\n\nThere have been a number of efforts over the years to provide systems support for file-system transactions. We now discuss different\napproaches and their problems.\n\nBuilding file systems on top of user-space databases. One way\nto allow applications to update state in a transactional manner\nis to build a file system over a user-space transactional database.\nOdeFS [6], Inversion [15], and DBFS [14] use a database (such as\nBerkeley DB [16]) to provide ACID transactions to applications.\nAmino [31] tracks all user updates via ptrace and employs a userlevel database to provide transactional updates. Such systems suffer\nfrom high performance degradation (*e.g.,* 5-7× on certain workloads).\n\nIn-kernel Transactional File Systems. An approach that leads\nto higher performance is adding transactions to in-kernel file systems. Valor [27] provides kernel support for file-system transactions.\nHowever, Valor relies on mandatory file locks held at user level\nand complex rules for write ordering due to its log being independent from the file system’s. Its performance on several types of\nbenchmarks is about 3× slower than ext3. T2FS features a simpler\nsystem call interface and more in-kernel work to maintain isolation.\nIts state management is simpler because it reuses the file system\njournal. T2FS has much higher performance.\n\nMicrosoft introduced Transactional NTFS (TxF), Transaction\nRegistry (TxR), and the kernel transaction manager (KTM) in Windows Vista [23]. Using TxF requires all transactional operations be\nexplicit (i.e., read does not work within a transaction, the programmer must add an explicit transactional read). Therefore TxF had a\nhigh barrier to entry and code that used it required separate maintenance. TxF also had significant limitations, like no transactions\non the root file system. In contrast, T2FS allows the application\nto wrap unmodified file-system updates in a transaction. TxF also\nhad restrictions on use, for example, no transactions for files on\nthe boot disk. In contrast, in T2FS, the only restriction is that all\noperations inside a transaction have to be on the same file system\n(which is the same limitation as with hard links).\n\nTransactional Operating Systems. A third, somewhat heavyweight, approach is modifying the entire operating system to provide transactions. Locus [30], QuickSilver [9], and TxOS [20] are\noperating systems that provide transactions. This approach adds\nsignificant complexity to the kernel; a large number of kernel data\nstructures will have to rewritten to support transactions. T2FS\nmostly confines its modifications to the VFS and is designed to be\nextended to work for file systems other than ext4. Developing a correct transactional database is extremely complicated – retrofitting\nan existing kernel to do so is even more so.\n\nTransactional Storage Systems. Similar to our work, CFS [13]\nprovides a lightweight mechanism for atomic updates of multiple\nfiles. CFS builds on top of transactional flash storage. MARS [5]\nbuilds on hardware-provided atomicity to build a transactional\nsystem. TxFLash [22] uses the copy-on-write nature of Flash SSDs\nto provide transations at low cost. Isotope [25] uses the interal multiversioning in block stores to provide isolation at the block level.\nIn contrast to these systems, T2FS provides transactions without\nassuming any hardware support (beside device cache flush and\natomic sector updates).\n\n## 6 CONCLUSION\n\nIn this paper, we take the position that the operating system should\nprovide a transactional interface for applications to efficiently update persistent state across storage abstractions. We propose a novel\nway to reduce the implementation complexity of building a transactional system, by leveraging the file-system journal. We show\nthat our system, T2FS, increases performance in SQLite by up to\n32% in insert and update workloads.\n\n## ACKNOWLEDGMENTS\n\nWe would like to thank the anonymous reviewers for their feedback\nand guidance. This work is supported in part by NSF (CNS-1618563,\nCCF-1333594) and by generous donations from VMware and Facebook.\n\n---\n\n## REFERENCES\n\n[1]Fsync man page. http://man7.org/linux/man-pages/man2/fdatasync.2.html.\n[2]MediaWiki.org. https://www.mediawiki.org/wiki/MediaWiki.\n[3] Hal Berenson, Phil Bernstein, Jim Gray, Jim Melton, Elizabeth O’Neil, and Patrick\nO’Neil. A critique of ANSI SQL isolation levels. In *ACM SIGMOD Record*, volume 24, pages 1–10. ACM, 1995.\n[4] Vijay Chidambaram, Thanumalayan Sankaranarayana Pillai, Andrea C. Arpaci-\nDusseau, and Remzi H. Arpaci-Dusseau. Optimistic Crash Consistency. In\n*Proceedings of the 24th ACM Symposium on Operating Systems Principles (SOSP*\n*’13)*, Farmington, PA, November 2013.\n[5] Coburn, Joel and Bunker, Trevor and Schwarz, Meir and Gupta, Rajesh and Swanson, Steven. From ARIES to MARS: Transaction Support for Next-generation,\nSolid-state Drives. In *Proceedings of the Twenty-Fourth ACM Symposium on Op-*\n*erating Systems Principles*, SOSP ’13, pages 197–212, New York, NY, USA, 2013.\nACM.\n[6] Gehani, Narain H and Jagadish, HV and Roome, William D. OdeFS: A File System\nInterface to an Object-Oriented Database. In *VLDB*, pages 249–260. Citeseer,\n1994.\n[7]Google. LevelDB. https://github.com/google/leveldb.\n[8] Robert Hagmann. *Reimplementing the Cedar file system using logging and group*\n*commit*, volume 21. ACM, 1987.\n[9] Rober Haskin, Yoni Malachi, and Gregory Chan. Recovery management in\nquicksilver. *ACM Transactions on Computer Systems (TOCS)*, 6(1):82–108, 1988.\n[10] Dave Hitz, James Lau, and Michael Malcolm. File System Design for an NFS\nFile Server Appliance. In *Proceedings of the USENIX Winter Technical Conference*\n*(USEN",
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "firecrawl"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "SQLITE: THE TINY DATABASE POWERING BILLIONS OF ...",
+      "url": "https://www.instagram.com/p/DeboRVyzKpT",
+      "snippet": "SQLite is one of the most widely deployed database engines in the world. SQLite has NO server, NO background daemon, and NO TCP socket. It is a single C",
+      "content": null,
+      "published_at": null,
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.13340418,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://news.ycombinator.com/item?id=38823297",
+      "url": "https://news.ycombinator.com/item?id=38823297",
+      "snippet": "",
+      "content": "|     |     |     |\n| --- | --- | --- |\n| |     |     |     |\n| --- | --- | --- |\n| [![](https://news.ycombinator.com/y18.svg)](https://news.ycombinator.com/) | **[Hacker News](https://news.ycombinator.com/news)** [new](https://news.ycombinator.com/newest) \\| [past](https://news.ycombinator.com/front) \\| [comments](https://news.ycombinator.com/newcomments) \\| [ask](https://news.ycombinator.com/ask) \\| [show](https://news.ycombinator.com/show) \\| [jobs](https://news.ycombinator.com/jobs) \\| [submit](https://news.ycombinator.com/submit) | [login](https://news.ycombinator.com/login?goto=item%3Fid%3D38823297) | |\n\n| |     |     |     |\n| --- | --- | --- |\n|  |  | [michalc](https://news.ycombinator.com/user?id=michalc) [on Dec 31, 2023](https://news.ycombinator.com/item?id=38823297) \\| [parent](https://news.ycombinator.com/item?id=38793719) \\| [context](https://news.ycombinator.com/item?id=38786012#38823297) \\| [favorite](https://news.ycombinator.com/fave?id=38823297) \\| on: [Show HN: sqlite-memory-vfs - Open a SQLite db in P...](https://news.ycombinator.com/item?id=38786012 \"Show HN: sqlite-memory-vfs - Open a SQLite db in Python without hitting disk\")<br>Ah thanks for this (maybe not so much for the code itself admittedly, but for the push to implement locking)<br>So after a few attempts, I \\_think\\_ I have something reasonable: [https://github.com/michalc/sqlite-memory-vfs/blob/64a55c3491...](https://github.com/michalc/sqlite-memory-vfs/blob/64a55c349173794f37230f1c101514e8964da669/sqlite_memory_vfs.py#L111-L140)<br>(I'm still a but stuck on PENDING I have to admit... not really sure how that fits in) |\n\n|     |     |     |\n| --- | --- | --- |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [ncruces](https://news.ycombinator.com/user?id=ncruces) [on Dec 31, 2023](https://news.ycombinator.com/item?id=38825891)\\[–\\]<br>Pending exists to prevent writer starvation: if there's always at least one reader, no one can ever write.<br>You take pending before exclusive (which should always be possible because you have reserved by then), and you should check pending before taking a shared lock (no need to check exclusive, because they got pending before exclusive).<br>Shared forces writers to wait;<br>Reserved prevents new readers from upgrading to write;<br>Pending prevents new readers from starting;<br>and exclusive forces everyone else to wait. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [michalc](https://news.ycombinator.com/user?id=michalc) [on Jan 1, 2024](https://news.ycombinator.com/item?id=38830678) \\| [parent](https://news.ycombinator.com/item?id=38823297#38825891)\\[–\\]<br>Have now implemented a version of this at [https://github.com/michalc/sqlite-memory-vfs/blob/74a24ce567...](https://github.com/michalc/sqlite-memory-vfs/blob/74a24ce567557d72eebf73fbdf6d8e609aedafe3/sqlite_memory_vfs.py#L112-L155) <br>I think different to yours in two ways:<br>\\- If doesn't go via PENDING if it doesn't need to. Not sure what's best really - but since RESERVED can already be skipped in some cases (recovering from a hot-journal) then so far happy with \"skipping is a thing\", and PENDING is private to the VFS anyway from what I can tell, so nothing else should care I think<br>\\- It doesn't do the blocking in the lock function, but depends on SQLite's core code doing it via the busy handler/timeout | | |\n| ![](https://news.ycombinator.com/s.gif)\n\n|     |\n| --- |\n|  |\n\n[Consider applying for YC's Winter 2027 batch! Applications are open till November 2.](https://www.ycombinator.com/apply/)\n\n[Guidelines](https://news.ycombinator.com/newsguidelines.html) \\| [FAQ](https://news.ycombinator.com/newsfaq.html) \\| [Lists](https://news.ycombinator.com/lists) \\| [API](https://github.com/HackerNews/API) \\| [Security](https://news.ycombinator.com/security.html) \\| [Legal](https://www.ycombinator.com/legal/) \\| [Apply to YC](https://www.ycombinator.com/apply/) \\| [Contact](mailto:hn@ycombinator.com)\n\nSearch: |",
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "firecrawl"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "Get started with the SQLite integrations | Aspire",
+      "url": "https://aspire.dev/integrations/databases/sqlite/sqlite-get-started",
+      "snippet": "Share on LinkedInShare on XShare on ThreadsShare on BlueskyShare on FacebookShare on RedditShare on Hacker NewsShare on EmailShare on WhatsAppShare on Telegram\n\n⭐ Community Toolkit SQLite logo\n\nSQLite is a lightweight, serverless, self-contained SQL database engine. It stores the entire database as a single file on disk — no separate server process to run or configure. The Aspire SQLite integration (from the Aspire Community Toolkit) lets you model a SQLite database as a first-class resource in your AppHost, then hand the file-path connection information to any consuming app — regardless of language.\n\n## Why use SQLite with Aspire\n\nSection titled “Why use SQLite with Aspire”\n\nAdding SQLite through Aspire — rather than hardcoding file paths and connection strings — gives you: [...] Ideal for local development, unit tests, and desktop apps. No container to spin up, no server to configure — SQLite runs in-process directly from a single file on disk.\n Consistent connection info across languages. Once you reference the SQLite resource from a consuming app, Aspire injects the database file path as an environment variable in a predictable format that works from C#, TypeScript, Python, Go, or any other language.\n Optional browser-based UI. The `WithSqliteWeb` method adds a lightweight `sqlite-web` container alongside your database so you can inspect and query it during development. [...] The hosting integration lives in your AppHost project and models the SQLite database file as a resource. Because SQLite is an embedded, file-based database, there is no container to start — Aspire simply tracks the database file path and injects it into consuming apps as environment variables.\n\nGetting there is a two-step process: model the SQLite resource in your AppHost, then connect to the database from each app that needs it.\n\n1. ### Model SQLite in your AppHost\n\n   Section titled “Model SQLite in your AppHost”",
+      "content": null,
+      "published_at": "Tue, 29 Sep 2026 00:00:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.12972236,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://www.chiark.greenend.org.uk/doc/sqlite3/appfileformat.html",
+      "url": "https://www.chiark.greenend.org.uk/doc/sqlite3/appfileformat.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "The most reliable database server might be no server at all",
+      "url": "https://www.facebook.com/thanhhm/videos/the-most-reliable-database-server-might-be-no-server-at-all/963905406280544",
+      "snippet": "This video tells the story of SqLite, a highly reliable database server, which was developed by Richard Hipp in 2000. The server was designed to solve the",
+      "content": null,
+      "published_at": null,
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.09562799,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://sqlite.org/forum/forumpost/a255d27b82",
+      "url": "https://sqlite.org/forum/forumpost/a255d27b82",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "Capsule: Single-file web apps with SQLite database | AI-Driven Engineering posted on the topic | LinkedIn",
+      "url": "https://www.linkedin.com/posts/ai-driven-engineering_a-new-tool-called-capsule-packages-a-small-activity-7508629267564658688-9Iuj",
+      "result_id": "r2",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://www.cs.utexas.edu/~witchel/pubs/hu17hotos-txfs.pdf",
+      "url": "https://www.cs.utexas.edu/~witchel/pubs/hu17hotos-txfs.pdf",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "SQLITE: THE TINY DATABASE POWERING BILLIONS OF ...",
+      "url": "https://www.instagram.com/p/DeboRVyzKpT",
+      "result_id": "r4",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://news.ycombinator.com/item?id=38823297",
+      "url": "https://news.ycombinator.com/item?id=38823297",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "Get started with the SQLite integrations | Aspire",
+      "url": "https://aspire.dev/integrations/databases/sqlite/sqlite-get-started",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://www.chiark.greenend.org.uk/doc/sqlite3/appfileformat.html",
+      "url": "https://www.chiark.greenend.org.uk/doc/sqlite3/appfileformat.html",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "The most reliable database server might be no server at all",
+      "url": "https://www.facebook.com/thanhhm/videos/the-most-reliable-database-server-might-be-no-server-at-all/963905406280544",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://ngelinux.com/stop-lying-to-yourself-about-your-lvm-snapshots/",
+      "url": "https://ngelinux.com/stop-lying-to-yourself-about-your-lvm-snapshots",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://linuxiac.com/sqlite-3-54-released-with-performance-boost-query-optimizations/",
+      "url": "https://linuxiac.com/sqlite-3-54-released-with-performance-boost-query-optimizations",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://news.ycombinator.com/item?id=48954157",
+      "url": "https://news.ycombinator.com/item?id=48954157",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://www.youtube.com/watch?v=V_qzqY1bb7I",
+      "url": "https://www.youtube.com/watch?v=V_qzqY1bb7I",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://news.ycombinator.com/item?id=20837527",
+      "url": "https://news.ycombinator.com/item?id=20837527",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://www.sqlite.org/forum/forumpost/f21062af30f83989?raw",
+      "url": "https://www.sqlite.org/forum/forumpost/f21062af30f83989?raw=",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://news.ycombinator.com/item?id=49519289",
+      "url": "https://news.ycombinator.com/item?id=49519289",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://news.ycombinator.com/item?id=42965714",
+      "url": "https://news.ycombinator.com/item?id=42965714",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://github.com/drh/cii",
+      "url": "https://github.com/drh/cii",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://x.com/shahidcodes/status/2108554390718365805",
+      "url": "https://x.com/shahidcodes/status/2108554390718365805",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "https://www.linuxtoday.com/blog/checksums-won-btrfs-bcachefs-openzfs-xfs-ntfs-and-refs-in-late-2026/",
+      "url": "https://www.linuxtoday.com/blog/checksums-won-btrfs-bcachefs-openzfs-xfs-ntfs-and-refs-in-late-2026",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "https://news.ycombinator.com/item?id=46330055",
+      "url": "https://news.ycombinator.com/item?id=46330055",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c21",
+      "title": "https://oh4.co/site/drh.html",
+      "url": "https://oh4.co/site/drh.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c22",
+      "title": "https://news.ycombinator.com/item?id=23510271",
+      "url": "https://news.ycombinator.com/item?id=23510271",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c23",
+      "title": "https://www.phoronix.com/news/SQLite-3.54-Released",
+      "url": "https://www.phoronix.com/news/SQLite-3.54-Released",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c24",
+      "title": "https://sqlite.org/asyncvfs.html",
+      "url": "https://sqlite.org/asyncvfs.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c25",
+      "title": "https://www.reddit.com/r/ycombinator/comments/1e5sf5h/why_is_hn_so_crazy_about_sqlite/",
+      "url": "https://www.reddit.com/r/ycombinator/comments/1e5sf5h/why_is_hn_so_crazy_about_sqlite",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c26",
+      "title": "https://www.sqlite.org/walformat.html",
+      "url": "https://www.sqlite.org/walformat.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c27",
+      "title": "https://news.ycombinator.com/item?id=46076642",
+      "url": "https://news.ycombinator.com/item?id=46076642",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c28",
+      "title": "https://news.ycombinator.com/item?id=23546691",
+      "url": "https://news.ycombinator.com/item?id=23546691",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c29",
+      "title": "https://news.ycombinator.com/item?id=45132498",
+      "url": "https://news.ycombinator.com/item?id=45132498",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c30",
+      "title": "https://x.com/betterhn50/status/2082483034842919191",
+      "url": "https://x.com/betterhn50/status/2082483034842919191",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c31",
+      "title": "https://news.ycombinator.com/item?id=50031926",
+      "url": "https://news.ycombinator.com/item?id=50031926",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c32",
+      "title": "https://npmjs.com/package/@effect-vfs/persistence",
+      "url": "https://npmjs.com/package/@effect-vfs/persistence",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c33",
+      "title": "https://x.com/dcolascione/status/2108641862232023258",
+      "url": "https://x.com/dcolascione/status/2108641862232023258",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c34",
+      "title": "https://news.ycombinator.com/item?id=47888037",
+      "url": "https://news.ycombinator.com/item?id=47888037",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c35",
+      "title": "https://learn.microsoft.com/en-us/windows/win32/fileio/transactional-ntfs-reference",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/transactional-ntfs-reference",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c36",
+      "title": "https://docs.w3cub.com/sqlite/appfileformat.html",
+      "url": "https://docs.w3cub.com/sqlite/appfileformat.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c37",
+      "title": "https://www.sqlite.org/howtocorrupt.html",
+      "url": "https://www.sqlite.org/howtocorrupt.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c38",
+      "title": "https://wizardforcel.gitbooks.io/sqlite-doc-en/50.html",
+      "url": "https://wizardforcel.gitbooks.io/sqlite-doc-en/50.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c39",
+      "title": "https://www.acronis.com/en/support/documentation/AcronisCyberProtect_15/volume-shadow-copy-service.html",
+      "url": "https://www.acronis.com/en/support/documentation/AcronisCyberProtect_15/volume-shadow-copy-service.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c40",
+      "title": "https://news.ycombinator.com/item?id=43682006",
+      "url": "https://news.ycombinator.com/item?id=43682006",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c41",
+      "title": "https://news.ycombinator.com/item?id=31216009",
+      "url": "https://news.ycombinator.com/item?id=31216009",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c42",
+      "title": "https://news.ycombinator.com/front?day=2026-10-15",
+      "url": "https://news.ycombinator.com/front?day=2026-10-15",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c43",
+      "title": "https://www.youtube.com/watch?v=ZSKLA81tBis",
+      "url": "https://www.youtube.com/watch?v=ZSKLA81tBis",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c44",
+      "title": "https://news.ycombinator.com/item?id=22154797",
+      "url": "https://news.ycombinator.com/item?id=22154797",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c45",
+      "title": "https://lxer.com/module/newswire/printstory.php?rid=368075",
+      "url": "https://lxer.com/module/newswire/printstory.php?rid=368075",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c46",
+      "title": "https://news.ycombinator.com/item?id=42382126",
+      "url": "https://news.ycombinator.com/item?id=42382126",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c47",
+      "title": "https://pcglance.com/cannot-shrink-volume-windows/",
+      "url": "https://pcglance.com/cannot-shrink-volume-windows",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c48",
+      "title": "https://www.shayon.dev/post/2026/283/versioned-filesystem-for-disposable-sandboxes/",
+      "url": "https://www.shayon.dev/post/2026/283/versioned-filesystem-for-disposable-sandboxes",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c49",
+      "title": "https://www.sqlite.org/howitworks.html",
+      "url": "https://www.sqlite.org/howitworks.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c50",
+      "title": "https://news.ycombinator.com/item?id=42388900",
+      "url": "https://news.ycombinator.com/item?id=42388900",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c51",
+      "title": "https://sqldocs.org/sqlite-database-is-locked/",
+      "url": "https://sqldocs.org/sqlite-database-is-locked",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c52",
+      "title": "https://news.ycombinator.com/item?id=46234710",
+      "url": "https://news.ycombinator.com/item?id=46234710",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c53",
+      "title": "https://www.linuxcompatible.org/story/sqlite-3540-release-faster-engine-new-cli-features-and-dropped-windows-xp-support/",
+      "url": "https://www.linuxcompatible.org/story/sqlite-3540-release-faster-engine-new-cli-features-and-dropped-windows-xp-support",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c54",
+      "title": "https://www.kunalganglani.com/blog/sqlite-production-api-wal",
+      "url": "https://www.kunalganglani.com/blog/sqlite-production-api-wal",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c55",
+      "title": "https://news.ycombinator.com/item?id=22730077",
+      "url": "https://news.ycombinator.com/item?id=22730077",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c56",
+      "title": "https://docs.servicestack.net/ormlite/scalable-sqlite",
+      "url": "https://docs.servicestack.net/ormlite/scalable-sqlite",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c57",
+      "title": "https://news.ycombinator.com/item?id=39797104",
+      "url": "https://news.ycombinator.com/item?id=39797104",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c58",
+      "title": "https://x.com/evoluhq/status/2108308261266956638",
+      "url": "https://x.com/evoluhq/status/2108308261266956638",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c59",
+      "title": "https://news.ycombinator.com/item?id=42965198",
+      "url": "https://news.ycombinator.com/item?id=42965198",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c60",
+      "title": "https://news.ycombinator.com/item?id=41408004",
+      "url": "https://news.ycombinator.com/item?id=41408004",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c61",
+      "title": "https://x.com/betterhn20/status/2109496280904867857",
+      "url": "https://x.com/betterhn20/status/2109496280904867857",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c62",
+      "title": "https://techdows.com/download-sqlite-for-pc-windows-11-10-mac.html",
+      "url": "https://techdows.com/download-sqlite-for-pc-windows-11-10-mac.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c63",
+      "title": "https://news.ycombinator.com/item?id=49124652",
+      "url": "https://news.ycombinator.com/item?id=49124652",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c64",
+      "title": "https://sqlite.org/c3ref/snapshot_get.html",
+      "url": "https://sqlite.org/c3ref/snapshot_get.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c65",
+      "title": "https://sources.debian.org/src/sqlite3/3.8.7.1-1%2Bdeb8u2/www/appfileformat.html",
+      "url": "https://sources.debian.org/src/sqlite3/3.8.7.1-1%2Bdeb8u2/www/appfileformat.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c66",
+      "title": "https://news.ycombinator.com/item?id=40655974",
+      "url": "https://news.ycombinator.com/item?id=40655974",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c67",
+      "title": "https://marcobambini.substack.com/p/we-solved-sqlites-single-writer-limitation",
+      "url": "https://marcobambini.substack.com/p/we-solved-sqlites-single-writer-limitation",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c68",
+      "title": "https://news.ycombinator.com/item?id=46079326",
+      "url": "https://news.ycombinator.com/item?id=46079326",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c69",
+      "title": "https://www.sqlite.org/download.html",
+      "url": "https://www.sqlite.org/download.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c70",
+      "title": "https://x.com/phoronix/status/2108719851673993627",
+      "url": "https://x.com/phoronix/status/2108719851673993627",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c71",
+      "title": "https://www2.sqlite.org/matrix/fileformat.html",
+      "url": "https://www2.sqlite.org/matrix/fileformat.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c72",
+      "title": "https://news.ycombinator.com/item?id=41085529",
+      "url": "https://news.ycombinator.com/item?id=41085529",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c73",
+      "title": "https://news.ycombinator.com/item?id=43857834",
+      "url": "https://news.ycombinator.com/item?id=43857834",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c74",
+      "title": "https://news.ycombinator.com/item?id=45508462",
+      "url": "https://news.ycombinator.com/item?id=45508462",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c75",
+      "title": "https://news.ycombinator.com/item?id=23508923",
+      "url": "https://news.ycombinator.com/item?id=23508923",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c76",
+      "title": "https://learn.microsoft.com/en-us/windows/win32/fileio/transactional-ntfs-portal",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/fileio/transactional-ntfs-portal",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c77",
+      "title": "https://news.ycombinator.com/item?id=48046007",
+      "url": "https://news.ycombinator.com/item?id=48046007",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c78",
+      "title": "The most reliable database server might be no server at all. ...",
+      "url": "https://www.facebook.com/thanhhm/posts/the-most-reliable-database-server-might-be-no-server-at-allin-2000-richard-hipps/10165710306463126",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c79",
+      "title": "SQLite 3.54 Released With Faster Performance, Drops ...",
+      "url": "https://www.facebook.com/Phoronix/posts/sqlite-354-released-with-faster-performance-drops-windows-xp-support/1695965255383622",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c80",
+      "title": "X-plore File Manager - Apps on Google Play",
+      "url": "https://play.google.com/store/apps/details?hl=en_US&id=com.lonelycatgames.Xplore",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c81",
+      "title": "NTDS secrets | The Hacker Recipes",
+      "url": "https://www.thehacker.recipes/ad/movement/credentials/dumping/ntds",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "deep",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 51185,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "deep_supplement",
+        "latency_ms": 869,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "ok",
+        "reason": "post_discovery",
+        "latency_ms": 6029,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "ok",
+        "reason": "post_discovery",
+        "latency_ms": 2024,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "ok",
+        "reason": "post_discovery",
+        "latency_ms": 3990,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_deep_supplement",
+      "depth_deep",
+      "recency_signal"
+    ]
+  },
+  "cache": {
+    "hit": false,
+    "age_seconds": 0.0,
+    "ttl_seconds": 120,
+    "namespace": "search"
+  },
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://sqlite.org/forum/forumpost/a255d27b82",
+      "final_url": "https://sqlite.org/forum/forumpost/a255d27b82",
+      "title": "SQLite User Forum: Broken UWP support?",
+      "content": "[Chronological](https://sqlite.org/forum/forumpost/a255d27b82?t=c) UnformattedHistory\n\n# Broken UWP support?\n\n### (1.1) By Richard Szabo ( [richard.szabo](https://sqlite.org/forum/timeline?ss=v&y=f&vfx&u=richard.szabo)) on 2026-05-08 16:52:36 edited from [1.0](https://sqlite.org/forum/forumpost/306894e900?hist) [\\[link\\]](https://sqlite.org/forum/forumpost/a336c55a6d4e1b45) [\\[source\\]](https://sqlite.org/forum/forumpost/a336c55a6d4e1b45?raw)\n\nWith the latest minor release, the SQLITE\\_OS\\_WINRT flag was removed ( [checkin](https://sqlite.org/src/info/108691a3cb2f296f0ede06c34271ee185f299bfd76e97a1bd06c730a28d94ff4)). This change causes the SQLite amalgamation to fail compilation for UWP (Universal Windows Platform) targets.\n\nIn UWP environments, standard Win32 file APIs like CreateFile are restricted. Previously, SQLITE\\_OS\\_WINRT enabled the use of UWP-compliant alternatives like CreateFile2. Without this flag, SQLite defaults to the standard Win32 VFS, which is incompatible with the UWP AppContainer sandbox.\n\nI have two questions regarding this change:\n\n1. Was the reasoning for this removal based on the assumption that \"WinRT\" refers to the discontinued Windows RT (ARM OS)? If so, please note that WinRT as in the Windows Runtime remains the primary framework for modern Windows Store applications and WinUI 3.\n\n2. What is the recommended way to compile SQLite for sandboxed UWP apps now that this VFS abstraction has been removed? Is there a new flag we should be using, or is the intention to have UWP users provide a custom VFS?\n\n\n### (2) By Richard Hipp ( [drh](https://sqlite.org/forum/timeline?ss=v&y=f&vfx&u=drh)) on 2026-05-08 17:22:48 in reply to [1.1](https://sqlite.org/forum/forumpost/a336c55a6d) [\\[link\\]](https://sqlite.org/forum/forumpost/3958211aeb31b95c) [\\[source\\]](https://sqlite.org/forum/forumpost/3958211aeb31b95c?raw)\n\nI didn't know that there was such a thing as UWP.\n\nSuppose I were to restore support for UWP. How would I go about testing it? Do I need special hardware?\nAm I going to need to write new test programs, makefiloes, and test procedures specifically for UWP?\n\nFor UWP, besides CreateFile(), what other interfaces are missing and would need to be worked around.\nNote also that in the trunk (which will become 3.54.0) we have also dropped support for WindowsXP and\nearlier. How does that affect usage on UWP? If you try to compile the latest trunk code for UWP,\nwhat other interfaces are missing, beyond those that are missing in 3.53.1?\n\n### (3) By Richard Szabo ( [richard.szabo](https://sqlite.org/forum/timeline?ss=v&y=f&vfx&u=richard.szabo)) on 2026-05-08 20:47:34 in reply to [2](https://sqlite.org/forum/forumpost/3958211aeb) [\\[link\\]](https://sqlite.org/forum/forumpost/19350c14560babb3) [\\[source\\]](https://sqlite.org/forum/forumpost/19350c14560babb3?raw)\n\nUWP was the recommended way of building apps for Windows before WinUI. It was called universal because it was supported on Windows mobile devices and desktops too. But testing does not need special hardware; any Windows 10 or 11 PC with Visual Studio can test this. Haven't looked into the details yet, but when I tried to build our app with 3.53.1 fs-related calls were failing with the following errors:\n\n```\nsqlite3.c(49270,56): error C2065: 'AreFileApisANSI': undeclared identifier\nsqlite3.c(49300,52): error C2065: 'CreateFileA': undeclared identifier\nsqlite3.c(49309,52): error C2065: 'CreateFileW': undeclared identifier\nsqlite3.c(49458,52): error C2065: 'GetFileSize': undeclared identifier\nsqlite3.c(49588,53): error C2065: 'HeapValidate': undeclared identifier\nsqlite3.c(49268,3): error C2099: initializer is not a constant\n```\n\nUWP apps are not running on Windows XP, it's a newer technology introduced with Windows 10 and it uses the Windows Runtime. So far, we had just passed the `SQLITE_OS_WINRT` flag and the amalgamation was built successfully.\n\n### (4) By Richard Hipp ( [drh](https://sqlite.org/forum/timeline?ss=v&y=f&vfx&u=drh)) on 2026-05-13 20:09:46 in reply to [1.1](https://sqlite.org/forum/forumpost/a336c55a6d) [\\[link\\]](https://sqlite.org/forum/forumpost/b5a2f9413108b36b) [\\[source\\]](https://sqlite.org/forum/forumpost/b5a2f9413108b36b?raw)\n\nThe [latest trunk check-in](https://sqlite.org/src/rchvdwnld/trunk) contains patches which _should_ enable\nSQLite to compile for and operate on UWP. You will need to add the compile-time\noption **-DSQLITE\\_UWP** but otherwise it should just work.\n\nIf you commonly build UWP applications, please try out\nthese changes and let me know whether or not they are working for you.\n\n### (5) By Richard Szabo ( [richard.szabo](https://sqlite.org/forum/timeline?ss=v&y=f&vfx&u=richard.szabo)) on 2026-05-18 10:39:38 in reply to [4](https://sqlite.org/forum/forumpost/b5a2f94131) [\\[link\\]](https://sqlite.org/forum/forumpost/ca51c2187d63105e) [\\[source\\]](https://sqlite.org/forum/forumpost/ca51c2187d63105e?raw)\n\nWow, this is great news, thanks! Will check it and let you know.\n\n### (6) By Ryn\\_Casper ( [Saskia03](https://sqlite.org/forum/timeline?ss=v&y=f&vfx&u=Saskia03)) on 2026-05-29 06:40:18 in reply to [5](https://sqlite.org/forum/forumpost/ca51c2187d) [\\[link\\]](https://sqlite.org/forum/forumpost/7a30926e9010465f) [\\[source\\]](https://sqlite.org/forum/forumpost/7a30926e9010465f?raw)\n\nReally nice to see such a quick turnaround on this. The new SQLITE\\_UWP flag sounds like a much cleaner solution, and having explicit support for UWP again will definitely help people maintaining existing Windows Store and WinUI apps. Looking forward to hearing how the testing results turn out.\n\n### (7) By Richard Hipp ( [drh](https://sqlite.org/forum/timeline?ss=v&y=f&vfx&u=drh)) on 2026-05-29 10:03:13 in reply to [6](https://sqlite.org/forum/forumpost/7a30926e90) [\\[link\\]](https://sqlite.org/forum/forumpost/632c9f581b289c3c) [\\[source\\]](https://sqlite.org/forum/forumpost/632c9f581b289c3c?raw)\n\nYou speak as if you are one of those people maintaining Windows Store and/or WinUI apps.\nIf so, please go test the latest code yourself and report your results here. Don't wait for\nother people to do this for you.\n\n### (8) By Richard Szabo ( [richard.szabo](https://sqlite.org/forum/timeline?ss=v&y=f&vfx&u=richard.szabo)) on 2026-06-05 15:29:45 in reply to [4](https://sqlite.org/forum/forumpost/b5a2f94131) [\\[source\\]](https://sqlite.org/forum/forumpost/a255d27b82515905?raw)\n\nI tried to build it with the new compile-time option, but I'm getting the following errors:\n\n```\nsqlite3.c(49290,56): error C2065: 'AreFileApisANSI': undeclared identifier\nsqlite3.c(49297,52): error C2065: 'CreateFileW': undeclared identifier\nsqlite3.c(49289,3): error C2099: initializer is not a constant\n```\n\nThe last one is probably a side-effect of the other two. When I'm adding the UWP guard to these two syscalls, it compiles, but it looks that results in a runtime error:\n\n```\nSystem.AccessViolationException: 'Attempted to read or write protected memory. This is often an indication that other memory is corrupt.'\n```\n\nCouldn't check it in detail yet.",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "title": "SQLite User Forum: Broken UWP support?",
+        "viewport": "width=device-width, initial-scale=1.0",
+        "scrapeId": "01a13eb6-42b5-758b-85fd-847756aef8db",
+        "sourceURL": "https://sqlite.org/forum/forumpost/a255d27b82",
+        "url": "https://sqlite.org/forum/forumpost/a255d27b82",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "proxyUsed": "basic",
+        "cacheState": "hit",
+        "cachedAt": "2026-10-15T08:38:10.567Z",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 459,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 867
+    },
+    {
+      "schema_version": "1.0",
+      "status": "error",
+      "url": "https://www.linkedin.com/posts/ai-driven-engineering_a-new-tool-called-capsule-packages-a-small-activity-7508629267564658688-9Iuj",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "auth_error"
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "auth_error",
+          "message": "authentication failed (403)",
+          "retryable": false
+        }
+      ],
+      "timing_ms": 335
+    }
+  ],
+  "comments": [
+    {
+      "url": "https://sqlite.org/forum/forumpost/a255d27b82",
+      "text": "[Chronological](https://sqlite.org/forum/forumpost/a255d27b82?t=c) UnformattedHistory\n\n# Broken UWP support?\n\n### (1.1) By Richard Szabo ( [richard.szabo](https://sqlite.org/forum/timeline?ss=v&y=f&vfx&u=richard.szabo)) on 2026-05-08 16:52:36 edited from [1.0](https://sqlite.org/forum/forumpost/306894e900?hist) [\\[link\\]](https://sqlite.org/forum/forumpost/a336c55a6d4e1b45) [\\[source\\]](https://sqlite.org/forum/forumpost/a336c55a6d4e1b45?raw)\n\nWith the latest minor release, the SQLITE\\_OS\\_WINRT flag was removed ( [checkin](https://sqlite.org/src/info/108691a3cb2f296f0ede06c34271ee185f299bfd76e97a1bd06c730a28d94ff4)). This change causes the SQLite amalgamation to fail compilation for UWP (Universal Windows Platform) targets.\n\nIn UWP environments, standard Win32 file APIs like CreateFile are restricted. Previously, SQLITE\\_OS\\_WINRT enabled the use of UWP-compliant alternatives like CreateFile2. Without this flag, SQLite defaults to the standard Win32 VFS, which is incompatible with the UWP AppContainer sandbox.\n\nI have two questions regarding this change:\n\n1. Was the reasoning for this removal based on the assumption that \"WinRT\" refers to the discontinued Windows RT (ARM OS)? If so, please note that WinRT as in the Windows Runtime remains the primary framework for modern Windows Store applications and WinUI 3.\n\n2. What is the recommended way to compile SQLite for sandboxed UWP apps now that this VFS abstraction has been removed? Is there a new flag we should be using, or is the intention to have UWP users provide a custom VFS?\n\n\n### (2) By Richard Hipp ( [drh](https://sqlite.org/forum/timeline?ss=v&y=f&vfx&u=drh)) on 2026-05-08 17:22:48 in reply to [1.1](https://sqlite.org/forum/forumpost/a336c55a6d) [\\[link\\]](https://sqlite.org/forum/forumpost/3958211aeb31b95c) [\\[source\\]](https://sqlite.org/forum/forumpost/3958211aeb31b95c?raw)\n\nI didn't know that there was such a thing as UWP.\n\nSuppose I were to restore support for UWP. How would I go about testing it? Do I need special hardware?\nAm I going to need to write new test programs, makefiloes, and test procedures specifically for UWP?\n\nFor UWP, besides CreateFile(), what other interfaces are missing and would need to be worked around.\nNote also that in the trunk (which will become 3.54.0) we have also dropped support for WindowsXP and\nearlier. How does that affect usage on UWP? If you try to compile the latest trunk code for UWP,\nwhat other interfaces are missing, beyond those that are missing in 3.53.1?\n\n### (3) By Richard Szabo ( [richard.szabo](https://sqlite.org/forum/timeline?ss=v&y=f&vfx&u=richard.szabo)) on 2026-05-08 20:47:34 in reply to [2](https://sqlite.org/forum/forumpost/3958211aeb) [\\[link\\]](https://sqlite.org/forum/forumpost/19350c14560babb3) [\\[source\\]](https://sqlite.org/forum/forumpost/19350c14560babb3?raw)\n\nUWP was the recommended way of building apps for Windows before WinUI. It was called universal because it was supported on Windows mobile devices and desktops too. But testing does not need special hardware; any Windows 10 or 11 PC with Visual Studio can test this. Haven't looked into the details yet, but when I tried to build our app with 3.53.1 fs-related calls were failing with the following errors:\n\n```\nsqlite3.c(49270,56): error C2065: 'AreFileApisANSI': undeclared identifier\nsqlite3.c(49300,52): error C2065: 'CreateFileA': undeclared identifier\nsqlite3.c(49309,52): error C2065: 'CreateFileW': undeclared identifier\nsqlite3.c(49458,52): error C2065: 'GetFileSize': undeclared identifier\nsqlite3.c(49588,53): error C2065: 'HeapValidate': undeclared identifier\nsqlite3.c(49268,3): error C2099: initializer is not a constant\n```\n\nUWP apps are not running on Windows XP, it's a newer technology introduced with Windows 10 and it uses the Windows Runtime. So far, we had just passed the `SQLITE_OS_WINRT` flag and the amalgamation was built successfully.\n\n### (4) By Richard Hipp ( [drh](https://sqlite.org/forum/timeline?ss=v&y=f&vfx&u=drh)) on 2026-05-13 20:09:4"
+    }
+  ],
+  "elapsed_ms": 59889,
+  "api_calls": {
+    "xai": 1,
+    "tavily": 1,
+    "firecrawl": 5
+  },
+  "score": {
+    "id": "hn-two-comments",
+    "scores": {
+      "comments": {
+        "status": "fail",
+        "matched_comments": []
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "comments:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true
+  }
+}

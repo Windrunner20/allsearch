@@ -1,0 +1,569 @@
+{
+  "id": "news-en-archive",
+  "executed_at": "2026-10-15T08:08:38.228901+00:00",
+  "depth": "verify",
+  "provider_query": "Which organization does the CVE program identify as the source of CVE records used by NVD",
+  "answer": "**The MITRE Corporation (via the CVE List / CVE Program).**\n\nThe CVE Program states that CVE and NVD are separate programs. The CVE List, launched by The MITRE Corporation in 1999, feeds NVD (launched by NIST in 2005). NVD historically builds on CVE Records from that list to add enrichment such as CVSS, CWE, and CPE data. CVE Records are published by CVE Numbering Authorities and other program partners; NVD does not control the core CVE descriptions or references.\n\nSources:\n- CVE Program, Related Efforts (NVD section): https://www.cve.org/about/relatedefforts — CVE List feeds NVD; list launched by MITRE.\n- CVE Program FAQs (CVE–NVD relationship): https://www.cve.org/ResourcesSupport/FAQs — same relationship; CVE Records used by NVD and others.\n- NVD CVE FAQs: https://nvd.nist.gov/general/FAQ-Sections/CVE-FAQs — NVD enriches CVEs after publication to the CVE List.\n- NVD CVE process page: https://nvd.nist.gov/general/cve-process — CVE program maintained by MITRE (sponsored by DHS/CISA); records reach NVD from the CVE List.\n- CVE Program overview/process: https://www.cve.org/About/Process — records published by program partners to the CVE List.",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://www.cve.org/Media/News/item/blog/2023/10/17/CVE-Records-Keep-Getting-Better",
+      "url": "https://www.cve.org/Media/News/item/blog/2023/10/17/CVE-Records-Keep-Getting-Better",
+      "snippet": "",
+      "content": "# Common vulnerabilities and Exposures (CVE)\n\n[Skip to main content](https://www.cve.org/Media/News/item/blog/2023/10/17/CVE-Records-Keep-Getting-Better#cve-main-page-content)\n\n# CVE Records Keep Getting Better and Better\n\nblogOctober 17, 2023\n\nBy CVE Program\n\nAbout a year ago, [CVE Records](https://www.cve.org/ResourcesSupport/Glossary?activeTerm=glossaryRecord) underwent a major transformation and now include significantly enhanced information about the cybersecurity vulnerabilities they describe. Gone are the days when a CVE Record was just an ID, a brief free form description of the vulnerability, and one or more advisory or blog post references. Today, details that were previously squeezed into the description field of a record, particularly affected products and versions, are now provided in a structured format in dedicated fields within the CVE Record. Optional content fields are also now available for severity scores, CWE IDs, researcher credit, and more, making CVE Records even more valuable.\n\nThe new structured format provides the ability for CVE content consumers to streamline and more easily automate their use of CVE Records because the data format is standardized and machine-readable. It also enables the creation and publication of CVE Records to be automated, which means more quality CVE Records can be produced at a faster pace than ever before for use by the worldwide community.\n\nIn this article, we’ll look at the improvements the CVE Program has made that led to this signpost moment, review an example of a CVE Record in the new format, and discuss how the CVE Program continues to evolve to better serve its partners and the worldwide cybersecurity community.\n\n#### Some History\n\nThe CVE Program began in 1999 with 321 CVE Records on the CVE List. There are now 200,000+ CVE Records available on the [CVE.ORG website](https://www.cve.org/) with more added almost daily. Until 2022, each record contained only three basic components: CVE ID, brief free-form description of the vulnerability, and one or more references. But that changed in recent years when the CVE Program and its [CVE Numbering Authority (CNA)](https://www.cve.org/ProgramOrganization/CNAs) partners (325+ from 37 countries!) decided that the process of reserving CVE IDs and publishing the associated CVE Records needed more automation.\n\nAn automation pilot that used the existing data format revealed that an all-new record format would be needed to ensure all relevant vulnerability data could be included in a record as well as be easily consumed by a downstream user. Working groups were stood-up, and after a sufficient period of time, the CVE Program’s new format for CVE Records, “ [CVE JSON 5.0](https://www.cve.org/AllResources/CveServices#cve-json-5),” as well as automated “ [CVE Services](https://www.cve.org/AllResources/CveServices)” for CVE ID reservation and CVE Record publication and management for CNAs, were launched in October 2022 in beta and fully adopted by the program in March 2023.\n\nCNAs now have the tools they need to produce more quality CVE Records faster without the need for manual intervention, and consumers have CVE content that is both human- and machine-readable.\n\n#### Example of the New Format for CVE Records\n\nToday’s CVE Records are significantly enhanced and include more information than ever before. While the [CVE JSON 5.0 schema](https://github.com/CVEProject/cve-schema/blob/master/README.md) on GitHub provides all the details of what’s required and optional in a CVE Record, the example CVE Record below shows how these structured fields look when published as a web page on the CVE.ORG website.\n\nThe CVE ID is located at the top of the web page along with the status of the record (i.e., Reserved, Published, or Rejected). The title field is new. There’s an assigner field for the name of the CNA. The description field is now used for any content the CNA wishes to include that’s not specified in the other structured fields of the record or for a brief summary of the vulnerability. Product Status, which specifies affected products and versions, is now a standalone section of the record. Help information about how the versions are presented is included in each record published as a CVE.ORG web page. The credit field is new. The references section will include at least 1 link, such as in this example, which is a link to the CNA’s own advisory. That advisory may include even more information about the vulnerability that as a result of the CNA’s internal automated vulnerability management infrastructure did not, or will not, migrate to the CVE Record. A courtesy link to the U.S. National Vulnerability Database (NVD) entry for the record is also provided. Finally, note that the JSON for the record is also available to view from the top of every record web page.\n\n![](https://www.cve.org/images/news/cveRecordWebpageFormatExample.png)View on [CVE-2023-0010](https://www.cve.org/CVERecord?id=CVE-2023-0010) webpage.\n\nA major change in the new format is how CNAs use the description field. As shown in the example above, much of the information that was previously included in the legacy record format’s free-form description field has been moved to dedicated fields within the structure of the new format.\n\nHowever, we still need to promote this message. Although the CVE Program moved to the new CVE.ORG website in 2021, the legacy CVE.MITRE.ORG website ( [scheduled for retirement on July 1, 2024](https://www.cve.org/Media/News/item/blog/2023/07/25/Legacy-Downloads-being-Phased-Out)) is still in use while vulnerability databases, cybersecurity tool vendors, and other users transition to the new CVE JSON 5.0 format for records. This means anyone still using CVE Record data from that legacy website could be missing significant data about the vulnerability as the records on that site have been down converted from the new format to the old record format and it’s not a 1:1 conversion because of all the new fields in the new structured format. In fact, this may have been the case with the vulnerability researcher who wrote a [commentary on Dark Reading](https://www.darkreading.com/vulnerabilities-threats/microsoft-advisories-are-getting-worse) a few months ago saying that CVE Records descriptions from some CNAs had become too short and were no longer useful. The links in his examples were all [NVD](https://nvd.nist.gov/) links for their versions of the CVE Records, and NVD continues to use the down converted version for its own CVE content, so he was definitely not seeing the most complete data for each of those records when viewing them on NVD.\n\nMany of these changes and enhancements to CVE Records are discussed in more detail in the “ [We Speak CVE](https://www.cve.org/Media/News/Podcasts)” podcast episode entitled, “ [How the New CVE Record Format Will Benefit Consumers](https://www.cve.org/Media/News/item/podcast/2023/09/26/How-New-CVE-Record-Format-Benefits-Consumers).”\n\nWe highly encourage all cybersecurity professionals to view, download, and use CVE Records from the [CVE.ORG website](https://www.cve.org/) so you can fully leverage the new CVE Record format and enjoy all its benefits.\n\n#### More CVE Program Enhancements on the Way to Benefit Creators and Users of CVE Records\n\nThe CVE Program is currently working on a new version of its “CNA Rules” document that will focus on the new and optional fields in the new CVE Record format. This document, which provides guidance and best practices to CNAs on how to create and populate CVE Records, is expected to be published in 2024. Once released, it will provide clarity for CNAs, vulnerability researchers, and the wider vulnerability management community about how vulnerability data should be included within the structured fields of the new CVE Record format.\n\nAnother revolutionary development for CVE Records is that, in the near future, certain authorized entities will be eligible to add enhanced data to records that have been previously published by a CNA. Initially introduced to the community as a concept in 2021 in a We Speak CVE podcast episode entitled, “ [Enhancing CVE Records as an Authorized Data Publisher](https://www.cve.org/Media/News/item/podcast/2021/12/14/Enhancing-CVE-Records-as-an),” now that the new CVE Record format and automated CNA services are fully available, a pilot program for “Authorized Data Publishers (ADPs)” has begun and will continue into 2024. The types of content that ADPs could add to enrich the content of the previously published records includes additional risk scores, affected product lists, versions, references, translations, and so on. Such additions will enrich the content of CVE Records and further improve their value to consumers.\n\nThis is an exciting time for the CVE Program, its partners, and the users of CVE Records as the value and usability of the vulnerability data contained in the records improves, and more and more CNAs from around the world partner with the program to produce more quality CVE Records faster.\n\n_If you have any questions about this article, please comment on the [CVE Blog on Medium](https://medium.com/@cve_program) or use the [CVE Request Web Form](https://cveform.mitre.org/)._",
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "firecrawl"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "CVEs and the NVD Process",
+      "url": "https://nvd.nist.gov/general/cve-process",
+      "snippet": "Founded in 1999, the CVE program is maintained by the MITRE corporation and sponsored by the U.S. Department of Homeland Security (DHS) and the Cybersecurity and Infrastructure Security Agency (CISA). CVE IDs are primarily assigned by MITRE, as well as by authorized organizations known as CVE Numbering Authorities (CNAs)—an international group of vendors and researchers from numerous countries. The project has an advisory board made up of significant players in cybersecurity research, academia, and software development communities. [...] Image 1: U.S. flag\n\nAn official website of the United States government\n\nHere’s how you know\n\nHere’s how you know\n\nImage 2\n\nOfficial websites use .gov  \n A .gov website belongs to an official government organization in the United States.\n\nImage 3\n\nSecure .gov websites use HTTPS  \n A lock (  ) or  means you’ve safely connected to the .gov website. Share sensitive information only on official, secure websites.\n\nImage 4: National Institute of Standards and Technology\n\nNVD MENU\n\n## Information Technology Laboratory\n\n# National Vulnerability Database\n\n# National Vulnerability Database\n\n# NVD\n\nImage 5: National Vulnerability Database\n\n1.   general\n\n## CVEs and the NVD Process\n\n### An Introduction [...] The CVE program was created with the vision of becoming the industry standard in establishing a baseline for vulnerabilities, and all information contained in the project is publicly available to any interested party. This allows stakeholders a common means of discussing and researching specific, unique exploits. CVE IDs are also used by vendors and cybersecurity personnel for research and the identification of new vulnerabilities. (MITRE and CNAs do not assist in mitigating or patching vulnerabilities on the CVE list.)\n\n### The CVE Assignment and Vetting Process",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "tavily"
+      ],
+      "score": 0.8443195,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://www.cve.org/Media/News/AllNews",
+      "url": "https://www.cve.org/Media/News/AllNews",
+      "snippet": "",
+      "content": "# Common vulnerabilities and Exposures (CVE)\n\n[Skip to main content](https://www.cve.org/Media/News/AllNews#cve-main-page-content)\n\n# All News\n\nReceive CVE news in your inbox by [signing up for our email newsletter](https://www.cve.org/Media/News/NewsletterSignup).\n\n## [The CVE Search API: A New Way to Access CVE Records](https://www.cve.org/Media/News/item/blog/2026/10/13/CVE-Search-API)\n\nblogBy CVE Program \\|October 13, 2026\n\nThe [CVE™ Program](https://www.cve.org/) is introducing a new [CVE Search API](https://github.com/CVEProject/CVE-Search-API) designed to make vulnerability information easier to find, easier to reuse, and easier to integrate into automated workflows. [CVE Record](https://www.cve.org/ResourcesSupport/Glossary?activeTerm=glossaryRecord) information is already available for users through two channels: [CVE List Search](https://www.cve.org/) on the CVE website, and [CVE List Downloads](https://github.com/CVEProject/cvelistV5), the CVE Program’s bulk download capability on GitHub.\n\n## [RT-Labs Added as CVE Numbering Authority (CNA)](https://www.cve.org/Media/News/item/news/2026/10/13/RT-Labs-Added-as-CNA)\n\nnewsOctober 13, 2026\n\n[RT-Labs AB](https://www.cve.org/PartnerInformation/ListofPartners/partner/rt-labs) is now a [CVE Numbering Authority (CNA)](https://www.cve.org/ResourcesSupport/Glossary?activeTerm=glossaryCNA) for all products of RT-Labs AB, excluding end-of-life-products; as well as vulnerabilities in third-party products used by RT-Labs AB that are not in the scope of another CNA.\n\n## [GnuTLS Project Added as CVE Numbering Authority (CNA)](https://www.cve.org/Media/News/item/news/2026/10/13/GnuTLS-Project-Added-as-CNA)\n\nnewsOctober 13, 2026\n\n[GnuTLS Project](https://www.cve.org/PartnerInformation/ListofPartners/partner/gnutls) is now a [CVE Numbering Authority (CNA)](https://www.cve.org/ResourcesSupport/Glossary?activeTerm=glossaryCNA) for GnuTLS and associated software projects, including libtasn1 and p11-kit.\n\n## [Minutes from CVE Board Teleconference Meeting on September 2 Now Available](https://www.cve.org/Media/News/item/news/2026/10/13/CVE-Board-Minutes-from-September-2)\n\nnewsOctober 13, 2026\n\nThe [CVE Board](https://www.cve.org/ProgramOrganization/Board) held a teleconference meeting on September 2, 2026. Read the [meeting minutes summary](https://www.mail-archive.com/cve-editorial-board-list@mitre.org/msg00357.html).\n\n## [CVE Program Data Registry: Automating Federated Management](https://www.cve.org/Media/News/item/blog/2026/10/06/CVE-Program-Data-Registry)\n\nblogBy CVE Program \\|October 6, 2026\n\nOver the past decade, the [CVE™ Program](https://www.cve.org/) has expanded globally to include more than 550 collaborating organizations, with [CVE Record](https://www.cve.org/ResourcesSupport/Glossary?activeTerm=glossaryRecord) publication increasingly federated across this community. Participation is expected to continue to expand. As this growth accelerates, the need to distribute management functions efficiently across program participants is more critical than ever.\n\n## [CNAs — Register Now for “CVE Program Fall Technical Workshop: Advancing CVE Record Quality” on October 29, 2026](https://www.cve.org/Media/News/item/blog/2026/10/06/Register-for-CVE-Technical-Workshop-2026)\n\nblogBy CVE Program \\|October 6, 2026\n\nThe CVE Program will host a “CVE Program Fall Technical Workshop: Advancing CVE Record Quality” virtual event for [CVE Numbering Authorities (CNAs)](https://www.cve.org/ProgramOrganization/CNAs) on Thursday, October 29, 2026, from 10:00 AM – 4:00 PM EDT (UTC-4).\n\nThis CNA workshop is free, but registration is required. Information on how to register was sent directly to CNAs on September 3, with reminder emails sent on September 17 and October 5. Note that registration closes at 11:59 PM EDT on October 23, 2026.\n\n## [Vulnerability Data Enrichment for CVE Records: 281 CNAs on the Enrichment Recognition List for October 5, 2026](https://www.cve.org/Media/News/item/blog/2026/10/06/CNA-Enrichment-Recognition-List-Update)\n\nblogBy CVE Program \\|October 6, 2026\n\n![](https://www.cve.org/images/news/CnaEnrichmentRecognitionList.png)\n\n## [Flock Added as CVE Numbering Authority (CNA)](https://www.cve.org/Media/News/item/news/2026/10/06/Flock-Added-as-CNA)\n\nnewsOctober 6, 2026\n\n[Flock](https://www.cve.org/PartnerInformation/ListofPartners/partner/flock) is now a [CVE Numbering Authority (CNA)](https://www.cve.org/ResourcesSupport/Glossary?activeTerm=glossaryCNA) for Flock branded hardware and software products only.\n\n## [Pointsharp Added as CVE Numbering Authority (CNA)](https://www.cve.org/Media/News/item/news/2026/09/29/Pointsharp-Added-as-CNA)\n\nnewsSeptember 29, 2026\n\n[Pointsharp International AB](https://www.cve.org/PartnerInformation/ListofPartners/partner/Pointsharp) is now a [CVE Numbering Authority (CNA)](https://www.cve.org/ResourcesSupport/Glossary?activeTerm=glossaryCNA) for all products, software components, and cloud services developed, owned, maintained, and supported by Pointsharp International AB and its subsidiaries.\n\n## [SafeSource Lab Added as CVE Numbering Authority (CNA)](https://www.cve.org/Media/News/item/news/2026/09/29/SafeSource-Lab-Added-as-CNA)\n\nnewsSeptember 29, 2026\n\n[SafeSource Lab](https://www.cve.org/PartnerInformation/ListofPartners/partner/SafeSource) is now a [CVE Numbering Authority (CNA)](https://www.cve.org/ResourcesSupport/Glossary?activeTerm=glossaryCNA) for all SafeSource Lab products only. This includes the SafeSource vulnerability management platform, the SafeSource digital security compliance platform, and any other software products developed and maintained by SafeSource Lab. The scope covers vulnerabilities in SafeSource Lab products discovered internally or reported to SafeSource Lab by third parties. Vulnerabilities in third-party products, or in components not developed or maintained by SafeSource Lab, are not included in this scope.",
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "firecrawl"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "What Are Common Vulnerabilities and Exposures in CVE? - CVEFeed.io Blog",
+      "url": "https://blog.cvefeed.io/what-are-common-vulnerabilities-and-exposures-in-cve",
+      "snippet": "## How CVE Relates to NVD\n\nCVE and the National Vulnerability Database are connected but not interchangeable. CVE provides the identifier and baseline record. NVD, operated by NIST, ingests CVE records and adds enrichment such as analysis and additional data fields used by many tools and dashboards.\n\nA practical caution: NVD enrichment can lag behind disclosures. Since February 12, 2024, NVD enrichment has experienced a major slowdown and a growing backlog; NIST has stated it is prioritizing analysis of the most significant vulnerabilities while bringing on additional support, and it deployed a redesigned NVD vulnerability search experience in July 2025. [...] ## Who Assigns CVEs and Why It Matters\n\nCVE IDs are assigned by authorized organizations called CVE Numbering Authorities, or CNAs. CNAs include vendors, open-source projects, security research groups, CERT organizations, bug bounty providers, and others with defined scope. Their job is to assign CVE IDs for vulnerabilities within that scope and publish the corresponding CVE Records.\n\nIn April 2025, CISA executed an 11-month option period on the contract that funds MITRE’s operation of the CVE Program, avoiding a lapse in CVE services and extending the contract period into March 2026.",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.8029425,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://www.cve.org/about/relatedefforts",
+      "url": "https://www.cve.org/about/relatedefforts",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "A Beginner’s Guide to the CVE Database",
+      "url": "https://blog.sucuri.net/2025/11/a-beginners-guide-to-the-cve-database.html",
+      "snippet": "#### What’s the difference between CVE and the NVD?\n\nA CVE record is the canonical, vendor-neutral entry for a vulnerability published through the CVE Program (operated by MITRE, sponsored by CISA). The National Vulnerability Database (NVD), run by NIST, is a separate U.S. government database that has historically added “enrichment” such as CVSS scores and product mappings on top of CVE records. The two are related but operated by different organizations.\n\n#### Why do some CVEs have no CVSS score or show a “Not Scheduled” status? [...] ## Conclusion and further resources\n\nCVE is the industry’s common dictionary for vulnerabilities. Pair CVE.org for canonical records with NVD for scoring and product mappings, and add CISA KEV and EPSS to judge urgency. If you manage WordPress sites, integrate Patchstack to stay up to date on plugin and theme advisories. Build automation around your asset inventory, feeds, and SLAs so you can detect, triage, and mitigate faster.\n\nRemember, enriched data now lives in the CVE record itself (via CNAs and ADPs like CISA Vulnrichment), while NVD has shifted to analyzing the highest-risk issues first. Treat no single source as complete, and lean on KEV, EPSS, and SSVC to cut through the rising volume of CVEs.\n\nUseful links to keep handy: [...] Security Education\n Website Security\n\n# A Beginner’s Guide to the CVE Database\n\n is a consistent, vendor‑neutral label that makes it easier for the entire ecosystem of vendors, researchers, and tools to talk about the same issue without confusion.\n\nLearn more: the official CVE Program and its Program Organization.\n\nCVE IDs themselves don’t include all the scoring or product details. For enriched data, most practitioners also consult the U.S. NIST’s National Vulnerability Database (NVD), though, as covered below, enrichment increasingly appears in the CVE record itself, and NVD’s enrichment coverage changed significantly in 2026.\n\n### Importance of the CVE database in cybersecurity\n\nWhy CVE matters:",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.75659186,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://www.cve.org/CVERecord/UserGuide",
+      "url": "https://www.cve.org/CVERecord/UserGuide",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "What Is the NVD? National Vulnerability Database Explained",
+      "url": "https://safeguard.sh/resources/blog/what-is-the-nvd",
+      "snippet": "## Frequently Asked Questions\n\nWhat is the difference between the CVE List and the NVD? The CVE List is the registry of vulnerability identifiers and their base descriptions, maintained through MITRE and the network of CVE Numbering Authorities. The NVD is a separate, NIST-run database that takes those CVE records and enriches them with CVSS scores, CWE classifications, and CPE affected-product data. One assigns and describes; the other scores and classifies.\n\nDoes the NVD assign CVE identifiers? No. Identifiers are assigned by CVE Numbering Authorities under the CVE program. The NVD ingests already-published CVE records and adds analysis on top. This is why a CVE can exist and be citable before the NVD has finished scoring or classifying it. [...] The National Vulnerability Database (NVD) is a U.S. government repository, maintained by the National Institute of Standards and Technology (NIST), that enriches publicly disclosed vulnerabilities with standardized severity scores, weakness classifications, and affected-product data. The NVD does not assign vulnerability identifiers itself. It builds on top of the CVE List, taking each published CVE record and adding a second layer of analysis: a CVSS severity score, a Common Weakness Enumeration (CWE) category describing the type of flaw, and Common Platform Enumeration (CPE) strings describing which products and versions are affected. For much of the security industry, the NVD is the default source that scanners, vulnerability management tools, and compliance workflows consume when they [...] ## How the NVD works\n\nThe pipeline has two clear stages. First, a CVE Numbering Authority assigns an identifier and MITRE publishes the base CVE record, which contains the ID, a description, and references but little structured metadata. Second, the NVD ingests that record and performs its enrichment pass: analysts (increasingly aided by automation) assign a CVSS base score using a defined formula, tag the flaw with one or more CWE categories, and construct CPE match strings that express which product versions are in scope.",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.7485182,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://www.cve.org/Media/News/item/blog/2023/10/17/CVE-Records-Keep-Getting-Better",
+      "url": "https://www.cve.org/Media/News/item/blog/2023/10/17/CVE-Records-Keep-Getting-Better",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "CVEs and the NVD Process",
+      "url": "https://nvd.nist.gov/general/cve-process",
+      "result_id": "r2",
+      "providers": [
+        "xai",
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://www.cve.org/Media/News/AllNews",
+      "url": "https://www.cve.org/Media/News/AllNews",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "What Are Common Vulnerabilities and Exposures in CVE? - CVEFeed.io Blog",
+      "url": "https://blog.cvefeed.io/what-are-common-vulnerabilities-and-exposures-in-cve",
+      "result_id": "r4",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://www.cve.org/about/relatedefforts",
+      "url": "https://www.cve.org/about/relatedefforts",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "A Beginner’s Guide to the CVE Database",
+      "url": "https://blog.sucuri.net/2025/11/a-beginners-guide-to-the-cve-database.html",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://www.cve.org/CVERecord/UserGuide",
+      "url": "https://www.cve.org/CVERecord/UserGuide",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "What Is the NVD? National Vulnerability Database Explained",
+      "url": "https://safeguard.sh/resources/blog/what-is-the-nvd",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://github.com/olbat/nvdcve",
+      "url": "https://github.com/olbat/nvdcve",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://apis.io/schemas/nvd/nvd-cve/",
+      "url": "https://apis.io/schemas/nvd/nvd-cve",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://docs.rs/nvd_cve",
+      "url": "https://docs.rs/nvd_cve",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://www.cve.org/allresources/cveservices",
+      "url": "https://www.cve.org/allresources/cveservices",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://www.cve.org/About/Process",
+      "url": "https://www.cve.org/About/Process",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://www.cve.org/Media/News/item/blog/2026/10/13/CVE-Search-API",
+      "url": "https://www.cve.org/Media/News/item/blog/2026/10/13/CVE-Search-API",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://nvd.nist.gov/vuln",
+      "url": "https://nvd.nist.gov/vuln",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://www.nist.gov/itl/nvd",
+      "url": "https://www.nist.gov/itl/nvd",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://www.cve.org/about/overview",
+      "url": "https://www.cve.org/about/overview",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://www.cve.org/Media/News/item/blog/2024/04/30/New-CVE-Record-Format-Enables-Additional-Data",
+      "url": "https://www.cve.org/Media/News/item/blog/2024/04/30/New-CVE-Record-Format-Enables-Additional-Data",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "https://inventivehq.com/blog/nvd-vs-mitre-cve-differences",
+      "url": "https://inventivehq.com/blog/nvd-vs-mitre-cve-differences",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "https://a2z.tools/cve-search",
+      "url": "https://a2z.tools/cve-search",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c21",
+      "title": "https://github.com/MITRE-Cyber-Security-CVE-Database/mitre-cve-database/blob/main/README.md",
+      "url": "https://github.com/MITRE-Cyber-Security-CVE-Database/mitre-cve-database/blob/main/README.md",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c22",
+      "title": "https://github.com/CVEProject",
+      "url": "https://github.com/CVEProject",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c23",
+      "title": "https://nvd.nist.gov/developers/vulnerabilities",
+      "url": "https://nvd.nist.gov/developers/vulnerabilities",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c24",
+      "title": "https://www.cve.org/Media/News/item/blog/2026/10/06/CVE-Program-Data-Registry",
+      "url": "https://www.cve.org/Media/News/item/blog/2026/10/06/CVE-Program-Data-Registry",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c25",
+      "title": "https://www.musicdigest.org/ResourcesSupport/FAQs",
+      "url": "https://www.musicdigest.org/ResourcesSupport/FAQs",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c26",
+      "title": "https://nvd.nist.gov/general/FAQ-Sections/CVE-FAQs",
+      "url": "https://nvd.nist.gov/general/FAQ-Sections/CVE-FAQs",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c27",
+      "title": "https://nvd.nist.gov/vuln/vulnerability-detail-pages",
+      "url": "https://nvd.nist.gov/vuln/vulnerability-detail-pages",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c28",
+      "title": "https://www.cve.org/downloads",
+      "url": "https://www.cve.org/downloads",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c29",
+      "title": "https://bugs.launchpad.net/bugs/2054766",
+      "url": "https://bugs.launchpad.net/bugs/2054766",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c30",
+      "title": "https://pkg.go.dev/github.com/MaineK00n/vuls-data-update/pkg/extract/types/source",
+      "url": "https://pkg.go.dev/github.com/MaineK00n/vuls-data-update/pkg/extract/types/source",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c31",
+      "title": "https://github.com/CVEProject/cvelistV5.git",
+      "url": "https://github.com/CVEProject/cvelistV5.git",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c32",
+      "title": "https://www.cve.org/ResourcesSupport/FAQs",
+      "url": "https://www.cve.org/ResourcesSupport/FAQs",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c33",
+      "title": "https://juejin.cn/post/7694134378718150691",
+      "url": "https://juejin.cn/post/7694134378718150691",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c34",
+      "title": "https://www.cloudsecuritypartners.com/blog/nobody-waits-for-your-project-to-be-ready-for-its-first-cve",
+      "url": "https://www.cloudsecuritypartners.com/blog/nobody-waits-for-your-project-to-be-ready-for-its-first-cve",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c35",
+      "title": "NVD and CVE: The Backbone of Vulnerability Management in Financial Institutions | NETBankAudit",
+      "url": "https://www.netbankaudit.com/resources/nvd-and-cve-cybersecurity-vulnerability",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c36",
+      "title": "CVE meaning: how the global vulnerability ID system works",
+      "url": "https://www.vectra.ai/topics/cve",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c37",
+      "title": "What Is CVE (Common Vulnerabilities and Exposures)? | IBM",
+      "url": "https://www.ibm.com/think/topics/cve",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c38",
+      "title": "CVE - CVE and NVD Relationship",
+      "url": "https://www.cve.org/Resources/Media/Archives/OldWebsite/about/cve_and_nvd_relationship.html",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "verify",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 53187,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "verify_supplement",
+        "latency_ms": 5389,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "ok",
+        "reason": "post_discovery",
+        "latency_ms": 6966,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "ok",
+        "reason": "post_discovery",
+        "latency_ms": 5508,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_verify_supplement",
+      "depth_verify"
+    ]
+  },
+  "cache": {
+    "hit": false,
+    "age_seconds": 0.0,
+    "ttl_seconds": 120,
+    "namespace": "search"
+  },
+  "elapsed_ms": 66032,
+  "api_calls": {
+    "xai": 1,
+    "tavily": 1,
+    "firecrawl": 2
+  },
+  "score": {
+    "id": "news-en-archive",
+    "scores": {
+      "discovery": {
+        "status": "partial",
+        "matched_targets": [
+          "nvd-process"
+        ],
+        "required": 2
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "discovery:partial"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true
+  }
+}

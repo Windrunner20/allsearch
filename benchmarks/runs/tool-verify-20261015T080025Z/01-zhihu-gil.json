@@ -1,0 +1,500 @@
+{
+  "id": "zhihu-gil",
+  "executed_at": "2026-10-15T08:00:25.265037+00:00",
+  "depth": "verify",
+  "provider_query": "知乎上关于 Python GIL 为什么让多线程吃不满多核的高赞回答",
+  "answer": "知乎上和「Python GIL 为什么让多线程吃不满多核」直接相关、讨论较集中的条目如下（按主题，不按赞数精确排序；赞数来自页面摘录，会随时间变化）。\n\n1. **[谈谈 python 的 GIL、多线程、多进程](https://zhuanlan.zhihu.com/p/20953544)**（专栏，约 533 赞）  \n   核心：同一进程里同一时刻只有拿到 GIL 的线程能跑 Python 字节码，所以多核上多线程不能真并行。多核下还会出现「线程颠簸」：别的核上的线程被唤醒去抢锁，锁又常被原核上的线程立刻抢走，空转、切换开销更大，甚至比单核多线程更差。结论是 CPU 密集要吃满多核应用多进程（每进程一把独立 GIL）。[[1]](https://zhuanlan.zhihu.com/p/20953544)\n\n2. **[为什么有人说 Python 的多线程是鸡肋呢？](https://www.zhihu.com/question/23474039)**（问题，约 37 个回答）  \n   高赞口径常把 CPython 多线程称作「假多线程」：执行前必须先拿 GIL，解释器按字节码计数（旧说法约每 100 条）释放再抢。即使 100 个线程在 100 核上，纯 Python 计算也大致只用到 1 核；I/O 密集时会主动放锁，多线程仍有用。绕开方式：多进程，或在 C 扩展里释放 GIL。[[2]](https://www.zhihu.com/question/23474039)\n\n3. **[python 下同样代码，多核多线程为什么比单核多线程慢很多？](https://www.zhihu.com/question/39923765)**  \n   直接对应「多核反而更慢」：CPython 线程是 OS 原生线程，但 GIL 禁止同进程内并行执行字节码。单核上检查间隔才偶尔切换；多核上抢锁导致严重 thrashing。Python 3.2 起改为有其他线程在等时约 5ms 强制让出。应对：`multiprocessing`，或把热点写成会释放 GIL 的 C 扩展。[[3]](https://www.zhihu.com/question/39923765)\n\n4. **[深入理解 Python 中的 GIL](https://zhuanlan.zhihu.com/p/75780308)**  \n   从单核历史讲起：GIL 是互斥锁，保证同一时刻只有一个原生线程执行 Python 字节码。单核上大家轮流拿锁没问题；多核上另一核要跑必须等持锁线程因 I/O 或 tick 放锁，而 tick 到期后原线程仍容易再次抢到，其他核长时间空等。[[4]](https://zhuanlan.zhihu.com/p/75780308)\n\n5. **[从伪并行的 Python 多线程说起](https://zhuanlan.zhihu.com/p/34687635)**  \n   引用官方说法：解释器并非完全线程安全，必须持有 GIL 才能安全访问 Python 对象。结果是任一时刻只有一条线程在执行，多核也一样，单进程因此用不上多核。缓解：阻塞 I/O 时放锁、C 扩展里 `Py_BEGIN_ALLOW_THREADS` / `Py_END_ALLOW_THREADS`。[[5]](https://zhuanlan.zhihu.com/p/34687635)\n\n6. **[Python 多线程、多进程最全整理](https://zhuanlan.zhihu.com/p/477826233)**  \n   复述同一机制：GIL 简化了对象模型的并发安全，代价是丢掉多处理器并行。多核释放 GIL 后各 CPU 竞争，锁常被原 CPU 立刻拿回，被唤醒的线程空等后再睡，形成颠簸；因此多线程对 I/O 友好、对 CPU 密集不友好。列出的办法包括多进程、无 GIL 实现（Jython/IronPython）、协程、C 扩展。[[6]](https://zhuanlan.zhihu.com/p/477826233)\n\n7. **[为什么 Python 的 GIL 问题一直让人诟病，社区却不解决？](https://www.zhihu.com/question/323812020)**（问题下有约千赞回答）  \n   不主要讲「怎么抢锁」，而是解释为何长期不拆：去掉 GIL 会伤单线程性能，并破坏大量隐式依赖 GIL 的 C 扩展。文中也点明诟病点——CPU 密集多线程无法真正并行（如 PyTorch `DataParallel`、多线程 dataloader）。后续更新指向 PEP 703（可选无 GIL）。[[7]](https://www.zhihu.com/question/323812020)\n\n8. **[Python 进阶：为什么 GIL 让多线程变得如此鸡肋？](https://www.zhihu.com/question/648464307)**  \n   较新的问答，结论与上面一致：GIL 是 CPython 互斥锁，同一时刻只允许一个线程执行字节码，多核上是「一核干活、多核围观」。CPU 密集几乎无加速；I/O 时会释放 GIL，多线程仍能利用等待时间。绕过：多进程、会放锁的 C 扩展、或后来的 free-threading 构建。[[8]](https://www.zhihu.com/question/648464307)\n\n**这些高赞回答的共同结论：** GIL 锁的是「解释器执行 Python 字节码的权利」，不是某一段用户代码。纯 Python 的 CPU 密集任务在一个进程里只能交替执行，吃不满多核，抢锁和上下文切换还可能让多线程比单线程更慢；I/O、`sleep`、以及主动释放 GIL 的 C 扩展（如部分 NumPy 计算）不受这个限制。要真并行，经典做法是多进程。",
+  "results": [
+    {
+      "id": "r1",
+      "title": "1",
+      "url": "https://zhuanlan.zhihu.com/p/20953544",
+      "snippet": "",
+      "content": "![ZhiHu logo](https://static.zhihu.com/heifetz/assets/wechat-share-logo.39ea9ecd.png)",
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "firecrawl"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "为什么Python 的GIL 问题一直让人诟病",
+      "url": "https://www.zhihu.com/question/323812020/answer/680096023",
+      "snippet": "从工程的角度来看，GIL的优点远大于缺点。GIL使得python的多线程并发非常可靠，不需要加任何细粒度的锁来保证正确性，保证了python的单线程性能的最",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.7797419,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "为什么有人说Python 的多线程是鸡肋呢？",
+      "url": "https://www.zhihu.com/question/23474039",
+      "snippet": "这个GIL全局锁实际上把所有线程的执行代码都给上了锁，所以，多线程在Python中只能交替执行，即使100个线程跑在100核CPU上，也只能用到1个核。通常我们用",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "tavily"
+      ],
+      "score": 0.77487355,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "如何评价python的GIL锁？",
+      "url": "https://www.zhihu.com/question/299467464",
+      "snippet": "因为GIL锁存在，所以说在python里一个进程永远只能同时执行一个线程(拿到GIL的线程才能执行)，所以说在多核CPU上，python的多线程效率并不高。 然后",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.7771143,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "3",
+      "url": "https://www.zhihu.com/question/39923765",
+      "snippet": "",
+      "content": "![](https://www.zhihu.com/account/unhuman?type=U4E3Z1&need_login=true&session=56cb3e3beca9c626a0ebf46bfbdd37db&next=%2Fsignin)\n\n![ZhiHu logo](https://static.zhihu.com/heifetz/assets/wechat-share-logo.39ea9ecd.png)\n\n[知乎](https://www.zhihu.com/)\n\n请您登录后查看更多专业优质内容。\n\n_想来知乎工作？请发送邮件到 jobs@zhihu.com_",
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "firecrawl"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "你真的懂Python GIL（全局解释器锁）吗？ - 极客时间",
+      "url": "https://time.geekbang.org/column/article/103834",
+      "snippet": "原因是：每个进程有各自独立的GIL，互不干扰，这样就可以真正意义上的并行执行，所以在python中，多进程的执行效率优于多线程(仅仅针对多核CPU而言)。所以我们能够得出结论",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.76321954,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "4",
+      "url": "https://zhuanlan.zhihu.com/p/75780308",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "为什么多线程Python程序无法充分利用多个CPU核心带来的 ...",
+      "url": "https://www.zhihu.com/question/322492039/answer/673843263",
+      "snippet": "... GIL 带来的不能利用多核的尴尬。 这还只是一个方法，如果不想用多进程这样重量级的解决方案，还有个更彻底的方案，放弃Python，改用C/C++。当然，你也",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.7602419,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "1",
+      "url": "https://zhuanlan.zhihu.com/p/20953544",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "为什么Python 的GIL 问题一直让人诟病",
+      "url": "https://www.zhihu.com/question/323812020/answer/680096023",
+      "result_id": "r2",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "为什么有人说Python 的多线程是鸡肋呢？",
+      "url": "https://www.zhihu.com/question/23474039",
+      "result_id": "r3",
+      "providers": [
+        "xai",
+        "tavily"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "如何评价python的GIL锁？",
+      "url": "https://www.zhihu.com/question/299467464",
+      "result_id": "r4",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "3",
+      "url": "https://www.zhihu.com/question/39923765",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "你真的懂Python GIL（全局解释器锁）吗？ - 极客时间",
+      "url": "https://time.geekbang.org/column/article/103834",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "4",
+      "url": "https://zhuanlan.zhihu.com/p/75780308",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "为什么多线程Python程序无法充分利用多个CPU核心带来的 ...",
+      "url": "https://www.zhihu.com/question/322492039/answer/673843263",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "5",
+      "url": "https://zhuanlan.zhihu.com/p/34687635",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "6",
+      "url": "https://zhuanlan.zhihu.com/p/477826233",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "7",
+      "url": "https://www.zhihu.com/question/323812020",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "8",
+      "url": "https://www.zhihu.com/question/648464307",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "Python的GIL是什么鬼，多线程性能究竟如何 • cenalulu's Tech Blog",
+      "url": "http://cenalulu.github.io/python/gil-in-python",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "为什么总说Python的多线程没用？",
+      "url": "https://www.zhihu.com/question/639145678?write=",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "gil锁的存在使得python的多线程存在的意义是啥？",
+      "url": "https://www.zhihu.com/question/566055205/answer/2756247637",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "verify",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 30184,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "verify_supplement",
+        "latency_ms": 6721,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "ok",
+        "reason": "post_discovery",
+        "latency_ms": 4457,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "ok",
+        "reason": "post_discovery",
+        "latency_ms": 4572,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_verify_supplement",
+      "depth_verify"
+    ]
+  },
+  "cache": {
+    "hit": false,
+    "age_seconds": 0.0,
+    "ttl_seconds": 120,
+    "namespace": "search"
+  },
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://zhuanlan.zhihu.com/p/20953544",
+      "final_url": "https://zhuanlan.zhihu.com/p/20953544",
+      "title": "安全验证 - 知乎",
+      "content": "![](https://www.zhihu.com/account/unhuman?type=U4E3Z1&need_login=true&session=f3735c83cf80458c138889ebf949cc59&next=%2Fsignin)\n\n![ZhiHu logo](https://static.zhihu.com/heifetz/assets/wechat-share-logo.39ea9ecd.png)\n\n[知乎](https://www.zhihu.com/)\n\n请您登录后查看更多专业优质内容。\n\n_想来知乎工作？请发送邮件到 jobs@zhihu.com_",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "viewport": "width=device-width,initial-scale=1,maximum-scale=1",
+        "robots": "noindex",
+        "force-rendering": "webkit",
+        "description": "知乎，中文互联网高质量的问答社区和创作者聚集的原创内容平台，于 2011 年 1 月正式上线，以「让人们更好的分享知识、经验和见解，找到自己的解答」为品牌使命。知乎凭借认真、专业、友善的社区氛围、独特的产品机制以及结构化和易获得的优质内容，聚集了中文互联网科技、商业、影视、时尚、文化等领域最具创造力的人群，已成为综合性、全品类、在诸多领域具有关键影响力的知识分享社区和创作者聚集的原创内容平台，建立起了以社区驱动的内容变现商业模式。",
+        "title": "安全验证 - 知乎",
+        "language": "zh",
+        "google-site-verification": "\"FTeR0c8arOPKh8c5DYh_9uu98_zJbaWw53J-Sch9MTg\"",
+        "ogDescription": "知乎，中文互联网高质量的问答社区和创作者聚集的原创内容平台，于 2011 年 1 月正式上线，以「让人们更好的分享知识、经验和见解，找到自己的解答」为品牌使命。知乎凭借认真、专业、友善的社区氛围、独特的产品机制以及结构化和易获得的优质内容，聚集了中文互联网科技、商业、影视、时尚、文化等领域最具创造力的人群，已成为综合性、全品类、在诸多领域具有关键影响力的知识分享社区和创作者聚集的原创内容平台，建立起了以社区驱动的内容变现商业模式。",
+        "renderer": "webkit",
+        "favicon": "https://static.zhihu.com/heifetz/assets/apple-touch-icon-152.81060cab.png",
+        "scrapeId": "01a13e94-468a-77ac-a671-e02d92597d93",
+        "sourceURL": "https://zhuanlan.zhihu.com/p/20953544",
+        "url": "https://www.zhihu.com/account/unhuman?type=U4E3Z1&need_login=true&session=f3735c83cf80458c138889ebf949cc59&next=%2Fsignin",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "cacheState": "miss",
+        "indexId": "f0a1f489-f22a-4574-aa89-bfcacd931e99",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 4237,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 4297
+    },
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://www.zhihu.com/question/323812020/answer/680096023",
+      "final_url": "https://www.zhihu.com/question/323812020/answer/680096023",
+      "title": "安全验证 - 知乎",
+      "content": "![ZhiHu logo](https://static.zhihu.com/heifetz/assets/wechat-share-logo.39ea9ecd.png)",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "google-site-verification": "\"FTeR0c8arOPKh8c5DYh_9uu98_zJbaWw53J-Sch9MTg\"",
+        "renderer": "webkit",
+        "language": "zh",
+        "viewport": "width=device-width,initial-scale=1,maximum-scale=1",
+        "description": "知乎，中文互联网高质量的问答社区和创作者聚集的原创内容平台，于 2011 年 1 月正式上线，以「让人们更好的分享知识、经验和见解，找到自己的解答」为品牌使命。知乎凭借认真、专业、友善的社区氛围、独特的产品机制以及结构化和易获得的优质内容，聚集了中文互联网科技、商业、影视、时尚、文化等领域最具创造力的人群，已成为综合性、全品类、在诸多领域具有关键影响力的知识分享社区和创作者聚集的原创内容平台，建立起了以社区驱动的内容变现商业模式。",
+        "title": "安全验证 - 知乎",
+        "ogDescription": "知乎，中文互联网高质量的问答社区和创作者聚集的原创内容平台，于 2011 年 1 月正式上线，以「让人们更好的分享知识、经验和见解，找到自己的解答」为品牌使命。知乎凭借认真、专业、友善的社区氛围、独特的产品机制以及结构化和易获得的优质内容，聚集了中文互联网科技、商业、影视、时尚、文化等领域最具创造力的人群，已成为综合性、全品类、在诸多领域具有关键影响力的知识分享社区和创作者聚集的原创内容平台，建立起了以社区驱动的内容变现商业模式。",
+        "robots": "noindex",
+        "force-rendering": "webkit",
+        "favicon": "https://static.zhihu.com/heifetz/assets/apple-touch-icon-152.81060cab.png",
+        "scrapeId": "01a13e94-9212-75db-b978-a3a74d4b5ed5",
+        "sourceURL": "https://www.zhihu.com/question/323812020/answer/680096023",
+        "url": "https://www.zhihu.com/account/unhuman?type=U4E3Z1&need_login=true&session=b09a988e3843d747529cef9b3d27b7a0&next=%2Fsignin",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "cacheState": "miss",
+        "indexId": "70c256ed-474d-4cc8-8f8b-ffbc748c035f",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 29241,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 29287
+    }
+  ],
+  "comments": [
+    {
+      "url": "https://zhuanlan.zhihu.com/p/20953544",
+      "text": "![](https://www.zhihu.com/account/unhuman?type=U4E3Z1&need_login=true&session=f3735c83cf80458c138889ebf949cc59&next=%2Fsignin)\n\n![ZhiHu logo](https://static.zhihu.com/heifetz/assets/wechat-share-logo.39ea9ecd.png)\n\n[知乎](https://www.zhihu.com/)\n\n请您登录后查看更多专业优质内容。\n\n_想来知乎工作？请发送邮件到 jobs@zhihu.com_"
+    },
+    {
+      "url": "https://www.zhihu.com/question/323812020/answer/680096023",
+      "text": "![ZhiHu logo](https://static.zhihu.com/heifetz/assets/wechat-share-logo.39ea9ecd.png)"
+    }
+  ],
+  "elapsed_ms": 75323,
+  "api_calls": {
+    "xai": 1,
+    "tavily": 1,
+    "firecrawl": 4
+  },
+  "score": {
+    "id": "zhihu-gil",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "zhihu-answer"
+        ],
+        "required": 1
+      },
+      "comments": {
+        "status": "fail",
+        "matched_comments": []
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "blocked",
+      "reasons": [
+        "comments:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": "login",
+    "algorithm_miss": false
+  }
+}

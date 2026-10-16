@@ -1,0 +1,43 @@
+{
+  "id": "general-en-mdn",
+  "query": "MDN page for the Request.redirect property",
+  "elapsed_ms": 62685,
+  "returncode": 0,
+  "tools": [
+    "mcp__allsearch__search",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result"
+  ],
+  "answer": "MDN 上 `Request.redirect` 的页面是：\n\nhttps://developer.mozilla.org/en-US/docs/Web/API/Request/redirect\n\n页面标题为 **Request: redirect property - Web APIs | MDN**。抓取后的最终 URL 与该地址相同。\n\n页面原文说明：\n\n> The **`redirect`** read-only property of the [`Request`](https://developer.mozilla.org/en-US/docs/Web/API/Request) interface contains the mode for how redirects are handled.\n\n取值是 `RequestRedirect` 枚举字符串：\n\n- `follow`\n- `error`\n- `manual`\n\n> If not specified when the request is created, it takes the default value of `follow`.\n\n该特性自 2017 年 3 月起广泛可用，也可在 Web Workers 中使用。规范链接：https://fetch.spec.whatwg.org/#ref-for-dom-request-redirect\n\n页面示例：\n\n```js\nconst myRequest = new Request(\"flowers.jpg\");\nconst myCred = myRequest.redirect;\n```\n\n页面标注最后修改于 2026-09-20。源文件：https://github.com/mdn/content/blob/main/files/en-us/web/api/request/redirect/index.md\n\n本次抓取内容里没有用户评论文本，因此没有可引用的评论原句。",
+  "stderr": "",
+  "score": {
+    "id": "general-en-mdn",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "mdn-redirect"
+        ],
+        "required": 1
+      },
+      "reading": {
+        "status": "not_attempted"
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "reading:not_attempted"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true
+  }
+}

@@ -1,0 +1,388 @@
+{
+  "id": "reddit-cross-sqlite",
+  "executed_at": "2026-10-15T08:06:21.360740+00:00",
+  "depth": "verify",
+  "provider_query": "用中文找 Reddit 上讨论把 SQLite 当作应用主数据库的英文帖子",
+  "answer": "以下是 Reddit 上讨论把 **SQLite 当作应用主数据库**（网站、后端、生产环境）的英文帖，最多 8 条，附简要说明与来源。\n\n1. **[People who used sqlite for their Database on the server](https://www.reddit.com/r/webdev/comments/1gs7k87/)**（r/webdev，2024）  \n   多人分享服务端用 SQLite 的经验：多租户里租户数据用 SQLite、单体应用简化部署、WAL 模式下读写表现，以及并发写入与扩展性的限制。[[1]](https://www.reddit.com/r/webdev/comments/1gs7k87/people_who_used_sqlite_for_their_database_on_the)\n\n2. **[SQLite as the only database for website](https://old.reddit.com/r/PHP/comments/59na74/sqlite_as_the_only_database_for_website/)**（r/PHP，2016）  \n   讨论网站只用 SQLite。评论提到 sqlite.org 自身用 SQLite、中小流量站点可用，以及嵌入式查询无网络往返的优势；也有人用它支撑大量实例与较高日访问量。[[2]](https://old.reddit.com/r/PHP/comments/59na74/sqlite_as_the_only_database_for_website.json?sort=top)\n\n3. **[SQLite in low traffic website?](https://www.reddit.com/r/webdev/comments/81qvnf/sqlite_in_low_traffic_website/)**（r/webdev，2018）  \n   作者多年用 SQLite 做主库、日访问约数百。讨论引用官方说法：多数中低流量站（保守估计约 10 万次/日以下）通常可行；也提到写锁、备份只需复制文件等。[[3]](https://www.reddit.com/r/webdev/comments/81qvnf/sqlite_in_low_traffic_website/)\n\n4. **[SQLite is the only database you will ever need in most cases](https://www.reddit.com/r/programming/comments/n1twez/sqlite_is_the_only_database_you_will_ever_need_in/)**（r/programming，2021）  \n   围绕“多数场景 SQLite 就够”的争论：桌面/嵌入式很合适，但类型系统、多进程并发写入、以及 Web 多进程场景是否合适，评论分歧明显。[[4]](https://www.reddit.com/r/programming/comments/n1twez/sqlite_is_the_only_database_you_will_ever_need_in/)\n\n5. **[Deploying SQLite on a Production Website](https://www.reddit.com/r/sqlite/comments/modtns/deploying_sqlite_on_a_production_website/)**（r/sqlite，2021）  \n   作者打算把小型、与应用同机的网站主库做成 SQLite。回复强调并发写入少时很合适（如博客），并建议 `journal_mode=WAL` 与合理的 `busy_timeout`。[[5]](https://www.reddit.com/r/sqlite/comments/modtns/deploying_sqlite_on_a_production_website/)\n\n6. **[SQLite DB: simple, in-process, reliable, fast](https://www.reddit.com/r/Backend/comments/1pyezs6/sqlite_db_simple_inprocess_reliable_fast/)**（r/Backend，2025）  \n   从架构角度主张：单文件、进程内数据库省掉独立数据库服务与网络故障面；同时承认独立服务器在扩展和多进程访问上更灵活。[[6]](https://www.reddit.com/r/Backend/comments/1pyezs6/sqlite_db_simple_inprocess_reliable_fast/)\n\n7. **[SQLite in production for a real app: WAL mode gotchas…](https://www.reddit.com/r/webdev/comments/1sbgmdu/sqlite_in_production_for_a_real_app_wal_mode/)**（r/webdev，2026）  \n   真实 Rails 应用在生产用单个 SQLite 文件。重点是蓝绿部署时两个容器同时写导致丢记录、WAL 备份不能只靠 `cp`，以及写入并发不高时 SQLite 的简单性仍然有价值。[[7]](https://www.reddit.com/r/webdev/comments/1sbgmdu/sqlite_in_production_for_a_real_app_wal_mode/)\n\n8. **[Using SQLite as the database in a self hosted automation platform](https://www.reddit.com/r/sqlite/comments/1riye07/using_sqlite_as_the_database_in_a_self_hosted/)**（r/sqlite，2026）  \n   开源自托管工具 RapidForge 以 SQLite 为唯一数据库：单二进制、无外部数据库、便于离线与便携部署；评论将其与 PocketBase / TrailBase 一类轻量后端对比。[[8]](https://www.reddit.com/r/sqlite/comments/1riye07/using_sqlite_as_the_database_in_a_self_hosted)\n\n**阅读线索：** 支持方多强调部署简单、中低写入并发、备份即复制文件；反对或谨慎方集中在数据库级写锁、多进程/多实例同时写入、以及流量或写入量上来后的扩展问题。",
+  "results": [
+    {
+      "id": "r1",
+      "title": "1",
+      "url": "https://www.reddit.com/r/webdev/comments/1gs7k87/people_who_used_sqlite_for_their_database_on_the",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "Why you should probably be using SQLite : r/programming",
+      "url": "https://www.reddit.com/r/programming/comments/17hl2yz/why_you_should_probably_be_using_sqlite",
+      "snippet": "SQLite works great as the database engine for most low to medium traffic websites (which is to say, most websites). This setup runs on a Reddit",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.42190963,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "2",
+      "url": "https://old.reddit.com/r/PHP/comments/59na74/sqlite_as_the_only_database_for_website.json?sort=top",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "SQLite - 维基百科，自由的百科全书",
+      "url": "https://zh.wikipedia.org/zh-hans/SQLite",
+      "snippet": "| SQL | |  |  |  --- | | 分类 |  数据查询语言（DQL）  资料定义语言（DDL）  资料操纵语言（DML）  资料控制语言（DCL） | | 指令 |  SELECT \"查询 (SQL)\")  INSERT \"插入 (SQL)\")  UPDATE  MERGE&action=edit&redlink=1 \"合并 (SQL)（页面不存在）\")  DELETE \"删除 (SQL)\")  JOIN  UNION&action=edit&redlink=1 \"联合 (SQL)（页面不存在）\")  CREATE  DROP  Begin work  COMMIT&action=edit&redlink=1 \"提交 (SQL)（页面不存在）\")  ROLLBACK  TRUNCATE  WITH \"With (SQL)\")  ALTER | | 安全 |  SQL注入  参数化查询 | |\n| 实现 | |  |  |  --- | | 类型 |  关系数据库  面向文档的数据库  平面文件数据库  Deductive（英语：Deductive database）  维度化资料库  阶层式  图数据库  NoSQL  NewSQL  物件资料库  物件关联式资料库（英语：Object-relational database）  Temporal  XML资料库（英语：XML database） | | 数据库产品 |  对象型   + 对比  关系型   + 对比 | | 数据库组件 |  数据查询语言  查询最佳化器（英语：Query optimizer）  查询计画（英语：Query plan）  嵌入式SQL  ORM  LINQ  数据访问层  ODBC  OLE DB  ADO  ADO.NET  JDBC  PDO | | [...] SQLite遵守ACID，实现了大多数SQL标准。它使用动态的、弱类型的SQL语法。它作为嵌入式数据库，是应用程序，如网页浏览器，在本地/客户端存储数据的常见选择。它可能是最广泛部署的数据库引擎，因为它正在被一些流行的浏览器、操作系统、嵌入式系统所使用。同时，它有许多程序设计语言的语言绑定。\n\nSQLite是D. Richard Hipp（英语：D. Richard Hipp）建立的公有领域项目。\n\n## 设计\n\n[编辑]\n\n不像常见的客户端/服务器结构数据库管理系统，SQLite引擎不是一个应用程序与之通信的独立进程。SQLite库链接到程序中，并成为它的一个组成部分。这个库也可被动态链接。应用程序经由编程语言内的直接API调用来使用SQlite的功能，这在减少数据库访问延迟上有积极作用，因为在一个单一进程中的函数调用比跨进程通信更有效率。SQLite将整个数据库，包括定义、表、索引以及数据本身，作为一个单独的、可跨平台使用的文件存储在主机中。它采用了在写入数据时将整个数据库文件加锁的简单设计。尽管写操作只能串行进行，但SQLite的读操作可以多任务同时进行。\n\nSQLite将PostgreSQL作为参考平台。项目将“PostgreSQL可能做些什么”作为SQL标准实现的开发参考。然而与这个目标最重要的偏差在于，除了主键以外，SQLite不强制进行类型检查。一个值的类型是动态的，不被schema所强制限制（虽然如此，但如果可以进行可恢复的类型转换时，schema会在存储数据时触发一个自动转换）。\n\n## 特征\n\n[编辑] [...] | 概念 |  数据库   + 理论  数据模型  数据库存储结构（英语：Database storage structures）  关系 (数据库) \"关系 (数据库)\")  关系模型  分布式数据库  ACID   + 原子性（英语：Atomicity (database systems) \"en:Atomicity (database systems)\")）   + 一致性 \"一致性 (数据库)\")   + 隔离性   + 持久性  Null值 \"空值 (SQL)\")  数据库规范化  数据库完整性  实体完整性  参照完整性  关系数据库管理系统  主键  外键  代理键  超键  候选键  事务处理  增删查改 |\n| 数据库组件 |  触发器 \"触发器 (数据库)\")  视图  数据库表   + 列 \"行 (资料库)\")   + 行 \"列 (资料库)\")  指标 \"指标 (资料库)\")  事务日志（英语：Transaction log）  数据库事务  Savepoint  并发控制  乐观锁  悲观锁  数据库索引  存储程序  资料库分割（英语：Partition (database) \"en:Partition (database)\")） |",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.37175277,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "3",
+      "url": "https://www.reddit.com/r/webdev/comments/81qvnf/sqlite_in_low_traffic_website",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "r/sqlite",
+      "url": "https://www.reddit.com/r/sqlite",
+      "snippet": "it is open-source and runs on any PHP 8 host with no Node, no Docker and no database server (Sqlite by default, but you can use MySQL or MariaDB). it has",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.37120554,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "4",
+      "url": "https://www.reddit.com/r/programming/comments/n1twez/sqlite_is_the_only_database_you_will_ever_need_in",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "关于SQLite的疯狂有趣事实合集: r/programming",
+      "url": "https://www.reddit.com/r/programming/comments/1hpowxh/collection_of_insane_and_fun_facts_about_sqlite?tl=zh-hans",
+      "snippet": "InterBase 可以用作嵌入式数据库。如果你在使用Borland Delphi，只需将RAD 组件拖到你的项目中，你的应用程序就可以包含SQL 数据库，你可以随意使用。",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.341583,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "1",
+      "url": "https://www.reddit.com/r/webdev/comments/1gs7k87/people_who_used_sqlite_for_their_database_on_the",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "Why you should probably be using SQLite : r/programming",
+      "url": "https://www.reddit.com/r/programming/comments/17hl2yz/why_you_should_probably_be_using_sqlite",
+      "result_id": "r2",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "2",
+      "url": "https://old.reddit.com/r/PHP/comments/59na74/sqlite_as_the_only_database_for_website.json?sort=top",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "SQLite - 维基百科，自由的百科全书",
+      "url": "https://zh.wikipedia.org/zh-hans/SQLite",
+      "result_id": "r4",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "3",
+      "url": "https://www.reddit.com/r/webdev/comments/81qvnf/sqlite_in_low_traffic_website",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "r/sqlite",
+      "url": "https://www.reddit.com/r/sqlite",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "4",
+      "url": "https://www.reddit.com/r/programming/comments/n1twez/sqlite_is_the_only_database_you_will_ever_need_in",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "关于SQLite的疯狂有趣事实合集: r/programming",
+      "url": "https://www.reddit.com/r/programming/comments/1hpowxh/collection_of_insane_and_fun_facts_about_sqlite?tl=zh-hans",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "5",
+      "url": "https://www.reddit.com/r/sqlite/comments/modtns/deploying_sqlite_on_a_production_website",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "6",
+      "url": "https://www.reddit.com/r/Backend/comments/1pyezs6/sqlite_db_simple_inprocess_reliable_fast",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "7",
+      "url": "https://www.reddit.com/r/webdev/comments/1sbgmdu/sqlite_in_production_for_a_real_app_wal_mode",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "8",
+      "url": "https://www.reddit.com/r/sqlite/comments/1riye07/using_sqlite_as_the_database_in_a_self_hosted",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "小型到中型Web应用用SQLite怎么样？ : r/dotnet",
+      "url": "https://www.reddit.com/r/dotnet/comments/1cdskq4/sqlite_for_a_small_to_medium_web_app?tl=zh-hans",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "SQLite vs MySQL : r/Database",
+      "url": "https://www.reddit.com/r/Database/comments/pfpym8/sqlite_vs_mysql?tl=zh-hans",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "Where to deploy my SQLite database? : r/dataengineering",
+      "url": "https://www.reddit.com/r/dataengineering/comments/1udmwdz/where_to_deploy_my_sqlite_database",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "每个用户一个sqlite数据库: r/rails",
+      "url": "https://www.reddit.com/r/rails/comments/1lqde0y/a_sqlite_db_for_each_user?tl=zh-hans",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "provider": "firecrawl",
+      "code": "unsafe_url",
+      "message": "resolved destination is private/reserved and not allowed",
+      "retryable": false
+    },
+    {
+      "provider": "firecrawl",
+      "code": "unsafe_url",
+      "message": "resolved destination is private/reserved and not allowed",
+      "retryable": false
+    }
+  ],
+  "route": {
+    "primary": "xai",
+    "depth": "verify",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 21261,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "verify_supplement",
+        "latency_ms": 5090,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "error",
+        "reason": "post_discovery",
+        "latency_ms": null,
+        "detail": "unsafe_url"
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "error",
+        "reason": "post_discovery",
+        "latency_ms": null,
+        "detail": "unsafe_url"
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_verify_supplement",
+      "depth_verify"
+    ]
+  },
+  "cache": {
+    "hit": false,
+    "age_seconds": 0.0,
+    "ttl_seconds": 120,
+    "namespace": "search"
+  },
+  "fetched": [],
+  "comments": [],
+  "elapsed_ms": 26739,
+  "api_calls": {
+    "xai": 1,
+    "tavily": 1,
+    "firecrawl": 2
+  },
+  "score": {
+    "id": "reddit-cross-sqlite",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "reddit-sqlite"
+        ],
+        "required": 1
+      },
+      "comments": {
+        "status": "fail",
+        "matched_comments": []
+      },
+      "cross_language": {
+        "status": "pass",
+        "matched_hosts": [
+          "reddit.com"
+        ]
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "comments:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true
+  }
+}

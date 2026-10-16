@@ -1,0 +1,554 @@
+{
+  "id": "stackoverflow-venv",
+  "executed_at": "2026-10-15T07:49:44.838359+00:00",
+  "depth": "balanced",
+  "provider_query": "Stack Overflow question page about creating a Python virtual environment",
+  "answer": "Relevant Stack Overflow pages on creating a Python virtual environment:\n\n1. **How to create virtual env with Python 3?** — Recommended approach is `python3 -m venv ./path-to-new-venv` (stdlib `venv` since 3.3); also covers `virtualenv -p python3`.  \n   https://stackoverflow.com/questions/43069780/how-to-create-virtual-env-with-python-3\n\n2. **What is a virtualenv, and why should I use one?** — Explains isolation of packages and creation with `python3 -m venv ENV_DIR`, plus activation on Unix and Windows.  \n   https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one\n\n3. **How to create a venv with a different Python version** — Use the target interpreter (`python3.9 -m venv …`), Windows `py -3.7 -m venv`, or `virtualenv -p`.  \n   https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version\n\n4. **python3 -m venv: how to specify Python point release/version?** — Run `venv` via the desired binary (e.g. `python3.6 -m venv whatever`); also discusses pyenv.  \n   https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version\n\n5. **What's the difference between \"virtualenv\" and \"-m venv\"?** — `venv` ships with Python 3; `virtualenv` is a third-party package with a broader API. Prefer `python -m venv` when possible.  \n   https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt/44091914\n\n6. **How to create a virtualenv in python using cmd** — Correct command is `python -m venv` (or `python3 -m venv`), not a module named `virtualenv` unless that package is installed.  \n   https://stackoverflow.com/questions/72700633/how-to-create-a-virtualenv-in-python-using-cmd\n\n7. **How to use virtualenv with Python?** — Install via pip, then `virtualenv env` and `source ./venv/bin/activate`; notes on choosing a Python with `-p`.  \n   https://stackoverflow.com/questions/35017160/how-to-use-virtualenv-with-python\n\n8. **Create Virtual Environment using Python Documentation** — Common `python3 -m venv` failures (e.g. missing `python3-venv` on Debian/Ubuntu) and the fix `apt install python3.x-venv`.  \n   https://stackoverflow.com/questions/56339125/create-virtual-environment-using-python-documentation\n\nRelated but narrower: creating an env from inside a script (`venv.create` / `virtualenv.create_environment`) — https://stackoverflow.com/questions/57921255/how-to-create-python-virtual-environment-within-a-python-script — and conda `environment.yml` (not stdlib venv) — https://stackoverflow.com/questions/68104229/how-to-create-a-virtual-environment-in-python-using-an-environment-yaml-file.",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version",
+      "url": "https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "Python Virtual Environment - venv",
+      "url": "https://www.w3schools.com/python/python_virtualenv.asp",
+      "snippet": "Python has the built-in `venv` module for creating virtual environments.\n\nTo create a virtual environment on your computer, open the command prompt, and navigate to the folder where you want to create your project, then type this command:\n\n### Example\n\nRun this command to create a virtual environment named `myfirstproject`:\n\nC:\\Users\\Your Name> python -m venv myfirstproject\n\n$ python -m venv myfirstproject [...] Create a file called `test.py` on your computer. You can place it wherever you want, but I will place it in the same location as the `myfirstproject` folder -not in the folder, but in the same location.\n\nOpen the file and insert these three lines in it:\n\n### Example\n\nInsert two lines in `test.py`:\n\nimport cowsay  \n   \n cowsay.cow(\"Good Mooooorning!\")\n\nThen, try to execute the file while you are in the virtual environment:\n\n### Example\n\nExecute `test.py` in the virtual environment: [...] A virtual environment in Python is an isolated environment on your computer, where you can run and test your Python projects.\n\nIt allows you to manage project-specific dependencies without interfering with other projects or the original Python installation.\n\nThink of a virtual environment as a separate container for each Python project. Each container:",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.67885995,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://stackoverflow.com/questions/72700633/how-to-create-a-virtualenv-in-python-using-cmd",
+      "url": "https://stackoverflow.com/questions/72700633/how-to-create-a-virtualenv-in-python-using-cmd",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "Newest 'python-venv' Questions - Page 6",
+      "url": "https://stackoverflow.com/questions/tagged/python-venv?page=6&tab=Newest",
+      "snippet": "A couple days ago I created a venv virtual environment that uses the Python interpreter version 3.11.6. Now that a new Python version, 3.12.0, has been released",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.6501347,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://stackoverflow.com/questions/43069780/how-to-create-virtual-env-with-python-3",
+      "url": "https://stackoverflow.com/questions/43069780/how-to-create-virtual-env-with-python-3",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "venv — Creation of virtual environments — Python 3.15.0 documentation",
+      "url": "https://docs.python.org/3/library/venv.html",
+      "snippet": "See PEP 405 for more background on Python virtual environments.\n\nSee also\n\nPython Packaging User Guide: Creating and using virtual environments\n\nAvailability: not Android, not iOS, not WASI.\n\nThis module is not supported on mobile platforms or WebAssembly platforms.\n\n## Creating virtual environments¶\n\nVirtual environments are created by executing the `venv` module:\n\n```\n    \n``` [...] The `venv` module supports creating lightweight “virtual environments”, each with their own independent set of Python packages installed in their `site` directories. A virtual environment is created on top of an existing Python installation, known as the virtual environment’s “base” Python, and by default is isolated from the packages in the base environment, so that only those explicitly installed in the virtual environment are available. See Virtual Environments and `site`’s virtual [...] This creates the target directory (including parent directories as needed) and places a `pyvenv.cfg` file in it with a `home` key pointing to the Python installation from which the command was run. It also creates a `bin` (or `Scripts` on Windows) subdirectory containing a copy or symlink of the Python executable (as appropriate for the platform or arguments used at environment creation time). It also creates a `lib/pythonX.Y/site-packages` subdirectory (on Windows, this is",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.6461259,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://stackoverflow.com/questions/56339125/create-virtual-environment-using-python-documentation",
+      "url": "https://stackoverflow.com/questions/56339125/create-virtual-environment-using-python-documentation",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "Newest 'virtualenv' Questions",
+      "url": "https://stackoverflow.com/questions/tagged/virtualenv?tab=Newest",
+      "snippet": "How can I create a python Virtual ENVironment (venv) such that the new venv has all of the python modules that are already installed on my system (with apt)?",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.64236575,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version",
+      "url": "https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "Python Virtual Environment - venv",
+      "url": "https://www.w3schools.com/python/python_virtualenv.asp",
+      "result_id": "r2",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://stackoverflow.com/questions/72700633/how-to-create-a-virtualenv-in-python-using-cmd",
+      "url": "https://stackoverflow.com/questions/72700633/how-to-create-a-virtualenv-in-python-using-cmd",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "Newest 'python-venv' Questions - Page 6",
+      "url": "https://stackoverflow.com/questions/tagged/python-venv?page=6&tab=Newest",
+      "result_id": "r4",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://stackoverflow.com/questions/43069780/how-to-create-virtual-env-with-python-3",
+      "url": "https://stackoverflow.com/questions/43069780/how-to-create-virtual-env-with-python-3",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "venv — Creation of virtual environments — Python 3.15.0 documentation",
+      "url": "https://docs.python.org/3/library/venv.html",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://stackoverflow.com/questions/56339125/create-virtual-environment-using-python-documentation",
+      "url": "https://stackoverflow.com/questions/56339125/create-virtual-environment-using-python-documentation",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "Newest 'virtualenv' Questions",
+      "url": "https://stackoverflow.com/questions/tagged/virtualenv?tab=Newest",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://stackoverflow.com/questions/35017160/how-to-use-virtualenv-with-python",
+      "url": "https://stackoverflow.com/questions/35017160/how-to-use-virtualenv-with-python",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://stackoverflow.com/questions/57921255/how-to-create-python-virtual-environment-within-a-python-script",
+      "url": "https://stackoverflow.com/questions/57921255/how-to-create-python-virtual-environment-within-a-python-script",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+      "url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://stackoverflow.com/questions/68104229/how-to-create-a-virtual-environment-in-python-using-an-environment-yaml-file",
+      "url": "https://stackoverflow.com/questions/68104229/how-to-create-a-virtual-environment-in-python-using-an-environment-yaml-file",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version",
+      "url": "https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+      "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt/44091914",
+      "url": "https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt/44091914",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "How to Create a Virtual Environment for Python: Easy 2024 Guide",
+      "url": "https://www.youtube.com/watch?v=ySk09NKutm8",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "How to create virtual environment in python",
+      "url": "https://www.quora.com/How-do-I-create-virtual-environment-in-python-I-tried-using-documentation-but-it-did-not-work",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "Cannot create a virtual enviroment with Python 3.8.10 on ...",
+      "url": "https://askubuntu.com/questions/1417084/cannot-create-a-virtual-enviroment-with-python-3-8-10-on-ubuntu-20-04",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 11235,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "conditional_supplement",
+        "latency_ms": 2578,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "domains_below_threshold:1<2"
+    ]
+  },
+  "cache": {
+    "hit": false,
+    "age_seconds": 0.0,
+    "ttl_seconds": 120,
+    "namespace": "search"
+  },
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version",
+      "final_url": "https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version",
+      "title": "How to create a venv with a different Python version - Stack Overflow",
+      "content": "The 2026 Annual Developer Survey Results Site is live—\n[view the results here!](https://survey.stackoverflow.co/2026/?utm_medium=referral&utm_source=stackoverflow-community&utm_campaign=dev-survey-2026&utm_content=announcement-banner-results)\n\n[dismiss](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version# \"dismiss\")\n\n##### Collectives™ on Stack Overflow\n\nFind centralized, trusted content and collaborate around the technologies you use most.\n\n[Learn more about Collectives](https://stackoverflow.com/collectives)\n\n# [How to create a venv with a different Python version](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version)\n\n[Ask Question](https://stackoverflow.com/questions/ask)\n\nAsked4 years, 9 months ago\n\nModified [1 year, 2 months ago](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version?lastactivity \"2025-08-08 10:34:58Z\")\n\nViewed\n326k times\n\n\nThis question shows research effort; it is useful and clear\n\n104\n\nThis question does not show any research effort; it is unclear or not useful\n\nSave this question.\n\n[Timeline](https://stackoverflow.com/posts/70422866/timeline)\n\nShow activity on this post.\n\nI have different venvs in my machine in which I have Python 3.10.\n\nNow for a specific project, I realised that Python 3.10 is not suitable as some libraries are still not compatible. Therefore, when creating a new venv for a new project, I would like to downgrade Python, say to 3.8, only for this specific venv.\n\nHow can I do that?\nWhat should I type onto the terminal to do this?\n\nPS: I use [Visual Studio Code](https://en.wikipedia.org/wiki/Visual_Studio_Code) and its terminal to create venv.\n\n- [python](https://stackoverflow.com/questions/tagged/python \"show questions tagged 'python'\")\n- [python-venv](https://stackoverflow.com/questions/tagged/python-venv \"show questions tagged 'python-venv'\")\n\n[Share](https://stackoverflow.com/q/70422866)\n\nShare a link to this question\n\nCopy link [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/ \"The current license for this post: CC BY-SA 4.0\")\n\nShort permalink to this question\n\n[Improve this question](https://stackoverflow.com/posts/70422866/edit \"\")\n\nFollow\n\n\n\nFollow this question to receive notifications\n\n[edited Aug 8, 2025 at 9:58](https://stackoverflow.com/posts/70422866/revisions \"show all edits to this post\")\n\n[![mkrieger1's user avatar](https://i.sstatic.net/uCfJK.png?s=64)](https://stackoverflow.com/users/4621513/mkrieger1)\n\n[mkrieger1](https://stackoverflow.com/users/4621513/mkrieger1)\n\n24.6k88 gold badges7373 silver badges8888 bronze badges\n\nasked Dec 20, 2021 at 13:52\n\n[![Dark2018's user avatar](https://www.gravatar.com/avatar/fa5fe5ec2a9b970c5ad299630b152abe?s=64&d=identicon&r=PG&f=y&so-version=2)](https://stackoverflow.com/users/16594286/dark2018)\n\n[Dark2018](https://stackoverflow.com/users/16594286/dark2018)\n\n1,15522 gold badges88 silver badges88 bronze badges\n\n[Add a comment](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version# \"Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.\") \\| [Expand to show all comments on this post](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version# \"Expand to show all comments on this post\")\n\n## 13 Answers 13\n\nSorted by:\n[Reset to default](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version?answertab=scoredesc#tab-top)\n\nHighest score (default)\n\nTrending (recent votes count more)\n\nDate modified (newest first)\n\nDate created (oldest first)\n\n\nThis answer is useful\n\n87\n\nThis answer is not useful\n\nSave this answer.\n\nLoading when this answer was accepted…\n\n[Timeline](https://stackoverflow.com/posts/70569378/timeline)\n\nShow activity on this post.\n\n### The recommended way by python.org\n\nThe recommended way of managing virtual environments since Python 3.5 is with the `venv` module within the Python Standard Library itself.\n\nSource: [https://docs.python.org/3/library/venv.html#creating-virtual-environments](https://docs.python.org/3/library/venv.html#creating-virtual-environments)\n\nThat is not the same as `virtualenv`, which is a third party package, outside the Python Standard Library.\n\nSource: [https://pypi.org/project/virtualenv/](https://pypi.org/project/virtualenv/)\n\n### Dangerous to downgrade (and to upgrade)\n\nDepending on if your system itself uses Python, it could be dangerous for system stability to change the system Python version. Your system might need exactly that version of Python. That is true with Ubuntu.\n\n* * *\n\n## Instructions for Ubuntu\n\nTested on Ubuntu 20.04\n\n### Install another version of Python\n\nSafer than downgrading or upgrading is installing other versions of Python on the same system.\n\nFor example, to install Python 3.9:\n\n```bash\nCopy\n## Add the deadsnakes repository\nme@mydevice:~$ sudo add-apt-repository ppa:deadsnakes/ppa\n\n## Update package lists\nme@mydevice:~$ sudo apt update\n\n## Install Python 3.9\nme@mydevice:~$ sudo apt install python3.9\n```\n\n### Install the venv package and create a venv virtual environment\n\n```bash\nCopy\n## Install the venv package for Python 3.9\nme@mydevice:~$ sudo apt install python3.9-venv\n\n## Make a folder for venv virtual environments\nme@mydevice:~$ mkdir ~/.venvs\n\n## Create a new venv virtual environment with Python 3.9 in it\nme@mydevice:~$ python3.9 -m venv ~/.venvs/my-venv-name\n\n## Activate the new venv\nme@mydevice:~$ source ~/.venvs/my-venv-name/bin/activate\n(my-venv-name) me@mydevice:~$\n```\n\n### Check versions within the venv virtual environment\n\n```bash\nCopy\n## Check the Python version inside the venv:\n(my-venv-name) me@mydevice:~$ python -V\nPython 3.9.9\n\n## Check the Pip version inside the venv:\n(my-venv-name) me@mydevice:~$ pip3 --version\npip 21.2.4 from /home/me/.venvs/my-venv-name/lib/python3.9/site-packages/pip (python 3.9)\n```\n\n### Deactivate the venv virtual environment\n\n```bash\nCopy\n(my-venv-name) me@mydevice:~$ deactivate\nme@mydevice:~$\n```\n\n### Check versions outside any virtual environments\n\n```bash\nCopy\n## Check Python version:\nme@mydevice:~$ python -V\nPython 3.8.10\n\n## Check the Pip version:\nme@mydevice:~$ pip3 --version\npip 20.0.2 from /home/me/.venvs/my-venv-name/lib/python3.8/site-packages/pip (python 3.8)\n```\n\n### Install more Python versions\n\nTo install more Python versions, just change the version number from 3.9 to which ever version you choose, that is available from the deadsnakes repository.\n\n[Share](https://stackoverflow.com/a/70569378)\n\nShare a link to this answer\n\nCopy link [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/ \"The current license for this post: CC BY-SA 4.0\")\n\nShort permalink to this answer\n\n[Improve this answer](https://stackoverflow.com/posts/70569378/edit \"\")\n\nFollow\n\n\n\nFollow this answer to receive notifications\n\n[edited Jul 20, 2025 at 10:38](https://stackoverflow.com/posts/70569378/revisions \"show all edits to this post\")\n\nanswered Jan 3, 2022 at 17:25\n\n[![Emil Carpenter's user avatar](https://i.sstatic.net/j5pNC.png?s=64)](https://stackoverflow.com/users/7004324/emil-carpenter)\n\n[Emil Carpenter](https://stackoverflow.com/users/7004324/emil-carpenter)\n\n2,75822 gold badges2525 silver badges2626 bronze badges\n\n## 3 Comments\n\nAdd a comment\n\n[![](https://www.gravatar.com/avatar/bb6969ccb47e35b87687b2bf87a93371?s=48&d=identicon&r=PG&f=y&so-version=2)](https://stackoverflow.com/users/2920201/ghostly-s)\n\nghostly\\_s\n\n[ghostly\\_s](https://stackoverflow.com/users/2920201/ghostly-s) [Dec 22, 2023 at 2:44](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version#comment136985303_70569378)\n\nThis answer is only applicable to Ubuntu (question is not tagged as such), relies on a third-party ppa which only works with Ubuntu _LTS_, and despite what it claims is in no way \"The recommended way by python.org\". I don't know why it is so highly upvoted.\n\n2023-12-22T02:44:56.277Z+00:00\n\n20\n\nReply\n\n- Copy link\n\n[![](https://i.sstatic.net/j5pNC.png?s=64)](https://stackoverflow.com/users/7004324/emil-carpenter)\n\nEmil Carpenter\n\n[Emil Carpenter](https://stackoverflow.com/users/7004324/emil-carpenter) [Dec 22, 2023 at 14:57](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version#comment136990174_70569378)\n\nThe answer also applies to Mint and WSL (Windows Subsystem for Linux), where Ubuntu can be installed. Yes, a third party ppa is used, that is a correct observation. The first link in the answer takes you to python.org where the following statement resides: \"The use of venv is now recommended for creating virtual environments.\". The answer is probably upvoted because lot's of people find it useful, due to clear step-by-step instructions and because lot's of people use Ubuntu and WSL. The OP did not state what system the question was about, nothing about third parties either. Why the downvote?\n\n2023-12-22T14:57:29.73Z+00:00\n\n2\n\nReply\n\n- Copy link\n\n[![](https://i.sstatic.net/8MXNaOaT.png?s=64)](https://stackoverflow.com/users/8104969/pollux)\n\nPollux\n\n[Pollux](https://stackoverflow.com/users/8104969/pollux) [Aug 29, 2025 at 9:08](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version#comment140701047_70569378)\n\nDifferent versions of Python are also available in the AUR for people using this package manager. See for example: [aur.archlinux.org/packages/python311](https://aur.archlinux.org/packages/python311) On more general systems, even when you don't have a package manager, you can install Python locally from source. It takes a bit more effort. See the official cpython repo for instructions: [github.com/python/cpython](https://github.com/python/cpython) Then, you find where the new python version you just installed is located and proceed as indicated here.\n\n2025-08-29T09:08:52.74Z+00:00\n\n1\n\nReply\n\n- Copy link\n\nAdd a comment\n\nThis answer is useful\n\n58\n\nThis answer is not useful\n\nSave this answer.\n\nLoading when this answer was accepted…\n\n[Timeline](https://stackoverflow.com/posts/74551727/timeline)\n\nShow activity on this post.\n\n### Simple and recent\n\nSupposed that you have a different version of Python installed in your system. To check use the following command to check:\n\n```none\npy --list\n```\n\nOutput:\n\n```none\n -3.10-64 *\n -3.7-64\n```\n\nAnd you want to create a new virtual environment for python 3.7 on a 'test\\_env' directory. Run the following command:\n\n```none\npy -3.7 -m venv test_env\n```\n\nThen activate the test\\_env by running the following command in Windows PowerShell:\n\n```none\n.\\test_env\\Scripts\\Activate.ps1\n```\n\nOr Linux:\n\n```none\nsource test_env/bin/activate\n```\n\n**Check:**\n\n```none\npython --version\n```\n\nOutput:\n\n```none\nPython 3.7.0\n```\n\n[Share](https://stackoverflow.com/a/74551727)\n\nShare a link to this answer\n\nCopy link [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/ \"The current license for this post: CC BY-SA 4.0\")\n\nShort permalink to this answer\n\n[Improve this answer](https://stackoverflow.com/posts/74551727/edit \"\")\n\nFollow\n\n\n\nFollow this answer to receive notifications\n\n[edited Jul 15, 2025 at 17:13](https://stackoverflow.com/posts/74551727/revisions \"show all edits to this post\")\n\n[![Peter Mortensen's user avatar](https://i.sstatic.net/RIZKi.png?s=64)](https://stackoverflow.com/users/63550/peter-mortensen)\n\n[Peter Mortensen](https://stackoverflow.com/users/63550/peter-mortensen)\n\n30.8k2222 gold badges112112 silver badges135135 bronze badges\n\nanswered Nov 23, 2022 at 18:50\n\n[![csmaster's user avatar](https://www.gravatar.com/avatar/e96f1faf74e8329e48e925b49181eda2?s=64&d=identicon&r=PG)](https://stackoverflow.com/users/17034430/csmaster)\n\n[csmaster](https://stackoverflow.com/users/17034430/csmaster)\n\n1,01999 silver badges1919 bronze badges\n\n## 8 Comments\n\nAdd a comment\n\n[![](https://i.sstatic.net/RVwIH.jpg?s=64)](https://stackoverflow.com/users/199166/cbare)\n\ncbare\n\n[cbare](https://stackoverflow.com/users/199166/cbare) [Nov 28, 2022 at 3:57](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version#comment131672583_74551727)\n\nThe \"py\" command here refers to the [Python launcher for Windows](https://docs.python.org/3/using/windows.html#launcher)\n\n2022-11-28T03:57:38.02Z+00:00\n\n30\n\nReply\n\n- Copy link\n\n[![](https://www.gravatar.com/avatar/981667daf14dde459fb6a88d9de69d31?s=48&d=identicon&r=PG)](https://stackoverflow.com/users/738808/sboisse)\n\nsboisse\n\n[sboisse](https://stackoverflow.com/users/738808/sboisse) [Feb 24, 2023 at 19:09](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version#comment133310458_74551727)\n\nThis should be the accepted and most upvoted answer. This is extremely clean, easy and unhackish.\n\n2023-02-24T19:09:05.303Z+00:00\n\n7\n\nReply\n\n- Copy link\n\n[![](https://i.sstatic.net/kDUyH.jpg?s=64)](https://stackoverflow.com/users/4979317/sergenp)\n\nsergenp\n\n[sergenp](https://stackoverflow.com/users/4979317/sergenp) [Mar 26, 2023 at 13:43](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version#comment133788760_74551727)\n\nI agree that this here is the best answer\n\n2023-03-26T13:43:53.893Z+00:00\n\n4\n\nReply\n\n- Copy link\n\n[![](https://i.sstatic.net/mhqoN.jpg?s=64)](https://stackoverflow.com/users/1442164/utopiah)\n\nUtopiah\n\n[Utopiah](https://stackoverflow.com/users/1442164/utopiah) [Feb 7, 2024 at 20:23](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version#comment137435033_74551727)\n\nThis can't be the best answer as this command does not exist on my system.\n\n2024-02-07T20:23:01.437Z+00:00\n\n24\n\nReply\n\n- Copy link\n\n[![](https://i.sstatic.net/j5pNC.png?s=64)](https://stackoverflow.com/users/7004324/emil-carpenter)\n\nEmil Carpenter\n\n[Emil Carpenter](https://stackoverflow.com/users/7004324/emil-carpenter) [Dec 22, 2024 at 10:11](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version#comment139839419_74551727)\n\n@nam, using Visual Studio Code - **VS does not imply Windows**. VS can be installed on Linux, Mac and Windows, as listed on their downloads page [https://code.visualstudio.com/download](https://code.visualstudio.com/download)\n\n2024-12-22T10:11:38.437Z+00:00\n\n4\n\nReply\n\n- Copy link\n\nAdd a comment\n\nThis answer is useful\n\n18\n\nThis answer is not useful\n\nSave this answer.\n\nLoading when this answer was accepted…\n\n[Timeline](https://stackoverflow.com/posts/70423186/timeline)\n\nShow activity on this post.\n\nI believe the best way to work with different python versions in isolation is [pyenv](https://github.com/pyenv/pyenv), managing virtual environments can be done with [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv).\n\nI think [this article from Real Python](https://realpython.com/intro-to-pyenv/#virtual-environments-and-pyenv) does a good job at explaining how to manage different Python versions as well as different virtual environments.\n\nFor posterity, with the tools mentioned above you can do the following (once the proper Python versions are installed)\n\n```none\npyenv virtualenv <python_version> <environment_name>\n\n# Then activate it\n\npyenv local <environment_name>\n```\n\nNow that you've created a virtual environment in the folder, it should be picked up any time you enter the folder. [Visual Studio Code should also pick it up](https://code.visualstudio.com/docs/python/environments), as per its documentation.\n\nP.S.: The reason I think it's a good approach is because it allows you to manage Python versions, as well as environments, with a single tool. Each version is installed only once, in one place, which should help, because it reduces complexity.\n\n[Share](https://stackoverflow.com/a/70423186)\n\nShare a link to this answer\n\nCopy link [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/ \"The current license for this post: CC BY-SA 4.0\")\n\nShort permalink to this answer\n\n[Improve this answer](https://stackoverflow.com/posts/70423186/edit \"\")\n\nFollow\n\n\n\nFollow this answer to receive notifications\n\n[edited Jul 15, 2025 at 16:42](https://stackoverflow.com/posts/70423186/revisions \"show all edits to this post\")\n\n[![Peter Mortensen's user avatar](https://i.sstatic.net/RIZKi.png?s=64)](https://stackoverflow.com/users/63550/peter-mortensen)\n\n[Peter Mortensen](https://stackoverflow.com/users/63550/peter-mortensen)\n\n30.8k2222 gold badges112112 silver badges135135 bronze badges\n\nanswered Dec 20, 2021 at 14:17\n\n[![Nathan Furnal's user avatar](https://i.sstatic.net/Pmm6E.jpg?s=64)](https://stackoverflow.com/users/9479128/nathan-furnal)\n\n[Nathan Furnal](https://stackoverflow.com/users/9479128/nathan-furnal)\n\n2,45033 gold badges1515 silver badges2828 bronze badges\n\n## 2 Comments\n\nAdd a comment\n\n[![](https://www.gravatar.com/avatar/0e4dc551b541fdd131b1c7e0954c6545?s=48&d=identicon&r=PG)](https://stackoverflow.com/users/279478/dannyk)\n\nDannyK\n\n[DannyK](https://stackoverflow.com/users/279478/dannyk) [Jul 15, 2023 at 16:29](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version#comment135215032_70423186)\n\nI believe pyenv is deprecated - [docs.python.org/3/whatsnew/3.6.html#whatsnew36-venv](https://docs.python.org/3/whatsnew/3.6.html#whatsnew36-venv)\n\n2023-07-15T16:29:20.473Z+00:00\n\n2\n\nReply\n\n- Copy link\n\n[![](https://www.gravatar.com/avatar/eafb50ae99d3a986358dc29ca0aefe25?s=48&d=identicon&r=PG)](https://stackoverflow.com/users/63349/dominic-sayers)\n\nDominic Sayers\n\n[Dominic Sayers](https://stackoverflow.com/users/63349/dominic-sayers) [Oct 5, 2023 at 15:55](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version#comment136166785_70423186)\n\nThat refers to `pyvenv`, not `pyenv` which is a different tool @DannyK\n\n2023-10-05T15:55:01.507Z+00:00\n\n6\n\nReply\n\n- Copy link\n\nThis answer is useful\n\n14\n\nThis answer is not useful\n\nSave this answer.\n\nLoading when this answer was accepted…\n\n[Timeline](https://stackoverflow.com/posts/70422970/timeline)\n\nShow activity on this post.\n\nYou can have multiple Python interpreter versions installed at the same time and you can create virtual environments with the needed version. Make sure you have installed the Python version you need and then specify its location when you create the virtual environment:\n\n```none\nvirtualenv -p <path-to-new-python-installation> <new-venv-name>\n```\n\nExample:\n\n```none\nvirtualenv -p  C:\\Users\\ssharma\\AppData\\Local\\Programs\\Python\\Python38\\python.exe venv38\n```\n\nThis will create a virtual environment called `venv38` with Python 3.8.\n\n[Share](https://stackoverflow.com/a/70422970)\n\nShare a link to this answer\n\nCopy link [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/ \"The current license for this post: CC BY-SA 4.0\")\n\nShort permalink to this answer\n\n[Improve this answer](https://stackoverflow.com/posts/70422970/edit \"\")\n\nFollow\n\n\n\nFollow this answer to receive notifications\n\n[edited Jul 15, 2025 at 16:02](https://stackoverflow.com/posts/70422970/revisions \"show all edits to this post\")\n\n[![Peter Mortensen's user avatar](https://i.sstatic.net/RIZKi.png?s=64)](https://stackoverflow.com/users/63550/peter-mortensen)\n\n[Peter Mortensen](https://stackoverflow.com/users/63550/peter-mortensen)\n\n30.8k2222 gold badges112112 silver badges135135 bronze badges\n\nanswered Dec 20, 2021 at 14:00\n\n[![Dan Constantinescu's user avatar](https://graph.facebook.com/1231577173545877/picture?type=large)](https://stackoverflow.com/users/12189257/dan-constantinescu)\n\n[Dan Constantinescu](https://stackoverflow.com/users/12189257/dan-constantinescu)\n\n1,55611 gold badge1212 silver badges1212 bronze badges\n\n## 5 Comments\n\nAdd a comment\n\n[![](https://www.gravatar.com/avatar/fa5fe5ec2a9b970c5ad299630b152abe?s=48&d=identicon&r=PG&f=y&so-version=2)](https://stackoverflow.com/users/16594286/dark2018)\n\nDark2018\n\n[Dark2018](https://stackoverflow.com/users/16594286/dark2018) [Dec 20, 2021 at 14:09](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version#comment124486317_70422970)\n\nmany thanks. So I need any way to download python 3.8. I thought there was a command like downgrade or smtg in order to get it without manually going to download it myself.\n\n2021-12-20T14:09:03.94Z+00:00\n\n2\n\nReply\n\n- Copy link\n\n[![](https://graph.facebook.com/1231577173545877/picture?type=large)](https://stackoverflow.com/users/12189257/dan-constantinescu)\n\nDan Constantinescu\n\n[Dan Constantinescu](https://stackoverflow.com/users/12189257/dan-constantinescu) [Dec 20, 2021 at 14:12](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version#comment124486389_70422970)\n\nWelcome. Yes, you need to download and install python 3.8 and then create the virtual environment based on it.\n\n2021-12-20T14:12:32.777Z+00:00\n\n0\n\nReply\n\n- Copy link\n\n[![](https://www.gravatar.com/avatar/fa5fe5ec2a9b970c5ad299630b152abe?s=48&d=identicon&r=PG&f=y&so-version=2)](https://stackoverflow.com/users/16594286/dark2018)\n\nDark2018\n\n[Dark2018](https://stackoverflow.com/users/16594286/dark2018) [Dec 20, 2021 at 15:03](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version#comment124487614_70422970)\n\nI have put myself in the folder I want to create, I downloaded the python version I want but when in VS cmd I digit your line above it says virtualenv is not recognised as a command..\n\n2021-12-20T15:03:42.417Z+00:00\n\n0\n\nReply\n\n- Copy link\n\n[![](https://graph.facebook.com/1231577173545877/picture?type=large)](https://stackoverflow.com/users/12189257/dan-constantinescu)\n\nDan Constantinescu\n\n[Dan Constantinescu](https://stackoverflow.com/users/12189257/dan-constantinescu) [Dec 20, 2021 at 15:13](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version#comment124487871_70422970)\n\nYou need to install it with: pip install virtualenv\n\n2021-12-20T15:13:26.887Z+00:00\n\n0\n\nReply\n\n- Copy link\n\n[![](https://www.gravatar.com/avatar/291f1ae35742fe6ef0fd7f7dd0dfa262?s=48&d=identicon&r=PG&f=y&so-version=2)](https://stackoverflow.com/users/3426711/user3426711)\n\nuser3426711\n\n[user3426711](https://stackoverflow.com/users/3426711/user3426711) [Feb 15, 2022 at 19:53](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version#comment125741092_70422970)\n\nactually this is not the recommended method anymore, check the official python docs, venv is the new standard.\n\n2022-02-15T19:53:04.893Z+00:00\n\n0\n\nReply\n\n- Copy link\n\nAdd a comment\n\nThis answer is useful\n\n7\n\nThis answer is not useful\n\nSave this answer.\n\nLoading when this answer was accepted…\n\n[Timeline](https://stackoverflow.com/posts/72421428/timeline)\n\nShow activity on this post.\n\nYou can use [Anaconda](https://en.wikipedia.org/wiki/Anaconda_(Python_distribution)):\n\n```none\nconda create -n mypython3.8 python=3.8\n```\n\n_For merely the sake of enough porridge in your stew._\n\n[Share](https://stackoverflow.com/a/72421428)\n\nShare a link to this answer\n\nCopy link [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/ \"The current license for this post: CC BY-SA 4.0\")\n\nShort permalink to this answer\n\n[Improve this answer](https://stackoverflow.com/posts/72421428/edit \"\")\n\nFollow\n\n\n\nFollow this answer to receive notifications\n\n[edited Jul 15, 2025 at 17:03](https://stackoverflow.com/posts/72421428/revisions \"show all edits to this post\")\n\n[![Peter Mortensen's user avatar](https://i.sstatic.net/RIZKi.png?s=64)](https://stackoverflow.com/users/63550/peter-mortensen)\n\n[Peter Mortensen](https://stackoverflow.com/users/63550/peter-mortensen)\n\n30.8k2222 gold badges112112 silver badges135135 bronze badges\n\nanswered May 29, 2022 at 6:30\n\n[![Paal Pedersen's user avatar](https://lh6.googleusercontent.com/-UUdOREYRKRY/AAAAAAAAAAI/AAAAAAAAC1s/aUKuOUGLcXc/s64-rj/photo.jpg)](https://stackoverflow.com/users/7048431/paal-pedersen)\n\n[Paal Pedersen](https://stackoverflow.com/users/7048431/paal-pedersen)\n\n1,36711 gold badge1212 silver badges1414 bronze badges\n\n## 1 Comment\n\nAdd a comment\n\n[![](https://lh3.googleusercontent.com/a/AATXAJzJ8BtAIeRU9rtrfe6LBVl23OywPAJ_F4OlncAZ=k-s48)](https://stackoverflow.com/users/16741361/ariel-szmerla)\n\nAriel Szmerla\n\n[Ariel Szmerla](https://stackoverflow.com/users/16741361/ariel-szmerla) [Jul 21, 2024 at 6:24](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version#comment138886840_72421428)\n\nThis is great..for conda env, it wont create a 'venv'\n\n2024-07-21T06:24:11.037Z+00:00\n\n0\n\nReply\n\n- Copy link\n\nThis answer is useful\n\n5\n\nThis answer is not useful\n\nSave this answer.\n\nLoading when this answer was accepted…\n\n[Timeline](https://stackoverflow.com/posts/79037420/timeline)\n\nShow activity on this post.\n\n**For Windows users**:\n\nFirst, [download Python 3.8](https://www.python.org/downloads/) or any other Python version. Please do _**not**_ add to the [path](https://en.wikipedia.org/wiki/PATH_(variable)) if you have a _preexisting_ installation of Python.\n\nThen create a Python 3.8 venv by invoking the venv command:\n\n```none\nPython38\\python -m venv c:\\path\\to\\myenv\n```\n\nIf you are unsure of the path to the Python installation on your PC, you can run `py -0p` in a terminal session to verify. Your result will look like this:\n\n```none\n -V:3.12 *        C:\\Users\\Name\\AppData\\Local\\Programs\\Python\\Python312\\python.exe\n -V:3.8          C:\\Users\\Name\\AppData\\Local\\Programs\\Python\\Python38\\python.exe\n```\n\nThen activate your venv using:\n\n```none\nc:\\path\\to\\myenv\\Scripts\\activate.ps1\n```\n\nSee _[Creating virtual environments](https://docs.python.org/3/library/venv.html#creating-virtual-environments)_.\n\n[Share](https://stackoverflow.com/a/79037420)\n\nShare a link to this answer\n\nCopy link [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/ \"The current license for this post: CC BY-SA 4.0\")\n\nShort permalink to this answer\n\n[Improve this answer](https://stackoverflow.com/posts/79037420/edit \"\")\n\nFollow\n\n\n\nFollow this answer to receive notifications\n\n[edited Jul 15, 2025 at 18:04](https://stackoverflow.com/posts/79037420/revisions \"show all edits to this post\")\n\n[![Peter Mortensen's user avatar](https://i.sstatic.net/RIZKi.png?s=64)](https://stackoverflow.com/users/63550/peter-mortensen)\n\n[Peter Mortensen](https://stackoverflow.com/users/63550/peter-mortensen)\n\n30.8k2222 gold badges112112 silver badges135135 bronze badges\n\nanswered Sep 29, 2024 at 21:27\n\n[![Uchenna Adubasim's user avatar](https://www.gravatar.com/avatar/8ca8666a6705eed18cd6b28b37495818?s=64&d=identicon&r=PG)](https://stackoverflow.com/users/16171413/uchenna-adubasim)\n\n[Uchenna Adubasim](https://stackoverflow.com/users/16171413/uchenna-adubasim)\n\n5,75677 gold badges1919 silver badges3737 bronze badges\n\n## Comments\n\nAdd a comment\n\nThis answer is useful\n\n5\n\nThis answer is not useful\n\nSave this answer.\n\nLoading when this answer was accepted…\n\n[Timeline](https://stackoverflow.com/posts/79729639/timeline)\n\nShow activity on this post.\n\nThe package manager [uv](https://docs.astral.sh/uv/), released in 2024, makes this very convenient.\n\nIt lets you use any Python version shown by the command `uv python list`, which it will install automatically, if required, separate from your system Python installation (in Linux under `~/.local/share/uv`).\n\nAs of the current version, 0.8.6, the simplest command to just create an empty virtual environment which will use a specific Python version (for example, 3.8, which currently happens to also be the oldest supported version) is:\n\n```none\nuv venv --python 3.8\n```\n\nNote that it will create an environment which does not contain some packages which are included when you use the standard library `python -m venv`, notably `pip`, since it assumes that you will use uv for package management.\n\nIf you just want to use uv for choosing the Python version, but not for package management, you can run the standard `venv` command, but with a specific Python version:\n\n```none\nuv run --python 3.8 python -m venv\n```\n\nOr, if you plan to use the other Python version also outside the virtual environment, you can use `uv python install 3.8` to create a symbolic link in your PATH (in Linux under `~/.local/bin`), so that you can then use\n\n```none\npython3.8 python -m venv\n```\n\n[Share](https://stackoverflow.com/a/79729639)\n\nShare a link to this answer\n\nCopy link [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/ \"The current license for this post: CC BY-SA 4.0\")\n\nShort permalink to this answer\n\n[Improve this answer](https://stackoverflow.com/posts/79729639/edit \"\")\n\nFollow\n\n\n\nFollow this answer to receive notifications\n\n[edited Aug 8, 2025 at 10:34](https://stackoverflow.com/posts/79729639/revisions \"show all edits to this post\")\n\nanswered Aug 8, 2025 at 10:27\n\n[![mkrieger1's user avatar](https://i.sstatic.net/uCfJK.png?s=64)](https://stackoverflow.com/users/4621513/mkrieger1)\n\n[mkrieger1](https://stackoverflow.com/users/4621513/mkrieger1)\n\n24.6k88 gold badges7373 silver badges8888 bronze badges\n\n## Comments\n\nAdd a comment\n\nThis answer is useful\n\n3\n\nThis answer is not useful\n\nSave this answer.\n\nLoading when this answer was accepted…\n\n[Timeline](https://stackoverflow.com/posts/70423045/timeline)\n\nShow activity on this post.\n\nYou can do it by using the \"virtualenv\" library. It can be installed with command `pip install virtualenv`.\n\nAnd then followed by the command\n`virtualenv \"name_of_your_environment\"` # No quotes\n\nAnd then use the following code to activate your venv\n`\"name_of_your_environment\"\\Scripts\\activate` # NOTE: You MUST be at your directory where you created your env.\n\nIt’s for [Visual Studio Code](https://en.wikipedia.org/wiki/Visual_Studio_Code), but I prefer installing [Conda](https://en.wikipedia.org/wiki/Conda_(package_manager)) and then creating env on the Conda prompt using Conda, which later you can access from Visual Studio Code too. It’s easy to activate",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": true,
+      "metadata": {
+        "ogImage": "https://stackoverflow.com/Content/Sites/stackoverflow/Img/apple-touch-icon@2.png?v=0f0cab681579",
+        "twitter:description": "I have different venvs in my machine in which I have Python 3.10.\nNow for a specific project, I realised that Python 3.10 is not suitable as some libraries are still not compatible. Therefore, when ",
+        "ogSiteName": "Stack Overflow",
+        "og:image": "https://stackoverflow.com/Content/Sites/stackoverflow/Img/apple-touch-icon@2.png?v=0f0cab681579",
+        "title": "How to create a venv with a different Python version - Stack Overflow",
+        "language": "en",
+        "viewport": "width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0",
+        "description": "I have different venvs in my machine in which I have Python 3.10.\nNow for a specific project, I realised that Python 3.10 is not suitable as some libraries are still not compatible. Therefore, when ",
+        "og:site_name": "Stack Overflow",
+        "publisher": "https://stackoverflow.com/#organization",
+        "twitter:title": "How to create a venv with a different Python version",
+        "name": [
+          "How to create a venv with a different Python version",
+          "Dark2018",
+          "Emil Carpenter",
+          "csmaster",
+          "Nathan Furnal",
+          "Dan Constantinescu",
+          "Paal Pedersen",
+          "Uchenna Adubasim",
+          "mkrieger1",
+          "Nitesh Singh",
+          "sezanzeb",
+          "Burak Üren",
+          "Cesar Cardoso",
+          "Fauzan Tahir",
+          "atmaram"
+        ],
+        "primaryImageOfPage": "https://stackoverflow.com/Content/Sites/stackoverflow/Img/apple-touch-icon@2.png?v=0f0cab681579",
+        "ogDescription": "I have different venvs in my machine in which I have Python 3.10.\nNow for a specific project, I realised that Python 3.10 is not suitable as some libraries are still not compatible. Therefore, when ",
+        "ogUrl": "https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version",
+        "twitter:card": "summary",
+        "twitter:domain": "stackoverflow.com",
+        "url": "https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version",
+        "og:url": "https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version",
+        "isPartOf": "https://stackoverflow.com/#website",
+        "og:type": "website",
+        "ogTitle": "How to create a venv with a different Python version",
+        "image": "https://stackoverflow.com/Content/Sites/stackoverflow/Img/apple-touch-icon@2.png?v=0f0cab681579",
+        "favicon": "https://stackoverflow.com/Content/Sites/stackoverflow/Img/favicon.ico?v=562fb39d93c8",
+        "scrapeId": "01a13e8a-16e6-7204-ac16-55bbe9af01e9",
+        "sourceURL": "https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "cacheState": "miss",
+        "indexId": "f0a7a302-c4df-4567-80cf-2fb94ee1a502",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 4709,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 4849
+    },
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://www.w3schools.com/python/python_virtualenv.asp",
+      "final_url": "https://www.w3schools.com/python/python_virtualenv.asp",
+      "title": "Python Virtual Environment - venv",
+      "content": "[Home](https://www.w3schools.com/ \"Home\")[Menu](https://www.w3schools.com/python/python_virtualenv.asp# \"Menu\")\n\nSearch field\n\n\n_×_\n\n[See More](https://www.w3schools.com/python/python_virtualenv.asp#)\n\n[NEW![](https://www.w3schools.com/adventure/img/mascot-lynx.png)W3Schools appiOS & AndroidApp](https://www.w3schools.com/adventure/index.php \"W3Schools Adventure App - iOS and Android\")\n\nSign In\n\n[★+1](https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fwww.w3schools.com%2Fpython%2Fpython_virtualenv.asp \"Your W3Schools Profile\") [Spaces](https://www.w3schools.com/spaces/index.php \"Get Your Own Website With W3Schools Spaces\") [Upgrade](https://order.w3schools.com/plans \"Become a PLUS user and unlock powerful features\") [Paid Courses](https://campus.w3schools.com/collections/course-catalog \"W3Schools Paid Courses\") [Spaces](https://spaces.w3schools.com/ \"Go to Your W3Schools Space\") [Upgrade](https://order.w3schools.com/plans \"Get personalized learning journey based on your current skills and goals\") [Paid Courses](https://campus.w3schools.com/collections/course-catalog \"W3Schools Paid Courses\")\n\n❮\n\n     ❯\n\n[HTML](https://www.w3schools.com/html/default.asp \"HTML Tutorial\") [CSS](https://www.w3schools.com/css/default.asp \"CSS Tutorial\") [JAVASCRIPT](https://www.w3schools.com/js/default.asp \"JavaScript Tutorial\") [SQL](https://www.w3schools.com/sql/default.asp \"SQL Tutorial\") [PYTHON](https://www.w3schools.com/python/default.asp \"Python Tutorial\") [JAVA](https://www.w3schools.com/java/default.asp \"Java Tutorial\") [PHP](https://www.w3schools.com/php/default.asp \"PHP Tutorial\") [C](https://www.w3schools.com/c/index.php \"C Tutorial\") [C++](https://www.w3schools.com/cpp/default.asp \"C++ Tutorial\") [C#](https://www.w3schools.com/cs/index.php \"C# Tutorial\") [AWS](https://www.w3schools.com/aws/index.php \"AWS Tutorial\") [W3.CSS](https://www.w3schools.com/w3css/default.asp \"W3.CSS Tutorial\") [HOW TO](https://www.w3schools.com/howto/default.asp \"How to\") [BOOTSTRAP](https://www.w3schools.com/bootstrap/bootstrap_ver.asp \"Bootstrap Tutorial\") [REACT](https://www.w3schools.com/react/default.asp \"React Tutorial\") [MYSQL](https://www.w3schools.com/mysql/default.asp \"MySQL Tutorial\") [JQUERY](https://www.w3schools.com/jquery/default.asp \"JQuery Tutorial\") [EXCEL](https://www.w3schools.com/excel/index.php \"Excel Tutorial\") [XML](https://www.w3schools.com/xml/default.asp \"XML Tutorial\") [DJANGO](https://www.w3schools.com/django/index.php \"Django Tutorial\") [NUMPY](https://www.w3schools.com/python/numpy/default.asp \"NumPy Tutorial\") [PANDAS](https://www.w3schools.com/python/pandas/default.asp \"Pandas Tutorial\") [NODEJS](https://www.w3schools.com/nodejs/default.asp \"Node.js Tutorial\") [DSA](https://www.w3schools.com/dsa/index.php \"DSA Tutorial\") [TYPESCRIPT](https://www.w3schools.com/typescript/index.php \"TypeScript Tutorial\") [ANGULAR](https://www.w3schools.com/angular/default.asp \"Angular Tutorial\") [ANGULARJS](https://www.w3schools.com/angularjs/default.asp \"Angular.js Tutorial\") [GIT](https://www.w3schools.com/git/default.asp \"Git Tutorial\") [POSTGRESQL](https://www.w3schools.com/postgresql/index.php \"PostgreSQL Tutorial\") [MONGODB](https://www.w3schools.com/mongodb/index.php \"MongoDB Tutorial\") [ASP](https://www.w3schools.com/asp/default.asp \"ASP Tutorial\") [AI](https://www.w3schools.com/ai/default.asp \"A.I. Tutorial\") [R](https://www.w3schools.com/r/default.asp \"R Tutorial\") [GO](https://www.w3schools.com/go/index.php \"Go Tutorial\") [KOTLIN](https://www.w3schools.com/kotlin/index.php \"Kotlin Tutorial\") [SWIFT](https://www.w3schools.com/swift/default.asp \"Swift Tutorial\") [SASS](https://www.w3schools.com/sass/default.asp \"Sass Tutorial\") [VUE](https://www.w3schools.com/vue/index.php \"Vue.js Tutorial\") [GEN AI](https://www.w3schools.com/gen_ai/index.php \"Gen A.I. Tutorial\") [SCIPY](https://www.w3schools.com/python/scipy/index.php \"SciPy Tutorial\") [CYBERSECURITY](https://www.w3schools.com/cybersecurity/index.php \"Cyber security Tutorial\") [DATA SCIENCE](https://www.w3schools.com/datascience/default.asp \"Data science Tutorial\") [INTRO TO PROGRAMMING](https://www.w3schools.com/programming/index.php \"Introduction to Programming\") [INTRO TO HTML & CSS](https://www.w3schools.com/htmlcss/default.asp \"Introduction to HTML & CSS\") [BASH](https://www.w3schools.com/bash/index.php \"Bash Tutorial\") [RUST](https://www.w3schools.com/rust/index.php \"Rust Tutorial\") [TOOLS](https://www.w3schools.com/tools/index.php \"Web Developer Tools\")\n\n## Python Tutorial\n\n[Python HOME](https://www.w3schools.com/python/default.asp) [Python Intro](https://www.w3schools.com/python/python_intro.asp) [Python Get Started](https://www.w3schools.com/python/python_getstarted.asp) [Python Syntax](https://www.w3schools.com/python/python_syntax.asp)\n\n[Syntax](https://www.w3schools.com/python/python_syntax.asp) [Statements](https://www.w3schools.com/python/python_statements.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_statements.asp)\n\n[Python Output](https://www.w3schools.com/python/python_output.asp)\n\n[Print Text](https://www.w3schools.com/python/python_output.asp) [Print Numbers](https://www.w3schools.com/python/python_output_numbers.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_output.asp)\n\n[Python Comments](https://www.w3schools.com/python/python_comments.asp)\n\n[Comments](https://www.w3schools.com/python/python_comments.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_comments.asp)\n\n[Python Variables](https://www.w3schools.com/python/python_variables.asp)\n\n[Python Variables](https://www.w3schools.com/python/python_variables.asp) [Variable Names](https://www.w3schools.com/python/python_variables_names.asp) [Assign Multiple Values](https://www.w3schools.com/python/python_variables_multiple.asp) [Output Variables](https://www.w3schools.com/python/python_variables_output.asp) [Global Variables](https://www.w3schools.com/python/python_variables_global.asp) [Variable Exercises](https://www.w3schools.com/python/python_variables_exercises.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_variables.asp)\n\n[Python Data Types](https://www.w3schools.com/python/python_datatypes.asp)\n\n[Data Types](https://www.w3schools.com/python/python_datatypes.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_datatypes.asp)\n\n[Python Numbers](https://www.w3schools.com/python/python_numbers.asp)\n\n[Numbers](https://www.w3schools.com/python/python_numbers.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_numbers.asp)\n\n[Python Casting](https://www.w3schools.com/python/python_casting.asp)\n\n[Casting](https://www.w3schools.com/python/python_casting.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_casting.asp)\n\n[Python Strings](https://www.w3schools.com/python/python_strings.asp)\n\n[Python Strings](https://www.w3schools.com/python/python_strings.asp) [Slicing Strings](https://www.w3schools.com/python/python_strings_slicing.asp) [Modify Strings](https://www.w3schools.com/python/python_strings_modify.asp) [Concatenate Strings](https://www.w3schools.com/python/python_strings_concatenate.asp) [Format Strings](https://www.w3schools.com/python/python_strings_format.asp) [Escape Characters](https://www.w3schools.com/python/python_strings_escape.asp) [String Methods](https://www.w3schools.com/python/python_strings_methods.asp) [String Exercises](https://www.w3schools.com/python/python_strings_exercises.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_strings_basics.asp)\n\n[Python Booleans](https://www.w3schools.com/python/python_booleans.asp)\n\n[Booleans](https://www.w3schools.com/python/python_booleans.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_booleans.asp)\n\n[Python Operators](https://www.w3schools.com/python/python_operators.asp)\n\n[Python Operators](https://www.w3schools.com/python/python_operators.asp) [Arithmetic Operators](https://www.w3schools.com/python/python_operators_arithmetic.asp) [Assignment Operators](https://www.w3schools.com/python/python_operators_assign.asp) [Ternary Operator](https://www.w3schools.com/python/python_ternary_operator.asp) [Comparison Operators](https://www.w3schools.com/python/python_operators_comparison.asp) [Logical Operators](https://www.w3schools.com/python/python_operators_logical.asp) [Identity Operators](https://www.w3schools.com/python/python_operators_identity.asp) [Membership Operators](https://www.w3schools.com/python/python_operators_membership.asp) [Bitwise Operators](https://www.w3schools.com/python/python_operators_bitwise.asp) [Operator Precedence](https://www.w3schools.com/python/python_operators_precedence.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_operators_basics.asp)\n\n[Python Lists](https://www.w3schools.com/python/python_lists.asp)\n\n[Python Lists](https://www.w3schools.com/python/python_lists.asp) [Access List Items](https://www.w3schools.com/python/python_lists_access.asp) [Change List Items](https://www.w3schools.com/python/python_lists_change.asp) [Add List Items](https://www.w3schools.com/python/python_lists_add.asp) [Remove List Items](https://www.w3schools.com/python/python_lists_remove.asp) [Loop Lists](https://www.w3schools.com/python/python_lists_loop.asp) [List Comprehension](https://www.w3schools.com/python/python_lists_comprehension.asp) [Sort Lists](https://www.w3schools.com/python/python_lists_sort.asp) [Copy Lists](https://www.w3schools.com/python/python_lists_copy.asp) [Join Lists](https://www.w3schools.com/python/python_lists_join.asp) [List Methods](https://www.w3schools.com/python/python_lists_methods.asp) [List Exercises](https://www.w3schools.com/python/python_lists_exercises.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_lists_basics.asp)\n\n[Python Tuples](https://www.w3schools.com/python/python_tuples.asp)\n\n[Python Tuples](https://www.w3schools.com/python/python_tuples.asp) [Access Tuples](https://www.w3schools.com/python/python_tuples_access.asp) [Update Tuples](https://www.w3schools.com/python/python_tuples_update.asp) [Unpack Tuples](https://www.w3schools.com/python/python_tuples_unpack.asp) [Loop Tuples](https://www.w3schools.com/python/python_tuples_loop.asp) [Join Tuples](https://www.w3schools.com/python/python_tuples_join.asp) [Tuple Methods](https://www.w3schools.com/python/python_tuples_methods.asp) [Tuple Exercises](https://www.w3schools.com/python/python_tuples_exercises.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_tuples_basics.asp)\n\n[Python Sets](https://www.w3schools.com/python/python_sets.asp)\n\n[Python Sets](https://www.w3schools.com/python/python_sets.asp) [Access Set Items](https://www.w3schools.com/python/python_sets_access.asp) [Add Set Items](https://www.w3schools.com/python/python_sets_add.asp) [Remove Set Items](https://www.w3schools.com/python/python_sets_remove.asp) [Loop Sets](https://www.w3schools.com/python/python_sets_loop.asp) [Join Sets](https://www.w3schools.com/python/python_sets_join.asp) [Frozenset](https://www.w3schools.com/python/python_frozenset.asp) [Set Methods](https://www.w3schools.com/python/python_sets_methods.asp) [Set Exercises](https://www.w3schools.com/python/python_sets_exercises.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_sets_basics.asp)\n\n[Python Dictionaries](https://www.w3schools.com/python/python_dictionaries.asp)\n\n[Python Dictionaries](https://www.w3schools.com/python/python_dictionaries.asp) [Access Items](https://www.w3schools.com/python/python_dictionaries_access.asp) [Change Items](https://www.w3schools.com/python/python_dictionaries_change.asp) [Add Items](https://www.w3schools.com/python/python_dictionaries_add.asp) [Remove Items](https://www.w3schools.com/python/python_dictionaries_remove.asp) [Loop Dictionaries](https://www.w3schools.com/python/python_dictionaries_loop.asp) [Copy Dictionaries](https://www.w3schools.com/python/python_dictionaries_copy.asp) [Nested Dictionaries](https://www.w3schools.com/python/python_dictionaries_nested.asp) [Dictionary Methods](https://www.w3schools.com/python/python_dictionaries_methods.asp) [Dictionary Exercises](https://www.w3schools.com/python/python_dictionaries_exercises.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_dictionaries_basics.asp)\n\n[Python If...Else](https://www.w3schools.com/python/python_conditions.asp)\n\n[Python If](https://www.w3schools.com/python/python_conditions.asp) [Python Elif](https://www.w3schools.com/python/python_if_elif.asp) [Python Else](https://www.w3schools.com/python/python_if_else.asp) [Shorthand If](https://www.w3schools.com/python/python_if_shorthand.asp) [Logical Operators](https://www.w3schools.com/python/python_if_logical.asp) [Nested If](https://www.w3schools.com/python/python_if_nested_if.asp) [Pass Statement](https://www.w3schools.com/python/python_if_pass.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_if_basics.asp)\n\n[Python Match](https://www.w3schools.com/python/python_match.asp)\n\n[Match](https://www.w3schools.com/python/python_match.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_match.asp)\n\n[Python While Loops](https://www.w3schools.com/python/python_while_loops.asp)\n\n[While Loops](https://www.w3schools.com/python/python_while_loops.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_while_loops.asp)\n\n[Python For Loops](https://www.w3schools.com/python/python_for_loops.asp)\n\n[For Loops](https://www.w3schools.com/python/python_for_loops.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_for_loops.asp)\n\n[Python Functions](https://www.w3schools.com/python/python_functions.asp)\n\n[Python Functions](https://www.w3schools.com/python/python_functions.asp) [Python Arguments](https://www.w3schools.com/python/python_arguments.asp) [Python \\*args / \\*\\*kwargs](https://www.w3schools.com/python/python_args_kwargs.asp) [Python Scope](https://www.w3schools.com/python/python_scope.asp) [Python Decorators](https://www.w3schools.com/python/python_decorators.asp) [Python Lambda](https://www.w3schools.com/python/python_lambda.asp) [Python Recursion](https://www.w3schools.com/python/python_recursion.asp) [Python Generators](https://www.w3schools.com/python/python_generators.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_functions_basics.asp)\n\n[Python Range](https://www.w3schools.com/python/python_range.asp)\n\n[Range](https://www.w3schools.com/python/python_range.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_range.asp)\n\n[Python Arrays](https://www.w3schools.com/python/python_arrays.asp)\n\n[Arrays](https://www.w3schools.com/python/python_arrays.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_arrays.asp)\n\n[Python Iterators](https://www.w3schools.com/python/python_iterators.asp)\n\n[Iterators](https://www.w3schools.com/python/python_iterators.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_iterators.asp)\n\n[Python Modules](https://www.w3schools.com/python/python_modules.asp)\n\n[Modules](https://www.w3schools.com/python/python_modules.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_modules.asp)\n\n[Python Dates](https://www.w3schools.com/python/python_datetime.asp)\n\n[Dates](https://www.w3schools.com/python/python_datetime.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_datetime.asp)\n\n[Python Math](https://www.w3schools.com/python/python_math.asp)\n\n[Math](https://www.w3schools.com/python/python_math.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_math.asp)\n\n[Python JSON](https://www.w3schools.com/python/python_json.asp)\n\n[JSON](https://www.w3schools.com/python/python_json.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_json.asp)\n\n[Python RegEx](https://www.w3schools.com/python/python_regex.asp)\n\n[RegEx](https://www.w3schools.com/python/python_regex.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_regex.asp)\n\n[Python PIP](https://www.w3schools.com/python/python_pip.asp) [Python Try...Except](https://www.w3schools.com/python/python_try_except.asp)\n\n[Try...Except](https://www.w3schools.com/python/python_try_except.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_try_except.asp)\n\n[Python String Formatting](https://www.w3schools.com/python/python_string_formatting.asp)\n\n[String Formatting](https://www.w3schools.com/python/python_string_formatting.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_string_formatting.asp)\n\n[Python None](https://www.w3schools.com/python/python_none.asp)\n\n[None](https://www.w3schools.com/python/python_none.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_none.asp)\n\n[Python User Input](https://www.w3schools.com/python/python_user_input.asp) [Python VirtualEnv](https://www.w3schools.com/python/python_virtualenv.asp)\n\n## Python Classes\n\n[Python OOP](https://www.w3schools.com/python/python_oop.asp) [Python Classes/Objects](https://www.w3schools.com/python/python_classes.asp)\n\n[Classes/Objects](https://www.w3schools.com/python/python_classes.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_classes.asp)\n\n[Python \\_\\_init\\_\\_ Method](https://www.w3schools.com/python/python_class_init.asp)\n\n[\\_\\_init\\_\\_ Method](https://www.w3schools.com/python/python_class_init.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_classes_basics.asp)\n\n[Python self Parameter](https://www.w3schools.com/python/python_class_self.asp)\n\n[self Parameter](https://www.w3schools.com/python/python_class_self.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_class_self.asp)\n\n[Python Class Properties](https://www.w3schools.com/python/python_class_properties.asp)\n\n[Class Properties](https://www.w3schools.com/python/python_class_properties.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_class_properties.asp)\n\n[Python Class Methods](https://www.w3schools.com/python/python_class_methods.asp)\n\n[Class Methods](https://www.w3schools.com/python/python_class_methods.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_class_methods.asp)\n\n[Python Magic Methods](https://www.w3schools.com/python/python_magic_methods.asp)\n\n[Magic Methods](https://www.w3schools.com/python/python_magic_methods.asp) [\\_\\_str\\_\\_](https://www.w3schools.com/python/python_magic_str.asp) [\\_\\_repr\\_\\_](https://www.w3schools.com/python/python_magic_repr.asp) [\\_\\_eq\\_\\_](https://www.w3schools.com/python/python_magic_eq.asp) [\\_\\_add\\_\\_](https://www.w3schools.com/python/python_magic_add.asp) [\\_\\_len\\_\\_](https://www.w3schools.com/python/python_magic_len.asp) [\\_\\_lt\\_\\_](https://www.w3schools.com/python/python_magic_lt.asp) [\\_\\_contains\\_\\_](https://www.w3schools.com/python/python_magic_contains.asp) [\\_\\_call\\_\\_](https://www.w3schools.com/python/python_magic_call.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_magic_methods.asp)\n\n[Python Inheritance](https://www.w3schools.com/python/python_inheritance.asp)\n\n[Inheritance](https://www.w3schools.com/python/python_inheritance.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_inheritance.asp)\n\n[Python Polymorphism](https://www.w3schools.com/python/python_polymorphism.asp)\n\n[Polymorphism](https://www.w3schools.com/python/python_polymorphism.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_polymorphism.asp)\n\n[Python Encapsulation](https://www.w3schools.com/python/python_encapsulation.asp)\n\n[Encapsulation](https://www.w3schools.com/python/python_encapsulation.asp) [Code Challenge](https://www.w3schools.com/python/python_challenges_encapsulation.asp)\n\n[Python Inner Classes](https://www.w3schools.com/python/python_class_inner.asp)\n\n## File Handling\n\n[Python File Handling](https://www.w3schools.com/python/python_file_handling.asp) [Python Read Files](https://www.w3schools.com/python/python_file_open.asp) [Python Write/Create Files](https://www.w3schools.com/python/python_file_write.asp) [Python Delete Files](https://www.w3schools.com/python/python_file_remove.asp)\n\n## Python Modules\n\n[NumPy Tutorial](https://www.w3schools.com/python/numpy/default.asp) [Pandas Tutorial](https://www.w3schools.com/python/pandas/default.asp) [SciPy Tutorial](https://www.w3schools.com/python/scipy/index.php) [Django Tutorial](https://www.w3schools.com/django/index.php)\n\n## Python Matplotlib\n\n[Matplotlib Intro](https://www.w3schools.com/python/matplotlib_intro.asp) [Matplotlib Get Started](https://www.w3schools.com/python/matplotlib_getting_started.asp) [Matplotlib Pyplot](https://www.w3schools.com/python/matplotlib_pyplot.asp) [Matplotlib Plotting](https://www.w3schools.com/python/matplotlib_plotting.asp) [Matplotlib Markers](https://www.w3schools.com/python/matplotlib_markers.asp) [Matplotlib Line](https://www.w3schools.com/python/matplotlib_line.asp) [Matplotlib Labels](https://www.w3schools.com/python/matplotlib_labels.asp) [Matplotlib Grid](https://www.w3schools.com/python/matplotlib_grid.asp) [Matplotlib Subplot](https://www.w3schools.com/python/matplotlib_subplot.asp) [Matplotlib Scatter](https://www.w3schools.com/python/matplotlib_scatter.asp) [Matplotlib Bars](https://www.w3schools.com/python/matplotlib_bars.asp) [Matplotlib Histograms](https://www.w3schools.com/python/matplotlib_histograms.asp) [Matplotlib Pie Charts](https://www.w3schools.com/python/matplotlib_pie_charts.asp)\n\n## Machine Learning\n\n[Getting Started](https://www.w3schools.com/python/python_ml_getting_started.asp) [Mean Median Mode](https://www.w3schools.com/python/python_ml_mean_median_mode.asp) [Standard Deviation](https://www.w3schools.com/python/python_ml_standard_deviation.asp) [Percentile](https://www.w3schools.com/python/python_ml_percentile.asp) [Data Distribution](https://www.w3schools.com/python/python_ml_data_distribution.asp) [Normal Data Distribution](https://www.w3schools.com/python/python_ml_normal_data_distribution.asp) [Scatter Plot](https://www.w3schools.com/python/python_ml_scatterplot.asp) [Linear Regression](https://www.w3schools.com/python/python_ml_linear_regression.asp) [Polynomial Regression](https://www.w3schools.com/python/python_ml_polynomial_regression.asp) [Multiple Regression](https://www.w3schools.com/python/python_ml_multiple_regression.asp) [Scale](https://www.w3schools.com/python/python_ml_scale.asp) [Train/Test](https://www.w3schools.com/python/python_ml_train_test.asp) [Decision Tree](https://www.w3schools.com/python/python_ml_decision_tree.asp) [Confusion Matrix](https://www.w3schools.com/python/python_ml_confusion_matrix.asp) [Hierarchical Clustering](https://www.w3schools.com/python/python_ml_hierarchial_clustering.asp) [Logistic Regression](https://www.w3schools.com/python/python_ml_logistic_regression.asp) [Grid Search](https://www.w3schools.com/python/python_ml_grid_search.asp) [Categorical Data](https://www.w3schools.com/python/python_ml_preprocessing.asp) [K-means](https://www.w3schools.com/python/python_ml_k-means.asp) [Bootstrap Aggregation](https://www.w3schools.com/python/python_ml_bagging.asp) [Cross Validation](https://www.w3schools.com/python/python_ml_cross_validation.asp) [AUC - ROC Curve](https://www.w3schools.com/python/python_ml_auc_roc.asp) [K-nearest neighbors](https://www.w3schools.com/python/python_ml_knn.asp)\n\n## Python DSA\n\n[Python DSA](https://www.w3schools.com/python/python_dsa.asp) [Lists and Arrays](https://www.w3schools.com/python/python_dsa_lists.asp) [Stacks](https://www.w3schools.com/python/python_dsa_stacks.asp) [Queues](https://www.w3schools.com/python/python_dsa_queues.asp) [Linked Lists](https://www.w3schools.com/python/python_dsa_linkedlists.asp) [Hash Tables](https://www.w3schools.com/python/python_dsa_hashtables.asp) [Trees](https://www.w3schools.com/python/python_dsa_trees.asp) [Binary Trees](https://www.w3schools.com/python/python_dsa_binarytrees.asp) [Binary Search Trees](https://www.w3schools.com/python/python_dsa_binarysearchtrees.asp) [AVL Trees](https://www.w3schools.com/python/python_dsa_avltrees.asp) [Graphs](https://www.w3schools.com/python/python_dsa_graphs.asp) [Linear Search](https://www.w3schools.com/python/python_dsa_linearsearch.asp) [Binary Search](https://www.w3schools.com/python/python_dsa_binarysearch.asp) [Bubble Sort](https://www.w3schools.com/python/python_dsa_bubblesort.asp) [Selection Sort](https://www.w3schools.com/python/python_dsa_selectionsort.asp) [Insertion Sort](https://www.w3schools.com/python/python_dsa_insertionsort.asp) [Quick Sort](https://www.w3schools.com/python/python_dsa_quicksort.asp) [Counting Sort](https://www.w3schools.com/python/python_dsa_countingsort.asp) [Radix Sort](https://www.w3schools.com/python/python_dsa_radixsort.asp) [Merge Sort](https://www.w3schools.com/python/python_dsa_mergesort.asp)\n\n## Python MySQL\n\n[MySQL Get Started](https://www.w3schools.com/python/python_mysql_getstarted.asp) [MySQL Create Database](https://www.w3schools.com/python/python_mysql_create_db.asp) [MySQL Create Table](https://www.w3schools.com/python/python_mysql_create_table.asp) [MySQL Insert](https://www.w3schools.com/python/python_mysql_insert.asp) [MySQL Select](https://www.w3schools.com/python/python_mysql_select.asp) [MySQL Where](https://www.w3schools.com/python/python_mysql_where.asp) [MySQL Order By](https://www.w3schools.com/python/python_mysql_orderby.asp) [MySQL Delete](https://www.w3schools.com/python/python_mysql_delete.asp) [MySQL Drop Table](https://www.w3schools.com/python/python_mysql_drop_table.asp) [MySQL Update](https://www.w3schools.com/python/python_mysql_update.asp) [MySQL Limit](https://www.w3schools.com/python/python_mysql_limit.asp) [MySQL Join](https://www.w3schools.com/python/python_mysql_join.asp)\n\n## Python MongoDB\n\n[MongoDB Get Started](https://www.w3schools.com/python/python_mongodb_getstarted.asp) [MongoDB Create DB](https://www.w3schools.com/python/python_mongodb_create_db.asp) [MongoDB Collection](https://www.w3schools.com/python/python_mongodb_create_collection.asp) [MongoDB Insert](https://www.w3schools.com/python/python_mongodb_insert.asp) [MongoDB Find](https://www.w3schools.com/python/python_mongodb_find.asp) [MongoDB Query](https://www.w3schools.com/python/python_mongodb_query.asp) [MongoDB Sort](https://www.w3schools.com/python/python_mongodb_sort.asp) [MongoDB Delete](https://www.w3schools.com/python/python_mongodb_delete.asp) [MongoDB Drop Collection](https://www.w3schools.com/python/python_mongodb_drop_collection.asp) [MongoDB Update](https://www.w3schools.com/python/python_mongodb_update.asp) [MongoDB Limit](https://www.w3schools.com/python/python_mongodb_limit.asp)\n\n## Python Cert\n\n[Python Certificate](https://www.w3schools.com/python/python_exam.asp)\n\n## Python Reference\n\n[Python Overview](https://www.w3schools.com/python/python_reference.asp) [Python Built-in Functions](https://www.w3schools.com/python/python_ref_functions.asp) [Python String Methods](https://www.w3schools.com/python/python_ref_string.asp) [Python List Methods](https://www.w3schools.com/python/python_ref_list.asp) [Python Dictionary Methods](https://www.w3schools.com/python/python_ref_dictionary.asp) [Python Tuple Methods](https://www.w3schools.com/python/python_ref_tuple.asp) [Python Set Methods](https://www.w3schools.com/python/python_ref_set.asp) [Python File Methods](https://www.w3schools.com/python/python_ref_file.asp) [Python Keywords](https://www.w3schools.com/python/python_ref_keywords.asp) [Python Exceptions](https://www.w3schools.com/python/python_ref_exceptions.asp) [Python Glossary](https://www.w3schools.com/python/python_ref_glossary.asp)\n\n## Module Reference\n\n[Built-in Modules](https://www.w3schools.com/python/python_ref_modules.asp) [Random Module](https://www.w3schools.com/python/module_random.asp) [Requests Module](https://www.w3schools.com/python/module_requests.asp) [Statistics Module](https://www.w3schools.com/python/module_statistics.asp) [Math Module](https://www.w3schools.com/python/module_math.asp) [cMath Module](https://www.w3schools.com/python/module_cmath.asp)\n\n## Python How To\n\n[Remove List Duplicates](https://www.w3schools.com/python/python_howto_remove_duplicates.asp) [Reverse a String](https://www.w3schools.com/python/python_howto_reverse_string.asp) [Add Two Numbers](https://www.w3schools.com/python/python_howto_add_two_numbers.asp)\n\n## Python Examples\n\n[Python Examples](https://www.w3schools.com/python/python_examples.asp) [Python Compiler](https://www.w3schools.com/python/python_compiler.asp) [Python Exercises](https://www.w3schools.com/python/python_exercises.asp) [Python Quiz](https://www.w3schools.com/python/python_quiz.asp) [Python Challenges](https://www.w3schools.com/python/python_challenges.asp) [Python Practice Problems](https://www.w3schools.com/python/python_practice.php) [Python Server](https://www.w3schools.com/python/python_server.asp) [Python Syllabus](https://www.w3schools.com/python/python_syllabus.asp) [Python Study Plan](https://www.w3schools.com/python/python_study_plan.asp) [Python Interview Q&A](https://www.w3schools.com/python/python_interview_questions.asp) [Python Training](https://www.w3schools.com/python/python_training.asp)\n\n# Python Virtual Environment\n\n[❮ Previous](https://www.w3schools.com/python/python_user_input.asp) [Next ❯](https://www.w3schools.com/python/python_oop.asp)\n\n* * *\n\nShareLink Copied\n\n## What is a Virtual Environment?\n\nA **virtual environment** in Python is an isolated environment on your computer, where you can run and test your Python projects.\n\nIt allows you to manage project-specific dependencies without interfering with other projects or the original Python installation.\n\nThink of a virtual environment as a separate container for each Python project. Each co",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": true,
+      "metadata": {
+        "og:image:type": "image/png",
+        "ogSiteName": "W3Schools",
+        "og:image:width": "1200",
+        "og:url": "https://www.w3schools.com/python/python_virtualenv.asp",
+        "twitter:title": "Python Virtual Environment - venv",
+        "ogDescription": "A virtual environment in Python is an isolated environment on your computer, where you can run and test your Python projects.",
+        "ogUrl": "https://www.w3schools.com/python/python_virtualenv.asp",
+        "og:site_name": "W3Schools",
+        "ogTitle": "Python Virtual Environment - venv",
+        "Keywords": "HTML, Python, CSS, SQL, JavaScript, How to, PHP, Java, C, C++, C#, jQuery, Bootstrap, Colors, W3.CSS, XML, MySQL, Icons, NodeJS, React, Graphics, Angular, R, AI, Git, Data Science, Code Game, Tutorials, Programming, Web Development, Training, Learning, Quiz, Exercises, Courses, Lessons, References, Examples, Learn to code, Source code, Demos, Tips, Website",
+        "ogImage": "https://www.w3schools.com/images/og/python/python_virtualenv.png",
+        "title": "Python Virtual Environment - venv",
+        "og:description": "A virtual environment in Python is an isolated environment on your computer, where you can run and test your Python projects.",
+        "og:image:height": "630",
+        "Description": "Well organized and easy to understand Web building tutorials with lots of examples of how to use HTML, CSS, JavaScript, SQL, Python, PHP, Bootstrap, Java, XML and more.",
+        "viewport": "width=device-width, initial-scale=1",
+        "twitter:description": "A virtual environment in Python is an isolated environment on your computer, where you can run and test your Python projects.",
+        "twitter:image": "https://www.w3schools.com/images/og/python/python_virtualenv.png",
+        "msapplication-TileColor": "#00a300",
+        "twitter:site": "@w3schools",
+        "apple-itunes-app": "app-id=6770531503",
+        "og:type": "article",
+        "twitter:card": "summary_large_image",
+        "og:image": "https://www.w3schools.com/images/og/python/python_virtualenv.png",
+        "language": "en-US",
+        "theme-color": "#ffffff",
+        "format-detection": "telephone=no",
+        "favicon": "https://www.w3schools.com/favicon.ico",
+        "scrapeId": "01a13e8a-2ca1-75d8-ad66-013a95089845",
+        "sourceURL": "https://www.w3schools.com/python/python_virtualenv.asp",
+        "url": "https://www.w3schools.com/python/python_virtualenv.asp",
+        "statusCode": 200,
+        "contentType": "text/html",
+        "proxyUsed": "basic",
+        "cacheState": "hit",
+        "cachedAt": "2026-10-13T08:02:49.687Z",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 1455,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 2067
+    }
+  ],
+  "comments": [
+    {
+      "url": "https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version",
+      "text": "The 2026 Annual Developer Survey Results Site is live—\n[view the results here!](https://survey.stackoverflow.co/2026/?utm_medium=referral&utm_source=stackoverflow-community&utm_campaign=dev-survey-2026&utm_content=announcement-banner-results)\n\n[dismiss](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version# \"dismiss\")\n\n##### Collectives™ on Stack Overflow\n\nFind centralized, trusted content and collaborate around the technologies you use most.\n\n[Learn more about Collectives](https://stackoverflow.com/collectives)\n\n# [How to create a venv with a different Python version](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version)\n\n[Ask Question](https://stackoverflow.com/questions/ask)\n\nAsked4 years, 9 months ago\n\nModified [1 year, 2 months ago](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version?lastactivity \"2025-08-08 10:34:58Z\")\n\nViewed\n326k times\n\n\nThis question shows research effort; it is useful and clear\n\n104\n\nThis question does not show any research effort; it is unclear or not useful\n\nSave this question.\n\n[Timeline](https://stackoverflow.com/posts/70422866/timeline)\n\nShow activity on this post.\n\nI have different venvs in my machine in which I have Python 3.10.\n\nNow for a specific project, I realised that Python 3.10 is not suitable as some libraries are still not compatible. Therefore, when creating a new venv for a new project, I would like to downgrade Python, say to 3.8, only for this specific venv.\n\nHow can I do that?\nWhat should I type onto the terminal to do this?\n\nPS: I use [Visual Studio Code](https://en.wikipedia.org/wiki/Visual_Studio_Code) and its terminal to create venv.\n\n- [python](https://stackoverflow.com/questions/tagged/python \"show questions tagged 'python'\")\n- [python-venv](https://stackoverflow.com/questions/tagged/python-venv \"show questions tagged 'python-venv'\")\n\n[Share](https://stackoverflow.com/q/70422866)\n\nShare a link to this question\n\nCopy link [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/ \"The current license for this post: CC BY-SA 4.0\")\n\nShort permalink to this question\n\n[Improve this question](https://stackoverflow.com/posts/70422866/edit \"\")\n\nFollow\n\n\n\nFollow this question to receive notifications\n\n[edited Aug 8, 2025 at 9:58](https://stackoverflow.com/posts/70422866/revisions \"show all edits to this post\")\n\n[![mkrieger1's user avatar](https://i.sstatic.net/uCfJK.png?s=64)](https://stackoverflow.com/users/4621513/mkrieger1)\n\n[mkrieger1](https://stackoverflow.com/users/4621513/mkrieger1)\n\n24.6k88 gold badges7373 silver badges8888 bronze badges\n\nasked Dec 20, 2021 at 13:52\n\n[![Dark2018's user avatar](https://www.gravatar.com/avatar/fa5fe5ec2a9b970c5ad299630b152abe?s=64&d=identicon&r=PG&f=y&so-version=2)](https://stackoverflow.com/users/16594286/dark2018)\n\n[Dark2018](https://stackoverflow.com/users/16594286/dark2018)\n\n1,15522 gold badges88 silver badges88 bronze badges\n\n[Add a comment](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version# \"Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.\") \\| [Expand to show all comments on this post](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version# \"Expand to show all comments on this post\")\n\n## 13 Answers 13\n\nSorted by:\n[Reset to default](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version?answertab=scoredesc#tab-top)\n\nHighest score (default)\n\nTrending (recent votes count more)\n\nDate modified (newest first)\n\nDate created (oldest first)\n\n\nThis answer is useful\n\n87\n\nThis answer is not useful\n\nSave this answer.\n\nLoading when this answer was accepted…\n\n[Timeline](https://stackoverflow.com/posts/70569378/timeline)\n\nShow activity on this post.\n\n### The recommended way by python.org\n\nThe recommended way of managing virtual e"
+    },
+    {
+      "url": "https://www.w3schools.com/python/python_virtualenv.asp",
+      "text": "[Home](https://www.w3schools.com/ \"Home\")[Menu](https://www.w3schools.com/python/python_virtualenv.asp# \"Menu\")\n\nSearch field\n\n\n_×_\n\n[See More](https://www.w3schools.com/python/python_virtualenv.asp#)\n\n[NEW![](https://www.w3schools.com/adventure/img/mascot-lynx.png)W3Schools appiOS & AndroidApp](https://www.w3schools.com/adventure/index.php \"W3Schools Adventure App - iOS and Android\")\n\nSign In\n\n[★+1](https://profile.w3schools.com/log-in?redirect_url=https%3A%2F%2Fwww.w3schools.com%2Fpython%2Fpython_virtualenv.asp \"Your W3Schools Profile\") [Spaces](https://www.w3schools.com/spaces/index.php \"Get Your Own Website With W3Schools Spaces\") [Upgrade](https://order.w3schools.com/plans \"Become a PLUS user and unlock powerful features\") [Paid Courses](https://campus.w3schools.com/collections/course-catalog \"W3Schools Paid Courses\") [Spaces](https://spaces.w3schools.com/ \"Go to Your W3Schools Space\") [Upgrade](https://order.w3schools.com/plans \"Get personalized learning journey based on your current skills and goals\") [Paid Courses](https://campus.w3schools.com/collections/course-catalog \"W3Schools Paid Courses\")\n\n❮\n\n     ❯\n\n[HTML](https://www.w3schools.com/html/default.asp \"HTML Tutorial\") [CSS](https://www.w3schools.com/css/default.asp \"CSS Tutorial\") [JAVASCRIPT](https://www.w3schools.com/js/default.asp \"JavaScript Tutorial\") [SQL](https://www.w3schools.com/sql/default.asp \"SQL Tutorial\") [PYTHON](https://www.w3schools.com/python/default.asp \"Python Tutorial\") [JAVA](https://www.w3schools.com/java/default.asp \"Java Tutorial\") [PHP](https://www.w3schools.com/php/default.asp \"PHP Tutorial\") [C](https://www.w3schools.com/c/index.php \"C Tutorial\") [C++](https://www.w3schools.com/cpp/default.asp \"C++ Tutorial\") [C#](https://www.w3schools.com/cs/index.php \"C# Tutorial\") [AWS](https://www.w3schools.com/aws/index.php \"AWS Tutorial\") [W3.CSS](https://www.w3schools.com/w3css/default.asp \"W3.CSS Tutorial\") [HOW TO](https://www.w3schools.com/howto/default.asp \"How to\") [BOOTSTRAP](https://www.w3schools.com/bootstrap/bootstrap_ver.asp \"Bootstrap Tutorial\") [REACT](https://www.w3schools.com/react/default.asp \"React Tutorial\") [MYSQL](https://www.w3schools.com/mysql/default.asp \"MySQL Tutorial\") [JQUERY](https://www.w3schools.com/jquery/default.asp \"JQuery Tutorial\") [EXCEL](https://www.w3schools.com/excel/index.php \"Excel Tutorial\") [XML](https://www.w3schools.com/xml/default.asp \"XML Tutorial\") [DJANGO](https://www.w3schools.com/django/index.php \"Django Tutorial\") [NUMPY](https://www.w3schools.com/python/numpy/default.asp \"NumPy Tutorial\") [PANDAS](https://www.w3schools.com/python/pandas/default.asp \"Pandas Tutorial\") [NODEJS](https://www.w3schools.com/nodejs/default.asp \"Node.js Tutorial\") [DSA](https://www.w3schools.com/dsa/index.php \"DSA Tutorial\") [TYPESCRIPT](https://www.w3schools.com/typescript/index.php \"TypeScript Tutorial\") [ANGULAR](https://www.w3schools.com/angular/default.asp \"Angular Tutorial\") [ANGULARJS](https://www.w3schools.com/angularjs/default.asp \"Angular.js Tutorial\") [GIT](https://www.w3schools.com/git/default.asp \"Git Tutorial\") [POSTGRESQL](https://www.w3schools.com/postgresql/index.php \"PostgreSQL Tutorial\") [MONGODB](https://www.w3schools.com/mongodb/index.php \"MongoDB Tutorial\") [ASP](https://www.w3schools.com/asp/default.asp \"ASP Tutorial\") [AI](https://www.w3schools.com/ai/default.asp \"A.I. Tutorial\") [R](https://www.w3schools.com/r/default.asp \"R Tutorial\") [GO](https://www.w3schools.com/go/index.php \"Go Tutorial\") [KOTLIN](https://www.w3schools.com/kotlin/index.php \"Kotlin Tutorial\") [SWIFT](https://www.w3schools.com/swift/default.asp \"Swift Tutorial\") [SASS](https://www.w3schools.com/sass/default.asp \"Sass Tutorial\") [VUE](https://www.w3schools.com/vue/index.php \"Vue.js Tutorial\") [GEN AI](https://www.w3schools.com/gen_ai/index.php \"Gen A.I. Tutorial\") [SCIPY](https://www.w3schools.com/python/scipy/index.php \"SciPy Tutorial\") [CYBERSECURITY](https://www.w3schools.com/cybersecurity/index.php \"Cyber security Tutorial"
+    }
+  ],
+  "elapsed_ms": 21852,
+  "api_calls": {
+    "xai": 1,
+    "tavily": 1,
+    "firecrawl": 2
+  },
+  "score": {
+    "id": "stackoverflow-venv",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "so-question"
+        ],
+        "required": 1
+      },
+      "comments": {
+        "status": "pass",
+        "matched_comments": [
+          "0"
+        ]
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "pass",
+      "reasons": []
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": false
+  }
+}

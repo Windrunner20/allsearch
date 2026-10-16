@@ -1,0 +1,580 @@
+{
+  "id": "antibot-shell",
+  "executed_at": "2026-10-15T08:16:11.994987+00:00",
+  "depth": "verify",
+  "provider_query": "Open the Chiphell viewthread page and record whether the body is a captcha shell",
+  "answer": "**Chiphell `viewthread` is not a captcha shell** on the fetches that returned a page. The body is a normal Discuz thread or a short “topic missing” notice.\n\n1. **Live thread, full body** — `https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513`  \n   Title “相查看写资料，可是旧帖归档需要密码”, view/reply counts, posts, reply box, footer (`Gzip On, Redis On`). No captcha, challenge, or security-check shell. [[1]](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513)\n\n2. **Missing thread, short notice** — `https://www.chiphell.com/forum.php?mod=viewthread&tid=1`  \n   Body is “抱歉，指定的主题不存在或已被删除或正在被审核” plus footer. Not a captcha page. [[2]](https://www.chiphell.com/forum.php?mod=viewthread&tid=1)\n\n3. **Empty fetches (not a captcha page either)** — `forum.php?mod=viewthread&tid=2509145` and `tid=1041179` returned no extractable content in this session. Same pattern on the pretty URL `thread-2509145-1-1.html`. No captcha markup was present in what came back. [[3]](https://www.chiphell.com/forum.php?mod=viewthread&tid=2509145) [[4]](https://www.chiphell.com/forum.php?mod=viewthread&tid=1041179)\n\n4. **Rewrite target is `viewthread`** — Discuz rewrite maps `thread-{tid}-…html` to `forum.php?mod=viewthread&tid=…` (shown in an old Chiphell rewrite thread). [[5]](https://www.chiphell.com/thread-1041179-1-1.html)\n\n5. **Same thread via search index** — Indexed copy of tid 2438513 is ordinary post text, not a verification interstitial. [[6]](https://www.chiphell.com/forum.php?action=printable&mod=viewthread&tid=2438513)\n\n6. **Forum lists load as normal Discuz** — `forum.php?mod=forumdisplay` (e.g. fid 146) returns board lists, not a captcha shell. [[7]](https://www.chiphell.com/forum.php?mod=forumdisplay&fid=146&orderby=lastpost&filter=dateline&dateline=604800&typeid=997)\n\n7. **Home/community index** — `forum.php` community page is standard section lists and stats. [[8]](https://www.chiphell.com/forum.php?mod=&mobile=no)\n\n8. **Related, not this page** — Users discuss occasional “请求已被站点的安全策略拦截” (described as outside/Tencent-side blocking), separate from the `viewthread` HTML when the thread renders. [[9]](https://www.chiphell.com/thread-2844250-1-1.html)\n\n**Record:** when Chiphell `mod=viewthread` returns content, the body is thread HTML or a missing-thread notice, **not** a captcha shell. Some tids returned an empty body in this session.",
+  "results": [
+    {
+      "id": "r1",
+      "title": "1",
+      "url": "https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513",
+      "snippet": "",
+      "content": "设为首页 [收藏本站](https://www.chiphell.com/)\n\n请 **登录** 后使用快捷导航\n\n没有账号？ [加入我们](https://www.chiphell.com/member.php?mod=register)\n\n## [![Chiphell - 分享与交流用户体验](https://www.chiphell.com/static/image/common/logo.png)](https://www.chiphell.com/ \"Chiphell - 分享与交流用户体验\")\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| 账号 |  | 自动登录 | 找回密码 |\n| 密码 |  | _登录_ | [加入我们](https://www.chiphell.com/member.php?mod=register) |\n\n快捷导航\n\n- [首页](https://www.chiphell.com/)\n- [评测](https://www.chiphell.com/portal.php?mod=list&catid=1)\n- [电脑](https://www.chiphell.com/portal.php?mod=list&catid=2)\n- [掌设](https://www.chiphell.com/portal.php?mod=list&catid=36)\n- [摄影](https://www.chiphell.com/portal.php?mod=list&catid=31)\n- [照片](https://www.chiphell.com/portal.php?mod=list&catid=3)\n- [汽车](https://www.chiphell.com/portal.php?mod=list&catid=32)\n- [单车](https://www.chiphell.com/portal.php?mod=list&catid=29)\n- [模型](https://www.chiphell.com/portal.php?mod=list&catid=30)\n- [败家](https://www.chiphell.com/portal.php?mod=list&catid=33)\n- [时尚](https://www.chiphell.com/portal.php?mod=list&catid=118)\n- [腕表](https://www.chiphell.com/portal.php?mod=list&catid=125)\n- [视听](https://www.chiphell.com/portal.php?mod=list&catid=66)\n- [美食](https://www.chiphell.com/portal.php?mod=list&catid=67)\n- [家居](https://www.chiphell.com/portal.php?mod=list&catid=132)\n- [活宠](https://www.chiphell.com/portal.php?mod=list&catid=133)\n- [文化](https://www.chiphell.com/portal.php?mod=list&catid=37)\n- [社区BBS](https://www.chiphell.com/forum.php \"BBS\")\n\n- [视频评测](https://www.chiphell.com/portal.php?mod=list&catid=39)\n- [笔记本](https://www.chiphell.com/portal.php?mod=list&catid=19)\n- [机箱](https://www.chiphell.com/portal.php?mod=list&catid=11)\n- [处理器](https://www.chiphell.com/portal.php?mod=list&catid=13)\n- [散热器](https://www.chiphell.com/portal.php?mod=list&catid=14)\n- [主板](https://www.chiphell.com/portal.php?mod=list&catid=15)\n- [内存](https://www.chiphell.com/portal.php?mod=list&catid=137)\n- [外设](https://www.chiphell.com/portal.php?mod=list&catid=18)\n- [电源](https://www.chiphell.com/portal.php?mod=list&catid=35)\n- [存储](https://www.chiphell.com/portal.php?mod=list&catid=23)\n- [显示设备](https://www.chiphell.com/portal.php?mod=list&catid=21)\n- [台式机](https://www.chiphell.com/portal.php?mod=list&catid=88)\n- [显卡](https://www.chiphell.com/portal.php?mod=list&catid=10)\n- [相机](https://www.chiphell.com/portal.php?mod=list&catid=116)\n\n- [配件开箱](https://www.chiphell.com/portal.php?mod=list&catid=98)\n- [整机搭建](https://www.chiphell.com/portal.php?mod=list&catid=99)\n- [升级改造](https://www.chiphell.com/portal.php?mod=list&catid=100)\n- [桌面书房](https://www.chiphell.com/portal.php?mod=list&catid=101)\n\n- [智能手机](https://www.chiphell.com/portal.php?mod=list&catid=40)\n- [智能穿戴](https://www.chiphell.com/portal.php?mod=list&catid=89)\n- [笔电平板](https://www.chiphell.com/portal.php?mod=list&catid=41)\n- [周边附件](https://www.chiphell.com/portal.php?mod=list&catid=92)\n\n- [微单卡片](https://www.chiphell.com/portal.php?mod=list&catid=52)\n- [单反单电](https://www.chiphell.com/portal.php?mod=list&catid=51)\n- [经典旁轴](https://www.chiphell.com/portal.php?mod=list&catid=53)\n- [怀旧菲林](https://www.chiphell.com/portal.php?mod=list&catid=54)\n- [影音摄像](https://www.chiphell.com/portal.php?mod=list&catid=57)\n- [周边附件](https://www.chiphell.com/portal.php?mod=list&catid=55)\n\n- [人物肖像](https://www.chiphell.com/portal.php?mod=list&catid=102)\n- [风景游记](https://www.chiphell.com/portal.php?mod=list&catid=103)\n- [微距静物](https://www.chiphell.com/portal.php?mod=list&catid=104)\n- [人文扫街](https://www.chiphell.com/portal.php?mod=list&catid=105)\n- [动物植物](https://www.chiphell.com/portal.php?mod=list&catid=106)\n- [其它作品](https://www.chiphell.com/portal.php?mod=list&catid=107)\n\n- [买菜车](https://www.chiphell.com/portal.php?mod=list&catid=58)\n- [商务车](https://www.chiphell.com/portal.php?mod=list&catid=59)\n- [性能车](https://www.chiphell.com/portal.php?mod=list&catid=63)\n- [旅行车](https://www.chiphell.com/portal.php?mod=list&catid=60)\n- [SUV](https://www.chiphell.com/portal.php?mod=list&catid=61)\n- [MPV](https://www.chiphell.com/portal.php?mod=list&catid=95)\n- [摩托轻骑](https://www.chiphell.com/portal.php?mod=list&catid=65)\n- [改装配件](https://www.chiphell.com/portal.php?mod=list&catid=96)\n- [CHH Auto Club](https://www.chiphell.com/portal.php?mod=list&catid=138)\n\n- [山地车](https://www.chiphell.com/portal.php?mod=list&catid=108)\n- [公路车](https://www.chiphell.com/portal.php?mod=list&catid=109)\n- [折叠车](https://www.chiphell.com/portal.php?mod=list&catid=110)\n- [休旅车](https://www.chiphell.com/portal.php?mod=list&catid=111)\n\n- [人偶手办](https://www.chiphell.com/portal.php?mod=list&catid=112)\n- [比例成品](https://www.chiphell.com/portal.php?mod=list&catid=113)\n- [拼装自组](https://www.chiphell.com/portal.php?mod=list&catid=114)\n- [RC遥控](https://www.chiphell.com/portal.php?mod=list&catid=115)\n\n- [收藏爱好](https://www.chiphell.com/portal.php?mod=list&catid=47)\n- [品质生活](https://www.chiphell.com/portal.php?mod=list&catid=45)\n- [数码前沿](https://www.chiphell.com/portal.php?mod=list&catid=46)\n- [小资情调](https://www.chiphell.com/portal.php?mod=list&catid=44)\n- [女王最大](https://www.chiphell.com/portal.php?mod=list&catid=48)\n- [吃喝玩乐](https://www.chiphell.com/portal.php?mod=list&catid=49)\n- [育儿分享](https://www.chiphell.com/portal.php?mod=list&catid=87)\n\n- [鞋类](https://www.chiphell.com/portal.php?mod=list&catid=122)\n- [服饰](https://www.chiphell.com/portal.php?mod=list&catid=123)\n- [箱包](https://www.chiphell.com/portal.php?mod=list&catid=124)\n\n- [机械表](https://www.chiphell.com/portal.php?mod=list&catid=128)\n- [电子表](https://www.chiphell.com/portal.php?mod=list&catid=126)\n\n- [耳机耳放](https://www.chiphell.com/portal.php?mod=list&catid=71)\n- [音箱功放](https://www.chiphell.com/portal.php?mod=list&catid=72)\n- [解码转盘](https://www.chiphell.com/portal.php?mod=list&catid=73)\n- [随身设备](https://www.chiphell.com/portal.php?mod=list&catid=74)\n- [唱片录音](https://www.chiphell.com/portal.php?mod=list&catid=75)\n\n- [当地美食](https://www.chiphell.com/portal.php?mod=list&catid=68)\n- [世界美食](https://www.chiphell.com/portal.php?mod=list&catid=117)\n- [私房菜品](https://www.chiphell.com/portal.php?mod=list&catid=69)\n- [美食器材](https://www.chiphell.com/portal.php?mod=list&catid=70)\n\n|     |     |     |     |     |\n| --- | --- | --- | --- | --- |\n|  |  | 帖子 | **搜索** |  |\n\n搜索\n\n- 本版\n- 文章\n- 帖子\n\n[Chiphell - 分享与交流用户体验](https://www.chiphell.com/ \"首页\") _»_ [社区](https://www.chiphell.com/forum.php) _›_ [分享区-产品开箱与用户体验的分享](https://www.chiphell.com/forum.php?gid=186) _›_ [相关讨论](https://www.chiphell.com/forum-315-1.html) _›_ [相查看写资料，可是旧帖归档需要密码](https://www.chiphell.com/thread-2438513-1-1.html)\n\n**1** [2](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&extra=&page=2) / 2 页 [下一页](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&extra=&page=2)\n\n[返回列表](https://www.chiphell.com/forum-315-1.html)发新帖\n\n|     |     |\n| --- | --- |\n| 查看:48800\\|回复:56 | [打印](https://www.chiphell.com/forum.php?mod=viewthread&action=printable&tid=2438513 \"打印\")[上一主题](https://www.chiphell.com/forum.php?mod=redirect&goto=nextoldset&tid=2438513 \"上一主题\")[下一主题](https://www.chiphell.com/forum.php?mod=redirect&goto=nextnewset&tid=2438513 \"下一主题\")<br># [\\[电脑\\]](https://www.chiphell.com/forum.php?mod=forumdisplay&fid=315&filter=typeid&typeid=925) 相查看写资料，可是旧帖归档需要密码<br>[\\[复制链接\\]](https://www.chiphell.com/thread-2438513-1-1.html) |\n\n|     |     |\n| --- | --- |\n| [wqzxhpx](https://www.chiphell.com/space-uid-316480.html)<br>**[wqzxhpx](https://www.chiphell.com/space-uid-316480.html)** _当前离线_<br>积分[2632](https://www.chiphell.com/home.php?mod=space&uid=316480&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=316480&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/31/64/80_avatar_middle.jpg)](https://www.chiphell.com/space-uid-316480.html) | 电梯直达\n\n**[_1_#](https://www.chiphell.com/thread-2438513-1-1.html)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-23 15:04_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=316480) \\| [只看大图](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&from=album) \\| [倒序浏览](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&extra=&ordertype=1) \\|阅读模式\n\n|     |\n| --- |\n| 相查看些资料，可是旧帖归档需要密码，不知道是不是不能正常浏览了，有知道的大神吗，谢谢 | |\n| [_收藏35_](https://www.chiphell.com/home.php?mod=spacecp&ac=favorite&type=thread&id=2438513&formhash=4ba9967a \"收藏本帖\") |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&reppost=50501503&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [田丫丫](https://www.chiphell.com/space-uid-407080.html)<br>**[田丫丫](https://www.chiphell.com/space-uid-407080.html)** _当前离线_<br>积分[568](https://www.chiphell.com/home.php?mod=space&uid=407080&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=407080&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/40/70/80_avatar_middle.jpg)](https://www.chiphell.com/space-uid-407080.html) | **[_2_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50503530)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-23 19:45_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=407080)\n\n|     |\n| --- |\n| 不知道，我也想知道 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50503530&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [vickyfl](https://www.chiphell.com/space-uid-283083.html)<br>**[vickyfl](https://www.chiphell.com/space-uid-283083.html)** _当前离线_<br>积分[1339](https://www.chiphell.com/home.php?mod=space&uid=283083&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=283083&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/28/30/83_avatar_middle.jpg)](https://www.chiphell.com/space-uid-283083.html) | **[_3_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50503601)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-23 20:01_ 来自手机\\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=283083)\n\n|     |\n| --- |\n| 同想知道，没密码无法访问 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50503601&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [DiamondBall](https://www.chiphell.com/space-uid-14374.html)<br>**[DiamondBall](https://www.chiphell.com/space-uid-14374.html)** _当前离线_<br>积分[190707](https://www.chiphell.com/home.php?mod=space&uid=14374&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=14374&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/01/43/74_avatar_middle.jpg)](https://www.chiphell.com/space-uid-14374.html) | **[_4_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50509433)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-24 16:50_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=14374)\n\n|     |\n| --- |\n| 你要是有具体帖子的链接可以私信管理员恢复<br>没的话那就没了 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50509433&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [mclaren2010](https://www.chiphell.com/space-uid-216975.html)<br>**[mclaren2010](https://www.chiphell.com/space-uid-216975.html)** _当前离线_<br>积分[909](https://www.chiphell.com/home.php?mod=space&uid=216975&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=216975&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/21/69/75_avatar_middle.jpg)](https://www.chiphell.com/space-uid-216975.html) | **[_5_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50509866)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-24 17:42_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=216975)\n\n|     |\n| --- |\n| 能理解管理旧贴的成本压力，但是对于坛友来讲，就等于给论坛的网络记忆规定了具体时间，当帖子发出后就是倒计时开始的时候，到了时间后如需浏览还要麻烦管理给密码，还是希望能有一个自动申请密码的机制。 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50509866&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [whisky\\_gan](https://www.chiphell.com/space-uid-163395.html)<br>**[whisky\\_gan](https://www.chiphell.com/space-uid-163395.html)** _当前离线_<br>积分[2998](https://www.chiphell.com/home.php?mod=space&uid=163395&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=163395&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/16/33/95_avatar_middle.jpg)](https://www.chiphell.com/space-uid-163395.html) | **[_6_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50510876)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-24 21:18_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=163395)\n\n|     |\n| --- |\n| 来爬以前的贴子学习下，结果都是归档的。这堂子要黄？ | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50510876&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [fcymk2](https://www.chiphell.com/space-uid-197054.html)<br>**[fcymk2](https://www.chiphell.com/space-uid-197054.html)** _当前离线_<br>积分[3851](https://www.chiphell.com/home.php?mod=space&uid=197054&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=197054&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/19/70/54_avatar_middle.jpg)](https://www.chiphell.com/space-uid-197054.html) | **[_7_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50514253)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-25 12:46_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=197054)\n\n|     |\n| --- |\n| 希望可以来个自动申请帖子密码的功能. 密码有效期1小时都行... | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50514253&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [红汤辣](https://www.chiphell.com/space-uid-114406.html)<br>**[红汤辣](https://www.chiphell.com/space-uid-114406.html)** _当前离线_<br>积分[5826](https://www.chiphell.com/home.php?mod=space&uid=114406&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=114406&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/11/44/06_avatar_middle.jpg)](https://www.chiphell.com/space-uid-114406.html) | **[_8_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50517722)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-25 22:40_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=114406)\n\n|     |\n| --- |\n| 我喜欢联力机箱，无数经典开箱装机贴都在CHH，现在倒好，啥都看不到了。 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50517722&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [kgbchenlong](https://www.chiphell.com/space-uid-136686.html)<br>**[kgbchenlong](https://www.chiphell.com/space-uid-136686.html)** _当前离线_<br>积分[282](https://www.chiphell.com/home.php?mod=space&uid=136686&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=136686&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/13/66/86_avatar_middle.jpg)](https://www.chiphell.com/space-uid-136686.html) | **[_9_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50525602)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-27 11:13_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=136686)\n\n|     |\n| --- |\n| 就是历史资料清了，论坛管理严格了 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50525602&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [dumsss](https://www.chiphell.com/space-uid-399969.html)<br>**[dumsss](https://www.chiphell.com/space-uid-399969.html)** _当前离线_<br>积分[-171](https://www.chiphell.com/home.php?mod=space&uid=399969&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=399969&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/39/99/69_avatar_middle.jpg)](https://www.chiphell.com/space-uid-399969.html) | **[_10_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50530314)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-28 11:36_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=399969)\n\n|     |\n| --- |\n| 可能还是网监内容审查严格了吧 直接一次性装箱 谁要什么 自己申请 申请的时候网管审查一次 没问题就放出来 有问题的 对不起别想了 <br>好处是 网监那边的要求 一次性合格 绝对没问题 没人申请恢复的就不用审查了 申请的审查工作量有限 <br>能理解 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50530314&extra=&page=1)_<br>举报 |\n\n| [sandro](https://www.chiphell.com/space-uid-388185.html)<br>**[sandro](https://www.chiphell.com/space-uid-388185.html)** _当前离线_<br>积分[3304](https://www.chiphell.com/home.php?mod=space&uid=388185&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=388185&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/38/81/85_avatar_middle.jpg)](https://www.chiphell.com/space-uid-388185.html) | **[_11_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50530631)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-28 13:07_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=388185)\n\n|     |\n| --- |\n| 旧贴查看要单独申请，太麻烦了，你可以试试这个网站，有收录论坛的贴子，不是很全 [https://machbbs.com/chiphell/](https://machbbs.com/chiphell/) |\n\n### 评分\n\n| [参与人数 2](https://www.chiphell.com/forum.php?mod=misc&action=viewratings&tid=2438513&pid=50530631 \"查看全部评分\") | 邪恶指数 _+10_ | 收起 _理由_ |\n| [![](https://www.chiphell.com/data/avatar/000/46/63/47_avatar_small.jpg)](https://www.chiphell.com/space-uid-466347.html)[没前途的孩子](https://www.chiphell.com/space-uid-466347.html) | \\+ 5 | 虽然不知道为啥打不开，但精神可嘉 ... |\n| [![](https://www.chiphell.com/data/avatar/000/27/47/91_avatar_small.jpg)](https://www.chiphell.com/space-uid-274791.html)[gammi](https://www.chiphell.com/space-uid-274791.html) | \\+ 5 | 666 |\n\n[查看全部评分](https://www.chiphell.com/forum.php?mod=misc&action=viewratings&tid=2438513&pid=50530631 \"查看全部评分\") |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50530631&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [wqzxhpx](https://www.chiphell.com/space-uid-316480.html)<br>**[wqzxhpx](https://www.chiphell.com/space-uid-316480.html)** _当前离线_<br>积分[2632](https://www.chiphell.com/home.php?mod=space&uid=316480&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=316480&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/31/64/80_avatar_middle.jpg)](https://www.chiphell.com/space-uid-316480.html) | **[_12_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50531360)**\n\n楼主\\| _发表于 2022-8-28 15:55_ 来自手机\\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=316480)\n\n|     |\n| --- |\n| > sandro 发表于 2022-8-28 13:07<br>> <br>> 旧贴查看要单独申请，太麻烦了，你可以试试这个网站，有收录论坛的贴子，不是很全https://machbbs.com/chip ...<br>大神  已经很全了 谢谢 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50531360&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [fcymk2](https://www.chiphell.com/space-uid-197054.html)<br>**[fcymk2](https://www.chiphell.com/space-uid-197054.html)** _当前离线_<br>积分[3851](https://www.chiphell.com/home.php?mod=space&uid=197054&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=197054&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/19/70/54_avatar_middle.jpg)](https://www.chiphell.com/space-uid-197054.html) | **[_13_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50537314)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-29 15:50_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=197054)\n\n|     |\n| --- |\n| > [sandro 发表于 2022-8-28 13:07](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&pid=50530631&ptid=2438513)<br>> <br>> 旧贴查看要单独申请，太麻烦了，你可以试试这个网站，有收录论坛的贴子，不是很全https://machbbs.com/chip ...<br>感谢...这网站真不错 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50537314&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [yoloh](https://www.chiphell.com/space-uid-8364.html)<br>**[yoloh](https://www.chiphell.com/space-uid-8364.html)** _当前离线_<br>积分[7879](https://www.chiphell.com/home.php?mod=space&uid=8364&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=8364&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/00/83/64_avatar_middle.jpg)](https://www.chiphell.com/space-uid-8364.html) | **[_14_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50539986)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-29 22:50_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=8364)\n\n|     |\n| --- |\n| 确实很不方便，大部分都是文字数据，应该占不了多少存储空间吧？ | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50539986&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [wqzxhpx](https://www.chiphell.com/space-uid-316480.html)<br>**[wqzxhpx](https://www.chiphell.com/space-uid-316480.html)** _当前离线_<br>积分[2632](https://www.chiphell.com/home.php?mod=space&uid=316480&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=316480&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/31/64/80_avatar_middle.jpg)](https://www.chiphell.com/space-uid-316480.html) | **[_15_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50542402)**\n\n楼主\\| _发表于 2022-8-30 10:52_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=316480)\n\n|     |\n| --- |\n| > [yoloh 发表于 2022-8-29 22:50](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&pid=50539986&ptid=2438513)<br>> <br>> 确实很不方便，大部分都是文字数据，应该占不了多少存储空间吧？<br>以前的帖子其实更有借鉴价值 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50542402&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [gaochao86](https://www.chiphell.com/space-uid-60601.html)<br>**[gaochao86](https://www.chiphell.com/space-uid-60601.html)** _当前离线_<br>积分[5048](https://www.chiphell.com/home.php?mod=space&uid=60601&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=60601&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/06/06/01_avatar_middle.jpg)](https://www.chiphell.com/space-uid-60601.html) | **[_16_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50542462)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-30 10:57_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=60601)\n\n|     |\n| --- |\n| > [sandro 发表于 2022-8-28 13:07](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&pid=50530631&ptid=2438513)<br>> <br>> 旧贴查看要单独申请，太麻烦了，你可以试试这个网站，有收录论坛的贴子，不是很全https://machbbs.com/chip ...<br>非常感谢 解决问题啦 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50542462&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [ninepiece](https://www.chiphell.com/space-uid-170332.html)<br>**[ninepiece](https://www.chiphell.com/space-uid-170332.html)** _当前离线_<br>积分[6995](https://www.chiphell.com/home.php?mod=space&uid=170332&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=170332&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/17/03/32_avatar_middle.jpg)](https://www.chiphell.com/space-uid-170332.html) | **[_17_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50544579)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-30 15:07_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=170332)\n\n|     |\n| --- |\n| > [sandro 发表于 2022-8-28 13:07](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&pid=50530631&ptid=2438513)<br>> <br>> 旧贴查看要单独申请，太麻烦了，你可以试试这个网站，有收录论坛的贴子，不是很全https://machbbs.com/chip ...<br>已经很好了，可以查过去资料。 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50544579&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [bmw00168](https://www.chiphell.com/space-uid-176188.html)<br>**[bmw00168](https://www.chiphell.com/space-uid-176188.html)** _当前离线_<br>积分[244](https://www.chiphell.com/home.php?mod=space&uid=176188&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=176188&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/17/61/88_avatar_middle.jpg)](https://www.chiphell.com/space-uid-176188.html) | **[_18_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50927680)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-10-26 21:24_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=176188)\n\n|     |\n| --- |\n| 感谢... | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50927680&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [joying](https://www.chiphell.com/space-uid-441782.html)<br>**[joying](https://www.chiphell.com/space-uid-441782.html)** _当前离线_<br>积分[111](https://www.chiphell.com/home.php?mod=space&uid=441782&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=441782&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/noavatar.svg)](https://www.chiphell.com/space-uid-441782.html) | **[_19_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=52832663)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-6-18 08:12_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=441782)\n\n|     |\n| --- |\n| 我也太想看，尤其玩二手机的，特想看看以前的帖子 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=52832663&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [很陈冠希](https://www.chiphell.com/space-uid-316318.html)<br>**[很陈冠希](https://www.chiphell.com/space-uid-316318.html)** _当前离线_<br>积分[3846](https://www.chiphell.com/home.php?mod=space&uid=316318&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=316318&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/31/63/18_avatar_middle.jpg)](https://www.chiphell.com/space-uid-316318.html) | **[_20_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=52859136)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-6-22 07:06_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=316318)\n\n|     |\n| --- |\n| 看不了太可惜了 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=52859136&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [lishi114](https://www.chiphell.com/space-uid-80533.html)<br>**[lishi114](https://www.chiphell.com/space-uid-80533.html)** _当前离线_<br>积分[3246](https://www.chiphell.com/home.php?mod=space&uid=80533&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=80533&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/08/05/33_avatar_middle.jpg)](https://www.chiphell.com/space-uid-80533.html) | **[_21_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=52926707)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-7-3 06:22_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=80533)\n\n|     |\n| --- |\n| 想查点联力的老机箱装机方案，可惜啊 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=52926707&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [winc4532](https://www.chiphell.com/space-uid-359590.html)<br>**[winc4532](https://www.chiphell.com/space-uid-359590.html)** _当前离线_<br>积分[4076](https://www.chiphell",
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "firecrawl"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "剪片生产力,从此\"Intel Yes!\"",
+      "url": "https://youtu.be/baah9EjZV1Ybilibili?xstg=CAMSBhUDze3xHw%3D%3D",
+      "snippet": "Chiphell官网地址:https://www.chiphell.com/ Intel Arc 7 Graphics 官网 ... nApoleon Chiphell. Auto-dubbed. 2.3K views · 5:39. Go to channel 靓仔",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.18813033,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "2",
+      "url": "https://www.chiphell.com/forum.php?mod=viewthread&tid=1",
+      "snippet": "",
+      "content": "设为首页 [收藏本站](https://www.chiphell.com/)\n\n请 **登录** 后使用快捷导航\n\n没有账号？ [加入我们](https://www.chiphell.com/member.php?mod=register)\n\n## [![Chiphell - 分享与交流用户体验](https://www.chiphell.com/static/image/common/logo.png)](https://www.chiphell.com/ \"Chiphell - 分享与交流用户体验\")\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| 账号 |  | 自动登录 | 找回密码 |\n| 密码 |  | _登录_ | [加入我们](https://www.chiphell.com/member.php?mod=register) |\n\n快捷导航\n\n- [首页](https://www.chiphell.com/)\n- [评测](https://www.chiphell.com/portal.php?mod=list&catid=1)\n- [电脑](https://www.chiphell.com/portal.php?mod=list&catid=2)\n- [掌设](https://www.chiphell.com/portal.php?mod=list&catid=36)\n- [摄影](https://www.chiphell.com/portal.php?mod=list&catid=31)\n- [照片](https://www.chiphell.com/portal.php?mod=list&catid=3)\n- [汽车](https://www.chiphell.com/portal.php?mod=list&catid=32)\n- [单车](https://www.chiphell.com/portal.php?mod=list&catid=29)\n- [模型](https://www.chiphell.com/portal.php?mod=list&catid=30)\n- [败家](https://www.chiphell.com/portal.php?mod=list&catid=33)\n- [时尚](https://www.chiphell.com/portal.php?mod=list&catid=118)\n- [腕表](https://www.chiphell.com/portal.php?mod=list&catid=125)\n- [视听](https://www.chiphell.com/portal.php?mod=list&catid=66)\n- [美食](https://www.chiphell.com/portal.php?mod=list&catid=67)\n- [家居](https://www.chiphell.com/portal.php?mod=list&catid=132)\n- [活宠](https://www.chiphell.com/portal.php?mod=list&catid=133)\n- [文化](https://www.chiphell.com/portal.php?mod=list&catid=37)\n- [社区BBS](https://www.chiphell.com/forum.php \"BBS\")\n\n- [视频评测](https://www.chiphell.com/portal.php?mod=list&catid=39)\n- [笔记本](https://www.chiphell.com/portal.php?mod=list&catid=19)\n- [机箱](https://www.chiphell.com/portal.php?mod=list&catid=11)\n- [处理器](https://www.chiphell.com/portal.php?mod=list&catid=13)\n- [散热器](https://www.chiphell.com/portal.php?mod=list&catid=14)\n- [主板](https://www.chiphell.com/portal.php?mod=list&catid=15)\n- [内存](https://www.chiphell.com/portal.php?mod=list&catid=137)\n- [外设](https://www.chiphell.com/portal.php?mod=list&catid=18)\n- [电源](https://www.chiphell.com/portal.php?mod=list&catid=35)\n- [存储](https://www.chiphell.com/portal.php?mod=list&catid=23)\n- [显示设备](https://www.chiphell.com/portal.php?mod=list&catid=21)\n- [台式机](https://www.chiphell.com/portal.php?mod=list&catid=88)\n- [显卡](https://www.chiphell.com/portal.php?mod=list&catid=10)\n- [相机](https://www.chiphell.com/portal.php?mod=list&catid=116)\n\n- [配件开箱](https://www.chiphell.com/portal.php?mod=list&catid=98)\n- [整机搭建](https://www.chiphell.com/portal.php?mod=list&catid=99)\n- [升级改造](https://www.chiphell.com/portal.php?mod=list&catid=100)\n- [桌面书房](https://www.chiphell.com/portal.php?mod=list&catid=101)\n\n- [智能手机](https://www.chiphell.com/portal.php?mod=list&catid=40)\n- [智能穿戴](https://www.chiphell.com/portal.php?mod=list&catid=89)\n- [笔电平板](https://www.chiphell.com/portal.php?mod=list&catid=41)\n- [周边附件](https://www.chiphell.com/portal.php?mod=list&catid=92)\n\n- [微单卡片](https://www.chiphell.com/portal.php?mod=list&catid=52)\n- [单反单电](https://www.chiphell.com/portal.php?mod=list&catid=51)\n- [经典旁轴](https://www.chiphell.com/portal.php?mod=list&catid=53)\n- [怀旧菲林](https://www.chiphell.com/portal.php?mod=list&catid=54)\n- [影音摄像](https://www.chiphell.com/portal.php?mod=list&catid=57)\n- [周边附件](https://www.chiphell.com/portal.php?mod=list&catid=55)\n\n- [人物肖像](https://www.chiphell.com/portal.php?mod=list&catid=102)\n- [风景游记](https://www.chiphell.com/portal.php?mod=list&catid=103)\n- [微距静物](https://www.chiphell.com/portal.php?mod=list&catid=104)\n- [人文扫街](https://www.chiphell.com/portal.php?mod=list&catid=105)\n- [动物植物](https://www.chiphell.com/portal.php?mod=list&catid=106)\n- [其它作品](https://www.chiphell.com/portal.php?mod=list&catid=107)\n\n- [买菜车](https://www.chiphell.com/portal.php?mod=list&catid=58)\n- [商务车](https://www.chiphell.com/portal.php?mod=list&catid=59)\n- [性能车](https://www.chiphell.com/portal.php?mod=list&catid=63)\n- [旅行车](https://www.chiphell.com/portal.php?mod=list&catid=60)\n- [SUV](https://www.chiphell.com/portal.php?mod=list&catid=61)\n- [MPV](https://www.chiphell.com/portal.php?mod=list&catid=95)\n- [摩托轻骑](https://www.chiphell.com/portal.php?mod=list&catid=65)\n- [改装配件](https://www.chiphell.com/portal.php?mod=list&catid=96)\n- [CHH Auto Club](https://www.chiphell.com/portal.php?mod=list&catid=138)\n\n- [山地车](https://www.chiphell.com/portal.php?mod=list&catid=108)\n- [公路车](https://www.chiphell.com/portal.php?mod=list&catid=109)\n- [折叠车](https://www.chiphell.com/portal.php?mod=list&catid=110)\n- [休旅车](https://www.chiphell.com/portal.php?mod=list&catid=111)\n\n- [人偶手办](https://www.chiphell.com/portal.php?mod=list&catid=112)\n- [比例成品](https://www.chiphell.com/portal.php?mod=list&catid=113)\n- [拼装自组](https://www.chiphell.com/portal.php?mod=list&catid=114)\n- [RC遥控](https://www.chiphell.com/portal.php?mod=list&catid=115)\n\n- [收藏爱好](https://www.chiphell.com/portal.php?mod=list&catid=47)\n- [品质生活](https://www.chiphell.com/portal.php?mod=list&catid=45)\n- [数码前沿](https://www.chiphell.com/portal.php?mod=list&catid=46)\n- [小资情调](https://www.chiphell.com/portal.php?mod=list&catid=44)\n- [女王最大](https://www.chiphell.com/portal.php?mod=list&catid=48)\n- [吃喝玩乐](https://www.chiphell.com/portal.php?mod=list&catid=49)\n- [育儿分享](https://www.chiphell.com/portal.php?mod=list&catid=87)\n\n- [鞋类](https://www.chiphell.com/portal.php?mod=list&catid=122)\n- [服饰](https://www.chiphell.com/portal.php?mod=list&catid=123)\n- [箱包](https://www.chiphell.com/portal.php?mod=list&catid=124)\n\n- [机械表](https://www.chiphell.com/portal.php?mod=list&catid=128)\n- [电子表](https://www.chiphell.com/portal.php?mod=list&catid=126)\n\n- [耳机耳放](https://www.chiphell.com/portal.php?mod=list&catid=71)\n- [音箱功放](https://www.chiphell.com/portal.php?mod=list&catid=72)\n- [解码转盘](https://www.chiphell.com/portal.php?mod=list&catid=73)\n- [随身设备](https://www.chiphell.com/portal.php?mod=list&catid=74)\n- [唱片录音](https://www.chiphell.com/portal.php?mod=list&catid=75)\n\n- [当地美食](https://www.chiphell.com/portal.php?mod=list&catid=68)\n- [世界美食](https://www.chiphell.com/portal.php?mod=list&catid=117)\n- [私房菜品](https://www.chiphell.com/portal.php?mod=list&catid=69)\n- [美食器材](https://www.chiphell.com/portal.php?mod=list&catid=70)\n\n|     |     |     |     |     |\n| --- | --- | --- | --- | --- |\n|  |  | 帖子 | **搜索** |  |\n\n搜索\n\n- 文章\n- 帖子\n\n抱歉，指定的主题不存在或已被删除或正在被审核。\n\n如果您正在发帖，可能因包含特殊词汇被河蟹系统自动过滤。\n\n如有疑问请到站务区发帖。\n\n\\[ 点击这里返回上一页 \\]\n\n[Archiver](https://www.chiphell.com/archiver/) \\| [手机版](https://www.chiphell.com/forum.php?showmobile=yes) \\| [小黑屋](https://www.chiphell.com/forum.php?mod=misc&action=showdarkroom) \\| **[Chiphell](https://www.chiphell.com/)**\n( [沪ICP备12027953号-5](https://beian.miit.gov.cn/) ) [![沪公网备](https://www.chiphell.com/static/image/common/picp_bg.png)310112100042806](http://www.zx110.org/picp?sn=:31011209000102) [![上海市互联网违法与不良信息举报中心](https://www.chiphell.com/static/image/common/shjbzx.png)](http://www.shjbzx.cn/)\n\nGMT+8, 2026-10-15 16:16\n, Processed in 0.003119 second(s), 2 queries\n, Gzip On, Redis On.\n\nPowered by **[Discuz!](https://www.discuz.vip/)** _X3.5_ [Licensed](https://license.discuz.vip/?pid=1&host=www.chiphell.com)\n\n© 2007-2024 **[Chiphell.com](https://www.chiphell.com/)** All rights reserved.\n\n**返回顶部**",
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "firecrawl"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "知名硬件网站转载了轮大的观点~ - 电脑讨论(新)",
+      "url": "https://www.chiphell.com/forum.php?extra=page%3D1&mobile=no&mod=viewthread&ordertype=1&tid=2677836",
+      "snippet": "知名硬件网站转载了轮大的观点~,来源https://www.chiphell.com/thread-2677823-1-1.html，14#,电脑讨论(新),讨论区-生活与技术的讨论,Chiphell - 分享与",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.13579291,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "3",
+      "url": "https://www.chiphell.com/forum.php?mod=viewthread&tid=2509145",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "悄咪咪发点某张显卡的东西- 电脑讨论(新)",
+      "url": "https://www.chiphell.com/forum.php?mod=viewthread&tid=2442233",
+      "snippet": "悄咪咪发点某张显卡的东西,被爆料网站转载了，图片已删。反正也没几天了，大家静等发布会就好了,电脑讨论(新),讨论区-生活与技术的讨论,Chiphell",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.11270771,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "4",
+      "url": "https://www.chiphell.com/forum.php?mod=viewthread&tid=1041179",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "[251029]Jellyfin中国特供版+Docker镜像，含驱动，免折腾开 ...",
+      "url": "https://www.chiphell.com/forum.php?extra=page%3D1&mobile=no&mod=viewthread&page=39&tid=2375777",
+      "snippet": "[251029]Jellyfin中国特供版+Docker镜像，含驱动，免折腾开箱即用,第39页,电脑讨论(新),讨论区-生活与技术的讨论,Chiphell - 分享与交流用户体验.",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.08981337,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "1",
+      "url": "https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "剪片生产力,从此\"Intel Yes!\"",
+      "url": "https://youtu.be/baah9EjZV1Ybilibili?xstg=CAMSBhUDze3xHw%3D%3D",
+      "result_id": "r2",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "2",
+      "url": "https://www.chiphell.com/forum.php?mod=viewthread&tid=1",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "知名硬件网站转载了轮大的观点~ - 电脑讨论(新)",
+      "url": "https://www.chiphell.com/forum.php?extra=page%3D1&mobile=no&mod=viewthread&ordertype=1&tid=2677836",
+      "result_id": "r4",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "3",
+      "url": "https://www.chiphell.com/forum.php?mod=viewthread&tid=2509145",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "悄咪咪发点某张显卡的东西- 电脑讨论(新)",
+      "url": "https://www.chiphell.com/forum.php?mod=viewthread&tid=2442233",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "4",
+      "url": "https://www.chiphell.com/forum.php?mod=viewthread&tid=1041179",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "[251029]Jellyfin中国特供版+Docker镜像，含驱动，免折腾开 ...",
+      "url": "https://www.chiphell.com/forum.php?extra=page%3D1&mobile=no&mod=viewthread&page=39&tid=2375777",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "5",
+      "url": "https://www.chiphell.com/thread-1041179-1-1.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "6",
+      "url": "https://www.chiphell.com/forum.php?action=printable&mod=viewthread&tid=2438513",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "7",
+      "url": "https://www.chiphell.com/forum.php?dateline=604800&fid=146&filter=dateline&mod=forumdisplay&orderby=lastpost&typeid=997",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "8",
+      "url": "https://www.chiphell.com/forum.php?mobile=no&mod=",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "9",
+      "url": "https://www.chiphell.com/thread-2844250-1-1.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "What is CAPTCHA? | Getting started",
+      "url": "https://knowledge.workspace.google.com/admin/getting-started/what-is-captcha",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "What is CAPTCHA?",
+      "url": "https://www.checkpoint.com/cyber-hub/cyber-security/what-is-captcha",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "桌面现状- 电脑讨论(新) - Chiphell - 分享与交流用户体验",
+      "url": "https://www.chiphell.com/forum.php?extra=page%3D1&mobile=2&mod=viewthread&tid=2908628",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "ClickFix Attacks: How to Detect and Investigate Fake CAPTCHA Lures | Prophet Security",
+      "url": "https://www.prophetsecurity.ai/blog/clickfix-attack",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "verify",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 20610,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "verify_supplement",
+        "latency_ms": 5629,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "ok",
+        "reason": "post_discovery",
+        "latency_ms": 4808,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "ok",
+        "reason": "post_discovery",
+        "latency_ms": 3656,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_verify_supplement",
+      "depth_verify",
+      "domains_below_threshold:1<2"
+    ]
+  },
+  "cache": {
+    "hit": false,
+    "age_seconds": 0.0,
+    "ttl_seconds": 120,
+    "namespace": "search"
+  },
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513",
+      "final_url": "https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513",
+      "title": "相查看写资料，可是旧帖归档需要密码 - 相关讨论 -  Chiphell - 分享与交流用户体验   ",
+      "content": "设为首页 [收藏本站](https://www.chiphell.com/)\n\n请 **登录** 后使用快捷导航\n\n没有账号？ [加入我们](https://www.chiphell.com/member.php?mod=register)\n\n## [![Chiphell - 分享与交流用户体验](https://www.chiphell.com/static/image/common/logo.png)](https://www.chiphell.com/ \"Chiphell - 分享与交流用户体验\")\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| 账号 |  | 自动登录 | 找回密码 |\n| 密码 |  | _登录_ | [加入我们](https://www.chiphell.com/member.php?mod=register) |\n\n快捷导航\n\n- [首页](https://www.chiphell.com/)\n- [评测](https://www.chiphell.com/portal.php?mod=list&catid=1)\n- [电脑](https://www.chiphell.com/portal.php?mod=list&catid=2)\n- [掌设](https://www.chiphell.com/portal.php?mod=list&catid=36)\n- [摄影](https://www.chiphell.com/portal.php?mod=list&catid=31)\n- [照片](https://www.chiphell.com/portal.php?mod=list&catid=3)\n- [汽车](https://www.chiphell.com/portal.php?mod=list&catid=32)\n- [单车](https://www.chiphell.com/portal.php?mod=list&catid=29)\n- [模型](https://www.chiphell.com/portal.php?mod=list&catid=30)\n- [败家](https://www.chiphell.com/portal.php?mod=list&catid=33)\n- [时尚](https://www.chiphell.com/portal.php?mod=list&catid=118)\n- [腕表](https://www.chiphell.com/portal.php?mod=list&catid=125)\n- [视听](https://www.chiphell.com/portal.php?mod=list&catid=66)\n- [美食](https://www.chiphell.com/portal.php?mod=list&catid=67)\n- [家居](https://www.chiphell.com/portal.php?mod=list&catid=132)\n- [活宠](https://www.chiphell.com/portal.php?mod=list&catid=133)\n- [文化](https://www.chiphell.com/portal.php?mod=list&catid=37)\n- [社区BBS](https://www.chiphell.com/forum.php \"BBS\")\n\n- [视频评测](https://www.chiphell.com/portal.php?mod=list&catid=39)\n- [笔记本](https://www.chiphell.com/portal.php?mod=list&catid=19)\n- [机箱](https://www.chiphell.com/portal.php?mod=list&catid=11)\n- [处理器](https://www.chiphell.com/portal.php?mod=list&catid=13)\n- [散热器](https://www.chiphell.com/portal.php?mod=list&catid=14)\n- [主板](https://www.chiphell.com/portal.php?mod=list&catid=15)\n- [内存](https://www.chiphell.com/portal.php?mod=list&catid=137)\n- [外设](https://www.chiphell.com/portal.php?mod=list&catid=18)\n- [电源](https://www.chiphell.com/portal.php?mod=list&catid=35)\n- [存储](https://www.chiphell.com/portal.php?mod=list&catid=23)\n- [显示设备](https://www.chiphell.com/portal.php?mod=list&catid=21)\n- [台式机](https://www.chiphell.com/portal.php?mod=list&catid=88)\n- [显卡](https://www.chiphell.com/portal.php?mod=list&catid=10)\n- [相机](https://www.chiphell.com/portal.php?mod=list&catid=116)\n\n- [配件开箱](https://www.chiphell.com/portal.php?mod=list&catid=98)\n- [整机搭建](https://www.chiphell.com/portal.php?mod=list&catid=99)\n- [升级改造](https://www.chiphell.com/portal.php?mod=list&catid=100)\n- [桌面书房](https://www.chiphell.com/portal.php?mod=list&catid=101)\n\n- [智能手机](https://www.chiphell.com/portal.php?mod=list&catid=40)\n- [智能穿戴](https://www.chiphell.com/portal.php?mod=list&catid=89)\n- [笔电平板](https://www.chiphell.com/portal.php?mod=list&catid=41)\n- [周边附件](https://www.chiphell.com/portal.php?mod=list&catid=92)\n\n- [微单卡片](https://www.chiphell.com/portal.php?mod=list&catid=52)\n- [单反单电](https://www.chiphell.com/portal.php?mod=list&catid=51)\n- [经典旁轴](https://www.chiphell.com/portal.php?mod=list&catid=53)\n- [怀旧菲林](https://www.chiphell.com/portal.php?mod=list&catid=54)\n- [影音摄像](https://www.chiphell.com/portal.php?mod=list&catid=57)\n- [周边附件](https://www.chiphell.com/portal.php?mod=list&catid=55)\n\n- [人物肖像](https://www.chiphell.com/portal.php?mod=list&catid=102)\n- [风景游记](https://www.chiphell.com/portal.php?mod=list&catid=103)\n- [微距静物](https://www.chiphell.com/portal.php?mod=list&catid=104)\n- [人文扫街](https://www.chiphell.com/portal.php?mod=list&catid=105)\n- [动物植物](https://www.chiphell.com/portal.php?mod=list&catid=106)\n- [其它作品](https://www.chiphell.com/portal.php?mod=list&catid=107)\n\n- [买菜车](https://www.chiphell.com/portal.php?mod=list&catid=58)\n- [商务车](https://www.chiphell.com/portal.php?mod=list&catid=59)\n- [性能车](https://www.chiphell.com/portal.php?mod=list&catid=63)\n- [旅行车](https://www.chiphell.com/portal.php?mod=list&catid=60)\n- [SUV](https://www.chiphell.com/portal.php?mod=list&catid=61)\n- [MPV](https://www.chiphell.com/portal.php?mod=list&catid=95)\n- [摩托轻骑](https://www.chiphell.com/portal.php?mod=list&catid=65)\n- [改装配件](https://www.chiphell.com/portal.php?mod=list&catid=96)\n- [CHH Auto Club](https://www.chiphell.com/portal.php?mod=list&catid=138)\n\n- [山地车](https://www.chiphell.com/portal.php?mod=list&catid=108)\n- [公路车](https://www.chiphell.com/portal.php?mod=list&catid=109)\n- [折叠车](https://www.chiphell.com/portal.php?mod=list&catid=110)\n- [休旅车](https://www.chiphell.com/portal.php?mod=list&catid=111)\n\n- [人偶手办](https://www.chiphell.com/portal.php?mod=list&catid=112)\n- [比例成品](https://www.chiphell.com/portal.php?mod=list&catid=113)\n- [拼装自组](https://www.chiphell.com/portal.php?mod=list&catid=114)\n- [RC遥控](https://www.chiphell.com/portal.php?mod=list&catid=115)\n\n- [收藏爱好](https://www.chiphell.com/portal.php?mod=list&catid=47)\n- [品质生活](https://www.chiphell.com/portal.php?mod=list&catid=45)\n- [数码前沿](https://www.chiphell.com/portal.php?mod=list&catid=46)\n- [小资情调](https://www.chiphell.com/portal.php?mod=list&catid=44)\n- [女王最大](https://www.chiphell.com/portal.php?mod=list&catid=48)\n- [吃喝玩乐](https://www.chiphell.com/portal.php?mod=list&catid=49)\n- [育儿分享](https://www.chiphell.com/portal.php?mod=list&catid=87)\n\n- [鞋类](https://www.chiphell.com/portal.php?mod=list&catid=122)\n- [服饰](https://www.chiphell.com/portal.php?mod=list&catid=123)\n- [箱包](https://www.chiphell.com/portal.php?mod=list&catid=124)\n\n- [机械表](https://www.chiphell.com/portal.php?mod=list&catid=128)\n- [电子表](https://www.chiphell.com/portal.php?mod=list&catid=126)\n\n- [耳机耳放](https://www.chiphell.com/portal.php?mod=list&catid=71)\n- [音箱功放](https://www.chiphell.com/portal.php?mod=list&catid=72)\n- [解码转盘](https://www.chiphell.com/portal.php?mod=list&catid=73)\n- [随身设备](https://www.chiphell.com/portal.php?mod=list&catid=74)\n- [唱片录音](https://www.chiphell.com/portal.php?mod=list&catid=75)\n\n- [当地美食](https://www.chiphell.com/portal.php?mod=list&catid=68)\n- [世界美食](https://www.chiphell.com/portal.php?mod=list&catid=117)\n- [私房菜品](https://www.chiphell.com/portal.php?mod=list&catid=69)\n- [美食器材](https://www.chiphell.com/portal.php?mod=list&catid=70)\n\n|     |     |     |     |     |\n| --- | --- | --- | --- | --- |\n|  |  | 帖子 | **搜索** |  |\n\n搜索\n\n- 本版\n- 文章\n- 帖子\n\n[Chiphell - 分享与交流用户体验](https://www.chiphell.com/ \"首页\") _»_ [社区](https://www.chiphell.com/forum.php) _›_ [分享区-产品开箱与用户体验的分享](https://www.chiphell.com/forum.php?gid=186) _›_ [相关讨论](https://www.chiphell.com/forum-315-1.html) _›_ [相查看写资料，可是旧帖归档需要密码](https://www.chiphell.com/thread-2438513-1-1.html)\n\n**1** [2](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&extra=&page=2) / 2 页 [下一页](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&extra=&page=2)\n\n[返回列表](https://www.chiphell.com/forum-315-1.html)发新帖\n\n|     |     |\n| --- | --- |\n| 查看:48800\\|回复:56 | [打印](https://www.chiphell.com/forum.php?mod=viewthread&action=printable&tid=2438513 \"打印\")[上一主题](https://www.chiphell.com/forum.php?mod=redirect&goto=nextoldset&tid=2438513 \"上一主题\")[下一主题](https://www.chiphell.com/forum.php?mod=redirect&goto=nextnewset&tid=2438513 \"下一主题\")<br># [\\[电脑\\]](https://www.chiphell.com/forum.php?mod=forumdisplay&fid=315&filter=typeid&typeid=925) 相查看写资料，可是旧帖归档需要密码<br>[\\[复制链接\\]](https://www.chiphell.com/thread-2438513-1-1.html) |\n\n|     |     |\n| --- | --- |\n| [wqzxhpx](https://www.chiphell.com/space-uid-316480.html)<br>**[wqzxhpx](https://www.chiphell.com/space-uid-316480.html)** _当前离线_<br>积分[2632](https://www.chiphell.com/home.php?mod=space&uid=316480&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=316480&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/31/64/80_avatar_middle.jpg)](https://www.chiphell.com/space-uid-316480.html) | 电梯直达\n\n**[_1_#](https://www.chiphell.com/thread-2438513-1-1.html)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-23 15:04_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=316480) \\| [只看大图](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&from=album) \\| [倒序浏览](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&extra=&ordertype=1) \\|阅读模式\n\n|     |\n| --- |\n| 相查看些资料，可是旧帖归档需要密码，不知道是不是不能正常浏览了，有知道的大神吗，谢谢 | |\n| [_收藏35_](https://www.chiphell.com/home.php?mod=spacecp&ac=favorite&type=thread&id=2438513&formhash=4ba9967a \"收藏本帖\") |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&reppost=50501503&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [田丫丫](https://www.chiphell.com/space-uid-407080.html)<br>**[田丫丫](https://www.chiphell.com/space-uid-407080.html)** _当前离线_<br>积分[568](https://www.chiphell.com/home.php?mod=space&uid=407080&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=407080&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/40/70/80_avatar_middle.jpg)](https://www.chiphell.com/space-uid-407080.html) | **[_2_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50503530)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-23 19:45_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=407080)\n\n|     |\n| --- |\n| 不知道，我也想知道 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50503530&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [vickyfl](https://www.chiphell.com/space-uid-283083.html)<br>**[vickyfl](https://www.chiphell.com/space-uid-283083.html)** _当前离线_<br>积分[1339](https://www.chiphell.com/home.php?mod=space&uid=283083&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=283083&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/28/30/83_avatar_middle.jpg)](https://www.chiphell.com/space-uid-283083.html) | **[_3_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50503601)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-23 20:01_ 来自手机\\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=283083)\n\n|     |\n| --- |\n| 同想知道，没密码无法访问 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50503601&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [DiamondBall](https://www.chiphell.com/space-uid-14374.html)<br>**[DiamondBall](https://www.chiphell.com/space-uid-14374.html)** _当前离线_<br>积分[190707](https://www.chiphell.com/home.php?mod=space&uid=14374&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=14374&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/01/43/74_avatar_middle.jpg)](https://www.chiphell.com/space-uid-14374.html) | **[_4_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50509433)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-24 16:50_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=14374)\n\n|     |\n| --- |\n| 你要是有具体帖子的链接可以私信管理员恢复<br>没的话那就没了 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50509433&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [mclaren2010](https://www.chiphell.com/space-uid-216975.html)<br>**[mclaren2010](https://www.chiphell.com/space-uid-216975.html)** _当前离线_<br>积分[909](https://www.chiphell.com/home.php?mod=space&uid=216975&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=216975&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/21/69/75_avatar_middle.jpg)](https://www.chiphell.com/space-uid-216975.html) | **[_5_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50509866)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-24 17:42_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=216975)\n\n|     |\n| --- |\n| 能理解管理旧贴的成本压力，但是对于坛友来讲，就等于给论坛的网络记忆规定了具体时间，当帖子发出后就是倒计时开始的时候，到了时间后如需浏览还要麻烦管理给密码，还是希望能有一个自动申请密码的机制。 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50509866&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [whisky\\_gan](https://www.chiphell.com/space-uid-163395.html)<br>**[whisky\\_gan](https://www.chiphell.com/space-uid-163395.html)** _当前离线_<br>积分[2998](https://www.chiphell.com/home.php?mod=space&uid=163395&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=163395&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/16/33/95_avatar_middle.jpg)](https://www.chiphell.com/space-uid-163395.html) | **[_6_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50510876)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-24 21:18_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=163395)\n\n|     |\n| --- |\n| 来爬以前的贴子学习下，结果都是归档的。这堂子要黄？ | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50510876&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [fcymk2](https://www.chiphell.com/space-uid-197054.html)<br>**[fcymk2](https://www.chiphell.com/space-uid-197054.html)** _当前离线_<br>积分[3851](https://www.chiphell.com/home.php?mod=space&uid=197054&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=197054&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/19/70/54_avatar_middle.jpg)](https://www.chiphell.com/space-uid-197054.html) | **[_7_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50514253)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-25 12:46_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=197054)\n\n|     |\n| --- |\n| 希望可以来个自动申请帖子密码的功能. 密码有效期1小时都行... | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50514253&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [红汤辣](https://www.chiphell.com/space-uid-114406.html)<br>**[红汤辣](https://www.chiphell.com/space-uid-114406.html)** _当前离线_<br>积分[5826](https://www.chiphell.com/home.php?mod=space&uid=114406&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=114406&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/11/44/06_avatar_middle.jpg)](https://www.chiphell.com/space-uid-114406.html) | **[_8_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50517722)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-25 22:40_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=114406)\n\n|     |\n| --- |\n| 我喜欢联力机箱，无数经典开箱装机贴都在CHH，现在倒好，啥都看不到了。 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50517722&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [kgbchenlong](https://www.chiphell.com/space-uid-136686.html)<br>**[kgbchenlong](https://www.chiphell.com/space-uid-136686.html)** _当前离线_<br>积分[282](https://www.chiphell.com/home.php?mod=space&uid=136686&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=136686&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/13/66/86_avatar_middle.jpg)](https://www.chiphell.com/space-uid-136686.html) | **[_9_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50525602)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-27 11:13_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=136686)\n\n|     |\n| --- |\n| 就是历史资料清了，论坛管理严格了 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50525602&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [dumsss](https://www.chiphell.com/space-uid-399969.html)<br>**[dumsss](https://www.chiphell.com/space-uid-399969.html)** _当前离线_<br>积分[-171](https://www.chiphell.com/home.php?mod=space&uid=399969&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=399969&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/39/99/69_avatar_middle.jpg)](https://www.chiphell.com/space-uid-399969.html) | **[_10_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50530314)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-28 11:36_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=399969)\n\n|     |\n| --- |\n| 可能还是网监内容审查严格了吧 直接一次性装箱 谁要什么 自己申请 申请的时候网管审查一次 没问题就放出来 有问题的 对不起别想了 <br>好处是 网监那边的要求 一次性合格 绝对没问题 没人申请恢复的就不用审查了 申请的审查工作量有限 <br>能理解 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50530314&extra=&page=1)_<br>举报 |\n\n| [sandro](https://www.chiphell.com/space-uid-388185.html)<br>**[sandro](https://www.chiphell.com/space-uid-388185.html)** _当前离线_<br>积分[3304](https://www.chiphell.com/home.php?mod=space&uid=388185&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=388185&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/38/81/85_avatar_middle.jpg)](https://www.chiphell.com/space-uid-388185.html) | **[_11_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50530631)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-28 13:07_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=388185)\n\n|     |\n| --- |\n| 旧贴查看要单独申请，太麻烦了，你可以试试这个网站，有收录论坛的贴子，不是很全 [https://machbbs.com/chiphell/](https://machbbs.com/chiphell/) |\n\n### 评分\n\n| [参与人数 2](https://www.chiphell.com/forum.php?mod=misc&action=viewratings&tid=2438513&pid=50530631 \"查看全部评分\") | 邪恶指数 _+10_ | 收起 _理由_ |\n| [![](https://www.chiphell.com/data/avatar/000/46/63/47_avatar_small.jpg)](https://www.chiphell.com/space-uid-466347.html)[没前途的孩子](https://www.chiphell.com/space-uid-466347.html) | \\+ 5 | 虽然不知道为啥打不开，但精神可嘉 ... |\n| [![](https://www.chiphell.com/data/avatar/000/27/47/91_avatar_small.jpg)](https://www.chiphell.com/space-uid-274791.html)[gammi](https://www.chiphell.com/space-uid-274791.html) | \\+ 5 | 666 |\n\n[查看全部评分](https://www.chiphell.com/forum.php?mod=misc&action=viewratings&tid=2438513&pid=50530631 \"查看全部评分\") |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50530631&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [wqzxhpx](https://www.chiphell.com/space-uid-316480.html)<br>**[wqzxhpx](https://www.chiphell.com/space-uid-316480.html)** _当前离线_<br>积分[2632](https://www.chiphell.com/home.php?mod=space&uid=316480&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=316480&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/31/64/80_avatar_middle.jpg)](https://www.chiphell.com/space-uid-316480.html) | **[_12_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50531360)**\n\n楼主\\| _发表于 2022-8-28 15:55_ 来自手机\\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=316480)\n\n|     |\n| --- |\n| > sandro 发表于 2022-8-28 13:07<br>> <br>> 旧贴查看要单独申请，太麻烦了，你可以试试这个网站，有收录论坛的贴子，不是很全https://machbbs.com/chip ...<br>大神  已经很全了 谢谢 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50531360&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [fcymk2](https://www.chiphell.com/space-uid-197054.html)<br>**[fcymk2](https://www.chiphell.com/space-uid-197054.html)** _当前离线_<br>积分[3851](https://www.chiphell.com/home.php?mod=space&uid=197054&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=197054&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/19/70/54_avatar_middle.jpg)](https://www.chiphell.com/space-uid-197054.html) | **[_13_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50537314)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-29 15:50_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=197054)\n\n|     |\n| --- |\n| > [sandro 发表于 2022-8-28 13:07](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&pid=50530631&ptid=2438513)<br>> <br>> 旧贴查看要单独申请，太麻烦了，你可以试试这个网站，有收录论坛的贴子，不是很全https://machbbs.com/chip ...<br>感谢...这网站真不错 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50537314&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [yoloh](https://www.chiphell.com/space-uid-8364.html)<br>**[yoloh](https://www.chiphell.com/space-uid-8364.html)** _当前离线_<br>积分[7879](https://www.chiphell.com/home.php?mod=space&uid=8364&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=8364&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/00/83/64_avatar_middle.jpg)](https://www.chiphell.com/space-uid-8364.html) | **[_14_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50539986)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-29 22:50_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=8364)\n\n|     |\n| --- |\n| 确实很不方便，大部分都是文字数据，应该占不了多少存储空间吧？ | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50539986&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [wqzxhpx](https://www.chiphell.com/space-uid-316480.html)<br>**[wqzxhpx](https://www.chiphell.com/space-uid-316480.html)** _当前离线_<br>积分[2632](https://www.chiphell.com/home.php?mod=space&uid=316480&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=316480&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/31/64/80_avatar_middle.jpg)](https://www.chiphell.com/space-uid-316480.html) | **[_15_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50542402)**\n\n楼主\\| _发表于 2022-8-30 10:52_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=316480)\n\n|     |\n| --- |\n| > [yoloh 发表于 2022-8-29 22:50](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&pid=50539986&ptid=2438513)<br>> <br>> 确实很不方便，大部分都是文字数据，应该占不了多少存储空间吧？<br>以前的帖子其实更有借鉴价值 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50542402&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [gaochao86](https://www.chiphell.com/space-uid-60601.html)<br>**[gaochao86](https://www.chiphell.com/space-uid-60601.html)** _当前离线_<br>积分[5048](https://www.chiphell.com/home.php?mod=space&uid=60601&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=60601&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/06/06/01_avatar_middle.jpg)](https://www.chiphell.com/space-uid-60601.html) | **[_16_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50542462)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-30 10:57_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=60601)\n\n|     |\n| --- |\n| > [sandro 发表于 2022-8-28 13:07](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&pid=50530631&ptid=2438513)<br>> <br>> 旧贴查看要单独申请，太麻烦了，你可以试试这个网站，有收录论坛的贴子，不是很全https://machbbs.com/chip ...<br>非常感谢 解决问题啦 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50542462&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [ninepiece](https://www.chiphell.com/space-uid-170332.html)<br>**[ninepiece](https://www.chiphell.com/space-uid-170332.html)** _当前离线_<br>积分[6995](https://www.chiphell.com/home.php?mod=space&uid=170332&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=170332&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/17/03/32_avatar_middle.jpg)](https://www.chiphell.com/space-uid-170332.html) | **[_17_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50544579)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-8-30 15:07_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=170332)\n\n|     |\n| --- |\n| > [sandro 发表于 2022-8-28 13:07](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&pid=50530631&ptid=2438513)<br>> <br>> 旧贴查看要单独申请，太麻烦了，你可以试试这个网站，有收录论坛的贴子，不是很全https://machbbs.com/chip ...<br>已经很好了，可以查过去资料。 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50544579&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [bmw00168](https://www.chiphell.com/space-uid-176188.html)<br>**[bmw00168](https://www.chiphell.com/space-uid-176188.html)** _当前离线_<br>积分[244](https://www.chiphell.com/home.php?mod=space&uid=176188&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=176188&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/17/61/88_avatar_middle.jpg)](https://www.chiphell.com/space-uid-176188.html) | **[_18_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=50927680)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2022-10-26 21:24_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=176188)\n\n|     |\n| --- |\n| 感谢... | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=50927680&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [joying](https://www.chiphell.com/space-uid-441782.html)<br>**[joying](https://www.chiphell.com/space-uid-441782.html)** _当前离线_<br>积分[111](https://www.chiphell.com/home.php?mod=space&uid=441782&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=441782&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/noavatar.svg)](https://www.chiphell.com/space-uid-441782.html) | **[_19_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=52832663)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-6-18 08:12_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=441782)\n\n|     |\n| --- |\n| 我也太想看，尤其玩二手机的，特想看看以前的帖子 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=52832663&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [很陈冠希](https://www.chiphell.com/space-uid-316318.html)<br>**[很陈冠希](https://www.chiphell.com/space-uid-316318.html)** _当前离线_<br>积分[3846](https://www.chiphell.com/home.php?mod=space&uid=316318&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=316318&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/31/63/18_avatar_middle.jpg)](https://www.chiphell.com/space-uid-316318.html) | **[_20_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=52859136)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-6-22 07:06_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=316318)\n\n|     |\n| --- |\n| 看不了太可惜了 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=52859136&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [lishi114](https://www.chiphell.com/space-uid-80533.html)<br>**[lishi114](https://www.chiphell.com/space-uid-80533.html)** _当前离线_<br>积分[3246](https://www.chiphell.com/home.php?mod=space&uid=80533&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=80533&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/08/05/33_avatar_middle.jpg)](https://www.chiphell.com/space-uid-80533.html) | **[_21_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2438513&pid=52926707)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-7-3 06:22_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513&page=1&authorid=80533)\n\n|     |\n| --- |\n| 想查点联力的老机箱装机方案，可惜啊 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=315&tid=2438513&repquote=52926707&extra=&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [winc4532](https://www.chiphell.com/space-uid-359590.html)<br>**[winc4532](https://www.chiphell.com/space-uid-359590.html)** _当前离线_<br>积分[4076](https://www.chiphell",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": true,
+      "metadata": {
+        "application-name": "Chiphell - 分享与交流用户体验",
+        "title": "相查看写资料，可是旧帖归档需要密码 - 相关讨论 -  Chiphell - 分享与交流用户体验   ",
+        "referrer": "origin",
+        "generator": "Discuz! X3.5",
+        "MSSmartTagsPreventParsing": "True",
+        "msapplication-tooltip": "Chiphell - 分享与交流用户体验",
+        "copyright": "2001-2026 Discuz! Team.",
+        "msapplication-task": [
+          "name=首页;action-uri=https://www.chiphell.com/portal.php;icon-uri=https://www.chiphell.com/static/image/common/portal.ico",
+          "name=社区;action-uri=https://www.chiphell.com/forum.php;icon-uri=https://www.chiphell.com/static/image/common/bbs.ico",
+          "name=家园;action-uri=https://www.chiphell.com/home.php;icon-uri=https://www.chiphell.com/static/image/common/home.ico"
+        ],
+        "msapplication-TileColor": "#da532c",
+        "keywords": "相查看写资料，可是旧帖归档需要密码,相关讨论,分享区-产品开箱与用户体验的分享,Chiphell",
+        "description": "相查看写资料，可是旧帖归档需要密码,相查看些资料，可是旧帖归档需要密码，不知道是不是不能正常浏览了，有知道的大神吗，谢谢,相关讨论,分享区-产品开箱与用户体验的分享 ,Chiphell - 分享与交流用户体验",
+        "theme-color": "#ffffff",
+        "author": "Discuz! Team and Comsenz UI Team",
+        "favicon": "https://www.chiphell.com/favicon-32x32.png",
+        "scrapeId": "01a13ea2-9123-700e-80e7-ec985cc9bd08",
+        "sourceURL": "https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513",
+        "url": "https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "proxyUsed": "basic",
+        "cacheState": "hit",
+        "cachedAt": "2026-10-15T08:16:42.647Z",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 1214,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 1338
+    },
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://youtu.be/baah9EjZV1Ybilibili?xstg=CAMSBhUDze3xHw%3D%3D",
+      "final_url": "https://youtu.be/baah9EjZV1Ybilibili?xstg=CAMSBhUDze3xHw%3D%3D",
+      "title": "剪片生产力,从此\"Intel Yes!\" - YouTube",
+      "content": "![Thumbnail (480x360)](https://i.ytimg.com/vi/baah9EjZV1Y/hqdefault.jpg)\n# [剪片生产力,从此\"Intel Yes!\"](https://www.youtube.com/watch?v=baah9EjZV1Y)\n\n**Visibility**: Public\n**Uploaded by**: [nApoleon Chiphell](https://www.youtube.com/@chiphell2009)\n**Uploaded at**: 2023-01-10\n**Published at**: \n**Length**: 08:15\n**Views**: 1483\n**Likes**: \n**Category**: Howto & Style\n\n## Description\n\n```\nChiphell官网地址:https://www.chiphell.com/\n\nIntel Arc 7 Graphics 官网地址:https://www.intel.sg/content/www/xa/en/products/docs/arc-discrete-graphics/7.html\n```",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "al:android:url": "vnd.youtube://www.youtube.com/watch?xstg=CAMSBhUDze3xHw%3D%3D&v=baah9EjZV1Ybilibili&feature=youtu.be&feature=applinks",
+        "al:ios:app_name": "YouTube",
+        "twitter:app:name:iphone": "YouTube",
+        "twitter:app:url:ipad": "vnd.youtube://www.youtube.com/watch?xstg=CAMSBhUDze3xHw%3D%3D&v=baah9EjZV1Ybilibili&feature=youtu.be&feature=applinks",
+        "twitter:title": "剪片生产力,从此\"Intel Yes!\"",
+        "height": [
+          "360",
+          "720"
+        ],
+        "keywords": "video, sharing, camera phone, video phone, free, upload",
+        "og:description": "Chiphell官网地址:https://www.chiphell.com/Intel Arc 7 Graphics 官网地址:https://www.intel.sg/content/www/xa/en/products/docs/arc-discrete-graphics/7.html",
+        "requiresSubscription": "False",
+        "og:site_name": "YouTube",
+        "og:video:height": "720",
+        "twitter:card": "player",
+        "twitter:app:id:ipad": "544007664",
+        "og:title": "剪片生产力,从此\"Intel Yes!\"",
+        "isFamilyFriendly": "true",
+        "ogImage": "https://i.ytimg.com/vi/baah9EjZV1Y/hqdefault.jpg",
+        "theme-color": "rgba(255, 255, 255, 0.98)",
+        "playerType": "HTML5 Flash",
+        "al:android:package": "com.google.android.youtube",
+        "interactionType": "https://schema.org/WatchAction",
+        "userInteractionCount": "1483",
+        "twitter:app:id:iphone": "544007664",
+        "twitter:app:id:googleplay": "com.google.android.youtube",
+        "twitter:player:width": "1280",
+        "og:image:width": "480",
+        "ogUrl": "https://www.youtube.com/watch?v=baah9EjZV1Y",
+        "width": [
+          "480",
+          "1280"
+        ],
+        "fb:app_id": "87741124305",
+        "twitter:app:url:googleplay": "https://www.youtube.com/watch?v=baah9EjZV1Y",
+        "al:android:app_name": "YouTube",
+        "apple-itunes-app": "app-id=544007664, app-argument=https://www.youtube.com/watch?xstg=CAMSBhUDze3xHw%3D%3D&v=baah9EjZV1Ybilibili&feature=youtu.be&referring_app=com.apple.mobilesafari-smartbanner, affiliate-data=ct=smart_app_banner_polymer&pt=9008",
+        "twitter:player:height": "720",
+        "position": "1",
+        "og:image": "https://i.ytimg.com/vi/baah9EjZV1Y/hqdefault.jpg",
+        "viewport": [
+          "width=device-width, initial-scale=1.0, viewport-fit=cover",
+          "initial-scale=1, minimum-scale=1, width=device-width"
+        ],
+        "og:image:height": "360",
+        "og:video:secure_url": "https://www.youtube.com/embed/baah9EjZV1Y",
+        "referrer": "origin-when-cross-origin",
+        "al:ios:app_store_id": "544007664",
+        "twitter:app:name:googleplay": "YouTube",
+        "al:ios:url": "vnd.youtube://www.youtube.com/watch?xstg=CAMSBhUDze3xHw%3D%3D&v=baah9EjZV1Ybilibili&feature=youtu.be&feature=applinks",
+        "twitter:site": "@youtube",
+        "twitter:app:url:iphone": "vnd.youtube://www.youtube.com/watch?xstg=CAMSBhUDze3xHw%3D%3D&v=baah9EjZV1Ybilibili&feature=youtu.be&feature=applinks",
+        "uploadDate": "2023-01-10T03:45:07-08:00",
+        "og:video:type": "text/html",
+        "ogSiteName": "YouTube",
+        "identifier": "baah9EjZV1Y",
+        "og:video:width": "1280",
+        "title": "剪片生产力,从此\"Intel Yes!\" - YouTube",
+        "genre": "Howto & Style",
+        "twitter:url": "https://www.youtube.com/watch?v=baah9EjZV1Y",
+        "ogTitle": "剪片生产力,从此\"Intel Yes!\"",
+        "twitter:description": "Chiphell官网地址:https://www.chiphell.com/Intel Arc 7 Graphics 官网地址:https://www.intel.sg/content/www/xa/en/products/docs/arc-discrete-graphics/7.html",
+        "description": "Chiphell官网地址:https://www.chiphell.com/Intel Arc 7 Graphics 官网地址:https://www.intel.sg/content/www/xa/en/products/docs/arc-discrete-graphics/7.html, Chiphell官网地址:https://www.chiphell.com/Intel Arc 7 Graphics 官网地址:https://www.intel.sg/content/www/xa/en/products/docs/arc-discrete-graphics/7.html",
+        "duration": "PT8M15S",
+        "datePublished": "2023-01-10T03:45:07-08:00",
+        "og:url": "https://www.youtube.com/watch?v=baah9EjZV1Y",
+        "al:web:url": "http://www.youtube.com/watch?xstg=CAMSBhUDze3xHw%3D%3D&v=baah9EjZV1Ybilibili&feature=youtu.be&feature=applinks",
+        "ogDescription": "Chiphell官网地址:https://www.chiphell.com/Intel Arc 7 Graphics 官网地址:https://www.intel.sg/content/www/xa/en/products/docs/arc-discrete-graphics/7.html",
+        "twitter:player": "https://www.youtube.com/embed/baah9EjZV1Y",
+        "twitter:app:name:ipad": "YouTube",
+        "twitter:image": "https://i.ytimg.com/vi/baah9EjZV1Y/hqdefault.jpg",
+        "og:video:url": "https://www.youtube.com/embed/baah9EjZV1Y",
+        "regionsAllowed": "AD,AE,AF,AG,AI,AL,AM,AO,AQ,AR,AS,AT,AU,AW,AX,AZ,BA,BB,BD,BE,BF,BG,BH,BI,BJ,BL,BM,BN,BO,BQ,BR,BS,BT,BV,BW,BY,BZ,CA,CC,CD,CF,CG,CH,CI,CK,CL,CM,CN,CO,CR,CU,CV,CW,CX,CY,CZ,DE,DJ,DK,DM,DO,DZ,EC,EE,EG,EH,ER,ES,ET,FI,FJ,FK,FM,FO,FR,GA,GB,GD,GE,GF,GG,GH,GI,GL,GM,GN,GP,GQ,GR,GS,GT,GU,GW,GY,HK,HM,HN,HR,HT,HU,ID,IE,IL,IM,IN,IO,IQ,IR,IS,IT,JE,JM,JO,JP,KE,KG,KH,KI,KM,KN,KP,KR,KW,KY,KZ,LA,LB,LC,LI,LK,LR,LS,LT,LU,LV,LY,MA,MC,MD,ME,MF,MG,MH,MK,ML,MM,MN,MO,MP,MQ,MR,MS,MT,MU,MV,MW,MX,MY,MZ,NA,NC,NE,NF,NG,NI,NL,NO,NP,NR,NU,NZ,OM,PA,PE,PF,PG,PH,PK,PL,PM,PN,PR,PS,PT,PW,PY,QA,RE,RO,RS,RU,RW,SA,SB,SC,SD,SE,SG,SH,SI,SJ,SK,SL,SM,SN,SO,SR,SS,ST,SV,SX,SY,SZ,TC,TD,TF,TG,TH,TJ,TK,TL,TM,TN,TO,TR,TT,TV,TW,TZ,UA,UG,UM,US,UY,UZ,VA,VC,VE,VG,VI,VN,VU,WF,WS,YE,YT,ZA,ZM,ZW",
+        "name": [
+          "剪片生产力,从此\"Intel Yes!\"",
+          "nApoleon Chiphell"
+        ],
+        "language": "en",
+        "og:type": "video.other",
+        "favicon": "https://www.youtube.com/s/desktop/f51d9955/img/favicon_32x32.png",
+        "scrapeId": "01a13ea2-965e-760f-8d85-fcdc1697128d",
+        "sourceURL": "https://youtu.be/baah9EjZV1Ybilibili?xstg=CAMSBhUDze3xHw%3D%3D",
+        "url": "https://www.youtube.com/watch?v=baah9EjZV1Y",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "cacheState": "miss",
+        "postprocessorsUsed": [
+          "youtube"
+        ],
+        "indexId": "8dd7594a-6222-4a2d-a897-f1f28b7ea63c",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 7199,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 7498
+    }
+  ],
+  "elapsed_ms": 40391,
+  "api_calls": {
+    "xai": 1,
+    "tavily": 1,
+    "firecrawl": 4
+  },
+  "score": {
+    "id": "antibot-shell",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "chiphell-shell"
+        ],
+        "required": 1
+      },
+      "reading": {
+        "status": "pass"
+      }
+    },
+    "task": {
+      "status": "pass",
+      "reasons": []
+    },
+    "expected_access": "anti_bot",
+    "observed_failure": null,
+    "algorithm_miss": false
+  }
+}

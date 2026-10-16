@@ -12,6 +12,18 @@ from allsearch.models import (
 from allsearch.security import canonicalize_url, hostname_of, matches_domain_filter
 
 
+def _public_url(url: str) -> str:
+    """Emit the dedupe key when it is a real HTTP URL.
+
+    Tracking parameters and fragments are removed for the citation the model
+    sees. Malformed URLs stay untouched so distinct failures do not collapse.
+    """
+    canonical = canonicalize_url(url)
+    if canonical.startswith(("http://", "https://")):
+        return canonical
+    return url
+
+
 def _quality_score(item: ProviderResultItem | ResultItem) -> tuple[int, int, int]:
     title_len = len((item.title or "").strip())
     snippet_len = len((item.snippet or "").strip())
@@ -120,7 +132,7 @@ def merge_provider_results(
             ResultItem(
                 id=f"r{i + 1}",
                 title=best.title,
-                url=best.url,
+                url=_public_url(best.url),
                 snippet=best.snippet,
                 content=best.content,
                 published_at=best.published_at,
@@ -147,7 +159,7 @@ def merge_provider_results(
             CitationItem(
                 id=f"c{len(citations) + 1}",
                 title=item.title,
-                url=item.url,
+                url=_public_url(item.url),
                 result_id=item.id,
                 providers=list(item.matched_providers),
             )
@@ -166,7 +178,7 @@ def merge_provider_results(
                 CitationItem(
                     id=f"c{len(citations) + 1}",
                     title=cit.get("title") or url,
-                    url=url,
+                    url=_public_url(url),
                     result_id=None,
                     providers=[pr.provider],
                 )

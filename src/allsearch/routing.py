@@ -11,16 +11,23 @@ from allsearch.models import SearchDepth, SearchMode, SearchRequest
 
 VerticalName = str
 
+# English tokens keep \b so "news" does not match "newspaper". CJK tokens must
+# not use \b: Unicode \w includes Han characters, so a boundary never appears
+# between two Chinese characters and queries such as "今天的最新新闻" missed recency.
+# "比较" is excluded when it is the adverb in "比较好/多/...", which is not a comparison.
 NEWS_RE = re.compile(
-    r"\b(today|latest|breaking|headline|news|yesterday|this week|当前|最新|今日|新闻)\b",
+    r"\b(?:today|latest|breaking|headline|news|yesterday|this week)\b"
+    r"|当前|最新|今日|新闻",
     re.I,
 )
 DOCS_RE = re.compile(
-    r"\b(docs?|documentation|api reference|readme|tutorial|how to|指南|文档)\b",
+    r"\b(?:docs?|documentation|api reference|readme|tutorial|how to)\b"
+    r"|指南|文档",
     re.I,
 )
 COMPARE_RE = re.compile(
-    r"\b(vs\.?|versus|compare|comparison|difference|对比|比较)\b",
+    r"\b(?:vs\.?|versus|compare|comparison|difference)\b"
+    r"|对比|比较(?![好多大小高低长短快慢容易])",
     re.I,
 )
 

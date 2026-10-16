@@ -1,0 +1,618 @@
+{
+  "id": "antibot-shell",
+  "executed_at": "2026-10-15T07:53:49.549170+00:00",
+  "depth": "balanced",
+  "provider_query": "Open the Chiphell viewthread page and record whether the body is a captcha shell",
+  "answer": "**Record:** the Chiphell `viewthread` body is **not** a captcha shell on the pages that returned content. One raw `forum.php?mod=viewthread` URL came back empty in this fetch; that empty result is not a captcha page.\n\n1. **`https://www.chiphell.com/forum.php?mod=viewthread&tid=2702990`** — tool body: “No content found” (1 line). Not a captcha form, not a thread.  \n   Source: direct open of that URL.\n\n2. **`https://www.chiphell.com/forum.php?mod=viewthread&tid=2702990&page=1`** — same empty result (“No content found”).  \n   Source: direct open.\n\n3. **`https://www.chiphell.com/thread-2702990-1-1.html`** (rewrite of the same thread) — full thread body: title, posts 1#–27#, reply box (“您需要登录后才可以回帖”), footer “Processed in … Gzip On, Redis On.” No captcha interstitial.  \n   Source: [web:24](https://www.chiphell.com/thread-2702990-1-1.html).\n\n4. **`https://www.chiphell.com/forum.php?mod=viewthread&tid=1`** — normal Discuz notice, not a captcha shell: “抱歉，指定的主题不存在或已被删除或正在被审核。”  \n   Source: [web:26](https://www.chiphell.com/forum.php?mod=viewthread&tid=1).\n\n5. **Login captcha is separate from viewing threads.** Thread [2522672] is about login “人机验证” / cookie issues, not a captcha wall on `viewthread`.  \n   Source: [web:11](https://www.chiphell.com/thread-2522672-1-1.html) / [web:18](https://www.chiphell.com/thread-2522672-1-1.html).\n\n6. **Post/reply captcha is a form field, not the page body.** A userscript only auto-fills the first captcha when posting or replying on chiphell.com.  \n   Source: [web:13](https://greasyfork.org/ckb/scripts/26112-chiphell%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85%E9%AA%8C%E8%AF%81%E7%A0%81).\n\n7. **Registration uses a text puzzle, not a viewthread shell** (e.g. “第 6–11 位 … 末尾加上 CHH”).  \n   Source: [web:20](https://www.v2ex.com/t/738747).\n\n8. **Same thread via search snippets** already shows post text and a `succeedhandle_fastpost(... mod=viewthread&tid=2702990 ...)` reply callback, i.e. a normal Discuz thread, not a captcha document.  \n   Source: [web:8](https://www.chiphell.com/thread-2702990-1-1.html).",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://www.chiphell.com/thread-2522672-1-1.html",
+      "url": "https://www.chiphell.com/thread-2522672-1-1.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "https://github.com/Kagami/chaptcha/blob/master/chaptcha.py",
+      "url": "https://github.com/Kagami/chaptcha/blob/master/chaptcha.py",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://www.chiphell.com/thread-2702990-1-1.html",
+      "url": "https://www.chiphell.com/thread-2702990-1-1.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "https://www.chiphell.com/thread-699872-1-1.html",
+      "url": "https://www.chiphell.com/thread-699872-1-1.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://greasyfork.org/ckb/scripts/26112-chiphell%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85%E9%AA%8C%E8%AF%81%E7%A0%81",
+      "url": "https://greasyfork.org/ckb/scripts/26112-chiphell%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85%E9%AA%8C%E8%AF%81%E7%A0%81",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "https://webrate.org/site/chiphell.com/",
+      "url": "https://webrate.org/site/chiphell.com",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://trycap.dev/guide/troubleshooting/instrumentation.html",
+      "url": "https://trycap.dev/guide/troubleshooting/instrumentation.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "https://greasyfork.org/zh-CN/scripts/26112-chiphell%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85%E9%AA%8C%E8%AF%81%E7%A0%81",
+      "url": "https://greasyfork.org/zh-CN/scripts/26112-chiphell%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85%E9%AA%8C%E8%AF%81%E7%A0%81",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://www.chiphell.com/thread-2522672-1-1.html",
+      "url": "https://www.chiphell.com/thread-2522672-1-1.html",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "https://github.com/Kagami/chaptcha/blob/master/chaptcha.py",
+      "url": "https://github.com/Kagami/chaptcha/blob/master/chaptcha.py",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://www.chiphell.com/thread-2702990-1-1.html",
+      "url": "https://www.chiphell.com/thread-2702990-1-1.html",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "https://www.chiphell.com/thread-699872-1-1.html",
+      "url": "https://www.chiphell.com/thread-699872-1-1.html",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://greasyfork.org/ckb/scripts/26112-chiphell%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85%E9%AA%8C%E8%AF%81%E7%A0%81",
+      "url": "https://greasyfork.org/ckb/scripts/26112-chiphell%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85%E9%AA%8C%E8%AF%81%E7%A0%81",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "https://webrate.org/site/chiphell.com/",
+      "url": "https://webrate.org/site/chiphell.com",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://trycap.dev/guide/troubleshooting/instrumentation.html",
+      "url": "https://trycap.dev/guide/troubleshooting/instrumentation.html",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "https://greasyfork.org/zh-CN/scripts/26112-chiphell%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85%E9%AA%8C%E8%AF%81%E7%A0%81",
+      "url": "https://greasyfork.org/zh-CN/scripts/26112-chiphell%E8%87%AA%E5%8A%A8%E5%A1%AB%E5%85%85%E9%AA%8C%E8%AF%81%E7%A0%81",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://m.sogou.com/web/searchList.jsp?keyword=chiphell%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B3%A8%E5%86%8C%E4%B8%8D%E4%BA%86&pid=sogou-misc-77c493ec14246d74",
+      "url": "https://m.sogou.com/web/searchList.jsp?keyword=chiphell%E4%B8%BA%E4%BB%80%E4%B9%88%E6%B3%A8%E5%86%8C%E4%B8%8D%E4%BA%86&pid=sogou-misc-77c493ec14246d74",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://www.chiphell.com/thread-2582504-1-1.html",
+      "url": "https://www.chiphell.com/thread-2582504-1-1.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://blog.csdn.net/ccccccccccc/article/details/2159241",
+      "url": "https://blog.csdn.net/ccccccccccc/article/details/2159241",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://www.v2ex.com/t/738747",
+      "url": "https://www.v2ex.com/t/738747",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://www.chiphell.com/thread-2585617-1-1.html",
+      "url": "https://www.chiphell.com/thread-2585617-1-1.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://undercodetesting.com/hidden-in-plain-sight-how-page-source-keys-completely-bypass-captcha-protections-step-by-step-video/",
+      "url": "https://undercodetesting.com/hidden-in-plain-sight-how-page-source-keys-completely-bypass-captcha-protections-step-by-step-video",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://greasyfork.org/el/scripts/389334-chh%E4%B8%80%E9%94%AE%E8%AF%84%E5%88%86/code?version=956749",
+      "url": "https://greasyfork.org/el/scripts/389334-chh%E4%B8%80%E9%94%AE%E8%AF%84%E5%88%86/code?version=956749",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://www.chiphell.com/forum.php?mod=viewthread&tid=2702990&page=1",
+      "url": "https://www.chiphell.com/forum.php?mod=viewthread&page=1&tid=2702990",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://sploitus.com/exploit?id=KITPLOIT:TOOLS-GITHUB-SARPERAVCI-GOOGLERECAPTCHABYPASS",
+      "url": "https://sploitus.com/exploit?id=KITPLOIT%3ATOOLS-GITHUB-SARPERAVCI-GOOGLERECAPTCHABYPASS",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://www.ipqualityscore.com/domain-reputation/chiphell.com",
+      "url": "https://www.ipqualityscore.com/domain-reputation/chiphell.com",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "https://blog.captchaai.com/bash-curl-captchaai-shell-automation",
+      "url": "https://blog.captchaai.com/bash-curl-captchaai-shell-automation",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "https://stumblesec.com/posts/hackthebox-pikaptcha-sherlock-walkthrough/",
+      "url": "https://stumblesec.com/posts/hackthebox-pikaptcha-sherlock-walkthrough",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c21",
+      "title": "https://www.chiphell.com/forum.php?mod=viewthread&tid=1",
+      "url": "https://www.chiphell.com/forum.php?mod=viewthread&tid=1",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c22",
+      "title": "https://thinkbar.net/chiphell.html",
+      "url": "https://thinkbar.net/chiphell.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c23",
+      "title": "https://www.chiphell.com/forum.php?mod=viewthread&tid=2702990",
+      "url": "https://www.chiphell.com/forum.php?mod=viewthread&tid=2702990",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c24",
+      "title": "https://blog.captchaai.com/curl-captchaai-cli",
+      "url": "https://blog.captchaai.com/curl-captchaai-cli",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c25",
+      "title": "https://www.vivaolinux.com.br/script/Google-reCAPTCHA-CGI-Shell",
+      "url": "https://www.vivaolinux.com.br/script/Google-reCAPTCHA-CGI-Shell",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 24937,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced"
+    ]
+  },
+  "cache": {
+    "hit": false,
+    "age_seconds": 0.0,
+    "ttl_seconds": 120,
+    "namespace": "search"
+  },
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://www.chiphell.com/thread-2522672-1-1.html",
+      "final_url": "https://www.chiphell.com/thread-2522672-1-1.html",
+      "title": "求助：电脑登陆chh论坛人机验证问题 - 电脑讨论(新) -  Chiphell - 分享与交流用户体验   ",
+      "content": "设为首页 [收藏本站](https://www.chiphell.com/)\n\n请 **登录** 后使用快捷导航\n\n没有账号？ [加入我们](https://www.chiphell.com/member.php?mod=register)\n\n## [![Chiphell - 分享与交流用户体验](https://www.chiphell.com/static/image/common/logo.png)](https://www.chiphell.com/ \"Chiphell - 分享与交流用户体验\")\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| 账号 |  | 自动登录 | 找回密码 |\n| 密码 |  | _登录_ | [加入我们](https://www.chiphell.com/member.php?mod=register) |\n\n快捷导航\n\n- [首页](https://www.chiphell.com/)\n- [评测](https://www.chiphell.com/portal.php?mod=list&catid=1)\n- [电脑](https://www.chiphell.com/portal.php?mod=list&catid=2)\n- [掌设](https://www.chiphell.com/portal.php?mod=list&catid=36)\n- [摄影](https://www.chiphell.com/portal.php?mod=list&catid=31)\n- [照片](https://www.chiphell.com/portal.php?mod=list&catid=3)\n- [汽车](https://www.chiphell.com/portal.php?mod=list&catid=32)\n- [单车](https://www.chiphell.com/portal.php?mod=list&catid=29)\n- [模型](https://www.chiphell.com/portal.php?mod=list&catid=30)\n- [败家](https://www.chiphell.com/portal.php?mod=list&catid=33)\n- [时尚](https://www.chiphell.com/portal.php?mod=list&catid=118)\n- [腕表](https://www.chiphell.com/portal.php?mod=list&catid=125)\n- [视听](https://www.chiphell.com/portal.php?mod=list&catid=66)\n- [美食](https://www.chiphell.com/portal.php?mod=list&catid=67)\n- [家居](https://www.chiphell.com/portal.php?mod=list&catid=132)\n- [活宠](https://www.chiphell.com/portal.php?mod=list&catid=133)\n- [文化](https://www.chiphell.com/portal.php?mod=list&catid=37)\n- [社区BBS](https://www.chiphell.com/forum.php \"BBS\")\n\n- [视频评测](https://www.chiphell.com/portal.php?mod=list&catid=39)\n- [笔记本](https://www.chiphell.com/portal.php?mod=list&catid=19)\n- [机箱](https://www.chiphell.com/portal.php?mod=list&catid=11)\n- [处理器](https://www.chiphell.com/portal.php?mod=list&catid=13)\n- [散热器](https://www.chiphell.com/portal.php?mod=list&catid=14)\n- [主板](https://www.chiphell.com/portal.php?mod=list&catid=15)\n- [内存](https://www.chiphell.com/portal.php?mod=list&catid=137)\n- [外设](https://www.chiphell.com/portal.php?mod=list&catid=18)\n- [电源](https://www.chiphell.com/portal.php?mod=list&catid=35)\n- [存储](https://www.chiphell.com/portal.php?mod=list&catid=23)\n- [显示设备](https://www.chiphell.com/portal.php?mod=list&catid=21)\n- [台式机](https://www.chiphell.com/portal.php?mod=list&catid=88)\n- [显卡](https://www.chiphell.com/portal.php?mod=list&catid=10)\n- [相机](https://www.chiphell.com/portal.php?mod=list&catid=116)\n\n- [配件开箱](https://www.chiphell.com/portal.php?mod=list&catid=98)\n- [整机搭建](https://www.chiphell.com/portal.php?mod=list&catid=99)\n- [升级改造](https://www.chiphell.com/portal.php?mod=list&catid=100)\n- [桌面书房](https://www.chiphell.com/portal.php?mod=list&catid=101)\n\n- [智能手机](https://www.chiphell.com/portal.php?mod=list&catid=40)\n- [智能穿戴](https://www.chiphell.com/portal.php?mod=list&catid=89)\n- [笔电平板](https://www.chiphell.com/portal.php?mod=list&catid=41)\n- [周边附件](https://www.chiphell.com/portal.php?mod=list&catid=92)\n\n- [微单卡片](https://www.chiphell.com/portal.php?mod=list&catid=52)\n- [单反单电](https://www.chiphell.com/portal.php?mod=list&catid=51)\n- [经典旁轴](https://www.chiphell.com/portal.php?mod=list&catid=53)\n- [怀旧菲林](https://www.chiphell.com/portal.php?mod=list&catid=54)\n- [影音摄像](https://www.chiphell.com/portal.php?mod=list&catid=57)\n- [周边附件](https://www.chiphell.com/portal.php?mod=list&catid=55)\n\n- [人物肖像](https://www.chiphell.com/portal.php?mod=list&catid=102)\n- [风景游记](https://www.chiphell.com/portal.php?mod=list&catid=103)\n- [微距静物](https://www.chiphell.com/portal.php?mod=list&catid=104)\n- [人文扫街](https://www.chiphell.com/portal.php?mod=list&catid=105)\n- [动物植物](https://www.chiphell.com/portal.php?mod=list&catid=106)\n- [其它作品](https://www.chiphell.com/portal.php?mod=list&catid=107)\n\n- [买菜车](https://www.chiphell.com/portal.php?mod=list&catid=58)\n- [商务车](https://www.chiphell.com/portal.php?mod=list&catid=59)\n- [性能车](https://www.chiphell.com/portal.php?mod=list&catid=63)\n- [旅行车](https://www.chiphell.com/portal.php?mod=list&catid=60)\n- [SUV](https://www.chiphell.com/portal.php?mod=list&catid=61)\n- [MPV](https://www.chiphell.com/portal.php?mod=list&catid=95)\n- [摩托轻骑](https://www.chiphell.com/portal.php?mod=list&catid=65)\n- [改装配件](https://www.chiphell.com/portal.php?mod=list&catid=96)\n- [CHH Auto Club](https://www.chiphell.com/portal.php?mod=list&catid=138)\n\n- [山地车](https://www.chiphell.com/portal.php?mod=list&catid=108)\n- [公路车](https://www.chiphell.com/portal.php?mod=list&catid=109)\n- [折叠车](https://www.chiphell.com/portal.php?mod=list&catid=110)\n- [休旅车](https://www.chiphell.com/portal.php?mod=list&catid=111)\n\n- [人偶手办](https://www.chiphell.com/portal.php?mod=list&catid=112)\n- [比例成品](https://www.chiphell.com/portal.php?mod=list&catid=113)\n- [拼装自组](https://www.chiphell.com/portal.php?mod=list&catid=114)\n- [RC遥控](https://www.chiphell.com/portal.php?mod=list&catid=115)\n\n- [收藏爱好](https://www.chiphell.com/portal.php?mod=list&catid=47)\n- [品质生活](https://www.chiphell.com/portal.php?mod=list&catid=45)\n- [数码前沿](https://www.chiphell.com/portal.php?mod=list&catid=46)\n- [小资情调](https://www.chiphell.com/portal.php?mod=list&catid=44)\n- [女王最大](https://www.chiphell.com/portal.php?mod=list&catid=48)\n- [吃喝玩乐](https://www.chiphell.com/portal.php?mod=list&catid=49)\n- [育儿分享](https://www.chiphell.com/portal.php?mod=list&catid=87)\n\n- [鞋类](https://www.chiphell.com/portal.php?mod=list&catid=122)\n- [服饰](https://www.chiphell.com/portal.php?mod=list&catid=123)\n- [箱包](https://www.chiphell.com/portal.php?mod=list&catid=124)\n\n- [机械表](https://www.chiphell.com/portal.php?mod=list&catid=128)\n- [电子表](https://www.chiphell.com/portal.php?mod=list&catid=126)\n\n- [耳机耳放](https://www.chiphell.com/portal.php?mod=list&catid=71)\n- [音箱功放](https://www.chiphell.com/portal.php?mod=list&catid=72)\n- [解码转盘](https://www.chiphell.com/portal.php?mod=list&catid=73)\n- [随身设备](https://www.chiphell.com/portal.php?mod=list&catid=74)\n- [唱片录音](https://www.chiphell.com/portal.php?mod=list&catid=75)\n\n- [当地美食](https://www.chiphell.com/portal.php?mod=list&catid=68)\n- [世界美食](https://www.chiphell.com/portal.php?mod=list&catid=117)\n- [私房菜品](https://www.chiphell.com/portal.php?mod=list&catid=69)\n- [美食器材](https://www.chiphell.com/portal.php?mod=list&catid=70)\n\n|     |     |     |     |     |\n| --- | --- | --- | --- | --- |\n|  |  | 帖子 | **搜索** |  |\n\n搜索\n\n- 本版\n- 文章\n- 帖子\n\n[Chiphell - 分享与交流用户体验](https://www.chiphell.com/ \"首页\") _»_ [社区](https://www.chiphell.com/forum.php) _›_ [讨论区-生活与技术的讨论](https://www.chiphell.com/forum.php?gid=3) _›_ [电脑讨论(新)](https://www.chiphell.com/forum-146-1.html) _›_ [求助：电脑登陆chh论坛人机验证问题](https://www.chiphell.com/thread-2522672-1-1.html)\n\n**1** [2](https://www.chiphell.com/forum.php?mod=viewthread&tid=2522672&extra=page%3D1&page=2) / 2 页 [下一页](https://www.chiphell.com/forum.php?mod=viewthread&tid=2522672&extra=page%3D1&page=2)\n\n[返回列表](https://www.chiphell.com/forum-146-1.html)发新帖\n\n|     |     |\n| --- | --- |\n| 查看:26499\\|回复:47 | [打印](https://www.chiphell.com/forum.php?mod=viewthread&action=printable&tid=2522672 \"打印\")[上一主题](https://www.chiphell.com/forum.php?mod=redirect&goto=nextoldset&tid=2522672 \"上一主题\")[下一主题](https://www.chiphell.com/forum.php?mod=redirect&goto=nextnewset&tid=2522672 \"下一主题\")<br># [\\[网络\\]](https://www.chiphell.com/forum.php?mod=forumdisplay&fid=146&filter=typeid&typeid=988) 求助：电脑登陆chh论坛人机验证问题<br>[\\[复制链接\\]](https://www.chiphell.com/thread-2522672-1-1.html) |\n\n|     |     |\n| --- | --- |\n| [quud](https://www.chiphell.com/space-uid-353378.html)<br>**[quud](https://www.chiphell.com/space-uid-353378.html)** _当前离线_<br>积分[1920](https://www.chiphell.com/home.php?mod=space&uid=353378&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=353378&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/35/33/78_avatar_middle.jpg)](https://www.chiphell.com/space-uid-353378.html) | 电梯直达\n\n**[_1_#](https://www.chiphell.com/thread-2522672-1-1.html)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-6-8 09:36_ 来自手机\\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2522672&page=1&authorid=353378) \\| [只看大图](https://www.chiphell.com/forum.php?mod=viewthread&tid=2522672&from=album) \\| [倒序浏览](https://www.chiphell.com/forum.php?mod=viewthread&tid=2522672&extra=page%3D1&ordertype=1) \\|阅读模式\n\n|     |\n| --- |\n| 手机登陆无异常，pc登陆无法正常显示验证图片，系统win10-64，google浏览器、微软自带浏览器，过程和结果如图，点击“我不是无人机”后大约十几秒就显示“验证成功”但点击登陆却显示“验证码错误”常识多次均如此！请问如何解决！（基本办法包括清理缓存等等都用了，无效） |\n\n[b4f7e35a1ac7048f02d57babc00c4edb.png](https://static.chiphell.com/forum/202306/08/093544dybr1t1urbnqn7jy.png) _(146.58 KB, 下载次数:_\n_147)_\n\n[下载附件](https://static.chiphell.com/forum/202306/08/093544dybr1t1urbnqn7jy.png)\n\n2023-6-8 09:35 上传\n\n![b4f7e35a1ac7048f02d57babc00c4edb.png](https://static.chiphell.com/forum/202306/08/093544dybr1t1urbnqn7jy.png)\n\n[b4f7e35a1ac7048f02d57babc00c4edb.png](https://static.chiphell.com/forum/202306/08/093545hfcubcqy1hueubg1.png) _(146.58 KB, 下载次数:_\n_161)_\n\n[下载附件](https://static.chiphell.com/forum/202306/08/093545hfcubcqy1hueubg1.png)\n\n2023-6-8 09:35 上传\n\n![b4f7e35a1ac7048f02d57babc00c4edb.png](https://static.chiphell.com/forum/202306/08/093545hfcubcqy1hueubg1.png)\n\n[c9a99afd0a6d65cd56f79ffd83bc95c2.png](https://static.chiphell.com/forum/202306/08/093545zfi5qoxmedxegz3m.png) _(188.09 KB, 下载次数:_\n_159)_\n\n[下载附件](https://static.chiphell.com/forum/202306/08/093545zfi5qoxmedxegz3m.png)\n\n2023-6-8 09:35 上传\n\n![c9a99afd0a6d65cd56f79ffd83bc95c2.png](https://static.chiphell.com/forum/202306/08/093545zfi5qoxmedxegz3m.png) |\n| [_收藏2_](https://www.chiphell.com/home.php?mod=spacecp&ac=favorite&type=thread&id=2522672&formhash=85da3594 \"收藏本帖\") |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2522672&reppost=52765771&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [njzhx86](https://www.chiphell.com/space-uid-361062.html)<br>**[njzhx86](https://www.chiphell.com/space-uid-361062.html)** _当前离线_<br>积分[5206](https://www.chiphell.com/home.php?mod=space&uid=361062&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=361062&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/36/10/62_avatar_middle.jpg)](https://www.chiphell.com/space-uid-361062.html) | **[_2_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2522672&pid=52765826)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-6-8 09:39_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2522672&page=1&authorid=361062)\n\n|     |\n| --- |\n| _本帖最后由 njzhx86 于 2023-6-8 09:41 编辑_<br>我是手机edge登录总显示验证码错误，但手机edge切换到电脑版能登录，登陆后再切回手机版正常。<br>电能edge登录正常。 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2522672&repquote=52765826&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [aning](https://www.chiphell.com/space-uid-66855.html)<br>**[aning](https://www.chiphell.com/space-uid-66855.html)** _当前离线_<br>积分[4088](https://www.chiphell.com/home.php?mod=space&uid=66855&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=66855&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/06/68/55_avatar_middle.jpg)](https://www.chiphell.com/space-uid-66855.html) | **[_3_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2522672&pid=52765838)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-6-8 09:40_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2522672&page=1&authorid=66855)\n\n|     |\n| --- |\n| > [njzhx86 发表于 2023-6-8 09:39](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&pid=52765826&ptid=2522672)<br>> <br>> 我是手机edge登录总显示验证码错误，但手机edge切换到电脑版能登录，登陆后再切回手机版支持。<br>> <br>> 电能edge登 ...<br>+1 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2522672&repquote=52765838&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [zt4229524](https://www.chiphell.com/space-uid-110231.html)<br>**[zt4229524](https://www.chiphell.com/space-uid-110231.html)** _当前离线_<br>积分[260](https://www.chiphell.com/home.php?mod=space&uid=110231&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=110231&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/11/02/31_avatar_middle.jpg)](https://www.chiphell.com/space-uid-110231.html) | **[_4_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2522672&pid=52767089)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-6-8 11:19_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2522672&page=1&authorid=110231)\n\n|     |\n| --- |\n| 建议可以绑定QQ登录就完美了 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2522672&repquote=52767089&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [kimkid](https://www.chiphell.com/space-uid-439081.html)<br>**[kimkid](https://www.chiphell.com/space-uid-439081.html)** _当前离线_<br>积分[530](https://www.chiphell.com/home.php?mod=space&uid=439081&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=439081&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/noavatar.svg)](https://www.chiphell.com/space-uid-439081.html) | **[_5_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2522672&pid=52768040)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-6-8 13:22_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2522672&page=1&authorid=439081)\n\n|     |\n| --- |\n| 会不会是广告屏蔽插件或者安全设置较高，屏蔽掉了验证图？ | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2522672&repquote=52768040&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [zxy2001](https://www.chiphell.com/space-uid-364175.html)<br>**[zxy2001](https://www.chiphell.com/space-uid-364175.html)** _当前离线_<br>积分[3178](https://www.chiphell.com/home.php?mod=space&uid=364175&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=364175&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/36/41/75_avatar_middle.jpg)](https://www.chiphell.com/space-uid-364175.html) | **[_6_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2522672&pid=52769219)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-6-8 15:36_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2522672&page=1&authorid=364175)\n\n|     |\n| --- |\n| 工作笔记本的edge 点登录，连安全提问的页面都跳不出来。。摸鱼只能换Chrome或者IE浏览器来上CHH | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2522672&repquote=52769219&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [quud](https://www.chiphell.com/space-uid-353378.html)<br>**[quud](https://www.chiphell.com/space-uid-353378.html)** _当前离线_<br>积分[1920](https://www.chiphell.com/home.php?mod=space&uid=353378&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=353378&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/35/33/78_avatar_middle.jpg)](https://www.chiphell.com/space-uid-353378.html) | **[_7_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2522672&pid=52772230)**\n\n楼主\\| _发表于 2023-6-8 23:02_ 来自手机\\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2522672&page=1&authorid=353378)\n\n|     |\n| --- |\n| 这到底是怎么回事儿呢？以前从未这样过，今年年初就开始了，能联系管理调整登陆验证方式吗？ | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2522672&repquote=52772230&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [quud](https://www.chiphell.com/space-uid-353378.html)<br>**[quud](https://www.chiphell.com/space-uid-353378.html)** _当前离线_<br>积分[1920](https://www.chiphell.com/home.php?mod=space&uid=353378&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=353378&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/35/33/78_avatar_middle.jpg)](https://www.chiphell.com/space-uid-353378.html) | **[_8_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2522672&pid=52772233)**\n\n楼主\\| _发表于 2023-6-8 23:03_ 来自手机\\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2522672&page=1&authorid=353378)\n\n|     |\n| --- |\n| > zt4229524 发表于 2023-6-8 11:19<br>> <br>> 建议可以绑定QQ登录就完美了<br>请问如何操作 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2522672&repquote=52772233&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [quud](https://www.chiphell.com/space-uid-353378.html)<br>**[quud](https://www.chiphell.com/space-uid-353378.html)** _当前离线_<br>积分[1920](https://www.chiphell.com/home.php?mod=space&uid=353378&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=353378&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/35/33/78_avatar_middle.jpg)](https://www.chiphell.com/space-uid-353378.html) | **[_9_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2522672&pid=52772237)**\n\n楼主\\| _发表于 2023-6-8 23:03_ 来自手机\\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2522672&page=1&authorid=353378)\n\n|     |\n| --- |\n| > kimkid 发表于 2023-6-8 13:22<br>> <br>> 会不会是广告屏蔽插件或者安全设置较高，屏蔽掉了验证图？<br>都是最低级的，全都检查过了，其它网站验证码都很顺利 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2522672&repquote=52772237&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [lwsg1987](https://www.chiphell.com/space-uid-174485.html)<br>**[lwsg1987](https://www.chiphell.com/space-uid-174485.html)** _当前离线_<br>积分[3413](https://www.chiphell.com/home.php?mod=space&uid=174485&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=174485&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/17/44/85_avatar_middle.jpg)](https://www.chiphell.com/space-uid-174485.html) | **[_10_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2522672&pid=52772315)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-6-8 23:16_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2522672&page=1&authorid=174485)\n\n|     |\n| --- |\n| chrome浏览器有这个问题<br>更新版本 清缓存后好了<br>不知道哪个管用了 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2522672&repquote=52772315&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [天涯望月](https://www.chiphell.com/space-uid-88189.html)<br>**[天涯望月](https://www.chiphell.com/space-uid-88189.html)** _当前离线_<br>积分[7595](https://www.chiphell.com/home.php?mod=space&uid=88189&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=88189&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/08/81/89_avatar_middle.jpg)](https://www.chiphell.com/space-uid-88189.html) | **[_11_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2522672&pid=52772348)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-6-8 23:24_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2522672&page=1&authorid=88189)\n\n|     |\n| --- |\n| 网卡或者浏览器......网络服务中转加速之类的.....会出现这种验证问题 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2522672&repquote=52772348&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [xinnu89](https://www.chiphell.com/space-uid-223212.html)<br>**[xinnu89](https://www.chiphell.com/space-uid-223212.html)** _当前离线_<br>积分[4989](https://www.chiphell.com/home.php?mod=space&uid=223212&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=223212&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/22/32/12_avatar_middle.jpg)](https://www.chiphell.com/space-uid-223212.html) | **[_12_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2522672&pid=52772388)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-6-8 23:32_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2522672&page=1&authorid=223212)\n\n|     |\n| --- |\n| 上次死活登录不上，把插件注意关了就好了，后来找到了出问题的插件，但是忘记是哪个了 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2522672&repquote=52772388&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [Sогαお姫様](https://www.chiphell.com/space-uid-105317.html)<br>**[Sогαお姫様](https://www.chiphell.com/space-uid-105317.html)** _当前离线_<br>积分[8308](https://www.chiphell.com/home.php?mod=space&uid=105317&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=105317&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/10/53/17_avatar_middle.jpg)](https://www.chiphell.com/space-uid-105317.html) | **[_13_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2522672&pid=52777548)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-6-9 16:36_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2522672&page=1&authorid=105317)\n\n|     |\n| --- |\n| 主页拉入AD白名单 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2522672&repquote=52777548&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [quud](https://www.chiphell.com/space-uid-353378.html)<br>**[quud](https://www.chiphell.com/space-uid-353378.html)** _当前离线_<br>积分[1920](https://www.chiphell.com/home.php?mod=space&uid=353378&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=353378&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/35/33/78_avatar_middle.jpg)](https://www.chiphell.com/space-uid-353378.html) | **[_14_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2522672&pid=52782084)**\n\n楼主\\| _发表于 2023-6-10 15:13_ 来自手机\\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2522672&page=1&authorid=353378)\n\n|     |\n| --- |\n| > Sогαお姫様 发表于 2023-6-9 16:36<br>> <br>> 主页拉入AD白名单<br>没看懂！啥AD白名单 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2522672&repquote=52782084&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [hjd737623966](https://www.chiphell.com/space-uid-155609.html)<br>**[hjd737623966](https://www.chiphell.com/space-uid-155609.html)** _当前离线_<br>积分[3877](https://www.chiphell.com/home.php?mod=space&uid=155609&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=155609&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/15/56/09_avatar_middle.jpg)](https://www.chiphell.com/space-uid-155609.html) | **[_15_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2522672&pid=52782373)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-6-10 16:19_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2522672&page=1&authorid=155609)\n\n|     |\n| --- |\n| 我是把鼠标手势关了就可以了 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2522672&repquote=52782373&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [Bazooka](https://www.chiphell.com/space-uid-9182.html)<br>**[Bazooka](https://www.chiphell.com/space-uid-9182.html)** _当前离线_<br>积分[3865](https://www.chiphell.com/home.php?mod=space&uid=9182&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=9182&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/00/91/82_avatar_middle.jpg)](https://www.chiphell.com/space-uid-9182.html) | **[_16_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2522672&pid=52784414)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-6-10 23:43_ 来自手机\\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2522672&page=1&authorid=9182)\n\n|     |\n| --- |\n| 我是手机版edge登不上，图形验证完了以后说不正确，现在被迫用手机系统自带的浏览器咯 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2522672&repquote=52784414&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [CristalKing](https://www.chiphell.com/space-uid-22494.html)<br>**[CristalKing](https://www.chiphell.com/space-uid-22494.html)** _当前离线_<br>积分[5644](https://www.chiphell.com/home.php?mod=space&uid=22494&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=22494&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/02/24/94_avatar_middle.jpg)](https://www.chiphell.com/space-uid-22494.html) | **[_17_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2522672&pid=52784419)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-6-10 23:45_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2522672&page=1&authorid=22494)\n\n|     |\n| --- |\n| 是不是用了鼠标手势插件，用了就有这个问题 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2522672&repquote=52784419&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [jiangyang123](https://www.chiphell.com/space-uid-129110.html)<br>**[jiangyang123](https://www.chiphell.com/space-uid-129110.html)** _当前离线_<br>积分[3056](https://www.chiphell.com/home.php?mod=space&uid=129110&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=129110&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/12/91/10_avatar_middle.jpg)](https://www.chiphell.com/space-uid-129110.html) | **[_18_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2522672&pid=52784455)**<br>![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-6-10 23:56_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2522672&page=1&authorid=129110)<br>提示: _作者被禁止或删除 内容自动屏蔽_ |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2522672&repquote=52784455&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [quud](https://www.chiphell.com/space-uid-353378.html)<br>**[quud](https://www.chiphell.com/space-uid-353378.html)** _当前离线_<br>积分[1920](https://www.chiphell.com/home.php?mod=space&uid=353378&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=353378&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/35/33/78_avatar_middle.jpg)](https://www.chiphell.com/space-uid-353378.html) | **[_19_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2522672&pid=52786576)**\n\n楼主\\| _发表于 2023-6-11 14:20_ 来自手机\\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2522672&page=1&authorid=353378)\n\n|     |\n| --- |\n| > jiangyang123 发表于 2023-6-10 23:56<br>> <br>> 隐身（无痕）模式下可以登录吗<br>> <br>> 换个浏览器可以登录吗<br>试过了，都不行 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2522672&repquote=52786576&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [quud](https://www.chiphell.com/space-uid-353378.html)<br>**[quud](https://www.chiphell.com/space-uid-353378.html)** _当前离线_<br>积分[1920](https://www.chiphell.com/home.php?mod=space&uid=353378&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=353378&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/35/33/78_avatar_middle.jpg)](https://www.chiphell.com/space-uid-353378.html) | **[_20_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2522672&pid=52786581)**\n\n楼主\\| _发表于 2023-6-11 14:21_ 来自手机\\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2522672&page=1&authorid=353378)\n\n|     |\n| --- |\n| > CristalKing 发表于 2023-6-10 23:45<br>> <br>> 是不是用了鼠标手势插件，用了就有这个问题<br>罗技鼠标驱动，我卸载试试 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2522672&repquote=52786581&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [quud](https://www.chiphell.com/space-uid-353378.html)<br>**[quud](https://www.chiphell.com/space-uid-353378.html)** _当前离线_<br>积分[1920](https://www.chiphell.com/home.php?mod=space&uid=353378&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=353378&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/35/33/78_avatar_middle.jpg)](https://www.chiphell.com/space-uid-353378.html) | **[_21_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2522672&pid=52786656)**\n\n楼主\\| _发表于 2023-6-11 14:33_ 来自手机\\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2522672&page=1&authorid=353378)\n\n|     |\n| --- |\n| > CristalKing 发表于 2023-6-10 23:45<br>> <br>> 是不是用了鼠标手势插件，用了就有这个问题<br>不行，试过了，换了笔记本win7系统也不行，应该是网站自己的问题 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2522672&repquote=52786656&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [CristalKing](https://www.chiphell.com/space-uid-22494.html)<br>**[CristalKing](https://www.chiphell.com/space-uid-22494.html)** _当",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": true,
+      "metadata": {
+        "generator": "Discuz! X3.5",
+        "MSSmartTagsPreventParsing": "True",
+        "keywords": "求助：电脑登陆chh论坛人机验证问题,电脑讨论(新),讨论区-生活与技术的讨论,Chiphell",
+        "author": "Discuz! Team and Comsenz UI Team",
+        "title": "求助：电脑登陆chh论坛人机验证问题 - 电脑讨论(新) -  Chiphell - 分享与交流用户体验   ",
+        "description": "求助：电脑登陆chh论坛人机验证问题,手机登陆无异常，pc登陆无法正常显示验证图片，系统win10-64，google浏览器、微软自带浏览器，过程和结果如图，点击“我不是无人机”后大约十几秒就显示“验证成功”但点击 ...,电脑讨论(新),讨论区-生活与技术的讨论 ,Chiphell - 分享与交流用户体验",
+        "msapplication-task": [
+          "name=首页;action-uri=https://www.chiphell.com/portal.php;icon-uri=https://www.chiphell.com/static/image/common/portal.ico",
+          "name=社区;action-uri=https://www.chiphell.com/forum.php;icon-uri=https://www.chiphell.com/static/image/common/bbs.ico",
+          "name=家园;action-uri=https://www.chiphell.com/home.php;icon-uri=https://www.chiphell.com/static/image/common/home.ico"
+        ],
+        "copyright": "2001-2026 Discuz! Team.",
+        "theme-color": "#ffffff",
+        "msapplication-TileColor": "#da532c",
+        "referrer": "origin",
+        "application-name": "Chiphell - 分享与交流用户体验",
+        "msapplication-tooltip": "Chiphell - 分享与交流用户体验",
+        "favicon": "https://www.chiphell.com/favicon-32x32.png",
+        "scrapeId": "01a13e8e-0735-760a-a8dd-90c1b19f9225",
+        "sourceURL": "https://www.chiphell.com/thread-2522672-1-1.html",
+        "url": "https://www.chiphell.com/thread-2522672-1-1.html",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "cacheState": "miss",
+        "indexId": "9c237d54-1237-42d2-856f-7e9a48e6e197",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 7558,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 7694
+    },
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://github.com/Kagami/chaptcha/blob/master/chaptcha.py",
+      "final_url": "https://github.com/Kagami/chaptcha/blob/master/chaptcha.py",
+      "title": "chaptcha/chaptcha.py at master · Kagami/chaptcha · GitHub",
+      "content": "[Skip to content](https://github.com/Kagami/chaptcha/blob/master/chaptcha.py#start-of-content)\n\nYou signed in with another tab or window. [Reload](https://github.com/Kagami/chaptcha/blob/master/chaptcha.py) to refresh your session.You signed out in another tab or window. [Reload](https://github.com/Kagami/chaptcha/blob/master/chaptcha.py) to refresh your session.You switched accounts on another tab or window. [Reload](https://github.com/Kagami/chaptcha/blob/master/chaptcha.py) to refresh your session.Dismiss alert\n\n{{ message }}\n\n## Collapse file tree\n\n## Files\n\nmaster\n\nSearch this repository(forward slash)` forward slash/`\n\n/\n\n# chaptcha.py\n\nCopy path\n\nBlame\n\nMore file actions\n\nBlame\n\nMore file actions\n\n## Latest commit\n\n[![Kagami](https://avatars.githubusercontent.com/u/533383?v=4&size=40)](https://github.com/Kagami)[Kagami](https://github.com/Kagami/chaptcha/commits?author=Kagami)\n\n[Improve segmentation](https://github.com/Kagami/chaptcha/commit/fc151a4fef16b4816db58b30026253eb64e05942)\n\nOpen commit details\n\n10 years agoApr 4, 2016\n\n[fc151a4](https://github.com/Kagami/chaptcha/commit/fc151a4fef16b4816db58b30026253eb64e05942) · 10 years agoApr 4, 2016\n\n## History\n\n[History](https://github.com/Kagami/chaptcha/commits/master/chaptcha.py)\n\nOpen commit details\n\n[View commit history for this file.](https://github.com/Kagami/chaptcha/commits/master/chaptcha.py) History\n\nexecutable file\n\n·\n\n599 lines (520 loc) · 17.3 KB\n\n/\n\n# chaptcha.py\n\nCopy path\n\nTop\n\n## File metadata and controls\n\n- Code\n\n- Blame\n\n\nexecutable file\n\n·\n\n599 lines (520 loc) · 17.3 KB\n\n[Raw](https://github.com/Kagami/chaptcha/raw/refs/heads/master/chaptcha.py)\n\nCopy raw file\n\nDownload raw file\n\nYou must be signed in to make or propose changes\n\nMore edit options\n\nOpen symbols panel\n\nEdit and raw actions\n\n1\n\n2\n\n3\n\n4\n\n5\n\n6\n\n7\n\n8\n\n9\n\n10\n\n11\n\n12\n\n13\n\n14\n\n15\n\n16\n\n17\n\n18\n\n19\n\n20\n\n21\n\n22\n\n23\n\n24\n\n25\n\n26\n\n27\n\n28\n\n29\n\n30\n\n31\n\n32\n\n33\n\n34\n\n35\n\n36\n\n37\n\n38\n\n39\n\n40\n\n41\n\n42\n\n43\n\n44\n\n45\n\n46\n\n47\n\n48\n\n49\n\n50\n\n51\n\n52\n\n53\n\n54\n\n55\n\n56\n\n57\n\n58\n\n59\n\n60\n\n61\n\n62\n\n63\n\n64\n\n65\n\n66\n\n67\n\n68\n\n69\n\n70\n\n71\n\n72\n\n73\n\n74\n\n75\n\n76\n\n77\n\n78\n\n79\n\n80\n\n81\n\n82\n\n83\n\n84\n\n85\n\n86\n\n87\n\n88\n\n89\n\n90\n\n91\n\n92\n\n93\n\n94\n\n95\n\n96\n\n97\n\n98\n\n99\n\n100\n\n101\n\n102\n\n103\n\n104\n\n105\n\n106\n\n107\n\n108\n\n109\n\n110\n\n111\n\n112\n\n113\n\n114\n\n115\n\n116\n\n117\n\n118\n\n119\n\n120\n\n121\n\n122\n\n123\n\n124\n\n125\n\n126\n\n127\n\n128\n\n129\n\n130\n\n131\n\n132\n\n133\n\n134\n\n135\n\n136\n\n137\n\n138\n\n139\n\n140\n\n141\n\n142\n\n143\n\n144\n\n145\n\n146\n\n147\n\n148\n\n149\n\n150\n\n526\n\n527\n\n528\n\n529\n\n530\n\n531\n\n532\n\n533\n\n534\n\n535\n\n536\n\n537\n\n538\n\n539\n\n540\n\n541\n\n542\n\n543\n\n544\n\n545\n\n546\n\n547\n\n548\n\n549\n\n550\n\n551\n\n552\n\n553\n\n554\n\n555\n\n556\n\n557\n\n558\n\n559\n\n560\n\n561\n\n562\n\n563\n\n564\n\n565\n\n566\n\n567\n\n568\n\n569\n\n570\n\n571\n\n572\n\n573\n\n574\n\n575\n\n576\n\n577\n\n578\n\n579\n\n580\n\n581\n\n582\n\n583\n\n584\n\n585\n\n586\n\n587\n\n588\n\n589\n\n590\n\n591\n\n592\n\n593\n\n594\n\n595\n\n596\n\n597\n\n598\n\n599\n\n#!/usr/bin/env python\n\n\"\"\"\n\nrecognize CAPTCHA at 2ch.hk\n\nexamples:\n\npython {title} vis -i captcha.png\n\npython {title} collect -o captchas/ -k ag.txt\n\npython {title} train -i captchas/ -o my.net\n\npython {title} ocr -i captcha.png -n my.net\n\npython {title} serve -n my.net\n\n\"\"\"\n\nfrom \\_\\_future\\_\\_ importdivision\n\nfrom \\_\\_future\\_\\_ importprint\\_function\n\nfrom \\_\\_future\\_\\_ importunicode\\_literals\n\nimportos\n\nimportre\n\nimportsys\n\nimporttime\n\nimporterrno\n\nimportargparse\n\nfromdatetimeimportdatetime\n\nimportthreading\n\nimporttraceback\n\nimportnumpyasnp\n\nimportcv2\n\ntry:\n\nfromfann2importlibfann\n\nexceptImportError:\n\n\\# Ubuntu < 16.04\n\nfrompyfannimportlibfann\n\nimportrequests\n\nimportbottle\n\n\\_\\_title\\_\\_='chaptcha.py'\n\n\\_\\_version\\_\\_='0.0.1'\n\n\\_\\_license\\_\\_='CC0'\n\nNUM\\_CHARS=6\n\nCAPTCHA\\_WIDTH=220\n\nCAPTCHA\\_HEIGHT=80\n\nCH\\_WIDTH=22\n\nCH\\_HEIGHT=40\n\nLINE\\_THICK=2\n\n\\# See <https://github.com/numpy/numpy/issues/7112>.\n\n\\_CONSTANT=str('constant')\n\ndefcheck\\_image(img):\n\nassertimgisnotNone, 'cannot read image'\n\nassertimg.shape== (CAPTCHA\\_HEIGHT, CAPTCHA\\_WIDTH), 'bad image dimensions'\n\ndefget\\_image(fpath):\n\nimg=cv2.imread(fpath, 0)\n\ncheck\\_image(img)\n\nreturnimg\n\ndefdecode\\_image(data):\n\nimg=cv2.imdecode(data, 0)\n\ncheck\\_image(img)\n\nreturnimg\n\ndefget\\_network(fpath):\n\nann=libfann.neural\\_net()\n\nassertann.create\\_from\\_file(fpath), 'cannot init network'\n\nreturnann\n\ndefget\\_ch\\_data(img):\n\ndata=img.flatten() &1\n\nassertlen(data) ==CH\\_WIDTH\\*CH\\_HEIGHT, 'bad data size'\n\nreturndata\n\ndefmake\\_ann\\_output(digit):\n\ndigit=int(digit)\n\nout= \\[0.0\\] \\*10\n\nout\\[digit\\] =1.0\n\nreturnout\n\ndefget\\_match(answer1, answer2):\n\nreturnsum(dg1==dg2for (dg1, dg2) inzip(answer1, answer2))\n\ndefreport(line='', progress=False):\n\nifprogress:\n\nline='\\\\033\\[1A\\\\033\\[K'+line\\\n\\\nline+='\\\\n'\\\n\\\nsys.stderr.write(line)\\\n\\\ndefmkdirp(dpath):\\\n\\\ntry:\\\n\\\nos.makedirs(dpath)\\\n\\\nexceptOSErrorasexc:\\\n\\\nifexc.errno!=errno.EEXIST:\\\n\\\nraise\\\n\\\ndef\\_denoise(img):\\\n\\\nimg=cv2.fastNlMeansDenoising(img, None, 65, 5, 21)\\\n\\\nimg=cv2.threshold(img, 128, 255, cv2.THRESH\\_BINARY\\_INV)\\[1\\]\\\n\\\nreturnimg\\\n\\\ndef\\_get\\_lines(img):\\\n\\\nlines=cv2.HoughLinesP(img, 1, np.pi/180, 100,\\\n\\\nminLineLength=100, maxLineGap=100)\\\n\\\niflinesisNone:\\\n\\\nlines= \\[\\]\\\n\\\nreturn \\[line\\[0\\] forlineinlines\\]\\\n\\\ndef\\_preprocess(img):\\\n\\\nimg=img.copy()\\\n\\\nimg=\\_denoise(img)\\\n\\\nlines=\\_get\\_lines(img)\\\n\\\nforlineinlines:\\\n\\\nx1, y1, x2, y2=line\\\n\\\ncv2.line(img, (x1, y1), (x2, y2), 0, LINE\\_THICK)\\\n\\\nreturnimg\\\n\\\ndefsegment(img):\\\n\\\ndeffind\\_filled\\_row(rows):\\\n\\\nfori, rowinenumerate(rows):\\\n\\\ndots=np.sum(row) //255\\\n\\\nifdots>=DOTS\\_THRESHOLD:\\\n\\\nreturni\\\n\\\nassertFalse, 'cannot find filled row'\\\n\\\ndefpad\\_ch(ch):\\\n\\\npad\\_w=CH\\_WIDTH-len(ch.T)\\\n\\\nassertpad\\_w>=0, 'bad char width'\\\n\\\npad\\_w1=pad\\_w//2\\\n\\\npad\\_w2=pad\\_w-pad\\_w1\\\n\\\npad\\_h=CH\\_HEIGHT-len(ch)\\\n\\\nassertpad\\_h>=0, 'bad char height'\\\n\\\npad\\_h1=pad\\_h//2\\\n\\\npad\\_h2=pad\\_h-pad\\_h1\\\n\\\nreturnnp.pad(ch, ((pad\\_h1, pad\\_h2), (pad\\_w1, pad\\_w2)), \\_CONSTANT)\\\n\\\ndescription=doc,\\\n\\\nformatter\\_class=argparse.RawTextHelpFormatter)\\\n\\\nparser.add\\_argument(\\\n\\\n'mode',\\\n\\\nchoices=\\['vis', 'collect', 'train', 'ocr', 'ocr-bench', 'serve'\\],\\\n\\\nhelp='operational mode')\\\n\\\nparser.add\\_argument(\\\n\\\n'-V', '--version',\\\n\\\naction='version',\\\n\\\nversion='%(prog)s '+\\_\\_version\\_\\_)\\\n\\\nparser.add\\_argument(\\\n\\\n'-i', dest='infile', metavar='infile',\\\n\\\nhelp='input file/directory')\\\n\\\nparser.add\\_argument(\\\n\\\n'-o', dest='outfile', metavar='outfile',\\\n\\\nhelp='output file/directory')\\\n\\\nparser.add\\_argument(\\\n\\\n'-k', dest='keyfile', metavar='keyfile',\\\n\\\nhelp='antigate key file')\\\n\\\nparser.add\\_argument(\\\n\\\n'-n', dest='netfile', metavar='netfile',\\\n\\\nhelp='neural network')\\\n\\\nparser.add\\_argument(\\\n\\\n'-b', dest='host', metavar='host',\\\n\\\ndefault='127.0.0.1',\\\n\\\nhelp='listening address (default: %(default)s)')\\\n\\\nparser.add\\_argument(\\\n\\\n'-p', dest='port', metavar='port',\\\n\\\ntype=int, default=28228,\\\n\\\nhelp='listening port (default: %(default)s)')\\\n\\\nopts=parser.parse\\_args(sys.argv\\[1:\\])\\\n\\\nifopts.mode=='vis':\\\n\\\nifopts.infileisNone:\\\n\\\nparser.error('specify input captcha')\\\n\\\nvis(opts.infile)\\\n\\\nelifopts.mode=='train':\\\n\\\nifopts.infileisNone:\\\n\\\nparser.error('specify input directory with captchas')\\\n\\\nifopts.outfileisNone:\\\n\\\nparser.error('specify output file for network data')\\\n\\\nann=train(opts.infile)\\\n\\\nann.save(opts.outfile)\\\n\\\nelifopts.mode=='ocr':\\\n\\\nifopts.infileisNone:\\\n\\\nparser.error('specify input captcha')\\\n\\\nifopts.netfileisNone:\\\n\\\nparser.error('specify network file')\\\n\\\nann=get\\_network(opts.netfile)\\\n\\\nimg=get\\_image(opts.infile)\\\n\\\nprint(ocr(ann, img))\\\n\\\nelifopts.mode=='ocr-bench':\\\n\\\nifopts.infileisNone:\\\n\\\nparser.error('specify input directory with captchas')\\\n\\\nifopts.netfileisNone:\\\n\\\nparser.error('specify network file')\\\n\\\nann=get\\_network(opts.netfile)\\\n\\\nocr\\_bench(ann, opts.infile)\\\n\\\nelifopts.mode=='collect':\\\n\\\nifopts.outfileisNone:\\\n\\\nparser.error('specify output directory for captchas')\\\n\\\nifopts.keyfileisNone:\\\n\\\nparser.error('specify antigate key file')\\\n\\\napi\\_key=open(opts.keyfile, 'r').read().strip()\\\n\\\nrun\\_collect\\_threads(opts.outfile, api\\_key)\\\n\\\nelifopts.mode=='serve':\\\n\\\nifopts.netfileisNone:\\\n\\\nparser.error('specify network file')\\\n\\\nann=get\\_network(opts.netfile)\\\n\\\nbottle.default\\_app().ann=ann\\\n\\\nbottle.run(host=opts.host, port=opts.port)\\\n\\\nif\\_\\_name\\_\\_=='\\_\\_main\\_\\_':\\\n\\\nmain()\\\n\\\nYou can’t perform that action at this time.",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "og:site_name": "GitHub",
+        "twitter:image": "https://opengraph.githubassets.com/3a1e9436fe449f938305ca22bfd02ef13b790ba9863ba2d96765928c83a388a5/Kagami/chaptcha",
+        "fetch-nonce": "v2:a0c9015a-32af-d723-0a48-c141177bf8f7",
+        "octolytics-dimension-repository_network_root_nwo": "Kagami/chaptcha",
+        "react-profiling": "0",
+        "og:image:width": "1200",
+        "ogUrl": "https://github.com/Kagami/chaptcha/blob/master/chaptcha.py",
+        "og:url": "https://github.com/Kagami/chaptcha/blob/master/chaptcha.py",
+        "octolytics-dimension-user_login": "Kagami",
+        "browser-stats-url": "https://api.github.com/_private/browser/stats",
+        "disable-turbo": "false",
+        "user-login": "",
+        "react-import-map": "react,react-dom,react-dom/client,react-dom/profiling,react-is,react-reconciler,react/compiler-runtime,react/jsx-dev-runtime,react/jsx-runtime,scheduler@777f63f87cd0",
+        "release": "bc3651571c4f03107ee34f5fda34870e64bc5639",
+        "octolytics-url": "https://collector.github.com/github/collect",
+        "fb:app_id": "1401488693436528",
+        "og:image": "https://opengraph.githubassets.com/3a1e9436fe449f938305ca22bfd02ef13b790ba9863ba2d96765928c83a388a5/Kagami/chaptcha",
+        "visitor-payload": "eyJyZWZlcnJlciI6Imh0dHBzOi8vZ2l0aHViLmNvbS9LYWdhbWkvY2hhcHRjaGEvYmxvYi9tYXN0ZXIvY2hhcHRjaGEucHkiLCJyZXF1ZXN0X2lkIjoiQjNDRjozM0Y0OTU6MTkzRTA0QToyMERCRDY3OjZBRDA4NkFFIiwidmlzaXRvcl9pZCI6IjEzMTk0MzA4NjAxMTQ1Mjc5MTgiLCJyZWdpb25fZWRnZSI6ImlhZCIsInJlZ2lvbl9yZW5kZXIiOiJpYWQifQ==",
+        "title": "chaptcha/chaptcha.py at master · Kagami/chaptcha · GitHub",
+        "og:image:alt": "Break 2ch CAPTCHA using OpenCV and FANN. Contribute to Kagami/chaptcha development by creating an account on GitHub.",
+        "og:type": "object",
+        "ogTitle": "chaptcha/chaptcha.py at master · Kagami/chaptcha",
+        "octolytics-dimension-user_id": "533383",
+        "html-safe-nonce": "19901bd1088943b2241abbd6943f501865856c169a3e5465718340ce476a9ab5",
+        "twitter:card": "summary_large_image",
+        "language": "en",
+        "hovercard-subject-tag": "repository:55191989",
+        "google-site-verification": "Apib7-x98H0j5cPqHWwSMm6dNU4GmODRoqxLiDzdx9I",
+        "og:description": "Break 2ch CAPTCHA using OpenCV and FANN. Contribute to Kagami/chaptcha development by creating an account on GitHub.",
+        "ogDescription": "Break 2ch CAPTCHA using OpenCV and FANN. Contribute to Kagami/chaptcha development by creating an account on GitHub.",
+        "route-controller": "blob",
+        "current-catalog-service-hash": "f3abb0cc802f3d7b95fc8762b94bdcb13bf39634c40c357301c4aa1d67a256fb",
+        "viewport": "width=device-width",
+        "expected-hostname": "github.com",
+        "octolytics-dimension-repository_public": "true",
+        "og:image:height": "600",
+        "octolytics-dimension-repository_id": "55191989",
+        "request-id": "B3CF:33F495:193E04A:20DBD67:6AD086AE",
+        "apple-itunes-app": "app-id=1477376905, app-argument=https://github.com/Kagami/chaptcha/blob/master/chaptcha.py",
+        "ogSiteName": "GitHub",
+        "analytics-location": "/<user-name>/<repo-name>/blob/show",
+        "hostname": "github.com",
+        "github-keyboard-shortcuts": "repository,source-code,file-tree,copilot",
+        "octolytics-dimension-repository_is_fork": "false",
+        "turbo-body-classes": "logged-out env-production page-responsive",
+        "ogImage": "https://opengraph.githubassets.com/3a1e9436fe449f938305ca22bfd02ef13b790ba9863ba2d96765928c83a388a5/Kagami/chaptcha",
+        "route-action": "show",
+        "twitter:title": "chaptcha/chaptcha.py at master · Kagami/chaptcha",
+        "theme-color": "#1e2327",
+        "ui-target": "full",
+        "go-import": "github.com/Kagami/chaptcha git https://github.com/Kagami/chaptcha.git",
+        "description": "Break 2ch CAPTCHA using OpenCV and FANN. Contribute to Kagami/chaptcha development by creating an account on GitHub.",
+        "og:title": "chaptcha/chaptcha.py at master · Kagami/chaptcha",
+        "visitor-hmac": "34abb642ccff49e21c44e9b796e2d5349825634667f8b0cc413c40212d70fdbb",
+        "twitter:description": "Break 2ch CAPTCHA using OpenCV and FANN. Contribute to Kagami/chaptcha development by creating an account on GitHub.",
+        "octolytics-dimension-repository_nwo": "Kagami/chaptcha",
+        "route-pattern": "/:user_id/:repository/blob/*name(/*path)",
+        "octolytics-dimension-repository_network_root_id": "55191989",
+        "twitter:site": "@github",
+        "color-scheme": "light dark",
+        "browser-errors-url": "https://api.github.com/_private/browser/errors",
+        "turbo-cache-control": [
+          "no-preview",
+          "no-cache"
+        ],
+        "favicon": "https://github.githubassets.com/favicons/favicon.svg",
+        "scrapeId": "01a13e8e-19f7-71d8-86ee-c50a414bdd8b",
+        "sourceURL": "https://github.com/Kagami/chaptcha/blob/master/chaptcha.py",
+        "url": "https://github.com/Kagami/chaptcha/blob/master/chaptcha.py",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "cacheState": "miss",
+        "indexId": "ce828f37-23c5-4c88-b592-cd34b2ffc49f",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 3043,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 3085
+    }
+  ],
+  "elapsed_ms": 35824,
+  "api_calls": {
+    "xai": 1,
+    "firecrawl": 2
+  },
+  "score": {
+    "id": "antibot-shell",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "chiphell-shell"
+        ],
+        "required": 1
+      },
+      "reading": {
+        "status": "fail"
+      }
+    },
+    "task": {
+      "status": "blocked",
+      "reasons": [
+        "reading:fail"
+      ]
+    },
+    "expected_access": "anti_bot",
+    "observed_failure": "anti_bot",
+    "algorithm_miss": false
+  }
+}

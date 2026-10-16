@@ -1,0 +1,42 @@
+{
+  "id": "stackoverflow-venv",
+  "query": "Stack Overflow question page about creating a Python virtual environment",
+  "elapsed_ms": 44465,
+  "returncode": 0,
+  "tools": [
+    "mcp__allsearch__search",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result"
+  ],
+  "answer": "已核对的 Stack Overflow 问题页是 **How can I create a virtual environment with Python 3?**\n\n原始链接：https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3\n\n页面标题为 “How can I create a virtual environment with Python 3? - Stack Overflow”。提问者 Anish 在 2017-03-28 用 Python 2.7 和 virtualenv 1.10.1 运行项目，后来又在用户目录安装了 Python 3.5 和 virtualenv 15.1.0。执行 `python virtualenv/virtualenv.py myproject` 时失败，报错是新建的 `bin/python` 不能用，且 `sys.prefix` 仍指向 `/home/myuser/python3`，而不是虚拟环境目录。标签为 `python`、`python-3.x`、`virtualenv`。\n\n得分最高的答案（288）给出的命令是：\n\n```text\npython3 -m venv ./path-to-new-venv\n```\n\n并说明这是创建虚拟环境的推荐方式。旧的 `pyvenv` 包装命令在 Python 3.6 被弃用，3.8 移除。\n\n抓取内容里能读到的评论原句：\n\n- Chris：“It's not clear which Python you are using when you run `python virtualenv/virtualenv.py myproject`. Is `python` here your system Python (2.7) or your local Python (3.5)?”\n- PM 2Ring：“Did you use the correct pip, i.e. pip3, to install virtualenv version - 15.1.0?”\n- boot-scootin：“I always find these docs helpful.”\n- Anish：“@Chris I am using python3.5”\n- Anish：“@PM2Ring I have used the command python -m pip <virtualenv package>”\n\n页面上还有 “Show 5 more comments”，这次抓取没有展开其余评论。",
+  "stderr": "",
+  "score": {
+    "id": "stackoverflow-venv",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "so-question"
+        ],
+        "required": 1
+      },
+      "comments": {
+        "status": "not_attempted"
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "comments:not_attempted"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true
+  }
+}

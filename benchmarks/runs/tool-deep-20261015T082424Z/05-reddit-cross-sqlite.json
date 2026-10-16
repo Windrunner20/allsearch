@@ -1,0 +1,707 @@
+{
+  "id": "reddit-cross-sqlite",
+  "executed_at": "2026-10-15T08:27:43.153814+00:00",
+  "depth": "deep",
+  "provider_query": "用中文找 Reddit 上讨论把 SQLite 当作应用主数据库的英文帖子",
+  "answer": "以下是 Reddit 上讨论「把 SQLite 当作应用主数据库」的英文帖（最多 8 条），按相关度整理。\n\n1. **[People who used sqlite for their Database on the server](https://www.reddit.com/r/webdev/comments/1gs7k87/people_who_used_sqlite_for_their_database_on_the)**（r/webdev，2024）  \n   多人分享服务端用法：多租户用 SQLite 存租户数据、WAL 下读写分离、单租户单体部署更省事；也有人提醒扩展与并发写入最终会成为瓶颈。\n\n2. **[SQLite as the only database for website](https://www.reddit.com/r/PHP/comments/59na74/sqlite_as_the_only_database_for_website/)**（r/PHP，2016）  \n   讨论网站只用 SQLite。评论提到 sqlite.org 自身用 SQLite 扛高日访问量，以及小中流量站、百万行产品库、大量独立实例等实际经验。\n\n3. **[SQLite in low traffic website?](https://www.reddit.com/r/webdev/comments/81qvnf/sqlite_in_low_traffic_website/)**（r/webdev，2018）  \n   站长已用 SQLite 做主库多年、约 600 次访问/天。评论引用官方口径：多数低到中流量网站合适，并讨论写锁、备份（直接复制文件）与 PDO 抽象。\n\n4. **[SQLite is the only database you will ever need in most cases](https://www.reddit.com/r/programming/comments/n1twez/sqlite_is_the_only_database_you_will_ever_need_in/)**（r/programming，2021）  \n   围绕「多数场景 SQLite 就够」的争论：桌面/嵌入式很合适；类型与日期较弱；多进程写入受限，和 Postgres 的取舍。\n\n5. **[SQLite in production webapps](https://www.reddit.com/r/webdev/comments/17pxrab/sqlite_in_production_webapps/)**（r/webdev，2023）  \n   讨论把 SQLite 当作某类 Web 应用的正式生产库（而非本地开发再换 Postgres）：托管便宜、性能好、N+1 不那么痛，但并发写入仍是短板。有人自称生产环境写约百次/秒、开 WAL 多年无问题。\n\n6. **[SQLite in production for a real app: WAL mode gotchas…](https://www.reddit.com/r/webdev/comments/1sbgmdu/sqlite_in_production_for_a_real_app_wal_mode/)**（r/webdev，2026）  \n   Rails 应用在生产环境只用单个 SQLite 文件。重点是蓝绿部署时两个容器同时写同一文件导致丢单，以及 `sqlite_sequence` 做数据完整性排查的经验。\n\n7. **[Using SQLite as the database in a self hosted automation platform](https://www.reddit.com/r/sqlite/comments/1riye07/using_sqlite_as_the_database_in_a_self_hosted)**（r/sqlite，2026）  \n   自托管自动化工具 RapidForge 以 SQLite 为唯一数据库：单二进制、无外部 DB、无 Docker 依赖，强调可移植与离线部署。评论把它和 PocketBase / TrailBase 对比。\n\n8. **[SQLite DB: simple, in-process, reliable, fast](https://www.reddit.com/r/Backend/comments/1pyezs6/sqlite_db_simple_inprocess_reliable_fast/)**（r/Backend，2025）  \n   从后端架构角度主张用进程内 SQLite 当主库：单文件、无独立数据库进程与网络故障面，用简单性换可靠性；传统独立数据库服务器则更利于扩展与多进程访问。",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://www.reddit.com/r/sqlite/comments/1l2jbyz/visual_db_for_sqlite_a_nocode_ui_for_building/",
+      "url": "https://www.reddit.com/r/sqlite/comments/1l2jbyz/visual_db_for_sqlite_a_nocode_ui_for_building",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "原创SQLite翻译系列2: 合理使用SQLite - HelloMarsMan",
+      "url": "https://www.cnblogs.com/ToTigerMountain/articles/16947068.html",
+      "snippet": "合理使用SQLite SQLite不能直接与客户端/服务器SQL数据库引擎(例如：MyuSQL、Oracle、PostgreSQL、或者SQL Server)相比，因为它试图解决不同的问题。",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.46526662,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://www.reddit.com/r/programming/comments/1gdxzc5/using_sqlite_as_storage_for_web_server_static/",
+      "url": "https://www.reddit.com/r/programming/comments/1gdxzc5/using_sqlite_as_storage_for_web_server_static",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "SQLite 是你在大多数情况下唯一需要的数据库: r/Database",
+      "url": "https://www.reddit.com/r/Database/comments/mr9tzq/sqlite_the_only_database_you_will_ever_need_in?tl=zh-hans",
+      "snippet": "SQLite主宰了单用户数据库的领域。它是大多数单用户应用程序的最佳选择。对于具有许多读者和少量写入者的应用程序,如内容管理系统,它非常出色。但对于期",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.45217365,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://www.reddit.com/r/programming/comments/58b7sx/a_distributed_acid_transaction_layer_built_atop",
+      "url": "https://www.reddit.com/r/programming/comments/58b7sx/a_distributed_acid_transaction_layer_built_atop",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "使用sqlite作为服务器数据库的人: r/webdev",
+      "url": "https://www.reddit.com/r/webdev/comments/1gs7k87/people_who_used_sqlite_for_their_database_on_the?tl=zh-hans",
+      "snippet": "我打算很快开始一个新的网络开发项目，我在寻找数据库的选择。我在考虑关系型数据库的选项，并对sqlite非常感兴趣。我在我的移动应用项目中使用它作为客户",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.42677602,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://www.reddit.com/r/androiddev/comments/3eeyiv/using_sqlite_databases_explain_like_im_five",
+      "url": "https://www.reddit.com/r/androiddev/comments/3eeyiv/using_sqlite_databases_explain_like_im_five",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "小型到中型Web应用用SQLite怎么样？ : r/dotnet",
+      "url": "https://www.reddit.com/r/dotnet/comments/1cdskq4/sqlite_for_a_small_to_medium_web_app?tl=zh-hans",
+      "snippet": "我看到大家对此的看法不一。在SQLite的网站上是这么说的： 总的来说，任何访问量低于10万次/天的网站用SQLite应该都没问",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.3399377,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://www.reddit.com/r/sqlite/comments/1l2jbyz/visual_db_for_sqlite_a_nocode_ui_for_building/",
+      "url": "https://www.reddit.com/r/sqlite/comments/1l2jbyz/visual_db_for_sqlite_a_nocode_ui_for_building",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "原创SQLite翻译系列2: 合理使用SQLite - HelloMarsMan",
+      "url": "https://www.cnblogs.com/ToTigerMountain/articles/16947068.html",
+      "result_id": "r2",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://www.reddit.com/r/programming/comments/1gdxzc5/using_sqlite_as_storage_for_web_server_static/",
+      "url": "https://www.reddit.com/r/programming/comments/1gdxzc5/using_sqlite_as_storage_for_web_server_static",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "SQLite 是你在大多数情况下唯一需要的数据库: r/Database",
+      "url": "https://www.reddit.com/r/Database/comments/mr9tzq/sqlite_the_only_database_you_will_ever_need_in?tl=zh-hans",
+      "result_id": "r4",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://www.reddit.com/r/programming/comments/58b7sx/a_distributed_acid_transaction_layer_built_atop",
+      "url": "https://www.reddit.com/r/programming/comments/58b7sx/a_distributed_acid_transaction_layer_built_atop",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "使用sqlite作为服务器数据库的人: r/webdev",
+      "url": "https://www.reddit.com/r/webdev/comments/1gs7k87/people_who_used_sqlite_for_their_database_on_the?tl=zh-hans",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://www.reddit.com/r/androiddev/comments/3eeyiv/using_sqlite_databases_explain_like_im_five",
+      "url": "https://www.reddit.com/r/androiddev/comments/3eeyiv/using_sqlite_databases_explain_like_im_five",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "小型到中型Web应用用SQLite怎么样？ : r/dotnet",
+      "url": "https://www.reddit.com/r/dotnet/comments/1cdskq4/sqlite_for_a_small_to_medium_web_app?tl=zh-hans",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://www.reddit.com/r/webdev/comments/17pxrab/sqlite_in_production_webapps/?rdt=52427",
+      "url": "https://www.reddit.com/r/webdev/comments/17pxrab/sqlite_in_production_webapps?rdt=52427",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://www.reddit.com/r/flask/comments/gje22a/how_to_write_a_python_flask_rest_api_and_use",
+      "url": "https://www.reddit.com/r/flask/comments/gje22a/how_to_write_a_python_flask_rest_api_and_use",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://www.reddit.com/r/sqlite/comments/1pyehat/comment/nwinh5x/",
+      "url": "https://www.reddit.com/r/sqlite/comments/1pyehat/comment/nwinh5x",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://www.reddit.com/r/sqlite/comments/1riye07/using_sqlite_as_the_database_in_a_self_hosted",
+      "url": "https://www.reddit.com/r/sqlite/comments/1riye07/using_sqlite_as_the_database_in_a_self_hosted",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://www.reddit.com/r/rust/comments/1gy35hz/recommended_frameworks_for_a_server_sqlite/",
+      "url": "https://www.reddit.com/r/rust/comments/1gy35hz/recommended_frameworks_for_a_server_sqlite",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://www.reddit.com/r/sqlite/comments/1gpj4xe/sqlite_transactions_for_efficiency/",
+      "url": "https://www.reddit.com/r/sqlite/comments/1gpj4xe/sqlite_transactions_for_efficiency",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://www.reddit.com/r/sqlite/comments/1vz5we6/sqlite_in_production_with_builtin_litestream/",
+      "url": "https://www.reddit.com/r/sqlite/comments/1vz5we6/sqlite_in_production_with_builtin_litestream",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://www.reddit.com/r/xamarindevelopers/comments/e26ajz/xamarin_efficiently_using_a_sqlite_database/",
+      "url": "https://www.reddit.com/r/xamarindevelopers/comments/e26ajz/xamarin_efficiently_using_a_sqlite_database",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://old.reddit.com/r/PHP/comments/59na74/sqlite_as_the_only_database_for_website.json?sort=top",
+      "url": "https://old.reddit.com/r/PHP/comments/59na74/sqlite_as_the_only_database_for_website.json?sort=top",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://www.reddit.com/r/capacitor/comments/1op1cna/comment/nnf0052/",
+      "url": "https://www.reddit.com/r/capacitor/comments/1op1cna/comment/nnf0052",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "https://www.reddit.com/r/webdev/comments/1gs7k87/people_who_used_sqlite_for_their_database_on_the",
+      "url": "https://www.reddit.com/r/webdev/comments/1gs7k87/people_who_used_sqlite_for_their_database_on_the",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "https://www.reddit.com/r/learnpython/comments/jpm2f3/is_it_ok_to_create_a_database_with_python_app_on/",
+      "url": "https://www.reddit.com/r/learnpython/comments/jpm2f3/is_it_ok_to_create_a_database_with_python_app_on",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c21",
+      "title": "https://www.reddit.com/r/tauri/comments/1lqmdxw/self_promotion_i_made_a_database_management_app",
+      "url": "https://www.reddit.com/r/tauri/comments/1lqmdxw/self_promotion_i_made_a_database_management_app",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c22",
+      "title": "https://www.reddit.com/r/webdev/comments/81qvnf/sqlite_in_low_traffic_website/",
+      "url": "https://www.reddit.com/r/webdev/comments/81qvnf/sqlite_in_low_traffic_website",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c23",
+      "title": "https://www.reddit.com/r/webdev/comments/1sbgmdu/sqlite_in_production_for_a_real_app_wal_mode/",
+      "url": "https://www.reddit.com/r/webdev/comments/1sbgmdu/sqlite_in_production_for_a_real_app_wal_mode",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c24",
+      "title": "https://www.reddit.com/r/programming/comments/n1twez/sqlite_is_the_only_database_you_will_ever_need_in/",
+      "url": "https://www.reddit.com/r/programming/comments/n1twez/sqlite_is_the_only_database_you_will_ever_need_in",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c25",
+      "title": "https://www.reddit.com/r/sqlite/comments/du7v14/help_wanted_can_i_use_sqlite_in_my_app_that_will/",
+      "url": "https://www.reddit.com/r/sqlite/comments/du7v14/help_wanted_can_i_use_sqlite_in_my_app_that_will",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c26",
+      "title": "https://www.reddit.com/r/sqlite/comments/1h7m9g4/trailbase_030_submillisecond_app_server_with",
+      "url": "https://www.reddit.com/r/sqlite/comments/1h7m9g4/trailbase_030_submillisecond_app_server_with",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c27",
+      "title": "https://www.reddit.com/r/Backend/comments/1pyezs6/sqlite_db_simple_inprocess_reliable_fast/",
+      "url": "https://www.reddit.com/r/Backend/comments/1pyezs6/sqlite_db_simple_inprocess_reliable_fast",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c28",
+      "title": "https://www.reddit.com/r/tauri/comments/1hrsqn0/embedding_a_sqlite_database_in_a_tauri_application/",
+      "url": "https://www.reddit.com/r/tauri/comments/1hrsqn0/embedding_a_sqlite_database_in_a_tauri_application",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c29",
+      "title": "https://www.reddit.com/r/androiddev/comments/5qwl6w/shipping_app_with_sqllite_db_vs_creating_on_app/",
+      "url": "https://www.reddit.com/r/androiddev/comments/5qwl6w/shipping_app_with_sqllite_db_vs_creating_on_app",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c30",
+      "title": "https://www.reddit.com/r/programming/comments/n3bfyb/hosting_a_database_on_github_pages_or_any_static/?tl=es-419",
+      "url": "https://www.reddit.com/r/programming/comments/n3bfyb/hosting_a_database_on_github_pages_or_any_static?tl=es-419",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c31",
+      "title": "https://www.reddit.com/r/Blazor/comments/1ovfo2l/sqlitewasmblazor",
+      "url": "https://www.reddit.com/r/Blazor/comments/1ovfo2l/sqlitewasmblazor",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c32",
+      "title": "https://www.reddit.com/r/LocalLLaMA/comments/1wvmps7/i_built_a_crossclient_ai_memory_hub_23_ai_coding/",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1wvmps7/i_built_a_crossclient_ai_memory_hub_23_ai_coding",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c33",
+      "title": "https://www.reddit.com/r/SideProject/comments/10urmb1/i_made_a_website_where_you_can_use_sqlite_in_your/",
+      "url": "https://www.reddit.com/r/SideProject/comments/10urmb1/i_made_a_website_where_you_can_use_sqlite_in_your",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c34",
+      "title": "r/sqlite",
+      "url": "https://www.reddit.com/r/sqlite",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c35",
+      "title": "Where to deploy my SQLite database? : r/dataengineering",
+      "url": "https://www.reddit.com/r/dataengineering/comments/1udmwdz/where_to_deploy_my_sqlite_database",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c36",
+      "title": "每个用户一个sqlite数据库: r/rails",
+      "url": "https://www.reddit.com/r/rails/comments/1lqde0y/a_sqlite_db_for_each_user?tl=zh-hans",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c37",
+      "title": "SQLite in Production? : r/dotnet",
+      "url": "https://www.reddit.com/r/dotnet/comments/1bulzdi/sqlite_in_production",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "provider": "firecrawl",
+      "code": "unsafe_url",
+      "message": "resolved destination is private/reserved and not allowed",
+      "retryable": false
+    },
+    {
+      "provider": "firecrawl",
+      "code": "unsafe_url",
+      "message": "resolved destination is private/reserved and not allowed",
+      "retryable": false
+    },
+    {
+      "provider": "firecrawl",
+      "code": "unsafe_url",
+      "message": "resolved destination is private/reserved and not allowed",
+      "retryable": false
+    }
+  ],
+  "route": {
+    "primary": "xai",
+    "depth": "deep",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 16675,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "deep_supplement",
+        "latency_ms": 5031,
+        "detail": null
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "error",
+        "reason": "post_discovery",
+        "latency_ms": null,
+        "detail": "unsafe_url"
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "error",
+        "reason": "post_discovery",
+        "latency_ms": null,
+        "detail": "unsafe_url"
+      },
+      {
+        "provider": "firecrawl",
+        "operation": "scrape",
+        "outcome": "error",
+        "reason": "post_discovery",
+        "latency_ms": null,
+        "detail": "unsafe_url"
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_deep_supplement",
+      "depth_deep"
+    ]
+  },
+  "cache": {
+    "hit": false,
+    "age_seconds": 0.0,
+    "ttl_seconds": 120,
+    "namespace": "search"
+  },
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://www.cnblogs.com/ToTigerMountain/articles/16947068.html",
+      "final_url": "https://www.cnblogs.com/ToTigerMountain/articles/16947068.html",
+      "title": "原创SQLite翻译系列2: 合理使用SQLite - HelloMarsMan - 博客园",
+      "content": "# [原创SQLite翻译系列2: 合理使用SQLite](https://www.cnblogs.com/ToTigerMountain/articles/16947068.html \"发布于 2022-12-03 10:03\")\n\n# 合理使用SQLite\n\nSQLite不能直接与客户端/服务器SQL数据库引擎(例如：MyuSQL、Oracle、PostgreSQL、或者SQL Server)相比，因为它试图解决不同的问题。\n\n客户端/服务器SQL数据库引擎努力实现企业数据的共享仓库。它们强调可伸缩性、并发性、集中化以及控制。SQLite致力于为单个的应用程序和设备提供本地数据存储。SQLite强调经济、效率、可靠性、独立性、以及简单性。\n\nSQLite不与客户端/服务器数据库竞争，它与fopen()函数竞争。\n\n## SQLite能表现出色的地方\n\n- **嵌入式设备和物联网**\n因为SQLite数据库不需要管理，所以它在不需要专家支持情况下必须能运行的设备上工作得很好。SQLite非常适合用于物联网(包括：电话、机顶盒、电视机、游戏控制器、数码相机、数字手表、厨房电器、恒温器、汽车、机床、飞机、远程传感器、无人飞机、医疗设备，以及机器人)\n\n- **应用程序文件格式**\n\nSQLite通常被用作桌面应用程序的磁盘文件格式，如版本控制系统、财务分析工具、媒体编目和编辑套件、CAD软件包、记录保存程序等。传统的File/Open操作调用sqlite3\\_open()函数以附加到数据库文件。随着应用程序内容的修改，会自动执行更新，因此File/Save菜单选项就变得多余。File/Save\\_As菜单选项能够使用备份API( [backup API](https://sqlite.org/backup.html))来实现。这种方法有很多好处，包括改进性能、减少成本和复杂度、以及提高可靠性。更多内容请参见技术说明 [\"aff\\_short.html\"](https://sqlite.org/aff_short.html) and [\"appfileformat.html\"](https://sqlite.org/appfileformat.html) and [\"fasterthanfs.html\"](https://sqlite.org/fasterthanfs.html)。这种使用情况与下面的数据传输格式( [data transfer format](https://sqlite.org/whentouse.html#wireproto))和数据容器( [data container](https://sqlite.org/whentouse.html#container))的使用情况密切相关。\n\n- **网站**\n\nSQLite作为中小流量网站(也就是说，大多数网站)的数据库引擎工作得非常好。SQLite能够处理的网页总流量依赖网站使用其数据库的程度。一般来说，任一点击量低于10万每天的站点都可以使用SQLite。10万/天的点击量只是一个保守估计，不是一个硬性上限。SQLite已经被证明可以处理10倍于此的流量。 当然，SQLite网站( [https://www.sqlite.org/](https://www.sqlite.org/))本身使用了SQLite，在撰写本文时，它每天处理大约40万到50万的HTTP请求，其中大约有15~20%是访问数据库的动态页面。动态内容每个网页使用了大约200个SQL语句。该机制运行在单个虚拟机上，该虚拟机与其他23个虚拟机共享一个物理服务器，但是大多数时候仍然将平均负载保持在0.1秒以下。\n\n- **数据分析**\n\n理解SQL的人可以利用SQLite3命令行外壳程序(the [sqlite3 command-line shell](https://sqlite.org/cli.html))(或者各种第三方SQLite访问程序)来分析大型数据集。可以从CSV文件导入原始数据，然后对数据进行切分，以生成大量汇总报表。可以使用脚本语言编写的简单脚本，完成更加复杂的分析，该脚本语言可以是Tcl和Python(这两者内置在SQLite中随同发布)、R语言、或使用现成适配器的其他脚本语言。可能的用途包括站点日志分析、运动统计分析、编程指标汇编、以及实验结果分析。许多生物信息学研究者以这种方式使用SQLite.  当然，使用企业客户端/服务器数据库也可以完成相同的事情。SQLite的优点是它更容易安装和使用，生成的数据库是一个单独的文件，可以写入到USB记忆棒，或者通过电子邮件发送给同事。\n\n- **用于企业数据的缓存**\n\n许多应用程序使用SQLite作为企业关系数据库管理系统(RDBMS)相关内容的缓存。这样减少了时延，因为大多数查询都是针对本地缓存当前进行的，避免了网络往返开销，也减少了网络和中央数据库服务器的负载。在许多情况下，它意味着客户端应用程序在网络中断时可以继续进行操作。\n\n- **服务端数据库**\n\n系统设计者们报告成功使用了SQLite，将它作为与运行在数据中心里面的服务器程序有关的数据存储来使用，换句话说，将SQLite当作特定应用程序数据库服务器的底层存储引擎来使用。 在这个模式下，整个系统仍旧是客户端/服务器模型：客户端在网络上发送请求给服务器，并接收回响应。但是，客户端请求和服务器响应不是发送通用SQL语句并返回原始表内容，而是高层级的、与特定应用程序相关的。服务器将请求转换为多个SQL查询，收集查询处理结果，执行后置处理(post-processing)、过滤和分析，然后构造只包含基本信息的高层级响应。 开发者报告说，SQLite在这种场景下经常比客户端/服务器SQL数据库引擎更快。数据库请求由服务器序列化，因此并发性就不是问题。并发性也可以通过“数据库分区”来提高：为不同的子域使用单独的数据库文件。\n\n- **数据传输格式**\n\n因为SQLite数据库是一个具有定义良好的跨平台格式( [well-defined cross-platform format](https://sqlite.org/fileformat2.html))的单一紧凑文件，所以它经常被用作将内容从一个系统传输到另一个系统的容器。发送方将内容收集到一个SQLite数据库文件中，将该文件传给接收方，然后接收方根据需要使用SQL语句提取这些内容。 SQLite数据库促进了系统之间的数据传输，即使当终端具有不同的字符大小和/或字节顺序。数据可以是大型二进制的blob、文本、以及小型数值或布尔值的复杂组合。通过添加新表和/或栏目，可以很容易地扩展数据格式，而不会破坏现有的接收方。SQL查询语言意味接收方不需要完全立刻解析整个传输，而是可以根据需要查询已接收的内容。这种数据格式是“透明的”，因为它可以很容易地通过多种来自不同供应商的通用的开源工具进行解码，供人查看。\n\n- **文件存档和/或数据容器**\n\nSQLite存档( [SQLite Archive](https://sqlite.org/sqlar.html))理念体现了如何使用SQLite作为ZIP存档或Tarball的替代品。存储在SQLite中的文件存档比起同等的ZIP存档只稍微大一点，在某些情况下实际上还要小。SQLite存档具有增量和原子更新的功能、以及存储更丰富元数据的能力。 除了传统的tarball和ZIP存档文件外，Fossil 2.5及以上版本还提供了SQLite存档文件作为下载格式。SQLite3.exe命令行外壳程序( [sqlite3.exe command-line shell](https://sqlite.org/cli.html))3.22.0及以上版本将使用存档命令( [.archive command](https://sqlite.org/cli.html#sqlar))来创建、罗列、或解包一个SQL存档。 对于需要将不同内容绑定到的自包含和自描述的包中，以便跨网络传输的情况来说，SQLite是一个很好的解决方案。内容采用定义良好、跨平台、以及稳定的文件格式编码，编码效率高，并且接收方可以提取内容的小部分子集，而不必读取并解析整个文件。SQL存档作为向许多客户端派发软件更新或内容更新的分发格式非常有用。实际应用中，这个理念有不同的变化形式，举例说，发送电视节目指南给机顶盒以及发送空中更新包给车辆导航系统。\n\n- **代替专有临时磁盘文件**\n\n许多程序使用fopen()、fread()、以及fwrite()函数以自制格式创建和管理数据文件。作为这些专有临时数据文件的替代品，SQLite工作得特别好。与直觉相反，对面向磁盘读写内容来说，SQLite能够比文件系统更快( [faster than the filesystem](https://sqlite.org/fasterthanfs.html)) 。\n\n- **内部或临时数据库**\n\n对于必须以各种方式筛选和排序大量数据的程序，通常更易、更快速的方法是将这些数据加载到内存SQLite数据库中，并使用具有joins和ORDER BY子句的查询以所需要的形式和顺序提取这些数据，而不是去试图手动编写代码实现相同的操作。以这种方式在内部使用SQL数据库还为程序提供了更大的灵活性，因为无须对每个查询重新编码就可以添加新列和索引。\n\n- **演示或测试期间代替企业数据库**\n\n客户端应用程序通常使用一个通用数据库接口，该接口允许连接到各种SQL数据库引擎。将SQLite包含在支持的混合数据库中，并将SQLite引擎静态地连接到客户机中，这是很有意义的。那样客户端程序就可以与SQLite数据文件单独使用，用于测试或演示。\n\n- **教育与培训**\n\n因为SQLite安装和使用都很简单(安装过程很简单：只要将SQLite3或SQLite3.exe可执行文件拷贝到目标机器上，然后运行它即可)，所以用于教受SQL中，它会成为一个很好的数据库引擎。学生们可以很容易地任意创建大量数据库，并将数据库通过电子邮件发给导师，以便评论和评分。就对学习如何实现RDBMS感兴趣的更高层级的学生而言，模块化的、注释良好的以及文档化的SQLite代码可以作为一个很好的基础。\n\n- **实验性SQL语言扩展**\n\nSQLite的简单、模块化设计使其成为一个很好的平台，可以为新的、实验性的数据库功能或概念提供原型。\n\n## 客户端/服务器关系数据库管理系统(RDBMS)可能工作得更好的情况\n\n- **客户端/服务器应用程序**\n\n如果有许多客户端程序通过网络向同一个数据库发送SQL，那么请使用客户端/服务器数据库引擎而不是SQLite。SQLite可以在网络文件系统上工作，但是由于与大多数网络文件系统相关的迟延，所以性能不会很好。另外，文件锁定逻辑在许多网络文件系统实现中(包括Unix和Windows)都有Bug. 如果文件锁定不能正确工作，两个或多个客户端可能会试图同时去修改同一个数据库的相同部分，从而导致数据库损坏。因为该问题是由于底层文件系统实现中的Bug引起的，所以SQLite无法阻止它。一个好的经验法则就是，在同一数据库会被许多计算机基于网络同时直接(无须通过中间应用服务器)访问的情况下，避免使用SQLite。\n\n- **大容量网站**\n\n作为网站的数据库后端，SQLite通常工作得很好。但是如果网站是写入密集型的，或者非常繁忙以至于要求多个服务器，那么就要考虑企业级的客户端/服务器数据库引擎，而不是SQLite。\n\n- **大规模数据集**\n\n一个SQLite数据库大小的上限是281TB字节(248 字节, 256 tibibytes)，而且，即使它可以处理更大的数据库，SQLite也将整个数据库存储在单个磁盘文件中，许多文件系统将文件的最大大小限制在小于此值的范围内。因此，假如你正在考虑如此大规模的数据库，那么更好的做法是考虑使用客户端/服务器数据库引擎，它将内容分散在多个磁盘文件，以及可能多个卷中。\n\n- **高并发**\n\nSQLite支持不限数量的多个数据阅读者同时读取数据，但是，它在任何时刻都只允许有一个数据写入者写入数据。在许多情况下，这不是问题。写入者排队等候。每个应用程序快速完成数据库工作并继续往下处理，没有一个锁会持续超过几十毫秒。但是，有些应用程序需要更多的并发性，那么这些应用程序可能需要寻求不同的解决方案。\n\n## 选择正确数据库引擎的检查列表\n\n1. **是否需要将数据与应用程序通过网络隔离？→请选择客户端/服务器数据库引擎**\n\n关系数据库引擎充当减少带宽数据过滤器。因此，最好将数据库引擎和数据保持在相同的物理设备上，这样高带宽的引擎到磁盘的网络连接不必穿过网络，只需要低带宽的应用到引擎的网络连接穿过网络。\n\n但是SQLite是内置在应用程序之中的，因此，假如数据位于与应用程序不同的单独设备上，那么它就要求跨网络更高带宽的引擎到磁盘的网络连接。这是可行的，但是不是最佳的。因此，当数据位于与应用程序不同的单独设备上时，通常最好选择客户端/服务器数据库引擎。\n\n    注意：此规则中，“应用程序”是指出现SQL语句的代码。假如“应用程序”是一个应用服务器，并且假如数据内容与应用服务器相同的物理机器上，那么即使终端用户在另一个网络跳点之外，SQLite可能仍旧是很合适的。\n\n2. **许多并发写入者？→请选择客户端/服务器数据库引擎**\n\n假如许多线程和/或进程需要在同一时刻(并且它们不能排队和轮流)写数据库，那么，最好是选择支持该能力的数据库引擎，这通常也意味着客户端/服务器数据库引擎。\n\nSQLite仅支持单个数据库文件每次只有一个写入者。但是在大多数情况下，一个写入事务仅花费几毫秒，因此多个写入者可以简单地轮流进行。SQLite可以处理比人们想象的要多的写并发。然而，客户端/服务器数据库系统，因为它们手边有一个长时间运行的服务器进程来协调访问，因此，通常能够处理远比SQLite要多得多的写并发。\n\n3. **大数据？→请选择客户端/服务器数据库引擎**\n\n如果你的数据会增长到不适合或不能装入到单个磁盘文件的大小时，那么你应该选择一个不同于SQLite的解决方案。SQLite支持最大281TB的数据库，前提是你可以找到支持281TB文件的磁盘驱动器和文件系统。即便如此，当内容的大小看起来可能到达TB范围时，最好选择集中式的客户端/服务器数据库。\n\n4. **否则→请选择SQLite！**\n\n对于具有较低的写入并发性和小于TB内容的本地设备存储，SQLite几乎总是更好的解决方案。SQLite快速可靠，无须配置和维护。它使事情变得简单，SQLite恰到好处。\n\n原文地址：https://www.sqlite.org/whentouse.html\n\n分类:\n[数据库](https://www.cnblogs.com/ToTigerMountain/category/2244234.html), [SQLite](https://www.cnblogs.com/ToTigerMountain/category/2244484.html)\n\n标签:\n[SQLite](https://www.cnblogs.com/ToTigerMountain/tag/SQLite/), [数据库](https://www.cnblogs.com/ToTigerMountain/tag/%E6%95%B0%E6%8D%AE%E5%BA%93/)\n\n免责声明：本内容来自平台创作者，博客园系信息发布平台，仅提供信息存储空间服务。\n\n\n好文要顶关注我收藏该文微信分享\n\n[![](https://pic.cnblogs.com/face/1090011/20170103112029.png)](https://home.cnblogs.com/u/ToTigerMountain/)\n\n[HelloMarsMan](https://home.cnblogs.com/u/ToTigerMountain/)\n\n[粉丝 \\- 7](https://home.cnblogs.com/u/ToTigerMountain/followers/) [关注 \\- 10](https://home.cnblogs.com/u/ToTigerMountain/followees/)\n\n+加关注\n\n0\n\n0\n\n[升级成为会员](https://cnblogs.vip/)\n\nposted @\n2022-12-03 10:03 [HelloMarsMan](https://www.cnblogs.com/ToTigerMountain)\n阅读(251)\n评论(0)\n\n收藏 [举报](https://report.cnblogs.com/?targetLink=https%3A%2F%2Fwww.cnblogs.com%2FToTigerMountain%2Farticles%2F16947068.html&targetId=16947068&targetType=0)\n\n[刷新页面](https://www.cnblogs.com/ToTigerMountain/articles/16947068.html#) [返回顶部](https://www.cnblogs.com/ToTigerMountain/articles/16947068.html#top)\n\n登录后才能查看或发表评论，立即 登录 或者\n[逛逛](https://www.cnblogs.com/) 博客园首页\n\n[![](https://img2024.cnblogs.com/blog/35695/202606/35695-20260609221536870-1777800795.webp)](https://www.volcengine.com/activity/codingplan?utm_campaign=hw&utm_content=hw&utm_medium=devrel_tool_web&utm_source=OWO&utm_term=cnblogs)\n\n- [Linux桌面端应用向鸿蒙PC迁移适配纪实](https://www.cnblogs.com/KBin/p/23219928)\n- [Koog Agent 的编程模型](https://www.cnblogs.com/joy99/p/23171167)\n- [你把时间放在哪里，哪里就会生长 \\| 一个互联网人的时间配置法](https://www.cnblogs.com/yuyisi/p/23139319)\n- [一切都会回潮-写在一个职业周期的低处](https://www.cnblogs.com/yuyisi/p/23058239)\n- [开源：基于.Net开发的数据库自治诊断平台——DBPilot](https://www.cnblogs.com/skychen1218/p/22961976)\n\n### 公告\n\n昵称：\n[HelloMarsMan](https://home.cnblogs.com/u/ToTigerMountain/)\n\n园龄：\n[9年9个月](https://home.cnblogs.com/u/ToTigerMountain/ \"入园时间：2017-01-03\")\n\n粉丝：\n[7](https://home.cnblogs.com/u/ToTigerMountain/followers/)\n\n关注：\n[10](https://home.cnblogs.com/u/ToTigerMountain/followees/)\n\n+加关注\n\n| |     |     |     |\n| --- | --- | --- |\n| < | 2026年10月 | > | |\n| 日 | 一 | 二 | 三 | 四 | 五 | 六 |\n| 27 | 28 | 29 | 30 | 1 | 2 | 3 |\n| 4 | 5 | 6 | 7 | 8 | 9 | 10 |\n| 11 | 12 | 13 | 14 | 15 | 16 | 17 |\n| 18 | 19 | 20 | 21 | 22 | 23 | 24 |\n| 25 | 26 | 27 | 28 | 29 | 30 | 31 |\n| 1 | 2 | 3 | 4 | 5 | 6 | 7 |\n\n### 搜索\n\n### 常用链接\n\n- [我的随笔](https://www.cnblogs.com/ToTigerMountain/p/ \"我的博客的随笔列表\")\n- [我的评论](https://www.cnblogs.com/ToTigerMountain/MyComments.html \"我的发表过的评论列表\")\n- [我的参与](https://www.cnblogs.com/ToTigerMountain/OtherPosts.html \"我评论过的随笔列表\")\n- [最新评论](https://www.cnblogs.com/ToTigerMountain/comments \"我的博客的评论列表\")\n- [我的标签](https://www.cnblogs.com/ToTigerMountain/tag/ \"我的博客的标签列表\")\n\n### [我的标签](https://www.cnblogs.com/ToTigerMountain/tag/)\n\n- [linux(105)](https://www.cnblogs.com/ToTigerMountain/tag/linux/)\n- [C/C++(105)](https://www.cnblogs.com/ToTigerMountain/tag/C%2FC%2B%2B/)\n- [linux开发(95)](https://www.cnblogs.com/ToTigerMountain/tag/linux%E5%BC%80%E5%8F%91/)\n- [Unix编程(84)](https://www.cnblogs.com/ToTigerMountain/tag/Unix%E7%BC%96%E7%A8%8B/)\n- [Web开发(50)](https://www.cnblogs.com/ToTigerMountain/tag/Web%E5%BC%80%E5%8F%91/)\n- [linux系统管理(50)](https://www.cnblogs.com/ToTigerMountain/tag/linux%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/)\n- [B/S架构(49)](https://www.cnblogs.com/ToTigerMountain/tag/B%2FS%E6%9E%B6%E6%9E%84/)\n- [B/S(49)](https://www.cnblogs.com/ToTigerMountain/tag/B%2FS/)\n- [JSP(40)](https://www.cnblogs.com/ToTigerMountain/tag/JSP/)\n- [JAVA(33)](https://www.cnblogs.com/ToTigerMountain/tag/JAVA/)\n- [更多](https://www.cnblogs.com/ToTigerMountain/tag/)\n\n### 随笔档案\n\n- [2023年9月(1)](https://www.cnblogs.com/ToTigerMountain/p/archive/2023/09)\n- [2023年3月(4)](https://www.cnblogs.com/ToTigerMountain/p/archive/2023/03)\n\n### [文章分类](https://www.cnblogs.com/ToTigerMountain/article-categories)\n\n- [.Net(1)](https://www.cnblogs.com/ToTigerMountain/category/2075339.html)\n- [English(1)](https://www.cnblogs.com/ToTigerMountain/category/1114235.html)\n- [Linux(3)](https://www.cnblogs.com/ToTigerMountain/category/1069829.html)\n- [SQLite(3)](https://www.cnblogs.com/ToTigerMountain/category/2244484.html)\n- [TCP/IP(8)](https://www.cnblogs.com/ToTigerMountain/category/1069831.html)\n- [计算机语言(4)](https://www.cnblogs.com/ToTigerMountain/category/1069833.html)\n- [人工智能(3)](https://www.cnblogs.com/ToTigerMountain/category/1069832.html)\n- [数据库(3)](https://www.cnblogs.com/ToTigerMountain/category/2244234.html)\n- [数学(3)](https://www.cnblogs.com/ToTigerMountain/category/1077893.html)\n- [算法(4)](https://www.cnblogs.com/ToTigerMountain/category/1072005.html)\n- [项目管理(1)](https://www.cnblogs.com/ToTigerMountain/category/1073909.html)\n- [杂项(1)](https://www.cnblogs.com/ToTigerMountain/category/1072007.html)\n\n### [阅读排行榜](https://www.cnblogs.com/ToTigerMountain/most-viewed)\n\n- [1\\. 多进程编程之守护进程Daemonize(523)](https://www.cnblogs.com/ToTigerMountain/p/17692705.html)\n- [2\\. DDD图例4：用例图(268)](https://www.cnblogs.com/ToTigerMountain/p/17235160.html)\n- [3\\. DDD图例1：商业模式画布(261)](https://www.cnblogs.com/ToTigerMountain/p/17221020.html)\n- [4\\. DDD图例3：服务蓝图(219)](https://www.cnblogs.com/ToTigerMountain/p/17225369.html)\n- [5\\. DDD图例2：业务流程图(136)](https://www.cnblogs.com/ToTigerMountain/p/17225333.html)\n\n点击右上角即可分享\n\n![微信分享提示](https://img2023.cnblogs.com/blog/35695/202309/35695-20230906145857937-1471873834.gif)",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "keywords": "SQLite,数据库",
+        "viewport": "width=device-width, initial-scale=1.0",
+        "bytedance:published_time": "2022-12-03T10:03:00+08:00",
+        "og:image": "https://assets.cnblogs.com/images/wechat-share.jpg",
+        "referrer": "origin-when-cross-origin",
+        "ogDescription": "合理使用SQLite SQLite不能直接与客户端/服务器SQL数据库引擎(例如：MyuSQL、Oracle、PostgreSQL、或者SQL Server)相比，因为它试图解决不同的问题。 客户端/服务器SQL数据库引擎努力实现企业数据的共享仓库。它们强调可伸缩性、并发性、集中化以及控制。SQLi",
+        "description": "合理使用SQLite SQLite不能直接与客户端/服务器SQL数据库引擎(例如：MyuSQL、Oracle、PostgreSQL、或者SQL Server)相比，因为它试图解决不同的问题。 客户端/服务器SQL数据库引擎努力实现企业数据的共享仓库。它们强调可伸缩性、并发性、集中化以及控制。SQLi",
+        "ogImage": "https://assets.cnblogs.com/images/wechat-share.jpg",
+        "og:description": "合理使用SQLite SQLite不能直接与客户端/服务器SQL数据库引擎(例如：MyuSQL、Oracle、PostgreSQL、或者SQL Server)相比，因为它试图解决不同的问题。 客户端/服务器SQL数据库引擎努力实现企业数据的共享仓库。它们强调可伸缩性、并发性、集中化以及控制。SQLi",
+        "title": "原创SQLite翻译系列2: 合理使用SQLite - HelloMarsMan - 博客园",
+        "language": "zh-cn",
+        "favicon": "https://assets.cnblogs.com/favicon_v3_3.ico",
+        "scrapeId": "01a13eac-f9ac-71ed-b75e-bd87b6d057d6",
+        "sourceURL": "https://www.cnblogs.com/ToTigerMountain/articles/16947068.html",
+        "url": "https://www.cnblogs.com/ToTigerMountain/articles/16947068.html",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "cacheState": "miss",
+        "indexId": "4985ddca-46f1-4fa3-a5ec-8c7c4bbdb14f",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 6738,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 6834
+    },
+    {
+      "schema_version": "1.0",
+      "status": "error",
+      "url": "https://www.reddit.com/r/webdev/comments/1gs7k87/people_who_used_sqlite_for_their_database_on_the?tl=zh-hans",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "security",
+            "operation": "validate",
+            "outcome": "error",
+            "reason": "ssrf",
+            "latency_ms": null,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "security",
+          "code": "unsafe_url",
+          "message": "resolved destination is private/reserved and not allowed",
+          "retryable": false
+        }
+      ],
+      "timing_ms": 42
+    }
+  ],
+  "comments": [
+    {
+      "url": "https://www.cnblogs.com/ToTigerMountain/articles/16947068.html",
+      "text": "# [原创SQLite翻译系列2: 合理使用SQLite](https://www.cnblogs.com/ToTigerMountain/articles/16947068.html \"发布于 2022-12-03 10:03\")\n\n# 合理使用SQLite\n\nSQLite不能直接与客户端/服务器SQL数据库引擎(例如：MyuSQL、Oracle、PostgreSQL、或者SQL Server)相比，因为它试图解决不同的问题。\n\n客户端/服务器SQL数据库引擎努力实现企业数据的共享仓库。它们强调可伸缩性、并发性、集中化以及控制。SQLite致力于为单个的应用程序和设备提供本地数据存储。SQLite强调经济、效率、可靠性、独立性、以及简单性。\n\nSQLite不与客户端/服务器数据库竞争，它与fopen()函数竞争。\n\n## SQLite能表现出色的地方\n\n- **嵌入式设备和物联网**\n因为SQLite数据库不需要管理，所以它在不需要专家支持情况下必须能运行的设备上工作得很好。SQLite非常适合用于物联网(包括：电话、机顶盒、电视机、游戏控制器、数码相机、数字手表、厨房电器、恒温器、汽车、机床、飞机、远程传感器、无人飞机、医疗设备，以及机器人)\n\n- **应用程序文件格式**\n\nSQLite通常被用作桌面应用程序的磁盘文件格式，如版本控制系统、财务分析工具、媒体编目和编辑套件、CAD软件包、记录保存程序等。传统的File/Open操作调用sqlite3\\_open()函数以附加到数据库文件。随着应用程序内容的修改，会自动执行更新，因此File/Save菜单选项就变得多余。File/Save\\_As菜单选项能够使用备份API( [backup API](https://sqlite.org/backup.html))来实现。这种方法有很多好处，包括改进性能、减少成本和复杂度、以及提高可靠性。更多内容请参见技术说明 [\"aff\\_short.html\"](https://sqlite.org/aff_short.html) and [\"appfileformat.html\"](https://sqlite.org/appfileformat.html) and [\"fasterthanfs.html\"](https://sqlite.org/fasterthanfs.html)。这种使用情况与下面的数据传输格式( [data transfer format](https://sqlite.org/whentouse.html#wireproto))和数据容器( [data container](https://sqlite.org/whentouse.html#container))的使用情况密切相关。\n\n- **网站**\n\nSQLite作为中小流量网站(也就是说，大多数网站)的数据库引擎工作得非常好。SQLite能够处理的网页总流量依赖网站使用其数据库的程度。一般来说，任一点击量低于10万每天的站点都可以使用SQLite。10万/天的点击量只是一个保守估计，不是一个硬性上限。SQLite已经被证明可以处理10倍于此的流量。 当然，SQLite网站( [https://www.sqlite.org/](https://www.sqlite.org/))本身使用了SQLite，在撰写本文时，它每天处理大约40万到50万的HTTP请求，其中大约有15~20%是访问数据库的动态页面。动态内容每个网页使用了大约200个SQL语句。该机制运行在单个虚拟机上，该虚拟机与其他23个虚拟机共享一个物理服务器，但是大多数时候仍然将平均负载保持在0.1秒以下。\n\n- **数据分析**\n\n理解SQL的人可以利用SQLite3命令行外壳程序(the [sqlite3 command-line shell](https://sqlite.org/cli.html))(或者各种第三方SQLite访问程序)来分析大型数据集。可以从CSV文件导入原始数据，然后对数据进行切分，以生成大量汇总报表。可以使用脚本语言编写的简单脚本，完成更加复杂的分析，该脚本语言可以是Tcl和Python(这两者内置在SQLite中随同发布)、R语言、或使用现成适配器的其他脚本语言。可能的用途包括站点日志分析、运动统计分析、编程指标汇编、以及实验结果分析。许多生物信息学研究者以这种方式使用SQLite.  当然，使用企业客户端/服务器数据库也可以完成相同的事情。SQLite的优点是它更容易安装和使用，生成的数据库是一个单独的文件，可以写入到USB记忆棒，或者通过电子邮件发送给同事。\n\n- **用于企业数据的缓存**\n\n许多应用程序使用SQLite作为企业关系数据库管理系统(RDBMS)相关内容的缓存。这样减少了时延，因为大多数查询都是针对本地缓存当前进行的，避免了网络往返开销，也减少了网络和中央数据库服务器的负载。在许多情况下，它意味着客户端应用程序在网络中断时可以继续进行操作。\n\n- **服务端数据库**\n\n系统设计者们报告成功使用了SQLite，将它作为与运行在数据中心里面的服务器程序有关的数据存储来使用，换句话说，将SQLite当作特定应用程序数据库服务器的底层存储引擎来使用。 在这个模式下，整个系统仍旧是客户端/服务器模型：客户端在网络上发送请求给服务器，并接收回响应。但是，客户端请求和服务器响应不是发送通用SQL语句并返回原始表内容，而是高层级的、与特定应用程序相关的。服务器将请求转换为多个SQL查询，收集查询处理结果，执行后置处理(post-processing)、过滤和分析，然后构造只包含基本信息的高层级响应。 开发者报告说，SQLite在这种场景下经常比客户端/服务器SQL数据库引擎更快。数据库请求由服务器序列化，因此并发性就不是问题。并发性也可以通过“数据库分区”来提高：为不同的子域使用单独的数据库文件。\n\n- **数据传输格式**\n\n因为SQLite数据库是一个具有定义良好的跨平台格式( [well-defined cross-platform format](https://sqlite.org/fileformat2.html))的单一紧凑文件，所以它经常被用作将内容从一个系统传输到另一个系统的容器。发送方将内容收集到一个SQLite数据库文件中，将该文件传给接收方，然后接收方根据需要使用SQL语句提取这些内容。 SQLite数据库促进了系统之间的数据传输，即使当终端具有不同的字符大小和/或字节顺序。数据可以是大型二进制的blob、文本、以及小型数值或布尔值的复杂组合。通过添加新表和/或栏目，可以很容易地扩展数据格式，而不会破坏现有的接收方。SQL查询语言意味接收方不需要完全立刻解析整个传输，而是可以根据需要查询已接收的内容。这种数据格式是“透明的”，因为它可以很容易地通过多种来自不同供应商的通用的开源工具进行解码，供人查看。\n\n- **文件存档和/或数据容器**\n\nSQLite存档( [SQLite Archive](https://sqlite.org/sqlar.html))理念体现了如何使用SQLite作为ZIP存档或Tarball的替代品。存储在SQLite中的文件存档比起同等的ZIP存档只稍微大一点，在某些情况下实际上还要小。SQLite存档具有增量和原子更新的功能、以及存储更丰富元数据的能力。 除了传统的tarball和ZIP存档文件外，Fossil 2.5及以上版本还提供了SQLite存档文件作为下载格式。SQLite3.exe命令行外壳程序( [sqlite3.exe command-line shell](https://sqlite.org/cli.html))3.22.0及以上版本将使用存档命令( [.archive command](https://sqlite.org/cli.html#sqlar))来创建、罗列、或解包一个SQL存档。 对于需要将不同内容绑定到的自包含和自描述的包中，以便跨网络传输的情况来说，SQLite是一个很好的解决方案。内容采用定义良好、跨平台、以及稳定的文件格式编码，编码效率高，并且接收方可以提取内容的小部分子集，而不必读取并解析整个文件。SQL存档作为向许多客户端派发软件更新或内容更新的分发格式非常有用。实际应用中，这个理念有不同的变化形式，举例说，发送电视节目指南给机顶盒以及发送空中更新包给车辆导航系统。\n\n- **代替专有临时磁盘文件**\n\n许多程序使用fopen()、fread()、以及fwrite()函数以自制格式创建和管理数据文件。作为这些专有临时数据文件的替代品，SQLite工作得特别好。与直觉相反，对面向磁盘读写内容来说，SQLite能够比文件系统更快( [faster than the filesystem](https://sqlite.org/fasterthanfs.html)) 。\n\n- **内部或临时数据库**\n\n对于必须以各种方式筛选和排序大量数据的程序，通常更易、更快速的方法是将这些数据加载到内存SQLite数据库中，并使用具有joins和ORDER BY子句的查询以所需要的形式和顺序提取这些数据，而不是去试图手动编写代码实现相同的操作。以这种方式在内部使用SQL数据库还为程序提供了更大的灵活性，因为无须对每个查询重新编码就可以添加新列和索引。\n\n- **演示或测试期间代替企业数据库**\n\n客户端应用程序通常使用一个通用数据库接口，该接口允许连接到各种SQL数据库引擎。将SQLite包含在支持的混"
+    }
+  ],
+  "elapsed_ms": 28892,
+  "api_calls": {
+    "xai": 1,
+    "tavily": 1,
+    "firecrawl": 4,
+    "security": 1
+  },
+  "score": {
+    "id": "reddit-cross-sqlite",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "reddit-sqlite"
+        ],
+        "required": 1
+      },
+      "comments": {
+        "status": "fail",
+        "matched_comments": []
+      },
+      "cross_language": {
+        "status": "pass",
+        "matched_hosts": [
+          "reddit.com"
+        ]
+      }
+    },
+    "task": {
+      "status": "blocked",
+      "reasons": [
+        "comments:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": "login",
+    "algorithm_miss": false
+  }
+}

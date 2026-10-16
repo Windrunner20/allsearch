@@ -1,0 +1,48 @@
+{
+  "id": "zhihu-cross-rust",
+  "query": "用中文找 Rust 所有权机制的英文原文，要 The Rust Book 的 ownership 章节",
+  "elapsed_ms": 154186,
+  "returncode": 0,
+  "tools": [
+    "mcp__allsearch__search",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result"
+  ],
+  "answer": "The Rust Book 第 4 章把所有权定义为编译期检查的内存管理规则，不是垃圾回收，也不是程序员手动 `free`。当前正文在 [What is Ownership?](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html)；章节入口是 [Understanding Ownership](https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html)。官方书页没有读者评论可引。\n\n英文原文（同一页）：\n\n> _Ownership_ is a set of rules that govern how a Rust program manages memory. … Rust uses a third approach: Memory is managed through a system of ownership with a set of rules that the compiler checks. If any of the rules are violated, the program won’t compile. None of the features of ownership will slow down your program while it’s running.\n\n三条规则原文：\n\n> - Each value in Rust has an _owner_.\n> - There can only be one owner at a time.\n> - When the owner goes out of scope, the value will be dropped.\n\n离开作用域时自动释放：\n\n> Rust takes a different path: The memory is automatically returned once the variable that owns it goes out of scope. … When a variable goes out of scope, Rust calls a special function for us. This function is called `drop`… Rust calls `drop` automatically at the closing curly bracket.\n\n赋值不是深拷贝，而是移动，以避免 double free：\n\n> To ensure memory safety, after the line `let s2 = s1;`, Rust considers `s1` as no longer valid. … because Rust also invalidates the first variable, instead of being called a shallow copy, it’s known as a _move_. In this example, we would say that `s1` was _moved_ into `s2`.\n\n> Rust will never automatically create “deep” copies of your data. Therefore, any _automatic_ copying can be assumed to be inexpensive in terms of runtime performance.\n\n同一章后两节：借用 [References and Borrowing](https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html)，切片 [The Slice Type](https://doc.rust-lang.org/book/ch04-03-slices.html)。仓库：[github.com/rust-lang/book](https://github.com/rust-lang/book)。",
+  "stderr": "",
+  "score": {
+    "id": "zhihu-cross-rust",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "rust-book"
+        ],
+        "required": 1
+      },
+      "cross_language": {
+        "status": "pass",
+        "matched_hosts": [
+          "doc.rust-lang.org"
+        ]
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "pass",
+      "reasons": []
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": false
+  }
+}

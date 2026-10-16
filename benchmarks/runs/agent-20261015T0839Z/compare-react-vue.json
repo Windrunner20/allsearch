@@ -1,0 +1,58 @@
+{
+  "id": "compare-react-vue",
+  "query": "对比 React 官方的 managing state 和 Vue 官方的 reactivity fundamentals",
+  "elapsed_ms": 143478,
+  "returncode": 0,
+  "tools": [
+    "mcp__allsearch__search",
+    "mcp__allsearch__search",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result"
+  ],
+  "answer": "这两页不是同一类文档。React 的 Managing State 是中级章节导览，讲的是状态怎么组织、怎么在组件之间流动；Vue 的 Reactivity Fundamentals 是基础篇，讲的是响应式状态怎么声明、依赖怎么被追踪和触发。下面只依据这两页已抓到的原文，没有读到读者评论。\n\n原文：\n\n- React：https://react.dev/learn/managing-state\n- Vue：https://vuejs.org/guide/essentials/reactivity-fundamentals.html\n\n## 文档各自在讲什么\n\nReact 开篇写的是：应用变大后，要更有意识地组织 state，以及数据如何在组件之间流动；“Redundant or duplicate state is a common source of bugs.” 这一章要解决三件事：把 state 结构好、让更新逻辑可维护、在相距较远的组件之间共享 state。页内列出的七课是：\n\n- 把 UI 变化想成 state 变化：https://react.dev/learn/reacting-to-input-with-state\n- 设计 state 结构：https://react.dev/learn/choosing-the-state-structure\n- 提升 state：https://react.dev/learn/sharing-state-between-components\n- 保留或重置 state：https://react.dev/learn/preserving-and-resetting-state\n- 用 reducer 收拢更新：https://react.dev/learn/extracting-state-logic-into-a-reducer\n- 用 context 避免层层传 props：https://react.dev/learn/passing-data-deeply-with-context\n- reducer 加 context 放大规模：https://react.dev/learn/scaling-up-with-reducer-and-context\n\nVue 这一页同时覆盖 Options API 和 Composition API。它从 `data()`、`ref()`、`reactive()` 讲起，再讲方法、深层响应、DOM 更新时机、`reactive()` 的限制，以及 ref 解包细节。机制细节指向 https://vuejs.org/guide/extras/reactivity-in-depth 。\n\n## 更新模型\n\nReact 明确说不会直接改 UI：“you won’t modify the UI from code directly.” 例子是用 `useState` 保存 `status`（`typing` / `submitting` / `success`），再由这个值决定按钮和成功信息。更新走 `setAnswer`、`setStatus` 这类 setter；reducer 例子也是返回新数组，而不是就地改旧数组。\n\nVue 允许改响应式数据本身。Options API 里是 `this.count = 2`、`this.count++`；Composition API 里是 `count.value++`，模板里甚至可以写 `@click=\"count++\"`。它解释的机制是：首次渲染时 track 用到的 ref，之后 ref 被改就 trigger 重新渲染。普通变量无法被侦测，所以 ref 用 `.value` 的 getter 做 track、setter 做 trigger。\n\n## 声明方式\n\nReact 这一页的例子都是组件内的 `useState` / `useReducer`，状态和组件实例绑在一起。\n\nVue 有两条入口：\n\n- Options API：`data` 必须是返回对象的函数；Vue 在创建实例时包一层响应式，顶层属性代理到 `this`。实例首次创建时才加上这些属性，所以以后才有值的字段也要先放占位。事后直接挂到 `this` 上的属性“will not be able to trigger reactive updates”。顶层字段不要用 `$` 或 `_` 开头。\n- Composition API：官方写明推荐 `ref()`。`<script setup>` 里顶层变量和函数会自动给模板用；不用 SFC 时则从 `setup()` 返回。\n\n## 派生数据\n\nReact 把“不要存冗余 state”当作最重要原则：“state shouldn’t contain redundant or duplicated information.” 反例是同时存 `firstName`、`lastName` 和 `fullName`；正例是渲染时计算 `const fullName = firstName + ' ' + lastName`。\n\nVue 这一页不讲派生缓存。它关心的是连接不要断：解构 `reactive()` 对象的原始类型字段、或把该字段传入函数，都会失去响应式连接，所以“we recommend using `ref()` as the primary API”。\n\n## 共享和生命周期\n\nReact 的共享是组件树问题。两个组件要一起变，就把 state 挪到最近公共父组件，再用 props 传下去，也就是 “lifting state up”。再远就用 context，让下层任意深度读取，不必逐层传 props。复杂界面则是父组件用 reducer 管状态，深层组件通过 context 读取并 `dispatch`。\n\n生命周期上，React 默认保留与上一棵树“match up”的部分。聊天示例里换收件人不重置输入；给组件不同的 `key`（如 `<Chat key={to.email} />`）会强制当成另一个组件，从头重建并重置 state。\n\nVue 这一页的“共享”主要是响应式引用可以传进函数，同时保留最新值和响应式连接，便于把逻辑抽成可复用代码。它没有在这一页讲跨组件提升或 context。对应的实例隔离例子是防抖：多个实例不能共用同一个有内部状态的 debounced 函数，要在 `created` 里为每个实例单独创建，并在 `unmounted` 里 `cancel()`。\n\n## 对象身份和嵌套\n\n这是 Vue 页的重点，React 导览页几乎不讲。\n\nVue 3 用 JavaScript Proxy。`reactive(raw) === raw` 为 false；只有代理是响应式的，改原始对象不会触发更新，所以要始终用代理。对同一对象再调用 `reactive()` 会返回同一个代理。嵌套对象在访问时也会变成代理。和 Vue 2 的差别被写明：原始对象保持原样，不会被就地变成响应式。\n\n深层更新默认能侦测到，例如 `this.obj.nested.count++` 和 `this.obj.arr.push('baz')`。可以用 shallow ref / `shallowReactive()` 退出深层响应。\n\n`reactive()` 还有三条限制：只能用于对象、数组和 `Map`/`Set`，不能包原始值；不能整个替换响应式对象，否则第一条引用上的连接丢失；不适合解构。\n\nref 作为深层 reactive 对象的属性时会自动解包；放进 reactive 数组或 `Map` 时不会。模板只自动解包渲染上下文的顶层 ref。`{{ object.id + 1 }}` 不会解包，结果会是 `[object Object]1`；但作为文本插值的最终值时，`{{ object.id }}` 仍会显示 `1`。\n\n## DOM 何时变\n\nReact 这一页只描述“state 变了，UI 按你声明的样子出现”，没有写刷新是同步还是异步。\n\nVue 写明 DOM 更新不是同步的：改完状态后会缓冲到更新周期的 “next tick”，无论改多少次，每个组件只更新一次。要等 DOM 完成，用 `nextTick()`。\n\n## 对照\n\n| | React Managing State | Vue Reactivity Fundamentals |\n|---|---|---|\n| 层级 | 中级章节导览 | 基础篇，Options 与 Composition 并列 |\n| 核心问题 | state 放哪、是否冗余、如何共享、何时重置 | 怎样声明响应式数据，访问和修改如何被拦截 |\n| 更新方式 | setter / reducer 描述下一次 state | 直接改 `this.x` 或 `ref.value` |\n| 派生值 | 渲染期间计算，不要再存一份 | 本页不讲；强调解构会断开连接 |\n| 跨组件 | props、lift state up、context、reducer | 本页不讲；ref 可传入函数并保持连接 |\n| 机制 | 本页不讲 Proxy 或依赖收集 | Proxy、track/trigger、深响应、nextTick |\n\n一句话：React 这一页教你少存、算出来、往上提、必要时用 reducer 和 context；Vue 这一页教你用 `data()`",
+  "stderr": "",
+  "score": {
+    "id": "compare-react-vue",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "react-state",
+          "vue-reactivity"
+        ],
+        "required": 2
+      },
+      "cross_language": {
+        "status": "pass",
+        "matched_hosts": [
+          "react.dev",
+          "vuejs.org"
+        ]
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "pass",
+      "reasons": []
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": false
+  }
+}

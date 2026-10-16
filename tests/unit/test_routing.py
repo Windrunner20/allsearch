@@ -10,6 +10,33 @@ def test_classify_cve_vertical(base_config):
     assert "security" in signals.verticals
 
 
+def test_classify_chinese_signals_without_ascii_boundaries(base_config):
+    news = classify_query(
+        SearchRequest(query="今天的最新新闻有哪些"), base_config.anysearch.verticals
+    )
+    docs = classify_query(
+        SearchRequest(query="Python 官方文档怎么读"), base_config.anysearch.verticals
+    )
+    compared = classify_query(
+        SearchRequest(query="React 和 Vue 的对比"), base_config.anysearch.verticals
+    )
+    adverb = classify_query(
+        SearchRequest(query="这个方案比较好"), base_config.anysearch.verticals
+    )
+    assert news.recency is True
+    assert docs.docs is True
+    assert compared.comparison is True
+    assert adverb.comparison is False
+
+
+def test_classify_english_word_boundaries_stay_tight(base_config):
+    signals = classify_query(
+        SearchRequest(query="the newspaper documented a newspaper"), base_config.anysearch.verticals
+    )
+    assert signals.recency is False
+    assert signals.docs is False
+
+
 def test_fast_plan_conditional_tavily(base_config):
     req = SearchRequest(query="hello world", depth="fast")
     plan = build_execution_plan(req, base_config)

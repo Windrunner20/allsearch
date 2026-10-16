@@ -1,0 +1,353 @@
+{
+  "id": "hn-sqlite",
+  "executed_at": "2026-10-15T07:45:32.816617+00:00",
+  "depth": "balanced",
+  "provider_query": "Hacker News discussion of SQLite as an application file format",
+  "answer": "Relevant Hacker News threads on SQLite as an application file format (official essay: [sqlite.org/appfileformat.html](https://sqlite.org/appfileformat.html)):\n\n1. **[SQLite as an Application File Format](https://news.ycombinator.com/item?id=46076642)** — ~178 points, ~99 comments. Direct discussion of the SQLite essay. Includes the Mapbox MBTiles origin story (bundling many small map tiles into one SQLite file) and debate over tree-shaped documents vs flat tables. [[1]](https://news.ycombinator.com/item?id=46076642)\n\n2. **[What If OpenDocument Used SQLite?](https://news.ycombinator.com/item?id=45132498)** — ~279 points, Sept 2025, ~105 comments. Practical caveats if you ship SQLite documents: `secure_delete`, hardening for untrusted files, and SQLite’s stance that opening untrusted DBs is a niche case. Also notes the ~2 GiB BLOB limit. [[2]](https://news.ycombinator.com/item?id=45132498)\n\n3. **[“The killer feature… is as an application file format”](https://news.ycombinator.com/item?id=40655974)** — Comment thread citing the essay. Praises incremental updates vs ZIP-style bundles; cites Audacity project files and a game system where artists edited content with ordinary DB tools. [[3]](https://news.ycombinator.com/item?id=40655974)\n\n4. **[Apple `.car` format thread (gzipped JSON vs SQLite)](https://news.ycombinator.com/item?id=47046185)** — Argues binary blobs belong in SQLite rather than Base64-in-JSON. Examples: Firefox favicons, iOS photos, Kodi, Visual C++ browsing data; Audacity again as a crash-safe streaming project file. [[4]](https://news.ycombinator.com/item?id=47046185)\n\n5. **[SQLite as an app format vs an interchange format](https://news.ycombinator.com/item?id=39797104)** — SQLite is strong for one app’s documents but a weak generic interchange format because readers must embed SQLite. Discusses Application ID at header offset 68 so `file(1)` can tell formats apart. [[5]](https://news.ycombinator.com/item?id=39797104)\n\n6. **[Tree data vs tables (same essay thread)](https://news.ycombinator.com/item?id=46080273)** — If the document is a tree, SQLite is less obvious unless you normalize with foreign keys or mix JSON blobs with binary rows; still preferred over ZIP for mixed content. [[6]](https://news.ycombinator.com/item?id=46080273)\n\n7. **[Schema makes the file self-describing (2021)](https://news.ycombinator.com/item?id=26163589)** — Argument that the on-disk schema (plain text in the file) is what makes SQLite a real application format, not just an engine bolted onto a blob. [[7]](https://news.ycombinator.com/item?id=26163589)\n\n8. **[Tangent: SQLite instead of ELF](https://news.ycombinator.com/item?id=46079326)** — On the essay thread, a side discussion of storing/querying executables via SQLite (sqlelf), distinct from document file formats but sparked by the same post. [[8]](https://news.ycombinator.com/item?id=46079326)",
+  "results": [
+    {
+      "id": "r1",
+      "title": "1",
+      "url": "https://news.ycombinator.com/item?id=46076642",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "SQLite 3.54.0 Released | Hacker News",
+      "url": "https://news.ycombinator.com/item?id=50040360",
+      "snippet": "|  |  |  |  |\n ---  --- |\n| |  |  |  |  ---  |  | Hacker Newsnew | past | comments | <ask> | <show> | <jobs> | <submit> | login | |\n| [...] |  |  |  |\n --- \n|  |  | lgreiv 2 days ago  (javascript:void(0))   Happy to see SQLite moving forward on a steady pace. Really looking forward to Vec1!   reply |\n\nreply\n\n|  |\n\n|  | [...] |  |  |  |\n --- \n|  | Hacker Newsnew | past | comments | <ask> | <show> | <jobs> | <submit> | login |\n\n|  |  |  |\n --- \n|  |  | SQLite 3.54.0 Released (sqlite.org) |\n|  | | 13 points by thunderbong 2 days ago  | hide | past | favorite | 1 comment |\n|  | |  |\n|\n|  | | help |\n\n|  |  |  |  |\n ---  --- |\n| |  |  |  |  ---  |  |  | lgreiv 2 days ago  (javascript:void(0))   Happy to see SQLite moving forward on a steady pace. Really looking forward to Vec1!   reply | |",
+      "content": null,
+      "published_at": "Sun, 11 Oct 2026 07:00:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.45798564,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "2",
+      "url": "https://news.ycombinator.com/item?id=45132498",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "Simon Willison on hacker-news",
+      "url": "https://simonwillison.net/tags/hacker-news",
+      "snippet": "That format was suggested by Claude, which then wrote most of the plugin implementation for me. Here's that Claude transcript.\n\n#\n8th April 2025,\n12:11 am\n/ hacker-news, plugins, projects, ai, generative-ai, llms, ai-assisted-programming, llm, anthropic, claude [...] `\n\n#\n2nd January 2026,\n7:10 pm\n/ hacker-news, sql, sqlite, datasette, datasette-lite, cors\n\n### 2025\n\nMy hunch is that existing LLMs make it easier to build a new programming language in a way that captures new developers.\n\nMost programming languages are similar enough to existing languages that you only need to know a small number of details to use them: what's the core syntax for variables, loops, conditionals and functions? How does memory management work? What's the concurrency model? [...] The university of Paris went from something like 13 institutes to maybe one to then a bunch more. Are companies locations at their headquarters? Which headquarters?\n\nSomeone will suggest modelling to solve this but here lies the biggest problem:\n\nThe correct modelling depends on the questions you want to answer.\n\n— IanCal, on Hacker News, discussing RDF\n\n#\n6th September 2025,\n6:41 am\n/ metadata, sql, hacker-news, rdf",
+      "content": null,
+      "published_at": "Sun, 20 Sep 2026 00:00:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.40063268,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "3",
+      "url": "https://news.ycombinator.com/item?id=40655974",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "YAVCHN",
+      "url": "https://parkscomputing.com/page/yavchn",
+      "snippet": "Well, that's not the whole story. Whenever I browse Hacker News, I open the discussion in a new tab, click through to the article from there, pop back to the discussion, and so on, until I've got more tabs open than I can keep track of. What I really want is a quick look at the article and a sense of whether there's any interesting discussion, before I dive into either one.\n\n## Three panes [...] ## Three panes\n\nYAVCHN, short for Yet Another Vibe-Coded Hacker News, puts everything on one screen. The stories are listed down the left. The top right shows the linked article in a clean reader mode, and the bottom right shows the discussion. You can read Lobsters in it as well as Hacker News.\n\nIt follows the same rules I try to follow everywhere else: [...] Windowed Classic \nSign in\n\nAll Articles Applications Applets Projects Links  \n\nweb apps vibe coding yavchn Comments (0) \n\n# YAVCHN\n\nIt seems that everybody has their own personalized Hacker News reader these days, and it's easy to see why. With agentic coding at your disposal, you can whip one up in an evening. So why did I write another one? Because I could!",
+      "content": null,
+      "published_at": "Tue, 29 Sep 2026 00:00:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.16035835,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "4",
+      "url": "https://news.ycombinator.com/item?id=47046185",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "Blog - DB Pro",
+      "url": "https://www.dbpro.app/blog",
+      "snippet": "We built a social network on SQLite, put it behind a Node API, and hit it until something broke. One file, one process, 315 million requests a day on the heaviest endpoint. Here are the numbers, the config, and the honest limits.### Solving Sudoku in Pure SQL\n\nHand SQLite a Sudoku puzzle and a single recursive query fills in every blank. No solver library, no loop in JavaScript, just SQL doing backtracking search. Build it from scratch and solve your own.### A New Look for DB Pro [...] DB Pro is now available on Windows and Linux. Plus MongoDB support, saved queries with versioning, and more.### SQLite JSON Superpower: Virtual Columns + Indexing\n\nOne of the coolest patterns in SQLite—store raw JSON documents, create virtual generated columns using json\\_extract, add indexes, and query JSON at full B-tree index speed.### Getting Started with SQL: A Hands-On Tutorial [...] Compare Databricks vs Snowflake for SQL analytics, data engineering, machine learning, governance, performance, and cost before choosing a platform today.### I Posted on Hacker News. Two AI Agents Emailed Me.\n\nAI agents are turning Hacker News posts into personalised cold email. The disclosure is honest. The scale and incentives are the problem.### Best Databricks Alternatives for Data and AI in 2026",
+      "content": null,
+      "published_at": "Tue, 14 Jul 2026 00:00:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.111251086,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "1",
+      "url": "https://news.ycombinator.com/item?id=46076642",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "SQLite 3.54.0 Released | Hacker News",
+      "url": "https://news.ycombinator.com/item?id=50040360",
+      "result_id": "r2",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "2",
+      "url": "https://news.ycombinator.com/item?id=45132498",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "Simon Willison on hacker-news",
+      "url": "https://simonwillison.net/tags/hacker-news",
+      "result_id": "r4",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "3",
+      "url": "https://news.ycombinator.com/item?id=40655974",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "YAVCHN",
+      "url": "https://parkscomputing.com/page/yavchn",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "4",
+      "url": "https://news.ycombinator.com/item?id=47046185",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "Blog - DB Pro",
+      "url": "https://www.dbpro.app/blog",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "5",
+      "url": "https://news.ycombinator.com/item?id=39797104",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "6",
+      "url": "https://news.ycombinator.com/item?id=46080273",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "7",
+      "url": "https://news.ycombinator.com/item?id=26163589",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "8",
+      "url": "https://news.ycombinator.com/item?id=46079326",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "Cloudflare Fixes Flaw That Let One Container Read Another Customer's Leftover Disk Data",
+      "url": "https://thehackernews.com/2026/09/cloudflare-fixes-flaw-that-let-one.html",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "A Modern Web App in C",
+      "url": "https://news.ycombinator.com/item?id=50058528",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "apsw: Another Python SQLite Wrapper",
+      "url": "https://news.ycombinator.com/item?id=50045273",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "Polars 2.0",
+      "url": "https://news.ycombinator.com/item?id=49977177",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 24469,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "conditional_supplement",
+        "latency_ms": 5614,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "recency_signal",
+      "domains_below_threshold:1<2"
+    ]
+  },
+  "cache": {
+    "hit": false,
+    "age_seconds": 0.0,
+    "ttl_seconds": 120,
+    "namespace": "search"
+  },
+  "elapsed_ms": 30086,
+  "api_calls": {
+    "xai": 1,
+    "tavily": 1
+  },
+  "score": {
+    "id": "hn-sqlite",
+    "scores": {
+      "discovery": {
+        "status": "fail",
+        "matched_targets": [],
+        "required": 1
+      },
+      "synthesis": {
+        "status": "fail",
+        "missing": [
+          "23508923"
+        ]
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "discovery:fail",
+        "synthesis:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "mcpServers": {
+    "allsearch_native": {
+      "type": "stdio",
+      "exposure": "direct",
+      "command": ".venv/bin/python",
+      "args": ["-m", "allsearch", "--transport", "stdio", "--log-level", "WARNING"],
+      "timeout": 180,
+      "description": "AllSearch native MCP. Compact summaries over a long-lived stdio process; page details with read_result. Do not enable beside the legacy Pi extension.",
+      "env": {
+        "ALLSEARCH_COMPACT_OUTPUT": "true",
+        "ALLSEARCH_RECORD_TTL_SECONDS": "3600",
+        "ALLSEARCH_RECORD_MAX_ENTRIES": "200"
+      }
+    }
+  }
+}

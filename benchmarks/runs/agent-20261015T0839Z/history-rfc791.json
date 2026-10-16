@@ -1,0 +1,50 @@
+{
+  "id": "history-rfc791",
+  "query": "RFC 791 text for the Internet Protocol Version field",
+  "elapsed_ms": 159502,
+  "returncode": 0,
+  "tools": [
+    "mcp__allsearch__search",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__search",
+    "mcp__allsearch__fetch",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result",
+    "mcp__allsearch__read_result"
+  ],
+  "answer": "RFC 791 第 3.1 节（Internet Header Format，第 11 页）对 Internet Protocol 的 Version 字段原文如下。出处是 https://www.rfc-editor.org/rfc/rfc791.txt（同一文本亦见 https://www.rfc-editor.org/rfc/rfc791.html）。\n\n报头图（Figure 4）第一行是：\n\n```\n|Version|  IHL  |Type of Service|          Total Length         |\n```\n\n字段定义是：\n\n```\nVersion:  4 bits\n\n  The Version field indicates the format of the internet header.  This\n  document describes version 4.\n```\n\n也就是：Version 为 4 比特，用来标明 internet header 的格式；本文描述的是 version 4。这次抓取的页面正文里没有评论。",
+  "stderr": "",
+  "score": {
+    "id": "history-rfc791",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "rfc791"
+        ],
+        "required": 1
+      },
+      "reading": {
+        "status": "not_attempted"
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "reading:not_attempted"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true
+  }
+}
