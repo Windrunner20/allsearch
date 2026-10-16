@@ -219,6 +219,8 @@ def test_open_comment_uses_text_and_source_not_a_placeholder_id():
             ],
             "comments": [
                 {
+                    "id": "r1",
+                    "source": "api",
                     "url": "https://www.v2ex.com/t/123456#reply",
                     "text": "我的续航从 10 小时掉到 4 小时",
                 }
@@ -227,6 +229,44 @@ def test_open_comment_uses_text_and_source_not_a_placeholder_id():
     )
     assert scored["scores"]["comments"]["status"] == "pass"
     assert scored["scores"]["discovery"]["status"] == "pass"
+
+
+def test_page_body_is_not_a_comment():
+    """Grader v1 counted a fetched page body as a comment; v2 does not."""
+    case = next(item for item in load_cases(CASES) if item["id"] == "v2ex-macos")
+    page = {"url": "https://www.v2ex.com/t/123456", "text": "主题正文：续航突然变差"}
+    for comment in (page, {**page, "id": "x", "source": "page_body"}):
+        scored = score_observation(case, {"answer": "", "results": [], "comments": [comment]})
+        assert scored["scores"]["comments"]["status"] == "fail"
+
+
+def test_snippet_mentioning_captcha_is_not_an_access_failure():
+    case = next(item for item in load_cases(CASES) if item["id"] == "antibot-shell")
+    observation = {
+        "results": [{"url": "https://github.com/x/chaptcha", "title": "captcha solver", "snippet": "captcha"}],
+        "fetched": [],
+    }
+    assert score_observation(case, observation)["observed_failure"] is None
+
+
+def test_timeout_is_its_own_outcome():
+    case = next(item for item in load_cases(CASES) if item["id"] == "hn-comment-dissent")
+    assert score_observation(case, {"timed_out": True, "answer": ""})["task"]["status"] == "timeout"
+    assert score_observation(case, {"skipped": "xai_auth_stopped"})["task"]["status"] == "not_attempted"
+
+
+def test_percent_encoded_zh_wikipedia_title_matches():
+    case = next(item for item in load_cases(CASES) if item["id"] == "wiki-zh-tcp")
+    url = "https://zh.wikipedia.org/zh-hans/%E8%B6%85%E6%96%87%E6%9C%AC%E4%BC%A0%E8%BE%93%E5%8D%8F%E8%AE%AE"
+    scored = score_observation(case, {"answer": "默认端口 80", "results": [{"url": url}]})
+    assert scored["task"]["status"] == "pass"
+
+
+def test_wsj_chemistry_article_no_longer_satisfies_physics_case():
+    case = next(item for item in load_cases(CASES) if item["id"] == "paywall-wsj")
+    url = "https://www.wsj.com/science/nobel-prize-in-chemistry-awarded-to-trio-62295a7d"
+    scored = score_observation(case, {"results": [{"url": url, "title": "Nobel"}], "fetched": [{"url": url, "content": "Nobel"}]})
+    assert scored["scores"]["discovery"]["status"] == "fail"
 
 
 def test_answer_keys_are_not_in_the_provider_query():

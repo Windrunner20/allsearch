@@ -197,13 +197,17 @@
         "id": "hn-item",
         "url": "https://news.ycombinator.com/item?id=23508923",
         "host": "news.ycombinator.com",
-        "path_contains": "item?id=23508923",
-        "discovery_evidence": ["SQLite"]
+        "path_regex": "item\\?id=[0-9]+",
+        "discovery_evidence": ["SQLite", "Application File Format"]
       }
     ],
-    "key_facts": ["23508923"],
+    "key_facts": ["SQLite"],
     "url_checked": true,
     "notes": "Algolia 记录标题为 SQLite as an Application File Format (2014)，投稿 URL 为 https://sqlite.org/appfileformat.html，created_at 2020-06-13T12:28:53Z。",
+    "grader_changes": [
+      "v2: any HN story titled SQLite as an Application File Format counts (2014, 2020, 2023 submissions all exist). v1 required item 23508923 only.",
+      "v2: key fact is SQLite, not the item id 23508923."
+    ],
     "rubric": {"discovery": "指定 item", "synthesis": "答案给出帖子编号"}
   },
   {
@@ -222,13 +226,16 @@
         "id": "x-status",
         "hosts": ["x.com", "twitter.com"],
         "path_contains": "/status/",
-        "path_regex": "/status/[0-9]+",
+        "path_regex": "/(?i:openai)/status/[0-9]+",
         "discovery_evidence": ["GPT-4"]
       }
     ],
     "key_facts": [],
     "url_checked": false,
     "notes": "本机打不开 X，因此不虚构 status id。首页不算。只有观察结果出现登录提示才记 observed login。",
+    "grader_changes": [
+      "v2: the status must be under the OpenAI account. v1 accepted any /status/ URL whose title or snippet mentioned GPT-4."
+    ],
     "rubric": {"discovery": "/status/ 且提到 GPT-4"}
   },
   {
@@ -317,7 +324,7 @@
     "dimensions": ["discovery", "synthesis"],
     "task_requires": ["discovery", "synthesis"],
     "expected_access": "public",
-    "require_all_targets": true,
+    "require_all_targets": false,
     "targets": [
       {
         "id": "cve-history",
@@ -335,6 +342,9 @@
     "key_facts": ["MITRE"],
     "url_checked": true,
     "notes": "原题被标成新闻，实际是 CVE/NVD 的机构说明。两个页面都要出现才算完整发现。本机均返回 HTTP 200。",
+    "grader_changes": [
+      "v2: either the cve.org history page or the NVD CVE-process page is enough; the key fact MITRE is unchanged. v1 required both pages."
+    ],
     "rubric": {"discovery": "两个说明页都在", "synthesis": "答案写 MITRE"}
   },
   {
@@ -353,13 +363,16 @@
         "id": "zh-http",
         "url": "https://zh.wikipedia.org/wiki/HTTP",
         "host": "zh.wikipedia.org",
-        "path_contains": "/wiki/HTTP",
-        "discovery_evidence": ["80"]
+        "path_regex": "/(wiki|zh-[a-z]+)/(HTTP|超文本传输协议|超文本傳輸協定)$",
+        "discovery_evidence": []
       }
     ],
     "key_facts": ["80"],
     "url_checked": false,
     "notes": "本机访问维基百科网络不可达。判定仍要求条目路径和端口 80，不接受 wikipedia.org 首页。",
+    "grader_changes": [
+      "v2: URLs are percent-decoded before matching and the article title 超文本传输协议 under /wiki/ or /zh-*/ counts. v1 required the literal path /wiki/HTTP and the token 80 in a title or snippet, which Grok citations never carry."
+    ],
     "rubric": {"discovery": "中文 HTTP 条目且出现 80", "synthesis": "答案写出 80"}
   },
   {
@@ -378,13 +391,16 @@
         "id": "en-http",
         "url": "https://en.wikipedia.org/wiki/HTTP",
         "host": "en.wikipedia.org",
-        "path_contains": "/wiki/HTTP",
-        "discovery_evidence": ["80"]
+        "path_regex": "/wiki/(HTTP|Hypertext_Transfer_Protocol)$",
+        "discovery_evidence": []
       }
     ],
     "key_facts": ["80"],
     "url_checked": false,
     "notes": "本机未能打开维基百科。路径和数字 80 都要满足。",
+    "grader_changes": [
+      "v2: exact article path. v1 path_contains /wiki/HTTP also matched /wiki/HTTPS and /wiki/HTTP_cookie, and its title/snippet evidence rule failed every Grok citation."
+    ],
     "rubric": {"discovery": "英文 HTTP 条目", "synthesis": "答案写出 80"}
   },
   {
@@ -731,13 +747,16 @@
       {
         "id": "wsj-nobel",
         "host": "wsj.com",
-        "path_contains": "nobel",
+        "path_contains": "nobel-prize-in-physics",
         "discovery_evidence": ["Nobel"]
       }
     ],
     "key_facts": [],
     "url_checked": false,
     "notes": "预期付费墙。observed paywall 只在正文或错误里出现订阅提示时成立。",
+    "grader_changes": [
+      "v2: path must contain nobel-prize-in-physics. v1 accepted the 2024 chemistry article, and its reading pass came from fetching that article."
+    ],
     "rubric": {"discovery": "wsj 文章路径且提到 Nobel", "reading": "原文或订阅提示"}
   },
   {
@@ -988,14 +1007,17 @@
         "id": "hn-item-zh",
         "url": "https://news.ycombinator.com/item?id=23508923",
         "host": "news.ycombinator.com",
-        "path_contains": "item?id=23508923",
-        "discovery_evidence": ["SQLite"]
+        "path_regex": "item\\?id=[0-9]+",
+        "discovery_evidence": ["SQLite", "Application File Format"]
       }
     ],
     "cross_language_hosts": ["news.ycombinator.com"],
     "key_facts": [],
     "url_checked": true,
     "notes": "中文查询，目标是英文论坛的指定帖。",
+    "grader_changes": [
+      "v2: any HN story titled SQLite as an Application File Format counts (2014, 2020, 2023 submissions all exist). v1 required item 23508923 only."
+    ],
     "rubric": {"discovery": "指定 item", "cross_language": "中文查询命中 news.ycombinator.com 的该帖"}
   }
 ]

@@ -1,8 +1,20 @@
 """Plan and score AllSearch benchmark cases without calling providers.
 
 ``plan`` only uses the routing rules. ``score`` grades a saved observation.
-``live`` is refused unless ALLSEARCH_RUN_BENCHMARK=1, and this module's
-default CLI never sets that variable.
+``live`` is refused; live rounds are run with ``benchmarks.live_tool`` and
+``benchmarks.live_agent`` on purpose, never from this CLI.
+
+Grader v2 (this file). The 2026-10-15 runs were scored by grader v1, frozen in
+``grader_v1.py`` together with ``cases.v1.json``. v2 differs in four places:
+
+1. URLs are percent-decoded before target matching.
+2. A comment only counts when it is a structured record with an id that was
+   read from the platform (``source`` is not ``page_body``). A fetched page
+   body is reading evidence, not a comment.
+3. ``timeout`` and ``not_attempted`` are task outcomes of their own instead of
+   being folded into ``fail``.
+4. Targets in ``cases.json`` were tightened or loosened where the audit found
+   false positives or negatives; each such case has ``grader_changes``.
 """
 
 from __future__ import annotations
@@ -13,7 +25,7 @@ import re
 import sys
 from pathlib import Path
 from typing import Any
-from urllib.parse import urlparse
+from urllib.parse import unquote, urlparse
 
 from allsearch.config import AllSearchConfig
 from allsearch.models import SearchRequest
@@ -169,6 +181,7 @@ def _records(observation: dict[str, Any], key: str) -> list[dict[str, Any]]:
 
 
 def _target_url_match(url: str, target: dict[str, Any]) -> bool:
+    url = unquote(url)
     hosts = [str(host).lower() for host in target.get("hosts") or [] if str(host).strip()]
     if target.get("host"):
         hosts.append(str(target["host"]).lower())
@@ -267,16 +280,19 @@ def _comment_status(case: dict[str, Any], observation: dict[str, Any]) -> dict[s
         evidence = [str(token) for token in target.get("evidence") or []]
         label = str(target.get("comment_id") or index)
         for item in found:
+            comment_id = str(item.get("comment_id") or item.get("id") or "").strip()
+            if not comment_id or item.get("source") == "page_body":
+                continue
             text = str(item.get("text") or "")
             if not _text_has([{"text": text}], evidence, ("text",)):
                 continue
             if _comment_is_exact(target):
-                if str(item.get("comment_id")) == str(target.get("comment_id")):
+                if comment_id == str(target.get("comment_id")):
                     matched.append(label)
                     break
                 continue
-            source = str(item.get("url") or "")
-            if source and any(_target_url_match(source, page) for page in page_targets):
+            sources = [str(item.get(key) or "") for key in ("thread_url", "url")]
+            if any(src and _target_url_match(src, page) for src in sources for page in page_targets):
                 matched.append(label)
                 break
     require_all = bool(case.get("require_all_comments", True))
@@ -350,9 +366,20 @@ def _freshness_status(case: dict[str, Any], observation: dict[str, Any]) -> dict
 
 
 def observed_access_failure(observation: dict[str, Any]) -> str | None:
-    """Use only markers in the observation. The case's expected access is not evidence."""
+    """Use only markers in the observation. The case's expected access is not evidence.
+
+    Only attempted reads count: fetched pages and errors. A search snippet that
+    merely mentions a captcha or a paywall is not an access failure (v1 scanned
+    snippets too, which marked antibot-shell blocked because of a GitHub repo
+    named "chaptcha").
+    """
     parts: list[str] = []
-    for key in ("results", "fetched", "errors", "comments"):
+    for error in _records(observation, "errors"):
+        if str(error.get("code") or "") in {"login_required", "captcha", "paywall", "access_blocked"}:
+            return {"login_required": "login", "captcha": "anti_bot", "paywall": "paywall"}.get(
+                str(error.get("code")), "anti_bot"
+            )
+    for key in ("fetched", "errors"):
         for item in _records(observation, key):
             parts.extend(str(item.get(field) or "") for field in ("title", "snippet", "content", "text", "message", "code"))
     combined = "\n".join(parts).lower()
@@ -385,10 +412,14 @@ def score_observation(case: dict[str, Any], observation: dict[str, Any]) -> dict
         if status != "pass":
             reasons.append(f"{name}:{status}")
     observed = observed_access_failure(observation)
-    if any(reason.endswith(":not_answerable") for reason in reasons):
+    if observation.get("skipped") or not observation:
+        task_status = "not_attempted"
+    elif any(reason.endswith(":not_answerable") for reason in reasons):
         task_status = "not_answerable"
     elif observed and any(reason.startswith(("reading:", "comments:")) for reason in reasons):
         task_status = "blocked"
+    elif reasons and observation.get("timed_out"):
+        task_status = "timeout"
     elif reasons:
         task_status = "fail"
     else:
@@ -400,6 +431,7 @@ def score_observation(case: dict[str, Any], observation: dict[str, Any]) -> dict
         "expected_access": case.get("expected_access") or case.get("access"),
         "observed_failure": observed,
         "algorithm_miss": task_status == "fail" and observed is None,
+        "grader": "v2",
     }
 
 

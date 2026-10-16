@@ -1,0 +1,1001 @@
+[
+  {
+    "id": "zhihu-gil",
+    "channel": "zhihu",
+    "language": "zh",
+    "difficulty": "medium",
+    "kind": "search",
+    "query": "知乎上关于 Python GIL 为什么让多线程吃不满多核的高赞回答",
+    "target": "知乎的问题页或回答页，不是百科或其他站点对 GIL 的转述。",
+    "dimensions": ["discovery", "comments", "synthesis"],
+    "task_requires": ["discovery", "comments", "synthesis"],
+    "expected_access": "public",
+    "targets": [
+      {
+        "id": "zhihu-answer",
+        "host": "zhihu.com",
+        "path_contains": "/question/",
+        "discovery_evidence": ["GIL"]
+      }
+    ],
+    "comment_targets": [
+      {
+        "match": "content",
+        "evidence": ["GIL", "多核"]
+      }
+    ],
+    "key_facts": ["GIL", "多核"],
+    "url_checked": false,
+    "notes": "未钉死某一问题号。发现分要求 /question/ 且标题或摘要含 GIL；评论分要求回答正文同时含 GIL 与多核。首页和其他域名不算。",
+    "rubric": {"discovery": "知乎问题页", "comments": "回答正文", "synthesis": "解释多核限制"}
+  },
+  {
+    "id": "zhihu-cross-rust",
+    "channel": "docs",
+    "language": "zh",
+    "difficulty": "medium",
+    "kind": "search",
+    "query": "用中文找 Rust 所有权机制的英文原文，要 The Rust Book 的 ownership 章节",
+    "target": "doc.rust-lang.org 上的 ownership 章节，不是知乎转述。",
+    "dimensions": ["discovery", "cross_language", "synthesis"],
+    "task_requires": ["discovery", "cross_language", "synthesis"],
+    "expected_access": "public",
+    "targets": [
+      {
+        "id": "rust-book",
+        "url": "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html",
+        "host": "doc.rust-lang.org",
+        "path_contains": "/book/ch04-01-what-is-ownership.html",
+        "reading_evidence": ["ownership"]
+      }
+    ],
+    "cross_language_hosts": ["doc.rust-lang.org"],
+    "key_facts": ["ownership"],
+    "url_checked": true,
+    "notes": "原分类写成知乎，实际测的是中文查询召回英文官方书。本机已打开该 URL。",
+    "rubric": {"discovery": "指定章节", "cross_language": "中文查询到英文原文", "synthesis": "指向 ownership"}
+  },
+  {
+    "id": "tieba-camera",
+    "channel": "tieba",
+    "language": "zh",
+    "difficulty": "hard",
+    "kind": "search",
+    "query": "百度贴吧里讨论二手微单如何查看快门次数的具体帖子",
+    "target": "tieba.baidu.com/p/ 的帖子页。",
+    "dimensions": ["discovery", "comments"],
+    "task_requires": ["discovery", "comments"],
+    "expected_access": "login",
+    "targets": [
+      {
+        "id": "tieba-post",
+        "host": "tieba.baidu.com",
+        "path_contains": "/p/",
+        "discovery_evidence": ["快门"]
+      }
+    ],
+    "comment_targets": [{"match": "content", "evidence": ["快门"]}],
+    "key_facts": [],
+    "url_checked": false,
+    "notes": "未指定会过期的帖子号。吧首页不算。预期限制是登录，只有观察结果里出现登录提示才记 observed login。",
+    "rubric": {"discovery": "帖子页 /p/ 且提到快门", "comments": "楼层正文"}
+  },
+  {
+    "id": "v2ex-macos",
+    "channel": "v2ex",
+    "language": "zh",
+    "difficulty": "medium",
+    "kind": "search",
+    "query": "V2EX 上关于 MacBook 续航突然变差的具体主题帖",
+    "target": "v2ex.com/t/ 主题页。",
+    "dimensions": ["discovery", "comments"],
+    "task_requires": ["discovery", "comments"],
+    "expected_access": "public",
+    "targets": [
+      {
+        "id": "v2ex-topic",
+        "host": "v2ex.com",
+        "path_contains": "/t/",
+        "discovery_evidence": ["续航"]
+      }
+    ],
+    "comment_targets": [{"match": "content", "evidence": ["续航"]}],
+    "key_facts": [],
+    "url_checked": false,
+    "notes": "本机未能打开 V2EX API。发现分不接受 v2ex.com 首页。",
+    "rubric": {"discovery": "/t/ 主题且摘要含续航", "comments": "回复正文"}
+  },
+  {
+    "id": "chiphell-keyboard",
+    "channel": "chiphell",
+    "language": "zh",
+    "difficulty": "hard",
+    "kind": "search",
+    "query": "Chiphell 上比较静电容键盘和机械键盘手感的帖子",
+    "target": "chiphell.com 的 viewthread 帖子。",
+    "dimensions": ["discovery", "comments"],
+    "task_requires": ["discovery", "comments"],
+    "expected_access": "login",
+    "targets": [
+      {
+        "id": "chiphell-thread",
+        "host": "chiphell.com",
+        "path_contains": "viewthread",
+        "discovery_evidence": ["静电容"]
+      }
+    ],
+    "comment_targets": [{"match": "content", "evidence": ["静电容"]}],
+    "key_facts": [],
+    "url_checked": false,
+    "notes": "预期登录或验证码。未观察到相应正文时不得自动记成访问失败。",
+    "rubric": {"discovery": "viewthread 且提到静电容", "comments": "回复正文"}
+  },
+  {
+    "id": "reddit-localllama",
+    "channel": "reddit",
+    "language": "en",
+    "difficulty": "medium",
+    "kind": "search",
+    "query": "Reddit thread in r/LocalLLaMA about running a quantized local model on one GPU",
+    "target": "reddit.com/r/LocalLLaMA/comments/ 的帖子。",
+    "dimensions": ["discovery", "comments"],
+    "task_requires": ["discovery", "comments"],
+    "expected_access": "public",
+    "targets": [
+      {
+        "id": "reddit-thread",
+        "host": "reddit.com",
+        "path_contains": "/r/LocalLLaMA/comments/",
+        "discovery_evidence": ["quant"]
+      }
+    ],
+    "comment_targets": [{"match": "content", "evidence": ["quant"]}],
+    "key_facts": [],
+    "url_checked": false,
+    "notes": "子版块首页 /r/LocalLLaMA 不算。",
+    "rubric": {"discovery": "comments 路径", "comments": "评论正文含 quant"}
+  },
+  {
+    "id": "reddit-cross-sqlite",
+    "channel": "reddit",
+    "language": "zh",
+    "difficulty": "hard",
+    "kind": "search",
+    "query": "用中文找 Reddit 上讨论把 SQLite 当作应用主数据库的英文帖子",
+    "target": "reddit.com 的 comments 帖，不是中文转述。",
+    "dimensions": ["discovery", "cross_language", "comments"],
+    "task_requires": ["discovery", "cross_language", "comments"],
+    "expected_access": "public",
+    "targets": [
+      {
+        "id": "reddit-sqlite",
+        "host": "reddit.com",
+        "path_contains": "/comments/",
+        "discovery_evidence": ["SQLite"]
+      }
+    ],
+    "cross_language_hosts": ["reddit.com"],
+    "comment_targets": [{"match": "content", "evidence": ["SQLite"]}],
+    "key_facts": [],
+    "url_checked": false,
+    "notes": "跨语言分只在命中这条评论路径时通过，不因任意 .com 通过。",
+    "rubric": {"discovery": "英文帖路径", "cross_language": "中文查询到 reddit.com", "comments": "评论正文"}
+  },
+  {
+    "id": "hn-sqlite",
+    "channel": "hackernews",
+    "language": "en",
+    "difficulty": "medium",
+    "kind": "search",
+    "query": "Hacker News discussion of SQLite as an application file format",
+    "target": "2020-06-13 的 HN 帖 23508923，及其投稿原文。",
+    "dimensions": ["discovery", "synthesis"],
+    "task_requires": ["discovery", "synthesis"],
+    "expected_access": "public",
+    "targets": [
+      {
+        "id": "hn-item",
+        "url": "https://news.ycombinator.com/item?id=23508923",
+        "host": "news.ycombinator.com",
+        "path_contains": "item?id=23508923",
+        "discovery_evidence": ["SQLite"]
+      }
+    ],
+    "key_facts": ["23508923"],
+    "url_checked": true,
+    "notes": "Algolia 记录标题为 SQLite as an Application File Format (2014)，投稿 URL 为 https://sqlite.org/appfileformat.html，created_at 2020-06-13T12:28:53Z。",
+    "rubric": {"discovery": "指定 item", "synthesis": "答案给出帖子编号"}
+  },
+  {
+    "id": "x-public-post",
+    "channel": "x",
+    "language": "en",
+    "difficulty": "hard",
+    "kind": "search",
+    "query": "Find the public X status from OpenAI that announces GPT-4",
+    "target": "x.com 或 twitter.com 的 /status/ 单帖，标题或摘要要出现 GPT-4。",
+    "dimensions": ["discovery"],
+    "task_requires": ["discovery"],
+    "expected_access": "login",
+    "targets": [
+      {
+        "id": "x-status",
+        "hosts": ["x.com", "twitter.com"],
+        "path_contains": "/status/",
+        "path_regex": "/status/[0-9]+",
+        "discovery_evidence": ["GPT-4"]
+      }
+    ],
+    "key_facts": [],
+    "url_checked": false,
+    "notes": "本机打不开 X，因此不虚构 status id。首页不算。只有观察结果出现登录提示才记 observed login。",
+    "rubric": {"discovery": "/status/ 且提到 GPT-4"}
+  },
+  {
+    "id": "github-cpython-issue",
+    "channel": "docs",
+    "language": "en",
+    "difficulty": "easy",
+    "kind": "search",
+    "query": "PEP 703 page that proposes making the CPython GIL optional",
+    "target": "https://peps.python.org/pep-0703/",
+    "dimensions": ["discovery", "reading", "synthesis"],
+    "task_requires": ["discovery", "reading", "synthesis"],
+    "expected_access": "public",
+    "targets": [
+      {
+        "id": "pep-703",
+        "url": "https://peps.python.org/pep-0703/",
+        "host": "peps.python.org",
+        "path_contains": "/pep-0703/",
+        "reading_evidence": ["GIL"]
+      }
+    ],
+    "key_facts": ["703", "GIL"],
+    "url_checked": true,
+    "notes": "改到稳定的 PEP 页面，而不是会变动的 issue 列表。本机已打开。",
+    "rubric": {"discovery": "PEP 703", "reading": "正文含 GIL", "synthesis": "指出 703 和 GIL"}
+  },
+  {
+    "id": "github-release",
+    "channel": "github",
+    "language": "en",
+    "difficulty": "easy",
+    "kind": "search",
+    "query": "Node.js 22.0.0 GitHub release page",
+    "target": "https://github.com/nodejs/node/releases/tag/v22.0.0",
+    "dimensions": ["discovery", "reading", "synthesis"],
+    "task_requires": ["discovery", "synthesis"],
+    "expected_access": "public",
+    "targets": [
+      {
+        "id": "node-22",
+        "url": "https://github.com/nodejs/node/releases/tag/v22.0.0",
+        "host": "github.com",
+        "path_contains": "/nodejs/node/releases/tag/v22.0.0",
+        "reading_evidence": ["v22.0.0"]
+      }
+    ],
+    "key_facts": ["22.0.0"],
+    "url_checked": true,
+    "notes": "本机已打开发布页。不要求未经摘录核实的代号。",
+    "rubric": {"discovery": "v22.0.0 tag", "synthesis": "答案写出 22.0.0"}
+  },
+  {
+    "id": "news-zh-archive",
+    "channel": "news",
+    "language": "zh",
+    "difficulty": "medium",
+    "kind": "search",
+    "query": "2024 年诺贝尔物理学奖官方摘要中的两位获奖者是谁",
+    "target": "https://www.nobelprize.org/prizes/physics/2024/summary/",
+    "dimensions": ["discovery", "reading", "synthesis"],
+    "task_requires": ["discovery", "synthesis"],
+    "expected_access": "public",
+    "targets": [
+      {
+        "id": "nobel-2024",
+        "url": "https://www.nobelprize.org/prizes/physics/2024/summary/",
+        "host": "nobelprize.org",
+        "path_contains": "/prizes/physics/2024/summary/",
+        "reading_evidence": ["Hopfield", "Hinton"]
+      }
+    ],
+    "key_facts": ["Hopfield", "Hinton"],
+    "url_checked": true,
+    "notes": "页面写明 awarded jointly to John J. Hopfield and Geoffrey Hinton。这是固定史实，不是动态新闻。",
+    "rubric": {"discovery": "2024 物理奖摘要", "synthesis": "两位姓名都要出现"}
+  },
+  {
+    "id": "news-en-archive",
+    "channel": "reference",
+    "language": "en",
+    "difficulty": "medium",
+    "kind": "search",
+    "query": "Which organization does the CVE program identify as the source of CVE records used by NVD",
+    "target": "CVE 和 NVD 的说明页，不是新闻稿。",
+    "dimensions": ["discovery", "synthesis"],
+    "task_requires": ["discovery", "synthesis"],
+    "expected_access": "public",
+    "require_all_targets": true,
+    "targets": [
+      {
+        "id": "cve-history",
+        "url": "https://www.cve.org/About/History",
+        "host": "cve.org",
+        "path_contains": "/About/History"
+      },
+      {
+        "id": "nvd-process",
+        "url": "https://nvd.nist.gov/general/cve-process",
+        "host": "nvd.nist.gov",
+        "path_contains": "/general/cve-process"
+      }
+    ],
+    "key_facts": ["MITRE"],
+    "url_checked": true,
+    "notes": "原题被标成新闻，实际是 CVE/NVD 的机构说明。两个页面都要出现才算完整发现。本机均返回 HTTP 200。",
+    "rubric": {"discovery": "两个说明页都在", "synthesis": "答案写 MITRE"}
+  },
+  {
+    "id": "wiki-zh-tcp",
+    "channel": "encyclopedia",
+    "language": "zh",
+    "difficulty": "easy",
+    "kind": "search",
+    "query": "中文维基百科 HTTP 条目里的默认 TCP 端口",
+    "target": "https://zh.wikipedia.org/wiki/HTTP",
+    "dimensions": ["discovery", "synthesis"],
+    "task_requires": ["discovery", "synthesis"],
+    "expected_access": "public",
+    "targets": [
+      {
+        "id": "zh-http",
+        "url": "https://zh.wikipedia.org/wiki/HTTP",
+        "host": "zh.wikipedia.org",
+        "path_contains": "/wiki/HTTP",
+        "discovery_evidence": ["80"]
+      }
+    ],
+    "key_facts": ["80"],
+    "url_checked": false,
+    "notes": "本机访问维基百科网络不可达。判定仍要求条目路径和端口 80，不接受 wikipedia.org 首页。",
+    "rubric": {"discovery": "中文 HTTP 条目且出现 80", "synthesis": "答案写出 80"}
+  },
+  {
+    "id": "wiki-en-tcp",
+    "channel": "encyclopedia",
+    "language": "en",
+    "difficulty": "easy",
+    "kind": "search",
+    "query": "English Wikipedia HTTP article: the default TCP port",
+    "target": "https://en.wikipedia.org/wiki/HTTP",
+    "dimensions": ["discovery", "synthesis"],
+    "task_requires": ["discovery", "synthesis"],
+    "expected_access": "public",
+    "targets": [
+      {
+        "id": "en-http",
+        "url": "https://en.wikipedia.org/wiki/HTTP",
+        "host": "en.wikipedia.org",
+        "path_contains": "/wiki/HTTP",
+        "discovery_evidence": ["80"]
+      }
+    ],
+    "key_facts": ["80"],
+    "url_checked": false,
+    "notes": "本机未能打开维基百科。路径和数字 80 都要满足。",
+    "rubric": {"discovery": "英文 HTTP 条目", "synthesis": "答案写出 80"}
+  },
+  {
+    "id": "general-zh-stats",
+    "channel": "general_web",
+    "language": "zh",
+    "difficulty": "medium",
+    "kind": "search",
+    "query": "国家统计局网站上对居民消费价格指数 CPI 的指标解释页面",
+    "target": "stats.gov.cn 上的指标解释页，不是首页。",
+    "dimensions": ["discovery", "reading"],
+    "task_requires": ["discovery", "reading"],
+    "expected_access": "public",
+    "targets": [
+      {
+        "id": "stats-cpi",
+        "host": "stats.gov.cn",
+        "discovery_evidence": ["居民消费价格"]
+      }
+    ],
+    "key_facts": [],
+    "url_checked": false,
+    "notes": "未核实到一条不会变动的具体文号。path_contains 设为站点内页时，评分仍要求摘要含“居民消费价格”，首页标题不够。",
+    "rubric": {"discovery": "统计局页面且摘要含指标名", "reading": "正文含指标名"}
+  },
+  {
+    "id": "general-en-mdn",
+    "channel": "general_web",
+    "language": "en",
+    "difficulty": "easy",
+    "kind": "search",
+    "query": "MDN page for the Request.redirect property",
+    "target": "https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect",
+    "dimensions": ["discovery", "reading", "synthesis"],
+    "task_requires": ["discovery", "reading", "synthesis"],
+    "expected_access": "public",
+    "targets": [
+      {
+        "id": "mdn-redirect",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect",
+        "host": "developer.mozilla.org",
+        "path_contains": "/Web/API/Request/redirect",
+        "reading_evidence": ["follow"]
+      }
+    ],
+    "key_facts": ["follow"],
+    "url_checked": true,
+    "notes": "本机已打开。页面列出 follow 这一 redirect 模式。",
+    "rubric": {"discovery": "Request.redirect", "reading": "正文含 follow", "synthesis": "答案写出 follow"}
+  },
+  {
+    "id": "docs-python-venv",
+    "channel": "docs",
+    "language": "en",
+    "difficulty": "easy",
+    "kind": "search",
+    "query": "Python standard library documentation for the venv module",
+    "target": "https://docs.python.org/3/library/venv.html",
+    "dimensions": ["discovery", "reading", "synthesis"],
+    "task_requires": ["discovery", "synthesis"],
+    "expected_access": "public",
+    "targets": [
+      {
+        "id": "py-venv",
+        "url": "https://docs.python.org/3/library/venv.html",
+        "host": "docs.python.org",
+        "path_contains": "/3/library/venv.html",
+        "reading_evidence": ["venv"]
+      }
+    ],
+    "key_facts": ["venv"],
+    "url_checked": true,
+    "notes": "本机已打开。端到端任务要求发现和综合；读取是组件项，未抓取时组件为 not_attempted，但本任务未把读取列为必须。",
+    "rubric": {"discovery": "venv.html", "reading": "正文含 venv", "synthesis": "指向 venv"}
+  },
+  {
+    "id": "history-rfc791",
+    "channel": "history",
+    "language": "en",
+    "difficulty": "medium",
+    "kind": "search",
+    "query": "RFC 791 text for the Internet Protocol Version field",
+    "target": "https://www.rfc-editor.org/rfc/rfc791.txt",
+    "dimensions": ["discovery", "reading", "synthesis"],
+    "task_requires": ["discovery", "reading", "synthesis"],
+    "expected_access": "public",
+    "targets": [
+      {
+        "id": "rfc791",
+        "url": "https://www.rfc-editor.org/rfc/rfc791.txt",
+        "host": "rfc-editor.org",
+        "path_contains": "/rfc/rfc791",
+        "reading_evidence": ["Version field"]
+      }
+    ],
+    "key_facts": ["4 bits"],
+    "url_checked": true,
+    "notes": "原文写明 Version: 4 bits，以及 The Version field indicates the format of the internet header。",
+    "rubric": {"discovery": "RFC 791", "reading": "Version field", "synthesis": "4 bits"}
+  },
+  {
+    "id": "cold-personal-note",
+    "channel": "long_tail",
+    "language": "en",
+    "difficulty": "hard",
+    "kind": "search",
+    "query": "Jargon File entry that defines yak shaving",
+    "target": "http://www.catb.org/jargon/html/Y/yak-shaving.html",
+    "dimensions": ["discovery", "reading"],
+    "task_requires": ["discovery", "reading"],
+    "expected_access": "public",
+    "targets": [
+      {
+        "id": "jargon-yak",
+        "url": "http://www.catb.org/jargon/html/Y/yak-shaving.html",
+        "host": "catb.org",
+        "path_contains": "/Y/yak-shaving.html",
+        "reading_evidence": ["yak shaving"]
+      }
+    ],
+    "key_facts": [],
+    "url_checked": false,
+    "notes": "不再要求无法稳定定位的“最早个人主页”。HTTPS 证书主机名不匹配，故正文未当已核实摘录。词典聚合站首页不算。",
+    "rubric": {"discovery": "词条路径", "reading": "正文含 yak shaving"}
+  },
+  {
+    "id": "stackoverflow-venv",
+    "channel": "stackoverflow",
+    "language": "en",
+    "difficulty": "easy",
+    "kind": "search",
+    "query": "Stack Overflow question page about creating a Python virtual environment",
+    "target": "stackoverflow.com/questions/ 的具体问题，不是站点首页。",
+    "dimensions": ["discovery", "comments", "synthesis"],
+    "task_requires": ["discovery", "comments", "synthesis"],
+    "expected_access": "public",
+    "targets": [
+      {
+        "id": "so-question",
+        "host": "stackoverflow.com",
+        "path_contains": "/questions/",
+        "discovery_evidence": ["virtual"]
+      }
+    ],
+    "comment_targets": [{"match": "content", "evidence": ["venv"]}],
+    "key_facts": ["venv"],
+    "url_checked": false,
+    "notes": "未钉死问题号，避免使用未核对的 id。评论分看回答正文里的 venv，不看问题 URL。",
+    "rubric": {"discovery": "问题页", "comments": "回答含 venv", "synthesis": "答案写出 venv"}
+  },
+  {
+    "id": "lwn-kernel",
+    "channel": "tech_press",
+    "language": "en",
+    "difficulty": "medium",
+    "kind": "search",
+    "query": "LWN.net article explaining RCU in the Linux kernel",
+    "target": "lwn.net/Articles/ 下的具体文章编号。",
+    "dimensions": ["discovery", "reading"],
+    "task_requires": ["discovery", "reading"],
+    "expected_access": "paywall",
+    "targets": [
+      {
+        "id": "lwn-rcu",
+        "host": "lwn.net",
+        "path_contains": "/Articles/",
+        "discovery_evidence": ["RCU"]
+      }
+    ],
+    "key_facts": [],
+    "url_checked": false,
+    "notes": "订阅墙是预期限制。只有抓到的正文含订阅提示才记 observed paywall。",
+    "rubric": {"discovery": "文章编号且提到 RCU", "reading": "原文或付费墙"}
+  },
+  {
+    "id": "weibo-login",
+    "channel": "weibo",
+    "language": "zh",
+    "difficulty": "hard",
+    "kind": "search",
+    "query": "微博上教育部官方账号发布的开学通知单条微博",
+    "target": "带数字 id 的单条微博，且标题或摘要同时出现教育部和开学。",
+    "dimensions": ["discovery"],
+    "task_requires": ["discovery"],
+    "expected_access": "login",
+    "targets": [
+      {
+        "id": "weibo-status",
+        "host": "weibo.com",
+        "path_regex": "/[0-9]{5,}",
+        "discovery_evidence": ["教育部", "开学"]
+      }
+    ],
+    "key_facts": [],
+    "url_checked": false,
+    "notes": "未核实到一条永久微博 id。发现分仍要求摘要含“开学”，不能只是 weibo.com 首页标题。预期登录不等于已经观察到登录失败。",
+    "rubric": {"discovery": "单条内容且提到开学"}
+  },
+  {
+    "id": "news-fresh-query",
+    "channel": "news",
+    "language": "zh",
+    "difficulty": "hard",
+    "kind": "search",
+    "query": "过去 48 小时内关于半导体出口管制的一条新闻",
+    "target": "带发布时间、且落在执行时间前 48 小时内的新闻页。",
+    "dimensions": ["discovery", "freshness", "synthesis"],
+    "task_requires": ["discovery", "freshness", "synthesis"],
+    "expected_access": "public",
+    "dynamic_url": true,
+    "freshness": {"window_hours": 48, "require_published_at": true},
+    "targets": [],
+    "key_facts": [],
+    "url_checked": false,
+    "notes": "没有固定 URL。正式评分看 observation.executed_at 与结果 published_at 的 48 小时窗口。此占位 target 不会因域名通过。动态题在 pilot 中单独记录执行时间。",
+    "rubric": {"discovery": "具体新闻 URL", "freshness": "48 小时内", "synthesis": "答案写出媒体和日期"}
+  },
+  {
+    "id": "compare-react-vue",
+    "channel": "docs",
+    "language": "zh",
+    "difficulty": "medium",
+    "kind": "search",
+    "query": "对比 React 官方的 managing state 和 Vue 官方的 reactivity fundamentals",
+    "target": "两份指定官方文档都要出现。",
+    "dimensions": ["discovery", "cross_language", "synthesis"],
+    "task_requires": ["discovery", "cross_language", "synthesis"],
+    "expected_access": "public",
+    "require_all_targets": true,
+    "targets": [
+      {
+        "id": "react-state",
+        "url": "https://react.dev/learn/managing-state",
+        "host": "react.dev",
+        "path_contains": "/learn/managing-state",
+        "reading_evidence": ["state"]
+      },
+      {
+        "id": "vue-reactivity",
+        "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html",
+        "host": "vuejs.org",
+        "path_contains": "/guide/essentials/reactivity-fundamentals.html",
+        "reading_evidence": ["reactivity"]
+      }
+    ],
+    "cross_language_hosts": ["react.dev", "vuejs.org"],
+    "key_facts": ["React", "Vue"],
+    "url_checked": true,
+    "notes": "两个 URL 本机都已打开。只找到其中一个时发现分为 partial，任务失败。",
+    "rubric": {"discovery": "两页都在", "cross_language": "中文对比题召回两份英文文档", "synthesis": "两边都提到"}
+  },
+  {
+    "id": "github-code-search",
+    "channel": "github",
+    "language": "en",
+    "difficulty": "medium",
+    "kind": "search",
+    "query": "CPython source file that defines PyObject_Malloc",
+    "target": "cpython 仓库里的源文件，不是博客。",
+    "dimensions": ["discovery", "reading"],
+    "task_requires": ["discovery", "reading"],
+    "expected_access": "public",
+    "targets": [
+      {
+        "id": "obmalloc",
+        "host": "github.com",
+        "path_contains": "/python/cpython/",
+        "discovery_evidence": ["PyObject_Malloc"],
+        "reading_evidence": ["PyObject_Malloc"]
+      }
+    ],
+    "key_facts": [],
+    "url_checked": false,
+    "notes": "未在本机核对具体文件名，所以不把 obmalloc.c 写成唯一答案。仓库路径加函数名必须同时出现。",
+    "rubric": {"discovery": "cpython 路径且提到函数名", "reading": "文件正文含函数名"}
+  },
+  {
+    "id": "baidu-baike",
+    "channel": "encyclopedia",
+    "language": "zh",
+    "difficulty": "easy",
+    "kind": "search",
+    "query": "百度百科图灵奖词条中的颁发机构",
+    "target": "baike.baidu.com/item/ 下的图灵奖词条。",
+    "dimensions": ["discovery", "synthesis"],
+    "task_requires": ["discovery", "synthesis"],
+    "expected_access": "public",
+    "targets": [
+      {
+        "id": "baike-turing",
+        "host": "baike.baidu.com",
+        "path_contains": "/item/",
+        "discovery_evidence": ["图灵奖"]
+      }
+    ],
+    "key_facts": ["ACM"],
+    "url_checked": false,
+    "notes": "词条 URL 未在本机打开。颁发机构 ACM 是任务答案，不能只凭域名得分。",
+    "rubric": {"discovery": "图灵奖词条", "synthesis": "ACM"}
+  },
+  {
+    "id": "dual-forum-hardware",
+    "channel": "forums",
+    "language": "zh",
+    "difficulty": "hard",
+    "kind": "search",
+    "query": "分别找 V2EX 主题帖和 Chiphell 讨论帖，内容都要提到客制化键盘",
+    "target": "两个社区各一条帖子，摘要都要出现客制化键盘。",
+    "dimensions": ["discovery"],
+    "task_requires": ["discovery"],
+    "expected_access": "mixed",
+    "require_all_targets": true,
+    "targets": [
+      {
+        "id": "v2ex-keyboard",
+        "host": "v2ex.com",
+        "path_contains": "/t/",
+        "discovery_evidence": ["客制化键盘"]
+      },
+      {
+        "id": "chiphell-keyboard-post",
+        "host": "chiphell.com",
+        "path_regex": "(viewthread|thread-[0-9]+)",
+        "discovery_evidence": ["客制化键盘"]
+      }
+    ],
+    "key_facts": [],
+    "url_checked": false,
+    "notes": "没有两条经核实的帖子 id。缺任一站点都不是完整发现。Chiphell 预期可能要登录。",
+    "rubric": {"discovery": "两条具体帖子都要出现"}
+  },
+  {
+    "id": "paywall-wsj",
+    "channel": "news",
+    "language": "en",
+    "difficulty": "hard",
+    "kind": "search",
+    "query": "Wall Street Journal article page about the 2024 Nobel Prize in Physics",
+    "target": "wsj.com 的文章路径，不是首页。",
+    "dimensions": ["discovery", "reading"],
+    "task_requires": ["discovery", "reading"],
+    "expected_access": "paywall",
+    "targets": [
+      {
+        "id": "wsj-nobel",
+        "host": "wsj.com",
+        "path_contains": "nobel",
+        "discovery_evidence": ["Nobel"]
+      }
+    ],
+    "key_facts": [],
+    "url_checked": false,
+    "notes": "预期付费墙。observed paywall 只在正文或错误里出现订阅提示时成立。",
+    "rubric": {"discovery": "wsj 文章路径且提到 Nobel", "reading": "原文或订阅提示"}
+  },
+  {
+    "id": "antibot-shell",
+    "channel": "forums",
+    "language": "en",
+    "difficulty": "hard",
+    "kind": "search",
+    "query": "Open the Chiphell viewthread page and record whether the body is a captcha shell",
+    "target": "chiphell viewthread。若正文是验证码，记 observed anti_bot。",
+    "dimensions": ["discovery", "reading"],
+    "task_requires": ["discovery", "reading"],
+    "expected_access": "anti_bot",
+    "targets": [
+      {
+        "id": "chiphell-shell",
+        "host": "chiphell.com",
+        "path_contains": "viewthread"
+      }
+    ],
+    "key_facts": [],
+    "url_checked": false,
+    "notes": "预期反爬不等于已经失败。没有 captcha 标记时，不能把空结果自动归到 anti_bot。",
+    "rubric": {"discovery": "viewthread", "reading": "正文或验证码壳"}
+  },
+  {
+    "id": "fetch-python-venv",
+    "channel": "docs",
+    "language": "en",
+    "difficulty": "easy",
+    "kind": "fetch",
+    "query": "Read the Python venv documentation and confirm it documents the venv module",
+    "url": "https://docs.python.org/3/library/venv.html",
+    "target": "直接读取指定 URL。",
+    "dimensions": ["reading"],
+    "task_requires": ["reading"],
+    "expected_access": "public",
+    "targets": [
+      {
+        "id": "py-venv-fetch",
+        "url": "https://docs.python.org/3/library/venv.html",
+        "host": "docs.python.org",
+        "path_contains": "/3/library/venv.html",
+        "reading_evidence": ["venv"]
+      }
+    ],
+    "key_facts": [],
+    "url_checked": true,
+    "notes": "端到端任务就是读取。未发起抓取则任务失败，不能靠 not_attempted 放过。",
+    "rubric": {"reading": "正文含 venv"}
+  },
+  {
+    "id": "hn-comment-dissent",
+    "channel": "hackernews",
+    "language": "en",
+    "difficulty": "hard",
+    "kind": "search",
+    "query": "In the Hacker News thread about SQLite as an application file format, find a comment that says the user interface should not wait on disk before responding",
+    "target": "评论 23552225，不是帖子标题。",
+    "dimensions": ["discovery", "comments", "synthesis"],
+    "task_requires": ["comments", "synthesis"],
+    "expected_access": "public",
+    "targets": [
+      {
+        "id": "hn-item-23508923",
+        "url": "https://news.ycombinator.com/item?id=23508923",
+        "host": "news.ycombinator.com",
+        "path_contains": "item?id=23508923"
+      }
+    ],
+    "comment_targets": [
+      {
+        "match": "exact_id",
+        "comment_id": "23552225",
+        "evidence": ["synchronous IO"]
+      }
+    ],
+    "key_facts": ["synchronous IO"],
+    "url_checked": true,
+    "notes": "Algolia 评论 23552225，作者 lillecarl，原文含 If the user interface depends on synchronous IO something is very wrong.",
+    "rubric": {"discovery": "帖子可以单独发现", "comments": "必须读到这条评论", "synthesis": "答案引用 synchronous IO"}
+  },
+  {
+    "id": "wechat-mp-discovery",
+    "channel": "wechat",
+    "language": "zh",
+    "difficulty": "hard",
+    "kind": "search",
+    "query": "找一篇讲解 Python GIL 的微信公众号文章原文链接",
+    "target": "mp.weixin.qq.com/s/ 的文章，不是搜狗快照首页。",
+    "dimensions": ["discovery", "reading"],
+    "task_requires": ["discovery"],
+    "expected_access": "login",
+    "targets": [
+      {
+        "id": "wechat-article",
+        "host": "mp.weixin.qq.com",
+        "path_contains": "/s/",
+        "discovery_evidence": ["GIL"]
+      }
+    ],
+    "key_facts": [],
+    "url_checked": false,
+    "notes": "不预设未核实的文章 id。完整正文通常受微信打开限制。发现和读取分开。",
+    "rubric": {"discovery": "/s/ 且提到 GIL", "reading": "只有拿到正文才通过"}
+  },
+  {
+    "id": "xiaohongshu-note-discovery",
+    "channel": "xiaohongshu",
+    "language": "zh",
+    "difficulty": "hard",
+    "kind": "search",
+    "query": "小红书上关于 MacBook 续航的笔记原文",
+    "target": "笔记页 /explore/ 或 /discovery/item/，摘要要出现续航。",
+    "dimensions": ["discovery"],
+    "task_requires": ["discovery"],
+    "expected_access": "login",
+    "targets": [
+      {
+        "id": "xhs-note",
+        "host": "xiaohongshu.com",
+        "path_regex": "/(explore|discovery/item)/",
+        "discovery_evidence": ["续航"]
+      }
+    ],
+    "key_facts": [],
+    "url_checked": false,
+    "notes": "平台内容通常需要登录。本轮只测发现具体笔记 URL。",
+    "rubric": {"discovery": "笔记路径且提到续航"}
+  },
+  {
+    "id": "bilibili-video-discovery",
+    "channel": "bilibili",
+    "language": "zh",
+    "difficulty": "medium",
+    "kind": "search",
+    "query": "B站上介绍 Python GIL 的具体视频",
+    "target": "bilibili.com/video/BV 的视频页。",
+    "dimensions": ["discovery", "comments"],
+    "task_requires": ["discovery"],
+    "expected_access": "public",
+    "targets": [
+      {
+        "id": "bili-video",
+        "host": "bilibili.com",
+        "path_contains": "/video/BV",
+        "discovery_evidence": ["GIL"]
+      }
+    ],
+    "comment_targets": [{"match": "content", "evidence": ["GIL"]}],
+    "key_facts": [],
+    "url_checked": false,
+    "notes": "未指定 BV 号。评论是组件项；端到端任务只要求发现视频页。评论区可能受限。",
+    "rubric": {"discovery": "BV 视频页", "comments": "评论正文"}
+  },
+  {
+    "id": "youtube-me-at-the-zoo",
+    "channel": "youtube",
+    "language": "en",
+    "difficulty": "easy",
+    "kind": "search",
+    "query": "The first YouTube video, Me at the zoo",
+    "target": "https://www.youtube.com/watch?v=jNQXAC9IVRw",
+    "dimensions": ["discovery", "comments"],
+    "task_requires": ["discovery"],
+    "expected_access": "public",
+    "targets": [
+      {
+        "id": "me-at-the-zoo",
+        "url": "https://www.youtube.com/watch?v=jNQXAC9IVRw",
+        "host": "youtube.com",
+        "path_contains": "watch?v=jNQXAC9IVRw",
+        "discovery_evidence": ["zoo"]
+      }
+    ],
+    "comment_targets": [{"match": "content", "evidence": ["zoo"]}],
+    "key_facts": [],
+    "url_checked": false,
+    "notes": "这是公开的首支 YouTube 视频 id。本机本次未重新打开页面。评论不作为端到端必做项。",
+    "rubric": {"discovery": "指定 watch id", "comments": "评论正文"}
+  },
+  {
+    "id": "telegram-public-preview",
+    "channel": "telegram",
+    "language": "en",
+    "difficulty": "medium",
+    "kind": "search",
+    "query": "Public Telegram web preview of the official Telegram channel",
+    "target": "https://t.me/s/telegram",
+    "dimensions": ["discovery", "reading"],
+    "task_requires": ["discovery"],
+    "expected_access": "public",
+    "targets": [
+      {
+        "id": "tg-preview",
+        "url": "https://t.me/s/telegram",
+        "host": "t.me",
+        "path_contains": "/s/telegram"
+      }
+    ],
+    "key_facts": [],
+    "url_checked": false,
+    "notes": "公开预览页。t.me 首页不算。完整历史可能只在客户端可见。",
+    "rubric": {"discovery": "/s/telegram", "reading": "预览正文"}
+  },
+  {
+    "id": "hn-two-comments",
+    "channel": "hackernews",
+    "language": "en",
+    "difficulty": "hard",
+    "kind": "search",
+    "query": "In the Hacker News discussion of SQLite as an application file format, read both the comment that rejects waiting on disk in the interface and the comment about Windows file-system snapshots",
+    "target": "两条指定评论都要读到正文。",
+    "dimensions": ["comments"],
+    "task_requires": ["comments"],
+    "expected_access": "public",
+    "require_all_comments": true,
+    "targets": [
+      {
+        "id": "hn-item-again",
+        "url": "https://news.ycombinator.com/item?id=23508923",
+        "host": "news.ycombinator.com",
+        "path_contains": "item?id=23508923"
+      }
+    ],
+    "comment_targets": [
+      {"match": "exact_id", "comment_id": "23552225", "evidence": ["synchronous IO"]},
+      {"match": "exact_id", "comment_id": "23546691", "evidence": ["NTFS"]}
+    ],
+    "key_facts": [],
+    "url_checked": true,
+    "notes": "第二条来自 Algolia 评论 23546691，作者 int_19h，提到 Windows snapshot-based transactions 和 NTFS。只读到一条则为 partial，任务失败。",
+    "rubric": {"comments": "两条评论 id 和证据都要出现"}
+  },
+  {
+    "id": "cross-lang-hn-sqlite",
+    "channel": "hackernews",
+    "language": "zh",
+    "difficulty": "hard",
+    "kind": "search",
+    "query": "用中文找 Hacker News 上把 SQLite 当作应用程序文件格式来讨论的英文帖子",
+    "target": "同一条已核实的英文 HN 帖。",
+    "dimensions": ["discovery", "cross_language"],
+    "task_requires": ["discovery", "cross_language"],
+    "expected_access": "public",
+    "targets": [
+      {
+        "id": "hn-item-zh",
+        "url": "https://news.ycombinator.com/item?id=23508923",
+        "host": "news.ycombinator.com",
+        "path_contains": "item?id=23508923",
+        "discovery_evidence": ["SQLite"]
+      }
+    ],
+    "cross_language_hosts": ["news.ycombinator.com"],
+    "key_facts": [],
+    "url_checked": true,
+    "notes": "中文查询，目标是英文论坛的指定帖。",
+    "rubric": {"discovery": "指定 item", "cross_language": "中文查询命中 news.ycombinator.com 的该帖"}
+  }
+]
