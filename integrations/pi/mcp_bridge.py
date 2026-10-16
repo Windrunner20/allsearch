@@ -323,4 +323,8 @@ async def async_main() -> int:
 
 
 if __name__ == "__main__":
+    # The envelope is UTF-8 JSON; a Windows console code page (cp1252) cannot
+    # encode CJK text, so do not let the locale choose the encoding.
+    if hasattr(sys.stdout, "reconfigure"):
+        sys.stdout.reconfigure(encoding="utf-8")
     raise SystemExit(asyncio.run(async_main()))

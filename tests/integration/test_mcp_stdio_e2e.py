@@ -381,6 +381,7 @@ def test_pi_bridge_cli_chain_uses_stdio_server(mock_provider: _MockServer):
         env=env,
         capture_output=True,
         text=True,
+        encoding="utf-8",
         timeout=40,
         check=False,
     )
