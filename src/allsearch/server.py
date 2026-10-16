@@ -336,7 +336,9 @@ def build_mcp(config: AllSearchConfig | None = None) -> tuple[Orchestrator, Fast
                 raise ToolError(str(exc)) from exc
             state = sessions.get(session_key)
             seen = sessions.note_read(state, dumps([result_id, page["fields"], page["offset"], page.get("next_offset")]))
-            block = sessions.observe(state, "read_result", repeat=seen > 1)
+            # A page not read before is progress: the agent is reading stored
+            # evidence. Re-reading the same page is not.
+            block = sessions.observe(state, "read_result", repeat=seen > 1, progress=seen == 1)
             pages = sessions.note_read(state, f"pages:{result_id}")
             if seen > 1:
                 block["advice"] = f"This page was already returned {seen - 1} time(s) in this session."

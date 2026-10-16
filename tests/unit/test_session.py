@@ -68,3 +68,13 @@ def test_sessions_are_isolated_and_bounded():
     assert b.urls == set()
     reg.get("c")
     assert "a" not in reg._sessions
+
+
+def test_first_time_read_pages_are_progress_repeats_are_not():
+    reg = SessionRegistry(SessionLimits(), clock=Clock())
+    state = reg.get("s")
+    for _ in range(4):
+        block = reg.observe(state, "read_result", progress=True)
+    assert block["calls_without_new_evidence"] == 0
+    block = reg.observe(state, "read_result", repeat=True, progress=False)
+    assert block["calls_without_new_evidence"] == 1

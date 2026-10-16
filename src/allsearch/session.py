@@ -136,6 +136,7 @@ class SessionRegistry:
         urls: Iterable[str] = (),
         content_urls: Iterable[str] = (),
         repeat: bool = False,
+        progress: bool | None = None,
     ) -> dict[str, Any]:
         state.totals[tool] = state.totals.get(tool, 0) + 1
         new_urls = 0
@@ -151,6 +152,8 @@ class SessionRegistry:
                 state.read_content.add(canon)
                 new_content += 1
         progressed = (new_urls + new_content) > 0 and not repeat
+        if progress is not None:
+            progressed = progress and not repeat
         state.stale = 0 if progressed else state.stale + 1
         block: dict[str, Any] = {
             "calls": dict(state.totals),
