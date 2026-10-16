@@ -13,19 +13,17 @@ from __future__ import annotations
 import argparse
 import asyncio
 import json
+import re
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
-
-import re
 
 from allsearch import __version__
 from allsearch.config import load_config
 from allsearch.models import FetchRequest, SearchRequest
 from allsearch.orchestrator import Orchestrator
 from benchmarks.harness import load_cases, provider_query
-
 
 _SECRET = re.compile(
     r"(?i)(bearer\s+)[A-Za-z0-9._\-]+"
@@ -82,7 +80,7 @@ async def run_case(app: Orchestrator, case: dict[str, Any], depth: str) -> dict[
     started = time.perf_counter()
     observation: dict[str, Any] = {
         "id": case["id"],
-        "executed_at": datetime.now(timezone.utc).isoformat(),
+        "executed_at": datetime.now(UTC).isoformat(),
         "depth": depth,
         "allsearch_version": __version__,
         "provider_query": provider_query(case),

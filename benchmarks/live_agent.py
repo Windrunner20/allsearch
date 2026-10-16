@@ -28,7 +28,7 @@ import subprocess
 import sys
 import tempfile
 import time
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -183,7 +183,7 @@ def observation_from_calls(case_id: str, calls: list[dict[str, Any]], answer: st
         "results": results,
         "fetched": list(fetched.values()),
         "comments": comments,
-        "executed_at": datetime.now(timezone.utc).isoformat(),
+        "executed_at": datetime.now(UTC).isoformat(),
     }
 
 
@@ -269,7 +269,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.ids:
         wanted = set(args.ids.split(","))
         cases = [c for c in cases if c["id"] in wanted]
-    stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+    stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
     out = args.out or RUNS / f"agent-ab-{stamp}"
     out.mkdir(parents=True, exist_ok=True)
     arms = [a for a in args.arms.split(",") if a]
@@ -285,14 +285,17 @@ def main(argv: list[str] | None = None) -> int:
             _git("worktree", "add", "--detach", str(worktree), args.baseline_ref)
         try:
             jobs = []
+            agents = {}
+            for arm in arms:
+                src = worktree / "src" if arm == "baseline" else ROOT / "src"
+                agents[arm] = _agent_dir(base, arm, src)
+                (out / arm).mkdir(exist_ok=True)
             with concurrent.futures.ThreadPoolExecutor(max_workers=args.concurrency * len(arms)) as pool:
-                for arm in arms:
-                    src = worktree / "src" if arm == "baseline" else ROOT / "src"
-                    agent = _agent_dir(base, arm, src)
-                    (out / arm).mkdir(exist_ok=True)
-                    for case in cases:
+                # Interleave arms case by case so both run in the same time window.
+                for case in cases:
+                    for arm in arms:
                         if not (out / arm / f"{case['id']}.json").exists():
-                            jobs.append(pool.submit(run_case, agent, case, out / arm))
+                            jobs.append(pool.submit(run_case, agents[arm], case, out / arm))
                 for job in jobs:
                     job.result()
         finally:

@@ -3,12 +3,11 @@
 from __future__ import annotations
 
 import time
-from typing import Any
-
-from allsearch.config import FirecrawlConfig
 from collections import deque
+from typing import Any
 from urllib.parse import urlparse
 
+from allsearch.config import FirecrawlConfig
 from allsearch.errors import AllSearchError, AuthError, ProviderUnavailableError, TargetError
 from allsearch.health import HealthRegistry
 from allsearch.models import ProviderFetchResult

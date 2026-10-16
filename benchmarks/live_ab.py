@@ -20,7 +20,7 @@ import os
 import subprocess
 import sys
 import tempfile
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -163,7 +163,7 @@ def main(argv: list[str] | None = None) -> int:
         out = args.score_only
         meta = json.loads((out / "meta.json").read_text(encoding="utf-8"))
     else:
-        stamp = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%SZ")
+        stamp = datetime.now(UTC).strftime("%Y%m%dT%H%M%SZ")
         out = args.out or RUNS / f"ab-{args.depth}-{stamp}"
         out.mkdir(parents=True, exist_ok=True)
         meta = {

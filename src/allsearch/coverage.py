@@ -14,7 +14,7 @@ citations from three unrelated sites do not answer "find the V2EX thread".
 from __future__ import annotations
 
 import re
-from datetime import datetime, timedelta, timezone
+from datetime import UTC, datetime, timedelta
 from typing import Any
 from urllib.parse import unquote, urlparse
 
@@ -49,7 +49,7 @@ def _parse_time(value: Any) -> datetime | None:
         except (TypeError, ValueError):
             return None
     if parsed.tzinfo is None:
-        parsed = parsed.replace(tzinfo=timezone.utc)
+        parsed = parsed.replace(tzinfo=UTC)
     return parsed
 
 
@@ -129,7 +129,7 @@ def evaluate(
         reqs.append(Requirement(kind="comments", target=intent.comment_focus or "comments", satisfied=ok, detail=detail))
 
     if intent.recency_hours:
-        current = now or datetime.now(timezone.utc)
+        current = now or datetime.now(UTC)
         window = timedelta(hours=intent.recency_hours)
         dated = [(r, _parse_time(r.published_at)) for r in results]
         fresh = [r for r, t in dated if t is not None and timedelta(0) <= current - t <= window]

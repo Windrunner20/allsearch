@@ -27,7 +27,7 @@ import re
 import time
 from collections import Counter
 from collections.abc import Iterable
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from typing import Any
 from urllib.parse import parse_qs, quote, urlencode, urlparse
 
@@ -75,7 +75,7 @@ def _iso(value: Any) -> str | None:
     if value is None or value == "":
         return None
     if isinstance(value, (int, float)):
-        return datetime.fromtimestamp(float(value), tz=timezone.utc).isoformat().replace("+00:00", "Z")
+        return datetime.fromtimestamp(float(value), tz=UTC).isoformat().replace("+00:00", "Z")
     return str(value)
 
 

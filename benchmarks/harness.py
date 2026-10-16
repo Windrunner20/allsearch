@@ -27,6 +27,7 @@ import argparse
 import json
 import re
 import sys
+from datetime import UTC
 from pathlib import Path
 from typing import Any
 from urllib.parse import unquote, urlparse
@@ -367,7 +368,7 @@ def _freshness_status(case: dict[str, Any], observation: dict[str, Any]) -> dict
     ]
     if not executed or not stamps:
         return {"status": "unverifiable"}
-    from datetime import datetime, timezone
+    from datetime import datetime
 
     def _parse(value: str) -> datetime:
         raw = str(value).strip()
@@ -378,7 +379,7 @@ def _freshness_status(case: dict[str, Any], observation: dict[str, Any]) -> dict
 
             parsed = parsedate_to_datetime(raw)
         if parsed.tzinfo is None:
-            parsed = parsed.replace(tzinfo=timezone.utc)
+            parsed = parsed.replace(tzinfo=UTC)
         return parsed
 
     start = _parse(str(executed))

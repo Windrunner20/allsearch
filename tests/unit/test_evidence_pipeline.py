@@ -6,8 +6,6 @@ import asyncio
 from dataclasses import replace
 from typing import Any
 
-import pytest
-
 from allsearch.models import (
     Comment,
     FetchRequest,

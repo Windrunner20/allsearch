@@ -9,7 +9,13 @@ from typing import Any
 import httpx
 
 from allsearch import __version__
-from allsearch.errors import AuthError, ProviderContractError, TimeoutError_, TransportError, redact_text
+from allsearch.errors import (
+    AuthError,
+    ProviderContractError,
+    TimeoutError_,
+    TransportError,
+    redact_text,
+)
 
 
 class HttpTransport:

@@ -11,40 +11,38 @@ from typing import Any
 
 from allsearch.cache import MemoryCache
 from allsearch.config import AllSearchConfig
+from allsearch.coverage import evaluate as evaluate_coverage
+from allsearch.coverage import unmet
 from allsearch.deadline import Deadline
 from allsearch.errors import (
-    AllSearchError,
     DeadlineExceededError,
-    ProviderUnavailableError,
     UnsafeURLError,
     to_public_error,
 )
-from allsearch.coverage import evaluate as evaluate_coverage
-from allsearch.coverage import unmet
 from allsearch.health import HealthRegistry
 from allsearch.intent import QueryIntent, analyze
 from allsearch.merge import attach_fetched_content, dedupe_key, merge_provider_results
 from allsearch.models import (
     CacheMeta,
     Coverage,
-    ResultItem,
-    ThreadEvidence,
-    ProviderResultItem,
     ErrorItem,
     FetchRequest,
     FetchResponse,
     HealthResponse,
     ProviderHealth,
+    ProviderResultItem,
     ProviderSearchResult,
+    ResultItem,
     RouteInfo,
     RouteStage,
     SearchRequest,
     SearchResponse,
+    ThreadEvidence,
 )
+from allsearch.native import NativeSources, render_thread, terms, thread_ref
 from allsearch.providers.anysearch import AnySearchProvider
 from allsearch.providers.firecrawl import FirecrawlProvider
 from allsearch.providers.tavily import TavilyProvider
-from allsearch.native import NativeSources, render_thread, terms, thread_ref
 from allsearch.providers.xai import XAIProvider, rewrite_query
 from allsearch.quality import (
     access_issue,
