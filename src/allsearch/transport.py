@@ -8,6 +8,7 @@ from typing import Any
 
 import httpx
 
+from allsearch import __version__
 from allsearch.errors import AuthError, ProviderContractError, TimeoutError_, TransportError, redact_text
 
 
@@ -31,7 +32,7 @@ class HttpTransport:
             self._client = httpx.AsyncClient(
                 timeout=httpx.Timeout(self.timeout_seconds),
                 follow_redirects=False,
-                headers={"User-Agent": "AllSearch/0.1"},
+                headers={"User-Agent": f"AllSearch/{__version__}"},
             )
         return self._client
 
@@ -49,7 +50,14 @@ class HttpTransport:
         json: dict[str, Any] | None = None,
         deadline_seconds: float | None = None,
         provider: str | None = None,
-    ) -> dict[str, Any]:
+        allow_list: bool = False,
+        form: dict[str, str] | None = None,
+    ) -> Any:
+        """One JSON request with bounded retries.
+
+        The root must be an object unless ``allow_list`` is set. ``form`` sends
+        an urlencoded body instead of JSON (OAuth token endpoints).
+        """
         remaining = deadline_seconds if deadline_seconds is not None else self.timeout_seconds
         attempt = 0
         last_exc: BaseException | None = None
@@ -66,7 +74,8 @@ class HttpTransport:
                     method=method.upper(),
                     url=url,
                     headers=headers,
-                    json=json,
+                    json=json if form is None else None,
+                    data=form,
                     timeout=timeout,
                 )
                 content = response.content
@@ -123,7 +132,7 @@ class HttpTransport:
                         "provider returned non-JSON response",
                         provider=provider,
                     ) from exc
-                if not isinstance(data, dict):
+                if not isinstance(data, dict) and not (allow_list and isinstance(data, list)):
                     raise ProviderContractError(
                         "provider JSON root must be an object",
                         provider=provider,
@@ -147,3 +156,16 @@ class HttpTransport:
 
         assert last_exc is not None
         raise last_exc
+
+    async def request_form(
+        self,
+        url: str,
+        form: dict[str, str],
+        *,
+        headers: dict[str, str] | None = None,
+        deadline_seconds: float | None = None,
+        provider: str | None = None,
+    ) -> dict[str, Any]:
+        return await self.request_json(
+            "POST", url, headers=headers, form=form, deadline_seconds=deadline_seconds, provider=provider
+        )

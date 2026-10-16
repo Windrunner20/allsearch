@@ -84,6 +84,8 @@ class RouteStage(BaseModel):
     reason: str = ""
     latency_ms: int | None = None
     detail: str | None = None
+    # Provider-reported usage (tokens, cost ticks) when the response carries it.
+    usage: dict[str, Any] | None = None
 
 
 class RouteInfo(BaseModel):
@@ -102,6 +104,8 @@ class EvidenceMetrics(BaseModel):
     cross_provider_matches: int = 0
     pages_fetched: int = 0
     primary_citation_count: int = 0
+    threads_read: int = 0
+    comments_read: int = 0
 
 
 class CacheMeta(BaseModel):

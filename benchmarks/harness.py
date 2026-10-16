@@ -112,8 +112,16 @@ def plan_case(case: dict[str, Any], config: AllSearchConfig, *, depth: str) -> d
 def current_stop_decision(
     config: AllSearchConfig, query: str, urls: list[str], *, depth: str = "balanced"
 ) -> dict[str, Any]:
-    """Read-only diagnosis of today's stop rule. This does not change routing."""
-    from allsearch.models import ProviderResultItem, ProviderSearchResult
+    """Read-only diagnosis of the stop rule for a primary that returned ``urls``.
+
+    ``legacy_sufficient`` is the 0.2 rule (3 cited URLs from 2 domains).
+    ``sufficient`` is the 0.3 rule: when the query states requirements (a site,
+    every named source, a comparison, a window), the coverage check decides;
+    otherwise the legacy rule still applies. This does not change routing.
+    """
+    from allsearch.coverage import evaluate
+    from allsearch.intent import analyze
+    from allsearch.models import ProviderResultItem, ProviderSearchResult, ResultItem
     from allsearch.quality import evaluate_primary_sufficiency
 
     request = SearchRequest(query=query, depth=depth)  # type: ignore[arg-type]
@@ -128,27 +136,37 @@ def current_stop_decision(
         ],
         citations=[{"title": url, "url": url} for url in urls],
     )
-    sufficient = evaluate_primary_sufficiency(
+    legacy = evaluate_primary_sufficiency(
         primary,
         config,
         depth=depth,
         comparison=signals.comparison,
         recency=signals.recency,
     )
+    intent = analyze(query)
+    coverage = evaluate(
+        intent,
+        [ResultItem(id=f"r{i}", url=url, title=url) for i, url in enumerate(urls, start=1)],
+        urls,
+        [],
+    )
+    search_reqs = [r for r in coverage.requirements if r.kind != "comments"]
+    sufficient = all(r.satisfied for r in search_reqs) if search_reqs else legacy.sufficient
     plan = build_execution_plan(request, config)
     tavily_planned = any(stage.provider == "tavily" for stage in plan.stages)
     skipped = not tavily_required_after_primary(
         depth=depth,  # type: ignore[arg-type]
         primary_ok=True,
-        primary_sufficient=sufficient.sufficient,
+        primary_sufficient=sufficient,
         signals=signals,
         tavily_planned=tavily_planned,
     )
     return {
         "recency": signals.recency,
         "comparison": signals.comparison,
-        "sufficient": sufficient.sufficient,
-        "reasons": sufficient.reasons,
+        "legacy_sufficient": legacy.sufficient,
+        "sufficient": sufficient,
+        "reasons": legacy.reasons + [f"{r.kind}:{r.target}" for r in search_reqs if not r.satisfied],
         "supplement_skipped": skipped,
     }
 

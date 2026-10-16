@@ -8,6 +8,7 @@ from typing import Literal
 
 from allsearch.config import AllSearchConfig
 from allsearch.models import SearchDepth, SearchMode, SearchRequest
+from allsearch.sites import strip_site_names
 
 VerticalName = str
 
@@ -62,6 +63,11 @@ class ProviderStage:
     vertical: str | None = None
     max_results: int = 8
     max_pages: int = 0
+    # Targeted supplements override the request's query and domain filter.
+    query: str | None = None
+    include_domains: list[str] | None = None
+    time_range: str | None = None
+    key: str | None = None  # unique output key when one provider runs twice
 
 
 @dataclass(slots=True)
@@ -79,8 +85,10 @@ class ExecutionPlan:
 
 def classify_query(request: SearchRequest, allowed_verticals: tuple[str, ...] | list[str]) -> QuerySignals:
     q = request.query
+    # Site names are not topic words: "Hacker News" is not a recency signal.
+    topic_text = strip_site_names(q)
     signals = QuerySignals(
-        recency=bool(NEWS_RE.search(q)) or request.mode == "news",
+        recency=bool(NEWS_RE.search(topic_text)) or request.mode == "news",
         docs=bool(DOCS_RE.search(q)) or request.mode in {"docs", "research"},
         comparison=bool(COMPARE_RE.search(q)),
     )

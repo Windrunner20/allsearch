@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import re
+
 from allsearch.models import (
     CitationItem,
     EvidenceMetrics,
@@ -12,13 +14,32 @@ from allsearch.models import (
 from allsearch.security import canonicalize_url, hostname_of, matches_domain_filter
 
 
+def dedupe_key(url: str) -> str:
+    """Key under which two URLs are the same page.
+
+    Forum threads collapse by (platform, id), so mirrors and variants such as
+    hk.v2ex.com/t/1, v2ex.com/t/1?p=2 and www.v2ex.com/t/1 merge. Other URLs
+    use the canonical form with a leading ``www.`` removed.
+    """
+    from allsearch.native import thread_ref
+
+    ref = thread_ref(url)
+    if ref is not None:
+        return f"thread:{ref[0]}:{ref[1]}"
+    canonical = canonicalize_url(url)
+    return re.sub(r"^(https?://)www\.", r"\1", canonical)
+
+
 def _public_url(url: str) -> str:
     """Emit the dedupe key when it is a real HTTP URL.
 
     Tracking parameters and fragments are removed for the citation the model
-    sees. Malformed URLs stay untouched so distinct failures do not collapse.
+    sees, and forum mirrors map to the official thread URL. Malformed URLs stay
+    untouched so distinct failures do not collapse.
     """
-    canonical = canonicalize_url(url)
+    from allsearch.native import canonical_thread_url
+
+    canonical = canonicalize_url(canonical_thread_url(url))
     if canonical.startswith(("http://", "https://")):
         return canonical
     return url
@@ -85,7 +106,7 @@ def merge_provider_results(
     for pr in ordered:
         seq: list[str] = []
         for item in pr.results:
-            key = canonicalize_url(item.url) if item.url else f"no-url:{pr.provider}:{item.title}:{item.snippet[:40]}"
+            key = dedupe_key(item.url) if item.url else f"no-url:{pr.provider}:{item.title}:{item.snippet[:40]}"
             if not key:
                 continue
             seq.append(key)
@@ -151,7 +172,7 @@ def merge_provider_results(
     for item in results:
         if not item.url:
             continue
-        canon = canonicalize_url(item.url)
+        canon = dedupe_key(item.url)
         if canon in cited_urls:
             continue
         cited_urls.add(canon)
@@ -170,7 +191,7 @@ def merge_provider_results(
             url = cit.get("url") or ""
             if not url:
                 continue
-            canon = canonicalize_url(url)
+            canon = dedupe_key(url)
             if canon in cited_urls:
                 continue
             cited_urls.add(canon)
@@ -192,7 +213,7 @@ def merge_provider_results(
             break
 
     evidence = EvidenceMetrics(
-        unique_urls=len({canonicalize_url(r.url) for r in results if r.url}),
+        unique_urls=len({dedupe_key(r.url) for r in results if r.url}),
         unique_domains=len(domains),
         cross_provider_matches=cross,
         pages_fetched=0,  # populated by orchestrator only for actual Firecrawl fetches

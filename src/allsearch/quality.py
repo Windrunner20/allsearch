@@ -97,6 +97,29 @@ def content_quality_issue(content: str) -> str | None:
     return None
 
 
+_ACCESS_MARKERS = (
+    ("captcha", ("captcha", "are you a robot", "cf-browser-verification", "verify you are human", "安全验证", "人机验证", "滑动验证")),
+    ("login_required", ("sign in to continue", "log in to continue", "login required", "please log in", "请登录", "登录后查看", "登录后才能", "扫码登录")),
+    ("paywall", ("subscribe to continue", "subscription required", "to continue reading", "already a subscriber", "订阅后阅读")),
+)
+
+
+def access_issue(content: str) -> str | None:
+    """captcha / login_required / paywall when a fetched page is a wall, not content.
+
+    Only short pages are checked, and only their opening, so a long article
+    that merely mentions captchas or paywalls is not misreported.
+    """
+    text = (content or "").strip()
+    if not text or len(text) > 6000:
+        return None
+    head = text[:2000].lower()
+    for code, markers in _ACCESS_MARKERS:
+        if any(marker in head for marker in markers):
+            return code
+    return None
+
+
 def select_urls_for_scrape(
     results: list[ResultItem],
     *,

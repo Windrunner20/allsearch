@@ -193,6 +193,9 @@ def _next_steps(value: Any, *, limit: int) -> list[dict[str, Any]]:
             item["url"] = url
         if step.get("query"):
             item["query"] = clip(step.get("query"), 200)
+        for key in ("include_domains", "fields"):
+            if isinstance(step.get(key), list):
+                item[key] = [clip(value, 80) for value in step[key][:5]]
         out.append(item)
     return out
 

@@ -3,8 +3,10 @@
 from __future__ import annotations
 
 import asyncio
+import math
+import re
 import time
-from dataclasses import dataclass, field
+from dataclasses import dataclass, field, replace
 from typing import Any
 
 from allsearch.cache import MemoryCache
@@ -17,10 +19,17 @@ from allsearch.errors import (
     UnsafeURLError,
     to_public_error,
 )
+from allsearch.coverage import evaluate as evaluate_coverage
+from allsearch.coverage import unmet
 from allsearch.health import HealthRegistry
-from allsearch.merge import attach_fetched_content, merge_provider_results
+from allsearch.intent import QueryIntent, analyze
+from allsearch.merge import attach_fetched_content, dedupe_key, merge_provider_results
 from allsearch.models import (
     CacheMeta,
+    Coverage,
+    ResultItem,
+    ThreadEvidence,
+    ProviderResultItem,
     ErrorItem,
     FetchRequest,
     FetchResponse,
@@ -35,8 +44,10 @@ from allsearch.models import (
 from allsearch.providers.anysearch import AnySearchProvider
 from allsearch.providers.firecrawl import FirecrawlProvider
 from allsearch.providers.tavily import TavilyProvider
-from allsearch.providers.xai import XAIProvider
+from allsearch.native import NativeSources, render_thread, terms, thread_ref
+from allsearch.providers.xai import XAIProvider, rewrite_query
 from allsearch.quality import (
+    access_issue,
     content_quality_issue,
     evaluate_primary_sufficiency,
     select_urls_for_scrape,
@@ -46,11 +57,15 @@ from allsearch.routing import (
     build_execution_plan,
     tavily_required_after_primary,
 )
-from allsearch.security import validate_public_http_url
+from allsearch.security import canonicalize_url, hostname_of, validate_public_http_url
+from allsearch.sites import site_for_url
 from allsearch.transport import HttpTransport
 
 # Internal per-page cap for automatic post-merge scraping (not configurable).
 AUTO_SCRAPE_MAX_CHARS = 30_000
+# Share of the total budget the primary may use before supplements start anyway.
+PRIMARY_SHARE = 0.65
+MIN_BUDGET_FOR_PRIMARY_CAP = 20.0
 
 
 @dataclass(slots=True)
@@ -66,6 +81,43 @@ class _StageResult:
     provider_result: ProviderSearchResult | None = None
     error: ErrorItem | None = None
     warnings: list[str] = field(default_factory=list)
+    output_key: str | None = None
+
+
+_ANSWER_LINK = re.compile(r"\[([^\]]{1,200})\]\((https?://[^)\s]+)\)|(?<![(\[])(https?://[^\s<>\"'`)\]]+)")
+
+
+def _with_answer_links(primary: ProviderSearchResult) -> ProviderSearchResult:
+    """Add URLs that Grok names in its answer text but not in its citations.
+
+    Grok often writes the exact post URL in prose ("https://x.com/OpenAI/status/…")
+    while its citation list holds the pages it searched. Those URLs are added
+    after the cited ones with ``metadata.from_answer`` so they can be told apart.
+    """
+    known = {canonicalize_url(item.url) for item in primary.results if item.url}
+    known |= {canonicalize_url(c.get("url") or "") for c in primary.citations}
+    extra: list[ProviderResultItem] = []
+    for match in _ANSWER_LINK.finditer(primary.answer or ""):
+        title = (match.group(1) or "").strip()
+        url = (match.group(2) or match.group(3) or "").rstrip(".,;:!?*)]}>\u3002\uff0c")
+        canon = canonicalize_url(url)
+        if not url.startswith(("http://", "https://")) or canon in known:
+            continue
+        known.add(canon)
+        extra.append(
+            ProviderResultItem(
+                title=title,
+                url=url,
+                snippet="",
+                provider=primary.provider,
+                metadata={"from_answer": True},
+            )
+        )
+        if len(extra) >= 10:
+            break
+    if not extra:
+        return primary
+    return primary.model_copy(update={"results": [*primary.results, *extra]})
 
 
 @dataclass(slots=True)
@@ -93,6 +145,33 @@ def _collect_done(tasks: list[Any]) -> list[Any | None]:
         else:
             out.append(None)
     return out
+
+
+def _next_steps(
+    intent: QueryIntent,
+    coverage: Coverage,
+    results: list[ResultItem],
+    threads: list[ThreadEvidence],
+) -> list[dict[str, Any]]:
+    """Concrete follow-ups for the client, derived only from unmet requirements."""
+    steps: list[dict[str, Any]] = []
+    if any(t.comments for t in threads):
+        steps.append({"tool": "read_result", "fields": ["comments"], "why": "comments read through the platform API are stored with ids, authors and timestamps"})
+    for thread in threads:
+        if thread.status == "found":
+            steps.append({"tool": "fetch", "url": thread.url, "why": f"comments not readable via API ({thread.error}); fetch reads the page if it is public"})
+    for req in unmet(coverage, "site"):
+        site = next((r for r in intent.sites if r.site.name == req.target), None)
+        if site is not None:
+            steps.append({
+                "tool": "search",
+                "query": intent.topic or intent.query,
+                "include_domains": list(site.domains),
+                "why": f"nothing from {site.site.name} yet; restrict the next search to it or report it as not found",
+            })
+    if unmet(coverage, "recency"):
+        steps.append({"tool": "search", "query": intent.query, "why": "no dated result inside the window; try mode=news or report that none was found"})
+    return steps[:4]
 
 
 class Orchestrator:
@@ -126,6 +205,18 @@ class Orchestrator:
             config.anysearch, self.transport, self.health_registry, self.cache
         )
         self.firecrawl = firecrawl or FirecrawlProvider(config.firecrawl, self.transport, self.health_registry)
+        self.native: NativeSources | None = (
+            NativeSources(
+                self.transport,
+                self.health_registry,
+                self.cache,
+                reddit_client_id=config.reddit_client_id,
+                reddit_client_secret=config.reddit_client_secret,
+                stackexchange_key=config.stackexchange_key,
+            )
+            if config.native_sources
+            else None
+        )
         self._register_health()
 
     def _register_health(self) -> None:
@@ -171,6 +262,23 @@ class Orchestrator:
         return self.cache.make_key("fetch", payload)
 
     async def search(self, request: SearchRequest) -> SearchResponse:
+        """Primary search, then evidence-driven supplements.
+
+        1. Phase 0: Grok (restricted to the requested sites when the query names
+           them as places) runs alongside cheap site-native searches and, when a
+           CJK query targets English sources, a keyword rewrite.
+        2. Coverage: the evidence so far is checked against what the query asked
+           for (site, every named source, comments, recency window, both sides
+           of a comparison). Citation and domain counts still apply to queries
+           without such requirements.
+        3. Phase 1: supplements are spent only on unmet requirements: Tavily
+           restricted to a missing site, a news search inside the window, a
+           search for the missing side of a comparison, or the general Tavily
+           supplement under the 0.2 rules.
+        4. Threads on sites with a public API are read with their comments;
+           comment relevance is ranked against what the user described.
+        5. verify/deep: Firecrawl reads the best remaining pages.
+        """
         started = time.perf_counter()
         warnings: list[str] = []
         errors: list[ErrorItem] = []
@@ -190,6 +298,7 @@ class Orchestrator:
                 )
                 return resp
 
+        intent = analyze(request.query, include_domains=request.include_domains)
         available = {
             "xai": self.config.xai.configured() and self.health_registry.is_available("xai"),
             "tavily": self.config.tavily.configured() and self.health_registry.is_available("tavily"),
@@ -198,18 +307,25 @@ class Orchestrator:
         }
         plan = build_execution_plan(request, self.config, provider_available=available)
         deadline = Deadline(plan.total_deadline_seconds)
+        site_domains = intent.site_domains
+        if site_domains and len(site_domains) <= 5:
+            for stage in plan.stages:
+                if stage.provider == "xai":
+                    stage.include_domains = site_domains
+                    stage.reason = "primary_site_restricted"
 
-        # Split stages by parallel group.
         group0 = [s for s in plan.stages if s.parallel_group == 0]
         group1 = [s for s in plan.stages if s.parallel_group == 1]
         provider_outputs: dict[str, ProviderSearchResult] = {}
         committed: set[tuple[str, str]] = set()
+        rewrite: dict[str, str] = {}
 
         def commit(result: _StageResult) -> None:
             stages.append(result.stage)
-            committed.add((result.stage.provider, result.stage.operation))
+            committed.add((result.stage.provider, result.stage.operation, result.stage.reason))
             if result.provider_result is not None:
-                provider_outputs[result.stage.provider] = result.provider_result
+                key = result.output_key or result.stage.provider
+                provider_outputs[key] = result.provider_result
             if result.error is not None:
                 errors.append(result.error)
             if result.warnings:
@@ -218,7 +334,7 @@ class Orchestrator:
         def mark_skipped_planned(plan_stages: list[ProviderStage], reason: str) -> None:
             # Idempotent: a stage is recorded at most once.
             for stage in plan_stages:
-                key = (stage.provider, stage.operation)
+                key = (stage.provider, stage.operation, stage.reason)
                 if key in committed:
                     continue
                 stages.append(
@@ -242,28 +358,31 @@ class Orchestrator:
 
         async def run_stage(stage: ProviderStage) -> _StageResult:
             op_started = time.perf_counter()
+            query = stage.query or request.query
+            include = stage.include_domains if stage.include_domains is not None else request.include_domains
             try:
                 if stage.provider == "xai":
                     result = await self.xai.search(
-                        request.query,
+                        query,
                         max_results=stage.max_results,
-                        include_domains=request.include_domains,
+                        include_domains=include,
                         exclude_domains=request.exclude_domains,
                         deadline_seconds=deadline.remaining,
                     )
                 elif stage.provider == "tavily":
                     result = await self.tavily.search(
-                        request.query,
+                        query,
                         max_results=stage.max_results,
-                        include_domains=request.include_domains,
+                        include_domains=include,
                         exclude_domains=request.exclude_domains,
                         search_depth=stage.search_depth,
                         topic=stage.topic,
+                        time_range=stage.time_range,
                         deadline_seconds=deadline.remaining,
                     )
                 elif stage.provider == "anysearch":
                     result = await self.anysearch.search(
-                        request.query,
+                        query,
                         max_results=stage.max_results,
                         domain=stage.vertical,
                         deadline_seconds=deadline.remaining,
@@ -278,8 +397,10 @@ class Orchestrator:
                         )
                     )
                 selected_model = ""
+                usage = None
                 if stage.provider == "xai" and isinstance(result.tool_usage, dict):
                     selected_model = str(result.tool_usage.get("model") or "")
+                    usage = result.tool_usage.get("usage") or None
                 return _StageResult(
                     stage=RouteStage(
                         provider=stage.provider,
@@ -288,9 +409,11 @@ class Orchestrator:
                         reason=stage.reason,
                         latency_ms=int((time.perf_counter() - op_started) * 1000),
                         detail=f"model={selected_model}" if selected_model else None,
+                        usage=usage,
                     ),
                     provider_result=result,
                     warnings=list(result.raw_warnings),
+                    output_key=stage.key,
                 )
             except asyncio.CancelledError:
                 # Deadline cancellation: never recorded as a provider failure.
@@ -312,24 +435,29 @@ class Orchestrator:
                     error=ErrorItem(**pub.to_dict()),
                 )
 
-        async def run_phase(plan_stages: list[ProviderStage]) -> None:
+        async def run_phase(plan_stages: list[ProviderStage], extra: list[Any] | None = None) -> None:
             """Run stages concurrently under the shared deadline.
 
             Completed results are committed in plan order; tasks cancelled by the
             deadline are marked skipped/deadline_exceeded. Never starts a phase
-            whose budget is already exhausted.
+            whose budget is already exhausted. ``extra`` coroutines (site-native
+            discovery) run in the same window and commit after the planned stages.
             """
-            if not plan_stages:
+            extra = extra or []
+            if not plan_stages and not extra:
                 return
             if deadline.expired:
+                for coro in extra:
+                    coro.close()
                 emit_deadline_error()
                 mark_skipped_planned(plan_stages, "deadline_exceeded")
                 return
             tasks = [asyncio.ensure_future(run_stage(s)) for s in plan_stages]
+            side = [asyncio.ensure_future(coro) for coro in extra]
             phase_timed_out = False
             try:
                 async with deadline.timeout:
-                    await asyncio.gather(*tasks)
+                    await asyncio.gather(*tasks, *side)
             except TimeoutError:
                 phase_timed_out = True
                 emit_deadline_error()
@@ -346,17 +474,69 @@ class Orchestrator:
                 for result in collected:
                     if result is not None:
                         commit(result)
+            for bundle in _collect_done(side):
+                for result in bundle or []:
+                    commit(result)
 
-        # Phase 0: the primary (xAI/Grok) runs alone first under the shared deadline.
-        await run_phase(group0)
+        # Phase 0: the primary (xAI/Grok), with site-native discovery and the
+        # optional rewrite running beside it. With a realistic budget the
+        # primary gets at most PRIMARY_SHARE of it, so one slow Grok call cannot
+        # starve the supplements and thread reads that follow.
+        discovery = (
+            asyncio.ensure_future(self._site_discovery(intent, request, deadline, rewrite))
+            if available.get("xai") or self.config.allow_degraded_search
+            else None
+        )
+        cap = None
+        if plan.total_deadline_seconds >= MIN_BUDGET_FOR_PRIMARY_CAP:
+            cap = Deadline(min(deadline.remaining, plan.total_deadline_seconds * PRIMARY_SHARE))
+        primary_capped = False
+        if cap is None or deadline.expired:
+            await run_phase(group0)
+        elif group0:
+            tasks = [asyncio.ensure_future(run_stage(s)) for s in group0]
+            try:
+                async with cap.timeout:
+                    await asyncio.gather(*tasks)
+            except TimeoutError:
+                primary_capped = True
+            for stage, result in zip(group0, _collect_done(tasks)):
+                if result is not None:
+                    commit(result)
+                else:
+                    stages.append(
+                        RouteStage(provider=stage.provider, operation=stage.operation, outcome="skipped", reason="primary_time_cap")
+                    )
+                    committed.add((stage.provider, stage.operation, stage.reason))
+            if primary_capped:
+                errors.append(
+                    ErrorItem(
+                        provider="xai",
+                        code="primary_timeout",
+                        message=f"primary search stopped after {cap.total_seconds:.0f}s to leave time for supplements",
+                        retryable=True,
+                    )
+                )
+        if discovery is not None:
+            try:
+                async with deadline.timeout:
+                    bundle = await discovery
+            except TimeoutError:
+                bundle = []
+                emit_deadline_error()
+            for result in bundle or []:
+                commit(result)
 
         primary = provider_outputs.get("xai")
+        if primary is not None:
+            primary = _with_answer_links(primary)
+            provider_outputs["xai"] = primary
 
         if timed_out:
             # Do not start the next phase; keep partial results only. Group 0 was
             # already marked by run_phase; mark any un-run group-1 stages here.
             mark_skipped_planned(group1, "deadline_exceeded")
-            results, citations, evidence = self._merge_results(request, provider_outputs, None)
+            results, citations, evidence = self._merge_results(request, provider_outputs, None, intent)
             return self._finalize(
                 request=request,
                 plan=plan,
@@ -372,10 +552,13 @@ class Orchestrator:
                 evidence=evidence,
                 pages_fetched=0,
                 timed_out=True,
+                intent=intent,
+                threads=[],
             )
 
-        if primary is None and not self.config.allow_degraded_search:
-            # Strict gate: fail before any group-1 stage runs.
+        if primary is None and not self.config.allow_degraded_search and not primary_capped:
+            # Strict gate: fail before any group-1 stage runs. A primary that was
+            # merely slow (capped) is not "unavailable": its supplements still run.
             mark_skipped_planned(group1, "primary_unavailable")
             return self._strict_primary_error(request, plan, stages, warnings, errors, started)
 
@@ -383,45 +566,84 @@ class Orchestrator:
             primary,
             self.config,
             depth=request.depth,
-            include_domains=request.include_domains,
+            include_domains=request.include_domains or (site_domains or None),
             exclude_domains=request.exclude_domains,
             comparison=plan.signals.comparison,
             recency=plan.signals.recency,
             vertical_expected=bool(plan.signals.verticals),
         )
+        pre_results, pre_citations, _ = self._merge_results(request, provider_outputs, sufficiency, intent)
+        # Comments are met by reading threads, not by searching again, so they
+        # do not count toward the decision to run search supplements.
+        pre_coverage = evaluate_coverage(intent, pre_results, [c.url for c in pre_citations], [])
+        pre_coverage = Coverage(
+            status=(
+                "not_applicable"
+                if all(r.kind == "comments" for r in pre_coverage.requirements)
+                else "sufficient"
+                if all(r.satisfied for r in pre_coverage.requirements if r.kind != "comments")
+                else "insufficient"
+            ),
+            requirements=[r for r in pre_coverage.requirements if r.kind != "comments"],
+        )
 
-        # Phase 1: group-1 supplements run concurrently; records commit in plan order.
+        # Phase 1: supplements. Targeted stages replace the general Tavily
+        # supplement when the coverage check names what is missing.
         tavily_stage = next((s for s in group1 if s.provider == "tavily"), None)
+        targeted = self._targeted_stages(intent, request, pre_coverage, tavily_stage, rewrite) if tavily_stage else []
+        # When the query states requirements, the coverage check replaces the
+        # 0.2 citation/domain-count rule: three HN threads are enough for
+        # "find the HN thread" even though they share one domain.
+        primary_sufficient = (
+            pre_coverage.status == "sufficient"
+            if pre_coverage.status != "not_applicable"
+            else sufficiency.sufficient
+        )
+        if tavily_stage is not None and intent.target_language == "en" and rewrite.get("topic_en"):
+            tavily_stage.query = rewrite["topic_en"]
         need_tavily = tavily_required_after_primary(
             depth=request.depth,
             primary_ok=primary is not None,
-            primary_sufficient=sufficiency.sufficient,
+            primary_sufficient=primary_sufficient,
             signals=plan.signals,
             tavily_planned=tavily_stage is not None,
         )
         runnable: list[ProviderStage] = []
         for stage in group1:
-            if stage.provider == "tavily" and not need_tavily:
-                stages.append(
-                    RouteStage(
-                        provider="tavily",
-                        operation="search",
-                        outcome="skipped",
-                        reason="primary_sufficient",
+            if stage.provider == "tavily":
+                if targeted:
+                    continue
+                if not need_tavily:
+                    stages.append(
+                        RouteStage(
+                            provider="tavily",
+                            operation="search",
+                            outcome="skipped",
+                            reason="primary_sufficient",
+                        )
                     )
-                )
-                committed.add(("tavily", "search"))
-                continue
+                    committed.add(("tavily", "search", "primary_sufficient"))
+                    continue
             runnable.append(stage)
+        runnable = targeted + runnable
         await run_phase(runnable)
 
-        degraded = primary is None
-        results, citations, evidence = self._merge_results(request, provider_outputs, sufficiency)
+        degraded = primary is None and not primary_capped
+        results, citations, evidence = self._merge_results(request, provider_outputs, sufficiency, intent)
+
+        # Forum threads: read through public APIs, comments ranked by relevance.
+        threads: list[ThreadEvidence] = []
+        if not timed_out and not deadline.expired:
+            threads = await self._read_threads(intent, request, results, deadline, rewrite, stages, warnings)
+            if deadline.expired and not threads:
+                emit_deadline_error()
 
         # Optional Firecrawl after merge (final domain filter already applied above).
         pages_fetched = 0
         if not timed_out and plan.scrape_after_merge and not deadline.expired:
-            urls = select_urls_for_scrape(results, budget=plan.scrape_budget)
+            read_urls = {canonicalize_url(t.url) for t in threads if t.status in {"read", "comments_read"}}
+            candidates = [r for r in results if canonicalize_url(r.url) not in read_urls]
+            urls = select_urls_for_scrape(candidates, budget=plan.scrape_budget, prefer_domains=site_domains or None)
             if urls:
                 sem = asyncio.Semaphore(self.config.reliability.max_concurrency)
 
@@ -532,21 +754,302 @@ class Orchestrator:
             evidence=evidence,
             pages_fetched=pages_fetched,
             timed_out=timed_out,
+            intent=intent,
+            threads=threads,
         )
+
+    # -- evidence-driven helpers ------------------------------------------------
+
+    async def _site_discovery(
+        self,
+        intent: QueryIntent,
+        request: SearchRequest,
+        deadline: Deadline,
+        rewrite: dict[str, str],
+    ) -> list[_StageResult]:
+        """Rewrite (when a CJK query targets English sources) and site-native searches."""
+        out: list[_StageResult] = []
+        wants_rewrite = (
+            self.config.rewrite_enabled
+            and self.config.xai.configured()
+            and self.health_registry.is_available("xai")
+            and (intent.needs_rewrite or (intent.comments and intent.language != "en"))
+        )
+        if wants_rewrite:
+            op_started = time.perf_counter()
+            try:
+                fields, usage = await rewrite_query(
+                    self.xai,
+                    request.query,
+                    model=self.config.rewrite_model or None,
+                    deadline_seconds=min(20.0, deadline.remaining),
+                )
+                rewrite.update({k: v for k, v in fields.items() if v})
+                out.append(
+                    _StageResult(
+                        stage=RouteStage(
+                            provider="xai",
+                            operation="rewrite",
+                            outcome="ok",
+                            reason="cross_language" if intent.needs_rewrite else "comment_terms",
+                            latency_ms=int((time.perf_counter() - op_started) * 1000),
+                            usage=usage or None,
+                        )
+                    )
+                )
+            except (asyncio.CancelledError, TimeoutError):
+                raise
+            except Exception as exc:
+                pub = to_public_error(exc, provider="xai")
+                out.append(
+                    _StageResult(
+                        stage=RouteStage(provider="xai", operation="rewrite", outcome="error", reason="cross_language", detail=pub.code),
+                        warnings=["rewrite_failed_using_rule_keywords"],
+                    )
+                )
+        if self.native is None or request.include_domains:
+            return out
+
+        async def one(req: Any) -> _StageResult | None:
+            key = req.site.key
+            if not self.native.can_search(key):
+                return None
+            lang = "zh" if req.domains == ("zh.wikipedia.org",) else ("en" if req.domains == ("en.wikipedia.org",) else intent.language)
+            if req.site.language == "en" or (key == "wikipedia" and lang == "en"):
+                query = rewrite.get("topic_en") or (intent.topic if intent.language == "en" else "")
+            elif req.site.language == "zh" or lang == "zh":
+                query = rewrite.get("topic_zh") or intent.topic
+            else:
+                query = intent.topic
+            if not query:
+                return None
+            op_started = time.perf_counter()
+            try:
+                items = await self.native.search(key, query, limit=5, deadline=min(15.0, deadline.remaining), lang=lang)
+            except (asyncio.CancelledError, TimeoutError):
+                raise
+            except Exception as exc:
+                pub = to_public_error(exc, provider=key)
+                return _StageResult(
+                    stage=RouteStage(provider=key, operation="search", outcome="error", reason="site_native", detail=pub.code),
+                    error=ErrorItem(**pub.to_dict()),
+                )
+            return _StageResult(
+                stage=RouteStage(
+                    provider=items[0].provider if items else key,
+                    operation="search",
+                    outcome="ok",
+                    reason="site_native",
+                    latency_ms=int((time.perf_counter() - op_started) * 1000),
+                    detail=f"{len(items)} results",
+                ),
+                provider_result=ProviderSearchResult(provider=key, query=query, results=items,
+                                                     citations=[{"title": i.title, "url": i.url} for i in items]),
+                output_key=f"native:{key}",
+            )
+
+        found = await asyncio.gather(*(one(req) for req in intent.sites))
+        out.extend(item for item in found if item is not None)
+        return out
+
+    def _targeted_stages(
+        self,
+        intent: QueryIntent,
+        request: SearchRequest,
+        coverage: Coverage,
+        template: ProviderStage,
+        rewrite: dict[str, str],
+    ) -> list[ProviderStage]:
+        """Tavily calls aimed at the requirements the evidence does not yet meet."""
+        if request.depth == "fast" or coverage.status != "insufficient":
+            return []
+        out: list[ProviderStage] = []
+
+        def topic_for(language: str) -> str:
+            if language == "en":
+                return rewrite.get("topic_en") or (intent.topic if intent.language == "en" else request.query)
+            if language == "zh":
+                return rewrite.get("topic_zh") or (intent.topic if intent.language == "zh" else request.query)
+            return intent.topic or request.query
+
+        missing_sites = {r.target for r in unmet(coverage, "site")}
+        for req in intent.sites:
+            if req.site.name not in missing_sites or len(out) >= 3:
+                continue
+            out.append(
+                replace(
+                    template,
+                    reason=f"site:{req.site.key}",
+                    query=topic_for(req.site.language),
+                    include_domains=list(req.domains),
+                    key=f"tavily:site:{req.site.key}",
+                )
+            )
+        if unmet(coverage, "recency") and intent.recency_hours:
+            hours = intent.recency_hours
+            out.append(
+                replace(
+                    template,
+                    reason="recency_window",
+                    topic="news",
+                    time_range="day" if hours <= 24 else "week" if hours <= 168 else "month",
+                    key="tavily:recency",
+                )
+            )
+        for req in unmet(coverage, "entity")[:2]:
+            out.append(replace(template, reason="missing_entity", query=req.target, key=f"tavily:entity:{req.target}"))
+        if unmet(coverage, "language") and intent.target_language and not out:
+            out.append(
+                replace(template, reason="target_language", query=topic_for(intent.target_language), key="tavily:language")
+            )
+        return out
+
+    async def _read_threads(
+        self,
+        intent: QueryIntent,
+        request: SearchRequest,
+        results: list[ResultItem],
+        deadline: Deadline,
+        rewrite: dict[str, str],
+        stages: list[RouteStage],
+        warnings: list[str],
+    ) -> list[ThreadEvidence]:
+        """Read the most relevant threads on sites that have a public API.
+
+        Comments are always read when the query asks for them. For a plain
+        "find the thread" query on a readable site, the top thread is read too
+        (the APIs are free and the title and body confirm the match).
+        """
+        if self.native is None:
+            return []
+        if intent.comments:
+            budget = {"fast": 1, "balanced": 2}.get(request.depth, 3)
+        elif intent.thread and any(r.site.reader for r in intent.sites):
+            budget = {"fast": 0, "balanced": 1}.get(request.depth, 2)
+        else:
+            return []
+        required = intent.sites
+        candidates: list[str] = []
+        unreadable: list[str] = []
+        topic_terms = set(terms(rewrite.get("topic_en") or "") + terms(intent.topic))
+
+        def relevance(item: ResultItem, index: int) -> tuple[float, float, int]:
+            have = set(terms(f"{item.title} {item.snippet}"))
+            overlap = len(topic_terms & have) / max(1, len(topic_terms))
+            meta = item.metadata or {}
+            size = meta.get("num_comments") or meta.get("replies") or 0
+            prior = min(1.0, math.log1p(size) / 6) if isinstance(size, (int, float)) else 0.0
+            return (round(overlap, 2), prior, -index)
+
+        ranked = [item for _, item in sorted(((relevance(r, i), r) for i, r in enumerate(results)), key=lambda x: x[0], reverse=True)]
+        for item in ranked:
+            ref = thread_ref(item.url)
+            if ref is None:
+                site = site_for_url(item.url)
+                if intent.comments and site is not None and site.is_content_url(item.url) and (
+                    not required or any(r.site.key == site.key for r in required)
+                ):
+                    unreadable.append(item.url)
+                continue
+            if required and not any(r.site.reader == ref[0] or r.site.key == ref[0] for r in required):
+                continue
+            if item.url not in candidates:
+                candidates.append(item.url)
+        focus = rewrite.get("comment_en") or intent.comment_focus or rewrite.get("topic_en") or intent.topic
+        if intent.comment_focus and rewrite.get("comment_en"):
+            focus = f"{intent.comment_focus} {rewrite['comment_en']}"
+        selected = candidates[:budget]
+        threads: list[ThreadEvidence] = []
+        if selected:
+            op_started = time.perf_counter()
+            tasks = [
+                asyncio.ensure_future(
+                    self.native.read_thread(url, focus=focus, deadline=min(15.0, deadline.remaining), keep=8)
+                )
+                for url in selected
+            ]
+            try:
+                async with deadline.timeout:
+                    await asyncio.gather(*tasks, return_exceptions=True)
+            except TimeoutError:
+                warnings.append("thread_read_deadline")
+            for url, task in zip(selected, tasks):
+                if task.done() and not task.cancelled() and task.exception() is None:
+                    thread = task.result()
+                else:
+                    thread = ThreadEvidence(platform=(thread_ref(url) or ("unknown", ""))[0], url=url, status="failed", error="deadline_exceeded")
+                threads.append(thread)
+                stages.append(
+                    RouteStage(
+                        provider=thread.platform,
+                        operation="read_thread",
+                        outcome="ok" if thread.status in {"read", "comments_read"} else ("skipped" if thread.status == "found" else "error"),
+                        reason="comments" if intent.comments else "thread",
+                        latency_ms=int((time.perf_counter() - op_started) * 1000),
+                        detail=thread.error or f"{len(thread.comments)} comments",
+                    )
+                )
+        by_key = {dedupe_key(t.url): t for t in threads if t.status in {"read", "comments_read"}}
+        for item in results:
+            thread = by_key.get(dedupe_key(item.url))
+            if thread is None:
+                continue
+            if thread.title and (not item.title or item.title.startswith("http")):
+                item.title = thread.title
+            if not item.snippet and thread.body:
+                item.snippet = thread.body[:300]
+            if thread.platform not in item.matched_providers:
+                item.matched_providers = [*item.matched_providers, thread.platform]
+        for url in unreadable[: max(0, 2 - len(threads))]:
+            site = site_for_url(url)
+            threads.append(
+                ThreadEvidence(
+                    platform=site.key if site else "unknown",
+                    url=url,
+                    status="found",
+                    error=f"no_public_comment_api ({site.access if site else 'unknown'})",
+                )
+            )
+        return threads
 
     def _merge_results(
         self,
         request: SearchRequest,
         provider_outputs: dict[str, ProviderSearchResult],
         sufficiency: Any,
+        intent: QueryIntent | None = None,
     ) -> tuple[list[Any], list[Any], Any]:
+        outputs = list(provider_outputs.values())
+        if intent is not None and intent.sites:
+            # Site-native results go right after the primary in the interleave.
+            outputs.sort(key=lambda r: 0 if r.provider == "xai" else 1 if self.native and r.provider in {"hackernews", "v2ex", "stackexchange", "wikipedia", "reddit"} else 2)
         results, citations, evidence = merge_provider_results(
-            list(provider_outputs.values()),
+            outputs,
             max_results=request.max_results,
             primary_provider="xai",
             include_domains=request.include_domains,
             exclude_domains=request.exclude_domains,
         )
+        if intent is not None and intent.sites:
+            # Content pages on the requested sites first; order otherwise kept.
+            def rank(item: ResultItem) -> int:
+                host = hostname_of(item.url or "")
+                for req in intent.sites:
+                    if host and req.site.owns(host):
+                        return 0 if req.site.is_content_url(item.url) else 1
+                return 2
+
+            results = sorted(results, key=rank)
+            for index, item in enumerate(results, start=1):
+                item.id = f"r{index}"
+            new_ids = {canonicalize_url(item.url): item.id for item in results if item.url}
+            for citation in citations:
+                if citation.result_id is not None:
+                    citation.result_id = new_ids.get(canonicalize_url(citation.url))
+            order = {item.id: index for index, item in enumerate(results)}
+            citations.sort(key=lambda c: order.get(c.result_id or "", len(order)))
+            for index, citation in enumerate(citations, start=1):
+                citation.id = f"c{index}"
         if sufficiency is not None:
             evidence.primary_citation_count = sufficiency.citation_count
         return results, citations, evidence
@@ -568,7 +1071,10 @@ class Orchestrator:
         evidence: Any,
         pages_fetched: int,
         timed_out: bool,
+        intent: QueryIntent | None = None,
+        threads: list[ThreadEvidence] | None = None,
     ) -> SearchResponse:
+        threads = threads or []
         primary = provider_outputs.get("xai")
         answer = ""
         if primary is not None:
@@ -589,7 +1095,9 @@ class Orchestrator:
         if degraded:
             status = "partial" if (results or answer) else "error"
 
-        if sufficiency is not None and not sufficiency.sufficient and primary is not None:
+        governed = intent is not None and bool(intent.sites or intent.entities or intent.recency_hours or intent.target_language_explicit)
+        if sufficiency is not None and not sufficiency.sufficient and primary is not None and not governed:
+            # With explicit requirements the coverage block replaces this signal.
             warnings.append("primary_insufficient:" + ",".join(sufficiency.reasons[:4]))
 
         route = RouteInfo(
@@ -601,6 +1109,17 @@ class Orchestrator:
             degraded=degraded,
             reasons=plan.reasons + (list(sufficiency.reasons) if sufficiency is not None else []),
         )
+        coverage = None
+        next_steps: list[dict[str, Any]] = []
+        if intent is not None:
+            coverage = evaluate_coverage(intent, results, [c.url for c in citations], threads)
+            if coverage.status == "insufficient":
+                warnings.append(
+                    "coverage_insufficient:" + ",".join(f"{r.kind}:{r.target}" for r in coverage.requirements if not r.satisfied)[:200]
+                )
+            next_steps = _next_steps(intent, coverage, results, threads)
+            evidence.threads_read = sum(1 for t in threads if t.status in {"read", "comments_read"})
+            evidence.comments_read = sum(len(t.comments) for t in threads if t.status == "comments_read")
         timing_ms = int((time.perf_counter() - started) * 1000)
         response = SearchResponse(
             status=status,
@@ -618,6 +1137,10 @@ class Orchestrator:
             warnings=warnings,
             errors=errors,
             timing_ms=timing_ms,
+            intent=intent.to_dict() if intent is not None else {},
+            coverage=coverage,
+            threads=threads,
+            next_steps=next_steps,
         )
         # Never cache timed-out responses.
         if not timed_out and status in {"ok", "partial"} and (results or answer) and not request.fresh:
@@ -718,6 +1241,50 @@ class Orchestrator:
                 )
                 return resp
 
+        ref = thread_ref(request.url)
+        if ref is not None and self.native is not None and self.native.can_read(ref[0]):
+            op_started = time.perf_counter()
+            thread = await self.native.read_thread(
+                request.url,
+                focus=request.focus or "",
+                deadline=self.config.reliability.timeout_seconds,
+                keep=20,
+            )
+            stages.append(
+                RouteStage(
+                    provider=thread.platform,
+                    operation="read_thread",
+                    outcome="ok" if thread.status in {"read", "comments_read"} else "error",
+                    reason="explicit_fetch",
+                    latency_ms=int((time.perf_counter() - op_started) * 1000),
+                    detail=thread.error or f"{len(thread.comments)} comments",
+                )
+            )
+            if thread.status in {"read", "comments_read"}:
+                content = render_thread(thread)
+                truncated = len(content) > request.max_chars
+                response = FetchResponse(
+                    status="ok",
+                    url=request.url,
+                    final_url=thread.url,
+                    title=thread.title,
+                    content=content[: request.max_chars],
+                    content_type="text/markdown",
+                    provider=thread.platform,
+                    truncated=truncated,
+                    metadata={"source_api": thread.source_api, "comments_total": thread.comments_total},
+                    route=RouteInfo(stages=stages),
+                    cache=CacheMeta(hit=False, ttl_seconds=self.config.cache.fetch_ttl_seconds),
+                    warnings=warnings,
+                    errors=errors,
+                    timing_ms=int((time.perf_counter() - started) * 1000),
+                    thread=thread,
+                )
+                if not request.fresh:
+                    self.cache.set(self._fetch_cache_key(request), response.model_dump(), self.config.cache.fetch_ttl_seconds)
+                return response
+            warnings.append(f"thread_api_{thread.status}:{thread.error}")
+
         if not self.config.firecrawl.configured():
             return FetchResponse(
                 status="error",
@@ -753,6 +1320,17 @@ class Orchestrator:
                 # anti-bot content is still returned for explicit fetches.
                 self._check_url(result.final_url)
             content = result.content or ""
+            access = access_issue(content)
+            if access is not None:
+                # Report the wall instead of passing its text off as the page.
+                errors.append(
+                    ErrorItem(
+                        provider="firecrawl",
+                        code=access,
+                        message=f"the page returned a {access.replace('_', ' ')} instead of its content",
+                        retryable=False,
+                    )
+                )
             truncated = False
             if len(content) > request.max_chars:
                 content = content[: request.max_chars]
@@ -767,7 +1345,7 @@ class Orchestrator:
                 )
             )
             response = FetchResponse(
-                status="ok" if content else "partial",
+                status="ok" if content and access is None else "partial",
                 url=request.url,
                 final_url=result.final_url or request.url,
                 title=result.title,

@@ -88,6 +88,7 @@ class TavilyProvider:
         topic: Literal["general", "news"] = "general",
         include_domains: list[str] | None = None,
         exclude_domains: list[str] | None = None,
+        time_range: str | None = None,
     ) -> dict[str, Any]:
         clamped = max(1, min(int(max_results), self.config.max_results, 20))
         payload: dict[str, Any] = {
@@ -103,6 +104,8 @@ class TavilyProvider:
             payload["include_domains"] = include_domains
         if exclude_domains:
             payload["exclude_domains"] = exclude_domains
+        if time_range in {"day", "week", "month", "year"}:
+            payload["time_range"] = time_range
         return payload
 
     def _is_quota_signal(self, exc: BaseException) -> bool:
@@ -136,6 +139,7 @@ class TavilyProvider:
         search_depth: Literal["basic", "advanced"] | None = None,
         topic: Literal["general", "news"] = "general",
         deadline_seconds: float | None = None,
+        time_range: str | None = None,
         **_: Any,
     ) -> ProviderSearchResult:
         if not self.configured():
@@ -164,6 +168,7 @@ class TavilyProvider:
                 topic=topic,
                 include_domains=include_domains,
                 exclude_domains=exclude_domains,
+                time_range=time_range,
             )
             started = time.perf_counter()
             try:

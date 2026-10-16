@@ -544,3 +544,52 @@ class XAIProvider:
             raw_warnings=["xai_endpoint_fallback_used"],
             latency_ms=latency_ms,
         )
+
+
+REWRITE_PROMPT = """You turn a web search request into search-engine keyword queries.
+Request: {query}
+
+Reply with one JSON object and nothing else:
+{{"topic_en": "English keywords for the subject only, no site names, no words like find/thread/post/comment",
+ "topic_zh": "the same subject as Chinese keywords",
+ "comment_en": "if the request describes a particular comment or reply, 6-12 English words a commenter would likely use to make that point, including synonyms; otherwise empty"}}"""
+
+
+async def rewrite_query(
+    provider: XAIProvider,
+    query: str,
+    *,
+    model: str | None,
+    deadline_seconds: float | None,
+) -> tuple[dict[str, str], dict[str, Any]]:
+    """One tool-free Responses call. Returns (fields, usage). Raises on failure."""
+    import json as _json
+
+    url = f"{provider.config.base_url.rstrip('/')}{provider.config.responses_path}"
+    payload = {
+        "model": model or provider.config.model,
+        "input": [{"role": "user", "content": REWRITE_PROMPT.format(query=query[:500])}],
+        "store": False,
+        "reasoning": {"effort": "low"},
+    }
+    response = await provider.transport.request_json(
+        "POST",
+        url,
+        headers={"Authorization": f"Bearer {provider.config.api_key}", "Content-Type": "application/json"},
+        json=payload,
+        deadline_seconds=deadline_seconds,
+        provider="xai",
+    )
+    text = provider.extract_output_text(response)
+    start, end = text.find("{"), text.rfind("}")
+    if start < 0 or end <= start:
+        raise ProviderContractError("rewrite returned no JSON object", provider="xai")
+    try:
+        data = _json.loads(text[start : end + 1])
+    except ValueError as exc:
+        raise ProviderContractError("rewrite returned invalid JSON", provider="xai") from exc
+    fields = {
+        key: " ".join(str(data.get(key) or "").split())[:300]
+        for key in ("topic_en", "topic_zh", "comment_en")
+    }
+    return fields, response.get("usage") or {}

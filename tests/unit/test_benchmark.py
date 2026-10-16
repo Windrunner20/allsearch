@@ -145,7 +145,8 @@ def test_live_command_refuses_without_running():
     assert main(["live"]) == 2
 
 
-def test_current_policy_stops_before_the_requested_evidence(base_config):
+def test_stop_rule_follows_requested_evidence_not_citation_counts(base_config):
+    """0.2 stopped on any 3 URLs from 2 domains (legacy_sufficient); 0.3 does not."""
     named_forum = current_stop_decision(
         base_config,
         "V2EX 上关于 MacBook 续航突然变差的具体主题帖",
@@ -155,8 +156,18 @@ def test_current_policy_stops_before_the_requested_evidence(base_config):
             "https://www.wikipedia.org/wiki/MacBook",
         ],
     )
-    assert named_forum["sufficient"] is True
-    assert named_forum["supplement_skipped"] is True
+    assert named_forum["legacy_sufficient"] is True
+    assert named_forum["sufficient"] is False
+    assert named_forum["supplement_skipped"] is False
+
+    on_site = current_stop_decision(
+        base_config,
+        "V2EX 上关于 MacBook 续航突然变差的具体主题帖",
+        ["https://www.v2ex.com/t/1083082"],
+    )
+    assert on_site["legacy_sufficient"] is False  # one URL, one domain
+    assert on_site["sufficient"] is True
+    assert on_site["supplement_skipped"] is True
 
     one_doc = current_stop_decision(
         base_config,
@@ -167,14 +178,26 @@ def test_current_policy_stops_before_the_requested_evidence(base_config):
             "https://blog.example.com/react-vue",
         ],
     )
-    assert one_doc["sufficient"] is True
-    assert one_doc["supplement_skipped"] is True
+    assert one_doc["legacy_sufficient"] is True
+    assert one_doc["sufficient"] is False
+    assert "entity:Vue reactivity fundamentals" in one_doc["reasons"]
 
+    both_docs = current_stop_decision(
+        base_config,
+        "对比 React 官方的 managing state 和 Vue 官方的 reactivity fundamentals",
+        [
+            "https://react.dev/learn/managing-state",
+            "https://vuejs.org/guide/essentials/reactivity-fundamentals.html",
+        ],
+    )
+    assert both_docs["sufficient"] is True
+
+    # "Hacker News" is a site name, not a request for news.
     assert current_stop_decision(
         base_config,
         "Hacker News discussion of SQLite as an application file format",
         ["https://news.ycombinator.com/item?id=23508923"],
-    )["recency"] is True
+    )["recency"] is False
     assert current_stop_decision(
         base_config,
         "HN item 23508923 SQLite application file format",
