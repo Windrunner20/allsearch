@@ -1,0 +1,132 @@
+{
+  "id": "ho-so-undo-commit",
+  "executed_at": "2026-10-16T08:53:24.242630+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "Stack Overflow question on how to undo the most recent local commits in Git, and the command from the top answer",
+  "answer": "The Stack Overflow question is **[How do I undo the most recent local commits in Git?](https://stackoverflow.com/questions/927358/how-to-undo-the-most-recent-local-commits-in-git/)** (question 927358).\n\n**Top answer command:** `git reset HEAD~` (default `--mixed`). It undoes the last local commit and leaves the file changes in the working tree, unstaged. The answer says to stop there if undoing the commit is all you want. [[1]](https://stackoverflow.com/questions/927358/how-to-undo-the-most-recent-commits-in-git/)\n\nRelated commands from that thread and common follow-ups:\n\n1. **Accepted recipe (undo, then redo the commit):** `git reset HEAD~`, then edit, `git add .`, and `git commit -c ORIG_HEAD`. [[1]](https://stackoverflow.com/questions/927358/how-to-undo-the-most-recent-commits-in-git/)\n2. **Keep changes staged:** `git reset --soft HEAD~1`. [[2]](https://news.google.com/rss/articles/CBMiXkFVX3lxTE96YVNUOEdQcHU4a0JuUnlYbUM1alg0Yk9rNDFWZzUtTDJJcGRmOFE3Yy1LNHU2bmNfN2NtWlJxME9HTk1vTTdJc2UtZWx5ODJRdzM4YldWV01TYTVlenc?oc=5)\n3. **Discard the commit and the changes:** `git reset --hard HEAD~1` (destructive). [[2]](https://news.google.com/rss/articles/CBMiXkFVX3lxTE96YVNUOEdQcHU4a0JuUnlYbUM1alg0Yk9rNDFWZzUtTDJJcGRmOFE3Yy1LNHU2bmNfN2NtWlJxME9HTk1vTTdJc2UtZWx5ODJRdzM4YldWV01TYTVlenc?oc=5)\n4. **Already pushed / shared history:** prefer `git revert HEAD` so history is not rewritten. [[1]](https://stackoverflow.com/questions/927358/how-to-undo-the-most-recent-commits-in-git/)\n5. **Undo several local commits but keep changes staged:** `git reset --soft HEAD~N` (for example `HEAD~3`). [[3]](https://techearl.com/git-undo-last-commit)\n6. **Recover a commit after a hard reset:** `git reflog`, then reset or checkout the old SHA. [[2]](https://news.google.com/rss/articles/CBMiXkFVX3lxTE96YVNUOEdQcHU4a0JuUnlYbUM1alg0Yk9rNDFWZzUtTDJJcGRmOFE3Yy1LNHU2bmNfN2NtWlJxME9HTk1vTTdJc2UtZWx5ODJRdzM4YldWV01TYTVlenc?oc=5)\n7. **Git Extras shortcut (if installed):** `git undo` (or `git undo 3` for three commits). [[1]](https://stackoverflow.com/questions/927358/how-to-undo-the-most-recent-commits-in-git/)",
+  "results": [
+    {
+      "id": "r1",
+      "title": "1",
+      "url": "https://stackoverflow.com/questions/927358/how-to-undo-the-most-recent-commits-in-git",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "2",
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE96YVNUOEdQcHU4a0JuUnlYbUM1alg0Yk9rNDFWZzUtTDJJcGRmOFE3Yy1LNHU2bmNfN2NtWlJxME9HTk1vTTdJc2UtZWx5ODJRdzM4YldWV01TYTVlenc?oc=5",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "3",
+      "url": "https://techearl.com/git-undo-last-commit",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "1",
+      "url": "https://stackoverflow.com/questions/927358/how-to-undo-the-most-recent-commits-in-git",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "2",
+      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE96YVNUOEdQcHU4a0JuUnlYbUM1alg0Yk9rNDFWZzUtTDJJcGRmOFE3Yy1LNHU2bmNfN2NtWlJxME9HTk1vTTdJc2UtZWx5ODJRdzM4YldWV01TYTVlenc?oc=5",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "3",
+      "url": "https://techearl.com/git-undo-last-commit",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 9030,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "docs_signal"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "timed_out": false,
+  "elapsed_ms": 9031,
+  "usage": {
+    "calls": {
+      "xai.search": 1
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 0
+  }
+}

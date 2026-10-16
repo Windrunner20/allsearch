@@ -1,0 +1,520 @@
+{
+  "id": "stackoverflow-venv",
+  "executed_at": "2026-10-16T08:48:06.938810+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "Stack Overflow question page about creating a Python virtual environment",
+  "answer": "Relevant Stack Overflow pages on creating a Python virtual environment:\n\n1. **How can I create a virtual environment with Python 3?** — Recommended command is `python3 -m venv ./path-to-new-venv`, plus activation and `virtualenv` alternatives.  \n   https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3\n\n2. **What's the difference between \"virtualenv\" and \"-m venv\"?** — `venv` is in the standard library (Python 3.3+); `virtualenv` is a separate package with extra features.  \n   https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt\n\n3. **What is a virtualenv, and why should I use one?** — Isolation from the system Python, creation with `python3 -m venv ENV_DIR`, and activation on Unix and Windows.  \n   https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one\n\n4. **How to create a venv with a different Python version** — Run `venv` with the desired interpreter (e.g. `python3.9 -m venv`), plus `py` launcher and `virtualenv -p` options.  \n   https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version\n\n5. **python3 -m venv: how to specify Python point release/version?** — Use the matching binary, e.g. `python3.6 -m venv whatever`; also covers pyenv.  \n   https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version\n\n6. **How to create a virtualenv in python using cmd** — Correct module name is `venv` (`python -m venv`), not `virtualenv`, unless that package is installed.  \n   https://stackoverflow.com/questions/72700633/how-to-create-a-virtualenv-in-python-using-cmd\n\n7. **Create Virtual Environment using Python Documentation** — Common Debian/Ubuntu failure when `python3-venv` / `ensurepip` is missing, and the install-then-create fix.  \n   https://stackoverflow.com/questions/56339125/create-virtual-environment-using-python-documentation\n\n8. **How to create Python Virtual environment within a python script** — Programmatic creation with the `venv` or `virtualenv` modules inside a script.  \n   https://stackoverflow.com/questions/57921255/how-to-create-python-virtual-environment-within-a-python-script",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+      "url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "How to Create a Python Virtual Environment",
+      "url": "https://mimo.org/tutorials/python/how-to-create-python-virtual-environment",
+      "snippet": "If you’re not sure where you are, run:\n\n macOS/Linux:\n\nBash\n\nOpen in MimoOpen in Mimo\n\n```\npwd\n```\n\n Windows (PowerShell):\n\nSQL\n\nOpen in MimoOpen in Mimo\n\n```\nGet -\n```\n\n### 2) Create the virtual environment\n\nCreate a venv named `.venv` in the current folder.\n\nmacOS/Linux:\n\nOpen in MimoOpen in Mimo\n\n```\npython3-m venv .venv \n```\n\nWindows:\n\nOpen in MimoOpen in Mimo\n\n```\npy-mvenv .venv \n```\n\nThis creates a folder named `.venv/` with its own Python interpreter and `pip`.\n\n### What to look for [...] You run Python only inside containers and never install packages directly on your machine.\n\n## Prerequisites\n\n Python installed\n A terminal\n Basic terminal familiarity\n\n## Step-by-step instructions\n\n### 1) Go to your project folder\n\nCreate a folder for your project or use an existing one, then move into it.\n\nmacOS/Linux:\n\nBash\n\nOpen in MimoOpen in Mimo\n\n```\nmkdir cd\n```\n\nWindows:\n\nOpen in MimoOpen in Mimo\n\n```\nmkdirmy_project cdmy_project \n```\n\n### What to look for [...] On Ubuntu or Debian, install venv support:\n\nBash\n\nOpen in MimoOpen in Mimo\n\n```\nsudo\n```\n\nThen recreate the virtual environment.\n\n### If you see (PowerShell): running scripts is disabled on this system\n\nAllow scripts for your user, then retry:\n\nJavaScript\n\nOpen in MimoOpen in Mimo\n\n```\nSet ExecutionPolicy ScopeCurrentUser ExecutionPolicyRemoteSigned\n```\n\n### If you see: `command not found: python3` (macOS/Linux)\n\nInstall Python 3, then rerun the venv command.",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.7507177,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt",
+      "url": "https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "Python Virtual Environments – ARCH Advanced Research Computing",
+      "url": "https://www.arch.jhu.edu/python-virtual-environments",
+      "snippet": "1. Open your terminal or command prompt and navigate to the directory where you want to create the virtual environment.\n2. Enter the following command to create a new virtual environment:\n\n```\n module load python/3.8.6 python3 -m venv myenv  \n```\n\nThis will create a new virtual environment named myenv in the current directory.\n\n1. Activate the virtual environment by running the appropriate command for your operating system:\n\n```\n source myenv/bin/activate  \n``` [...] 1. Once the virtual environment is activated, you can install any Python packages you need using pip. For example, to install the numpy package, simply run:\n\n```\n pip install numpy  \n```\n\n1. When you’re done working in the virtual environment, you can deactivate it by running the following command:\n\n```\n deactivate  \n```\n\nThat’s it! You’ve now created a virtual Python environment and installed a package inside it.\n\n## Creating an Anaconda virtual environment [...] Skip to content\n\n Rockfish has Ranked #496 in top500.org's June 2024 Top 500 List\n\n Submit a Help Ticket\n\nARCH logo\n\n Contact\n ARCH Systems Documentation\n Cluster Status\n\n ARCH\n Short Tutorials\n Python Virtual Environments\n\n## Python Virtual Environments\n\n## Creating a Python virtual environment\n\nHere’s an example of how to create a virtual Python environment using the built-in venv module in Python 3:",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.67988104,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://stackoverflow.com/questions/58000371/how-to-create-an-empty-python-virtual-environment",
+      "url": "https://stackoverflow.com/questions/58000371/how-to-create-an-empty-python-virtual-environment",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "venv — Creation of virtual environments — Python 3.15.0 documentation",
+      "url": "https://docs.python.org/3/library/venv.html",
+      "snippet": "See PEP 405 for more background on Python virtual environments.\n\nSee also\n\nPython Packaging User Guide: Creating and using virtual environments\n\nAvailability: not Android, not iOS, not WASI.\n\nThis module is not supported on mobile platforms or WebAssembly platforms.\n\n## Creating virtual environments¶\n\nVirtual environments are created by executing the `venv` module:\n\n```\n    \n``` [...] The `venv` module supports creating lightweight “virtual environments”, each with their own independent set of Python packages installed in their `site` directories. A virtual environment is created on top of an existing Python installation, known as the virtual environment’s “base” Python, and by default is isolated from the packages in the base environment, so that only those explicitly installed in the virtual environment are available. See Virtual Environments and `site`’s virtual [...] This creates the target directory (including parent directories as needed) and places a `pyvenv.cfg` file in it with a `home` key pointing to the Python installation from which the command was run. It also creates a `bin` (or `Scripts` on Windows) subdirectory containing a copy or symlink of the Python executable (as appropriate for the platform or arguments used at environment creation time). It also creates a `lib/pythonX.Y/site-packages` subdirectory (on Windows, this is",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.6461259,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://stackoverflow.com/questions/72700633/how-to-create-a-virtualenv-in-python-using-cmd",
+      "url": "https://stackoverflow.com/questions/72700633/how-to-create-a-virtualenv-in-python-using-cmd",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "How to Create a Virtual Environment for Python: Easy 2024 Guide",
+      "url": "https://www.youtube.com/watch?v=ySk09NKutm8",
+      "snippet": "[7:41] in a folder called venv YouTube all right so I I'm going to run the command Python 3 hyphen M\n[7:48] venv which stands for virtual environment and then the name of the environment so imagine I'm creating an\n[7:56] environment for a flask application I'm going to call this flask EnV or flask environment let the terminal do its\n[8:05] thing and you're also going to notice your virtual environment created up here in the top left okay so after some time [...] [3:08] reasons why you should be using virtual environments in your developing with python okay the first one is like the isolation of dependencies let me change\n[3:17] my marker here so I can actually cover these okay this is like if you're working in multiple projects you want to keep each of the packages different not\n[3:25] interfering with each other the next one is reproducibility okay so if you're a developer who's [...] [9:43] created here on their local system okay to do this I'm going to type pip\n[9:49] freeze greater than requirements.txt when I run that you're going to see a\n[9:57] special pip text file created this is everything someone needs to reproduce the environment that you\n[10:05] have set up here and you'll also notice that all of these are matching what we have down here okay so this is",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.6002124,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+      "url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "How to Create a Python Virtual Environment",
+      "url": "https://mimo.org/tutorials/python/how-to-create-python-virtual-environment",
+      "result_id": "r2",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt",
+      "url": "https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "Python Virtual Environments – ARCH Advanced Research Computing",
+      "url": "https://www.arch.jhu.edu/python-virtual-environments",
+      "result_id": "r4",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://stackoverflow.com/questions/58000371/how-to-create-an-empty-python-virtual-environment",
+      "url": "https://stackoverflow.com/questions/58000371/how-to-create-an-empty-python-virtual-environment",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "venv — Creation of virtual environments — Python 3.15.0 documentation",
+      "url": "https://docs.python.org/3/library/venv.html",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://stackoverflow.com/questions/72700633/how-to-create-a-virtualenv-in-python-using-cmd",
+      "url": "https://stackoverflow.com/questions/72700633/how-to-create-a-virtualenv-in-python-using-cmd",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "How to Create a Virtual Environment for Python: Easy 2024 Guide",
+      "url": "https://www.youtube.com/watch?v=ySk09NKutm8",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version",
+      "url": "https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://stackoverflow.com/questions/68104229/how-to-create-a-virtual-environment-in-python-using-an-environment-yaml-file",
+      "url": "https://stackoverflow.com/questions/68104229/how-to-create-a-virtual-environment-in-python-using-an-environment-yaml-file",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://stackoverflow.com/questions/57921255/how-to-create-python-virtual-environment-within-a-python-script",
+      "url": "https://stackoverflow.com/questions/57921255/how-to-create-python-virtual-environment-within-a-python-script",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://stackoverflow.com/questions/43069780/how-to-create-virtual-env-with-python-3",
+      "url": "https://stackoverflow.com/questions/43069780/how-to-create-virtual-env-with-python-3",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+      "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://stackoverflow.com/questions/56339125/create-virtual-environment-using-python-documentation",
+      "url": "https://stackoverflow.com/questions/56339125/create-virtual-environment-using-python-documentation",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version",
+      "url": "https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt/44091914",
+      "url": "https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt/44091914",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "Stack Overflow Employee Directory, Headcount & Staff – Page 3 | LeadIQ",
+      "url": "https://leadiq.com/c/stack-overflow/5a1d97162300005a0085b207/employee-directory?page=3",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "Stack Overflow Developer Study 2018 Results - Business Insider",
+      "url": "https://www.businessinsider.com/stack-overflow-developer-study-2018-results-2018-3",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "Overflow Technology Stack | Overflow Technology Profile",
+      "url": "https://rocketreach.co/overflow-technology-stack_b43dad47c19ca99c",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "Stack Overflow is remaking itself into an AI data provider",
+      "url": "https://finance.yahoo.com/news/stack-overflow-remaking-itself-ai-140000779.html",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 9474,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "conditional_supplement",
+        "latency_ms": 2042,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "domains_below_threshold:1<2"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+      "final_url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+      "title": "python - What is a virtualenv, and why should I use one? - Stack Overflow",
+      "content": "The 2026 Annual Developer Survey Results Site is live—\n[view the results here!](https://survey.stackoverflow.co/2026/?utm_medium=referral&utm_source=stackoverflow-community&utm_campaign=dev-survey-2026&utm_content=announcement-banner-results)\n\n[dismiss](https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one# \"dismiss\")\n\n##### Collectives™ on Stack Overflow\n\nFind centralized, trusted content and collaborate around the technologies you use most.\n\n[Learn more about Collectives](https://stackoverflow.com/collectives)\n\n# [What is a virtualenv, and why should I use one?](https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one)\n\n[Ask Question](https://stackoverflow.com/questions/ask)\n\nAsked9 years, 8 months ago\n\nModified [3 years, 9 months ago](https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one?lastactivity \"2023-01-20 05:17:36Z\")\n\nViewed\n98k times\n\n\nThis question shows research effort; it is useful and clear\n\n111\n\nThis question does not show any research effort; it is unclear or not useful\n\nSave this question.\n\n[Timeline](https://stackoverflow.com/posts/41972261/timeline)\n\nShow activity on this post.\n\nI am trying to install a Python package with this command\n\n```\npip install <name of package>\n```\n\nI'm getting permission errors and I'm not sure why. I could run it with `sudo`, but someone told me that was a bad idea, and I should use a virtualenv instead.\n\nWhat is a virtualenv? What does it do for me?\n\n- [python](https://stackoverflow.com/questions/tagged/python \"show questions tagged 'python'\")\n- [pip](https://stackoverflow.com/questions/tagged/pip \"show questions tagged 'pip'\")\n- [virtualenv](https://stackoverflow.com/questions/tagged/virtualenv \"show questions tagged 'virtualenv'\")\n\n[Share](https://stackoverflow.com/q/41972261)\n\nShort permalink to this question\n\n[Improve this question](https://stackoverflow.com/posts/41972261/edit \"\")\n\nFollow\n\n\n\nFollow this question to receive notifications\n\nasked Feb 1, 2017 at 5:06\n\n[![Kevin's user avatar](https://www.gravatar.com/avatar/5d0e5b16679b92b24c8262e1e6aa2aa7?s=64&d=identicon&r=PG)](https://stackoverflow.com/users/1340389/kevin)\n\n[Kevin](https://stackoverflow.com/users/1340389/kevin)\n\n30.5k1111 gold badges6868 silver badges8989 bronze badges\n\n1\n\n- 3\n\n\n\n\n\nRead this article: [flask.pocoo.org/docs/0.12/installation/#virtualenv](http://flask.pocoo.org/docs/0.12/installation/#virtualenv)\n\n\n\nThanh Nguyen\n\n\n–\n[Thanh Nguyen](https://stackoverflow.com/users/1550476/thanh-nguyen \"5,362 reputation\")\n\n\n\n2017-02-13 09:25:08 +00:00\n\nCommentedFeb 13, 2017 at 9:25\n\n\n[Add a comment](https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one# \"Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.\") \\| [Expand to show all comments on this post](https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one# \"Expand to show all comments on this post\")\n\n## 4 Answers 4\n\nSorted by:\n[Reset to default](https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one?answertab=scoredesc#tab-top)\n\nHighest score (default)\n\nTrending (recent votes count more)\n\nDate modified (newest first)\n\nDate created (oldest first)\n\n\nThis answer is useful\n\n132\n\nThis answer is not useful\n\nSave this answer.\n\nLoading when this answer was accepted…\n\n[Timeline](https://stackoverflow.com/posts/41972262/timeline)\n\nShow activity on this post.\n\nRunning with the system Python and libraries limits you to one specific Python version, chosen by your OS provider. Trying to run all Python applications on one Python installation makes it likely that version conflicts will occur among the collection of libraries. It's also possible that changes to the system Python will break other OS features that depend on it.\n\n[Virtual environments, or \"virtualenvs\"](https://virtualenv.pypa.io/en/stable/) are lightweight, self-contained Python installations, designed to be set up with a minimum of fuss, and to \"just work\" without requiring extensive configuration or specialized knowledge.\n\n`virtualenv` avoids the need to install Python packages globally. When a virtualenv is active, `pip` will install packages within the environment, which does not affect the base Python installation in any way.\n\nIn Python 3.3 or later, you can create a virtualenv as follows:\n\n```\n$ python3 -m venv ENV_DIR\n```\n\nFor Windows, you should replace `python3` with the full path to python.exe:\n\n```\n>C:\\Python34\\python.exe -m venv ENV_DIR\n```\n\n(This is a typical Python installation; your system may vary.)\n\nIn older versions of Python, including Python 2, one of the following commands should work in most cases:\n\n```\n$ virtualenv ENV_DIR\n$ venv ENV_DIR\n$ pyvenv ENV_DIR\n$ pyvenv3 ENV_DIR\n```\n\n`ENV_DIR` should be a non-existent directory. The directory can have any name, but to keep these instructions simple, I will assume you have created your virtualenv in a directory called `venv` (e.g. with `python3 -m venv ./venv`).\n\nTo work in your virtualenv, you activate it:\n\n```\n$ . ./venv/bin/activate\n(venv)$\n```\n\nOr use this if you have a windows system:\n\n```\n$ venv\\Scripts\\activate\n```\n\nThe `(venv)` in the shell prompt lets you know which virtualenv you have activated, but you can turn this feature off if you do not like it. You can run all the usual Python commands, and they will be local to your virtualenv:\n\n```\n(venv)$ pip install requests numpy\n[...]\n(venv)$ python\n[...]\n>>> import requests\n>>> import numpy as np\n>>>\n```\n\n`python` will run the version of Python that you installed into your virtualenv, so (for example) you don't have to type `python3` to get Python 3. The Python that it runs will have access to all the standard library modules and all the packages you installed into the virtualenv, but (by default) none of the packages installed in the system-wide `site-packages` directory.\n\nThis last rule is important: by restricting your virtualenv to only use locally-installed packages, you can ensure that you control exactly which dependencies your project is using, even if some new system-wide package gets installed or updated next week. If you like, you can get a listing of your installed packages:\n\n```\n(venv)$ pip freeze\nrequests==2.13.0\nnumpy==1.12.0\n(venv)$\n```\n\n`pip` can also parse this format and install from it, and it will install the same versions, even if updates have been released in the meantime:\n\n```\n(venv)$ pip freeze >requirements.txt\n\n(some-other-venv)$ pip install -r requirements.txt\n[...]\n(some-other-venv)$ python\n>>> import requests\n>>> import numpy as np\n>>>\n```\n\nYou can get out of the virtualenv by deactivating it:\n\n```\n(venv)$ deactivate\n$ python\n[...]\n>>> import requests\nTraceback (most recent call last):\n  File \"<stdin>\", line 1, in <module>\nImportError: No module named 'requests'\n```\n\nYou can create as many virtualenvs as you like, and they won't interfere with each other, nor with your system packages. A virtualenv is \"just\" a directory with a bunch of binaries and scripts under it, so you can remove a virtualenv the same way you remove any directory (`rm -r venv` on Unix). If the virtualenv is activated when you remove it, you may confuse your shell, so it's probably a good idea to `deactivate` first in that case.\n\n[Share](https://stackoverflow.com/a/41972262)\n\nShort permalink to this answer\n\n[Improve this answer](https://stackoverflow.com/posts/41972262/edit \"\")\n\nFollow\n\n\n\nFollow this answer to receive notifications\n\n[edited Jan 2, 2019 at 16:03](https://stackoverflow.com/posts/41972262/revisions \"show all edits to this post\")\n\ncommunity wiki\n\n\n[4 revs, 4 users 93%](https://stackoverflow.com/posts/41972262/revisions \"show revision history for this post\") [Kevin](https://stackoverflow.com/users/1340389)\n\n## 2 Comments\n\nAdd a comment\n\n[![](https://www.gravatar.com/avatar/a659be962c006e43e110b5a9dfda538e?s=48&d=identicon&r=PG)](https://stackoverflow.com/users/1029146/temporary-user-name)\n\ntemporary\\_user\\_name\n\n[temporary\\_user\\_name](https://stackoverflow.com/users/1029146/temporary-user-name) [Apr 24, 2020 at 4:53](https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one#comment108620022_41972262)\n\nSo it's only important to be in the virtualenv (\"to have it active\") when installing a dependency with pip, or when executing python code if you depend on a specific version of python in the virtualenv, is that right? Otherwise, any other development tasks do not need to have the virtualenv active.\n\n2020-04-24T04:53:17.18Z+00:00\n\n1\n\nReply\n\n- Copy link\n\n[![](https://www.gravatar.com/avatar/478073414bc3148550fd6bb19ecb5454?s=48&d=identicon&r=PG&f=y&so-version=2)](https://stackoverflow.com/users/3130747/baxx)\n\nbaxx\n\n[baxx](https://stackoverflow.com/users/3130747/baxx) [Sep 1, 2020 at 21:11](https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one#comment112634863_41972262)\n\n\"Running with the system Python and libraries limits you to one specific Python version, chosen by your OS provider\", this seems confusing as typically the os python version is used for `python -m venv <whatever>`, and something like pyenv is used for managing multiple python versions.\n\n2020-09-01T21:11:48.14Z+00:00\n\n0\n\nReply\n\n- Copy link\n\nThis answer is useful\n\n11\n\nThis answer is not useful\n\nSave this answer.\n\nLoading when this answer was accepted…\n\n[Timeline](https://stackoverflow.com/posts/52009839/timeline)\n\nShow activity on this post.\n\nInstalling packages with `sudo pip` will install packages globally, which may break some system tools.\n\nBy install globally it means you will install your packages in place like `/usr/lib/python2.7/site-package` so if some packages need a previous version of your python packages, this action may break it.\n\n`virtualenv` allows you to **avoid** installing Python packages globally by making an isolated python environment. That means it will install packages just in your desire project folder.\n\nOn mac and linux\n\n- Install\n\n\n```\npython3 -m pip install --user virtualenv\n```\n\n- Creating a Virtual Env: Go to your desired project folder\n\n\n```\npython3 -m virtualenv env\n```\n\n- Activating a virtualenv: In your desired project folder\n\n\n```\nsource env/bin/activate\n```\n\n\nAfter activating you can install your packages using pip.\n\nFor more information about using it in Windows:\n[How to use virtualenv in Windows](https://packaging.python.org/guides/installing-using-pip-and-virtualenv/)\n\n[Share](https://stackoverflow.com/a/52009839)\n\nShort permalink to this answer\n\n[Improve this answer](https://stackoverflow.com/posts/52009839/edit \"\")\n\nFollow\n\n\n\nFollow this answer to receive notifications\n\n[edited Jan 25, 2020 at 23:32](https://stackoverflow.com/posts/52009839/revisions \"show all edits to this post\")\n\n[![wjandrea's user avatar](https://i.sstatic.net/XRndu.png?s=64)](https://stackoverflow.com/users/4518341/wjandrea)\n\n[wjandrea](https://stackoverflow.com/users/4518341/wjandrea)\n\n34.4k1010 gold badges7171 silver badges109109 bronze badges\n\nanswered Aug 24, 2018 at 18:17\n\n[![Hadi Rasekh's user avatar](https://i.sstatic.net/229Qw.jpg?s=64)](https://stackoverflow.com/users/3604079/hadi-rasekh)\n\n[Hadi Rasekh](https://stackoverflow.com/users/3604079/hadi-rasekh)\n\n2,76033 gold badges2424 silver badges3131 bronze badges\n\n## Comments\n\nAdd a comment\n\nThis answer is useful\n\n8\n\nThis answer is not useful\n\nSave this answer.\n\nLoading when this answer was accepted…\n\n[Timeline](https://stackoverflow.com/posts/42041471/timeline)\n\nShow activity on this post.\n\nSome times you are not given root privileges and you might end up not being able to use sudo. Many other times, it's not advisable to use sudo to install packages as it might overwrite some package which might be in use by some other applications.\n\n[Virtualenv](https://virtualenv.pypa.io/en/stable/) can help you create a separate environment where you don't need root privileges as well as be able to tailor the environment according to your need. It consists of self-contained python installation which only interacts with your specific created environment.\n\nSo basically, it gives you a bit of freedom as well as avoid damaging (or modifying) the root environment which might be hosting many old functionalities of old applications.\n\nInstallation is pretty easy too.\n\n[Share](https://stackoverflow.com/a/42041471)\n\nShort permalink to this answer\n\n[Improve this answer](https://stackoverflow.com/posts/42041471/edit \"\")\n\nFollow\n\n\n\nFollow this answer to receive notifications\n\n[edited Feb 11, 2017 at 23:02](https://stackoverflow.com/posts/42041471/revisions \"show all edits to this post\")\n\n[![mattcan's user avatar](https://i.sstatic.net/av8RS.png?s=64)](https://stackoverflow.com/users/6797515/mattcan)\n\n[mattcan](https://stackoverflow.com/users/6797515/mattcan)\n\n3866 bronze badges\n\nanswered Feb 4, 2017 at 14:24\n\n[![ARKhan's user avatar](https://www.gravatar.com/avatar/f4887fd5a54932553e5849d32bcbd753?s=64&d=identicon&r=PG)](https://stackoverflow.com/users/3648638/arkhan)\n\n[ARKhan](https://stackoverflow.com/users/3648638/arkhan)\n\n30711 silver badge99 bronze badges\n\n## Comments\n\nAdd a comment\n\nThis answer is useful\n\n3\n\nThis answer is not useful\n\nSave this answer.\n\nLoading when this answer was accepted…\n\n[Timeline](https://stackoverflow.com/posts/71086705/timeline)\n\nShow activity on this post.\n\nI am going to break your question into two parts.\n\n## What is a virtualenv?\n\nPython has its own way of downloading, storing, and resolving site packages. But Python can not differentiate between different versions in the `site-package` directory. Packages will be installed in one of the directories, whose name can be found by running the `site.getsitepackages()` commands.\n\n```\n>>> import site\n>>> site.getsitepackages()\n```\n\nThis means `package_v2.0.1` and `package_v3.0.1` have to be in the same directory with the same name i.e. `package`, which is obviously not possible. Now, you may ask why we would need the same package with different versions on our system. This is because multiple projects may require different versions of Python packages or even different Python versions themselves. So there was a need to have something which will resolve these conflicts and `Virtualenv` came into the picture to solve this issue.\n\n## What does it do for me?\n\nIt isolates the environment for Python projects so that each project can have its own dependencies.\n\n[Share](https://stackoverflow.com/a/71086705)\n\nShort permalink to this answer\n\n[Improve this answer](https://stackoverflow.com/posts/71086705/edit \"\")\n\nFollow\n\n\n\nFollow this answer to receive notifications\n\nanswered Feb 11, 2022 at 21:27\n\n[![Akshay Katiha's user avatar](https://i.sstatic.net/WGnH7.jpg?s=64)](https://stackoverflow.com/users/9985849/akshay-katiha)\n\n[Akshay Katiha](https://stackoverflow.com/users/9985849/akshay-katiha)\n\n46877 silver badges1414 bronze badges\n\n## Comments\n\nAdd a comment\n\nStart asking to get answers\n\nFind the answer to your question by asking.\n\n[Ask question](https://stackoverflow.com/questions/ask)\n\nExplore related questions\n\n- [python](https://stackoverflow.com/questions/tagged/python \"show questions tagged 'python'\")\n- [pip](https://stackoverflow.com/questions/tagged/pip \"show questions tagged 'pip'\")\n- [virtualenv](https://stackoverflow.com/questions/tagged/virtualenv \"show questions tagged 'virtualenv'\")\n\nSee similar questions with these tags.\n\nlang-py",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "twitter:description": "I am trying to install a Python package with this command\n\npip install &lt;name of package&gt;\nI'm getting permission errors and I'm not sure why.  I could run it with sudo, but someone told me tha...",
+        "ogSiteName": "Stack Overflow",
+        "description": "I am trying to install a Python package with this command\n\npip install &lt;name of package&gt;\nI'm getting permission errors and I'm not sure why.  I could run it with sudo, but someone told me tha...",
+        "isPartOf": "https://stackoverflow.com/#website",
+        "og:image": "https://stackoverflow.com/Content/Sites/stackoverflow/Img/apple-touch-icon@2.png?v=0f0cab681579",
+        "ogUrl": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+        "twitter:title": "What is a virtualenv, and why should I use one?",
+        "ogImage": "https://stackoverflow.com/Content/Sites/stackoverflow/Img/apple-touch-icon@2.png?v=0f0cab681579",
+        "ogDescription": "I am trying to install a Python package with this command\n\npip install &lt;name of package&gt;\nI'm getting permission errors and I'm not sure why.  I could run it with sudo, but someone told me tha...",
+        "primaryImageOfPage": "https://stackoverflow.com/Content/Sites/stackoverflow/Img/apple-touch-icon@2.png?v=0f0cab681579",
+        "url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+        "publisher": "https://stackoverflow.com/#organization",
+        "name": [
+          "What is a virtualenv, and why should I use one?",
+          "Kevin",
+          "Hadi Rasekh",
+          "ARKhan",
+          "Akshay Katiha"
+        ],
+        "og:site_name": "Stack Overflow",
+        "viewport": "width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1.0",
+        "twitter:domain": "stackoverflow.com",
+        "image": "https://stackoverflow.com/Content/Sites/stackoverflow/Img/apple-touch-icon@2.png?v=0f0cab681579",
+        "og:url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+        "twitter:card": "summary",
+        "language": "en",
+        "title": "python - What is a virtualenv, and why should I use one? - Stack Overflow",
+        "og:type": "website",
+        "ogTitle": "What is a virtualenv, and why should I use one?",
+        "favicon": "https://stackoverflow.com/Content/Sites/stackoverflow/Img/favicon.ico?v=562fb39d93c8",
+        "scrapeId": "01a143e5-d727-73fb-94c3-4c4c7a3413dc",
+        "sourceURL": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "cacheState": "miss",
+        "indexId": "fb41af49-b515-4ac8-b2c3-4b96e1b3f61e",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 2545,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 2592
+    },
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://mimo.org/tutorials/python/how-to-create-python-virtual-environment",
+      "final_url": "https://mimo.org/tutorials/python/how-to-create-python-virtual-environment",
+      "title": "How to Create a Python Virtual Environment",
+      "content": "Coding Tutorials\n\n[HTML](https://mimo.org/tutorials/html) [CSS](https://mimo.org/tutorials/css) [JavaScript](https://mimo.org/tutorials/javascript) [Python](https://mimo.org/tutorials/python) [Swift](https://mimo.org/tutorials/swift) [TypeScript](https://mimo.org/tutorials/typescript) [SQL](https://mimo.org/tutorials/sql) [React](https://mimo.org/tutorials/react)\n\nCoding Tutorials\n\n[HTML](https://mimo.org/tutorials/html) [CSS](https://mimo.org/tutorials/css) [JavaScript](https://mimo.org/tutorials/javascript) [Python](https://mimo.org/tutorials/python) [Swift](https://mimo.org/tutorials/swift) [TypeScript](https://mimo.org/tutorials/typescript) [SQL](https://mimo.org/tutorials/sql) [React](https://mimo.org/tutorials/react)\n\n# How to Create a Python Virtual Environment\n\nYou’ll create a Python virtual environment and use it to install project dependencies without affecting other projects.\n\n## What you’ll build or solve\n\nYou’ll create a virtual environment folder, commonly named `.venv`, activate it, and install packages inside it. Done looks like your terminal uses the venv’s Python instead of your system Python.\n\n## Learn Python on Mimo\n\n[CAREER PATHPython Developer\\\\\n\\\\\nBecome a Python developer. Master Python from basics to advanced topics, including data structures, functions, classes, and error handling\\\\\n\\\\\nBeginner friendly](https://mimo.org/courses/python-development) [COURSEPython\\\\\n\\\\\nStart your coding journey with Python. Learn basics, data types, control flow, and more\\\\\n\\\\\nBeginner friendly](https://mimo.org/courses/learn-python)\n\n## When this approach works best\n\nThis approach works best when you:\n\n- Work on more than one Python project and each needs different package versions.\n- Follow a tutorial that requires installing packages and you don’t want to pollute your system Python.\n- Run scripts in a team where everyone should use the same dependency set.\n\nSkip virtual environments when:\n\n- You run Python only inside containers and never install packages directly on your machine.\n\n## Prerequisites\n\n- Python installed\n- A terminal\n- Basic terminal familiarity\n\n* * *\n\n## Step-by-step instructions\n\n### 1) Go to your project folder\n\nCreate a folder for your project or use an existing one, then move into it.\n\n**macOS/Linux:**\n\nBash\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\nmkdir my_project\ncd my_project\n```\n\n**Windows:**\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\nmkdirmy_project\ncdmy_project\n```\n\n### What to look for\n\nIf you’re not sure where you are, run:\n\n- macOS/Linux:\n\nBash\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\npwd\n```\n\n- Windows (PowerShell):\n\nSQL\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\nGet-Location\n```\n\n* * *\n\n### 2) Create the virtual environment\n\nCreate a venv named `.venv` in the current folder.\n\n**macOS/Linux:**\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\npython3-m venv .venv\n```\n\n**Windows:**\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\npy-mvenv .venv\n```\n\nThis creates a folder named `.venv/` with its own Python interpreter and `pip`.\n\n### What to look for\n\nIf you see `No module named venv`, your Python install is missing venv support. See Troubleshooting.\n\n* * *\n\n### 3) Activate the virtual environment\n\nActivation updates your terminal session so `python` and `pip` point to the venv.\n\n**macOS/Linux:**\n\nBash\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\nsource .venv/bin/activate\n```\n\n**Windows (PowerShell):**\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\n.\\.venv\\Scripts\\Activate.ps1\n```\n\n### What to look for\n\n- Your prompt often shows `(.venv)` after activation.\n- If activation fails in PowerShell, you may need to adjust the execution policy. See Troubleshooting.\n\n* * *\n\n### 4) Confirm the venv interpreter is active\n\nVerify that `python` points to the environment you just created.\n\n**macOS/Linux:**\n\nBash\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\nwhich python\npython--version\n```\n\n**Windows:**\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\npython-c\"import sys; print(sys.executable)\"\npython--version\n```\n\n### What to look for\n\n- On macOS/Linux, the path from `which python` should include `.venv`.\n- On Windows, `sys.executable` should include `\\.venv\\`.\n\n* * *\n\n### 5) Install packages in the venv, then deactivate when done\n\nUse `python -m pip` so `pip` matches the active interpreter.\n\nInstall one package:\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\npython-m pip install requests\n```\n\nInstall from a `requirements.txt` file:\n\nCSS\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\npython-m pip install-r requirements.txt\n```\n\nWhen you’re finished working in that project:\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\ndeactivate\n```\n\n### What to look for\n\n- If `pip` installs succeed but imports fail, the venv may not be active in your current terminal window.\n- After `deactivate`, your prompt usually loses the `(.venv)` marker.\n\n* * *\n\n## Examples you can copy\n\n### Example 1: Create and activate a venv, then install one package\n\n**macOS/Linux:**\n\nBash\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\npython3-m venv .venv\nsource .venv/bin/activate\npython-m pip install requests\n```\n\n**Windows (PowerShell):**\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\npy-mvenv .venv\n.\\.venv\\Scripts\\Activate.ps1\npython-mpipinstallrequests\n```\n\n* * *\n\n### Example 2: Install dependencies for a project using requirements.txt\n\nCreate `requirements.txt`:\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\nrequests\n```\n\nInstall:\n\nCSS\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\npython-m pip install-r requirements.txt\n```\n\nThen verify in Python:\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\nimportrequests\nprint(requests.__version__)\n```\n\n* * *\n\n### Example 3: Run a script inside the venv\n\nCreate `main.py`:\n\nBash\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\nimportrequests\n\nresp=requests.get(\"https://example.com\",timeout=5)\nprint(resp.status_code)\n```\n\nRun:\n\nCSS\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\npython main.py\n```\n\n* * *\n\n## Common mistakes and how to fix them\n\n### Mistake 1: Installing packages without activating the venv\n\n**What you might do**\n\nRun `pip install ...` from a terminal where the venv is not active.\n\n**Why it breaks**\n\nPackages install into a different Python, so your project can’t import them.\n\n**Fix**\n\nActivate the venv, then install with the interpreter you’ll run:\n\nBash\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\nsource .venv/bin/activate\npython-m pip install requests\n```\n\nOn Windows:\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\n.\\.venv\\Scripts\\Activate.ps1\npython-mpipinstallrequests\n```\n\n* * *\n\n### Mistake 2: Creating the venv with one Python, then running with another\n\n**What you might do**\n\nCreate a venv, then run `python3 main.py` and get version or import issues.\n\n**Why it breaks**\n\nYou bypassed the venv by calling a different interpreter directly.\n\n**Fix**\n\nActivate the venv and run `python`:\n\nBash\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\nsource .venv/bin/activate\npython main.py\n```\n\n* * *\n\n## Troubleshooting\n\n### If you see: `No module named venv`\n\nOn Ubuntu or Debian, install venv support:\n\nBash\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\nsudo apt install python3-venv\n```\n\nThen recreate the virtual environment.\n\n* * *\n\n### If you see (PowerShell): running scripts is disabled on this system\n\nAllow scripts for your user, then retry:\n\nJavaScript\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\nSet-ExecutionPolicy-ScopeCurrentUser-ExecutionPolicyRemoteSigned\n```\n\n* * *\n\n### If you see: `command not found: python3` (macOS/Linux)\n\nInstall Python 3, then rerun the venv command.\n\n* * *\n\n### If pip installs succeed but imports still fail\n\nConfirm the interpreter points to `.venv`, then reinstall inside the active environment:\n\nBash\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\nwhich python\npython-m pip install-r requirements.txt\n```\n\n* * *\n\n### If your prompt doesn’t change after activation\n\nThe prompt change can be disabled. Verify with:\n\n- macOS/Linux:\n\nBash\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\nwhich python\n```\n\n- Windows:\n\n[Open in Mimo](https://app.adjust.com/1bbdlllf) [Open in Mimo](https://mimo.org/web/register) Copy Code\n\n```\npython-c\"import sys; print(sys.executable)\"\n```\n\n* * *\n\n## Quick recap\n\n- Create a venv: `python3 -m venv .venv` or `py -m venv .venv`.\n- Activate it: `source .venv/bin/activate` or `.\\.venv\\Scripts\\Activate.ps1`.\n- Confirm `python` points to `.venv`.\n- Install packages with `python -m pip install ...`.\n- Deactivate with `deactivate` when you’re done.\n\nJoin 35M+ people learning for free on Mimo\n\n![Person 1](https://mimo.org/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fperson1.2933cb17.png&w=64&q=75&dpl=dpl_4PnaRWk3eziCTXwxX2taoA5SyGpG)\n\n![Person 2](https://mimo.org/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fperson2.bf69cacc.png&w=64&q=75&dpl=dpl_4PnaRWk3eziCTXwxX2taoA5SyGpG)\n\n![Person 3](https://mimo.org/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fperson3.c67abacd.png&w=64&q=75&dpl=dpl_4PnaRWk3eziCTXwxX2taoA5SyGpG)\n\n35M+\n\n[CAREER PATHPython Developer\\\\\n\\\\\nBecome a Python developer. Master Python from basics to advanced topics, including data structures, functions, classes, and error handling\\\\\n\\\\\nBeginner friendly](https://mimo.org/courses/python-development) [COURSEPython\\\\\n\\\\\nStart your coding journey with Python. Learn basics, data types, control flow, and more\\\\\n\\\\\nBeginner friendly](https://mimo.org/courses/learn-python)\n\n4.8 out of 5 across 1M+ reviews\n\nCheck us out on Apple [AppStore](https://itunes.apple.com/us/app/mimo-learn-how-to-code-through/id1133960732?mt=8&at=1000lpyT), [Google Play Store](https://play.google.com/store/apps/details?id=com.getmimo), and [Trustpilot](https://www.trustpilot.com/review/mimo.org)",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "twitter:card": "summary_large_image",
+        "og:description": "Create and activate a Python virtual environment (.venv), install dependencies safely with pip, and confirm your terminal uses the venv interpreter for consistent project runs.",
+        "twitter:description": "Mimo is a platform that teaches programming, HTML, CSS, JavaScript, and more through gamified and interactive lessons on the go.",
+        "title": "How to Create a Python Virtual Environment",
+        "og:type": "website",
+        "og:title": "How to Create a Python Virtual Environment",
+        "og:url": "https://mimo.org",
+        "twitter:title": "Mimo: The coding platform you need to learn Web Development, Python, and more.",
+        "description": "Create and activate a Python virtual environment (.venv), install dependencies safely with pip, and confirm your terminal uses the venv interpreter for consistent project runs.",
+        "twitter:url": "https://mimo.org",
+        "viewport": "width=device-width, initial-scale=1",
+        "facebook-domain-verification": "s3j71da330bmsepqv95df6ehr6mcg4",
+        "apple-itunes-app": "app-id=1133960732",
+        "og:image": "https://mimo.org/_next/static/media/link_image_twitter.0b70bead.png",
+        "google-site-verification": [
+          "bG_o-GyEYcaUnwJyYwZx8adxUiHN2MxjjdDq48a_alI",
+          "zlRAwLDhiFtrjBX_sYLkcQeWDL_s5H3RdhlBm-rzI7o"
+        ],
+        "language": "en",
+        "og:site_name": "Mimo: The coding platform you need to learn Web Development, Python, and more.",
+        "favicon": "https://mimo.org/icons/v1/favicon.ico",
+        "scrapeId": "01a143e5-e11d-73fd-908f-39eb1c627eed",
+        "sourceURL": "https://mimo.org/tutorials/python/how-to-create-python-virtual-environment",
+        "url": "https://mimo.org/tutorials/python/how-to-create-python-virtual-environment",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "proxyUsed": "basic",
+        "cacheState": "hit",
+        "cachedAt": "2026-10-16T04:23:49.969Z",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 385,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 497
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 14609,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "tavily.search": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 1
+  }
+}

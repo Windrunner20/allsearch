@@ -1,0 +1,400 @@
+{
+  "id": "wechat-mp-discovery",
+  "executed_at": "2026-10-16T08:49:50.472092+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "找一篇讲解 Python GIL 的微信公众号文章原文链接",
+  "answer": "下面是几篇讲解 Python GIL 的微信公众号原文链接（按讲解侧重点整理，最多 8 条）：\n\n1. **《CPython的线程与GIL》**（偏源码：为何有 GIL、申请/释放时机、字节码与线程安全）  \n   https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ\n\n2. **《什么是Python的GIL？》**（真格量化，2019-07-11：原理、I/O 释放、CPU 密集切换）  \n   http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA==&mid=2247484178&idx=1&sn=fa385d6a50de9262cf16f8b737b20b80&chksm=fdc603edcab18afbbb665903d4ff939c9b3fdf6c8d6b2065d8dfa60ff4002eae495eeb5560ea&scene=21\n\n3. **公众号文：用「单通道收费站」讲 GIL**（多线程对 CPU 密集几乎不加速、多进程各自一把 GIL、I/O 时释放）  \n   https://mp.weixin.qq.com/s/-0wQCHrTO6JXRQNLO0i7WQ\n\n4. **《Python新版本去GIL刷屏…》**（InfoQ，2025-10-12：3.14 自由线程、GIL 的历史作用与代价）  \n   https://mp.weixin.qq.com/s/2Ictx9VbqNTuBw1yZQDIOg\n\n5. **公众号文：自由线程与子解释器里的 GIL**（3.13 实验、3.14 受支持但仍默认开 GIL）  \n   https://mp.weixin.qq.com/s/gX_-JECFEFKaK0AyJiUjTw\n\n6. **公众号文：性能与 GIL**（引用计数、为何同一时刻只跑一个线程、对 IO/CPU 的影响；文中引用 David Beazley）  \n   http://mp.weixin.qq.com/s?__biz=MzA4MjEyNTA5Mw==&mid=2652568514&idx=1&sn=9a5f20e1141dad543ae7f9e765a660b7&chksm=8464d388b3135a9e76bfe57603b4518ae4e12018c45a120fd30229e14970687881e307fb8b85&scene=21\n\n7. **《深入理解Python异步编程(中)》**（驹说码事；下篇大纲含「GIL 对异步编程的影响」，中篇偏 asyncio）  \n   https://mp.weixin.qq.com/s/cc_yM0waqSOqq8xfg1G79Q\n\n8. **公众号转载向说明：线程与 GIL**（默认 CPython 下一次只能跑一个 Python 线程，CPU 密集应考虑多进程）  \n   https://mp.weixin.qq.com/s?__biz=MzAwOTgzMDk5Ng==&mid=2650834758&idx=1&sn=68b632c9192a463a1440b74fc274ea10&chksm=80adb07db7da396b90a4862c606b0d787790fa975282a79528b8b75b86cb3ad30b33ce73396c&scene=27\n\n若只要「专门讲 GIL」而不是顺带提到，优先看第 1、2、3 条。",
+  "results": [
+    {
+      "id": "r1",
+      "title": "http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA==&mid=2247484178&idx=1&sn=fa385d6a50de9262cf16f8b737b20b80&chksm=fdc603edcab18afbbb665903d4ff939c9b3fdf6c8d6b2065d8dfa60ff4002eae495eeb5560ea&scene=21",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA%3D%3D&chksm=fdc603edcab18afbbb665903d4ff939c9b3fdf6c8d6b2065d8dfa60ff4002eae495eeb5560ea&idx=1&mid=2247484178&scene=21&sn=fa385d6a50de9262cf16f8b737b20b80",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "https://blog.jetbrains.com/zh-hans/pycharm/2025/08/faster-python-unlocking-the-python-global-interpreter-lock/",
+      "url": "https://blog.jetbrains.com/zh-hans/pycharm/2025/08/faster-python-unlocking-the-python-global-interpreter-lock",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://mp.weixin.qq.com/s/gX_-JECFEFKaK0AyJiUjTw",
+      "url": "https://mp.weixin.qq.com/s/gX_-JECFEFKaK0AyJiUjTw",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "http://mp.weixin.qq.com/s?__biz=MzA4MjEyNTA5Mw==&mid=2652568514&idx=1&sn=9a5f20e1141dad543ae7f9e765a660b7&chksm=8464d388b3135a9e76bfe57603b4518ae4e12018c45a120fd30229e14970687881e307fb8b85&scene=21",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzA4MjEyNTA5Mw%3D%3D&chksm=8464d388b3135a9e76bfe57603b4518ae4e12018c45a120fd30229e14970687881e307fb8b85&idx=1&mid=2652568514&scene=21&sn=9a5f20e1141dad543ae7f9e765a660b7",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://www.biaodianfu.com/python-concurrency/",
+      "url": "https://www.biaodianfu.com/python-concurrency",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "https://mp.weixin.qq.com/s/2Ictx9VbqNTuBw1yZQDIOg",
+      "url": "https://mp.weixin.qq.com/s/2Ictx9VbqNTuBw1yZQDIOg",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://segmentfault.com/a/1190000044303840",
+      "url": "https://segmentfault.com/a/1190000044303840",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "https://mp.weixin.qq.com/s?__biz=MzAwOTgzMDk5Ng==&mid=2650834758&idx=1&sn=68b632c9192a463a1440b74fc274ea10&chksm=80adb07db7da396b90a4862c606b0d787790fa975282a79528b8b75b86cb3ad30b33ce73396c&scene=27",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzAwOTgzMDk5Ng%3D%3D&chksm=80adb07db7da396b90a4862c606b0d787790fa975282a79528b8b75b86cb3ad30b33ce73396c&idx=1&mid=2650834758&scene=27&sn=68b632c9192a463a1440b74fc274ea10",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA==&mid=2247484178&idx=1&sn=fa385d6a50de9262cf16f8b737b20b80&chksm=fdc603edcab18afbbb665903d4ff939c9b3fdf6c8d6b2065d8dfa60ff4002eae495eeb5560ea&scene=21",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA%3D%3D&chksm=fdc603edcab18afbbb665903d4ff939c9b3fdf6c8d6b2065d8dfa60ff4002eae495eeb5560ea&idx=1&mid=2247484178&scene=21&sn=fa385d6a50de9262cf16f8b737b20b80",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "https://blog.jetbrains.com/zh-hans/pycharm/2025/08/faster-python-unlocking-the-python-global-interpreter-lock/",
+      "url": "https://blog.jetbrains.com/zh-hans/pycharm/2025/08/faster-python-unlocking-the-python-global-interpreter-lock",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://mp.weixin.qq.com/s/gX_-JECFEFKaK0AyJiUjTw",
+      "url": "https://mp.weixin.qq.com/s/gX_-JECFEFKaK0AyJiUjTw",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "http://mp.weixin.qq.com/s?__biz=MzA4MjEyNTA5Mw==&mid=2652568514&idx=1&sn=9a5f20e1141dad543ae7f9e765a660b7&chksm=8464d388b3135a9e76bfe57603b4518ae4e12018c45a120fd30229e14970687881e307fb8b85&scene=21",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzA4MjEyNTA5Mw%3D%3D&chksm=8464d388b3135a9e76bfe57603b4518ae4e12018c45a120fd30229e14970687881e307fb8b85&idx=1&mid=2652568514&scene=21&sn=9a5f20e1141dad543ae7f9e765a660b7",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://www.biaodianfu.com/python-concurrency/",
+      "url": "https://www.biaodianfu.com/python-concurrency",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "https://mp.weixin.qq.com/s/2Ictx9VbqNTuBw1yZQDIOg",
+      "url": "https://mp.weixin.qq.com/s/2Ictx9VbqNTuBw1yZQDIOg",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://segmentfault.com/a/1190000044303840",
+      "url": "https://segmentfault.com/a/1190000044303840",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "https://mp.weixin.qq.com/s?__biz=MzAwOTgzMDk5Ng==&mid=2650834758&idx=1&sn=68b632c9192a463a1440b74fc274ea10&chksm=80adb07db7da396b90a4862c606b0d787790fa975282a79528b8b75b86cb3ad30b33ce73396c&scene=27",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzAwOTgzMDk5Ng%3D%3D&chksm=80adb07db7da396b90a4862c606b0d787790fa975282a79528b8b75b86cb3ad30b33ce73396c&idx=1&mid=2650834758&scene=27&sn=68b632c9192a463a1440b74fc274ea10",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://zikcheng.com/zikcheng/2022-05-28-python-gil",
+      "url": "https://zikcheng.com/zikcheng/2022-05-28-python-gil",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://mp.weixin.qq.com/s/cc_yM0waqSOqq8xfg1G79Q",
+      "url": "https://mp.weixin.qq.com/s/cc_yM0waqSOqq8xfg1G79Q",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://peps.pythonlang.cn/pep-0703/",
+      "url": "https://peps.pythonlang.cn/pep-0703",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://runebook.dev/zh/docs/python/glossary/term-global-interpreter-lock",
+      "url": "https://runebook.dev/zh/docs/python/glossary/term-global-interpreter-lock",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://www.chenxutan.com/d/7828.html",
+      "url": "https://www.chenxutan.com/d/7828.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://www.51cto.com/article/827157.html",
+      "url": "https://www.51cto.com/article/827157.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://mp.weixin.qq.com/s/-0wQCHrTO6JXRQNLO0i7WQ",
+      "url": "https://mp.weixin.qq.com/s/-0wQCHrTO6JXRQNLO0i7WQ",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://juejin.cn/post/7694834709337145385",
+      "url": "https://juejin.cn/post/7694834709337145385",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://blog.csdn.net/m0_46339652/article/details/122795547",
+      "url": "https://blog.csdn.net/m0_46339652/article/details/122795547",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://cloud.tencent.cn/developer/article/2712622",
+      "url": "https://cloud.tencent.cn/developer/article/2712622",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "https://geek-blogs.com/blog/gil-python/",
+      "url": "https://geek-blogs.com/blog/gil-python",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "https://juejin.cn/post/7695988496804904986",
+      "url": "https://juejin.cn/post/7695988496804904986",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c21",
+      "title": "https://juejin.cn/post/7691510191482273843",
+      "url": "https://juejin.cn/post/7691510191482273843",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c22",
+      "title": "https://www.cnblogs.com/angrycode/p/11391635.html",
+      "url": "https://www.cnblogs.com/angrycode/p/11391635.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c23",
+      "title": "https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ",
+      "url": "https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c24",
+      "title": "https://cloud.tencent.com/developer/article/2141086",
+      "url": "https://cloud.tencent.com/developer/article/2141086",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 16317,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "timed_out": false,
+  "elapsed_ms": 16319,
+  "usage": {
+    "calls": {
+      "xai.search": 1
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 0
+  }
+}

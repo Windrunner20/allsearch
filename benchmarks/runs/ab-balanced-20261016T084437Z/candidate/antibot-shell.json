@@ -1,0 +1,472 @@
+{
+  "id": "antibot-shell",
+  "executed_at": "2026-10-16T08:48:13.513670+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.3.0",
+  "provider_query": "Open the Chiphell viewthread page and record whether the body is a captcha shell",
+  "answer": "**Result:** the classic Chiphell `viewthread` URL did **not** return a thread body. The fetch was empty (captcha-shell / no content). A pretty `thread-*-1-1.html` URL on the same site returned a real post page.\n\n1. **Direct open of `forum.php?mod=viewthread&tid=2452882`** — body was **“No content found”** (one line). Not a thread; consistent with an empty challenge/captcha shell or a blocked fetch.  \n   Source: https://www.chiphell.com/forum.php?mod=viewthread&tid=2452882\n\n2. **Indexed `viewthread` pages (tids 2452882, 2461781, 2541412)** — snippets are the **forum homepage** (announcements, section lists, today’s stats), not post text. The viewthread query is not delivering the thread body to the crawler.  \n   Sources: [web:2], [web:4], [web:5]\n\n3. **Pretty URL `thread-2462208-1-1.html`** — **not** a captcha shell. Full thread body: title, view/reply counts, posts #1–#16, reply form, footer (“Processed in … Gzip On, Redis On”). Topic is a user complaint about captcha UX, not a site challenge page.  \n   Source: https://www.chiphell.com/thread-2462208-1-1.html [web:17]\n\n4. **Same thread in search** — matches the live page (posts about curve captchas, reCAPTCHA, cookies). Confirms the pretty URL is real content.  \n   Source: [web:8]\n\n5. **Related login-captcha thread** (`thread-2522672-1-1.html`) — also real posts (cookie/AdGuard login issues), not a shell.  \n   Source: [web:9]\n\n6. **Security-policy thread** (`thread-2844250-1-1.html`) — real posts about “请求已被站点的安全策略拦截,” not a captcha page itself.  \n   Source: [web:11]\n\n7. **Forum list pages** (`forumdisplay`, `forum-146-*.html`) — normal board listings, not viewthread and not captcha shells.  \n   Sources: [web:0], [web:3], [web:6]\n\n8. **Homepage** — normal CHH index (reviews, sections).  \n   Source: [web:7]\n\n**Record:** `mod=viewthread` → empty / non-thread body (captcha shell or equivalent block). `thread-{tid}-1-1.html` → actual thread HTML.",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://www.chiphell.com/thread-2522672-1-1.html",
+      "url": "https://www.chiphell.com/thread-2522672-1-1.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "https://www.chiphell.com/thread-2462208-1-1.html",
+      "url": "https://www.chiphell.com/thread-2462208-1-1.html",
+      "snippet": "3. Pretty URL thread-2462208-1-1.html — not a captcha shell. Full thread body: title, view/reply counts, posts 1– 16, reply form, footer (“Processed in … Gzip On, Redis On”). Topic is a user complaint about captcha UX, not a site challenge page. Source",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r3",
+      "title": "https://www.chiphell.com/thread-759507-1-1.html",
+      "url": "https://www.chiphell.com/thread-759507-1-1.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "https://www.chiphell.com/thread-2844250-1-1.html",
+      "url": "https://www.chiphell.com/thread-2844250-1-1.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://www.chiphell.com/forum.php?amp%3Bmobile=2&amp%3Bmod=viewthread&amp%3Btid=2541412&extra=page%3D1",
+      "url": "https://www.chiphell.com/forum.php?amp%3Bmobile=2&amp%3Bmod=viewthread&amp%3Btid=2541412&extra=page%3D1",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "https://www.chiphell.com/forum.php?mod=viewthread&tid=2452882",
+      "url": "https://www.chiphell.com/forum.php?mod=viewthread&tid=2452882",
+      "snippet": "1. Direct open of forum.php?mod=viewthread&tid=2452882 — body was “No content found” (one line). Not a thread; consistent with an empty challenge/captcha shell or a blocked fetch. Source",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r7",
+      "title": "https://www.chiphell.com/forum.php?mod=forumdisplay&fid=146&filter=author&orderby=dateline&dateline=604800&typeid=997",
+      "url": "https://www.chiphell.com/forum.php?dateline=604800&fid=146&filter=author&mod=forumdisplay&orderby=dateline&typeid=997",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "https://www.chiphell.com/forum-315-1.html",
+      "url": "https://www.chiphell.com/forum-315-1.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://www.chiphell.com/thread-2522672-1-1.html",
+      "url": "https://www.chiphell.com/thread-2522672-1-1.html",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "https://www.chiphell.com/thread-2462208-1-1.html",
+      "url": "https://www.chiphell.com/thread-2462208-1-1.html",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://www.chiphell.com/thread-759507-1-1.html",
+      "url": "https://www.chiphell.com/thread-759507-1-1.html",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "https://www.chiphell.com/thread-2844250-1-1.html",
+      "url": "https://www.chiphell.com/thread-2844250-1-1.html",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://www.chiphell.com/forum.php?amp%3Bmobile=2&amp%3Bmod=viewthread&amp%3Btid=2541412&extra=page%3D1",
+      "url": "https://www.chiphell.com/forum.php?amp%3Bmobile=2&amp%3Bmod=viewthread&amp%3Btid=2541412&extra=page%3D1",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "https://www.chiphell.com/forum.php?mod=viewthread&tid=2452882",
+      "url": "https://www.chiphell.com/forum.php?mod=viewthread&tid=2452882",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://www.chiphell.com/forum.php?mod=forumdisplay&fid=146&filter=author&orderby=dateline&dateline=604800&typeid=997",
+      "url": "https://www.chiphell.com/forum.php?dateline=604800&fid=146&filter=author&mod=forumdisplay&orderby=dateline&typeid=997",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "https://www.chiphell.com/forum-315-1.html",
+      "url": "https://www.chiphell.com/forum-315-1.html",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://www.chiphell.com/forum-146-1037.html",
+      "url": "https://www.chiphell.com/forum-146-1037.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://www.chiphell.com/thread-2438513-1-1.html",
+      "url": "https://www.chiphell.com/thread-2438513-1-1.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://www.chiphell.com/forum.php?mod%5Cu003dviewthread%5Cu0026tid%5Cu003d2452882%5Cu0026extra%5Cu003dpage%3D1%5Cu0026ordertype%5Cu003d1%5Cu0026mobile%5Cu003d2=",
+      "url": "https://www.chiphell.com/forum.php?mod%5Cu003dviewthread%5Cu0026tid%5Cu003d2452882%5Cu0026extra%5Cu003dpage%3D1%5Cu0026ordertype%5Cu003d1%5Cu0026mobile%5Cu003d2=",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://www.chiphell.com/forum.php?mod%5Cu003dviewthread%5Cu0026tid%5Cu003d2461781%5Cu0026extra%5Cu003dpage%3D1%5Cu0026ordertype%5Cu003d1%5Cu0026mobile%5Cu003d2=",
+      "url": "https://www.chiphell.com/forum.php?mod%5Cu003dviewthread%5Cu0026tid%5Cu003d2461781%5Cu0026extra%5Cu003dpage%3D1%5Cu0026ordertype%5Cu003d1%5Cu0026mobile%5Cu003d2=",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://www.chiphell.com/?ref=openi.cn",
+      "url": "https://www.chiphell.com/",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://www.chiphell.com/forum.php?mod=forumdisplay&fid=146&filter=typeid&typeid=997&orderby=lastpost&dateline=7948800",
+      "url": "https://www.chiphell.com/forum.php?dateline=7948800&fid=146&filter=typeid&mod=forumdisplay&orderby=lastpost&typeid=997",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://www.chiphell.com/thread-2264736-1-1.html",
+      "url": "https://www.chiphell.com/thread-2264736-1-1.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://www.chiphell.com/thread-2543210-1-1.html",
+      "url": "https://www.chiphell.com/thread-2543210-1-1.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary_site_restricted",
+        "latency_ms": 19748,
+        "detail": "model=grok-4.7",
+        "usage": {
+          "input_tokens": 49591,
+          "input_tokens_details": {
+            "cached_tokens": 32896
+          },
+          "output_tokens": 1154,
+          "output_tokens_details": {
+            "reasoning_tokens": 435
+          },
+          "total_tokens": 50745,
+          "num_sources_used": 0,
+          "num_server_side_tools_used": 5,
+          "cost_in_usd_ticks": 442990800,
+          "server_side_tool_usage_details": {
+            "web_search_calls": 5,
+            "x_search_calls": 0,
+            "x_posts_fetched": 0,
+            "x_users_fetched": 0,
+            "code_interpreter_calls": 0,
+            "file_search_calls": 0,
+            "mcp_calls": 0,
+            "document_search_calls": 0,
+            "image_generation_calls": 0
+          },
+          "context_details": {
+            "input_tokens": 18675,
+            "output_tokens": 775
+          }
+        }
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null,
+        "usage": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "domains_below_threshold:1<2"
+    ]
+  },
+  "coverage": {
+    "status": "sufficient",
+    "requirements": [
+      {
+        "kind": "site",
+        "target": "Chiphell",
+        "satisfied": true,
+        "detail": "11 content page(s), e.g. https://www.chiphell.com/thread-2522672-1-1.html"
+      }
+    ]
+  },
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.1",
+      "status": "error",
+      "url": "https://www.chiphell.com/thread-2522672-1-1.html",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "transport_error",
+            "usage": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "transport_error",
+          "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 12, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or please retry after 33s, r",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 191,
+      "thread": null
+    },
+    {
+      "schema_version": "1.1",
+      "status": "error",
+      "url": "https://www.chiphell.com/thread-2462208-1-1.html",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "transport_error",
+            "usage": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "transport_error",
+          "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 13, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or please retry after 33s, r",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 66,
+      "thread": null
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 20013,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 442990800,
+    "tavily_credits_estimate": 0
+  }
+}

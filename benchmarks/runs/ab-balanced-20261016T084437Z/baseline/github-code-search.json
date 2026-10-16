@@ -1,0 +1,608 @@
+{
+  "id": "github-code-search",
+  "executed_at": "2026-10-16T08:48:54.794656+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "CPython source file that defines PyObject_Malloc",
+  "answer": "**`Objects/obmalloc.c`** defines `PyObject_Malloc`.\n\nOn current CPython `main`, the public function is:\n\n```c\nvoid *\nPyObject_Malloc(size_t size)\n{\n    if (size > (size_t)PY_SSIZE_T_MAX)\n        return NULL;\n    /* stats… */\n    return _PyObject.malloc(_PyObject.ctx, size);\n}\n```\n\nIt dispatches through the object-domain allocator (`_PyObject`). The pymalloc path is the internal `_PyObject_Malloc` in the same file (or mimalloc when that build is enabled).\n\nRelevant sources (up to 8):\n\n1. **Definition** — `Objects/obmalloc.c` (`PyObject_Malloc` and `_PyObject_Malloc`) — [github.com/python/cpython/blob/main/Objects/obmalloc.c](https://github.com/python/cpython/blob/main/Objects/obmalloc.c)\n2. **Declaration** — `Include/objimpl.h` (`PyAPI_FUNC(void *) PyObject_Malloc(size_t size);`) — [github.com/python/cpython/blob/main/Include/objimpl.h](https://github.com/python/cpython/blob/main/Include/objimpl.h)\n3. **Docs** — `Doc/c-api/memory.rst` — [github.com/python/cpython/blob/main/Doc/c-api/memory.rst](https://github.com/python/cpython/blob/main/Doc/c-api/memory.rst)\n4. **Related docs** — `Doc/c-api/allocation.rst` (notes that `PyObject_New` calls `PyObject_Malloc`) — [github.com/python/cpython/blob/main/Doc/c-api/allocation.rst](https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst)\n5. **Pymalloc internals** — `Include/internal/pycore_obmalloc.h` — [raw.githubusercontent.com/python/cpython/main/Include/internal/pycore_obmalloc.h](https://raw.githubusercontent.com/python/cpython/main/Include/internal/pycore_obmalloc.h)\n6. **Typed wrapper (free-threaded)** — `Include/internal/pycore_object_alloc.h` (`_PyObject_MallocWithType` calls `PyObject_Malloc`) — CPython tree\n7. **3.12 snapshot of the same definition** — `Objects/obmalloc.c` at tag `v3.12.0` — same function body pattern\n8. **History** — older trees also put the body in `Objects/obmalloc.c` (e.g. direct pymalloc implementation before the allocator-vtable split)",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+      "url": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "https://github.com/python/cpython/blob/main/Include/objimpl.h",
+      "url": "https://github.com/python/cpython/blob/main/Include/objimpl.h",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c",
+      "url": "https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "https://github.com/python/cpython/pull/23587",
+      "url": "https://github.com/python/cpython/pull/23587",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://runebook.dev/zh/docs/python/c-api/memory/c.PyObject_Malloc",
+      "url": "https://runebook.dev/zh/docs/python/c-api/memory/c.PyObject_Malloc",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "https://github.com/python/cpython/pull/4199",
+      "url": "https://github.com/python/cpython/pull/4199",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md",
+      "url": "https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "https://raw.githubusercontent.com/python/cpython/main/Include/internal/pycore_obmalloc.h",
+      "url": "https://raw.githubusercontent.com/python/cpython/main/Include/internal/pycore_obmalloc.h",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+      "url": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "https://github.com/python/cpython/blob/main/Include/objimpl.h",
+      "url": "https://github.com/python/cpython/blob/main/Include/objimpl.h",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c",
+      "url": "https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "https://github.com/python/cpython/pull/23587",
+      "url": "https://github.com/python/cpython/pull/23587",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://runebook.dev/zh/docs/python/c-api/memory/c.PyObject_Malloc",
+      "url": "https://runebook.dev/zh/docs/python/c-api/memory/c.PyObject_Malloc",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "https://github.com/python/cpython/pull/4199",
+      "url": "https://github.com/python/cpython/pull/4199",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md",
+      "url": "https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "https://raw.githubusercontent.com/python/cpython/main/Include/internal/pycore_obmalloc.h",
+      "url": "https://raw.githubusercontent.com/python/cpython/main/Include/internal/pycore_obmalloc.h",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://github.com/python/cpython/blob/7aace7a2dc40562ecb7d59b49925948411e9d171/Objects/obmalloc.c",
+      "url": "https://github.com/python/cpython/blob/7aace7a2dc40562ecb7d59b49925948411e9d171/Objects/obmalloc.c",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://github.com/python/cpython/blob/master/Doc/c-api/memory.rst",
+      "url": "https://github.com/python/cpython/blob/master/Doc/c-api/memory.rst",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://git.joshthomas.dev/mirrors/cpython/commit/ec2cbdd1dff2c51788136480b2085e77506ebf34?files=Doc/c-api",
+      "url": "https://git.joshthomas.dev/mirrors/cpython/commit/ec2cbdd1dff2c51788136480b2085e77506ebf34?files=Doc%2Fc-api",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://github.com/python/cpython/blob/d36cf5f1d20ce9f111a8fc997104785086e8eee6/Objects/obmalloc.c",
+      "url": "https://github.com/python/cpython/blob/d36cf5f1d20ce9f111a8fc997104785086e8eee6/Objects/obmalloc.c",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://github.com/python/cpython/blob/main/Objects/obmalloc.c",
+      "url": "https://github.com/python/cpython/blob/main/Objects/obmalloc.c",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://hg.python.org/lookup/8543ce8ffd57d770b57fe653e0ab7fada1a4c343",
+      "url": "https://hg.python.org/lookup/8543ce8ffd57d770b57fe653e0ab7fada1a4c343",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://github.com/python/cpython/blob/ccf30e96d4bdcf04396e00899a0319041144509f/Include/cpython/object.h",
+      "url": "https://github.com/python/cpython/blob/ccf30e96d4bdcf04396e00899a0319041144509f/Include/cpython/object.h",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://github.com/python/cpython/raw/8246d588e48f7072c283db3e4eb1795a9a9780bf/Include/objimpl.h",
+      "url": "https://github.com/python/cpython/raw/8246d588e48f7072c283db3e4eb1795a9a9780bf/Include/objimpl.h",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://raw.githubusercontent.com/python/cpython/v3.12.0/Objects/obmalloc.c",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.12.0/Objects/obmalloc.c",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://github.com/python/cpython/blob/3.6/Doc/c-api/allocation.rst",
+      "url": "https://github.com/python/cpython/blob/3.6/Doc/c-api/allocation.rst",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "https://raw.githubusercontent.com/python/cpython/HEAD/Doc/c-api/allocation.rst",
+      "url": "https://raw.githubusercontent.com/python/cpython/HEAD/Doc/c-api/allocation.rst",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "https://github.com/python/cpython/blob/8246d588e48f7072c283db3e4eb1795a9a9780bf/Include/internal/pycore_object_alloc.h",
+      "url": "https://github.com/python/cpython/blob/8246d588e48f7072c283db3e4eb1795a9a9780bf/Include/internal/pycore_object_alloc.h",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c21",
+      "title": "https://github.com/python/cpython/blob/3.10/Doc/c-api/memory.rst",
+      "url": "https://github.com/python/cpython/blob/3.10/Doc/c-api/memory.rst",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 16981,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+      "final_url": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+      "title": "cpython/Doc/c-api/allocation.rst at main · python/cpython · GitHub",
+      "content": "[Skip to content](https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1#start-of-content)\n\nYou signed in with another tab or window. [Reload](https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1) to refresh your session.You signed out in another tab or window. [Reload](https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1) to refresh your session.You switched accounts on another tab or window. [Reload](https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1) to refresh your session.Dismiss alert\n\n{{ message }}\n\n## Collapse file tree\n\n## Files\n\nmain\n\nSearch this repository(forward slash)` forward slash/`\n\n/\n\n# allocation.rst\n\nCopy path\n\nBlame\n\nMore file actions\n\nBlame\n\nMore file actions\n\n## Latest commit\n\n![hugovk](https://avatars.githubusercontent.com/u/1324225?v=4&size=40)![StanFromIreland](https://avatars.githubusercontent.com/u/89152624?v=4&size=40)\n\n[hugovk](https://github.com/python/cpython/commits?author=hugovk)\n\nand\n\n[StanFromIreland](https://github.com/python/cpython/commits?author=StanFromIreland)\n\n[Add a new Sphinx](https://github.com/python/cpython/commit/e9bbf8617dff942360b5d800769c00440dc93bac)`soft-deprecated` [directive (](https://github.com/python/cpython/commit/e9bbf8617dff942360b5d800769c00440dc93bac) [#148630](https://github.com/python/cpython/pull/148630) [)](https://github.com/python/cpython/commit/e9bbf8617dff942360b5d800769c00440dc93bac)\n\nOpen commit detailsfailure\n\n6 months agoApr 18, 2026\n\n[e9bbf86](https://github.com/python/cpython/commit/e9bbf8617dff942360b5d800769c00440dc93bac) · 6 months agoApr 18, 2026\n\n## History\n\n[History](https://github.com/python/cpython/commits/main/Doc/c-api/allocation.rst)\n\nOpen commit details\n\n[View commit history for this file.](https://github.com/python/cpython/commits/main/Doc/c-api/allocation.rst) History\n\n188 lines (127 loc) · 6.36 KB\n\n· Code owner: @ZeroIntensity\n\n/\n\n# allocation.rst\n\nCopy path\n\nTop\n\n## File metadata and controls\n\n- Preview\n\n- Code\n\n- Blame\n\n\n188 lines (127 loc) · 6.36 KB\n\n· Code owner: @ZeroIntensity\n\n[Raw](https://github.com/python/cpython/raw/refs/heads/main/Doc/c-api/allocation.rst)\n\nCopy raw file\n\nDownload raw file\n\nYou must be signed in to make or propose changes\n\nMore edit options\n\nOpen symbols panel\n\nEdit and raw actions\n\n1\n\n2\n\n3\n\n4\n\n5\n\n6\n\n7\n\n8\n\n9\n\n10\n\n11\n\n12\n\n13\n\n14\n\n15\n\n16\n\n17\n\n18\n\n19\n\n20\n\n21\n\n22\n\n23\n\n24\n\n25\n\n26\n\n27\n\n28\n\n29\n\n30\n\n31\n\n32\n\n33\n\n34\n\n35\n\n36\n\n37\n\n38\n\n39\n\n40\n\n41\n\n42\n\n43\n\n44\n\n45\n\n46\n\n47\n\n48\n\n49\n\n50\n\n51\n\n52\n\n53\n\n54\n\n55\n\n56\n\n57\n\n58\n\n59\n\n60\n\n61\n\n62\n\n63\n\n64\n\n65\n\n66\n\n67\n\n68\n\n69\n\n70\n\n71\n\n72\n\n73\n\n74\n\n75\n\n76\n\n77\n\n78\n\n79\n\n80\n\n81\n\n82\n\n83\n\n84\n\n85\n\n86\n\n87\n\n88\n\n89\n\n90\n\n91\n\n92\n\n93\n\n94\n\n95\n\n96\n\n97\n\n98\n\n99\n\n100\n\n101\n\n102\n\n103\n\n104\n\n105\n\n106\n\n107\n\n108\n\n109\n\n110\n\n111\n\n112\n\n113\n\n114\n\n115\n\n116\n\n117\n\n118\n\n119\n\n120\n\n121\n\n122\n\n123\n\n124\n\n125\n\n126\n\n127\n\n128\n\n129\n\n130\n\n131\n\n132\n\n133\n\n134\n\n135\n\n136\n\n137\n\n138\n\n139\n\n140\n\n141\n\n142\n\n143\n\n144\n\n145\n\n146\n\n147\n\n148\n\n149\n\n150\n\n151\n\n152\n\n153\n\n154\n\n155\n\n156\n\n157\n\n158\n\n159\n\n160\n\n161\n\n162\n\n163\n\n164\n\n165\n\n166\n\n167\n\n168\n\n169\n\n170\n\n171\n\n172\n\n173\n\n174\n\n175\n\n176\n\n177\n\n178\n\n179\n\n180\n\n181\n\n182\n\n183\n\n184\n\n185\n\n186\n\n187\n\n188\n\n.. highlight:: c\n\n.. \\_allocating-objects:\n\nAllocating objects on the heap\n\n==============================\n\n.. c:function:: PyObject\\* \\_PyObject\\_New(PyTypeObject \\*type)\n\n.. c:function:: PyVarObject\\* \\_PyObject\\_NewVar(PyTypeObject \\*type, Py\\_ssize\\_t size)\n\n.. c:function:: PyObject\\* PyObject\\_Init(PyObject \\*op, PyTypeObject \\*type)\n\nInitialize a newly allocated object \\*op\\\\* with its type and initial\n\nreference. Returns the initialized object. Other fields of the object are\n\nnot initialized. Despite its name, this function is unrelated to the\n\nobject's :meth:\\`~object.\\_\\_init\\_\\_\\` method (:c:member:\\`~PyTypeObject.tp\\_init\\`\n\nslot). Specifically, this function does \\*\\*not\\*\\* call the object's\n\n:meth:\\`!\\_\\_init\\_\\_\\` method.\n\nIn general, consider this function to be a low-level routine. Use\n\n:c:member:\\`~PyTypeObject.tp\\_alloc\\` where possible.\n\nFor implementing :c:member:\\`!tp\\_alloc\\` for your type, prefer\n\n:c:func:\\`PyType\\_GenericAlloc\\` or :c:func:\\`PyObject\\_New\\`.\n\n.. note::\n\nThis function only initializes the object's memory corresponding to the\n\ninitial :c:type:\\`PyObject\\` structure. It does not zero the rest.\n\n.. c:function:: PyVarObject\\* PyObject\\_InitVar(PyVarObject \\*op, PyTypeObject \\*type, Py\\_ssize\\_t size)\n\nThis does everything :c:func:\\`PyObject\\_Init\\` does, and also initializes the\n\nlength information for a variable-size object.\n\n.. note::\n\nThis function only initializes some of the object's memory. It does not\n\nzero the rest.\n\n.. c:macro:: PyObject\\_New(TYPE, typeobj)\n\nAllocates a new Python object using the C structure type \\*TYPE\\\\* and the\n\nPython type object \\*typeobj\\\\* (\\`\\`PyTypeObject\\*\\`\\`) by calling\n\n:c:func:\\`PyObject\\_Malloc\\` to allocate memory and initializing it like\n\n:c:func:\\`PyObject\\_Init\\`. The caller will own the only reference to the\n\nobject (i.e. its reference count will be one).\n\nAvoid calling this directly to allocate memory for an object; call the type's\n\n:c:member:\\`~PyTypeObject.tp\\_alloc\\` slot instead.\n\nWhen populating a type's :c:member:\\`~PyTypeObject.tp\\_alloc\\` slot,\n\n:c:func:\\`PyType\\_GenericAlloc\\` is preferred over a custom function that\n\nsimply calls this macro.\n\nThis macro does not call :c:member:\\`~PyTypeObject.tp\\_alloc\\`,\n\n:c:member:\\`~PyTypeObject.tp\\_new\\` (:meth:\\`~object.\\_\\_new\\_\\_\\`), or\n\n:c:member:\\`~PyTypeObject.tp\\_init\\` (:meth:\\`~object.\\_\\_init\\_\\_\\`).\n\nThis cannot be used for objects with :c:macro:\\`Py\\_TPFLAGS\\_HAVE\\_GC\\` set in\n\n:c:member:\\`~PyTypeObject.tp\\_flags\\`; use :c:macro:\\`PyObject\\_GC\\_New\\` instead.\n\nMemory allocated by this macro must be freed with :c:func:\\`PyObject\\_Free\\`\n\n(usually called via the object's :c:member:\\`~PyTypeObject.tp\\_free\\` slot).\n\n.. note::\n\nThe returned memory is not guaranteed to have been completely zeroed\n\nbefore it was initialized.\n\n.. note::\n\nThis macro does not construct a fully initialized object of the given\n\ntype; it merely allocates memory and prepares it for further\n\ninitialization by :c:member:\\`~PyTypeObject.tp\\_init\\`. To construct a\n\nfully initialized object, call \\*typeobj\\* instead. For example::\n\nPyObject \\*foo = PyObject\\_CallNoArgs((PyObject \\*)&PyFoo\\_Type);\n\n.. seealso::\n\n\\\\* :c:func:\\`PyObject\\_Free\\`\n\n\\\\* :c:macro:\\`PyObject\\_GC\\_New\\`\n\n\\\\* :c:func:\\`PyType\\_GenericAlloc\\`\n\n\\\\* :c:member:\\`~PyTypeObject.tp\\_alloc\\`\n\n.. c:macro:: PyObject\\_NewVar(TYPE, typeobj, size)\n\nLike :c:macro:\\`PyObject\\_New\\` except:\n\n\\\\* It allocates enough memory for the \\*TYPE\\\\* structure plus \\*size\\*\n\n(\\`\\`Py\\_ssize\\_t\\`\\`) fields of the size given by the\n\n:c:member:\\`~PyTypeObject.tp\\_itemsize\\` field of \\*typeobj\\*.\n\n\\\\* The memory is initialized like :c:func:\\`PyObject\\_InitVar\\`.\n\nThis is useful for implementing objects like tuples, which are able to\n\ndetermine their size at construction time. Embedding the array of fields\n\ninto the same allocation decreases the number of allocations, improving the\n\nmemory management efficiency.\n\nAvoid calling this directly to allocate memory for an object; call the type's\n\n:c:member:\\`~PyTypeObject.tp\\_alloc\\` slot instead.\n\nWhen populating a type's :c:member:\\`~PyTypeObject.tp\\_alloc\\` slot,\n\n:c:func:\\`PyType\\_GenericAlloc\\` is preferred over a custom function that\n\nsimply calls this macro.\n\nThis cannot be used for objects with :c:macro:\\`Py\\_TPFLAGS\\_HAVE\\_GC\\` set in\n\n:c:member:\\`~PyTypeObject.tp\\_flags\\`; use :c:macro:\\`PyObject\\_GC\\_NewVar\\`\n\ninstead.\n\nMemory allocated by this function must be freed with :c:func:\\`PyObject\\_Free\\`\n\n(usually called via the object's :c:member:\\`~PyTypeObject.tp\\_free\\` slot).\n\n.. note::\n\nThe returned memory is not guaranteed to have been completely zeroed\n\nbefore it was initialized.\n\n.. note::\n\nThis macro does not construct a fully initialized object of the given\n\ntype; it merely allocates memory and prepares it for further\n\ninitialization by :c:member:\\`~PyTypeObject.tp\\_init\\`. To construct a\n\nfully initialized object, call \\*typeobj\\\\* instead. For example::\n\nPyObject \\*list\\_instance = PyObject\\_CallNoArgs((PyObject \\*)&PyList\\_Type);\n\n.. seealso::\n\n\\\\* :c:func:\\`PyObject\\_Free\\`\n\n\\\\* :c:macro:\\`PyObject\\_GC\\_NewVar\\`\n\n\\\\* :c:func:\\`PyType\\_GenericAlloc\\`\n\n\\\\* :c:member:\\`~PyTypeObject.tp\\_alloc\\`\n\n.. c:var:: PyObject \\_Py\\_NoneStruct\n\nObject which is visible in Python as \\`\\`None\\`\\`. This should only be accessed\n\nusing the :c:macro:\\`Py\\_None\\` macro, which evaluates to a pointer to this\n\nobject.\n\n.. seealso::\n\n:ref:\\`moduleobjects\\`\n\nTo allocate and create extension modules.\n\nSoft-deprecated aliases\n\n^^^^^^^^^^^^^^^^^^^^^^^\n\n.. soft-deprecated:: 3.15\n\nThese are aliases to existing functions and macros.\n\nThey exist solely for backwards compatibility.\n\n.. list-table::\n\n:widths: auto\n\n:header-rows: 1\n\n\\\\* \\\\* Soft-deprecated alias\n\n\\\\* Function\n\n\\\\* \\\\* .. c:macro:: PyObject\\_NEW(type, typeobj)\n\n\\\\* :c:macro:\\`PyObject\\_New\\`\n\n\\\\* \\\\* .. c:macro:: PyObject\\_NEW\\_VAR(type, typeobj, n)\n\n\\\\* :c:macro:\\`PyObject\\_NewVar\\`\n\n\\\\* \\\\* .. c:macro:: PyObject\\_INIT(op, typeobj)\n\n\\\\* :c:func:\\`PyObject\\_Init\\`\n\n\\\\* \\\\* .. c:macro:: PyObject\\_INIT\\_VAR(op, typeobj, n)\n\n\\\\* :c:func:\\`PyObject\\_InitVar\\`\n\n\\\\* \\\\* .. c:macro:: PyObject\\_MALLOC(n)\n\n\\\\* :c:func:\\`PyObject\\_Malloc\\`\n\n\\\\* \\\\* .. c:macro:: PyObject\\_REALLOC(p, n)\n\n\\\\* :c:func:\\`PyObject\\_Realloc\\`\n\n\\\\* \\\\* .. c:macro:: PyObject\\_FREE(p)\n\n\\\\* :c:func:\\`PyObject\\_Free\\`\n\n\\\\* \\\\* .. c:macro:: PyObject\\_DEL(p)\n\n\\\\* :c:func:\\`PyObject\\_Free\\`\n\n\\\\* \\\\* .. c:macro:: PyObject\\_Del(p)\n\n\\\\* :c:func:\\`PyObject\\_Free\\`\n\nYou can’t perform that action at this time.",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "og:image:width": "1200",
+        "octolytics-dimension-repository_nwo": "python/cpython",
+        "octolytics-dimension-repository_is_fork": "false",
+        "react-import-map": "react,react-dom,react-dom/client,react-dom/profiling,react-is,react-reconciler,react/compiler-runtime,react/jsx-dev-runtime,react/jsx-runtime,scheduler@777f63f87cd0",
+        "theme-color": "#1e2327",
+        "title": "cpython/Doc/c-api/allocation.rst at main · python/cpython · GitHub",
+        "language": "en",
+        "og:image": "https://opengraph.githubassets.com/0bee188b46c66acee547a334b437593fa5321175ea31612f3a60ca707263adb9/python/cpython",
+        "turbo-body-classes": "logged-out env-production page-responsive",
+        "viewport": "width=device-width",
+        "ogImage": "https://opengraph.githubassets.com/0bee188b46c66acee547a334b437593fa5321175ea31612f3a60ca707263adb9/python/cpython",
+        "octolytics-url": "https://collector.github.com/github/collect",
+        "octolytics-dimension-repository_id": "81598961",
+        "route-action": "show",
+        "user-login": "",
+        "color-scheme": "light dark",
+        "apple-itunes-app": "app-id=1477376905, app-argument=https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+        "expected-hostname": "github.com",
+        "visitor-payload": "eyJyZWZlcnJlciI6Imh0dHBzOi8vZ2l0aHViLmNvbS9weXRob24vY3B5dGhvbi9ibG9iL21haW4vRG9jL2MtYXBpL2FsbG9jYXRpb24ucnN0P3BsYWluPTEiLCJyZXF1ZXN0X2lkIjoiQUZERjoyMjlEMTA6MUI2M0QwMToyMzZCRDkzOjZBRDA4QjhCIiwidmlzaXRvcl9pZCI6IjYzMTQ4MzQyMTc0NTM3ODM5NDciLCJyZWdpb25fZWRnZSI6ImlhZCIsInJlZ2lvbl9yZW5kZXIiOiJpYWQifQ==",
+        "hostname": "github.com",
+        "og:image:alt": "The Python programming language. Contribute to python/cpython development by creating an account on GitHub.",
+        "ogUrl": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst",
+        "react-profiling": "0",
+        "ogSiteName": "GitHub",
+        "github-keyboard-shortcuts": "repository,source-code,file-tree,copilot",
+        "browser-stats-url": "https://api.github.com/_private/browser/stats",
+        "disable-turbo": "false",
+        "og:title": "cpython/Doc/c-api/allocation.rst at main · python/cpython",
+        "og:url": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst",
+        "twitter:title": "cpython/Doc/c-api/allocation.rst at main · python/cpython",
+        "og:site_name": "GitHub",
+        "visitor-hmac": "a7667daa843a08eb8acf0fd9006ffd7c413bdcb3a360e08fe861e3ab4bd800e6",
+        "twitter:image": "https://opengraph.githubassets.com/0bee188b46c66acee547a334b437593fa5321175ea31612f3a60ca707263adb9/python/cpython",
+        "current-catalog-service-hash": "f3abb0cc802f3d7b95fc8762b94bdcb13bf39634c40c357301c4aa1d67a256fb",
+        "turbo-cache-control": [
+          "no-preview",
+          "no-cache"
+        ],
+        "release": "41b638629a4e611e024172d6ddfc0660cec6fb3c",
+        "octolytics-dimension-user_login": "python",
+        "twitter:card": "summary_large_image",
+        "octolytics-dimension-repository_public": "true",
+        "fb:app_id": "1401488693436528",
+        "og:type": "object",
+        "ui-target": "full",
+        "route-pattern": "/:user_id/:repository/blob/*name(/*path)",
+        "html-safe-nonce": "323658a5fbd84ae8c87217af285a160b84e36ddb36ca19705f58fc3e6d9a747c",
+        "google-site-verification": "Apib7-x98H0j5cPqHWwSMm6dNU4GmODRoqxLiDzdx9I",
+        "request-id": "AFDF:229D10:1B63D01:236BD93:6AD08B8B",
+        "twitter:site": "@github",
+        "octolytics-dimension-user_id": "1525981",
+        "octolytics-dimension-repository_network_root_id": "81598961",
+        "analytics-location": "/<user-name>/<repo-name>/blob/show",
+        "octolytics-dimension-repository_network_root_nwo": "python/cpython",
+        "browser-errors-url": "https://api.github.com/_private/browser/errors",
+        "fetch-nonce": "v2:42f09452-07fd-241e-3dfb-ad54031ccf61",
+        "ogDescription": "The Python programming language. Contribute to python/cpython development by creating an account on GitHub.",
+        "route-controller": "blob",
+        "twitter:description": "The Python programming language. Contribute to python/cpython development by creating an account on GitHub.",
+        "hovercard-subject-tag": "repository:81598961",
+        "go-import": "github.com/python/cpython git https://github.com/python/cpython.git",
+        "description": "The Python programming language. Contribute to python/cpython development by creating an account on GitHub.",
+        "og:image:height": "600",
+        "ogTitle": "cpython/Doc/c-api/allocation.rst at main · python/cpython",
+        "og:description": "The Python programming language. Contribute to python/cpython development by creating an account on GitHub.",
+        "favicon": "https://github.githubassets.com/favicons/favicon.svg",
+        "scrapeId": "01a143e6-a744-72d7-ab98-b44a038fa11d",
+        "sourceURL": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+        "url": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "proxyUsed": "basic",
+        "cacheState": "hit",
+        "cachedAt": "2026-10-15T08:15:11.297Z",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 588,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 589
+    },
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://github.com/python/cpython/blob/main/Include/objimpl.h",
+      "final_url": "https://github.com/python/cpython/blob/main/Include/objimpl.h",
+      "title": "cpython/Include/objimpl.h at main · python/cpython · GitHub",
+      "content": "[Skip to content](https://github.com/python/cpython/blob/main/Include/objimpl.h#start-of-content)\n\nYou signed in with another tab or window. [Reload](https://github.com/python/cpython/blob/main/Include/objimpl.h) to refresh your session.You signed out in another tab or window. [Reload](https://github.com/python/cpython/blob/main/Include/objimpl.h) to refresh your session.You switched accounts on another tab or window. [Reload](https://github.com/python/cpython/blob/main/Include/objimpl.h) to refresh your session.Dismiss alert\n\n{{ message }}\n\n## Collapse file tree\n\n## Files\n\nmain\n\nSearch this repository(forward slash)` forward slash/`\n\n/\n\n# objimpl.h\n\nCopy path\n\nBlame\n\nMore file actions\n\nBlame\n\nMore file actions\n\n## Latest commit\n\n[![vstinner](https://avatars.githubusercontent.com/u/194129?v=4&size=40)](https://github.com/vstinner)[vstinner](https://github.com/python/cpython/commits?author=vstinner)\n\n[gh-102013](https://github.com/python/cpython/issues/102013) [: Move PyUnstable\\_GC\\_VisitObjects() to Include/cpython/objim…](https://github.com/python/cpython/commit/144eb5605b445d22729db6c416d03cc24947ba56)\n\nOpen commit details\n\n2 years agoFeb 16, 2024\n\n[144eb56](https://github.com/python/cpython/commit/144eb5605b445d22729db6c416d03cc24947ba56) · 2 years agoFeb 16, 2024\n\n## History\n\n[History](https://github.com/python/cpython/commits/main/Include/objimpl.h)\n\nOpen commit details\n\n[View commit history for this file.](https://github.com/python/cpython/commits/main/Include/objimpl.h) History\n\n211 lines (165 loc) · 8.18 KB\n\n/\n\n# objimpl.h\n\nCopy path\n\nTop\n\n## File metadata and controls\n\n- Code\n\n- Blame\n\n\n211 lines (165 loc) · 8.18 KB\n\n[Raw](https://github.com/python/cpython/raw/refs/heads/main/Include/objimpl.h)\n\nCopy raw file\n\nDownload raw file\n\nYou must be signed in to make or propose changes\n\nMore edit options\n\nOpen symbols panel\n\nEdit and raw actions\n\n1\n\n2\n\n3\n\n4\n\n5\n\n6\n\n7\n\n8\n\n9\n\n10\n\n11\n\n12\n\n13\n\n14\n\n15\n\n16\n\n17\n\n18\n\n19\n\n20\n\n21\n\n22\n\n23\n\n24\n\n25\n\n26\n\n27\n\n28\n\n29\n\n30\n\n31\n\n32\n\n33\n\n34\n\n35\n\n36\n\n37\n\n38\n\n39\n\n40\n\n41\n\n42\n\n43\n\n44\n\n45\n\n46\n\n47\n\n48\n\n49\n\n50\n\n51\n\n52\n\n53\n\n54\n\n55\n\n56\n\n57\n\n58\n\n59\n\n60\n\n61\n\n62\n\n63\n\n64\n\n65\n\n66\n\n67\n\n68\n\n69\n\n70\n\n71\n\n72\n\n73\n\n74\n\n75\n\n76\n\n77\n\n78\n\n79\n\n80\n\n81\n\n82\n\n83\n\n84\n\n85\n\n86\n\n87\n\n88\n\n89\n\n90\n\n91\n\n92\n\n93\n\n94\n\n95\n\n96\n\n97\n\n98\n\n99\n\n100\n\n101\n\n102\n\n103\n\n104\n\n105\n\n106\n\n107\n\n108\n\n109\n\n110\n\n111\n\n112\n\n113\n\n114\n\n115\n\n116\n\n117\n\n118\n\n119\n\n120\n\n121\n\n122\n\n123\n\n124\n\n125\n\n126\n\n127\n\n128\n\n129\n\n130\n\n131\n\n132\n\n133\n\n134\n\n135\n\n136\n\n137\n\n138\n\n139\n\n140\n\n141\n\n142\n\n143\n\n144\n\n145\n\n146\n\n147\n\n148\n\n149\n\n150\n\n151\n\n152\n\n153\n\n154\n\n155\n\n156\n\n157\n\n158\n\n159\n\n160\n\n161\n\n162\n\n163\n\n164\n\n165\n\n166\n\n167\n\n168\n\n169\n\n170\n\n171\n\n172\n\n173\n\n174\n\n175\n\n176\n\n177\n\n178\n\n179\n\n180\n\n181\n\n182\n\n183\n\n184\n\n185\n\n186\n\n187\n\n188\n\n189\n\n190\n\n191\n\n192\n\n193\n\n194\n\n195\n\n196\n\n197\n\n198\n\n199\n\n200\n\n201\n\n202\n\n203\n\n204\n\n205\n\n206\n\n207\n\n208\n\n209\n\n210\n\n211\n\n// The PyObject\\_ memory family: high-level object memory interfaces.\n\n// See pymem.h for the low-level PyMem\\_ family.\n\n#ifndefPy\\_OBJIMPL\\_H\n\n#definePy\\_OBJIMPL\\_H\n\n#ifdef\\_\\_cplusplus\n\nextern\"C\" {\n\n#endif\n\n/\\\\* BEWARE:\n\nEach interface exports both functions and macros. Extension modules should\n\nuse the functions, to ensure binary compatibility across Python versions.\n\nBecause the Python implementation is free to change internal details, and\n\nthe macros may (or may not) expose details for speed, if you do use the\n\nmacros you must recompile your extensions with each Python release.\n\nNever mix calls to PyObject\\_ memory functions with calls to the platform\n\nmalloc/realloc/ calloc/free, or with calls to PyMem\\_.\n\n\\*/\n\n/\\*\n\nFunctions and macros for modules that implement new object types.\n\n\\- PyObject\\_New(type, typeobj) allocates memory for a new object of the given\n\ntype, and initializes part of it. 'type' must be the C structure type used\n\nto represent the object, and 'typeobj' the address of the corresponding\n\ntype object. Reference count and type pointer are filled in; the rest of\n\nthe bytes of the object are \\*undefined\\*! The resulting expression type is\n\n'type \\*'. The size of the object is determined by the tp\\_basicsize field\n\nof the type object.\n\n\\- PyObject\\_NewVar(type, typeobj, n) is similar but allocates a variable-size\n\nobject with room for n items. In addition to the refcount and type pointer\n\nfields, this also fills in the ob\\_size field.\n\n\\- PyObject\\_Free(op) releases the memory allocated for an object. It does not\n\nrun a destructor -- it only frees the memory.\n\n\\- PyObject\\_Init(op, typeobj) and PyObject\\_InitVar(op, typeobj, n) don't\n\nallocate memory. Instead of a 'type' parameter, they take a pointer to a\n\nnew object (allocated by an arbitrary allocator), and initialize its object\n\nheader fields.\n\nNote that objects created with PyObject\\_{New, NewVar} are allocated using the\n\nspecialized Python allocator (implemented in obmalloc.c), if WITH\\_PYMALLOC is\n\nenabled. In addition, a special debugging allocator is used if Py\\_DEBUG\n\nmacro is also defined.\n\nIn case a specific form of memory management is needed (for example, if you\n\nmust use the platform malloc heap(s), or shared memory, or C++ local storage or\n\noperator new), you must first allocate the object with your custom allocator,\n\nthen pass its pointer to PyObject\\_{Init, InitVar} for filling in its Python-\n\nspecific fields: reference count, type pointer, possibly others. You should\n\nbe aware that Python has no control over these objects because they don't\n\ncooperate with the Python memory manager. Such objects may not be eligible\n\nfor automatic garbage collection and you have to make sure that they are\n\nreleased accordingly whenever their destructor gets called (cf. the specific\n\nform of memory management you're using).\n\nUnless you have specific memory management requirements, use\n\nPyObject\\_{New, NewVar, Del}.\n\n\\*/\n\n/\\*\n\n\\\\* Raw object memory interface\n\n\\\\* ===========================\n\n\\*/\n\n/\\\\* Functions to call the same malloc/realloc/free as used by Python's\n\nobject allocator. If WITH\\_PYMALLOC is enabled, these may differ from\n\nthe platform malloc/realloc/free. The Python object allocator is\n\ndesigned for fast, cache-conscious allocation of many \"small\" objects,\n\nand with low hidden memory overhead.\n\nPyObject\\_Malloc(0) returns a unique non-NULL pointer if possible.\n\nPyObject\\_Realloc(NULL, n) acts like PyObject\\_Malloc(n).\n\nPyObject\\_Realloc(p != NULL, 0) does not return NULL, or free the memory\n\nat p.\n\nReturned pointers must be checked for NULL explicitly; no action is\n\nperformed on failure other than to return NULL (no warning it printed, no\n\nexception is set, etc).\n\nFor allocating objects, use PyObject\\_{New, NewVar} instead whenever\n\npossible. The PyObject\\_{Malloc, Realloc, Free} family is exposed\n\nso that you can exploit Python's small-block allocator for non-object\n\nuses. If you must use these routines to allocate object memory, make sure\n\nthe object gets initialized via PyObject\\_{Init, InitVar} after obtaining\n\nthe raw memory.\n\n\\*/\n\nPyAPI\\_FUNC(void\\*) PyObject\\_Malloc(size\\_tsize);\n\n#if !defined(Py\\_LIMITED\\_API) \\|\\|Py\\_LIMITED\\_API+0 >= 0x03050000\n\nPyAPI\\_FUNC(void\\*) PyObject\\_Calloc(size\\_tnelem, size\\_telsize);\n\n#endif\n\nPyAPI\\_FUNC(void\\*) PyObject\\_Realloc(void\\*ptr, size\\_tnew\\_size);\n\nPyAPI\\_FUNC(void) PyObject\\_Free(void\\*ptr);\n\n// Deprecated aliases only kept for backward compatibility.\n\n// PyObject\\_Del and PyObject\\_DEL are defined with no parameter to be able to\n\n// use them as function pointers (ex: tp\\_free = PyObject\\_Del).\n\n#definePyObject\\_MALLOC PyObject\\_Malloc\n\n#definePyObject\\_REALLOC PyObject\\_Realloc\n\n#definePyObject\\_FREE PyObject\\_Free\n\n#definePyObject\\_Del PyObject\\_Free\n\n#definePyObject\\_DEL PyObject\\_Free\n\n/\\*\n\n\\\\* Generic object allocator interface\n\n\\\\* ==================================\n\n\\*/\n\n/\\\\* Functions \\*/\n\nPyAPI\\_FUNC(PyObject\\*) PyObject\\_Init(PyObject\\*, PyTypeObject\\*);\n\nPyAPI\\_FUNC(PyVarObject\\*) PyObject\\_InitVar(PyVarObject\\*,\n\nPyTypeObject\\*, Py\\_ssize\\_t);\n\n#definePyObject\\_INIT(op, typeobj) \\\n\nPyObject\\_Init(\\_PyObject\\_CAST(op), (typeobj))\n\n#definePyObject\\_INIT\\_VAR(op, typeobj, size) \\\n\nPyObject\\_InitVar(\\_PyVarObject\\_CAST(op), (typeobj), (size))\n\nPyAPI\\_FUNC(PyObject\\*) \\_PyObject\\_New(PyTypeObject\\*);\n\nPyAPI\\_FUNC(PyVarObject\\*) \\_PyObject\\_NewVar(PyTypeObject\\*, Py\\_ssize\\_t);\n\n#definePyObject\\_New(type, typeobj) ((type \\*)\\_PyObject\\_New(typeobj))\n\n// Alias to PyObject\\_New(). In Python 3.8, PyObject\\_NEW() called directly\n\n// PyObject\\_MALLOC() with \\_PyObject\\_SIZE().\n\n#definePyObject\\_NEW(type, typeobj) PyObject\\_New(type, (typeobj))\n\n#definePyObject\\_NewVar(type, typeobj, n) \\\n\n( (type \\*) \\_PyObject\\_NewVar((typeobj), (n)) )\n\n// Alias to PyObject\\_NewVar(). In Python 3.8, PyObject\\_NEW\\_VAR() called\n\n// directly PyObject\\_MALLOC() with \\_PyObject\\_VAR\\_SIZE().\n\n#definePyObject\\_NEW\\_VAR(type, typeobj, n) PyObject\\_NewVar(type, (typeobj), (n))\n\n/\\*\n\n\\\\* Garbage Collection Support\n\n\\\\* ==========================\n\n\\*/\n\n/\\\\* C equivalent of gc.collect(). \\*/\n\nPyAPI\\_FUNC(Py\\_ssize\\_t) PyGC\\_Collect(void);\n\n/\\\\* C API for controlling the state of the garbage collector \\*/\n\nPyAPI\\_FUNC(int) PyGC\\_Enable(void);\n\nPyAPI\\_FUNC(int) PyGC\\_Disable(void);\n\nPyAPI\\_FUNC(int) PyGC\\_IsEnabled(void);\n\n/\\\\* Test if a type has a GC head \\*/\n\n#definePyType\\_IS\\_GC(t) PyType\\_HasFeature((t), Py\\_TPFLAGS\\_HAVE\\_GC)\n\nPyAPI\\_FUNC(PyVarObject\\*) \\_PyObject\\_GC\\_Resize(PyVarObject\\*, Py\\_ssize\\_t);\n\n#definePyObject\\_GC\\_Resize(type, op, n) \\\n\n( (type \\*) \\_PyObject\\_GC\\_Resize(\\_PyVarObject\\_CAST(op), (n)) )\n\nPyAPI\\_FUNC(PyObject\\*) \\_PyObject\\_GC\\_New(PyTypeObject\\*);\n\nPyAPI\\_FUNC(PyVarObject\\*) \\_PyObject\\_GC\\_NewVar(PyTypeObject\\*, Py\\_ssize\\_t);\n\n/\\\\* Tell the GC to track this object.\n\n\\*\n\n\\\\* See also private \\_PyObject\\_GC\\_TRACK() macro. \\*/\n\nPyAPI\\_FUNC(void) PyObject\\_GC\\_Track(void\\*);\n\n/\\\\* Tell the GC to stop tracking this object.\n\n\\*\n\n\\\\* See also private \\_PyObject\\_GC\\_UNTRACK() macro. \\*/\n\nPyAPI\\_FUNC(void) PyObject\\_GC\\_UnTrack(void\\*);\n\nPyAPI\\_FUNC(void) PyObject\\_GC\\_Del(void\\*);\n\n#definePyObject\\_GC\\_New(type, typeobj) \\\n\n\\_Py\\_CAST(type\\*, \\_PyObject\\_GC\\_New(typeobj))\n\n#definePyObject\\_GC\\_NewVar(type, typeobj, n) \\\n\n\\_Py\\_CAST(type\\*, \\_PyObject\\_GC\\_NewVar((typeobj), (n)))\n\nPyAPI\\_FUNC(int) PyObject\\_GC\\_IsTracked(PyObject\\*);\n\nPyAPI\\_FUNC(int) PyObject\\_GC\\_IsFinalized(PyObject\\*);\n\n/\\\\* Utility macro to help write tp\\_traverse functions.\n\n\\\\* To use this macro, the tp\\_traverse function must name its arguments\n\n\\\\* \"visit\" and \"arg\". This is intended to keep tp\\_traverse functions\n\n\\\\* looking as much alike as possible.\n\n\\*/\n\n#definePy\\_VISIT(op) \\\n\ndo { \\\n\nif (op) { \\\n\nint vret = visit(\\_PyObject\\_CAST(op), arg); \\\n\nif (vret) \\\n\nreturn vret; \\\n\n} \\\n\n} while (0)\n\n#ifndefPy\\_LIMITED\\_API\n\n\\# definePy\\_CPYTHON\\_OBJIMPL\\_H\n\n\\# include\"cpython/objimpl.h\"\n\n\\# undef Py\\_CPYTHON\\_OBJIMPL\\_H\n\n#endif\n\n#ifdef\\_\\_cplusplus\n\n}\n\n#endif\n\n#endif// !Py\\_OBJIMPL\\_H\n\nYou can’t perform that action at this time.",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "color-scheme": "light dark",
+        "twitter:image": "https://opengraph.githubassets.com/0bee188b46c66acee547a334b437593fa5321175ea31612f3a60ca707263adb9/python/cpython",
+        "octolytics-dimension-user_login": "python",
+        "react-profiling": "0",
+        "octolytics-dimension-repository_is_fork": "false",
+        "route-pattern": "/:user_id/:repository/blob/*name(/*path)",
+        "og:image:width": "1200",
+        "octolytics-dimension-repository_network_root_nwo": "python/cpython",
+        "go-import": "github.com/python/cpython git https://github.com/python/cpython.git",
+        "octolytics-dimension-user_id": "1525981",
+        "theme-color": "#1e2327",
+        "title": "cpython/Include/objimpl.h at main · python/cpython · GitHub",
+        "route-action": "show",
+        "browser-errors-url": "https://api.github.com/_private/browser/errors",
+        "hostname": "github.com",
+        "octolytics-dimension-repository_nwo": "python/cpython",
+        "og:image:height": "600",
+        "fb:app_id": "1401488693436528",
+        "react-import-map": "react,react-dom,react-dom/client,react-dom/profiling,react-is,react-reconciler,react/compiler-runtime,react/jsx-dev-runtime,react/jsx-runtime,scheduler@777f63f87cd0",
+        "apple-itunes-app": "app-id=1477376905, app-argument=https://github.com/python/cpython/blob/main/Include/objimpl.h",
+        "og:image:alt": "The Python programming language. Contribute to python/cpython development by creating an account on GitHub.",
+        "octolytics-dimension-repository_network_root_id": "81598961",
+        "fetch-nonce": "v2:59a808ed-476e-edd1-d14b-2accec9eccd3",
+        "disable-turbo": "false",
+        "turbo-body-classes": "logged-out env-production page-responsive",
+        "release": "41b638629a4e611e024172d6ddfc0660cec6fb3c",
+        "html-safe-nonce": "b043440f0c7561e822cdaed18ef6244381e853ca72cde11f4fcacc5488342fe3",
+        "twitter:title": "cpython/Include/objimpl.h at main · python/cpython",
+        "route-controller": "blob",
+        "og:description": "The Python programming language. Contribute to python/cpython development by creating an account on GitHub.",
+        "expected-hostname": "github.com",
+        "ui-target": "full",
+        "hovercard-subject-tag": "repository:81598961",
+        "ogDescription": "The Python programming language. Contribute to python/cpython development by creating an account on GitHub.",
+        "ogSiteName": "GitHub",
+        "description": "The Python programming language. Contribute to python/cpython development by creating an account on GitHub.",
+        "twitter:card": "summary_large_image",
+        "github-keyboard-shortcuts": "repository,source-code,file-tree,copilot",
+        "ogTitle": "cpython/Include/objimpl.h at main · python/cpython",
+        "viewport": "width=device-width",
+        "twitter:description": "The Python programming language. Contribute to python/cpython development by creating an account on GitHub.",
+        "turbo-cache-control": [
+          "no-preview",
+          "no-cache"
+        ],
+        "language": "en",
+        "og:url": "https://github.com/python/cpython/blob/main/Include/objimpl.h",
+        "octolytics-dimension-repository_public": "true",
+        "og:site_name": "GitHub",
+        "octolytics-url": "https://collector.github.com/github/collect",
+        "og:title": "cpython/Include/objimpl.h at main · python/cpython",
+        "current-catalog-service-hash": "f3abb0cc802f3d7b95fc8762b94bdcb13bf39634c40c357301c4aa1d67a256fb",
+        "google-site-verification": "Apib7-x98H0j5cPqHWwSMm6dNU4GmODRoqxLiDzdx9I",
+        "browser-stats-url": "https://api.github.com/_private/browser/stats",
+        "twitter:site": "@github",
+        "ogUrl": "https://github.com/python/cpython/blob/main/Include/objimpl.h",
+        "user-login": "",
+        "ogImage": "https://opengraph.githubassets.com/0bee188b46c66acee547a334b437593fa5321175ea31612f3a60ca707263adb9/python/cpython",
+        "og:image": "https://opengraph.githubassets.com/0bee188b46c66acee547a334b437593fa5321175ea31612f3a60ca707263adb9/python/cpython",
+        "visitor-payload": "eyJyZWZlcnJlciI6Imh0dHBzOi8vZ2l0aHViLmNvbS9weXRob24vY3B5dGhvbi9ibG9iL21haW4vSW5jbHVkZS9vYmppbXBsLmgiLCJyZXF1ZXN0X2lkIjoiM0Q2QjozQkMzMUI6MTE3NDlBNDoxNzc5MkI5OjZBRDA4QjhFIiwidmlzaXRvcl9pZCI6IjQyODM2NTU2NjM4OTk0MTMzOTAiLCJyZWdpb25fZWRnZSI6ImlhZCIsInJlZ2lvbl9yZW5kZXIiOiJpYWQifQ==",
+        "analytics-location": "/<user-name>/<repo-name>/blob/show",
+        "og:type": "object",
+        "octolytics-dimension-repository_id": "81598961",
+        "visitor-hmac": "775d6eedcba839f707f01afceca040f048491f7d5da20faecd6edf17f3676642",
+        "request-id": "3D6B:3BC31B:11749A4:17792B9:6AD08B8E",
+        "favicon": "https://github.githubassets.com/favicons/favicon.svg",
+        "scrapeId": "01a143e6-a8f3-762b-b54b-5686a00a3b37",
+        "sourceURL": "https://github.com/python/cpython/blob/main/Include/objimpl.h",
+        "url": "https://github.com/python/cpython/blob/main/Include/objimpl.h",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "proxyUsed": "basic",
+        "cacheState": "hit",
+        "cachedAt": "2026-10-15T08:15:15.331Z",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 368,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 369
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 17942,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 0
+  }
+}

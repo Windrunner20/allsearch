@@ -1,0 +1,347 @@
+{
+  "id": "ho-dual-go-rust",
+  "executed_at": "2026-10-16T08:53:37.602073+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "Compare the Go language specification section on defer statements with the Rust Reference page on destructors",
+  "answer": "Both mechanisms schedule cleanup, but Go `defer` is an explicit function-level stack of calls, while Rust destructors are automatic, scope- and value-based drops.\n\n### Go spec: defer statements\nSource: [The Go Programming Language Specification — Defer statements](https://go.dev/ref/spec#Defer_statements) (language version go1.27). Supporting explanation: [Defer, Panic, and Recover](https://go.dev/blog/defer-panic-and-recover).\n\n- A `defer` statement is `defer` plus a function or method call (not parenthesized; built-in calls are restricted as in expression statements).\n- Each time it runs, the function value and arguments are evaluated and saved; the call itself is not run yet.\n- Saved calls run immediately before the surrounding function returns—on an explicit `return`, when the function body ends, or while the goroutine is panicking—in reverse order of deferral (LIFO).\n- On an explicit return, defers run after result parameters are set and before the function returns to its caller, so they can read and assign named results.\n- A nil function value panics when the deferred call is invoked, not when the `defer` statement is executed.\n- Defers are tied to the function, not to nested blocks.\n\n### Rust Reference: destructors\nSource: [The Rust Reference — Destructors](https://doc.rust-lang.org/reference/destructors.html). Extra detail (not the Reference): [The Rustonomicon — Destructors](https://doc.rust-lang.org/rustonomicon/destructors.html).\n\n- When an initialized variable or temporary leaves its drop scope, or when an initialized place is overwritten by assignment, its destructor runs. Uninitialized values are not dropped; after a partial move, only still-initialized fields are dropped.\n- For a type `T`, drop is: if `T: Drop`, call `<T as Drop>::drop`, then recursively drop fields. Struct, enum-variant, and tuple fields drop in declaration order; array and owned-slice elements drop first to last; closure captures by move drop in an unspecified order.\n- Locals in a scope drop in reverse order of declaration (temporaries in reverse order of creation). Nested scopes unwind from the inside out. Function parameters are in the whole-function scope and drop last.\n- `core::ptr::drop_in_place` runs a destructor manually (for example, custom smart pointers).\n- Drop is attached to values and scopes (blocks, statements, match arms, temporaries), not to an explicit statement list. At a non-unwinding ABI boundary, either no destructors run or those up to the boundary do.\n\n### Comparison\n\n| | Go `defer` | Rust destructors |\n|---|---|---|\n| Trigger | Explicit `defer` of a call | Automatic when a value leaves scope or is overwritten |\n| Granularity | Whole surrounding function | Drop scopes (blocks, statements, match arms, temporaries) and fields |\n| Order | LIFO among deferred calls in that function | Locals/temporaries reverse declaration/creation order; fields mostly declaration order |\n| What runs | An arbitrary saved function call | `Drop::drop` plus recursive field drops |\n| Arguments | Evaluated at the `defer` statement | No separate call arguments; the value itself is dropped |\n| Return values | May modify named results after they are set | Drop does not rewrite return values the way Go defers do |\n| Failure path | Runs during panic before the function unwinds further | Runs on unwind; special case at non-unwinding ABI boundaries |\n| Manual control | Only by writing `defer` | `drop_in_place`, moves, and `mem::forget` (the last skips drop) |\n\nThey overlap as “cleanup on the way out,” and both use a reverse order for stacked cleanups, but Go’s model is a programmer-managed call stack per function, while Rust’s is part of ownership: every initialized value has a destructor whether or not `Drop` is implemented.",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://go.dev/doc/progs/defer.go?h=defer",
+      "url": "https://go.dev/doc/progs/defer.go?h=defer",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "https://doc.rust-lang.org/1.24.1/reference/destructors.html",
+      "url": "https://doc.rust-lang.org/1.24.1/reference/destructors.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://doc.rust-lang.org/1.85.1/reference/destructors.html",
+      "url": "https://doc.rust-lang.org/1.85.1/reference/destructors.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "https://golang.design/under-the-hood/en/part2lang/ch06func/defer/",
+      "url": "https://golang.design/under-the-hood/en/part2lang/ch06func/defer",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://www.boot.dev/blog/golang/defer-golang",
+      "url": "https://www.boot.dev/blog/golang/defer-golang",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "https://pkg.go.dev/github.com/tkdn/deferargs",
+      "url": "https://pkg.go.dev/github.com/tkdn/deferargs",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://go.dev/blog/defer-panic-and-recover",
+      "url": "https://go.dev/blog/defer-panic-and-recover",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "https://cs.opensource.google/go/go/+/master:doc/go_spec.html;bpv=1;bpt=0;drc=5c51011e82ed754af072baaf4338ff35e76fe705",
+      "url": "https://cs.opensource.google/go/go/+/master:doc/go_spec.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://go.dev/doc/progs/defer.go?h=defer",
+      "url": "https://go.dev/doc/progs/defer.go?h=defer",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "https://doc.rust-lang.org/1.24.1/reference/destructors.html",
+      "url": "https://doc.rust-lang.org/1.24.1/reference/destructors.html",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://doc.rust-lang.org/1.85.1/reference/destructors.html",
+      "url": "https://doc.rust-lang.org/1.85.1/reference/destructors.html",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "https://golang.design/under-the-hood/en/part2lang/ch06func/defer/",
+      "url": "https://golang.design/under-the-hood/en/part2lang/ch06func/defer",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://www.boot.dev/blog/golang/defer-golang",
+      "url": "https://www.boot.dev/blog/golang/defer-golang",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "https://pkg.go.dev/github.com/tkdn/deferargs",
+      "url": "https://pkg.go.dev/github.com/tkdn/deferargs",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://go.dev/blog/defer-panic-and-recover",
+      "url": "https://go.dev/blog/defer-panic-and-recover",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "https://cs.opensource.google/go/go/+/master:doc/go_spec.html;bpv=1;bpt=0;drc=5c51011e82ed754af072baaf4338ff35e76fe705",
+      "url": "https://cs.opensource.google/go/go/+/master:doc/go_spec.html",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://pkg.go.dev/github.com/researchlab/gbp/defer",
+      "url": "https://pkg.go.dev/github.com/researchlab/gbp/defer",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://github.com/golang/go/issues/38520",
+      "url": "https://github.com/golang/go/issues/38520",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://go.dev/tour/flowcontrol/12",
+      "url": "https://go.dev/tour/flowcontrol/12",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://doc.rust-lang.org/rustonomicon/destructors.html",
+      "url": "https://doc.rust-lang.org/rustonomicon/destructors.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://go.dev/ref/spec#Defer_statements",
+      "url": "https://go.dev/ref/spec",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://go.dev/tour/flowcontrol/13",
+      "url": "https://go.dev/tour/flowcontrol/13",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://go.dev/src/cmd/vendor/golang.org/x/tools/go/analysis/passes/defers/defers.go?m=text",
+      "url": "https://go.dev/src/cmd/vendor/golang.org/x/tools/go/analysis/passes/defers/defers.go?m=text",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://golang.org/src/runtime/defer_test.go?m=text",
+      "url": "https://golang.org/src/runtime/defer_test.go?m=text",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://go.dev/doc/progs/defer2.go",
+      "url": "https://go.dev/doc/progs/defer2.go",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://doc.rust-lang.org/reference/destructors.html",
+      "url": "https://doc.rust-lang.org/reference/destructors.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 23654,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "comparison_signal"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "timed_out": false,
+  "elapsed_ms": 23656,
+  "usage": {
+    "calls": {
+      "xai.search": 1
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 0
+  }
+}

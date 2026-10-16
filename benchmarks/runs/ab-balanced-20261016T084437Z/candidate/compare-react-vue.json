@@ -1,0 +1,235 @@
+{
+  "id": "compare-react-vue",
+  "executed_at": "2026-10-16T08:47:37.891952+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.3.0",
+  "provider_query": "对比 React 官方的 managing state 和 Vue 官方的 reactivity fundamentals",
+  "answer": "React 的 [Managing State](https://react.dev/learn/managing-state) 讲的是**组件状态怎么组织与流动**；Vue 的 [Reactivity Fundamentals](https://vuejs.org/guide/essentials/reactivity-fundamentals) 讲的是**响应式数据怎么声明、追踪与更新**。两者官方定位不同，不是同一层 API 对照。\n\n1. **主题范围**  \n   React 这一章是中级应用架构：UI 变化当作 state 变化、避免冗余 state、lift state up、用 `key` 控制保留/重置、reducer、Context 扩展。  \n   Vue 这一页是基础机制：Options 的 `data()`、Composition 的 `ref()` / `reactive()`、依赖追踪、深层响应、DOM 更新时机。  \n   [[1]](https://react.dev/learn/managing-state) [[2]](https://vuejs.org/guide/essentials/reactivity-fundamentals.html)\n\n2. **心智模型**  \n   React：不要直接改 UI（“禁用按钮”等命令），而是声明不同视觉状态，由 state 驱动渲染。  \n   Vue：改响应式数据，系统自动 track / trigger，视图跟着更新；模板里用到的 ref 会被追踪。  \n   [[1]](https://react.dev/learn/managing-state) [[2]](https://vuejs.org/guide/essentials/reactivity-fundamentals.html)\n\n3. **声明方式**  \n   React 章节示例主要是 `useState` / `useReducer`：不可变替换，setter 触发重渲染。  \n   Vue：Options 用 `data()` 返回对象并代理到 `this`；Composition 推荐 `ref()`（`.value`），对象也可用 `reactive()`。模板里 ref 自动解包，脚本里要 `.value`。  \n   [[1]](https://react.dev/learn/managing-state) [[2]](https://vuejs.org/guide/essentials/reactivity-fundamentals.html)\n\n4. **可变性**  \n   React Managing State 延续官方原则：state 只读，对象/数组应替换而不是就地改（章节里用计算值替代重复 state）。  \n   Vue 默认**深层可变**：嵌套对象属性、数组 `push` 都会被检测到；可用 shallow ref 退出深层追踪。  \n   [[1]](https://react.dev/learn/managing-state) [[2]](https://vuejs.org/guide/essentials/reactivity-fundamentals.html)\n\n5. **派生数据**  \n   React 明确反对把可计算值再存一份 state（例如 `fullName`），渲染时直接算。  \n   Vue 本页不展开 computed，但机制上依赖追踪就是为派生与重渲染服务；派生 API 在 Reactivity API（`computed`）里。  \n   [[1]](https://react.dev/learn/managing-state) [[3]](https://vuejs.org/api/reactivity-core.html)\n\n6. **更新时机**  \n   Vue 写明 DOM 更新是缓冲到 next tick，不是同步；可用 `nextTick` 等待 DOM。  \n   React 本章不讲调度细节，重点是 state 结构与数据流；更新本身由 setState / dispatch 排队再渲染。  \n   [[2]](https://vuejs.org/guide/essentials/reactivity-fundamentals.html) [[1]](https://react.dev/learn/managing-state)\n\n7. **跨组件共享**  \n   React 本章的核心操作是 lifting state up，再往下用 props；更远则 Context + reducer。  \n   Vue Reactivity Fundamentals 几乎不讲跨组件架构，响应式是实例/`setup` 作用域内的数据能力。  \n   [[1]](https://react.dev/learn/managing-state) [[2]](https://vuejs.org/guide/essentials/reactivity-fundamentals.html)\n\n8. **实现要点（Vue 页内说明）**  \n   Vue 3 用 Proxy 做对象响应式；ref 用 getter/setter 拦截 `.value` 以 track/trigger。普通局部变量无法被追踪，所以需要 ref 包装。  \n   React Managing State 不描述内部追踪实现，把 reactivity 当成“声明 state → 重渲染”的约定。更底层对照应看 Vue [Reactivity in Depth](https://vuejs.org/guide/extras/reactivity-in-depth.html)，而不是这篇 fundamentals。  \n   [[2]](https://vuejs.org/guide/essentials/reactivity-fundamentals.html) [[4]](https://vuejs.org/guide/extras/reactivity-in-depth.html)\n\n**一句话**：React 文档教你**把哪些数据放进 state、放在哪一层**；Vue 文档教你**怎样让一份数据变成可追踪、可突变并驱动视图**。",
+  "results": [
+    {
+      "id": "r1",
+      "title": "1",
+      "url": "https://react.dev/learn/managing-state",
+      "snippet": "React 的 Managing State 讲的是 组件状态怎么组织与流动 ；Vue 的 Reactivity Fundamentals 讲的是 响应式数据怎么声明、追踪与更新 。两者官方定位不同，不是同一层 API 对照。",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r2",
+      "title": "2",
+      "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "3",
+      "url": "https://vuejs.org/api/reactivity-core.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "4",
+      "url": "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+      "snippet": "8. 实现要点（Vue 页内说明） Vue 3 用 Proxy 做对象响应式；ref 用 getter/setter 拦截 .value 以 track/trigger。普通局部变量无法被追踪，所以需要 ref 包装。 React Managing State 不描述内部追踪实现，把 reactivity 当成“声明 state → 重渲染”的约定。更底层对照应看 Vue Reactivity in Depth，而不是这篇 fundamentals。 [[2]]( [[4]](",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r5",
+      "title": "Reactivity Fundamentals",
+      "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+      "snippet": "React 的 Managing State 讲的是 组件状态怎么组织与流动 ；Vue 的 Reactivity Fundamentals 讲的是 响应式数据怎么声明、追踪与更新 。两者官方定位不同，不是同一层 API 对照。",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "from_answer": true,
+        "snippet_source": "answer_context"
+      }
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "1",
+      "url": "https://react.dev/learn/managing-state",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "2",
+      "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "3",
+      "url": "https://vuejs.org/api/reactivity-core.html",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "4",
+      "url": "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "Reactivity Fundamentals",
+      "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 22263,
+        "detail": "model=grok-4.7",
+        "usage": {
+          "input_tokens": 35965,
+          "input_tokens_details": {
+            "cached_tokens": 6528
+          },
+          "output_tokens": 1359,
+          "output_tokens_details": {
+            "reasoning_tokens": 157
+          },
+          "total_tokens": 37324,
+          "num_sources_used": 0,
+          "num_server_side_tools_used": 6,
+          "cost_in_usd_ticks": 538992800,
+          "server_side_tool_usage_details": {
+            "web_search_calls": 6,
+            "x_search_calls": 0,
+            "x_posts_fetched": 0,
+            "x_users_fetched": 0,
+            "code_interpreter_calls": 0,
+            "file_search_calls": 0,
+            "mcp_calls": 0,
+            "document_search_calls": 0,
+            "image_generation_calls": 0
+          },
+          "context_details": {
+            "input_tokens": 21582,
+            "output_tokens": 1158
+          }
+        }
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null,
+        "usage": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "comparison_signal"
+    ]
+  },
+  "coverage": {
+    "status": "sufficient",
+    "requirements": [
+      {
+        "kind": "entity",
+        "target": "React managing state",
+        "satisfied": true,
+        "detail": "covered by a result title, snippet or URL"
+      },
+      {
+        "kind": "entity",
+        "target": "Vue reactivity fundamentals",
+        "satisfied": true,
+        "detail": "covered by a result title, snippet or URL"
+      }
+    ]
+  },
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "timed_out": false,
+  "elapsed_ms": 22267,
+  "usage": {
+    "calls": {
+      "xai.search": 1
+    },
+    "xai_cost_ticks": 538992800,
+    "tavily_credits_estimate": 0
+  }
+}

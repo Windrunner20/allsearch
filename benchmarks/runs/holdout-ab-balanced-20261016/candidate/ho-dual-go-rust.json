@@ -1,0 +1,542 @@
+{
+  "id": "ho-dual-go-rust",
+  "executed_at": "2026-10-16T08:53:29.422925+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.3.0",
+  "provider_query": "Compare the Go language specification section on defer statements with the Rust Reference page on destructors",
+  "answer": "Both features schedule cleanup, but they are different mechanisms: Go `defer` is an explicit stacked function call tied to function return (and panic); Rust destructors are automatic drops tied to scope, assignment, and field structure.\n\n**Go — Defer statements** ([spec](https://go.dev/ref/spec#Defer_statements))\n\n1. A `defer` runs a function call when the surrounding function returns: via `return`, falling off the function body, or because the goroutine is panicking. Syntax is `DeferStmt = \"defer\" Expression`. The expression must be a function or method call and cannot be parenthesized. [web:16][web:18]\n\n2. Each time `defer` executes, the function value and arguments are evaluated and saved; the call itself is not run yet. Deferred calls run immediately before the function returns, in reverse order of deferral (LIFO). [web:16][web:18]\n\n3. On an explicit `return`, result parameters are set first, then deferred functions run, then the function returns to its caller. A function literal can read and modify named result parameters that are in scope (the spec’s example: `return 6` plus `result *= 7` yields 42). [web:16][web:18]\n\n4. If the deferred function value is `nil`, the panic happens when the deferred call is invoked, not when the `defer` statement runs. [web:16][web:18]\n\n**Rust — Destructors** ([reference](https://doc.rust-lang.org/reference/destructors.html))\n\n5. When an initialized variable or temporary leaves its drop scope, its destructor runs (“it is dropped”). Assignment also drops the previous value of the left-hand side if it was initialized. After a partial move, only still-initialized fields are dropped. [web:5][web:13]\n\n6. Drop of `T` is: if `T: Drop`, call `<T as Drop>::drop`, then recursively drop fields. Struct, enum-variant, and tuple fields drop in declaration order; array/slice elements from first to last; closure captures-by-move in an unspecified order. [web:5][web:13]\n\n7. Locals in a drop scope drop in reverse order of declaration (temporaries in reverse order of creation). Nested scopes unwind inside-out. Function parameters are in the whole-function scope and drop last. Manual drop (for example a custom smart pointer) uses `drop_in_place`. [web:5][web:13]\n\n**How they differ**\n\n8. Go cleanup is opt-in, function-scoped, and argument-capturing at the `defer` site; order is purely defer-stack LIFO, and defers can change named returns and run on panic. Rust cleanup is type- and scope-driven RAII: every value drops unless moved or forgotten, order is declaration/creation within drop scopes (fields in declaration order, not reverse), and assignment itself can drop. Go has no automatic per-variable destructor; Rust has no `defer` statement in the reference’s destructor rules. [web:16][web:13]",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://go.dev/blog/defer-panic-and-recover",
+      "url": "https://go.dev/blog/defer-panic-and-recover",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "The Go Programming Language Specification - The Go Programming Language",
+      "url": "https://go.dev/ref/spec",
+      "snippet": "A \"defer\" statement invokes a function whose execution is deferred to the moment the surrounding function returns, either because the surrounding function executed a return statement, reached the end of its function body, or because the corresponding goroutine is panicking.\n\nDeferStmt = \"defer\" Expression .\n\nThe expression must be a function or method call; it cannot be parenthesized. Calls of built-in functions are restricted as for expression statements. [...] A \"fallthrough\" statement transfers control to the first statement of the next case clause in an expression \"switch\" statement. It may be used only as the final non-empty statement in such a clause.\n\nFallthroughStmt = \"fallthrough\" .\n\n### Defer statements¶ [...] Statement  = Declaration | LabeledStmt | SimpleStmt |\n             GoStmt | ReturnStmt | BreakStmt | ContinueStmt | GotoStmt |\n             FallthroughStmt | Block | IfStmt | SwitchStmt | SelectStmt | ForStmt |\n             DeferStmt .\n\nSimpleStmt = EmptyStmt | ExpressionStmt | SendStmt | IncDecStmt | Assignment | ShortVarDecl .\n\n### Terminating statements¶\n\nA _terminating statement_ interrupts the regular flow of control in a block. The following statements are terminating:",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "tavily"
+      ],
+      "score": 0.9159971,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "Destructors - The Rust Reference",
+      "url": "https://doc.rust-lang.org/reference/destructors.html",
+      "snippet": "The destructor of a type `T` consists of:\n\n`T`\n`T: Drop`\n`<T as core::ops::Drop>::drop`\n\nIf a destructor must be run manually, such as when implementing your own smart pointer, `core::ptr::drop_in_place` can be used.\n\n`core::ptr::drop_in_place`\n\nSome examples: [...] ## Keyboard shortcuts\n\nPress `←` or `→` to navigate between chapters\n\nPress `S` or `/` to search in the book\n\nPress `?` to show this help\n\nPress `Esc` to hide this help\n\n# The Rust Reference\n\n# Destructors\n\nWhen an initialized variable or temporary goes out of scope, its destructor is run or it is dropped. Assignment also runs the destructor of its left-hand operand, if it’s initialized. If a variable has been partially initialized, only its initialized fields are dropped. [...] Promotion of a value expression to a `'static` slot occurs when the expression could be written in a constant and borrowed, and that borrow could be dereferenced where the expression was originally written, without changing the runtime behavior. That is, the promoted expression can be evaluated at compile-time and the resulting value does not contain interior mutability or destructors (these properties are determined based on the value where possible, e.g. `&None` always has the type `&'static",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "tavily"
+      ],
+      "score": 0.8737439,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "https://pkg.go.dev/golang.org/x/tools/go/analysis/passes/defers@v0.26.0",
+      "url": "https://pkg.go.dev/golang.org/x/tools/go/analysis/passes/defers@v0.26.0",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "Effective Go - The Go Programming Language",
+      "url": "https://go.dev/doc/effective_go",
+      "snippet": "### Defer\n\nGo's defer statement schedules a function call (the deferred function) to be run immediately before the function executing the defer returns. It's an unusual but effective way to deal with situations such as resources that must be released regardless of which path a function takes to return. The canonical examples are unlocking a mutex or closing a file. [...] prints\n\n```\nentering: b in b entering: a in a leaving: a leaving: b \n```\n\nFor programmers accustomed to block-level resource management from other languages, defer may seem peculiar, but its most interesting and powerful applications come precisely from the fact that it's not block-based but function-based. In the section on panic and recover we'll see another example of its possibilities.\n\n## Data\n\n### Allocation with new [...] The arguments to the deferred function (which include the receiver if the function is a method) are evaluated when the defer executes, not when the call executes. Besides avoiding worries about variables changing values as the function executes, this means that a single deferred call site can defer multiple function executions. Here's a silly example.\n\n```\nfor i := 0; i < 5; i++ { defer fmt.Printf(\"%d \", i) } \n```",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.8066246,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "Destructors - The Rust Reference",
+      "url": "https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/reference/destructors.html",
+      "snippet": "# Destructors\n\nWhen an initialized variable in Rust goes out of scope or a temporary is no longer needed its destructor is run. Assignment also runs the destructor of its left-hand operand, unless it's an unitialized variable. If a struct variable has been partially initialized, only its initialized fields are dropped.\n\nThe destrutor of a type consists of [...] ```\n\n## Not running destructors\n\nNot running destructors in Rust is safe even if it has a type that isn't `'static`. `std::mem::ManuallyDrop` provides a wrapper to prevent a variable or field from being dropped automatically. [...] 1. Calling its `std::ops::Drop::drop` method, if it has one.\n2. Recursively running the destructor of all of its fields.\n    The fields of a struct, tuple or enum variant are dropped in declaration order. \\\n    The elements of an array or owned slice are dropped from the first element to the last. \\\n    The captured values of a closure are dropped in an unspecified order.\n    Trait objects run the destructor of the underlying type.\n    Other types don't result in any further drops.",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.86767644,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://cs.opensource.google/go/go/+/master:doc/go_spec.html;bpv=1;bpt=0;drc=5c51011e82ed754af072baaf4338ff35e76fe705",
+      "url": "https://cs.opensource.google/go/go/+/master:doc/go_spec.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "defer: The Go Feature Everyone Uses and Almost No One Understands",
+      "url": "https://thecodinggopher.substack.com/p/defer-the-go-feature-everyone-uses",
+      "snippet": "The `defer` statement in Go is used to postpone the execution of a function until the surrounding function returns. This mechanism is primarily used for cleanup actions, such as closing files, releasing resources, or unlocking mutexes, ensuring these actions run regardless of how the function exits (e.g., normally, via a `return`, or due to a `panic`).\n\n### Concepts\n\nTiming of Execution. A deferred function is executed when the function that contains the defer statement finishes. [...] At the language level, `defer` is simple: it schedules a function call to run after the surrounding function returns, regardless of how it exits.\n\n```\nfunc example() { defer fmt.Println(\"world\") fmt.Println(\"hello\") }\n```\n\nThis prints:\n\n```\nhello world\n```\n\nWhat’s less obvious is that `defer` also captures arguments at the point where `defer` is executed, not when the function returns.\n\n```\nfor i := 0; i < 3; i++ { defer fmt.Println(i) }\n```\n\nThis prints:\n\n```\n2 1 0\n``` [...] > Open-coded defers are a performance optimization for simple `defer` statements that don't involve loops, where the compiler generates inline machine code for the deferred function instead of creating a separate runtime structure (like a heap-allocated `defer` struct). This approach significantly reduces overhead, making `defer` nearly a zero-cost abstraction in these common scenarios, as the function and its arguments' locations are known at compile time and managed directly on the stack.",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.796562,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://go.dev/blog/defer-panic-and-recover",
+      "url": "https://go.dev/blog/defer-panic-and-recover",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "The Go Programming Language Specification - The Go Programming Language",
+      "url": "https://go.dev/ref/spec",
+      "result_id": "r2",
+      "providers": [
+        "xai",
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "Destructors - The Rust Reference",
+      "url": "https://doc.rust-lang.org/reference/destructors.html",
+      "result_id": "r3",
+      "providers": [
+        "xai",
+        "tavily"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "https://pkg.go.dev/golang.org/x/tools/go/analysis/passes/defers@v0.26.0",
+      "url": "https://pkg.go.dev/golang.org/x/tools/go/analysis/passes/defers@v0.26.0",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "Effective Go - The Go Programming Language",
+      "url": "https://go.dev/doc/effective_go",
+      "result_id": "r5",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "Destructors - The Rust Reference",
+      "url": "https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/reference/destructors.html",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://cs.opensource.google/go/go/+/master:doc/go_spec.html;bpv=1;bpt=0;drc=5c51011e82ed754af072baaf4338ff35e76fe705",
+      "url": "https://cs.opensource.google/go/go/+/master:doc/go_spec.html",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "defer: The Go Feature Everyone Uses and Almost No One Understands",
+      "url": "https://thecodinggopher.substack.com/p/defer-the-go-feature-everyone-uses",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://boldlygo.tech/archive/2024-08-26-defer-execution-order/",
+      "url": "https://boldlygo.tech/archive/2024-08-26-defer-execution-order",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://golang.design/under-the-hood/en/part2lang/ch06func/defer/",
+      "url": "https://golang.design/under-the-hood/en/part2lang/ch06func/defer",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://cs.opensource.google/go/go/+/f6f024f1209d99dec79ae2aeb9d50677d627ffd6:doc/go_spec.html;bpv=1;bpt=0;drc=206fd7886b717d49758de9c125c1fd3575d74ef6;dlc=8a2b5f1f39152e45e6cfe6264612f00891d0327e",
+      "url": "https://cs.opensource.google/go/go/+/f6f024f1209d99dec79ae2aeb9d50677d627ffd6:doc/go_spec.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://stackoverflow.com/revisions/55950822/3",
+      "url": "https://stackoverflow.com/revisions/55950822/3",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://groups.google.com/g/golang-codereviews/c/_hvfTLp77yc",
+      "url": "https://groups.google.com/g/golang-codereviews/c/_hvfTLp77yc",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://www.boot.dev/blog/golang/defer-golang",
+      "url": "https://www.boot.dev/blog/golang/defer-golang",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://doc.rust-lang.org/1.26.2/reference/destructors.html",
+      "url": "https://doc.rust-lang.org/1.26.2/reference/destructors.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://boldlygo.tech/archive/2024-09-23-panicking-and-deferred-functions/",
+      "url": "https://boldlygo.tech/archive/2024-09-23-panicking-and-deferred-functions",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://doc.rust-lang.org/rustonomicon/destructors.html",
+      "url": "https://doc.rust-lang.org/rustonomicon/destructors.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://go.dev/doc/progs/defer.go?h=defer",
+      "url": "https://go.dev/doc/progs/defer.go?h=defer",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "https://stackoverflow.com/questions/69818560/whats-the-order-of-defer-and-named-return-value",
+      "url": "https://stackoverflow.com/questions/69818560/whats-the-order-of-defer-and-named-return-value",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "https://stackoverflow.com/questions/52750837/why-isnt-the-return-value-returned-when-this-deferred-statement-without-a-retu",
+      "url": "https://stackoverflow.com/questions/52750837/why-isnt-the-return-value-returned-when-this-deferred-statement-without-a-retu",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c21",
+      "title": "https://doc.rust-lang.org/1.85.1/reference/destructors.html",
+      "url": "https://doc.rust-lang.org/1.85.1/reference/destructors.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c22",
+      "title": "https://go.dev/tour/flowcontrol/13",
+      "url": "https://go.dev/tour/flowcontrol/13",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c23",
+      "title": "Defer a function call (with return value) · YourBasic Go",
+      "url": "https://yourbasic.org/golang/defer",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c24",
+      "title": "Understanding defer in Go",
+      "url": "https://www.youtube.com/watch?v=iqXVKW0r8NI",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c25",
+      "title": "Annex 1 Discrimination Specification Content Section 1",
+      "url": "https://assets.publishing.service.gov.uk/media/5feb37e1d3bf7f089339bff7/2018_Civil_Legal_Advice__Discrimination__Contract_Specification_January_2021__Clean_.pdf",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c26",
+      "title": "job specification",
+      "url": "https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/484518/Economist__December_2015_.pdf",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c27",
+      "title": "SEC.gov | EDGAR Form N-CEN XML Technical Specification (Version 2.2)",
+      "url": "https://www.sec.gov/info/edgar/specifications/form-n-cen-xml-tech-specs-2.2.htm",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c28",
+      "title": "Destructors - The Rust Reference",
+      "url": "https://rustwiki.org/en/reference/destructors.html",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c29",
+      "title": "Destructors and finalizers in Rust · baby steps",
+      "url": "https://smallcultfollowing.com/babysteps/blog/2013/01/17/destructors-and-finalizers-in-rust",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c30",
+      "title": "Destructors and resource cleanup - C++ to Rust Phrasebook",
+      "url": "https://cel.cs.brown.edu/crp/idioms/destructors.html",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c31",
+      "title": "Destructuring pt 2 | Rust for C++ Programmers",
+      "url": "https://aminb.gitbooks.io/rust-for-c/content/destructuring_2/index.html",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c32",
+      "title": "Southwest Destructors",
+      "url": "https://www.mapquest.com/us/texas/southwest-destructors-271005243",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c33",
+      "title": "Tejas Destructors, LLC Management Team | Org Chart",
+      "url": "https://rocketreach.co/tejas-destructors-llc-management_b7fc3135c25c8fa7",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 19799,
+        "detail": "model=grok-4.7",
+        "usage": {
+          "input_tokens": 56509,
+          "input_tokens_details": {
+            "cached_tokens": 29440
+          },
+          "output_tokens": 1250,
+          "output_tokens_details": {
+            "reasoning_tokens": 381
+          },
+          "total_tokens": 57759,
+          "num_sources_used": 0,
+          "num_server_side_tools_used": 8,
+          "cost_in_usd_ticks": 659617200,
+          "server_side_tool_usage_details": {
+            "web_search_calls": 8,
+            "x_search_calls": 0,
+            "x_posts_fetched": 0,
+            "x_users_fetched": 0,
+            "code_interpreter_calls": 0,
+            "file_search_calls": 0,
+            "mcp_calls": 0,
+            "document_search_calls": 0,
+            "image_generation_calls": 0
+          },
+          "context_details": {
+            "input_tokens": 29103,
+            "output_tokens": 732
+          }
+        }
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "missing_entity",
+        "latency_ms": 2312,
+        "detail": null,
+        "usage": null
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "missing_entity",
+        "latency_ms": 1509,
+        "detail": null,
+        "usage": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "comparison_signal"
+    ]
+  },
+  "coverage": {
+    "status": "sufficient",
+    "requirements": [
+      {
+        "kind": "entity",
+        "target": "Go language specification section defer statements",
+        "satisfied": true,
+        "detail": "covered by a result title, snippet or URL"
+      },
+      {
+        "kind": "entity",
+        "target": "Rust Reference destructors",
+        "satisfied": true,
+        "detail": "covered by a result title, snippet or URL"
+      }
+    ]
+  },
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "timed_out": false,
+  "elapsed_ms": 22121,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "tavily.search": 2
+    },
+    "xai_cost_ticks": 659617200,
+    "tavily_credits_estimate": 2
+  }
+}

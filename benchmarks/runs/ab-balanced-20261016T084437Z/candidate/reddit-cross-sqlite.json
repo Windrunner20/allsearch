@@ -1,0 +1,484 @@
+{
+  "id": "reddit-cross-sqlite",
+  "executed_at": "2026-10-16T08:45:43.694701+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.3.0",
+  "provider_query": "用中文找 Reddit 上讨论把 SQLite 当作应用主数据库的英文帖子",
+  "answer": "以下是 Reddit 上讨论「把 SQLite 当作应用主数据库」的英文帖（最多 8 条），附来源与要点。\n\n1. **Why you should probably be using SQLite**（r/programming，2023）  \n   链接外文《Why you should probably be using SQLite》，讨论把 SQLite 当应用库而不是单独数据库服务器：部署简单、适合桌面/单机，与 Postgres 的取舍。  \n   https://www.reddit.com/r/programming/comments/17hl2yz/why_you_should_probably_be_using_sqlite/  \n   [[1]](https://www.reddit.com/r/programming/comments/17hl2yz/why_you_should_probably_be_using_sqlite/)\n\n2. **SQLite DB: simple, in-process, reliable, fast**（r/Backend，2025）  \n   主张用进程内单文件 SQLite 做应用数据库，省掉独立数据库服务与网络故障面，并给出读写压测数字。  \n   https://www.reddit.com/r/Backend/comments/1pyezs6/sqlite_db_simple_inprocess_reliable_fast/  \n   [[2]](https://www.reddit.com/r/Backend/comments/1pyezs6/sqlite_db_simple_inprocess_reliable_fast/)\n\n3. **Why we're building our offline-first … on SQLite**（r/Nautsphere，2025）  \n   桌面应用以本地 SQLite 文件为唯一数据源：零配置、可拷贝备份、无供应商锁定；协作再叠加同步层。  \n   https://www.reddit.com/r/Nautsphere/comments/1mwg7da/why_were_building_our_offlinefirst  \n   [[3]](https://www.reddit.com/r/Nautsphere/comments/1mwg7da/why_were_building_our_offlinefirst)\n\n4. **SQLite in production with Rails 8, what has been your experience?**（r/rubyonrails，2026）  \n   为单机自托管放弃 Postgres，改用 SQLite + FTS5；评论里有多年生产经验和库变大后的查询瓶颈。  \n   https://www.reddit.com/r/rubyonrails/comments/1seqtbf/sqlite_in_production_with_rails_8_what_has_been  \n   [[4]](https://www.reddit.com/r/rubyonrails/comments/1seqtbf/sqlite_in_production_with_rails_8_what_has_been)\n\n5. **Sharing my exp so far with using SQLite in Production**（r/rails，2022）  \n   小 VPS 上用 SQLite 当主库：成本、`scp` 拉库、FTS、Puma 线程与 GVL 卡住等实操问题。  \n   https://www.reddit.com/r/rails/comments/y46our/sharing_my_exp_so_far_with_using_sqlite_in/  \n   [[5]](https://www.reddit.com/r/rails/comments/y46our/sharing_my_exp_so_far_with_using_sqlite_in/)\n\n6. **SQLite in production for a real app: WAL mode gotchas…**（r/webdev，2026）  \n   Rails 生产只用一个 SQLite 文件；蓝绿部署双写导致丢单，讨论 WAL、`sqlite_sequence` 与部署约束。  \n   https://www.reddit.com/r/webdev/comments/1sbgmdu/sqlite_in_production_for_a_real_app_wal_mode  \n   [[6]](https://www.reddit.com/r/webdev/comments/1sbgmdu/sqlite_in_production_for_a_real_app_wal_mode/)\n\n7. **Downsides to using sqlite as production database?**（r/sqlite，2020）  \n   Laravel 想把 SQLite 当主库：性能拐点、安全、以后迁 MySQL。回复提到 WAL、读多写少、甚至约 1TB 生产库。  \n   https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database/  \n   [[7]](https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database/)\n\n8. **Who has sqlite in production**（r/Database，2024）  \n   谁在生产用 SQLite：PRAGMA/WAL、Litestream 备份、与 Postgres 对比，以及小 SaaS 流量尖峰经验。  \n   https://www.reddit.com/r/Database/comments/1cqx84l/who_has_sqlite_in_production  \n   [[8]](https://www.reddit.com/r/Database/comments/1cqx84l/who_has_sqlite_in_production)\n\n补充（若只要“主库”争论，也可看）：r/Database 的 *SQLite in Production? Not So Fast for Complex Queries*（复杂查询与“SQLite 竞争的是 fopen，不是客户端/服务器库”）。  \nhttps://www.reddit.com/r/Database/comments/1qpfo2z/sqlite_in_production_not_so_fast_for_complex  \n[[9]](https://www.reddit.com/r/Database/comments/1qpfo2z/sqlite_in_production_not_so_fast_for_complex)",
+  "results": [
+    {
+      "id": "r1",
+      "title": "1",
+      "url": "https://www.reddit.com/r/programming/comments/17hl2yz/why_you_should_probably_be_using_sqlite",
+      "snippet": "1. Why you should probably be using SQLite （r/programming，2023） 链接外文《Why you should probably be using SQLite》，讨论把 SQLite 当应用库而不是单独数据库服务器：部署简单、适合桌面/单机，与 Postgres 的取舍。 [[1]](",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r2",
+      "title": "2",
+      "url": "https://www.reddit.com/r/Backend/comments/1pyezs6/sqlite_db_simple_inprocess_reliable_fast",
+      "snippet": "2. SQLite DB: simple, in-process, reliable, fast （r/Backend，2025） 主张用进程内单文件 SQLite 做应用数据库，省掉独立数据库服务与网络故障面，并给出读写压测数字。 [[2]](",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r3",
+      "title": "3",
+      "url": "https://www.reddit.com/r/Nautsphere/comments/1mwg7da/why_were_building_our_offlinefirst",
+      "snippet": "3. Why we're building our offline-first … on SQLite （r/Nautsphere，2025） 桌面应用以本地 SQLite 文件为唯一数据源：零配置、可拷贝备份、无供应商锁定；协作再叠加同步层。 [[3]](",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r4",
+      "title": "4",
+      "url": "https://www.reddit.com/r/rubyonrails/comments/1seqtbf/sqlite_in_production_with_rails_8_what_has_been",
+      "snippet": "4. SQLite in production with Rails 8, what has been your experience? （r/rubyonrails，2026） 为单机自托管放弃 Postgres，改用 SQLite + FTS5；评论里有多年生产经验和库变大后的查询瓶颈。 [[4]](",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r5",
+      "title": "5",
+      "url": "https://www.reddit.com/r/rails/comments/y46our/sharing_my_exp_so_far_with_using_sqlite_in",
+      "snippet": "5. Sharing my exp so far with using SQLite in Production （r/rails，2022） 小 VPS 上用 SQLite 当主库：成本、 scp 拉库、FTS、Puma 线程与 GVL 卡住等实操问题。 [[5]](",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r6",
+      "title": "6",
+      "url": "https://www.reddit.com/r/webdev/comments/1sbgmdu/sqlite_in_production_for_a_real_app_wal_mode",
+      "snippet": "6. SQLite in production for a real app: WAL mode gotchas… （r/webdev，2026） Rails 生产只用一个 SQLite 文件；蓝绿部署双写导致丢单，讨论 WAL、 sqlite sequence 与部署约束。 [[6]](",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r7",
+      "title": "7",
+      "url": "https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database",
+      "snippet": "7. Downsides to using sqlite as production database? （r/sqlite，2020） Laravel 想把 SQLite 当主库：性能拐点、安全、以后迁 MySQL。回复提到 WAL、读多写少、甚至约 1TB 生产库。 [[7]](",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r8",
+      "title": "8",
+      "url": "https://www.reddit.com/r/Database/comments/1cqx84l/who_has_sqlite_in_production",
+      "snippet": "8. Who has sqlite in production （r/Database，2024） 谁在生产用 SQLite：PRAGMA/WAL、Litestream 备份、与 Postgres 对比，以及小 SaaS 流量尖峰经验。 [[8]](",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "1",
+      "url": "https://www.reddit.com/r/programming/comments/17hl2yz/why_you_should_probably_be_using_sqlite",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "2",
+      "url": "https://www.reddit.com/r/Backend/comments/1pyezs6/sqlite_db_simple_inprocess_reliable_fast",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "3",
+      "url": "https://www.reddit.com/r/Nautsphere/comments/1mwg7da/why_were_building_our_offlinefirst",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "4",
+      "url": "https://www.reddit.com/r/rubyonrails/comments/1seqtbf/sqlite_in_production_with_rails_8_what_has_been",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "5",
+      "url": "https://www.reddit.com/r/rails/comments/y46our/sharing_my_exp_so_far_with_using_sqlite_in",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "6",
+      "url": "https://www.reddit.com/r/webdev/comments/1sbgmdu/sqlite_in_production_for_a_real_app_wal_mode",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "7",
+      "url": "https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "8",
+      "url": "https://www.reddit.com/r/Database/comments/1cqx84l/who_has_sqlite_in_production",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "9",
+      "url": "https://www.reddit.com/r/Database/comments/1qpfo2z/sqlite_in_production_not_so_fast_for_complex",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary_site_restricted",
+        "latency_ms": 18076,
+        "detail": "model=grok-4.7",
+        "usage": {
+          "input_tokens": 22924,
+          "input_tokens_details": {
+            "cached_tokens": 4352
+          },
+          "output_tokens": 1718,
+          "output_tokens_details": {
+            "reasoning_tokens": 559
+          },
+          "total_tokens": 24642,
+          "num_sources_used": 0,
+          "num_server_side_tools_used": 3,
+          "cost_in_usd_ticks": 318735200,
+          "server_side_tool_usage_details": {
+            "web_search_calls": 3,
+            "x_search_calls": 0,
+            "x_posts_fetched": 0,
+            "x_users_fetched": 0,
+            "code_interpreter_calls": 0,
+            "file_search_calls": 0,
+            "mcp_calls": 0,
+            "document_search_calls": 0,
+            "image_generation_calls": 0
+          },
+          "context_details": {
+            "input_tokens": 20644,
+            "output_tokens": 1578
+          }
+        }
+      },
+      {
+        "provider": "xai",
+        "operation": "rewrite",
+        "outcome": "ok",
+        "reason": "cross_language",
+        "latency_ms": 4161,
+        "detail": null,
+        "usage": {
+          "input_tokens": 3464,
+          "input_tokens_details": {
+            "cached_tokens": 3328
+          },
+          "output_tokens": 351,
+          "output_tokens_details": {
+            "reasoning_tokens": 318
+          },
+          "total_tokens": 3815,
+          "num_sources_used": 0,
+          "num_server_side_tools_used": 0,
+          "cost_in_usd_ticks": 13742800,
+          "context_details": {
+            "input_tokens": 3464,
+            "output_tokens": 358
+          }
+        }
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null,
+        "usage": null
+      },
+      {
+        "provider": "reddit",
+        "operation": "read_thread",
+        "outcome": "skipped",
+        "reason": "thread",
+        "latency_ms": 0,
+        "detail": "reddit_oauth_not_configured",
+        "usage": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "domains_below_threshold:1<2"
+    ]
+  },
+  "coverage": {
+    "status": "sufficient",
+    "requirements": [
+      {
+        "kind": "site",
+        "target": "Reddit",
+        "satisfied": true,
+        "detail": "9 content page(s), e.g. https://www.reddit.com/r/programming/comments/17hl2yz/why_you_should_probably_be_using_sqlite"
+      },
+      {
+        "kind": "language",
+        "target": "en",
+        "satisfied": true,
+        "detail": "8 result(s) with en titles"
+      }
+    ]
+  },
+  "threads": [
+    {
+      "platform": "reddit",
+      "url": "https://www.reddit.com/r/programming/comments/17hl2yz/why_you_should_probably_be_using_sqlite",
+      "thread_id": "17hl2yz",
+      "title": "",
+      "author": "",
+      "created_at": null,
+      "body": "",
+      "status": "found",
+      "comments_total": null,
+      "source_api": "",
+      "error": "reddit_oauth_not_configured",
+      "comments_read": 0
+    }
+  ],
+  "next_steps": [
+    {
+      "tool": "fetch",
+      "url": "https://www.reddit.com/r/programming/comments/17hl2yz/why_you_should_probably_be_using_sqlite",
+      "why": "comments not readable via API (reddit_oauth_not_configured); fetch reads the page if it is public"
+    }
+  ],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.1",
+      "status": "error",
+      "url": "https://www.reddit.com/r/programming/comments/17hl2yz/why_you_should_probably_be_using_sqlite",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "transport_error",
+            "usage": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "transport_error",
+          "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 17, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or please retry after 2s, re",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 193,
+      "thread": null
+    },
+    {
+      "schema_version": "1.1",
+      "status": "error",
+      "url": "https://www.reddit.com/r/Backend/comments/1pyezs6/sqlite_db_simple_inprocess_reliable_fast",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "transport_error",
+            "usage": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "transport_error",
+          "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 18, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or please retry after 2s, re",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 180,
+      "thread": null
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 18456,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "xai.rewrite": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 332478000,
+    "tavily_credits_estimate": 0
+  }
+}

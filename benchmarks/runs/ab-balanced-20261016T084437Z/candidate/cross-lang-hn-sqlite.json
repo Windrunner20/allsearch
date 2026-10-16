@@ -1,0 +1,1793 @@
+{
+  "id": "cross-lang-hn-sqlite",
+  "executed_at": "2026-10-16T08:49:27.707236+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.3.0",
+  "provider_query": "用中文找 Hacker News 上把 SQLite 当作应用程序文件格式来讨论的英文帖子",
+  "answer": "以下是 Hacker News 上讨论「把 SQLite 当作应用程序文件格式」的英文帖，最多 8 条。链接指向主帖或相关评论。\n\n1. **[SQLite as an Application File Format](https://news.ycombinator.com/item?id=46076642)**  \n   约 178 分、99 条评论，指向 sqlite.org 同名文档。讨论 MBTiles（把大量地图瓦片打进单个 SQLite）、树形数据 vs 扁平表，以及迁移、类型约束和现成 GUI 等好处。[[1]](https://news.ycombinator.com/item?id=46076642)\n\n2. **[What If OpenDocument Used SQLite?](https://news.ycombinator.com/item?id=45132498)**  \n   约 279 分、105 条评论。设想用 SQLite 替代 ODF；评论强调若当可交换的应用文件格式，应开启 `secure_delete`、按「不可信数据库」加固，并指出官方对「打开不可信 SQLite 文件」这一场景的态度与文档宣传不完全一致。也有人认为 Firefox、聊天记录、移动应用等本来就是把 SQLite 当应用文件在用。[[2]](https://news.ycombinator.com/item?id=45132498)\n\n3. **[SQLite as an Application File Format (2014)](https://news.ycombinator.com/item?id=23508923)**  \n   早期讨论。例子包括攀岩地形图从大量小文件改成单 SQLite、Lightroom 把图片留在库外、Clip Studio 把工程内容收进一个文件；并与 docx（zip+XML）对比。[[3]](https://news.ycombinator.com/item?id=23508923)\n\n4. **评论：[The killer feature… as an application file format](https://news.ycombinator.com/item?id=40655974)**  \n   称增量可更新、既能当文件包又能存结构化数据。提到 Audacity 工程文件、用 SQLite 做游戏数据以便美术/策划直接用数据库工具编辑；也有人担心版本控制（diff/merge）和 WAL/journal 附带文件。[[4]](https://news.ycombinator.com/item?id=40655974)\n\n5. **评论（帖：[A deep dive into Apple's .car file format](https://news.ycombinator.com/item?id=47046185)）**  \n   认为存图片等二进制时，业界常选「SQLite 当文件格式」，优于把 blob 塞进 gzipped JSON。举例：Firefox 图标、iOS 相册、Kodi、MSVC 浏览数据，以及 Audacity 把整段音频流进 SQLite。[[5]](https://news.ycombinator.com/item?id=47046185)\n\n6. **评论（讨论 Pack 一类基于 SQLite 的归档）[item?id=39797104](https://news.ycombinator.com/item?id=39797104)**  \n   观点：SQLite 很适合「某一应用自己的文件格式」，但不适合当通用交换格式（必须捆绑 SQLite，不像 zip/tar 容易手写读写）。后续谈到改 magic、元数据、版本字段，以及官方建议用 `application_id` 让 `file(1)` 识别具体类型。[[6]](https://news.ycombinator.com/item?id=39797104)\n\n7. **[Show HN: SQLite files as applications - uApps](https://news.ycombinator.com/item?id=49421475)**  \n   `.uapp` 是基于 sqlar 的 SQLite 归档：里面既有压缩后的 Web 应用文件，也有用户数据；用本地 runtime 打开即可读写库。目标是像电子表格一样用单个文件分发可改的小工具。[[7]](https://news.ycombinator.com/item?id=49421475)\n\n8. **评论（帖：Many small queries are efficient in SQLite）[item?id=26163589](https://news.ycombinator.com/item?id=26163589)**  \n   争论「这是引擎能力还是文件格式」。一方认为 schema 以明文存在库里，使 SQLite 成为自描述的应用文件格式基础，这是 ZIP 做不到的。[[8]](https://news.ycombinator.com/item?id=26163589)",
+  "results": [
+    {
+      "id": "r1",
+      "title": "1",
+      "url": "https://news.ycombinator.com/item?id=46076642",
+      "snippet": "1. SQLite as an Application File Format 约 178 分、99 条评论，指向 sqlite.org 同名文档。讨论 MBTiles（把大量地图瓦片打进单个 SQLite）、树形数据 vs 扁平表，以及迁移、类型约束和现成 GUI 等好处。[[1]](",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "hackernews"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r2",
+      "title": "3",
+      "url": "https://news.ycombinator.com/item?id=23508923",
+      "snippet": "3. SQLite as an Application File Format (2014) 早期讨论。例子包括攀岩地形图从大量小文件改成单 SQLite、Lightroom 把图片留在库外、Clip Studio 把工程内容收进一个文件；并与 docx（zip+XML）对比。[[3]](",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "hackernews"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r3",
+      "title": "2",
+      "url": "https://news.ycombinator.com/item?id=45132498",
+      "snippet": "2. What If OpenDocument Used SQLite? 约 279 分、105 条评论。设想用 SQLite 替代 ODF；评论强调若当可交换的应用文件格式，应开启 secure delete 、按「不可信数据库」加固，并指出官方对「打开不可信 SQLite 文件」这一场景的态度与文档宣传不完全一致。也有人认为 Firefox、聊天记录、移动应用等本来就是把 SQLite 当应用文件在用。[[2]](",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "hackernews"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r4",
+      "title": "SQLite as an Application File Format (2014)",
+      "url": "https://news.ycombinator.com/item?id=18754634",
+      "snippet": "211 points, 161 comments, by kjeetgill on 2018-12-24. Links to https://www.sqlite.org/appfileformat.html",
+      "content": null,
+      "published_at": "2018-12-24T22:29:06Z",
+      "source_type": "social",
+      "provider": "hackernews",
+      "matched_providers": [
+        "hackernews"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "points": 211,
+        "num_comments": 161,
+        "story_url": "https://www.sqlite.org/appfileformat.html"
+      }
+    },
+    {
+      "id": "r5",
+      "title": "4",
+      "url": "https://news.ycombinator.com/item?id=40655974",
+      "snippet": "4. 评论：The killer feature… as an application file format 称增量可更新、既能当文件包又能存结构化数据。提到 Audacity 工程文件、用 SQLite 做游戏数据以便美术/策划直接用数据库工具编辑；也有人担心版本控制（diff/merge）和 WAL/journal 附带文件。[[4]](",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r6",
+      "title": "SQLite as an Application File Format",
+      "url": "https://news.ycombinator.com/item?id=10308691",
+      "snippet": "12 points, 0 comments, by otoolep on 2015-10-01. Links to https://www.sqlite.org/appfileformat.html",
+      "content": null,
+      "published_at": "2015-10-01T01:35:17Z",
+      "source_type": "social",
+      "provider": "hackernews",
+      "matched_providers": [
+        "hackernews"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "points": 12,
+        "num_comments": 0,
+        "story_url": "https://www.sqlite.org/appfileformat.html"
+      }
+    },
+    {
+      "id": "r7",
+      "title": "5",
+      "url": "https://news.ycombinator.com/item?id=47046185",
+      "snippet": "5. 评论（帖：A deep dive into Apple's .car file format） 认为存图片等二进制时，业界常选「SQLite 当文件格式」，优于把 blob 塞进 gzipped JSON。举例：Firefox 图标、iOS 相册、Kodi、MSVC 浏览数据，以及 Audacity 把整段音频流进 SQLite。[[5]](",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r8",
+      "title": "SQLite as an Application File Format",
+      "url": "https://news.ycombinator.com/item?id=13021541",
+      "snippet": "5 points, 0 comments, by noufalibrahim on 2016-11-23. Links to http://www.sqlite.org/appfileformat.html",
+      "content": null,
+      "published_at": "2016-11-23T10:30:52Z",
+      "source_type": "social",
+      "provider": "hackernews",
+      "matched_providers": [
+        "hackernews"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "points": 5,
+        "num_comments": 0,
+        "story_url": "http://www.sqlite.org/appfileformat.html"
+      }
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "1",
+      "url": "https://news.ycombinator.com/item?id=46076642",
+      "result_id": "r1",
+      "providers": [
+        "xai",
+        "hackernews"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "3",
+      "url": "https://news.ycombinator.com/item?id=23508923",
+      "result_id": "r2",
+      "providers": [
+        "xai",
+        "hackernews"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "2",
+      "url": "https://news.ycombinator.com/item?id=45132498",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "SQLite as an Application File Format (2014)",
+      "url": "https://news.ycombinator.com/item?id=18754634",
+      "result_id": "r4",
+      "providers": [
+        "hackernews"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "4",
+      "url": "https://news.ycombinator.com/item?id=40655974",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "SQLite as an Application File Format",
+      "url": "https://news.ycombinator.com/item?id=10308691",
+      "result_id": "r6",
+      "providers": [
+        "hackernews"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "5",
+      "url": "https://news.ycombinator.com/item?id=47046185",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "SQLite as an Application File Format",
+      "url": "https://news.ycombinator.com/item?id=13021541",
+      "result_id": "r8",
+      "providers": [
+        "hackernews"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "6",
+      "url": "https://news.ycombinator.com/item?id=39797104",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "7",
+      "url": "https://news.ycombinator.com/item?id=49421475",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "8",
+      "url": "https://news.ycombinator.com/item?id=26163589",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary_site_restricted",
+        "latency_ms": 24386,
+        "detail": "model=grok-4.7",
+        "usage": {
+          "input_tokens": 50588,
+          "input_tokens_details": {
+            "cached_tokens": 22656
+          },
+          "output_tokens": 1760,
+          "output_tokens_details": {
+            "reasoning_tokens": 639
+          },
+          "total_tokens": 52348,
+          "num_sources_used": 0,
+          "num_server_side_tools_used": 5,
+          "cost_in_usd_ticks": 514356800,
+          "server_side_tool_usage_details": {
+            "web_search_calls": 5,
+            "x_search_calls": 0,
+            "x_posts_fetched": 0,
+            "x_users_fetched": 0,
+            "code_interpreter_calls": 0,
+            "file_search_calls": 0,
+            "mcp_calls": 0,
+            "document_search_calls": 0,
+            "image_generation_calls": 0
+          },
+          "context_details": {
+            "input_tokens": 28883,
+            "output_tokens": 1320
+          }
+        }
+      },
+      {
+        "provider": "xai",
+        "operation": "rewrite",
+        "outcome": "ok",
+        "reason": "cross_language",
+        "latency_ms": 4207,
+        "detail": null,
+        "usage": {
+          "input_tokens": 3467,
+          "input_tokens_details": {
+            "cached_tokens": 3328
+          },
+          "output_tokens": 349,
+          "output_tokens_details": {
+            "reasoning_tokens": 316
+          },
+          "total_tokens": 3816,
+          "num_sources_used": 0,
+          "num_server_side_tools_used": 0,
+          "cost_in_usd_ticks": 13722400,
+          "context_details": {
+            "input_tokens": 3467,
+            "output_tokens": 356
+          }
+        }
+      },
+      {
+        "provider": "hackernews",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "site_native",
+        "latency_ms": 0,
+        "detail": "5 results",
+        "usage": null
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null,
+        "usage": null
+      },
+      {
+        "provider": "hackernews",
+        "operation": "read_thread",
+        "outcome": "ok",
+        "reason": "thread",
+        "latency_ms": 652,
+        "detail": "105 comments",
+        "usage": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "domains_below_threshold:1<2"
+    ]
+  },
+  "coverage": {
+    "status": "sufficient",
+    "requirements": [
+      {
+        "kind": "site",
+        "target": "Hacker News",
+        "satisfied": true,
+        "detail": "11 content page(s), e.g. https://news.ycombinator.com/item?id=46076642"
+      },
+      {
+        "kind": "language",
+        "target": "en",
+        "satisfied": true,
+        "detail": "8 result(s) with en titles"
+      }
+    ]
+  },
+  "threads": [
+    {
+      "platform": "hackernews",
+      "url": "https://news.ycombinator.com/item?id=45132498",
+      "thread_id": "45132498",
+      "title": "What If OpenDocument Used SQLite?",
+      "author": "whatisabcdefgh",
+      "created_at": "2025-09-04T21:36:50.000Z",
+      "body": "Link: https://www.sqlite.org/affcase1.html",
+      "status": "comments_read",
+      "comments_total": 105,
+      "source_api": "hn.algolia.com/api/v1/items",
+      "error": null,
+      "comments_read": 105
+    }
+  ],
+  "next_steps": [
+    {
+      "tool": "read_result",
+      "fields": [
+        "comments"
+      ],
+      "why": "comments read through the platform API are stored with ids, authors and timestamps"
+    }
+  ],
+  "comments": [
+    {
+      "id": "45147835",
+      "author": "lenkite",
+      "created_at": "2025-09-06T09:25:24.000Z",
+      "text": "> but most usage of sqlite is not as an application file format,\nThis is exactly the OTHER way around. Most usages of SQLite are as an application file format. Firefox stores bookmarks, history, cookies in SQLite files in the profiles folder. Messaging apps (WhatsApp, Signal, etc. use SQLite for chat history). macOS and Windows use SQLite in various subsystems, ex: Spotlight metadata, application cache. Mobile apps use SQLite heavily. And probably ten thousand other cases as a file format if I bother to look up more.",
+      "url": "https://news.ycombinator.com/item?id=45147835",
+      "parent_id": "45142959",
+      "depth": 4,
+      "points": null,
+      "relevance": 7.249,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45134010",
+      "author": "agwa",
+      "created_at": "2025-09-05T01:06:51.000Z",
+      "text": "If you're going to use SQLite as an application file format, you should:\n1. Enable the secure_delete pragma <https://antonz.org/sqlite-secure-delete/> so that when your user deletes something, the data is actually erased. Otherwise, when a user shares one of your application's files with someone else, the recipient could recover information that the sender thought they had deleted.\n2. Enable the options described at <https://www.sqlite.org/security.html#untrusted_sqlite_databa...> under \"Untrusted SQLite Database Files\" to make it safer to open files from untrusted sources. No one wants to get pwned when they open an email attachment.\n3. Be aware that when it comes to handling security vulnerabilities, the SQLite developers consider this use case to be niche (\"few real-world applications\" open SQLite database files from untrusted sources, they say) and they seem to get annoyed that people run fuzzers against SQLite, even though application file formats should definitely be fuzzed. https://www.sqlite.org/cves.html\nThey fail to mention any of this on their marketing pages about how you should use SQLite as an application file format.",
+      "url": "https://news.ycombinator.com/item?id=45134010",
+      "parent_id": "45132498",
+      "depth": 0,
+      "points": null,
+      "relevance": 6.564,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45144066",
+      "author": "rudedogg",
+      "created_at": "2025-09-05T21:50:45.000Z",
+      "text": "> The use of a ZIP archive to encapsulate XML files plus resources is an elegant approach to an application file format. It is clearly superior to a custom binary file format.\nCan anyone expand on this? Why would it be better than a binary format?\nI was watching a talk Andrew Kelley gave about a simple binary format he’s using in Zig: https://www.hytradboi.com/2025/05c72e39-c07e-41bc-ac40-85e83...\nHaving to map between SQLite and the application language seems like it’d add lots of complexity, but I don’t have any experience with custom file formats so would love some advice.",
+      "url": "https://news.ycombinator.com/item?id=45144066",
+      "parent_id": "45132498",
+      "depth": 0,
+      "points": null,
+      "relevance": 6.404,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45133756",
+      "author": "liuliu",
+      "created_at": "2025-09-05T00:24:48.000Z",
+      "text": "One thing I would call out, if you use SQLite as an application format:\nBLOB type is limited to 2GiB in size (int32). Depending on your use cases, that might seem high, or not.\nPeople would argue that if you store that much of binary data in a SQLite database, it is not really appropriate. But, application format usually has this requirement to bundle large binary data in one nice file, rather than many files that you need to copy together to make it work.",
+      "url": "https://news.ycombinator.com/item?id=45133756",
+      "parent_id": "45132498",
+      "depth": 0,
+      "points": null,
+      "relevance": 6.239,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45140857",
+      "author": "perching_aix",
+      "created_at": "2025-09-05T17:03:44.000Z",
+      "text": "> The tone of the CVE docs are because people freak out about CVEs flagged by automated tools when the CVEs are for issues that have no security impact for typical usage of SQLite, or have prerequisites that would already have resulted in some form of compromise.\nThe CVE docs:\n> The attacker can submit a maliciously crafted database file to the application that the application will then open and query\nThis is exactly the normal use case GP talks about with application file formats.",
+      "url": "https://news.ycombinator.com/item?id=45140857",
+      "parent_id": "45135122",
+      "depth": 2,
+      "points": null,
+      "relevance": 5.929,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45134401",
+      "author": "lifthrasiir",
+      "created_at": "2025-09-05T02:21:12.000Z",
+      "text": "SQLite can't be reliably used in networked file systems because it heavily relies on locking to be correctly implemented. I recently had to add a check for such file systems in my application [1] because I noticed a related corruption firsthand. Simpler file formats do not demand such requirements. SQLite is certainly good, but not for this use.\n[1] https://github.com/lifthrasiir/angel/commit/50a15e703ef2c1af...",
+      "url": "https://news.ycombinator.com/item?id=45134401",
+      "parent_id": "45132498",
+      "depth": 0,
+      "points": null,
+      "relevance": 5.656,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45136120",
+      "author": "munch117",
+      "created_at": "2025-09-05T07:59:41.000Z",
+      "text": "I'm not that concerned with bugs in sqlite. sqlite is high quality software, and the application that uses it is a more likely source of vulnerabilities.\nBut I do see a problem if you really need to use a sqlite that's compiled with particular non-default options.\nSay I design a file format and implement it, and my implementation uses an sqlite library that's compiled with all the right options. Then I evangelize my file format, telling everyone that it's really just an sqlite database and sooo easy to work with.\nFirst thing that happens is that someone writes a neat little utility for working with the files, written in language X, which comes with a handy sqlite3 library. But that library is not compiled with the right options, and boom, you have a vulnerable utility.",
+      "url": "https://news.ycombinator.com/item?id=45136120",
+      "parent_id": "45135429",
+      "depth": 3,
+      "points": null,
+      "relevance": 5.413,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45134835",
+      "author": "Seattle3503",
+      "created_at": "2025-09-05T03:52:06.000Z",
+      "text": "Hrm, using sqlite as an application format would be a good use case for Limbo.",
+      "url": "https://news.ycombinator.com/item?id=45134835",
+      "parent_id": "45134010",
+      "depth": 1,
+      "points": null,
+      "relevance": 5.319,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45133139",
+      "author": "librasteve",
+      "created_at": "2025-09-04T22:51:06.000Z",
+      "text": "wouldn’t an XML database be easier?",
+      "url": "https://news.ycombinator.com/item?id=45133139",
+      "parent_id": "45132498",
+      "depth": 0,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45133167",
+      "author": "floating-io",
+      "created_at": "2025-09-04T22:53:45.000Z",
+      "text": "Does an embeddable XML database engine exist at a similar level of reliability?",
+      "url": "https://news.ycombinator.com/item?id=45133167",
+      "parent_id": "45133139",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45133236",
+      "author": "supportengineer",
+      "created_at": "2025-09-04T23:03:40.000Z",
+      "text": "No.",
+      "url": "https://news.ycombinator.com/item?id=45133236",
+      "parent_id": "45133139",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45133299",
+      "author": "renecito",
+      "created_at": "2025-09-04T23:13:50.000Z",
+      "text": "LOL!",
+      "url": "https://news.ycombinator.com/item?id=45133299",
+      "parent_id": "45133139",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45133364",
+      "author": "duskwuff",
+      "created_at": "2025-09-04T23:23:42.000Z",
+      "text": "You can't* index into XML. You have to read through the whole document until you get to the part you want.\n*: without adding an index of your own, at which point it isn't really XML anymore, it's some kind of homebrew XML-based archive format.",
+      "url": "https://news.ycombinator.com/item?id=45133364",
+      "parent_id": "45133139",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45138248",
+      "author": "Mikhail_Edoshin",
+      "created_at": "2025-09-05T13:20:56.000Z",
+      "text": "This applies to any secondary index. The data themselves can only be ordered by a single criteria. It may be a meaningful one, but I guess in most cases it is merely the internal ID, which means you will have to scan the whole table too.\nXML was meant for documents so in most cases the sequence of elements is given. But technically if I compose XML myself I can lay it out the way I want and thus can have it sorted too. This means it will be directly searchable without an index: read a bit at the middle, find an element name, see where we are, choose head or tail, repeat.",
+      "url": "https://news.ycombinator.com/item?id=45138248",
+      "parent_id": "45133364",
+      "depth": 2,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45143694",
+      "author": "duskwuff",
+      "created_at": "2025-09-05T21:13:36.000Z",
+      "text": "Blindly seeking into XML data is a risky, error-prone approach. It's not impossible to do, but doing it correctly is difficult - even if the tags you're looking for are unique, there are a lot of messy edge cases involving comments and <!CDATA> blocks.",
+      "url": "https://news.ycombinator.com/item?id=45143694",
+      "parent_id": "45138248",
+      "depth": 3,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45134339",
+      "author": "_ea1k",
+      "created_at": "2025-09-05T02:05:49.000Z",
+      "text": "They could resurrect xindice!",
+      "url": "https://news.ycombinator.com/item?id=45134339",
+      "parent_id": "45133139",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45134462",
+      "author": "Zambyte",
+      "created_at": "2025-09-05T02:30:23.000Z",
+      "text": "Why?",
+      "url": "https://news.ycombinator.com/item?id=45134462",
+      "parent_id": "45133139",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45136358",
+      "author": "HelloNurse",
+      "created_at": "2025-09-05T08:42:07.000Z",
+      "text": "You can store the content of a XML document in a database faithfully enough to reconstruct it exactly. Any system that can produce XML documents is a \"XML database\".",
+      "url": "https://news.ycombinator.com/item?id=45136358",
+      "parent_id": "45133139",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45133154",
+      "author": "floating-io",
+      "created_at": "2025-09-04T22:52:36.000Z",
+      "text": "An interesting skim, but it would have been more meaningful if it had tackled text documents or spreadsheets to show what additional functionality would be enabled with those beyond \"versioning\".\nMaybe it's just me, but I see the presentation functionality as one of the less used aspects of the OpenOffice family.",
+      "url": "https://news.ycombinator.com/item?id=45133154",
+      "parent_id": "45132498",
+      "depth": 0,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45135198",
+      "author": "scott_w",
+      "created_at": "2025-09-05T05:18:29.000Z",
+      "text": "While reading I was musing one way to handle text could be to use a linked list format as storage? To make it work like that, you’d need the editor to work on a block concept and I don’t think document editors work like that?\nSpreadsheets might be a little easier because you can separate out by sheet or even down to a row/column level?\nPart of me wants to try it now…",
+      "url": "https://news.ycombinator.com/item?id=45135198",
+      "parent_id": "45133154",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45135643",
+      "author": "jdboyd",
+      "created_at": "2025-09-05T06:47:48.000Z",
+      "text": "What he listed as the first improvement, \"Replace ZIP with SQLite\" would certainly apply to the other ODF formats.\nHe advocates breaking the XML into smaller pieces in SQLite. I suppose making each slide a new XML record could make sense. Moving over to spreadsheets, I don't know how ODF does it now, but making each sheet a separate XML could make sense.\nThinking about Write documents, I wonder what a good smaller unit would be. I think one XML per page would be too fine a granularity. You could consider one record per chapter. I doubt one record per paragraph would make sense, but it could be fun to try different ideas.",
+      "url": "https://news.ycombinator.com/item?id=45135643",
+      "parent_id": "45133154",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45136535",
+      "author": "maweki",
+      "created_at": "2025-09-05T09:08:53.000Z",
+      "text": "Splitting the presentation into multiple fragments makes it more difficult to generate/alter a presentation using xslt.",
+      "url": "https://news.ycombinator.com/item?id=45136535",
+      "parent_id": "45135643",
+      "depth": 2,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45142147",
+      "author": "netsharc",
+      "created_at": "2025-09-05T18:46:19.000Z",
+      "text": "> I think one XML per page would be too fine a granularity.\nIf I add a 1/3 page graphic on page 2, it'd have to repaginate pages 2-n of that chapter, modifying n-1 XML files...",
+      "url": "https://news.ycombinator.com/item?id=45142147",
+      "parent_id": "45135643",
+      "depth": 2,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45133173",
+      "author": "mac-attack",
+      "created_at": "2025-09-04T22:54:14.000Z",
+      "text": "I'm a fan of both as a Linux user. Interesting thought experiment.",
+      "url": "https://news.ycombinator.com/item?id=45133173",
+      "parent_id": "45132498",
+      "depth": 0,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45133233",
+      "author": "supportengineer",
+      "created_at": "2025-09-04T23:03:12.000Z",
+      "text": "What if instead of API's for data sets, we simply placed a sqlite file onto a web server as a static asset, so you could just periodically do a GET and have a local copy.",
+      "url": "https://news.ycombinator.com/item?id=45133233",
+      "parent_id": "45132498",
+      "depth": 0,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45133260",
+      "author": "yupyupyups",
+      "created_at": "2025-09-04T23:07:20.000Z",
+      "text": "This works as long as the data is \"small\" and you have no ACL for it. Assuming you mean automatic downloads.\nDevdocs does something similar, but there you request to download the payload manually, and the data is still browsable online without you having to download all of it. The data is also split in a convenient manner (by programming language/library). In other words, you can download individual parts. The UI also remains available offline, which is pretty cool.\nhttps://devdocs.io/",
+      "url": "https://news.ycombinator.com/item?id=45133260",
+      "parent_id": "45133233",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45133305",
+      "author": "abtinf",
+      "created_at": "2025-09-04T23:15:00.000Z",
+      "text": "With an S3 object lambda, I suppose you could generate the sqlite file on the fly.",
+      "url": "https://news.ycombinator.com/item?id=45133305",
+      "parent_id": "45133233",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45133319",
+      "author": "abtinf",
+      "created_at": "2025-09-04T23:16:39.000Z",
+      "text": "A few years ago someone posted a site that showed how to query portions of a SQLite file without having to pull the whole thing down.",
+      "url": "https://news.ycombinator.com/item?id=45133319",
+      "parent_id": "45133233",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45133464",
+      "author": "dbarlett",
+      "created_at": "2025-09-04T23:37:31.000Z",
+      "text": "https://news.ycombinator.com/item?id=27016630",
+      "url": "https://news.ycombinator.com/item?id=45133464",
+      "parent_id": "45133319",
+      "depth": 2,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45133629",
+      "author": "supportengineer",
+      "created_at": "2025-09-05T00:02:48.000Z",
+      "text": ">> I implemented a virtual file system that fetches chunks of the database with HTTP Range requests\nThat's wild!",
+      "url": "https://news.ycombinator.com/item?id=45133629",
+      "parent_id": "45133464",
+      "depth": 3,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45133437",
+      "author": "anon291",
+      "created_at": "2025-09-04T23:34:51.000Z",
+      "text": "You can do this today by using the WASM-compiled SQLite module with a custom Javascript VFS that implements the SQLite VFS api appropriately for your backend. I've used it extensively in the past to serve static data sets direct from S3 for low cost.\nMore industrious people have apparently wrapped this up on NPM: https://www.npmjs.com/package/sqlite-wasm-http",
+      "url": "https://news.ycombinator.com/item?id=45133437",
+      "parent_id": "45133233",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45133294",
+      "author": "chmaynard",
+      "created_at": "2025-09-04T23:12:54.000Z",
+      "text": "Dr. Hipp occasionally gets on a soapbox and extolls the virtue of sqlite databases for use as an application file format. He also preaches about the superiority of Fossil over Git. His arguments generally make sense. I tolerate his sermons because he is one of the truly great software developers of our time, and a personal hero of mine.",
+      "url": "https://news.ycombinator.com/item?id=45133294",
+      "parent_id": "45132498",
+      "depth": 0,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45135117",
+      "author": "korkor55",
+      "created_at": "2025-09-05T04:58:55.000Z",
+      "text": "These are thought-experiments to help better understand how SQLite works.\nThis is exactly how supporting documentation should be written so that others read it.\nHe even went over the top with the disclaimers.",
+      "url": "https://news.ycombinator.com/item?id=45135117",
+      "parent_id": "45133294",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45141043",
+      "author": "burnte",
+      "created_at": "2025-09-05T17:20:34.000Z",
+      "text": "I was skeptical at the start but by the end I didn't care if it was a good idea or a bad one, I learned so much it was a great read.",
+      "url": "https://news.ycombinator.com/item?id=45141043",
+      "parent_id": "45135117",
+      "depth": 2,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45139890",
+      "author": "jockm",
+      "created_at": "2025-09-05T15:44:46.000Z",
+      "text": "The problem is that better is not an abstract measure. It is better at what, for what purpose, in what context? I like fossil in the abstract, but it isn’t integrated well into any of my tools; there is only one hosting service I know of; and they took away the wysiwyg option from the build in wiki (a preference of mine). So it isn’t better for me\nYour better will be measured against different criteria, etc.",
+      "url": "https://news.ycombinator.com/item?id=45139890",
+      "parent_id": "45133294",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45133427",
+      "author": "sakesun",
+      "created_at": "2025-09-04T23:33:12.000Z",
+      "text": "If I remember correctly Mendix project file format is simply a sqlite db. I thought the designer was lazy but it turns out it's a reasonable decision.\nRecently, DuckDB team raise similar question on DataLake catalog format. Why not just use SQL database for that ? It's simpler and more efficient as well.",
+      "url": "https://news.ycombinator.com/item?id=45133427",
+      "parent_id": "45132498",
+      "depth": 0,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45139054",
+      "author": "sigwinch",
+      "created_at": "2025-09-05T14:31:00.000Z",
+      "text": "With regard to DuckDB catalogs, I think a database is preferred for that. In particular, the tutorials assume PostGres.",
+      "url": "https://news.ycombinator.com/item?id=45139054",
+      "parent_id": "45133427",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45140969",
+      "author": "psnehanshu",
+      "created_at": "2025-09-05T17:14:04.000Z",
+      "text": "It should be Postgres not PostGres. The latter looks weird.",
+      "url": "https://news.ycombinator.com/item?id=45140969",
+      "parent_id": "45139054",
+      "depth": 2,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45133443",
+      "author": "sgc",
+      "created_at": "2025-09-04T23:35:16.000Z",
+      "text": "It seems like it would be relatively straightforward to make an sqlite based file format and just have users add a plugin if for some reason they couldn't upgrade their older version of LibreOffice etc. I agree with the other commenter who mentioned that the benefits for text and spreadsheet files needs more explanation. But it seems like a good enough idea to have a LibreOffice working group perform a more in depth study. If significant memory reduction is real and that would translate to fewer crashes, it would be a huge boost even if it had no other benefits, IMHO.",
+      "url": "https://news.ycombinator.com/item?id=45133443",
+      "parent_id": "45132498",
+      "depth": 0,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45133508",
+      "author": "RainyDayTmrw",
+      "created_at": "2025-09-04T23:44:09.000Z",
+      "text": "Juggling all the fragments inside the database, garbage collecting all the unused ones, and maintaining consistency are all quite challenging in this use case.",
+      "url": "https://news.ycombinator.com/item?id=45133508",
+      "parent_id": "45132498",
+      "depth": 0,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45133540",
+      "author": "conorbergin",
+      "created_at": "2025-09-04T23:48:37.000Z",
+      "text": "I've being trying out SQLite for a side project of mine, a virtual whiteboard, I haven't quite got my head around it, but it seems to be much less of a bother than interacting with file system APIs so far. The problem I haven't really solved is how sync and maybe collaboration is going to interact with it, so far I have:\n1. Plaintext format (JSON or similar) or SQLite dump files versioned by git\n2. Some sort of modern local first CRDT thing (Turso, libsql, Electric SQL)\n3. Server/Client architecture that can also be run locally\nHas anyone had any success in this department?",
+      "url": "https://news.ycombinator.com/item?id=45133540",
+      "parent_id": "45132498",
+      "depth": 0,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45133655",
+      "author": "rogerbinns",
+      "created_at": "2025-09-05T00:08:04.000Z",
+      "text": "SQLite has a builtin session extension that can be used to record and replay groups of changes, with all the necessary handling. I don't necessarily recommend session as your solution, but it is at least a good idea to see how it compares to others.\nhttps://sqlite.org/sessionintro.html\nThat provides a C level API. If you know Python and want to do some prototyping and exploration then you may find my SQLite wrapper useful as it supports the session extension. This is the example giving a feel for what it is like to use:\nhttps://rogerbinns.github.io/apsw/example-session.html",
+      "url": "https://news.ycombinator.com/item?id=45133655",
+      "parent_id": "45133540",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45134140",
+      "author": "hahn-kev",
+      "created_at": "2025-09-05T01:22:54.000Z",
+      "text": "CRDTs are the way to go if you need something very robust for lots of offline work.",
+      "url": "https://news.ycombinator.com/item?id=45134140",
+      "parent_id": "45133540",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45134101",
+      "author": "Retr0id",
+      "created_at": "2025-09-05T01:18:30.000Z",
+      "text": "You can split your data up across multiple blobs",
+      "url": "https://news.ycombinator.com/item?id=45134101",
+      "parent_id": "45133756",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45135219",
+      "author": "johncolanduoni",
+      "created_at": "2025-09-05T05:24:00.000Z",
+      "text": "Also you almost certainly want to do this anyway so you can stream the blobs into/out of the network/filesystem, well before you have GBs in a single blob.",
+      "url": "https://news.ycombinator.com/item?id=45135219",
+      "parent_id": "45134101",
+      "depth": 2,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45136933",
+      "author": "Retr0id",
+      "created_at": "2025-09-05T10:16:08.000Z",
+      "text": "Singular sqlite blobs are streamable too! But for streaming in you need to know the size in advance.",
+      "url": "https://news.ycombinator.com/item?id=45136933",
+      "parent_id": "45135219",
+      "depth": 3,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45136032",
+      "author": "bob1029",
+      "created_at": "2025-09-05T07:48:53.000Z",
+      "text": "This is essential if you want to have encryption/compression + range access at the same time.\nI've been using chunk sizes of 128 megabytes for my media archive. This seems to be a reasonable tradeoff between range retrieval delay and per object overhead (e.g. s3 put/get cost).",
+      "url": "https://news.ycombinator.com/item?id=45136032",
+      "parent_id": "45134101",
+      "depth": 2,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45140501",
+      "author": "liuliu",
+      "created_at": "2025-09-05T16:34:46.000Z",
+      "text": "That's right, but it is much easier to just use blob without application logic to worry about chunking. It is the same reason why we use SQLite in the first place, a lot of transaction / rollback logic now is on SQLite layer, not the application layer.\nAlso, SQLite did provide good support for read / write the blob in streamable fashion, see: https://www.sqlite.org/c3ref/blob_read.html\nSo the limitation is really a structural issue that Dr. Hipp at some point might resolve (or not), but pretty much has to be resolved by SQLite core team, not outside contributors (of course you can resolve it by forking, but...).",
+      "url": "https://news.ycombinator.com/item?id=45140501",
+      "parent_id": "45134101",
+      "depth": 2,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45133786",
+      "author": "tombert",
+      "created_at": "2025-09-05T00:29:31.000Z",
+      "text": "I remember I played with some software called \"The Illumination Software Creator\" [1], and I remember the saved project files were just SQLite databases.\nI actually thought it was kind of cool, because I was able to play with it easily with some SQLite explorer tool (I forget which one) and I could easily look at how the save files actually worked.\nI haven't really used SQLite for anything serious [2], but always found the idea of it kind of charming. Maybe I should dust it off and try it again.\n[1] https://en.wikipedia.org/wiki/Illumination_Software_Creator by Bryan Lunduke before I realized how much of a pseudo-intellectual dimwit that he is.\n[2] At least outside of the \"included\" database in a few web frameworks.",
+      "url": "https://news.ycombinator.com/item?id=45133786",
+      "parent_id": "45132498",
+      "depth": 0,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45135124",
+      "author": "wakawaka28",
+      "created_at": "2025-09-05T05:00:43.000Z",
+      "text": "What is it that makes you think Lunduke is pseudo-intellectual? He certainly doesn't try to pose as a scholar. If you are like most of his haters, you just refuse to believe that smart people can be conservatives.",
+      "url": "https://news.ycombinator.com/item?id=45135124",
+      "parent_id": "45133786",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45135169",
+      "author": "kstrauser",
+      "created_at": "2025-09-05T05:10:45.000Z",
+      "text": "There’s no way to discuss Lunduke without getting into politics, so I’ll leave it that Lunduke is clearly a very intelligent person who IMO mistakes his knowledge in some areas for general expertise in other unrelated fields.\nIt’s a common trap to fall into. See also: Ben Carson. Both of them are obviously intelligent and highly skilled in their professional fields. And both have let that convince themselves that they know everything about everything.",
+      "url": "https://news.ycombinator.com/item?id=45135169",
+      "parent_id": "45135124",
+      "depth": 2,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45135243",
+      "author": "wakawaka28",
+      "created_at": "2025-09-05T05:29:40.000Z",
+      "text": "I don't think Lunduke is a Ben Carson type. That would be ridiculous. He has opinions about things outside his area of expertise, like all of us, but he also has some unique experiences like having worked for Microsoft and OpenSUSE. His opinions on tech are pretty solid. I also agree with his politics for the most part.",
+      "url": "https://news.ycombinator.com/item?id=45135243",
+      "parent_id": "45135169",
+      "depth": 3,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45135282",
+      "author": "kstrauser",
+      "created_at": "2025-09-05T05:36:52.000Z",
+      "text": "I would hear what he has to say about his tech experiences. I would not be in a room where he was discussing his politics.",
+      "url": "https://news.ycombinator.com/item?id=45135282",
+      "parent_id": "45135243",
+      "depth": 4,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45138637",
+      "author": "tombert",
+      "created_at": "2025-09-05T13:55:46.000Z",
+      "text": "I used to think he was reasonably smart but after a certain point I realized that his knowledge of basically anything he talked about was extremely surface level, and doesn’t appear to know much after that.\nI disliked him before he went super conservative, but now his YouTube channel boils down to “OMG GUYS LOOK AT HOW WOKE EVERYTHING IS WOKE WOKE WOKE WOKE WOKE PEOPLE ARE HATERS ON ME BECAUSE I SAID SOMETHING THEY DONT LIKE WOKE WOKE!”\nIt’s typical low effort grifter stuff.",
+      "url": "https://news.ycombinator.com/item?id=45138637",
+      "parent_id": "45135124",
+      "depth": 2,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45144992",
+      "author": "wakawaka28",
+      "created_at": "2025-09-05T23:37:04.000Z",
+      "text": "I think Lunduke probably has moderate or high technical skills. However, the more technical you get, the smaller your audience can be.\nI do get a little tired of the woke stuff, but a Youtuber has to follow a specific pattern to get traffic. It's an important message. I'm sure he takes it at least a little personally that he is banned from forums, conferences, talking to various companies about their activities, has his technical achievements (see: the top comment I replied to here, and his awful treatment by OpenSUSE folks), ignored due to irrelevant (and popular) political views, antagonized for being Jewish, etc. He wants to be a tech journalist but he is persecuted over politics. So if he complains about it a lot, I expect that and appreciate him taking the heat for saying what we all think.",
+      "url": "https://news.ycombinator.com/item?id=45144992",
+      "parent_id": "45138637",
+      "depth": 3,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45145847",
+      "author": "tombert",
+      "created_at": "2025-09-06T01:47:11.000Z",
+      "text": "> I do get a little tired of the woke stuff, but a Youtuber has to follow a specific pattern to get traffic. It's an important message.\nYes. This is why I called it a low effort grift.\nThe anti-woke stuff was overplayed in 2016, and it's even more tiring and stupid now. You're free to think it's \"important\", but it's not. It's just lazy shit he does instead of actual \"journalism\" (which I suppose is what he calls it).\n> I'm sure he takes it at least a little personally that he is banned from forums, conferences, talking to various companies about their activities, has his technical achievements\n> He wants to be a tech journalist but he is persecuted over politics.\nHe's not \"persecuted\" over politics. He's putting his opinions out there specifically to get a reaction, and then he pretends to be surprised that people actually react to his opinion. You could say it's persecution, but it's really not: everyone draws a line on this stuff.\nFor example: if someone was super public about lowering the age of consent to three years old then you probably wouldn't be super upset when he's no longer invited to conferences. That could technically be considered a \"political opinion\" and I'm sure that he would claim he's being persecuted and we would collectively roll our eyes.\nObviously Lunduke isn't that bad, at least as far as I know, but my point is that he's making provocative statements and unless he's the biggest moron on the planet then he has to know that.\nIt's something that bothers me; people like Lunduke will write shit specifically to be provocative (like writing a completely braindead thing about trans people not existing) and get a reaction. That is his goal. Then he acts surprised that people react negatively to the thing that he wanted and expected people to act negatively to. It's low-effort attention-seeking behavior.\nI have said lots of provocative stuff throughout my life, it can be fun to make people uncomfortable. Some of it I am a bit embarrassed by, but I haven't made an entire career out of making people upset and pretending to not understand why they're upset.\n> ignored due to irrelevant (and popular) political views\nA viewpoint being \"popular\" pays no bearing on whether or not it's harmful so I have no idea why you brought it up.\nIf Lunduke has posted a very public negative opinion about a group of people that are active in a community (e.g. trans people in the FOSS world), then it's not \"irrelevant\" for people to not want to affiliate with him.\n> I expect that and appreciate him taking the heat for saying what we all think.\nWe don't \"all\" think that. Pretending to be upset over a trans person working on software or purposefully misgendering people is not something I have ever really wanted to say, and even if I did I would just fucking say it instead of parasocially bonding with some wish.com wannabe demagogue.\nAlso, I'm not even completely convinced by his \"achievements\". I'm sure he worked at Microsoft and OpenSUSE, but that's not saying much. I used to work for Apple for several years. I didn't work there but I did at one point get an offer to work at Canonical. I don't want to give too much correlation data about myself but I have also worked at an extremely popular social media website. A lot of people on this forum can make similar claims. It doesn't make me or him particularly special.\nBig tech companies hire a lot of very stupid people. They hire a lot of very smart people too, but even if he worked at Microsoft, even in the 90's, isn't an indication of intelligence or making major achievements, and frankly I kind of get the impression that he embellishes his achievements to try and make himself seem more credible, though I have no evidence of that.\nAlso, wasn't he basically just a spokesperson for OpenSUSE? I didn't think he was doing anything technical there.\nETA:\nThis is all to say, it's not like Lunduke has been cut out of conferences and the like just for voting republican or anything. I've met plenty of people in tech who are conservative, don't try to hide that fact, and they're not shunned or anything, so I don't buy the conspiracy theory that conservative voices are \"persecuted\" in tech spaces.\nLunduke goes a step further by being outwardly hostile towards LGBTQ groups, and then pretends he's not doing that. This is why he's been considered so unbelievably insufferable in the tech world: his entire way of speaking is dishonest.",
+      "url": "https://news.ycombinator.com/item?id=45145847",
+      "parent_id": "45144992",
+      "depth": 4,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45153645",
+      "author": "wakawaka28",
+      "created_at": "2025-09-06T22:52:57.000Z",
+      "text": ">The anti-woke stuff was overplayed in 2016, and it's even more tiring and stupid now. You're free to think it's \"important\", but it's not. It's just lazy shit he does instead of actual \"journalism\" (which I suppose is what he calls it).\nThe woke stuff directly affects my job prospects and quality of life. That makes it important. I've been suffering because of it every since 2012. It escalated between 2016 and 2024, and only now is the pendulum swinging the other way.\n>We don't \"all\" think that. Pretending to be upset over a trans person working on software or purposefully misgendering people is not something I have ever really wanted to say, and even if I did I would just fucking say it instead of parasocially bonding with some wish.com wannabe demagogue.\nHe finds much more lurid stories to report than \"mere\" misgendering nonsense. The pronoun thing is just a litmus test to see whether someone is in a woke cult or not. He reports on actual interesting stories, like lawsuits, new software, outsourcing, layoffs, drama in various communities, etc. (some of which occasionally involves pronouns, yes, but it's no exaggeration to say that these woke people want you banished or even dead if you refuse to go with their delusions).\n>Big tech companies hire a lot of very stupid people.\nIt happens. I don't think Lunduke is stupid though. He is in PR more than pure tech. That doesn't make him stupid. Neither does him being conservative.\n>I don't buy the conspiracy theory that conservative voices are \"persecuted\" in tech spaces.\nIt's not a theory. He regularly reports on awful treatment of conservatives. You'd be surprised at how malicious some of these woke people are. People have been banned from conferences for being seen on Twitter wearing a MAGA hat. They have been fired for being lukewarm about woke shit. I don't blame you for being out of touch, since only Lunduke seems to be willing to report the stuff, and you refuse to watch. But closing yourself off to all evidence against your views and saying \"No you guys are just imagining it!\" is the actually dishonest take.\n>Lunduke goes a step further by being outwardly hostile towards LGBTQ groups, and then pretends he's not doing that. This is why he's been considered so unbelievably insufferable in the tech world: his entire way of speaking is dishonest.\nHe is not speaking to them or about them in the way they demand, you mean. People have a right to simply refuse to engage in the constant celebration of certain lifestyles and worldviews. Going to work should not require being lectured about how awesome it is for people to engage in abnormal sexual behaviors, or celebration and advancement of people based on their race or sex alone. Liberals have no problem demanding such things on a constant basis, ostracizing and seeking to banish anyone who disagrees even 5%, and that is exactly why we need people like Lunduke to bravely issue scathing critiques of these practices. Besides that, his tech news is kind of interesting and unique, and he has a good sense of humor.",
+      "url": "https://news.ycombinator.com/item?id=45153645",
+      "parent_id": "45145847",
+      "depth": 5,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45174690",
+      "author": "tombert",
+      "created_at": "2025-09-08T22:10:06.000Z",
+      "text": "> The woke stuff directly affects my job prospects and quality of life. That makes it important. I've been suffering because of it every since 2012. It escalated between 2016 and 2024, and only now is the pendulum swinging the other way.\nI don't know anything about you, but I'm a white male born in the US who makes dirty and inappropriate jokes all the time who lives in one of the most \"woke\" cities in America, who has been working since 2006 and living on my own since 2012, the class that is claimed to be the victim of all the \"woke\" culture, and I can tell you that the woke stuff was overdone in 2016 and it's even more tired now. I somehow manage to do ok, despite what conservatives constantly claim.\nIf you really think that that \"woke\" stuff is hurting your job prospects in itself, I simply do not believe you. I believe that you believe that, but I do not think that that's actually the reason, I think it's an excuse you've come up to justify your lack of success. I think you should do some self examination.\n> It happens. I don't think Lunduke is stupid though. He is in PR more than pure tech. That doesn't make him stupid. Neither does him being conservative.\nYou're right, being in PR doesn't make you stupid. I do think Lunduke is stupid, or at least acts like he's much smarter than he actually is. Also I think he was an engineer at Microsoft in the late 90's; he at least claimed to be part of the team that worked on IE for Unix.\nIt doesn't matter though; as you said being in PR doesn't make you stupid and being an engineer doesn't make you smart.\nI am just saying that touting him working at Microsoft and OpenSUSE as some way saying that he has this well-informed opinion doesn't work for me. I've seen too much.\n> It's not a theory. He regularly reports on awful treatment of conservatives. You'd be surprised at how malicious some of these woke people are. People have been banned from conferences for being seen on Twitter wearing a MAGA hat.\nNo it's still a conspiracy if you think it's a huge widespread thing. I'm sure you can find plenty of one-off cases of people acting stupid. The US has more than 300 million people, of course you're going to find plenty of people acting inappropriately. I would be against firing someone because they were caught wearing a MAGA hat, but I haven't seen any evidence that it's a widespread thing.\nYour response might be \"no even one is too many!!!!!\", and sure, I agree, but let's play this a bit more. Would it be fair to call conservatives part of a \"cult\" because I can find examples of evangelicals abandoning their kids because they're gay? I'll bet I could find a lot more examples of that...\n> He finds much more lurid stories to report than \"mere\" misgendering nonsense. The pronoun thing is just a litmus test to see whether someone is in a woke cult or not.\n> He is not speaking to them or about them in the way they demand, you mean. People have a right to simply refuse to engage in the constant celebration of certain lifestyles and worldviews.\nThe fact that you (and Lunduke) call using a proper pronoun as part of a \"cult\" is precisely why people Lunduke so insufferable.\nFrankly the opposition to using the pronoun that someone wants to be called has always baffled me. It really isn't hard. You can say it's hard, but then you're just actively lying, because it really isn't.\nThere are plenty of cases like this. If your name is \"Stephen\" but I insisted on calling you \"Wally\", then you might find that pretty annoying, especially if you corrected me multiple times.\nYou can use the term \"demand\" if you'd like, but that's kind of stupid. If you were to come into my house, for example, I would \"demand\" that you speak to me with a certain level of respect. The cool thing is, in my house, I get to define what \"respect\" means. If you didn't treat me in a way that I found respectful, I would tell you to get the fuck out of my house, and that's not weird; the same would apply to you and your house.\nThe people who run FOSS projects are allowed to put whatever definition of \"respectful\" that they would like. If you're going to be an asswipe about not respecting pronouns, then you are under no obligation to contribute to this project and these project maintainers are perfectly within their rights to tell you to fuck off. Again, this isn't weird. You're free to run your own project and have whatever moronic conservative standards you'd like.\nOf course you have a right to \"refuse to engage\" with things that they disagree with, but you don't have the right to my, or anyone else's friendship, or to work on any specific project. It's not written in the bible \"Thou Shall Be Allowed To Merge Arbitrary Pull Requests\".\n> Liberals have no problem demanding such things on a constant basis, ostracizing and seeking to banish anyone who disagrees even 5%, and that is exactly why we need people like Lunduke to bravely issue scathing critiques of these practices. Besides that, his tech news is kind of interesting and unique, and he has a good sense of humor.\nYou don't know me, but I'm in the category that would easily be shunned if there was really this huge epidemic of \"shunning if you disagree even 5%\". I grew up reading FYAD, I say very offensive jokes all the time, and I haven't been canceled yet. In fact, I think that only time I've ever been threatened to be \"canceled' was when I was threatened by Richard Spencer's lawyer.\nI have accidentally misgendered people who have transitioned, and you know what happened to me? Absolutely nothing, they understood it was an honest mistake and I wasn't trying to be a dick. I'm sure you can find a transgender person who's a jerk about that, but most people are reasonably understanding; they can tell if you're trying to be mean, and if you're not they usually don't get too upset.\n> Lunduke to bravely issue scathing critiques of these practices.\nIt's really not brave. You said yourself that constantly talking about \"woke\" stuff is an easy way to get engagement on YouTube. I guess it might feel dangerous if you're really naive but I was pretty active on YouTube in 2016, and lots of creators with multi-millions of subscribers were able to be super \"Anti-SJW\" and it didn't seem to hurt their numbers at all. It's almost like finding an example of a feminist acting insane isn't really that hard, and also isn't really representative of anything.\nI actually think it's cowardly; he says all this provocative shit, knowing it will upset people, and instead of owning it like a fucking grown up he just pretends that he doesn't understand why people are being so mean to him. You can't have your cake and eat it too; if you want to be provocative, that's fine, but then you shouldn't act surprised when people have a reaction.\n> Besides that, his tech news is kind of interesting and unique, and he has a good sense of humor.\nI haven't watched his stuff in awhile, so that might be true. The reason I stopped watching (predates before his idiotic \"Conservative Nerds\" blog) has already been explained: I got the impression that he would pretend he knows more about stuff than he actually does. It seemed like he would speak with authority on lots of stuff but it would immediately fall apart with any amount of examination.\nI was actually a direct connection with him on LinkedIn for awhile (keep in mind, I used to be a fan), which is how I even found out how hard right he had become.\nI highly doubt he's somehow become better informed on anything now than when I stopped watching his stuff like nine years ago.\n-----\nThis can go on forever. I answered your question, which is why I think Bryan Lunduke is a pseudo-intellectual dimwit and then some. You're free to keep responding but I think we have thoroughly derailed this into politics, and I don't think that's productive for a post about SQLite.\nFeel free to email me if you'd like to continue this discussion but I doubt either of us are going to be able to convince the other of anything.",
+      "url": "https://news.ycombinator.com/item?id=45174690",
+      "parent_id": "45153645",
+      "depth": 6,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45133948",
+      "author": "atonse",
+      "created_at": "2025-09-05T00:57:27.000Z",
+      "text": "Didn’t Apple actually move to SQLite for their Pages/Numbers format? I remember reading years ago that it was rocky (the transition), but was maybe eventually smoothed out?",
+      "url": "https://news.ycombinator.com/item?id=45133948",
+      "parent_id": "45132498",
+      "depth": 0,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45134399",
+      "author": "mdaniel",
+      "created_at": "2025-09-05T02:21:06.000Z",
+      "text": "Given n=1 https://freeiworktemplates.com/2022/05/pages-concessions-sta... seems to imply the answer is \"no, it's a zip\" and that seems to hold even for the interior files\n $ file concessions-stand-menu-template.pages\n concessions-stand-menu-template.pages: Zip archive data, at least v2.0 to extract, compression method=store\n\n $ unzip -l concessions-stand-menu-template.pages\n Archive: concessions-stand-menu-template.pages\n Length Date Time Name\n --------- ---------- ----- ----\n 58727 05-09-2022 13:27 Data/Artboard 2-26.png\n 26993 05-09-2022 13:27 Data/Artboard 2-small-27.png\n 11550 05-10-2022 08:13 Index/Document.iwa\n 720 05-10-2022 08:13 Index/ViewState.iwa\n 536 05-09-2022 12:41 Index/CalculationEngine-1686619.iwa\n 23 07-02-2021 17:48 Index/AnnotationAuthorStorage-1686618.iwa\n 43891 05-09-2022 12:41 Index/DocumentStylesheet.iwa\n 229 05-09-2022 13:28 Index/DocumentMetadata.iwa\n 17895 05-10-2022 08:13 Index/Metadata.iwa\n 379 05-10-2022 08:13 Metadata/Properties.plist\n 36 05-09-2022 12:41 Metadata/DocumentIdentifier\n 268 04-29-2022 22:18 Metadata/BuildVersionHistory.plist\n 135503 05-10-2022 08:13 preview.jpg\n 1666 05-10-2022 08:13 preview-micro.jpg\n 11057 05-10-2022 08:13 preview-web.jpg\n --------- -------\n 309473 15 files\n\n $ unzip concessions-stand-menu-template.pages Index/Document.iwa\n extracting: Index/Document.iwa\n\n $ file Index/Document.iwa\n Index/Document.iwa: data\n\n $ xxd -l 128\n 00000000: 001a 2d00 bcae 0170 6408 0112 6008 904e ..-....pd...`..N\n 00000010: 1203 0100 0518 c90c 2209 0a03 0a01 3010 ........\".....0.\n 00000020: 0118 0122 0701 0b08 2e18 0109 1400 2f05 ...\"........../.\n 00000030: 14f4 a801 0b0a 050a 030f 0111 1003 1800 ................\n 00000040: 2a27 daf8 66db f866 dcf8 66e6 f768 ddf8 *'..f..f..f..h..\n 00000050: 66df ef66 def8 66d1 f666 fdf5 66d5 f566 f..f..f..f..f..f\n 00000060: 8ff8 66df f866 86f9 6612 0408 def8 661a ..f..f..f.....f.\n 00000070: 0408 fdf5 6622 0408 8ff8 6632 0408 dfef ....f\"....f2....",
+      "url": "https://news.ycombinator.com/item?id=45134399",
+      "parent_id": "45133948",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45133967",
+      "author": "ignoramous",
+      "created_at": "2025-09-05T01:00:45.000Z",
+      "text": "> SQLite database has a lot of capability, which this essay has only begun to touch upon. But hopefully this quick glimpse has convinced some readers that using an SQL database as an application file format is worth a second look.\nIt really is. One of the experiments we have been doing currently to make bug reporting from Androids easier (and to an extent, reduce user frustration and fatigue) is to store app logs (unstructured) in (an in-memory) SQLite table. It lends very well in to on-device LLMs (like Gemma 3n or Qwen2.5 0.5b), as users can Q&A to know just what the app is doing and why it won't work the way they want it to. On-device LLMs are limited (context length and/or embeddings) and too many writes (in batches of 1000 rows) to the in-memory SQLite table (surprisingly) eats up battery like no tomorrow, so this \"chat to know what the app is doing\" isn't rolled out to everyone, yet.",
+      "url": "https://news.ycombinator.com/item?id=45133967",
+      "parent_id": "45132498",
+      "depth": 0,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45135213",
+      "author": "treyd",
+      "created_at": "2025-09-05T05:21:57.000Z",
+      "text": "What kinds of queries are being done on the logs such that it makes sense to use sqlite instead of, like, just a ring buffer?",
+      "url": "https://news.ycombinator.com/item?id=45135213",
+      "parent_id": "45133967",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45135989",
+      "author": "mschuster91",
+      "created_at": "2025-09-05T07:41:53.000Z",
+      "text": "The problem they're alluding to, I think, isn't the query side, it's the creation side. adb logcat and logging in Android in general is one hell of a clusterfuck, not being helped by logging in Java being a PITA.",
+      "url": "https://news.ycombinator.com/item?id=45135989",
+      "parent_id": "45135213",
+      "depth": 2,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45134731",
+      "author": "chris_wot",
+      "created_at": "2025-09-05T03:26:42.000Z",
+      "text": "\"Most applications can use SQLite without having to worry about bugs in obscure SQL inputs.\" And then they recommend SQLite as a document interchange format.",
+      "url": "https://news.ycombinator.com/item?id=45134731",
+      "parent_id": "45134010",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45135429",
+      "author": "wzdd",
+      "created_at": "2025-09-05T06:06:08.000Z",
+      "text": "Although this is indeed a worrying statement, it seems true to me. Most users of sqlite control the SQL they use. The problem I would expect from using a database document interchange format is that a maliciously crafted database could result in a CVE. The page acknowledges this possibility, even while pointing out (in their CVE list) that it hasn't happened so far, or is rare (it's hard to parse some of their descriptions).",
+      "url": "https://news.ycombinator.com/item?id=45135429",
+      "parent_id": "45134731",
+      "depth": 2,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45136643",
+      "author": "ncruces",
+      "created_at": "2025-09-05T09:28:14.000Z",
+      "text": "Most of the recommended [1] setting are available on a per connection basis, through PRAGMAs, sqlite3_db_config, sqlite3_limit, etc; some are global settings, like sqlite3_hard_heap_limit64.\nA binding can expose those settings. It's not a given a third party utility will use them, but they can.\n1: https://www.sqlite.org/security.html",
+      "url": "https://news.ycombinator.com/item?id=45136643",
+      "parent_id": "45136120",
+      "depth": 4,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45137223",
+      "author": "munch117",
+      "created_at": "2025-09-05T11:04:11.000Z",
+      "text": "Ah, I missed that 9.a-c were alternatives. And that, in the absence of custom tables or functions, they are merely defense in depth for something that is already secure, barring bugs. I withdraw my concern.",
+      "url": "https://news.ycombinator.com/item?id=45137223",
+      "parent_id": "45136643",
+      "depth": 5,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45136586",
+      "author": "ncruces",
+      "created_at": "2025-09-05T09:18:47.000Z",
+      "text": "Untrusted database file is not the same as untrusted SQL input.\nThere are parts of the SQL engine that are exposed to malicious file manipulation (the schema is stored as SQL DDL text) but that's not arbitrary SQL input.\nIf you want to highlight an inconsistency, this is way more worrying:\n> “All historical vulnerabilities reported against SQLite require at least one of these preconditions: (…) 2. The attacker can submit a maliciously crafted database file to the application that the application will then open and query. Few real-world applications meet either of these preconditions…”\nHowever, most of the rest of the page is speaking of arbitrary SQL input, not purposely broken database files.",
+      "url": "https://news.ycombinator.com/item?id=45136586",
+      "parent_id": "45134731",
+      "depth": 2,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45138078",
+      "author": "agwa",
+      "created_at": "2025-09-05T13:05:18.000Z",
+      "text": "> There are parts of the SQL engine that are exposed to malicious file manipulation (the schema is stored as SQL DDL text) but that's not arbitrary SQL input.\nView and triggers can contain arbitrary SQL and can be defined by a malicious database file, though these can be disabled as described on the \"Defense Against The Dark Arts\" page.\nThat leaves default column values and indexes on expressions, which can execute a limited subset of SQL. I'd be worried about certain arbitrary SQL input vulnerabilities being reachable this way.",
+      "url": "https://news.ycombinator.com/item?id=45138078",
+      "parent_id": "45136586",
+      "depth": 3,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45135122",
+      "author": "charleslmunger",
+      "created_at": "2025-09-05T05:00:25.000Z",
+      "text": ">and they seem to get annoyed that people run fuzzers against SQLite, even though application file formats should definitely be fuzzed.\nI think that's an unfair reading. Sqlite runs fuzzers itself and quickly addresses bugs found by fuzzers externally. There's an entire section in their documentation about their own fuzzers and thanking third party fuzzers, including credit to individual engineers.\nhttps://www.sqlite.org/testing.html\nThe tone of the CVE docs are because people freak out about CVEs flagged by automated tools when the CVEs are for issues that have no security impact for typical usage of SQLite, or have prerequisites that would already have resulted in some form of compromise.",
+      "url": "https://news.ycombinator.com/item?id=45135122",
+      "parent_id": "45134010",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45141069",
+      "author": "sigmarule",
+      "created_at": "2025-09-05T17:22:37.000Z",
+      "text": "On the other hand, exploiting weaknesses in MITRE’s CVE program to create ticket management primitives, creating “shellcode” that composes them to implement a feature request tracking API, using it to manage your open source organization’s feature roadmap, sure would make for a great 2600 article…",
+      "url": "https://news.ycombinator.com/item?id=45141069",
+      "parent_id": "45140857",
+      "depth": 3,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45142959",
+      "author": "charleslmunger",
+      "created_at": "2025-09-05T20:00:47.000Z",
+      "text": "That's true, but most usage of sqlite is not as an application file format, and many of those CVEs don't apply even to that use case. The reason people have policies around CVE scanning is because CVEs often represent real vulnerabilities. But there's also a stuff like \"this regex has exponential or polynomial runtime on bad inputs\", which is a real security issue for some projects and not others, depending on what the input to the regex is. That's also true for SQLite, and I'm guessing that the author of that page has spent a bunch of time explaining to people worried about some CVE that their usage is not vulnerable. The maintainer of cURL has expressed similar frustration.",
+      "url": "https://news.ycombinator.com/item?id=45142959",
+      "parent_id": "45140857",
+      "depth": 3,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45151901",
+      "author": "charleslmunger",
+      "created_at": "2025-09-06T18:53:13.000Z",
+      "text": "Mobile apps store SQLite dbs in their private data directory that only they can access. In order to exploit a vulnerability you'd have to first break the sandbox. Desktop OSes generally have far weaker protections than that, if you have access to the user's profile directory you can steal all of their credentials or plant executables etc.\nWhen I think application file format I think of something like .txt, pdf, or .doc, where it's expected that you'll receive untrusted input passed around. In that case it makes a lot more sense to restrict which features of SQLite are accessible, and even then I'd worry about using it in widely - there's so much surface area, plus the user confusion of shm and wal files.",
+      "url": "https://news.ycombinator.com/item?id=45151901",
+      "parent_id": "45147835",
+      "depth": 5,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45139562",
+      "author": "ectospheno",
+      "created_at": "2025-09-05T15:17:15.000Z",
+      "text": "To be fair, PRAGMA trusted_schema=OFF is recommended by the docs, it just isn't default. The docs also recommend the SQLITE_DIRECTONLY flag on all custom SQL functions.",
+      "url": "https://news.ycombinator.com/item?id=45139562",
+      "parent_id": "45134010",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45134255",
+      "author": "jll29",
+      "created_at": "2025-09-05T01:46:03.000Z",
+      "text": "I love SQLite.\nAs a document _exchange_/_interchange_ format, what I prefer for durability is a non-binary format (e.g. XML based).\nFor local use, I agree SQLite might be much faster than ZIP, and of course the ability to query based on SQL has its own flexibility merits.",
+      "url": "https://news.ycombinator.com/item?id=45134255",
+      "parent_id": "45132498",
+      "depth": 0,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45135099",
+      "author": "thayne",
+      "created_at": "2025-09-05T04:56:04.000Z",
+      "text": "XML isn't great for exchange/interchange either due to security problems and inconsistencies in implementations. A big part of the problem is that xml has a lot of complexity, which leads to a bigger attack surface when parsing and processing untrusted data. And then xml entities are just inherently insecure, unless you disable some of their capabilities (like using remote files, and unlimited recursion).\nThat said, creating a format that can convey rich untrusted data is a hard problem.",
+      "url": "https://news.ycombinator.com/item?id=45135099",
+      "parent_id": "45134255",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45135666",
+      "author": "jdboyd",
+      "created_at": "2025-09-05T06:50:46.000Z",
+      "text": "Part of the problem though with saying SQLite instead of XML is a lot of things would lend themselves to XML in SQLite.",
+      "url": "https://news.ycombinator.com/item?id=45135666",
+      "parent_id": "45135099",
+      "depth": 2,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45135727",
+      "author": "Ekaros",
+      "created_at": "2025-09-05T07:01:45.000Z",
+      "text": "Complex features are inherently complex. Say you want external resources or some scripts in document. No matter what storage format you use those are more surfaces. Problem is not storage, but what is done with information. And very often that is a lot and poorly thought out and even more poorly implemented.",
+      "url": "https://news.ycombinator.com/item?id=45135727",
+      "parent_id": "45135666",
+      "depth": 3,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45136434",
+      "author": "thayne",
+      "created_at": "2025-09-05T08:53:24.000Z",
+      "text": "But most applications don't need those features. And if they do, that should be part of the application logic, with appropriate controls. Having your parsing library make arbitrary http requests is a bad idea.",
+      "url": "https://news.ycombinator.com/item?id=45136434",
+      "parent_id": "45135727",
+      "depth": 4,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45135778",
+      "author": "thayne",
+      "created_at": "2025-09-05T07:07:27.000Z",
+      "text": "Oh, I'm not saying sqlite is better than xml for data exchange. As mentioned in other comments, sqlite's security posture towards an untrusted database is problematic. My point is that xml has problems too.",
+      "url": "https://news.ycombinator.com/item?id=45135778",
+      "parent_id": "45135666",
+      "depth": 3,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45134413",
+      "author": "greenavocado",
+      "created_at": "2025-09-05T02:23:13.000Z",
+      "text": "Easy fix is an empty lock file adjacent to the real one.",
+      "url": "https://news.ycombinator.com/item?id=45134413",
+      "parent_id": "45134401",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45134419",
+      "author": "lifthrasiir",
+      "created_at": "2025-09-05T02:24:02.000Z",
+      "text": "Yeah, but only if SQLite did support that mode in some built-in VFS implementation...",
+      "url": "https://news.ycombinator.com/item?id=45134419",
+      "parent_id": "45134413",
+      "depth": 2,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45134841",
+      "author": "hedora",
+      "created_at": "2025-09-05T03:52:36.000Z",
+      "text": "Which network filesystems are still corrupting sqlite files?\nSqlite on NFSv3 has been rock solid for some NFS servers for a decade.\nMaybe name and shame?",
+      "url": "https://news.ycombinator.com/item?id=45134841",
+      "parent_id": "45134419",
+      "depth": 3,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45135307",
+      "author": "lifthrasiir",
+      "created_at": "2025-09-05T05:42:29.000Z",
+      "text": "Specifically I had an issue over 9p used by WSL2. (I never thought it was networked before this incident.)",
+      "url": "https://news.ycombinator.com/item?id=45135307",
+      "parent_id": "45134841",
+      "depth": 4,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45151333",
+      "author": "hedora",
+      "created_at": "2025-09-06T17:42:47.000Z",
+      "text": "It seems odd to break a wide range of valid configs for something so obscure.",
+      "url": "https://news.ycombinator.com/item?id=45151333",
+      "parent_id": "45135307",
+      "depth": 5,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45155150",
+      "author": "lifthrasiir",
+      "created_at": "2025-09-07T03:30:10.000Z",
+      "text": "Yes, that was surprising to me too! I was able to fairly reliably reproduce data corruption in this case.",
+      "url": "https://news.ycombinator.com/item?id=45155150",
+      "parent_id": "45151333",
+      "depth": 6,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45135134",
+      "author": "afiori",
+      "created_at": "2025-09-05T05:02:25.000Z",
+      "text": "In that case the application would keep a temporary file and copy over when saving",
+      "url": "https://news.ycombinator.com/item?id=45135134",
+      "parent_id": "45134401",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45135547",
+      "author": "cpach",
+      "created_at": "2025-09-05T06:29:12.000Z",
+      "text": "Maybe, but how would the application know if /data/foo.bar is a local file or mounted via NFS/SMB/etc?",
+      "url": "https://news.ycombinator.com/item?id=45135547",
+      "parent_id": "45135134",
+      "depth": 2,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45136701",
+      "author": "afiori",
+      "created_at": "2025-09-05T09:36:16.000Z",
+      "text": "it would always use such a temporary file and update the \"real\" file only on explicit saves with fast mv or cp operations",
+      "url": "https://news.ycombinator.com/item?id=45136701",
+      "parent_id": "45135547",
+      "depth": 3,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45135346",
+      "author": "chungy",
+      "created_at": "2025-09-05T05:48:47.000Z",
+      "text": "That's pretty broad and over-generalized. Networking file systems without good lock support is almost always a bad setup by an administrator. Both NFS and CIFS can work with network-wide locks just fine.\nSQLite advises against using a networking file system to avoid potential issues, but you can successfully do it.",
+      "url": "https://news.ycombinator.com/item?id=45135346",
+      "parent_id": "45134401",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45135607",
+      "author": "jdboyd",
+      "created_at": "2025-09-05T06:39:12.000Z",
+      "text": "Are the typical Synology, Qnap, or TrueNAS devices with default Linux, macOS and Windows clients going to be set up correctly by default? If any of the typical things someone is likely to setup following wizards in a home or small office is likely to result in lock not working correctly for SQLite, then it is fair for them to warn against using it on a network file system.\nAs an application format, you don't generally expect people to be editing an ODF file at the same time though, so network locking doesn't really disqualify it for use as a document format.",
+      "url": "https://news.ycombinator.com/item?id=45135607",
+      "parent_id": "45135346",
+      "depth": 2,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45135947",
+      "author": "mschuster91",
+      "created_at": "2025-09-05T07:34:18.000Z",
+      "text": "> As an application format, you don't generally expect people to be editing an ODF file at the same time though\nOh hell yes you do. Excel spreadsheets are notorious for people wanting to collaborate on them, and PowerPoint sheets come in close second. It used to be an absolute PITA but at least Office 365 makes the pains bearable.",
+      "url": "https://news.ycombinator.com/item?id=45135947",
+      "parent_id": "45135607",
+      "depth": 3,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45136892",
+      "author": "lifthrasiir",
+      "created_at": "2025-09-05T10:09:17.000Z",
+      "text": "As noted in my other comment, those \"potential\" issues are real and do happen from time to time. Unless SQLite gives some set of configurations to avoid such issues, I can't agree that it's over-generalized.",
+      "url": "https://news.ycombinator.com/item?id=45136892",
+      "parent_id": "45135346",
+      "depth": 2,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45135619",
+      "author": "kvdveer",
+      "created_at": "2025-09-05T06:42:49.000Z",
+      "text": "In the context of this article, that's largely irrelevant: ZIP cannot be used in a multi-user scenario at all, so even if sqlite isn't perfect, it's still miles better than the ZIP format it replaces in this thought experiment.",
+      "url": "https://news.ycombinator.com/item?id=45135619",
+      "parent_id": "45134401",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45135186",
+      "author": "est",
+      "created_at": "2025-09-05T05:14:59.000Z",
+      "text": "has anyone actually used the `content BLOB` pattern in a larger scale? Suppose if I have tens of thousands of small jpegs would it be better off in a .sqlite file?",
+      "url": "https://news.ycombinator.com/item?id=45135186",
+      "parent_id": "45132498",
+      "depth": 0,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45135218",
+      "author": "shlomo_z",
+      "created_at": "2025-09-05T05:23:44.000Z",
+      "text": "Sqlite claims [1] this is a good use case\n1. https://www.sqlite.org/fasterthanfs.html",
+      "url": "https://news.ycombinator.com/item?id=45135218",
+      "parent_id": "45135186",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45135922",
+      "author": "bob1029",
+      "created_at": "2025-09-05T07:31:30.000Z",
+      "text": "> it is still bothersome that changing a single character in a 50 megabyte presentation causes one to burn through 50 megabytes of the finite write life on the SSD.\nI used to worry a lot about this but it has never once actually come up for me. 50 megabytes is a pretty extreme example, but even so if you edit this document fewer than several million times it won't \nmatter.\nSerializing the object graph all over again can be way faster than mapping into a tabular model. There are JSON serializers that can push multiple gigabytes per second per core. It might even be the case that, once you factor in the SSD controller quirks, the tabular updates could cause more blocks to be written than just dumping a big fat json stream all at once.",
+      "url": "https://news.ycombinator.com/item?id=45135922",
+      "parent_id": "45132498",
+      "depth": 0,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45136696",
+      "author": "gwd",
+      "created_at": "2025-09-05T09:35:43.000Z",
+      "text": "Anki's storage format is SQLite (or was a few years ago). That made it really lovely when I wanted to import the contents (including the view logs) of Anki deck I'd been using for a decade into a custom system I was designing. Just pop up the `sqlite3` REPL, poke around and see what it looks like, then write standard SQL queries to get the data out.",
+      "url": "https://news.ycombinator.com/item?id=45136696",
+      "parent_id": "45132498",
+      "depth": 0,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45136824",
+      "author": "Cthulhu_",
+      "created_at": "2025-09-05T09:58:30.000Z",
+      "text": "Previous discussions, 2 and 5 years ago: https://hn.algolia.com/?query=https%3A%2F%2Fwww.sqlite.org%2...",
+      "url": "https://news.ycombinator.com/item?id=45136824",
+      "parent_id": "45132498",
+      "depth": 0,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45136916",
+      "author": "nashashmi",
+      "created_at": "2025-09-05T10:12:32.000Z",
+      "text": "Fwiw, autocad uses database format for its file data.",
+      "url": "https://news.ycombinator.com/item?id=45136916",
+      "parent_id": "45132498",
+      "depth": 0,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45137045",
+      "author": "nloomans",
+      "created_at": "2025-09-05T10:32:10.000Z",
+      "text": "Interesting read! I find the idea to use SQL queries to get only the relevant data quite convincing. I do wonder how this would work in practice though. Any changes the user makes would have to be inserted with SQL to allow for the new data to be included in SQL queries, but users also expect to be able to make changes and then not save them (or save them into a different file).\nShould one make a massive transaction that is only committed when saving? It is possible to commit such a transaction to a different file when using Save As?\nOr maybe for editing one would need to copy the file to a separate temporary location, constantly commit to that file, and when saving move the temporary file over the original file (this way we aren't losing the resilience against corruption SQLite offers).\nOr is there a better way to do this? I don't like storing pending changes into the original file since it kinda goes against how users expect files to work (and could cause them to accidentally leak data).",
+      "url": "https://news.ycombinator.com/item?id=45137045",
+      "parent_id": "45132498",
+      "depth": 0,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45138531",
+      "author": "joseda-hg",
+      "created_at": "2025-09-05T13:46:34.000Z",
+      "text": "You could insert any modifications and just mark whatever row the current saved one is\nThis would also work as a really crude undo tree\nI don't really know if it actually goes against users expectations, Office kinda \"saves\" stuff for you and stores them as temporary versions anyway, to be presented in case you forgot to save",
+      "url": "https://news.ycombinator.com/item?id=45138531",
+      "parent_id": "45137045",
+      "depth": 1,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45137411",
+      "author": "seethishat",
+      "created_at": "2025-09-05T11:38:08.000Z",
+      "text": "I would change this: \"Do what works, not what your database professor said you ought to do.\"\nTo this: \"Unless you work for Google or FaceBook, just do what works, not what your database professor said you ought to do.\"",
+      "url": "https://news.ycombinator.com/item?id=45137411",
+      "parent_id": "45132498",
+      "depth": 0,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45137588",
+      "author": "jesprenj",
+      "created_at": "2025-09-05T12:05:29.000Z",
+      "text": "(2014) https://web.archive.org/web/20141027044008/www.sqlite.org/af...",
+      "url": "https://news.ycombinator.com/item?id=45137588",
+      "parent_id": "45132498",
+      "depth": 0,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    },
+    {
+      "id": "45140294",
+      "author": "tekkk",
+      "created_at": "2025-09-05T16:19:18.000Z",
+      "text": "The fundamental problem in my mind is the mixing of binary and text content. An optimal solution would separate them, allowing systems like Git do the versioning. But separating the tightly coupled parts into own files would also be annoying sharing/management wise.\nBase64:ing the images into strings, like one could do with html, would probably not be ideal for compression. As a matter of fact, text-files as such would not be ideal compression-wise.\nSo I suppose if binary-format cant be avoided, SQLite would be as good as any other compression format. But without built-in collaboration protocol support, like CRDT, with history truncation (and diverged histories can always fall back to diff) I dont think it'd be good enough to justify the migration.",
+      "url": "https://news.ycombinator.com/item?id=45140294",
+      "parent_id": "45132498",
+      "depth": 0,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=45132498",
+      "source": "api"
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 25045,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "xai.rewrite": 1,
+      "hackernews.search": 1,
+      "hackernews.read_thread": 1
+    },
+    "xai_cost_ticks": 528079200,
+    "tavily_credits_estimate": 0
+  }
+}

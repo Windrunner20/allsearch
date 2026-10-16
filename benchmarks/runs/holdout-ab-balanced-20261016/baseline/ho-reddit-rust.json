@@ -1,0 +1,400 @@
+{
+  "id": "ho-reddit-rust",
+  "executed_at": "2026-10-16T08:54:01.104447+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "Reddit r/rust thread discussing that async-std is discontinued",
+  "answer": "The main r/rust discussion of the official discontinuation is one PSA thread; a few earlier threads cover maintenance worries and the async-std/smol relationship.\n\n1. **[PSA: async-std has been officially discontinued; use smol instead](https://www.reddit.com/r/rust/comments/1jc6gis/psa_asyncstd_has_been_officially_discontinued_use/)** — u/JoshTriplett, Mar 15, 2025 (~453 points, 34 comments). Points at crates.io; comments note async-std already ran on the smol executor, so the API should feel familiar, and debate smol vs tokio (simplicity/tail latency vs ecosystem).\n\n2. **[is async-std still being developed?](https://www.reddit.com/r/rust/comments/ssumd6/is_asyncstd_still_being_developed/)** — u/thedoyster, Feb 15, 2022 (~142 points, 22 comments). Asks about a sharp drop in commits and quiet Discord; replies link a GitHub “is the project dead?” comment and note community focus shifting to Tokio.\n\n3. **[SQLX Proposal: remove runtime features and async-std support](https://www.reddit.com/r/rust/comments/sjcf6r/sqlx_proposal_remove_runtime_features_and/)** — Feb 3, 2022. Ecosystem thread on dropping async-std; comments treat it as the “odd one out” next to Tokio and worry about alternatives losing support.\n\n4. **[What is the difference between async-std and smol](https://www.reddit.com/r/rust/comments/lbaysp/what_is_the_difference_between_asyncstd_and_smol/)** — u/figsoda, Feb 3, 2021. Short comparison: smol as lower-level building blocks; async-std as a higher-level, std-like layer on related components.\n\n5. **[async-std now using smol runtime](https://www.reddit.com/r/rust/comments/gg7gnl/asyncstd_now_using_smol_runtime/)** — u/bobbytabl3s, May 9, 2020 (~325 points). Announcement that async-std switched to the smol runtime; comments ask when to use smol directly vs async-std.\n\n6. **[smol vs tokio vs async-std](https://www.reddit.com/r/rust/comments/i5hppj/smol_vs_tokio_vs_asyncstd/)** — u/_jsdw, Aug 7, 2020 (~179 points). Long comparison of shared executor/reactor pieces, compatibility, and when libraries vs apps should pick each runtime.\n\n7. **[What to expect from Smol v2.0](https://www.reddit.com/r/rust/comments/15yqppe/what_to_expect_from_smol_v20/)** — u/EelRemoval, Aug 23, 2023 (~178 points). Ongoing smol work; comments contrast smol’s thin stack with async-std’s thicker std-like layer and with Tokio.\n\nOnly result 1 is the official “discontinued” announcement on r/rust. Results 2–3 are the closest prior maintenance discussions; 4–7 are background on why the PSA recommends smol. Outside Reddit, crates.io and [RUSTSEC-2025-0052](https://rustsec.org/advisories/RUSTSEC-2025-0052) (Aug 2025, informational/unmaintained) record the same status.",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://www.reddit.com/r/rust/comments/cr85pp/announcing_asyncstd_beta_an_async_port_of_the",
+      "url": "https://www.reddit.com/r/rust/comments/cr85pp/announcing_asyncstd_beta_an_async_port_of_the",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "https://www.reddit.com/r/rust/comments/ssumd6/is_asyncstd_still_being_developed/?tl=tr",
+      "url": "https://www.reddit.com/r/rust/comments/ssumd6/is_asyncstd_still_being_developed?tl=tr",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://www.reddit.com/r/rust/comments/dffxqv/asyncstd_v0999_released/",
+      "url": "https://www.reddit.com/r/rust/comments/dffxqv/asyncstd_v0999_released",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "https://old.reddit.com/r/rust/comments/i5hppj/smol_vs_tokio_vs_asyncstd.json",
+      "url": "https://old.reddit.com/r/rust/comments/i5hppj/smol_vs_tokio_vs_asyncstd.json",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://www.reddit.com/r/rust/comments/1jc6gis/psa_asyncstd_has_been_officially_discontinued_use/",
+      "url": "https://www.reddit.com/r/rust/comments/1jc6gis/psa_asyncstd_has_been_officially_discontinued_use",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "https://www.reddit.com/r/rust/comments/sjcf6r/sqlx_proposal_remove_runtime_features_and/",
+      "url": "https://www.reddit.com/r/rust/comments/sjcf6r/sqlx_proposal_remove_runtime_features_and",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://www.reddit.com/r/rust/comments/15yqppe/what_to_expect_from_smol_v20/",
+      "url": "https://www.reddit.com/r/rust/comments/15yqppe/what_to_expect_from_smol_v20",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "https://crates.io/crates/async-std",
+      "url": "https://crates.io/crates/async-std",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://www.reddit.com/r/rust/comments/cr85pp/announcing_asyncstd_beta_an_async_port_of_the",
+      "url": "https://www.reddit.com/r/rust/comments/cr85pp/announcing_asyncstd_beta_an_async_port_of_the",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "https://www.reddit.com/r/rust/comments/ssumd6/is_asyncstd_still_being_developed/?tl=tr",
+      "url": "https://www.reddit.com/r/rust/comments/ssumd6/is_asyncstd_still_being_developed?tl=tr",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://www.reddit.com/r/rust/comments/dffxqv/asyncstd_v0999_released/",
+      "url": "https://www.reddit.com/r/rust/comments/dffxqv/asyncstd_v0999_released",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "https://old.reddit.com/r/rust/comments/i5hppj/smol_vs_tokio_vs_asyncstd.json",
+      "url": "https://old.reddit.com/r/rust/comments/i5hppj/smol_vs_tokio_vs_asyncstd.json",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://www.reddit.com/r/rust/comments/1jc6gis/psa_asyncstd_has_been_officially_discontinued_use/",
+      "url": "https://www.reddit.com/r/rust/comments/1jc6gis/psa_asyncstd_has_been_officially_discontinued_use",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "https://www.reddit.com/r/rust/comments/sjcf6r/sqlx_proposal_remove_runtime_features_and/",
+      "url": "https://www.reddit.com/r/rust/comments/sjcf6r/sqlx_proposal_remove_runtime_features_and",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://www.reddit.com/r/rust/comments/15yqppe/what_to_expect_from_smol_v20/",
+      "url": "https://www.reddit.com/r/rust/comments/15yqppe/what_to_expect_from_smol_v20",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "https://crates.io/crates/async-std",
+      "url": "https://crates.io/crates/async-std",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://www.reddit.com/r/rust/comments/ebfj3x/stop_worrying_about_blocking_the_new_asyncstd/",
+      "url": "https://www.reddit.com/r/rust/comments/ebfj3x/stop_worrying_about_blocking_the_new_asyncstd",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://www.reddit.com/r/rust/comments/ey98zw/announcing_asyncstd_v150/",
+      "url": "https://www.reddit.com/r/rust/comments/ey98zw/announcing_asyncstd_v150",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://www.reddit.com/r/rust/comments/dbhijt/asyncawait_hits_beta",
+      "url": "https://www.reddit.com/r/rust/comments/dbhijt/asyncawait_hits_beta",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://www.reddit.com/r/rust/comments/e2i3kn/asyncstd_120_released/",
+      "url": "https://www.reddit.com/r/rust/comments/e2i3kn/asyncstd_120_released",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://rust-trends.com/posts/rust-async-runtimes-compared/",
+      "url": "https://rust-trends.com/posts/rust-async-runtimes-compared",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://rustsec.org/advisories/RUSTSEC-2025-0052",
+      "url": "https://rustsec.org/advisories/RUSTSEC-2025-0052",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://github.com/static-web-server/static-web-server/issues/559",
+      "url": "https://github.com/static-web-server/static-web-server/issues/559",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://www.reddit.com/r/rust/comments/n5fb2z/async_rust_history_strikes_back/",
+      "url": "https://www.reddit.com/r/rust/comments/n5fb2z/async_rust_history_strikes_back",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://www.reddit.com/r/rust/comments/ee3vsu/asyncscoped_spawn_non_static_futures_with_asyncstd/",
+      "url": "https://www.reddit.com/r/rust/comments/ee3vsu/asyncscoped_spawn_non_static_futures_with_asyncstd",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://www.reddit.com/r/rust/comments/d6pw43/will_crates_like_tokio_mio_and_futures_be_still",
+      "url": "https://www.reddit.com/r/rust/comments/d6pw43/will_crates_like_tokio_mio_and_futures_be_still",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "https://www.reddit.com/r/rust/comments/lbaysp/what_is_the_difference_between_asyncstd_and_smol/",
+      "url": "https://www.reddit.com/r/rust/comments/lbaysp/what_is_the_difference_between_asyncstd_and_smol",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "https://www.reddit.com/r/rust/comments/gg7gnl/asyncstd_now_using_smol_runtime/",
+      "url": "https://www.reddit.com/r/rust/comments/gg7gnl/asyncstd_now_using_smol_runtime",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c21",
+      "title": "https://www.reddit.com/r/rust/comments/ea1l32/asyncstd_v130_released/",
+      "url": "https://www.reddit.com/r/rust/comments/ea1l32/asyncstd_v130_released",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c22",
+      "title": "https://www.reddit.com/r/rust/comments/doos98/asyncstd_v09911_released/",
+      "url": "https://www.reddit.com/r/rust/comments/doos98/asyncstd_v09911_released",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c23",
+      "title": "https://www.reddit.com/r/rust/comments/i5hppj/smol_vs_tokio_vs_asyncstd/",
+      "url": "https://www.reddit.com/r/rust/comments/i5hppj/smol_vs_tokio_vs_asyncstd",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c24",
+      "title": "https://www.reddit.com/r/rust/comments/1jc6gis/psa_asyncstd_has_been_officially_discontinued_use?tl=cs",
+      "url": "https://www.reddit.com/r/rust/comments/1jc6gis/psa_asyncstd_has_been_officially_discontinued_use?tl=cs",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 23472,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "timed_out": false,
+  "elapsed_ms": 23474,
+  "usage": {
+    "calls": {
+      "xai.search": 1
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 0
+  }
+}

@@ -1,0 +1,445 @@
+{
+  "id": "github-cpython-issue",
+  "executed_at": "2026-10-16T08:46:02.152379+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.3.0",
+  "provider_query": "PEP 703 page that proposes making the CPython GIL optional",
+  "answer": "**Primary page:** [PEP 703 – Making the Global Interpreter Lock Optional in CPython](https://peps.python.org/pep-0703/)\n\n1. **[PEP 703 (peps.python.org)](https://peps.python.org/pep-0703/)** — Official PEP by Sam Gross (sponsor: Łukasz Langa). Proposes a `--disable-gil` build so CPython can run without the GIL (ABI tag includes `t`). Status: **Final** (historical; accepted for 3.13; canonical docs now point at free-threading support).\n\n2. **[Steering Council acceptance (Discussions)](https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional-in-cpython-acceptance/37075)** — 24 Oct 2023 acceptance with a gradual three-phase rollout (experimental → supported but not default → possibly default later), and the term “free-threaded.”\n\n3. **[Steering Council intent-to-accept notice](https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474)** — July 2023 notice of intent to accept and the staged plan (experimental in 3.13).\n\n4. **[PEP 779 – Criteria for supported status for free-threaded Python](https://peps.python.org/pep-0779/)** — Follow-on PEP that set Phase II criteria; free-threaded builds became officially supported in 3.14 (still not the default).\n\n5. **[GitHub PR #2955 (python/peps)](https://github.com/python/peps/pull/2955)** — Original submission of PEP 703 by `colesbury` (merged Jan 2023).\n\n6. **[Original Discourse thread](https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606)** — Early discussion of the proposal (including the `--disable-gil` configure flag).\n\n7. **[What is PEP 703? (pydevtools handbook)](https://pydevtools.com/handbook/explanation/what-is-pep-703.md)** — Short explainer: separate free-threaded build, `t` ABI, experimental in 3.13 and supported in 3.14, GIL still default.\n\n8. **[PEP 805 – Safe Parallel Python](https://peps.python.org/pep-0805/)** — Later draft that builds on PEP 703 and addresses race-safety once the GIL is optional.",
+  "results": [
+    {
+      "id": "r1",
+      "title": "What is PEP 703? (pydevtools handbook)",
+      "url": "https://pydevtools.com/handbook/explanation/what-is-pep-703.md",
+      "snippet": "7. What is PEP 703? (pydevtools handbook) — Short explainer: separate free-threaded build, t ABI, experimental in 3.13 and supported in 3.14, GIL still default.",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r2",
+      "title": "Steering Council acceptance (Discussions)",
+      "url": "https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional-in-cpython-acceptance/37075",
+      "snippet": "2. Steering Council acceptance (Discussions) — 24 Oct 2023 acceptance with a gradual three-phase rollout (experimental → supported but not default → possibly default later), and the term “free-threaded.”",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r3",
+      "title": "Original Discourse thread",
+      "url": "https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606",
+      "snippet": "6. Original Discourse thread — Early discussion of the proposal (including the --disable-gil configure flag).",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r4",
+      "title": "PEP 703 – Making the Global Interpreter Lock Optional in CPython",
+      "url": "https://peps.python.org/pep-0703",
+      "snippet": "Primary page: PEP 703 – Making the Global Interpreter Lock Optional in CPython",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r5",
+      "title": "GitHub PR #2955 (python/peps)",
+      "url": "https://github.com/python/peps/pull/2955",
+      "snippet": "5. GitHub PR 2955 (python/peps) — Original submission of PEP 703 by colesbury (merged Jan 2023).",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r6",
+      "title": "PEP 805 – Safe Parallel Python",
+      "url": "https://peps.python.org/pep-0805",
+      "snippet": "8. PEP 805 – Safe Parallel Python — Later draft that builds on PEP 703 and addresses race-safety once the GIL is optional.",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r7",
+      "title": "https://lwn.net/Articles/1043568/",
+      "url": "https://lwn.net/Articles/1043568",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "https://peps.python.org/pep-0780/",
+      "url": "https://peps.python.org/pep-0780",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "What is PEP 703? (pydevtools handbook)",
+      "url": "https://pydevtools.com/handbook/explanation/what-is-pep-703.md",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "Steering Council acceptance (Discussions)",
+      "url": "https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional-in-cpython-acceptance/37075",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "Original Discourse thread",
+      "url": "https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "PEP 703 – Making the Global Interpreter Lock Optional in CPython",
+      "url": "https://peps.python.org/pep-0703",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "GitHub PR #2955 (python/peps)",
+      "url": "https://github.com/python/peps/pull/2955",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "PEP 805 – Safe Parallel Python",
+      "url": "https://peps.python.org/pep-0805",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://lwn.net/Articles/1043568/",
+      "url": "https://lwn.net/Articles/1043568",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "https://peps.python.org/pep-0780/",
+      "url": "https://peps.python.org/pep-0780",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://peps.python.org/pep-0703/?featured_on=talkpython",
+      "url": "https://peps.python.org/pep-0703?featured_on=talkpython",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://peps.python.org/pep-0743/",
+      "url": "https://peps.python.org/pep-0743",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://peps.python.org/pep-0779/",
+      "url": "https://peps.python.org/pep-0779",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474",
+      "url": "https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://juejin.cn/post/7694834709337145385",
+      "url": "https://juejin.cn/post/7694834709337145385",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 9710,
+        "detail": "model=grok-4.7",
+        "usage": {
+          "input_tokens": 11114,
+          "input_tokens_details": {
+            "cached_tokens": 4352
+          },
+          "output_tokens": 709,
+          "output_tokens_details": {
+            "reasoning_tokens": 76
+          },
+          "total_tokens": 11823,
+          "num_sources_used": 0,
+          "num_server_side_tools_used": 2,
+          "cost_in_usd_ticks": 167843600,
+          "server_side_tool_usage_details": {
+            "web_search_calls": 2,
+            "x_search_calls": 0,
+            "x_posts_fetched": 0,
+            "x_users_fetched": 0,
+            "code_interpreter_calls": 0,
+            "file_search_calls": 0,
+            "mcp_calls": 0,
+            "document_search_calls": 0,
+            "image_generation_calls": 0
+          },
+          "context_details": {
+            "input_tokens": 8842,
+            "output_tokens": 618
+          }
+        }
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null,
+        "usage": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced"
+    ]
+  },
+  "coverage": {
+    "status": "not_applicable",
+    "requirements": []
+  },
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.1",
+      "status": "error",
+      "url": "https://pydevtools.com/handbook/explanation/what-is-pep-703.md",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "circuit_open",
+            "usage": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "circuit_open",
+          "message": "circuit open for provider firecrawl",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 0,
+      "thread": null
+    },
+    {
+      "schema_version": "1.1",
+      "status": "error",
+      "url": "https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional-in-cpython-acceptance/37075",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "circuit_open",
+            "usage": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "circuit_open",
+          "message": "circuit open for provider firecrawl",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 0,
+      "thread": null
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 9715,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 167843600,
+    "tavily_credits_estimate": 0
+  }
+}

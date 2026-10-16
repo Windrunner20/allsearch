@@ -1,0 +1,351 @@
+{
+  "id": "reddit-localllama",
+  "executed_at": "2026-10-16T08:46:12.590573+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "Reddit thread in r/LocalLLaMA about running a quantized local model on one GPU",
+  "answer": "Relevant r/LocalLLaMA threads on running quantized local models on one GPU (up to 8):\n\n1. **Qwen3.5-35B-A3B quant quality and speed on one RTX 5080 16GB** — Compares Q8_0, Q4_K_M, and UD-Q4_K_XL in llama.cpp with partial MoE offload; best reported setup is Q4_K_M with `--n-cpu-moe 24` (~70 tok/s, ~2% perplexity loss vs Q8).  \n   https://www.reddit.com/r/LocalLLaMA/comments/1rei65v/  \n   [[1]](https://www.reddit.com/r/LocalLLaMA/comments/1rei65v/)\n\n2. **llama.cpp KV-cache quantization memory tests** — q4_0 KV cache lets Command R (35B) fit on a single 24GB Tesla P40 at 8192 context.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1dalkm8/  \n   [[2]](https://www.reddit.com/r/LocalLLaMA/comments/1dalkm8/memory_tests_using_llamacpp_kv_cache_quantization/)\n\n3. **Qwen 3.8 27B ~140 tok/s on one RTX 3090** — Q4_K_M (Unsloth and similar) on a single 24GB+ NVIDIA card; context up to ~147K with mixed KV quant.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1x37q7b/  \n   [[3]](https://www.reddit.com/r/LocalLLaMA/comments/1x37q7b/update_qwen_38_27b_140_toks_on_single_rtx_3090/)\n\n4. **Gemma 4 12B QAT ~120 tok/s on 12GB** — Unsloth QAT GGUF fully in VRAM on an RTX 4070 Super 12GB, with MTP speculative decoding in llama.cpp.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1typjmc/  \n   [[4]](https://old.reddit.com/r/LocalLLaMA/comments/1typjmc/120_toks_on_12gb_vram_with_gemma_4_12b_qat_mtp.json)\n\n5. **Qwen3 235B on one RTX 3060 12GB** — Unsloth UD-Q2_K_XL with MoE experts forced to CPU (`-ot`), ~6 tok/s at 16K context.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1ki3sze/  \n   [[5]](https://www.reddit.com/r/LocalLLaMA/comments/1ki3sze/comment/mveko7m/?force-legacy-sct=1)\n\n6. **Ornith-1.0-35B Q3_K_M on one GPU (~17 GB VRAM)** — Local llama-quantize from BF16; ~16.8 GB on disk, KLD vs BF16, ~240 tok/s single-stream in llama.cpp CUDA.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1ugqipi/  \n   [[6]](https://www.reddit.com/r/LocalLLaMA/comments/1ugqipi/ornith1035b_q3_k_m_17_gb_vram_kldchecked_against)\n\n7. **2-bit Mixtral via HQQ on an RTX 3090** — Claims ~13 GB runtime RAM vs ~90 GB for the original, with benchmark drops vs full Mixtral.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1ay7myy/  \n   [[7]](https://www.reddit.com/r/LocalLLaMA/comments/1ay7myy/2bit_mixtral_via_hqq_requires_only_13b_of_runtime/)\n\n8. **Model list for a single 24GB 3090/4090 (no CPU offload)** — GGUF quants and context lengths that fit (e.g. Llama 3.1 8B Q8, Qwen2.5 32B Q4_K_M, Gemma 2 27B Q5).  \n   https://www.reddit.com/r/LocalLLaMA/comments/1gai2ol/  \n   [[8]](https://www.redditmedia.com/r/LocalLLaMA/comments/1gai2ol/list_of_models_to_use_on_single_3090_or_4090/)",
+  "results": [
+    {
+      "id": "r1",
+      "title": "1",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rei65v",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "2",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1dalkm8/memory_tests_using_llamacpp_kv_cache_quantization",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "3",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1x37q7b/update_qwen_38_27b_140_toks_on_single_rtx_3090",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "4",
+      "url": "https://old.reddit.com/r/LocalLLaMA/comments/1typjmc/120_toks_on_12gb_vram_with_gemma_4_12b_qat_mtp.json",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "5",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ki3sze/comment/mveko7m?force-legacy-sct=1",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "6",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ugqipi/ornith1035b_q3_k_m_17_gb_vram_kldchecked_against",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "7",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ay7myy/2bit_mixtral_via_hqq_requires_only_13b_of_runtime",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "8",
+      "url": "https://www.redditmedia.com/r/LocalLLaMA/comments/1gai2ol/list_of_models_to_use_on_single_3090_or_4090",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "1",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rei65v",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "2",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1dalkm8/memory_tests_using_llamacpp_kv_cache_quantization",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "3",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1x37q7b/update_qwen_38_27b_140_toks_on_single_rtx_3090",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "4",
+      "url": "https://old.reddit.com/r/LocalLLaMA/comments/1typjmc/120_toks_on_12gb_vram_with_gemma_4_12b_qat_mtp.json",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "5",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ki3sze/comment/mveko7m?force-legacy-sct=1",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "6",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ugqipi/ornith1035b_q3_k_m_17_gb_vram_kldchecked_against",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "7",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ay7myy/2bit_mixtral_via_hqq_requires_only_13b_of_runtime",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "8",
+      "url": "https://www.redditmedia.com/r/LocalLLaMA/comments/1gai2ol/list_of_models_to_use_on_single_3090_or_4090",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 14781,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "error",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rei65v",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "circuit_open"
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "circuit_open",
+          "message": "circuit open for provider firecrawl",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 2
+    },
+    {
+      "schema_version": "1.0",
+      "status": "error",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1dalkm8/memory_tests_using_llamacpp_kv_cache_quantization",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "circuit_open"
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "circuit_open",
+          "message": "circuit open for provider firecrawl",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 0
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 14784,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 0
+  }
+}

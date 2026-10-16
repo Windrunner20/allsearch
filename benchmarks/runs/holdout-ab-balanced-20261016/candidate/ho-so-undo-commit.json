@@ -1,0 +1,1441 @@
+{
+  "id": "ho-so-undo-commit",
+  "executed_at": "2026-10-16T08:53:15.658679+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.3.0",
+  "provider_query": "Stack Overflow question on how to undo the most recent local commits in Git, and the command from the top answer",
+  "answer": "Relevant Stack Overflow threads on undoing recent **local** Git commits (not yet pushed). The main thread’s top answer is summarized first.\n\n1. **[How do I undo the most recent local commits in Git?](https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git)**  \n   Canonical thread (~30k votes on the accepted answer). **Top answer:** `git reset HEAD~` undoes the last commit and leaves the working tree unchanged so you can edit and recommit (`git commit -c ORIG_HEAD` reuses the old message). Also covers `--soft` (keep staged) and `--hard` (discard changes). Use `HEAD~n` for more than one commit. Only safe if the commits are still local.\n\n2. **[Throw away local commits in Git](https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git)**  \n   Top answers: `git reset --soft HEAD~1` (drop commit, keep work staged) and `git reset --hard HEAD~1` (drop commit and changes). `HEAD~n` / `HEAD^` for more commits; `git reset --hard @{u}` resets to the upstream branch.\n\n3. **[How to undo the last commit in git](https://stackoverflow.com/questions/37420642/how-to-undo-the-last-commit-in-git)**  \n   Top answer: `git reset HEAD^` returns to the parent commit and keeps the changes unstaged. Alternate: `git reset --soft HEAD~1` (changes stay staged). On Windows, quote the revision (`\"HEAD~1\"`).\n\n4. **[How to undo last commit](https://stackoverflow.com/questions/19303898/how-to-undo-last-commit)**  \n   Top answer (warns not to do this after push): `git reset HEAD~` to undo while keeping changes; `git reset --hard HEAD~` to discard them.\n\n5. **[How to uncommit my last commit in Git](https://stackoverflow.com/questions/2845731/how-to-uncommit-my-last-commit-in-git)**  \n   Distinguishes modes: `git reset --soft HEAD^` (keep index and files), plain `git reset HEAD^` (unstage, keep files), `git reset --hard HEAD^` (throw changes away). `HEAD~2` goes back two commits.\n\n6. **[How to undo the last commit in git, but keep my changes as unstaged?](https://stackoverflow.com/questions/22355612/how-to-undo-the-last-commit-in-git-but-keep-my-changes-as-unstaged)**  \n   Top answer prefers default mixed reset: `git reset HEAD^` / `git reset @^` so the commit is undone and changes are unstaged (not left in the index). `--soft` is the option if you want them to stay staged.\n\n7. **[Can I delete (or undo) a git commit but keep the changes?](https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git)** (same canonical Q; high-voted answers also appear under the undo tag)  \n   Common short form from highly voted answers: `git reset --soft HEAD~1` undoes the latest commit and leaves changes staged.\n\n8. **[How can I undo git reset --hard HEAD~1?](https://stackoverflow.com/questions/5473/how-can-i-undo-git-reset-hard-head1)**  \n   Recovery if a hard reset already dropped the commits: `git reflog`, then `git reset --hard HEAD@{1}` or `git reset --hard <sha>`. Works only while the old commits are still in the reflog.\n\n**Practical split from those top answers:** `--soft` keeps changes staged; default/`--mixed` keeps them unstaged; `--hard` discards them. Do not rewrite history that has already been pushed unless you intend a force-push.\n\nMost relevant comments read from the thread API (verbatim, not a summary):\n- Carl (2014-11-18T19:11:08Z) https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#27002094: \"Usually, you want to undo a commit because you made a mistake and you want to fix it - essentially what the OP did when he asked the question. Really, you actually want to redo a commit. Most of the answers here focus on the command line. While the command line is the best way to use Git when you're comfortable with it, its probably a bit alien to those coming from other version control systems t…\" — in \"How do I undo the most recent local commits in Git?\"\n- CodeWizard (2019-09-01T00:28:56Z) https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#57742431: \"Before answering let's add some background, explaining what is this HEAD. since some of the options below will result in detached head First of all what is HEAD? HEAD is simply a reference to the current commit (latest) on the current branch. There can only be a single HEAD at any given time. (excluding git worktree) The content of HEAD is stored inside .git/HEAD and it contains the 40 bytes SHA-…\" — in \"Throw away local commits in Git\"\n- James L. (2018-02-11T14:06:16Z) https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#48732358: \"Delete the most recent commit, without destroying the work you've done: git reset --soft HEAD~1 Delete the most recent commit and remove changes: git reset --hard HEAD~1\" — in \"Throw away local commits in Git\"",
+  "results": [
+    {
+      "id": "r1",
+      "title": "Throw away local commits in Git",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "snippet": "2. Throw away local commits in Git Top answers: git reset --soft HEAD~1 (drop commit, keep work staged) and git reset --hard HEAD~1 (drop commit and changes). HEAD~n / HEAD^ for more commits; git reset --hard @{u} resets to the upstream branch.",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "stackexchange"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r2",
+      "title": "How do I undo the most recent local commits in Git?",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "snippet": "1. How do I undo the most recent local commits in Git? Canonical thread (~30k votes on the accepted answer). Top answer: git reset HEAD~ undoes the last commit and leaves the working tree unchanged so you can edit and recommit ( git commit -c ORIG HEAD reuses the old message). Also covers --soft (ke",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "stackexchange"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r3",
+      "title": "How to uncommit my last commit in Git",
+      "url": "https://stackoverflow.com/questions/2845731/how-to-uncommit-my-last-commit-in-git",
+      "snippet": "5. How to uncommit my last commit in Git Distinguishes modes: git reset --soft HEAD^ (keep index and files), plain git reset HEAD^ (unstage, keep files), git reset --hard HEAD^ (throw changes away). HEAD~2 goes back two commits.",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r4",
+      "title": "How can I undo git reset --hard HEAD~1?",
+      "url": "https://stackoverflow.com/questions/5473/how-can-i-undo-git-reset-hard-head1",
+      "snippet": "8. How can I undo git reset --hard HEAD~1? Recovery if a hard reset already dropped the commits: git reflog , then git reset --hard HEAD@{1} or git reset --hard <sha . Works only while the old commits are still in the reflog.",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r5",
+      "title": "https://stackoverflow.com/questions/65153807/to-undo-the-last-git-commit-push-or-the-last-2",
+      "url": "https://stackoverflow.com/questions/65153807/to-undo-the-last-git-commit-push-or-the-last-2",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "https://stackoverflow.com/a/135614/877115",
+      "url": "https://stackoverflow.com/a/135614/877115",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://stackoverflow.com/questions/19135403/tortoisegit-undo-last-commit-into-the-repo",
+      "url": "https://stackoverflow.com/questions/19135403/tortoisegit-undo-last-commit-into-the-repo",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "https://stackoverflow.com/tags/undo/hot?filter=all",
+      "url": "https://stackoverflow.com/tags/undo/hot?filter=all",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "Throw away local commits in Git",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "How do I undo the most recent local commits in Git?",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "How to uncommit my last commit in Git",
+      "url": "https://stackoverflow.com/questions/2845731/how-to-uncommit-my-last-commit-in-git",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "How can I undo git reset --hard HEAD~1?",
+      "url": "https://stackoverflow.com/questions/5473/how-can-i-undo-git-reset-hard-head1",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://stackoverflow.com/questions/65153807/to-undo-the-last-git-commit-push-or-the-last-2",
+      "url": "https://stackoverflow.com/questions/65153807/to-undo-the-last-git-commit-push-or-the-last-2",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "https://stackoverflow.com/a/135614/877115",
+      "url": "https://stackoverflow.com/a/135614/877115",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://stackoverflow.com/questions/19135403/tortoisegit-undo-last-commit-into-the-repo",
+      "url": "https://stackoverflow.com/questions/19135403/tortoisegit-undo-last-commit-into-the-repo",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "https://stackoverflow.com/tags/undo/hot?filter=all",
+      "url": "https://stackoverflow.com/tags/undo/hot?filter=all",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://stackoverflow.com/questions/22682870/git-undo-pushed-commits",
+      "url": "https://stackoverflow.com/questions/22682870/git-undo-pushed-commits",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://stackoverflow.com/posts/927386/revisions",
+      "url": "https://stackoverflow.com/posts/927386/revisions",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://stackoverflow.com/questions/22355612/how-to-undo-the-last-commit-in-git-but-keep-my-changes-as-unstaged",
+      "url": "https://stackoverflow.com/questions/22355612/how-to-undo-the-last-commit-in-git-but-keep-my-changes-as-unstaged",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://stackoverflow.com/questions/37420642/how-to-undo-the-last-commit-in-git",
+      "url": "https://stackoverflow.com/questions/37420642/how-to-undo-the-last-commit-in-git",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://stackoverflow.com/questions/69968797/how-to-undo-the-last-commit-on-github",
+      "url": "https://stackoverflow.com/questions/69968797/how-to-undo-the-last-commit-on-github",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://stackoverflow.com/questions/19303898/how-to-undo-last-commit",
+      "url": "https://stackoverflow.com/questions/19303898/how-to-undo-last-commit",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://stackoverflow.com/questions/2530060/in-plain-english-what-does-git-reset-do",
+      "url": "https://stackoverflow.com/questions/2530060/in-plain-english-what-does-git-reset-do",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://stackoverflow.com/posts/6866485/revisions",
+      "url": "https://stackoverflow.com/posts/6866485/revisions",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary_threads_only",
+        "latency_ms": 13435,
+        "detail": "model=grok-4.7",
+        "usage": {
+          "input_tokens": 17152,
+          "input_tokens_details": {
+            "cached_tokens": 4352
+          },
+          "output_tokens": 1127,
+          "output_tokens_details": {
+            "reasoning_tokens": 156
+          },
+          "total_tokens": 18279,
+          "num_sources_used": 0,
+          "num_server_side_tools_used": 3,
+          "cost_in_usd_ticks": 267429200,
+          "server_side_tool_usage_details": {
+            "web_search_calls": 3,
+            "x_search_calls": 0,
+            "x_posts_fetched": 0,
+            "x_users_fetched": 0,
+            "code_interpreter_calls": 0,
+            "file_search_calls": 0,
+            "mcp_calls": 0,
+            "document_search_calls": 0,
+            "image_generation_calls": 0
+          },
+          "context_details": {
+            "input_tokens": 14877,
+            "output_tokens": 1001
+          }
+        }
+      },
+      {
+        "provider": "stackoverflow",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "site_native",
+        "latency_ms": 172,
+        "detail": "0 results",
+        "usage": null
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null,
+        "usage": null
+      },
+      {
+        "provider": "stackexchange",
+        "operation": "read_thread",
+        "outcome": "ok",
+        "reason": "comments",
+        "latency_ms": 314,
+        "detail": "50 comments",
+        "usage": null
+      },
+      {
+        "provider": "stackexchange",
+        "operation": "read_thread",
+        "outcome": "ok",
+        "reason": "comments",
+        "latency_ms": 314,
+        "detail": "26 comments",
+        "usage": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "docs_signal",
+      "domains_below_threshold:1<2"
+    ]
+  },
+  "coverage": {
+    "status": "sufficient",
+    "requirements": [
+      {
+        "kind": "site",
+        "target": "Stack Overflow",
+        "satisfied": true,
+        "detail": "13 content page(s), e.g. https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git"
+      },
+      {
+        "kind": "comments",
+        "target": "comments",
+        "satisfied": true,
+        "detail": "76 comment(s) read via API from 2 thread(s)"
+      }
+    ]
+  },
+  "threads": [
+    {
+      "platform": "stackexchange",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "thread_id": "927358",
+      "title": "How do I undo the most recent local commits in Git?",
+      "author": "Hamza Yerlikaya",
+      "created_at": "2009-05-29T18:09:14Z",
+      "body": "I accidentally committed the wrong files to Git but haven't pushed the commit to the server yet.\n\nHow do I undo those commits from the local repository?",
+      "status": "comments_read",
+      "comments_total": 105,
+      "source_api": "api.stackexchange.com/2.3 site=stackoverflow",
+      "error": null,
+      "comments_read": 50
+    },
+    {
+      "platform": "stackexchange",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "thread_id": "5097456",
+      "title": "Throw away local commits in Git",
+      "author": "David Moles",
+      "created_at": "2011-02-23T21:33:55Z",
+      "body": "Due to some bad cherry-picking, my local Git repository is currently five commits ahead of the origin, and not in a good state. I want to get rid of all these commits and start over again.\n\nObviously, deleting my working directory and re-cloning would do it, but downloading everything from GitHub again seems like overkill, and not a good use of my time.\n\nMaybe git revert is what I need, but I don't want to end up 10 commits ahead of the origin (or even six), even if it does get the code itself back to the right state. I just want to pretend the last half-hour never happened.\n\nIs there a simple command that will do this? It seems like an obvious use case, but I'm not finding any examples of it.\n\nNote that this question is specifically about commits, not about:\n\nuntracked files\n\nunstaged changes\n\nstaged, but uncommitted changes",
+      "status": "comments_read",
+      "comments_total": 26,
+      "source_api": "api.stackexchange.com/2.3 site=stackoverflow",
+      "error": null,
+      "comments_read": 26
+    }
+  ],
+  "next_steps": [
+    {
+      "tool": "read_result",
+      "fields": [
+        "comments"
+      ],
+      "why": "comments read through the platform API are stored with ids, authors and timestamps"
+    }
+  ],
+  "comments": [
+    {
+      "id": "27002094",
+      "author": "Carl",
+      "created_at": "2014-11-18T19:11:08Z",
+      "text": "Usually, you want to undo a commit because you made a mistake and you want to fix it - essentially what the OP did when he asked the question. Really, you actually want to redo a commit.\n\nMost of the answers here focus on the command line. While the command line is the best way to use Git when you're comfortable with it, its probably a bit alien to those coming from other version control systems to Git.\n\nHere's how to do it using a GUI. If you have Git installed, you already have everything you need to follow these instructions.\n\nNOTE: I will assume here that you realised the commit was wrong before you pushed it. If you don't know what pushing means, then you probably haven't pushed. Carry on with the instructions. If you have pushed the faulty commit, the least risky way is just to follow up the faulty commit with a new commit that fixes things, the way you would do it in a version control system that does not allow you to rewrite history.\n\nThat said, here's how to fix your most recent fault commit using a GUI:\n\nNavigate to your repository on the command line and start the GUI with git gui\n\nChoose \"Amend last commit\". You will see your last commit message, the files you staged and the files you didn't.\n\nNow change things to how you want them to look and click Commit.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#27002094",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 91,
+      "relevance": 7.933,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "25811069",
+      "author": "dseminara",
+      "created_at": "2014-09-12T14:51:01Z",
+      "text": "There are two main scenarios\n\nYou haven't pushed the commit yet\n\nIf the problem was extra files you commited (and you don't want those on repository), you can remove them using git rm and then commiting with --amend\n\ngit rm <pathToFile>\n\nYou can also remove entire directories with -r, or even combine with other Bash commands\n\ngit rm -r <pathToDirectory>\ngit rm $(find -name '*.class')\n\nAfter removing the files, you can commit, with --amend option\n\ngit commit --amend -C HEAD # the -C option is to use the same commit message\n\nThis will rewrite your recent local commit removing the extra files, so, these files will never be sent on push and also will be removed from your local .git repository by GC.\n\nYou already pushed the commit\n\nYou can apply the same solution of the other scenario and then doing git push with the -f option, but it is not recommended since it overwrites the remote history with a divergent change (it can mess your repository).\n\nInstead, you have to do the commit without --amend (remember this about -amend`: That option rewrites the history on the last commit).",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#25811069",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 150,
+      "relevance": 4.684,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "22199804",
+      "author": "Manish Shrivastava",
+      "created_at": "2014-03-05T13:55:35Z",
+      "text": "A single command:\n\ngit reset --soft 'HEAD^' \n\nIt works great to undo the last local commit!",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#22199804",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 333,
+      "relevance": 4.289,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "34547846",
+      "author": "Sazzad Hissain Khan",
+      "created_at": "2015-12-31T14:34:25Z",
+      "text": "A Typical Git Cycle\n\nIn speaking of Git-related commands in the previous answers, I would like to share my typical Git cycles with all readers which may helpful. Here is how I work with Git,\n\nCloning the first time from the remote server\n\ngit clone $project\n\nPulling from remote (when I don't have a pending local commit to push)\n\ngit pull\n\nAdding a new local file1 into $to_be_committed_list (just imagine $to_be_committed_list means staged area)\n\ngit add $file1\n\nRemoving mistakenly added file2 from $to_be_committed_list (assume that file2 is added like step 3, which I didn't want)\n\ngit reset $file2\n\nCommitting file1 which is in $to_be_committed_list\n\ngit commit -m \"commit message description\"\n\nSyncing local commit with remote repository before pushing\n\ngit pull --rebase\n\nResolving when conflict occurs prerequisite configure mergetool\n\ngit mergetool #resolve merging here, also can manually merge\n\nAdding conflict-resolved files, let's say file1:\n\ngit add $file1\n\nContinuing my previous rebase command\n\ngit rebase --continue\n\nPushing ready and already synced last local commit\n\ngit push origin head:refs/for/$branch # branch = master, dev, etc.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#34547846",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 54,
+      "relevance": 4.125,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "14620228",
+      "author": "Madhan Ayyasamy",
+      "created_at": "2013-01-31T07:06:10Z",
+      "text": "If you are planning to undo a local commit entirely, whatever you change you did on the commit, and if you don't worry anything about that, just do the following command.\n\ngit reset --hard HEAD^1\n\n(This command will ignore your entire commit and your changes will be lost completely from your local working tree). If you want to undo your commit, but you want your changes in the staging area (before commit just like after git add) then do the following command.\n\ngit reset --soft HEAD^1\n\nNow your committed files come into the staging area. Suppose if you want to upstage the files, because you need to edit some wrong content, then do the following command\n\ngit reset HEAD\n\nNow committed files to come from the staged area into the unstaged area. Now files are ready to edit, so whatever you change, you want to go edit and added it and make a fresh/new commit.\n\nMore (link broken) (Archived version)",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#14620228",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 710,
+      "relevance": 3.818,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "43826836",
+      "author": "KawaiKx",
+      "created_at": "2017-05-07T01:01:06Z",
+      "text": "Suppose you made a wrong commit locally and pushed it to a remote repository. You can undo the mess with these two commands:\n\nFirst, we need to correct our local repository by going back to the commit that we desire:\n\ngit reset --hard <previous good commit id where you want the local repository to go>\n\nNow we forcefully push this good commit on the remote repository by using this command:\n\ngit push --force-with-lease\n\nThe 'with-lease' version of the force option it will prevent accidental deletion of new commits you do not know about (i.e. coming from another source since your last pull).",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#43826836",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 60,
+      "relevance": 3.713,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "16175525",
+      "author": "Brent Bradburn",
+      "created_at": "2013-04-23T17:27:45Z",
+      "text": "How to fix the previous local commit\n\nUse git-gui (or similar) to perform a git commit --amend. From the GUI you can add or remove individual files from the commit. You can also modify the commit message. \n\nHow to undo the previous local commit\n\nJust reset your branch to the previous location (for example, using gitk or git rebase). Then reapply your changes from a saved copy. After garbage collection in your local repository, it will be like the unwanted commit never happened. To do all of that in a single command, use git reset HEAD~1.\n\nWord of warning: Careless use of git reset is a good way to get your working copy into a confusing state. I recommend that Git novices avoid this if they can.\n\nHow to undo a public commit\n\nPerform a reverse cherry pick (git-revert) to undo the changes.\n\nIf you haven't yet pulled other changes onto your branch, you can simply do...\n\ngit revert --no-edit HEAD\n\nThen push your updated branch to the shared repository.\n\nThe commit history will show both commits, separately.\n\nAdvanced: Correction of the private branch in public repository\n\nThis can be dangerous -- be sure you have a local copy of the branch to repush.\n\nAlso note: You don't want to do this if someone else may be working on the branch.\n\ngit push --delete (branch_name) ## remove public version of branch\n\nClean up your branch locally then repush...\n\ngit push origin (branch_name)\n\nIn the normal case, you probably needn't worry about your private-branch commit history being pristine. Just push a followup commit (see 'How to undo a public commit' above), and later, do a squash-merge to hide the history.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#16175525",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 518,
+      "relevance": 3.34,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "46210590",
+      "author": "Mohit",
+      "created_at": "2017-09-14T04:33:52Z",
+      "text": "Undo the Last Commit\n\nThere are tons of situations where you really want to undo that last commit into your code. E.g. because you'd like to restructure it extensively - or even discard it altogether!\n\nIn these cases, the \"reset\" command is your best friend:\n\n$ git reset --soft HEAD~1\n\nThe above command (reset) will rewind your current HEAD branch to the specified revision. In our example above, we'd like to return to the one before the current revision - effectively making our last commit undone.\n\nNote the --soft flag: this makes sure that the changes in undone revisions are preserved. After running the command, you'll find the changes as uncommitted local modifications in your working copy.\n\nIf you don't want to keep these changes, simply use the --hard flag. Be sure to only do this when you're sure you don't need these changes any more.\n\n$ git reset --hard HEAD~1",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#46210590",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 77,
+      "relevance": 3.238,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "927386",
+      "author": "Esko Luontola [accepted]",
+      "created_at": "2009-05-29T18:13:42Z",
+      "text": "Undo a commit & redo\n\n$ git commit -m \"Something terribly misguided\" # (0: Your Accident)\n$ git reset HEAD~ # (1)\n# === If you just want to undo the commit, stop here! ===\n[ edit files as necessary ] # (2)\n$ git add . # (3)\n$ git commit -c ORIG_HEAD # (4)\n\ngit reset is the command responsible for the undo. It will undo your last commit while leaving your working tree (the state of your files on disk) untouched. You'll need to add them again before you can commit them again.\n\nMake corrections to working tree files.\n\ngit add anything that you want to include in your new commit.\n\nCommit the changes, reusing the old commit message. reset copied the old head to .git/ORIG_HEAD; commit with -c ORIG_HEAD will open an editor, which initially contains the log message from the old commit and allows you to edit it. If you do not need to edit the message, you could use the -C option.\n\nAlternatively, to edit the previous commit (or just its commit message), commit --amend will add changes within the current index to the previous commit.\n\nTo remove (not revert) a commit that has been pushed to the server, rewriting history with git push origin main --force[-with-lease] is necessary. It's almost always a bad idea to use --force; prefer --force-with-lease instead, and as noted in the git manual:\n\nYou should understand the implications of rewriting history if you amend a commit that has already been published.\n\nFurther Reading\n\nYou can use git reflog to determine the SHA-1 for the commit to which you wish to revert. Once you have this value, use the sequence of commands as explained above.\n\nHEAD~ is the same as HEAD~1. The article What is the HEAD in git? is helpful if you want to uncommit multiple commits.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#927386",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 30173,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "6866485",
+      "author": "Ryan Lundy",
+      "created_at": "2011-07-28T22:22:20Z",
+      "text": "Undoing a commit is a little scary if you don't know how it works. But it's actually amazingly easy if you do understand. I'll show you the 4 different ways you can undo a commit.\n\nSay you have this, where C is your HEAD and (F) is the state of your files.\n\n (F)\nA-B-C\n ↑\n master\n\nOption 1: git reset --hard\n\nYou want to destroy commit C and also throw away any uncommitted changes. You do this:\n\ngit reset --hard HEAD~1\n\nThe result is:\n\n (F)\nA-B\n ↑\nmaster\n\nNow B is the HEAD. Because you used --hard, your files are reset to their state at commit B.\n\nOption 2: git reset\n\nMaybe commit C wasn't a disaster, but just a bit off. You want to undo the commit but keep your changes for a bit of editing before you do a better commit. Starting again from here, with C as your HEAD:\n\n (F)\nA-B-C\n ↑\n master\n\nDo this, leaving off the --hard:\n\ngit reset HEAD~1\n\nIn this case the result is:\n\n (F)\nA-B-C\n ↑\nmaster\n\nIn both cases, HEAD is just a pointer to the latest commit. When you do a git reset HEAD~1, you tell Git to move the HEAD pointer back one commit. But (unless you use --hard) you leave your files as they were. So now git status shows the changes you had checked into C. You haven't lost a thing!\n\nOption 3: git reset --soft\n\nFor the lightest touch, you can even undo your commit but leave your files and your index:\n\ngit reset --soft HEAD~1\n\nThis not only leaves your files alone, it even leaves your index alone. When you do git status, you'll see that the same files are in the index as before. In fact, right after this command, you could do git commit and you'd be redoing the same commit you just had.\n\nOption 4: you did git reset --hard and need to get that code back\n\nOne more thing: Suppose you destroy a commit as in the first example, but then discover you needed it after all? Tough luck, right?\n\nNope, there's still a way to get it back. Type this\n\ngit reflog\n\nand you'll see a list of (partial) commit SHAs (that is, hashes) that you've moved around in. Find the commit you destroyed, and do this:\n\ngit checkout -b someNewBranchName shaYouDestroyed\n\nYou've now resurrected that commit. Commits don't actually get destroyed in Git for some 90 days, so you can usually go back and rescue one you didn't mean to get rid of.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#6866485",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 13013,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "6376039",
+      "author": "Andrew",
+      "created_at": "2011-06-16T17:27:23Z",
+      "text": "There are two ways to \"undo\" your last commit, depending on whether or not you have already made your commit public (pushed to your remote repository):\n\nHow to undo a local commit\n\nLet's say I committed locally, but now I want to remove that commit.\n\ngit log\n commit 101: bad commit # Latest commit. This would be called 'HEAD'.\n commit 100: good commit # Second to last commit. This is the one we want.\n\nTo restore everything back to the way it was prior to the last commit, we need to reset to the commit before HEAD:\n\ngit reset --soft HEAD^ # Use --soft if you want to keep your changes\ngit reset --hard HEAD^ # Use --hard if you don't care about keeping the changes you made\n\nNow git log will show that our last commit has been removed.\n\nHow to undo a public commit\n\nIf you have already made your commits public, you will want to create a new commit which will \"revert\" the changes you made in your previous commit (current HEAD).\n\ngit revert HEAD\n\nYour changes will now be reverted and ready for you to commit:\n\ngit commit -m 'restoring the file I removed by accident'\ngit log\n commit 102: restoring the file I removed by accident\n commit 101: removing a file we don't need\n commit 100: adding a file that we need\n\nFor more information, check out Git Basics - Undoing Things.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#6376039",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 2805,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "927397",
+      "author": "bdonlan",
+      "created_at": "2009-05-29T18:16:26Z",
+      "text": "Add/remove files to get things the way you want:\n\ngit rm classdir\ngit add sourcedir\n\nThen amend the commit:\n\ngit commit --amend\n\nThe previous, erroneous commit will be edited to reflect the new index state - in other words, it'll be like you never made the mistake in the first place.\n\nNote that you should only do this if you haven't pushed yet. If you have pushed, then you'll just have to commit a fix normally.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#927397",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 1965,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "927378",
+      "author": "Lennart Koopmann",
+      "created_at": "2009-05-29T18:13:07Z",
+      "text": "This will add a new commit which deletes the added files.\n\ngit rm yourfiles/*.class\ngit commit -a -m \"deleted all class files in folder 'yourfiles'\"\n\nOr you can rewrite history to undo the last commit.\n\nWarning: this command will permanently remove the modifications to the .java files (and any other files) that you committed -- and delete all your changes from your working directory:\n\ngit reset --hard HEAD~1\n\nThe hard reset to HEAD-1 will set your working copy to the state of the commit before your wrong commit.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#927378",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 1312,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "3377569",
+      "author": "Zaz",
+      "created_at": "2010-07-31T09:39:13Z",
+      "text": "To change the last commit\n\nReplace the files in the index:\n\ngit rm --cached *.class\ngit add *.java\n\nThen, if it's a private branch, amend the commit:\n\ngit commit --amend\n\nOr, if it's a shared branch, make a new commit:\n\ngit commit -m 'Replace .class files with .java files'\n\n(To change a previous commit, use the awesome interactive rebase.)\n\nProTip™: Add *.class to a gitignore to stop this happening again.\n\nTo revert a commit\n\nAmending a commit is the ideal solution if you need to change the last commit, but a more general solution is reset.\n\nYou can reset Git to any commit with:\n\ngit reset @~N\n\nWhere N is the number of commits before HEAD, and @~ resets to the previous commit.\n\nInstead of amending the commit, you could use:\n\ngit reset @~\ngit add *.java\ngit commit -m \"Add .java files\"\n\nCheck out git help reset, specifically the sections on --soft --mixed and --hard, for a better understanding of what this does.\n\nReflog\n\nIf you mess up, you can always use the reflog to find dropped commits:\n\n$ git reset @~\n$ git reflog\nc4f708b HEAD@{0}: reset: moving to @~\n2c52489 HEAD@{1}: commit: added some .class files\n$ git reset 2c52489\n... and you're back where you started",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#3377569",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 974,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "10757800",
+      "author": "Jaco Pretorius",
+      "created_at": "2012-05-25T16:04:29Z",
+      "text": "Use git revert <commit-id>.\n\nTo get the commit ID, just use git log.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#10757800",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 859,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "8487487",
+      "author": "nickf",
+      "created_at": "2011-12-13T10:18:31Z",
+      "text": "If you have Git Extras installed, you can run git undo to undo the latest commit. git undo 3 will undo the last three commits.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#8487487",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 637,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "10044540",
+      "author": "neoneye",
+      "created_at": "2012-04-06T13:58:52Z",
+      "text": "I wanted to undo the latest five commits in our shared repository. I looked up the revision id that I wanted to rollback to. Then I typed in the following.\n\nprompt> git reset --hard 5a7404742c85\nHEAD is now at 5a74047 Added one more page to catalogue\nprompt> git push origin master --force\nTotal 0 (delta 0), reused 0 (delta 0)\nremote: bb/acl: neoneye is allowed. accepted payload.\nTo git@bitbucket.org:thecompany/prometheus.git\n + 09a6480...5a74047 master -> master (forced update)\nprompt>",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#10044540",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 595,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "13061212",
+      "author": "Zombo",
+      "created_at": "2012-10-25T03:41:20Z",
+      "text": "I prefer to use git rebase -i for this job, because a nice list pops up where I can choose the commits to get rid of. It might not be as direct as some other answers here, but it just feels right.\n\nChoose how many commits you want to list, then invoke like this (to enlist last three)\n\ngit rebase -i HEAD~3\n\nSample list\n\npick aa28ba7 Sanity check for RtmpSrv port\npick c26c541 RtmpSrv version option\npick 58d6909 Better URL decoding support\n\nThen Git will remove commits for any line that you remove.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#13061212",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 556,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "16609755",
+      "author": "poorva",
+      "created_at": "2013-05-17T13:02:13Z",
+      "text": "If you want to permanently undo it and you have cloned some repository.\n\nThe commit id can be seen by:\n\ngit log \n\nThen you can do like:\n\ngit reset --hard <commit_id>\n\ngit push origin <branch_name> -f",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#16609755",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 430,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "25638420",
+      "author": "santos_mgr",
+      "created_at": "2014-09-03T07:15:30Z",
+      "text": "If you have committed junk but not pushed,\n\ngit reset --soft HEAD~1\n\nHEAD~1 is a shorthand for the commit before head. Alternatively you can refer to the SHA-1 of the hash if you want to reset to. --soft option will delete the commit but it will leave all your changed files \"Changes to be committed\", as git status would put it.\n\nIf you want to get rid of any changes to tracked files in the working tree since the commit before head use \"--hard\" instead.\n\nOR\n\nIf you already pushed and someone pulled which is usually my case, you can't use git reset. You can however do a git revert,\n\ngit revert HEAD\n\nThis will create a new commit that reverses everything introduced by the accidental commit.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#25638420",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 421,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "17362437",
+      "author": "Varun Parakh",
+      "created_at": "2013-06-28T10:18:29Z",
+      "text": "On SourceTree (GUI for GitHub), you may right-click the commit and do a 'Reverse Commit'. This should undo your changes.\n\nOn the terminal:\n\nYou may alternatively use:\n\ngit revert\n\nOr:\n\ngit reset --soft HEAD^ # Use --soft if you want to keep your changes.\ngit reset --hard HEAD^ # Use --hard if you don't care about keeping your changes.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#17362437",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 362,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "44672195",
+      "author": "Alireza",
+      "created_at": "2017-06-21T09:33:19Z",
+      "text": "Just reset it doing the command below using git:\n\ngit reset --soft HEAD~1\n\nExplain: what git reset does, it's basically reset to any commit you'd like to go back to, then if you combine it with --soft key, it will go back, but keep the changes in your file(s), so you get back to the stage which the file was just added, HEAD is the head of the branch and if you combine with ~1 (in this case you also use HEAD^), it will go back only one commit which what you want...\n\nI create the steps in the image below in more details for you, including all steps that may happens in real situations and committing the code:",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#44672195",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 316,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "19159566",
+      "author": "Ravi_Parmar",
+      "created_at": "2013-10-03T12:43:57Z",
+      "text": "\"Reset the working tree to the last commit\"\n\ngit reset --hard HEAD^ \n\n\"Clean unknown files from the working tree\"\n\ngit clean \n\nsee - Git Quick Reference\n\nNOTE: This command will delete your previous commit, so use with caution! git reset --hard is safer.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#19159566",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 301,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "19320941",
+      "author": "U. Ali",
+      "created_at": "2013-10-11T14:41:16Z",
+      "text": "First run: \n\ngit reflog\n\nIt will show you all the possible actions you have performed on your repository, for example, commit, merge, pull, etc.\n\nThen do:\n\ngit reset --hard ActionIdFromRefLog",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#19320941",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 204,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "35826537",
+      "author": "akshay_rahar",
+      "created_at": "2016-03-06T11:53:22Z",
+      "text": "Undo last commit:\n\ngit reset --soft HEAD^ or git reset --soft HEAD~\n\nThis will undo the last commit.\n\nHere --soft means reset into staging.\n\nHEAD~ or HEAD^ means to move to commit before HEAD.\n\nReplace last commit to new commit:\n\ngit commit --amend -m \"message\"\n\nIt will replace the last commit with the new commit.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#35826537",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 190,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "16527510",
+      "author": "CommaToast",
+      "created_at": "2013-05-13T17:12:25Z",
+      "text": "Another way:\n\nCheckout the branch you want to revert, then reset your local working copy back to the commit that you want to be the latest one on the remote server (everything after it will go bye-bye). To do this, in SourceTree I right-clicked on the and selected \"Reset BRANCHNAME to this commit\".\n\nThen navigate to your repository's local directory and run this command:\n\ngit -c diff.mnemonicprefix=false -c core.quotepath=false push -v -f --tags REPOSITORY_NAME BRANCHNAME:BRANCHNAME\n\nThis will erase all commits after the current one in your local repository but only for that one branch.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#16527510",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 186,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "16565962",
+      "author": "kumarssk8",
+      "created_at": "2013-05-15T13:12:29Z",
+      "text": "Type git log and find the last commit hash code and then enter:\n\ngit reset <the previous co>",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#16565962",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 174,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "38629666",
+      "author": "amd",
+      "created_at": "2016-07-28T07:24:22Z",
+      "text": "WHAT TO USE, reset --soft or reset --hard?\n\nI am just adding two cents for @Kyralessa's answer:\n\nIf you are unsure what to use go for --soft (I used this convention to remember it --soft for safe).\n\nWhy?\n\nIf you choose --hard by mistake you will LOSE your changes as it wasn't before.\nIf you choose --soft by mistake you can achieve the same results of --hard by applying additional commands\n\ngit reset HEAD file.html\ngit checkout -- file.html\n\nFull example\n\necho \"some changes...\" > file.html\ngit add file.html\ngit commit -m \"wrong commit\"\n\n# I need to reset\ngit reset --hard HEAD~1 (cancel changes)\n# OR\ngit reset --soft HEAD~1 # Back to staging\ngit reset HEAD file.html # back to working directory\ngit checkout -- file.html # cancel changes\n\nCredits goes to @Kyralessa.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#38629666",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 169,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "17716319",
+      "author": "egridasov",
+      "created_at": "2013-07-18T06:41:16Z",
+      "text": "In my case I accidentally committed some files I did not want to. So I did the following and it worked:\n\ngit reset --soft HEAD^\ngit rm --cached [files you do not need]\ngit add [files you need]\ngit commit -c ORIG_HEAD\n\nVerify the results with gitk or git log --stat",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#17716319",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 168,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "34635179",
+      "author": "code-8",
+      "created_at": "2016-01-06T14:10:12Z",
+      "text": "Simple, run this in your command line:\n\ngit reset --soft HEAD~",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#34635179",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 164,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "35472255",
+      "author": "Spyder",
+      "created_at": "2016-02-18T03:27:38Z",
+      "text": "There are many ways to do it:\n\nGit command to undo the last commit/ previous commits:\n\nWarning: Do Not use --hard if you do not know what you are doing.\n--hard is too dangerous, and it might delete your files.\n\nBasic command to revert the commit in Git is:\n\n$ git reset --hard <COMMIT -ID>\n\nor\n\n$ git reset --hard HEAD~<n>\n\nCOMMIT-ID: ID for the commit\n\nn: is the number of last commits you want to revert\n\nYou can get the commit id as shown below:\n\n$ **git log --oneline**\n\nd81d3f1 function to subtract two numbers\n\nbe20eb8 function to add two numbers\n\nbedgfgg function to multiply two numbers\n\nwhere d81d3f1 and be20eb8 are commit id.\n\nNow, let's see some cases:\n\nSuppose you want to revert the last commit 'd81d3f1'. Here are two options:\n\n$ git reset --hard d81d3f1\n\nor\n\n$ git reset --hard HEAD~1\n\nSuppose you want to revert the commit 'be20eb8':\n\n$ git reset --hard be20eb8\n\nFor more detailed information, you can refer to and try out some other commands too for resetting the head to a specified state:\n\n$ git reset --help",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#35472255",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 157,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "22163029",
+      "author": "geoom",
+      "created_at": "2014-03-04T04:35:18Z",
+      "text": "For a local commit\n\ngit reset --soft HEAD~1\n\nor if you do not remember exactly in which commit it is, you might use\n\ngit rm --cached <file>\n\nFor a pushed commit\n\nThe proper way of removing files from the repository history is using git filter-branch. That is,\n\ngit filter-branch --index-filter 'git rm --cached <file>' HEAD\n\nBut I recomnend you use this command with care. Read more at git-filter-branch(1) Manual Page.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#22163029",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 152,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "74748681",
+      "author": "Umar Hayat",
+      "created_at": "2022-12-09T22:05:15Z",
+      "text": "Destroy a commit and throw away any uncommitted changes\n\ngit reset --hard HEAD~1\n\nUndo the commit, but keep your changes\n\ngit reset HEAD~1\n\nKeep your files, and stage all changes back automatically\n\ngit reset --soft HEAD~1\n\nResurrect a commit you destroyed\n\ngit reflog # To find the sh",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#74748681",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 143,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "18516122",
+      "author": "iOS Coder",
+      "created_at": "2013-08-29T16:18:39Z",
+      "text": "Use SourceTree (graphical tool for Git) to see your commits and tree. You can manually reset it directly by right clicking it.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#18516122",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 137,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "40672892",
+      "author": "Ali Motameni",
+      "created_at": "2016-11-18T08:57:39Z",
+      "text": "Think we have code.txt file.\nWe make some changes on it and commit.\nWe can undo this commit in three ways, but first you should know what is the staged file...\nAn staged file is a file that ready to commit and if you run git status this file will be shown with green color and if this is not staged for commit will be shown with red color:\n\nIt means if you commit your change, your changes on this file is not saved.\nYou can add this file in your stage with git add code.txt and then commit your change:\n\nUndo last commit:\n\nNow if we want to just undo commit without any other changes, we can use\n\ngit reset --soft HEAD^ \n\nIf we want to undo commit and its changes (THIS IS DANGEROUS, because your change will lost), we can use\n\ngit reset --hard HEAD^\n\nAnd if we want to undo commit and remove changes from stage, we can use\n\ngit reset --mixed HEAD^ or in a short form git reset HEAD^",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#40672892",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 103,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "68832531",
+      "author": "Gerard de Visser",
+      "created_at": "2021-08-18T12:35:37Z",
+      "text": "If you want to revert the last commit but still want to keep the changes locally that were made in the commit, use this command:\n\ngit reset HEAD~1 --mixed",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#68832531",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 87,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "38091882",
+      "author": "Jade Han",
+      "created_at": "2016-06-29T06:28:26Z",
+      "text": "You can use:\n\ngit reset HEAD@{1}\n\nThis command will delete your wrong commit without a Git log.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#38091882",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 83,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "30118831",
+      "author": "steven",
+      "created_at": "2015-05-08T08:04:23Z",
+      "text": "Just undo the last commit: \n\ngit reset --soft HEAD~\n\nOr undo the time before last time commit: \n\ngit reset --soft HEAD~2\n\nOr undo any previous commit: \n\ngit reset --soft <commitID>\n\n(you can get the commitID using git reflog)\n\nWhen you undo a previous commit, remember to clean the workplace with\n\ngit clean\n\nMore details can be found in the docs: git-reset",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#30118831",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 76,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "31944160",
+      "author": "FraK",
+      "created_at": "2015-08-11T14:11:14Z",
+      "text": "In my case I committed and pushed to the wrong branch, so what I wanted was to have all my changes back so I can commit them to a new correct branch, so I did this:\n\nOn the same branch that you committed and pushed, if you type \"git status\" you won't see anything new because you committed and pushed, now type:\n\n git reset --soft HEAD~1\n\nThis will get all your changes(files) back in the stage area, now to get them back in the working directory(unstage) you just type:\n\ngit reset FILE\n\nWhere \"File\" is the file that you want to commit again. Now, this FILE should be in the working directory(unstaged) with all the changes that you did. Now you can change to whatever branch that you want and commit the changes in that branch. Of course, the initial branch that you committed is still there with all changes, but in my case that was ok, if it is not for you-you can look for ways to revert that commit in that branch.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#31944160",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 69,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "41905003",
+      "author": "CodeWizard",
+      "created_at": "2017-01-28T00:10:13Z",
+      "text": "Before answering let's add some background, explaining what is this HEAD.\n\nFirst of all what is HEAD?\n\nHEAD is simply a reference to the current commit (latest) on the current branch.\n\nThere can only be a single HEAD at any given time. (excluding git worktree)\n\nThe content of HEAD is stored inside .git/HEAD and it contains the 40 bytes SHA-1 of the current commit.\n\ndetached HEAD\n\nIf you are not on the latest commit - meaning that HEAD is pointing to a prior commit in history its called detached HEAD.\n\nOn the command line, it will look like this- SHA-1 instead of the branch name since the HEAD is not pointing to the tip of the current branch\n\nA few options on how to recover from a detached HEAD:\n\ngit checkout\n\ngit checkout <commit_id>\ngit checkout -b <new branch> <commit_id>\ngit checkout HEAD~X // x is the number of commits t go back\n\nThis will checkout new branch pointing to the desired commit.\n\nThis command will checkout to a given commit.\n\nAt this point, you can create a branch and start to work from this point on.\n\n# Checkout a given commit. \n# Doing so will result in a `detached HEAD` which mean that the `HEAD`\n# is not pointing to the latest so you will need to checkout branch\n# in order to be able to update the code.\ngit checkout <commit-id>\n\n# create a new branch forked to the given commit\ngit checkout -b <branch name>\n\ngit reflog\n\nYou can always use the reflog as well.\n\ngit reflog will display any change which updated the HEAD and checking out the desired reflog entry will set the HEAD back to this commit. \n\nEvery time the HEAD is modified there will be a new entry in the reflog\n\ngit reflog\ngit checkout HEAD@{...}\n\nThis will get you back to your desired commit\n\ngit reset --hard <commit_id>\n\n\"Move\" your HEAD back to the desired commit.\n\n# This will destroy any local modifications.\n# Don't do it if you have uncommitted work you want to keep.\ngit reset --hard 0d1d7fc32\n\n# Alternatively, if there's work to keep:\ngit stash\ngit reset --hard 0d1d7fc32\ngit stash pop\n# This saves the modifications, then reapplies that patch after resetting.\n# You could get merge conflicts if you've modified things which were\n# changed since the commit you reset to.\n\nNote: (Since Git 2.7)\n\nyou can also use the git rebase --no-autostash as well.\n\ngit revert <sha-1>\n\n\"Undo\" the given commit or commit range.\n\nThe reset command will \"undo\" any changes made in the given commit.\n\nA new commit with the undo patch will be committed while the original commit will remain in the history as well.\n\n# add new commit with the undo of the original one.\n# the <sha-1> can be any commit(s) or commit range\ngit revert <sha-1>\n\nThis schema illustrates which command does what.\n\nAs you can see there reset && checkout modify the HEAD.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#41905003",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 69,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "48801644",
+      "author": "Ankit Patidar",
+      "created_at": "2018-02-15T07:08:15Z",
+      "text": "Undo the last commit:\n\ngit reset --soft HEAD^ or git reset --soft HEAD~\n\nThis will undo the last commit.\n\nHere --soft means reset into staging.\n\nHEAD~ or HEAD^ means to move to commit before HEAD.\n\nReplace the last commit to new commit:\n\ngit commit --amend -m \"message\"\n\nIt will replace the last commit with the new commit.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#48801644",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 67,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "38656254",
+      "author": "Oleksandr",
+      "created_at": "2016-07-29T10:14:28Z",
+      "text": "If you are working with SourceTree, this will help you.\n\nRight click on the commit then select \"Reset (current branch)/master to this commit\" and last select \"Soft\" reset.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#38656254",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 64,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "34583071",
+      "author": "mfathy00",
+      "created_at": "2016-01-03T23:59:42Z",
+      "text": "To undo your local commit you use git reset <commit>. Also that tutorial is very helpful to show you how it works.\n\nAlternatively, you can use git revert <commit>: reverting should be used when you want to add another commit that rolls back the changes (but keeps them in the project history).",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#34583071",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 61,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "36876212",
+      "author": "Tom Stickel",
+      "created_at": "2016-04-26T21:35:53Z",
+      "text": "VISUAL STUDIO USERS (2015, etc.)\n\nIf you cannot synchronise in Visual Studio as you are not allowed to push to a branch like \"development\" then as much as I tried, in Visual Studio NEITHER the REVERT NOR the RESET (hard or soft) would work.\n\nPer the answer with TONS OF VOTES:\n\nUse this at the command prompt of root of your project to nuke anything that will attempt to get pushed:\n\ngit reset --hard HEAD~1\n\nBackup or zip your files just in case you don't wish to lose any work, etc...",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#36876212",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 54,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "59620663",
+      "author": "Stipe",
+      "created_at": "2020-01-07T00:26:01Z",
+      "text": "Everybody comments in such a complicated manner.\n\nIf you want to remove the last commit from your branch, the simplest way to do it is:\n\ngit reset --hard HEAD~1\n\nNow to actually push that change to get rid of your last commit, you have to\n\ngit push --force\n\nAnd that's it. This will remove your last commit.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#59620663",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 54,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "62425854",
+      "author": "Ankit Tiwari",
+      "created_at": "2020-06-17T09:32:22Z",
+      "text": "In these cases, the \"reset\" command is your best friend:\n\ngit reset --soft HEAD~1\n\nReset will rewind your current HEAD branch to the specified revision. In our example above, we'd like to return to the one before the current revision - effectively making our last commit undone.\n\nNote the --soft flag: this makes sure that the changes in undone revisions are preserved. After running the command, you'll find the changes as uncommitted local modifications in your working copy.\n\nIf you don't want to keep these changes, simply use the --hard flag. Be sure to only do this when you're sure you don't need these changes anymore.\n\ngit reset --hard HEAD~1",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#62425854",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 51,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "40445749",
+      "author": "Alisa",
+      "created_at": "2016-11-06T03:38:42Z",
+      "text": "In order to get rid of (all the changes in) last commit, last 2 commits and last n commits:\n\ngit reset --hard HEAD~1\ngit reset --hard HEAD~2\n...\ngit reset --hard HEAD~n\n\nAnd, to get rid of anything after a specific commit:\n\ngit reset --hard <commit sha>\n\ne.g.,\n\ngit reset --hard 0d12345\n\nBe careful with the hard option: it deletes the local changes in your repo as well and reverts to the previous mentioned commit. You should only run this if you are sure you messed up in your last commit(s) and would like to go back in time.\n\nAs a side-note, about 7 letters of the commit hash is enough, but in bigger projects, you may need up to 12 letters for it to be unique. You can also use the entire commit SHA if you prefer.\n\nThe above commands work in GitHub for Windows as well.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#40445749",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 48,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "34093958",
+      "author": "V V",
+      "created_at": "2015-12-04T17:20:50Z",
+      "text": "Remove a wrong commit that is already pushed to Github\n\ngit push origin +(previous good commit id):(branch name)\n\nPlease specify the last good commit id you would like to reset back in Github.\n\nFor example. If latest commit id is wrong then specify the previous commit id in above git command with the branch name. \n\nYou can get previous commit id using git log",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#34093958",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 47,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "30428348",
+      "author": "Yahs Hef",
+      "created_at": "2015-05-24T21:09:04Z",
+      "text": "You need to do the easy and fast\n\n git commit --amend\n\nif it's a private branch or\n\n git commit -m 'Replace .class files with .java files'\n\nif it's a shared or public branch.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#30428348",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 44,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "36040444",
+      "author": "ioopl",
+      "created_at": "2016-03-16T15:41:50Z",
+      "text": "I got the commit ID from bitbucket and then did:\n\ngit checkout commitID .\n\nExample:\n\ngit checkout 7991072 .\n\nAnd it reverted it back up to that working copy of that commit.",
+      "url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git#36040444",
+      "parent_id": "927358",
+      "depth": 0,
+      "points": 44,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/927358/how-do-i-undo-the-most-recent-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "57742431",
+      "author": "CodeWizard",
+      "created_at": "2019-09-01T00:28:56Z",
+      "text": "Before answering let's add some background, explaining what is this HEAD. since some of the options below will result in detached head\n\nFirst of all what is HEAD?\n\nHEAD is simply a reference to the current commit (latest) on the current branch.\n\nThere can only be a single HEAD at any given time. (excluding git worktree)\n\nThe content of HEAD is stored inside .git/HEAD and it contains the 40 bytes SHA-1 of the current commit.\n\ndetached HEAD\n\nIf you are not on the latest commit - meaning that HEAD is pointing to a prior commit in history its called detached HEAD.\n\nOn the command line, it will look like this- SHA-1 instead of the branch name since the HEAD is not pointing to the tip of the current branch\n\nA few options on how to recover from a detached HEAD:\n\ngit checkout\n\ngit checkout <commit_id>\ngit checkout -b <new branch> <commit_id>\ngit checkout HEAD~X // x is the number of commits t go back\n\nThis will checkout new branch pointing to the desired commit.\n\nThis command will checkout to a given commit.\n\nAt this point, you can create a branch and start to work from this point on.\n\n# Checkout a given commit. \n# Doing so will result in a `detached HEAD` which mean that the `HEAD`\n# is not pointing to the latest so you will need to checkout branch\n# in order to be able to update the code.\ngit checkout <commit-id>\n\n# create a new branch forked to the given commit\ngit checkout -b <branch name>\n\ngit reflog\n\nYou can always use the reflog as well.\n\ngit reflog will display any change which updated the HEAD and checking out the desired reflog entry will set the HEAD back to this commit. \n\nEvery time the HEAD is modified there will be a new entry in the reflog\n\ngit reflog\ngit checkout HEAD@{...}\n\nThis will get you back to your desired commit\n\ngit reset --hard <commit_id>\n\n\"Move\" your HEAD back to the desired commit.\n\n# This will destroy any local modifications.\n# Don't do it if you have uncommitted work you want to keep.\ngit reset --hard 0d1d7fc32\n\n# Alternatively, if there's work to keep:\ngit stash\ngit reset --hard 0d1d7fc32\ngit stash pop\n# This saves the modifications, then reapplies that patch after resetting.\n# You could get merge conflicts if you've modified things which were\n# changed since the commit you reset to.\n\nNote: (Since Git 2.7)\n\nyou can also use the git rebase --no-autostash as well.\n\ngit revert <sha-1>\n\n\"Undo\" the given commit or commit range.\n\nThe reset command will \"undo\" any changes made in the given commit.\n\nA new commit with the undo patch will be committed while the original commit will remain in the history as well.\n\n# add new commit with the undo of the original one.\n# the <sha-1> can be any commit(s) or commit range\ngit revert <sha-1>\n\nThis schema illustrates which command does what.\n\nAs you can see there reset && checkout modify the HEAD.",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#57742431",
+      "parent_id": "5097456",
+      "depth": 0,
+      "points": 32,
+      "relevance": 5.789,
+      "thread_url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "48732358",
+      "author": "James L.",
+      "created_at": "2018-02-11T14:06:16Z",
+      "text": "Delete the most recent commit, without destroying the work you've done:\n\ngit reset --soft HEAD~1\n\nDelete the most recent commit and remove changes:\n\ngit reset --hard HEAD~1",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#48732358",
+      "parent_id": "5097456",
+      "depth": 0,
+      "points": 716,
+      "relevance": 5.301,
+      "thread_url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "61443347",
+      "author": "Ashish Banker",
+      "created_at": "2020-04-26T15:28:15Z",
+      "text": "If you just want to throw away local commits and keep the modifications done in files then do\n\ngit reset @~\n\nOther answers addressed the hard reset",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#61443347",
+      "parent_id": "5097456",
+      "depth": 0,
+      "points": 5,
+      "relevance": 4.607,
+      "thread_url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "72952899",
+      "author": "ActualAl",
+      "created_at": "2022-07-12T13:12:11Z",
+      "text": "You could look at using an interactive rebase with the drop command\n\nSo for say the last three commits...\n\ngit rebase -i HEAD~3\n\nSwap out the pick commands\n\npick <hash1> Commit message 1\npick <hash2> Commit message 2\npick <hash3> Commit message 3\n\nfor drop commands\n\ndrop <hash1> Commit message 1\ndrop <hash2> Commit message 2\ndrop <hash3> Commit message 3",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#72952899",
+      "parent_id": "5097456",
+      "depth": 0,
+      "points": 2,
+      "relevance": 3.481,
+      "thread_url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "69560744",
+      "author": "Lahcen",
+      "created_at": "2021-10-13T18:43:46Z",
+      "text": "You can use this git command\n\ngit reset --hard origin/<branch_name>",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#69560744",
+      "parent_id": "5097456",
+      "depth": 0,
+      "points": 56,
+      "relevance": 2.845,
+      "thread_url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "46423298",
+      "author": "Robert",
+      "created_at": "2017-09-26T09:57:24Z",
+      "text": "I had a situation where I wanted to remove a commit that wasn't pushed, but the commit was before another one. To do so, I've used the following command\n\ngit rebase -i HEAD~2 -> it will rebase the last two commits\n\nAnd I used 'drop' for the commit signature that I wanted to remove.",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#46423298",
+      "parent_id": "5097456",
+      "depth": 0,
+      "points": 18,
+      "relevance": 2.728,
+      "thread_url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "55373050",
+      "author": "ElasticCode",
+      "created_at": "2019-03-27T08:49:19Z",
+      "text": "Remove untracked files (uncommitted local changes)\n\ngit clean -df\n\nPermanently deleting all local commits and get latest remote commit\n\ngit reset --hard origin/<branch_name>",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#55373050",
+      "parent_id": "5097456",
+      "depth": 0,
+      "points": 18,
+      "relevance": 1.581,
+      "thread_url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "40096170",
+      "author": "Nikhil Katre",
+      "created_at": "2016-10-17T21:43:36Z",
+      "text": "For local commits which are not being pushed, you can also use git rebase -i to delete or squash a commit.",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#40096170",
+      "parent_id": "5097456",
+      "depth": 0,
+      "points": 11,
+      "relevance": 1.544,
+      "thread_url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "5097495",
+      "author": "Ben Jackson [accepted]",
+      "created_at": "2011-02-23T21:38:10Z",
+      "text": "If your excess commits are only visible to you, you can just do\ngit reset --hard origin/<branch_name>\nto move back to where the origin is. This will reset the state of the repository to the previous commit. WARNING: This also discards all your uncommitted local file changes.\n\nDoing a git revert makes new commits to remove old commits in a way that keeps everyone's history sane.",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#5097495",
+      "parent_id": "5097456",
+      "depth": 0,
+      "points": 3969,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "5097499",
+      "author": "Ramon Zarazua B.",
+      "created_at": "2011-02-23T21:38:38Z",
+      "text": "Simply delete your local master branch and recreate it like so:\n\ngit branch -D master\ngit checkout origin/master -b master",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#5097499",
+      "parent_id": "5097456",
+      "depth": 0,
+      "points": 412,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "5097487",
+      "author": "Anders Zommarin",
+      "created_at": "2011-02-23T21:37:16Z",
+      "text": "Try:\n\ngit reset --hard <the sha1 hash>\n\nto reset your head to wherever you want to be. Use gitk to see which commit you want to be at. You can do reset within gitk as well.",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#5097487",
+      "parent_id": "5097456",
+      "depth": 0,
+      "points": 270,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "36337438",
+      "author": "parasrish",
+      "created_at": "2016-03-31T15:17:24Z",
+      "text": "On your branch attempt:\n\ngit reset --hard origin/<branch_name>\n\nValidate the reversal (to the state, with no local commits), using \"git log\" or \"git status\" hence.",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#36337438",
+      "parent_id": "5097456",
+      "depth": 0,
+      "points": 89,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "73687124",
+      "author": "Marzieh Mousavi",
+      "created_at": "2022-09-12T09:28:23Z",
+      "text": "TL;DR\n\non your branch\n\ngit reset --hard HEAD^ will throw away the last 1 local commit\n\ngit reset --hard HEAD~n will throw away the last n local commits\n\n--hard: Discards commits, clears staging, resets working directory.\n\n--soft: Discards commits, keeps staging and working directory intact.",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#73687124",
+      "parent_id": "5097456",
+      "depth": 0,
+      "points": 72,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "28224407",
+      "author": "muruge",
+      "created_at": "2015-01-29T20:54:14Z",
+      "text": "If you are using Atlassian SourceTree app, you could use the reset option in the context menu.",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#28224407",
+      "parent_id": "5097456",
+      "depth": 0,
+      "points": 57,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "60702589",
+      "author": "narwanimonish",
+      "created_at": "2020-03-16T08:32:09Z",
+      "text": "Simple Solution will be to match local master branch HEAD to origin/master branch HEAD\n\ngit reset --hard origin/master\n\nPS: origin/master - is remote pointer to master branch.\nYou can replace master with any branch name",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#60702589",
+      "parent_id": "5097456",
+      "depth": 0,
+      "points": 54,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "51045439",
+      "author": "Kevin Chen",
+      "created_at": "2018-06-26T14:32:33Z",
+      "text": "git reset --hard @{u}* deletes all your local changes on the current branch, including commits. I'm surprised no one has posted this yet considering you won't have to look up what commit to revert to or play with branches.\n\n* That is, reset to the current branch at @{upstream}—commonly origin/<branchname>, but not always",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#51045439",
+      "parent_id": "5097456",
+      "depth": 0,
+      "points": 35,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "64475593",
+      "author": "Jimut123",
+      "created_at": "2020-10-22T05:00:09Z",
+      "text": "Use any number of times, to revert back to the last commit without deleting any files that you have recently created.\n\ngit reset --soft HEAD~1\n\nThen use\n\ngit reset HEAD <name-of-file/files*>\n\nto unstage, or untrack.",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#64475593",
+      "parent_id": "5097456",
+      "depth": 0,
+      "points": 18,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "56999219",
+      "author": "Ha Choo",
+      "created_at": "2019-07-12T01:43:27Z",
+      "text": "If \nYour branch is ahead of 'origin/XXX' by 5 commits.\n\nYou can issue:\n\ngit reset --hard HEAD~5\n\nAnd it should remove the last 5 commits.",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#56999219",
+      "parent_id": "5097456",
+      "depth": 0,
+      "points": 16,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "37480671",
+      "author": "Nicholas",
+      "created_at": "2016-05-27T10:07:48Z",
+      "text": "To see/get the SHA-1 id of the commit you want to come back too\n\ngitk --all\n\nTo roll back to that commit\n\ngit reset --hard sha1_id\n\n!Note. All the commits that were made after that commit will be deleted (and all your modification to the project). So first better clone the project to another branch or copy to another directory.",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#37480671",
+      "parent_id": "5097456",
+      "depth": 0,
+      "points": 15,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "56787142",
+      "author": "Bozhidar Stoyneff",
+      "created_at": "2019-06-27T08:38:13Z",
+      "text": "For those interested in the Visual Studio solution, here is the drill:\n\nIn the Team Explorer window, connect to the target repo.\n\nThen from Branches, right-click the branch of interest and select View history.\n\nRight-click a commit in the History window and choose Reset -> Delete changes (--hard).\n\nThat will throw away your local commits and reset the state of your repo to the selected commit. I.e. the changes after you pulled the repo will be lost.\n\nUPDATE\n\nThe above procedure works fine up until VS2019; in VS2022 there is the New Git Experience. The workflow is similar but the UI is a bit different. Instead of Team Explorer, use Manage Branches from the Git menu. Now just click a branch on the left and its history is displayed on the right. Then go Right Click -> Reset -> Delete Changes (--hard)",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#56787142",
+      "parent_id": "5097456",
+      "depth": 0,
+      "points": 6,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "62799112",
+      "author": "z atef",
+      "created_at": "2020-07-08T16:17:10Z",
+      "text": "Find the sha1 for the commit you want to revert to:\n\nza$ git reflog\n... snip ...\ncf42fa2... HEAD@{0}: commit: fixed misc bugs\n~\n~\ncf42fa2... HEAD@{84}: commit: fixed params for .....\n73b9363... HEAD@{85}: commit: Don't symlink to themes on deployment.\n547cc1b... HEAD@{86}: commit: Deploy to effectif.com web server.\n1dc3298... HEAD@{87}: commit: Updated the theme.\n18c3f51... HEAD@{88}: commit: Verify with Google webmaster tools.\n26fbb9c... HEAD@{89}: checkout: moving to effectif\n\nAnd then use --mixed flag so that you \"reset HEAD and index\":\n\nza$ git reset --mixed cf42fa2\n\nAvailable flags:\n\nza$ git reset -h\n\n-q, --quiet be quiet, only report errors\n--mixed reset HEAD and index\n--soft reset only HEAD\n--hard reset HEAD, index and working tree\n--merge reset HEAD, index and working tree\n--keep reset HEAD but keep local changes\n--recurse-submodules[=<reset>]\n control recursive updating of submodules\n-p, --patch select hunks interactively\n-N, --intent-to-add",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#62799112",
+      "parent_id": "5097456",
+      "depth": 0,
+      "points": 5,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "55110502",
+      "author": "Sameer Ashraf",
+      "created_at": "2019-03-11T21:14:56Z",
+      "text": "git reset --hard <SHA-Code>\n\nThis will come in handy if you have made some mistakes on your local copy that you want to make sure doesn't get pushed to your remote branch by mistake. \n\nThe SHA-Code can be obtained by looking at webVersion of your git dashboard for the last commit on the branch. \n\nThis way you can get synchronized with the last commit on the branch. \n\nYou can do git pull after you have successfully completed the hard reset to confirm nothing new to syn i.e. you get to see the message. \n\nYour branch is up to date with Origin/<Branch Name>",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#55110502",
+      "parent_id": "5097456",
+      "depth": 0,
+      "points": 4,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "71899742",
+      "author": "Diep Tang",
+      "created_at": "2022-04-17T06:20:26Z",
+      "text": "Updated:\n\nYou can use new GIT LFS here: https://git-lfs.github.com/\n\ngit lfs migrate import --include=\"*.file_type\"\n\nthen git push",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#71899742",
+      "parent_id": "5097456",
+      "depth": 0,
+      "points": 1,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "58066568",
+      "author": "Adam Gawne-Cain",
+      "created_at": "2019-09-23T16:27:51Z",
+      "text": "If you get your local repo into a complete mess, then a reliable way to throw away local commits in Git is to...\n\nUse \"git config --get remote.origin.url\" to get URL of remote origin\n\nRename local git folder to \"my_broken_local_repo\"\n\nUse \"git clone <url_from_1>\" to get fresh local copy of remote git repository\n\nIn my experience Eclipse handles the world changing around it quite well. However, you may need to select affected projects in Eclipse and clean them to force Eclipse to rebuild them. I guess other IDEs may need a forced rebuild too.\n\nA side benefit of the above procedure is that you will find out if your project relies on local files that were not put into git. If you find you are missing files then you can copy them in from \"my_broken_local_repo\" and add them to git. Once you have confidence that your new local repo has everything you need then you can delete \"my_broken_local_repo\".",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#58066568",
+      "parent_id": "5097456",
+      "depth": 0,
+      "points": 0,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "71643163",
+      "author": "Olivier Elonga",
+      "created_at": "2022-03-28T06:22:26Z",
+      "text": "For all unstaged changes git checkout -- .\n\nfor specific file git checkout -- path/to/file/to/revert",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#71643163",
+      "parent_id": "5097456",
+      "depth": 0,
+      "points": 0,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "source": "api"
+    },
+    {
+      "id": "77582370",
+      "author": "ScorAXE",
+      "created_at": "2023-12-01T00:11:23Z",
+      "text": "I actually learned that if you've ran the code before hard committing (*hard resetting), you can reach to it by \"Target\" folder in your IDE or the project folder and do whatever you want with it.. I saw it a few minutes ago while re-writing my things I apparently lost with \"hard\" reset, deleted the \"bin\" folder since I didn't need it anymore as I would have rewrote by that time which made my commits sane rather than lots of new stuff appearing as if I just added them, the things I made new changes to only appeared.\nIf you do this mistake, then I hope this information is useful for you guys.\n\nBasically: Hard reset takes all the commit off GitHub and saves \"probably\" moves it to a folder \"bin\" in my project where I saw it on github's commit where the files came from as if I just added them, which happened in my case.\n\nI regret it and I learned that \"Soft\" is for just pulling off GitHub and not Destroy the work (not delete the indexes from changes we did)",
+      "url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git#77582370",
+      "parent_id": "5097456",
+      "depth": 0,
+      "points": -2,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/5097456/throw-away-local-commits-in-git",
+      "source": "api"
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 13758,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "stackoverflow.search": 1,
+      "stackexchange.read_thread": 2
+    },
+    "xai_cost_ticks": 267429200,
+    "tavily_credits_estimate": 0
+  }
+}

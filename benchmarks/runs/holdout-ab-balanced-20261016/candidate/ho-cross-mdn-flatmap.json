@@ -1,0 +1,267 @@
+{
+  "id": "ho-cross-mdn-flatmap",
+  "executed_at": "2026-10-16T08:53:26.770349+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.3.0",
+  "provider_query": "用中文找 MDN 上 Array.prototype.flatMap 的英文文档原文",
+  "answer": "MDN 英文原文主页面与相关条目如下（最多 8 条）。\n\n1. **Array.prototype.flatMap()（英文原文）**  \n   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap  \n   要点：对每个元素调用回调，再将结果扁平化一层；等价于 `map(...).flat()`，但通常更高效。语法：`flatMap(callbackFn)` / `flatMap(callbackFn, thisArg)`。自 2020 年 1 月起广泛可用。最后修改：2025-07-20。  \n   [[1]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap)\n\n2. **同页：返回值与说明**  \n   返回新数组，元素为回调结果并按深度 1 扁平化。`flatMap` 是迭代方法，与 `map(callbackFn, thisArg)` 后接 `flat(1)` 相同；回调应返回数组以便展开，或返回非数组值直接加入结果。  \n   [[1]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap)\n\n3. **同页：示例 map() 与 flatMap()**  \n   `arr.map(x => [x * 2])` 得到嵌套数组；`arr.flatMap(x => [x * 2])` 得到一层扁平结果。只扁平一层：`flatMap(x => [[x * 2]])` 仍保持嵌套。  \n   [[1]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap)\n\n4. **同页：增删元素**  \n   返回空数组可删除项，返回多元素数组可增加项，返回单元素数组可保留项。  \n   [[1]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap)\n\n5. **规范链接（英文页 Specifications）**  \n   ECMAScript：`https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.flatmap`  \n   [[1]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap)\n\n6. **相关：Array.prototype.flat()（英文）**  \n   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat  \n   按指定深度递归拼接子数组，默认深度为 1。  \n   [[2]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat)\n\n7. **相关：Array.prototype.map()（英文）**  \n   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map  \n   对每个元素调用函数并组成新数组；文中提到可用 `flatMap` 并返回空数组来删除元素。  \n   [[3]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)\n\n8. **相关：Iterator.prototype.flatMap()（英文）**  \n   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator/flatMap  \n   迭代器版本；与 `Array.prototype.flatMap()` 不同，回调不能返回非迭代器/可迭代的单个值。  \n   [[4]](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator/flatMap)",
+  "results": [
+    {
+      "id": "r1",
+      "title": "1",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap",
+      "snippet": "1. Array.prototype.flatMap()（英文原文） 要点：对每个元素调用回调，再将结果扁平化一层；等价于 map(...).flat() ，但通常更高效。语法： flatMap(callbackFn) / flatMap(callbackFn, thisArg) 。自 2020 年 1 月起广泛可用。最后修改：2025-07-20。 [[1]](",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r2",
+      "title": "2",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat",
+      "snippet": "6. 相关：Array.prototype.flat()（英文） 按指定深度递归拼接子数组，默认深度为 1。 [[2]](",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r3",
+      "title": "3",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map",
+      "snippet": "7. 相关：Array.prototype.map()（英文） 对每个元素调用函数并组成新数组；文中提到可用 flatMap 并返回空数组来删除元素。 [[3]](",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r4",
+      "title": "4",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator/flatMap",
+      "snippet": "8. 相关：Iterator.prototype.flatMap()（英文） 迭代器版本；与 Array.prototype.flatMap() 不同，回调不能返回非迭代器/可迭代的单个值。 [[4]](",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r5",
+      "title": "",
+      "url": "https://tc39.es/ecma262/multipage/indexed-collections.html",
+      "snippet": "5. 规范链接（英文页 Specifications） ECMAScript： [[1]](",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "from_answer": true,
+        "snippet_source": "answer_context"
+      }
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "1",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "2",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "3",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "4",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Iterator/flatMap",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "",
+      "url": "https://tc39.es/ecma262/multipage/indexed-collections.html",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary_site_restricted",
+        "latency_ms": 14928,
+        "detail": "model=grok-4.7",
+        "usage": {
+          "input_tokens": 24734,
+          "input_tokens_details": {
+            "cached_tokens": 13696
+          },
+          "output_tokens": 1045,
+          "output_tokens_details": {
+            "reasoning_tokens": 203
+          },
+          "total_tokens": 25779,
+          "num_sources_used": 0,
+          "num_server_side_tools_used": 3,
+          "cost_in_usd_ticks": 269659600,
+          "server_side_tool_usage_details": {
+            "web_search_calls": 3,
+            "x_search_calls": 0,
+            "x_posts_fetched": 0,
+            "x_users_fetched": 0,
+            "code_interpreter_calls": 0,
+            "file_search_calls": 0,
+            "mcp_calls": 0,
+            "document_search_calls": 0,
+            "image_generation_calls": 0
+          },
+          "context_details": {
+            "input_tokens": 13085,
+            "output_tokens": 802
+          }
+        }
+      },
+      {
+        "provider": "xai",
+        "operation": "rewrite",
+        "outcome": "ok",
+        "reason": "cross_language",
+        "latency_ms": 5499,
+        "detail": null,
+        "usage": {
+          "input_tokens": 3462,
+          "input_tokens_details": {
+            "cached_tokens": 1152
+          },
+          "output_tokens": 268,
+          "output_tokens_details": {
+            "reasoning_tokens": 230
+          },
+          "total_tokens": 3730,
+          "num_sources_used": 0,
+          "num_server_side_tools_used": 0,
+          "cost_in_usd_ticks": 23133600,
+          "context_details": {
+            "input_tokens": 3462,
+            "output_tokens": 275
+          }
+        }
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null,
+        "usage": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "docs_signal",
+      "domains_below_threshold:1<2"
+    ]
+  },
+  "coverage": {
+    "status": "sufficient",
+    "requirements": [
+      {
+        "kind": "site",
+        "target": "MDN",
+        "satisfied": true,
+        "detail": "4 content page(s), e.g. https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap"
+      },
+      {
+        "kind": "language",
+        "target": "en",
+        "satisfied": true,
+        "detail": "4 result(s) with en titles"
+      }
+    ]
+  },
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "timed_out": false,
+  "elapsed_ms": 14934,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "xai.rewrite": 1
+    },
+    "xai_cost_ticks": 292793200,
+    "tavily_credits_estimate": 0
+  }
+}

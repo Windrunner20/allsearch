@@ -1,0 +1,317 @@
+{
+  "id": "ho-reddit-rust",
+  "executed_at": "2026-10-16T08:53:51.007189+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.3.0",
+  "provider_query": "Reddit r/rust thread discussing that async-std is discontinued",
+  "answer": "Relevant r/rust threads on async-std being discontinued (or treated as deprecated/unmaintained), up to 8:\n\n1. **[PSA: 🌇 async-std has been officially discontinued; use smol instead](https://www.reddit.com/r/rust/comments/1jc6gis/psa_asyncstd_has_been_officially_discontinued_use/)** — JoshTriplett, ~453 points, 34 comments (2025-03-15). Main announcement; recommends smol because async-std already used the same executor and a similar API. Discussion covers why not Tokio (trade-offs, ethos, prior dependency on smol). [[1]](https://www.reddit.com/r/rust/comments/1jc6gis/psa_asyncstd_has_been_officially_discontinued_use/)\n\n2. **[is async-std still being developed?](https://www.reddit.com/r/rust/comments/ssumd6/is_asyncstd_still_being_developed/)** — thedoyster, ~142 points (2022-02-15). Earlier maintenance worry after a drop in commits and Discord activity; replies point at a GitHub “is the project dead?” comment and ecosystem drift toward Tokio. [[2]](https://www.reddit.com/r/rust/comments/ssumd6/is_asyncstd_still_being_developed/?tl=tr)\n\n3. **[SQLx 0.9.0-alpha.1 released! (`smol` / `async-global-executor` support…)](https://www.reddit.com/r/rust/comments/1o72hab/sqlx_090alpha1_released_smolasyncglobalexecutor/)** — DroidLogician (2025-10-15). Post states smol/`async-global-executor` support is a successor to the deprecated async-std crate. [[3]](https://www.reddit.com/r/rust/comments/1o72hab/sqlx_090alpha1_released_smolasyncglobalexecutor/)\n\n4. **[SQLX Proposal: remove runtime features and async-std support](https://www.reddit.com/r/rust/comments/sjcf6r/sqlx_proposal_remove_runtime_features_and/)** (2022-02-03). Ecosystem thread on dropping async-std; comments treat Tokio as having won and dual-runtime support as costly. [[4]](https://www.reddit.com/r/rust/comments/sjcf6r/sqlx_proposal_remove_runtime_features_and/)\n\n5. **[async-std now using smol runtime](https://www.reddit.com/r/rust/comments/gg7gnl/asyncstd_now_using_smol_runtime/)** — bobbytabl3s, ~325 points (2020-05-09). Background for the later “use smol” recommendation: async-std switched onto the smol stack. [[5]](https://www.reddit.com/r/rust/comments/gg7gnl/asyncstd_now_using_smol_runtime/)\n\n6. **[What is the difference between async-std and smol](https://www.reddit.com/r/rust/comments/lbaysp/what_is_the_difference_between_asyncstd_and_smol/)** — figsoda (2021-02-03). Explains smol as lower-level pieces and async-std as a higher-level runtime built on them—context for the migration path after discontinuation. [[6]](https://www.reddit.com/r/rust/comments/lbaysp/what_is_the_difference_between_asyncstd_and_smol/)\n\n7. **[smol vs tokio vs async-std](https://www.reddit.com/r/rust/comments/i5hppj/smol_vs_tokio_vs_asyncstd/)** — _jsdw, ~179 points (2020-08-07). Comparison noting shared executor/reactor between async-std and smol, and how both relate to Tokio. [[7]](https://old.reddit.com/r/rust/comments/i5hppj/smol_vs_tokio_vs_asyncstd.json)\n\nOnly one thread is the official discontinuation PSA. The others are prior “is it dead?” discussion, ecosystem deprecation (SQLx), and the smol relationship that the PSA cites as the migration path.",
+  "results": [
+    {
+      "id": "r1",
+      "title": "1",
+      "url": "https://www.reddit.com/r/rust/comments/1jc6gis/psa_asyncstd_has_been_officially_discontinued_use",
+      "snippet": "1. PSA: 🌇 async-std has been officially discontinued; use smol instead — JoshTriplett, ~453 points, 34 comments (2025-03-15). Main announcement; recommends smol because async-std already used the same executor and a similar API. Discussion covers why not Tokio (trade-offs, ethos, prior dependency on",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r2",
+      "title": "is async-std still being developed?",
+      "url": "https://www.reddit.com/r/rust/comments/ssumd6/is_asyncstd_still_being_developed",
+      "snippet": "2. is async-std still being developed? — thedoyster, ~142 points (2022-02-15). Earlier maintenance worry after a drop in commits and Discord activity; replies point at a GitHub “is the project dead?” comment and ecosystem drift toward Tokio. [[2]](",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "from_answer": true,
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r3",
+      "title": "3",
+      "url": "https://www.reddit.com/r/rust/comments/1o72hab/sqlx_090alpha1_released_smolasyncglobalexecutor",
+      "snippet": "3. SQLx 0.9.0-alpha.1 released! ( smol / async-global-executor support…) — DroidLogician (2025-10-15). Post states smol/ async-global-executor support is a successor to the deprecated async-std crate. [[3]](",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r4",
+      "title": "4",
+      "url": "https://www.reddit.com/r/rust/comments/sjcf6r/sqlx_proposal_remove_runtime_features_and",
+      "snippet": "4. SQLX Proposal: remove runtime features and async-std support (2022-02-03). Ecosystem thread on dropping async-std; comments treat Tokio as having won and dual-runtime support as costly. [[4]](",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r5",
+      "title": "5",
+      "url": "https://www.reddit.com/r/rust/comments/gg7gnl/asyncstd_now_using_smol_runtime",
+      "snippet": "5. async-std now using smol runtime — bobbytabl3s, ~325 points (2020-05-09). Background for the later “use smol” recommendation: async-std switched onto the smol stack. [[5]](",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r6",
+      "title": "6",
+      "url": "https://www.reddit.com/r/rust/comments/lbaysp/what_is_the_difference_between_asyncstd_and_smol",
+      "snippet": "6. What is the difference between async-std and smol — figsoda (2021-02-03). Explains smol as lower-level pieces and async-std as a higher-level runtime built on them—context for the migration path after discontinuation. [[6]](",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r7",
+      "title": "smol vs tokio vs async-std",
+      "url": "https://www.reddit.com/r/rust/comments/i5hppj/smol_vs_tokio_vs_asyncstd",
+      "snippet": "7. smol vs tokio vs async-std — jsdw, ~179 points (2020-08-07). Comparison noting shared executor/reactor between async-std and smol, and how both relate to Tokio. [[7]](",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "from_answer": true,
+        "snippet_source": "answer_context"
+      }
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "1",
+      "url": "https://www.reddit.com/r/rust/comments/1jc6gis/psa_asyncstd_has_been_officially_discontinued_use",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "is async-std still being developed?",
+      "url": "https://www.reddit.com/r/rust/comments/ssumd6/is_asyncstd_still_being_developed",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "3",
+      "url": "https://www.reddit.com/r/rust/comments/1o72hab/sqlx_090alpha1_released_smolasyncglobalexecutor",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "4",
+      "url": "https://www.reddit.com/r/rust/comments/sjcf6r/sqlx_proposal_remove_runtime_features_and",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "5",
+      "url": "https://www.reddit.com/r/rust/comments/gg7gnl/asyncstd_now_using_smol_runtime",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "6",
+      "url": "https://www.reddit.com/r/rust/comments/lbaysp/what_is_the_difference_between_asyncstd_and_smol",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "smol vs tokio vs async-std",
+      "url": "https://www.reddit.com/r/rust/comments/i5hppj/smol_vs_tokio_vs_asyncstd",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary_site_restricted",
+        "latency_ms": 14714,
+        "detail": "model=grok-4.7",
+        "usage": {
+          "input_tokens": 34727,
+          "input_tokens_details": {
+            "cached_tokens": 16768
+          },
+          "output_tokens": 1203,
+          "output_tokens_details": {
+            "reasoning_tokens": 197
+          },
+          "total_tokens": 35930,
+          "num_sources_used": 0,
+          "num_server_side_tools_used": 4,
+          "cost_in_usd_ticks": 375168000,
+          "server_side_tool_usage_details": {
+            "web_search_calls": 4,
+            "x_search_calls": 0,
+            "x_posts_fetched": 0,
+            "x_users_fetched": 0,
+            "code_interpreter_calls": 0,
+            "file_search_calls": 0,
+            "mcp_calls": 0,
+            "document_search_calls": 0,
+            "image_generation_calls": 0
+          },
+          "context_details": {
+            "input_tokens": 19936,
+            "output_tokens": 996
+          }
+        }
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null,
+        "usage": null
+      },
+      {
+        "provider": "reddit",
+        "operation": "read_thread",
+        "outcome": "skipped",
+        "reason": "thread",
+        "latency_ms": 0,
+        "detail": "reddit_oauth_not_configured",
+        "usage": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced"
+    ]
+  },
+  "coverage": {
+    "status": "sufficient",
+    "requirements": [
+      {
+        "kind": "site",
+        "target": "Reddit",
+        "satisfied": true,
+        "detail": "7 content page(s), e.g. https://www.reddit.com/r/rust/comments/1jc6gis/psa_asyncstd_has_been_officially_discontinued_use"
+      }
+    ]
+  },
+  "threads": [
+    {
+      "platform": "reddit",
+      "url": "https://www.reddit.com/r/rust/comments/1jc6gis/psa_asyncstd_has_been_officially_discontinued_use",
+      "thread_id": "1jc6gis",
+      "title": "",
+      "author": "",
+      "created_at": null,
+      "body": "",
+      "status": "found",
+      "comments_total": null,
+      "source_api": "",
+      "error": "reddit_oauth_not_configured",
+      "comments_read": 0
+    }
+  ],
+  "next_steps": [
+    {
+      "tool": "fetch",
+      "url": "https://www.reddit.com/r/rust/comments/1jc6gis/psa_asyncstd_has_been_officially_discontinued_use",
+      "why": "comments not readable via API (reddit_oauth_not_configured); fetch reads the page if it is public"
+    }
+  ],
+  "comments": [],
+  "timed_out": false,
+  "elapsed_ms": 14720,
+  "usage": {
+    "calls": {
+      "xai.search": 1
+    },
+    "xai_cost_ticks": 375168000,
+    "tavily_credits_estimate": 0
+  }
+}

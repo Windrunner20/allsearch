@@ -1,0 +1,232 @@
+{
+  "id": "compare-react-vue",
+  "executed_at": "2026-10-16T08:48:43.156972+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "对比 React 官方的 managing state 和 Vue 官方的 reactivity fundamentals",
+  "answer": "These chapters do not teach the same layer. React’s [Managing State](https://react.dev/learn/managing-state) is an architecture chapter (shape, ownership, updates). Vue’s [Reactivity Fundamentals](https://vuejs.org/guide/essentials/reactivity-fundamentals) is a mechanism chapter (how values become tracked).\n\n1. **Scope.** React’s chapter is about organizing state as the app grows: visual states, structure, lifting, identity, reducers, and Context. Vue’s page is about declaring reactive data (`data`, `ref()`, `reactive()`), mutation, deep tracking, and DOM timing. [[1]](https://react.dev/learn/managing-state) [[2]](https://vuejs.org/guide/essentials/reactivity-fundamentals)\n\n2. **Mental model.** React: do not command the UI; store a status and derive the view from it (`useState` + conditional render). Vue: mutate reactive fields (`this.count++` or `count.value++`); the system tracks reads and triggers updates. [[1]](https://react.dev/learn/managing-state) [[2]](https://vuejs.org/guide/essentials/reactivity-fundamentals)\n\n3. **Update style.** React replaces state through a setter and re-runs the component from a snapshot. Vue intercepts get/set (Proxy / `.value`) so in-place nested changes are reactive by default. [[3]](https://react.dev/learn/state-as-a-snapshot) [[2]](https://vuejs.org/guide/essentials/reactivity-fundamentals) [[4]](https://coddy.tech/docs/react/react-vs-vue)\n\n4. **Derived data.** React’s chapter says not to store redundant state (compute `fullName` during render). Vue’s closest built-in is `computed()`, which caches and re-runs only when tracked deps change—not covered as the main topic of Reactivity Fundamentals. [[1]](https://react.dev/learn/managing-state) [[5]](https://vuejs.org/api/reactivity-core.html)\n\n5. **Sharing.** React: lift state to the closest common parent, then props; later Context + reducer to avoid prop drilling. Vue’s fundamentals page stays inside one instance; sharing is a different guide topic. [[1]](https://react.dev/learn/managing-state) [[2]](https://vuejs.org/guide/essentials/reactivity-fundamentals)\n\n6. **Identity and reset.** React treats matching tree position as the same state, and `key` forces a reset. Vue’s page instead stresses that new properties must exist up front (Options `data`) and that assigned objects become proxies (`newObject === this.someObject` is false). [[1]](https://react.dev/learn/managing-state) [[2]](https://vuejs.org/guide/essentials/reactivity-fundamentals)\n\n7. **Complex updates.** React extracts many handlers into a pure reducer + `dispatch`. Vue keeps logic as methods or setup functions that mutate refs/reactive objects; batching is “next tick,” not a reducer pattern. [[1]](https://react.dev/learn/managing-state) [[6]](https://react.dev/reference/react/useReducer) [[2]](https://vuejs.org/guide/essentials/reactivity-fundamentals)\n\n8. **Granularity.** Independent write-ups: React re-runs the component and diffs the tree; Vue records dependencies and updates dependents. That is why React forbids silent mutation and Vue encourages it. [[7]](https://www.telerik.com/blogs/react-vue-developers-part-2-state-effects-why-react-re-renders-differently) [[4]](https://coddy.tech/docs/react/react-vs-vue)\n\n**Sources:** [react.dev/learn/managing-state](https://react.dev/learn/managing-state), [state as a snapshot](https://react.dev/learn/state-as-a-snapshot), [useReducer](https://react.dev/reference/react/useReducer), [vuejs.org reactivity fundamentals](https://vuejs.org/guide/essentials/reactivity-fundamentals), [reactivity core API](https://vuejs.org/api/reactivity-core.html).",
+  "results": [
+    {
+      "id": "r1",
+      "title": "1",
+      "url": "https://react.dev/learn/managing-state",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "2",
+      "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "3",
+      "url": "https://react.dev/learn/state-as-a-snapshot",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "4",
+      "url": "https://coddy.tech/docs/react/react-vs-vue",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "5",
+      "url": "https://vuejs.org/api/reactivity-core.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "6",
+      "url": "https://react.dev/reference/react/useReducer",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "7",
+      "url": "https://www.telerik.com/blogs/react-vue-developers-part-2-state-effects-why-react-re-renders-differently",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "1",
+      "url": "https://react.dev/learn/managing-state",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "2",
+      "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "3",
+      "url": "https://react.dev/learn/state-as-a-snapshot",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "4",
+      "url": "https://coddy.tech/docs/react/react-vs-vue",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "5",
+      "url": "https://vuejs.org/api/reactivity-core.html",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "6",
+      "url": "https://react.dev/reference/react/useReducer",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "7",
+      "url": "https://www.telerik.com/blogs/react-vue-developers-part-2-state-effects-why-react-re-renders-differently",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 18693,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "comparison_signal"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "timed_out": false,
+  "elapsed_ms": 18694,
+  "usage": {
+    "calls": {
+      "xai.search": 1
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 0
+  }
+}

@@ -1,0 +1,441 @@
+{
+  "id": "lwn-kernel",
+  "executed_at": "2026-10-16T08:48:14.804760+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "LWN.net article explaining RCU in the Linux kernel",
+  "answer": "Here are up to eight LWN.net articles that explain RCU in the Linux kernel, ordered from foundational introductions to later design and API material. Most are by Paul McKenney.\n\n1. **What is RCU, Fundamentally?** (17 Dec 2007) — Core mechanisms: publish-subscribe for insertion, waiting for pre-existing readers on deletion, and keeping multiple versions so readers stay coherent.  \n   https://lwn.net/Articles/262464/ [[1]](https://lwn.net/Articles/262464)\n\n2. **What is RCU? Part 2: Usage** (24 Dec 2007) — Common use as a reader-writer lock replacement, plus performance, deadlock immunity, and limits when readers and updaters run concurrently.  \n   https://lwn.net/Articles/263130/ [[2]](https://lwn.net/Articles/263130/)\n\n3. **RCU part 3: the RCU API** (7 Jan 2008) — The RCU API family (Classic, BH, Sched, realtime, SRCU, and others) and the wait-to-finish vs. publish/subscribe primitives.  \n   https://lwn.net/Articles/264090/ [[3]](https://lwn.net/Articles/264090)\n\n4. **Hierarchical RCU** (4 Nov 2008) — How Classic RCU detects quiescent states and grace periods, and why a hierarchical design scales better on large systems.  \n   https://lwn.net/Articles/305782/ [[4]](https://lwn.net/Articles/305782)\n\n5. **RCU: The Bloatwatch Edition** (17 Mar 2009) — A minimal RCU for uniprocessor, non-preemptible kernels, framed as “waiting for things to finish” without tracking every reader.  \n   https://lwn.net/Articles/323929/ [[5]](https://lwn.net/Articles/323929/)\n\n6. **Requirements for RCU part 1: the fundamentals** (29 Jul 2015) — Grace-period and publish-subscribe guarantees (`rcu_read_lock`/`unlock`, `rcu_assign_pointer`, `rcu_dereference`).  \n   https://lwn.net/Articles/652156/ [[6]](https://lwn.net/Articles/652156)\n\n7. **RCU requirements part 3** (12 Aug 2015) — Linux-specific constraints: configuration, early boot, CPU hotplug, and the various RCU flavors.  \n   https://lwn.net/Articles/653326/ [[7]](https://lwn.net/Articles/653326/)\n\n8. **The RCU API, 2024 edition** (13 Sep 2024) — Current API changes (including lazy grace periods) and pointers back to the older introduction series; companion background material is at https://lwn.net/Articles/988641/.  \n   https://lwn.net/Articles/988638/ [[8]](https://lwn.net/Articles/988638/)\n\nThe 2007–2008 “What is RCU?” series is the usual starting point; the 2015 requirements series and the periodic “RCU API” editions (2010, 2014, 2019, 2024) cover how the kernel’s implementation and interfaces evolved.",
+  "results": [
+    {
+      "id": "r1",
+      "title": "1",
+      "url": "https://lwn.net/Articles/262464",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "Welcome to LWN.net [LWN.net]",
+      "url": "https://lwn.net",
+      "snippet": "> The fairly short series of ten patches basically enhances folio lookup by noticing when folios are hot, and setting a \"delay releasing this folio until after a RCU period\", and then using that RCU delay it does not just the folio lookup itself under RCU (which we've done forever), but also the actual folio data accesses themselves under RCU. No refcount taking needed for the fastpath where we can just read the data from the folio entirely in an RCU-protected region when the user copy doesn't [...] Full Story (comments: 64)\n\n## [$] Adding kernel control-flow-integrity checking to GCC\n\n[Development] Posted Oct 9, 2026 17:06 UTC (Fri) by corbet [...] While many developers are struggling to keep up with the flood of vulnerability reports, others are still focused on preventing those reports from happening in the first place. Control-flow integrity (CFI) is the term for preventing (or at least detecting) exploits that divert the flow of control from its intended paths. At the 2026 GNU Tools Cauldron, Kees Cook presented his changes to the GCC compiler suite to support forward-edge CFI for the kernel.\n\nFull Story (comments: 8)",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.7434107,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "2",
+      "url": "https://lwn.net/Articles/263130",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "Kernel coverage at LWN.net [LWN.net]",
+      "url": "https://lwn.net/Kernel",
+      "snippet": "LWN.net Logo LWN  \n.net News from the source  LWN\n\n Content\n  + Weekly Edition\n  + Archives\n  + Search\n  + Kernel\n  + Security\n  + Events calendar\n  + Unread comments\n  + LWN FAQ\n  + Write for us\n\n|\n|\n\nLog in / Subscribe / Register\n\n# Kernel coverage at LWN.net\n\nLWN.net's coverage of Linux kernel development is detailed, technical, and timely.\n\n### The article index\n\nSee the LWN Kernel Index for instant access to all LWN kernel articles, organized by topic.\n\n### Recent LWN.net kernel articles [...] LWN runs kernel-oriented content every week. Some of our more recent articles in this area include:\n> |  |  |\n>  --- |\n> | October 14, 2026 | Collaborating with out-of-tree tracers |\n> | October 13, 2026 | Owning C types from Rust code |\n> | October 12, 2026 | The 2026 Maintainers Summit |\n> | October 8, 2026 | [The [vx]swap showdown](/Articles/1098399/) |\n> | October 7, 2026 | Evolving the LAVD scheduler from gaming to servers | [...] ### The LWN kernel-source database\n\nThe LWN kernel-source database is a subscriber-only feature offering deep insights into Linux kernel releases, the code that went into them, and the developers who contributed to them.\n\n### Recent kernel patches\n\nA few of the most recently posted kernel patches are listed below; see the LWN Kernel Patches Page for full access to the patch database.\n\nDaniel Pereira docs: add a guide for translators  Oct 15\n\nGreg Kroah-Hartman Linux 5.10.272  Oct 15",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.5172057,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "3",
+      "url": "https://lwn.net/Articles/264090",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "LWN.net - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/LWN.net",
+      "snippet": "LWN.net is a computing webzine with an emphasis on free software and software for Linux and other Unix-like operating systems. It consists of a weekly issue, separate stories which are published most days, and threaded discussion attached to every story. Most news published daily are short summaries of articles published elsewhere, and are free to all viewers. Original articles are usually published weekly on Thursdays and are available only to subscribers for two weeks, after which they become [...] LWN caters to a more technical audience than other Linux/free software publications. It is often praised for its in-depth coverage of Linux kernel internals and Linux kernel mailing list (LKML) discussions.\n\nThe acronym \"LWN\" originally stood for Linux Weekly News; that name is no longer used because the site no longer covers exclusively Linux-related topics, and it has daily as well as weekly content.\n\n## History\n\n[edit] [...] 5. ↑ Love, Robert (2010). Linux Kernel Development. Pearson Education. p. 409. ISBN \"ISBN (identifier)\") 9780672329463.\n6. ↑ \"The LWN.net FAQ: General questions\". Retrieved 2012-08-06.\n7. ↑ Corbet, Jonathan (2008-01-16). \"Ten-year timeline, part 2: the bubble days\". Linux Weekly News. Retrieved 2008-01-24.\n8. ↑ Corbet, Jonathan (2008-01-23). \"Ten-year timeline part 3: The Tucows years\". Linux Weekly News. Retrieved 2021-01-21.",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.5135471,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "4",
+      "url": "https://lwn.net/Articles/305782",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "LWN.net Weekly Edition for October 1, 2026 [LWN.net]",
+      "url": "https://lwn.net/free",
+      "snippet": "There are, he said, a lot of \"great things\" happening with the Linux kernel. Writeback and reclaim have gotten much better — by a factor of two to four. The addition of RWF\\_ATOMIC (to request an atomic write) is a huge improvement, and io\\_uring is great in a number of ways. But, of course, there are some problems as well. [...] Kernel Recipes\n\nAs a professor of biomedical engineering, Martin Uecker perhaps does not fit the profile of a typical presenter at Kernel Recipes. He is, however, a longtime Linux user, and works on free software for controlling magnetic resonance imaging (MRI) scanners. He was at the conference to talk about the C programming language, the specific problem of undefined behavior in C, and whether it can eventually be made into a memory-safe language. [...] Andres Freund has a few claims to fame, but chief among them is his many years of work to improve the performance of the PostgreSQL relational database management system. That work requires working with — or around — many Linux kernel features and behaviors. He put in an appearance at the 2026 edition of Kernel Recipes to talk about his experience working with the kernel project, how the kernel could better support applications like PostgreSQL, and some interesting developments in the",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.47110215,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "1",
+      "url": "https://lwn.net/Articles/262464",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "Welcome to LWN.net [LWN.net]",
+      "url": "https://lwn.net",
+      "result_id": "r2",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "2",
+      "url": "https://lwn.net/Articles/263130",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "Kernel coverage at LWN.net [LWN.net]",
+      "url": "https://lwn.net/Kernel",
+      "result_id": "r4",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "3",
+      "url": "https://lwn.net/Articles/264090",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "LWN.net - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/LWN.net",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "4",
+      "url": "https://lwn.net/Articles/305782",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "LWN.net Weekly Edition for October 1, 2026 [LWN.net]",
+      "url": "https://lwn.net/free",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "5",
+      "url": "https://lwn.net/Articles/323929",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "6",
+      "url": "https://lwn.net/Articles/652156",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "7",
+      "url": "https://lwn.net/Articles/653326",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "8",
+      "url": "https://lwn.net/Articles/988638",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "Now Hiring: 1,000 Linux Kernel Jobs | Indeed",
+      "url": "https://www.indeed.com/q-Linux-Kernel-jobs.html?q=Linux+Kernel",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "Now Hiring: 500 Linux Kernel Developer Jobs | Indeed",
+      "url": "https://www.indeed.com/q-linux-kernel-developer-jobs.html",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "Now Hiring: 400 Linux Kernel Porting Jobs | Indeed",
+      "url": "https://www.indeed.com/q-linux-kernel-porting-jobs.html",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "Localish - Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Localish",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 11133,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "conditional_supplement",
+        "latency_ms": 2319,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "domains_below_threshold:1<2"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://lwn.net/Articles/262464",
+      "final_url": "https://lwn.net/Articles/262464",
+      "title": "What is RCU, Fundamentally? [LWN.net]",
+      "content": "[![LWN.net Logo](https://static.lwn.net/images/logo/barepenguin-70.webp)LWN\\\\\n\\\\\n.netNews from the source](https://lwn.net/) [![LWN](https://static.lwn.net/images/lcorner-ss.png)](https://lwn.net/)\n\n- [**Content**](https://lwn.net/Articles/262464/#t)\n  - [Weekly Edition](https://lwn.net/current/)\n  - [Archives](https://lwn.net/Archives/)\n  - [Search](https://lwn.net/Search/)\n  - [Kernel](https://lwn.net/Kernel/)\n  - [Security](https://lwn.net/Security/)\n  - [Events calendar](https://lwn.net/Calendar/)\n  - [Unread comments](https://lwn.net/Comments/unread)\n  - * * *\n\n  - [LWN FAQ](https://lwn.net/op/FAQ.lwn)\n  - [Write for us](https://lwn.net/op/AuthorGuide.lwn)\n- [**Edition**](https://lwn.net/Articles/262464/#t)\n  - [Return to the Kernel page](https://lwn.net/Articles/262091/)\n\n**User:****Password:** \\|\n\\|\n\n\n[**Log in**](https://lwn.net/Login/) /\n[**Subscribe**](https://lwn.net/subscribe/) /\n[**Register**](https://lwn.net/Login/newaccount)\n\n# What is RCU, Fundamentally?\n\nDecember 17, 2007\n\nThis article was contributed by Paul McKenney\n\n\\[ _Editor's note: this is the first in a three-part series on how the_\\\n_read-copy-update mechanism works. Many thanks to Paul McKenney and_\\\n_Jonathan Walpole for allowing us to publish these articles. The remaining_\\\n_two sections will appear in future weeks._\\]\n\nPart 1 of 3 of **What is RCU, Really?**\n\n_Paul E. McKenney, IBM Linux Technology Center_\n\n_Jonathan Walpole, Portland State University Department of Computer_\n_Science_\n\n### Introduction\n\nRead-copy update (RCU) is a synchronization mechanism that was added to\nthe Linux kernel in October of 2002.\nRCU achieves scalability\nimprovements by allowing reads to occur concurrently with updates.\nIn contrast with conventional locking primitives that ensure mutual exclusion\namong concurrent threads regardless of whether they be readers or\nupdaters, or with reader-writer locks that allow concurrent reads but not in\nthe presence of updates, RCU supports concurrency between a single\nupdater and multiple readers.\nRCU ensures that reads are coherent by\nmaintaining multiple versions of objects and ensuring that they are not\nfreed up until all pre-existing read-side critical sections complete.\nRCU defines and uses efficient and scalable mechanisms for publishing\nand reading new versions of an object, and also for deferring the collection\nof old versions.\nThese mechanisms distribute the work among read and\nupdate paths in such a way as to make read paths extremely fast. In some\ncases (non-preemptable kernels), RCU's read-side primitives have zero\noverhead.\n\n**Quick Quiz 1**:\nBut doesn't seqlock also permit readers and updaters to get work done\nconcurrently?\n\nThis leads to the question \"what exactly is RCU?\", and perhaps also\nto the question \"how can RCU _possibly_ work?\" (or, not\ninfrequently, the assertion that RCU cannot possibly work).\nThis document addresses these questions from a fundamental viewpoint;\nlater installments look at them from usage and from API viewpoints.\nThis last installment also includes a list of references.\n\nRCU is made up of three fundamental mechanisms, the first being\nused for insertion, the second being used for deletion, and the third\nbeing used to allow readers to tolerate concurrent insertions and deletions.\nThese mechanisms are described in the following sections, which focus\non applying RCU to linked lists:\n\n1. [Publish-Subscribe Mechanism](https://lwn.net/Articles/262464/#Publish-Subscribe%20Mechanism) (for insertion)\n\n2. [Wait For Pre-Existing RCU Readers to Complete](https://lwn.net/Articles/262464/#Wait%20For%20Pre-Existing%20RCU%20Readers%20to%20Complete) (for deletion)\n\n3. [Maintain Multiple Versions of Recently Updated Objects](https://lwn.net/Articles/262464/#Maintain%20Multiple%20Versions%20of%20Recently%20Updated%20Objects)\n    (for readers)\n\n\nThese sections are followed by\n[concluding remarks](https://lwn.net/Articles/262464/#Conclusion) and the\n[answers to the Quick Quizzes](https://lwn.net/Articles/262464/#Answers%20to%20Quick%20Quizzes).\n\n### Publish-Subscribe Mechanism\n\nOne key attribute of RCU is the ability to safely scan data, even\nthough that data is being modified concurrently.\nTo provide this ability for concurrent insertion,\nRCU uses what can be thought of as a publish-subscribe mechanism.\nFor example, consider an initially `NULL` global pointer\n`gp` that is to be modified to point to a newly allocated\nand initialized data structure.\nThe following code fragment (with the addition of appropriate locking)\nmight be used for this purpose:\n\n```\n  1 struct foo {\n  2   int a;\n  3   int b;\n  4   int c;\n  5 };\n  6 struct foo *gp = NULL;\n  7\n  8 /* . . . */\n  9\n 10 p = kmalloc(sizeof(*p), GFP_KERNEL);\n 11 p->a = 1;\n 12 p->b = 2;\n 13 p->c = 3;\n 14 gp = p;\n```\n\nUnfortunately, there is nothing forcing the compiler and CPU to execute\nthe last four assignment statements in order.\nIf the assignment to `gp` happens before the initialization\nof `p`'s fields, then concurrent readers could see the\nuninitialized values.\nMemory barriers are required to keep things ordered, but memory barriers\nare notoriously difficult to use.\nWe therefore encapsulate them into a primitive\n`rcu_assign_pointer()` that has publication semantics.\nThe last four lines would then be as follows:\n\n```\n  1 p->a = 1;\n  2 p->b = 2;\n  3 p->c = 3;\n  4 rcu_assign_pointer(gp, p);\n```\n\nThe `rcu_assign_pointer()`\nwould _publish_ the new structure, forcing both the compiler\nand the CPU to execute the assignment to `gp` _after_\nthe assignments to the fields referenced by `p`.\n\nHowever, it is not sufficient to only enforce ordering at the\nupdater, as the reader must enforce proper ordering as well.\nConsider for example the following code fragment:\n\n```\n  1 p = gp;\n  2 if (p != NULL) {\n  3   do_something_with(p->a, p->b, p->c);\n  4 }\n```\n\nAlthough this code fragment might well seem immune to misordering,\nunfortunately, the\n[DEC\\\\\nAlpha CPU \\[PDF\\]](http://www.rdrop.com/users/paulmck/scalability/paper/ordering.2007.09.19a.pdf)\nand value-speculation compiler optimizations can, believe it or not,\ncause the values of `p->a`, `p->b`, and\n`p->c` to be fetched before the value of `p`!\nThis is perhaps easiest to see in the case of value-speculation\ncompiler optimizations, where the compiler guesses the value\nof `p`, fetches `p->a`, `p->b`, and\n`p->c`, then fetches the actual value of `p`\nin order to check whether its guess was correct.\nThis sort of optimization is quite aggressive, perhaps insanely so,\nbut does actually occur in the context of profile-driven optimization.\n\nClearly, we need to prevent this sort of skullduggery on the\npart of both the compiler and the CPU.\nThe `rcu_dereference()` primitive uses\nwhatever memory-barrier instructions and compiler\ndirectives are required for this purpose:\n\n```\n  1 rcu_read_lock();\n  2 p = rcu_dereference(gp);\n  3 if (p != NULL) {\n  4   do_something_with(p->a, p->b, p->c);\n  5 }\n  6 rcu_read_unlock();\n```\n\nThe `rcu_dereference()` primitive can thus be thought of\nas _subscribing_ to a given value of the specified pointer,\nguaranteeing that subsequent dereference operations will see any\ninitialization that occurred before the corresponding publish\n(`rcu_assign_pointer()`) operation.\nThe `rcu_read_lock()` and `rcu_read_unlock()`\ncalls are absolutely required: they define the extent of the\nRCU read-side critical section.\nTheir purpose is explained in the\n[next section](https://lwn.net/Articles/262464/#Wait%20For%20Pre-Existing%20RCU%20Readers%20to%20Complete),\nhowever, they never spin or block, nor do they prevent the\n`list_add_rcu()` from executing concurrently.\nIn fact, in non-`CONFIG_PREEMPT` kernels, they generate\nabsolutely no code.\n\nAlthough `rcu_assign_pointer()` and\n`rcu_dereference()` can in theory be used to construct any\nconceivable RCU-protected data structure, in practice it is often better\nto use higher-level constructs.\nTherefore, the `rcu_assign_pointer()` and\n`rcu_dereference()`\nprimitives have been embedded in special RCU variants of Linux's\nlist-manipulation API.\nLinux has two variants of doubly linked list, the circular\n`struct list_head` and the linear\n`struct hlist_head`/`struct hlist_node` pair.\nThe former is laid out as follows, where the green boxes represent\nthe list header and the blue boxes represent the elements in the\nlist.\n\n> ![Linux list](https://static.lwn.net/images/ns/kernel/rcu/Linux_list.jpg)\n\nAdapting the pointer-publish example for the linked list gives\nthe following:\n\n```\n  1 struct foo {\n  2   struct list_head list;\n  3   int a;\n  4   int b;\n  5   int c;\n  6 };\n  7 LIST_HEAD(head);\n  8\n  9 /* . . . */\n 10\n 11 p = kmalloc(sizeof(*p), GFP_KERNEL);\n 12 p->a = 1;\n 13 p->b = 2;\n 14 p->c = 3;\n 15 list_add_rcu(&p->list, &head);\n```\n\nLine 15 must be protected by some synchronization mechanism (most\ncommonly some sort of lock) to prevent multiple `list_add()`\ninstances from executing concurrently.\nHowever, such synchronization does not prevent this `list_add()`\nfrom executing concurrently with RCU readers.\n\nSubscribing to an RCU-protected list is straightforward:\n\n```\n  1 rcu_read_lock();\n  2 list_for_each_entry_rcu(p, head, list) {\n  3   do_something_with(p->a, p->b, p->c);\n  4 }\n  5 rcu_read_unlock();\n```\n\nThe `list_add_rcu()` primitive publishes\nan entry into the specified list, guaranteeing that the corresponding\n`list_for_each_entry_rcu()` invocation will properly\nsubscribe to this same entry.\n\n**Quick Quiz 2**:\nWhat prevents the `list_for_each_entry_rcu()` from\ngetting a segfault if it happens to execute at exactly the same\ntime as the `list_add_rcu()`?\n\nLinux's other doubly linked list, the hlist,\nis a linear list, which means that\nit needs only one pointer for the header rather than the two\nrequired for the circular list.\nThus, use of hlist can halve the memory consumption for the hash-bucket\narrays of large hash tables.\n\n> ![Linux hlist](https://static.lwn.net/images/ns/kernel/rcu/Linux_hlist.jpg)\n\nPublishing a new element to an RCU-protected hlist is quite similar\nto doing so for the circular list:\n\n```\n  1 struct foo {\n  2   struct hlist_node *list;\n  3   int a;\n  4   int b;\n  5   int c;\n  6 };\n  7 HLIST_HEAD(head);\n  8\n  9 /* . . . */\n 10\n 11 p = kmalloc(sizeof(*p), GFP_KERNEL);\n 12 p->a = 1;\n 13 p->b = 2;\n 14 p->c = 3;\n 15 hlist_add_head_rcu(&p->list, &head);\n```\n\nAs before, line 15 must be protected by some sort of synchronization\nmechanism, for example, a lock.\n\nSubscribing to an RCU-protected hlist is also similar to the\ncircular list:\n\n```\n  1 rcu_read_lock();\n  2 hlist_for_each_entry_rcu(p, q, head, list) {\n  3   do_something_with(p->a, p->b, p->c);\n  4 }\n  5 rcu_read_unlock();\n```\n\n**Quick Quiz 3**:\nWhy do we need to pass two pointers into\n`hlist_for_each_entry_rcu()`\nwhen only one is needed for `list_for_each_entry_rcu()`?\n\nThe set of RCU publish and subscribe primitives are shown\nin the following table, along with additional primitives to\n\"unpublish\", or retract:\n\n| Category | Publish | Retract | Subscribe |\n| --- | --- | --- | --- |\n| Pointers | `rcu_assign_pointer()` | `rcu_assign_pointer(..., NULL)` | `rcu_dereference()` |\n| Lists | `list_add_rcu()`<br>`list_add_tail_rcu()`<br>`list_replace_rcu()` | `list_del_rcu()` | `list_for_each_entry_rcu()` |\n| Hlists | `hlist_add_after_rcu()`<br>`hlist_add_before_rcu()`<br>`hlist_add_head_rcu()`<br>`hlist_replace_rcu()` | `hlist_del_rcu()` | `hlist_for_each_entry_rcu()` |\n\nNote that the `list_replace_rcu()`, `list_del_rcu()`,\n`hlist_replace_rcu()`, and `hlist_del_rcu()`\nAPIs add a complication.\nWhen is it safe to free up the data element that was replaced or\nremoved?\nIn particular, how can we possibly know when all the readers\nhave released their references to that data element?\n\nThese questions are addressed in the following section.\n\n### Wait For Pre-Existing RCU Readers to Complete\n\nIn its most basic form, RCU is a way of waiting for things to finish.\nOf course, there are a great many other ways of waiting for things to\nfinish, including reference counts, reader-writer locks, events, and so on.\nThe great advantage of RCU is that it can wait for each of\n(say) 20,000 different things without having to explicitly\ntrack each and every one of them, and without having to worry about\nthe performance degradation, scalability limitations, complex deadlock\nscenarios, and memory-leak hazards that are inherent in schemes\nusing explicit tracking.\n\nIn RCU's case, the things waited on are called\n\"RCU read-side critical sections\".\nAn RCU read-side critical section starts with an\n`rcu_read_lock()` primitive, and ends with a corresponding\n`rcu_read_unlock()` primitive.\nRCU read-side critical sections can be nested, and may contain pretty\nmuch any code, as long as that code does not explicitly block or sleep\n(although a special form of RCU called\n\" [SRCU](http://lwn.net/Articles/202847/)\"\ndoes permit general sleeping in SRCU read-side critical sections).\nIf you abide by these conventions, you can use RCU to wait for _any_\ndesired piece of code to complete.\n\nRCU accomplishes this feat by indirectly determining when these\nother things have finished, as has been described elsewhere for\n[RCU Classic](http://www.rdrop.com/users/paulmck/RCU/whatisRCU.html) and\n[realtime RCU](http://lwn.net/Articles/253651/).\n\nIn particular, as shown in the following figure, RCU is a way of\nwaiting for pre-existing RCU read-side critical sections to completely\nfinish, including memory operations executed by those critical sections.\n\n> ![Grace periods extend to contain pre-existing RCU read-side critical sections.](https://static.lwn.net/images/ns/kernel/rcu/GracePeriodGood.png)\n\nHowever, note that RCU read-side critical sections\nthat begin after the beginning\nof a given grace period can and will extend beyond the end of that grace\nperiod.\n\nThe following pseudocode shows the basic form of algorithms that use\nRCU to wait for readers:\n\n1. Make a change, for example, replace an element in a linked list.\n\n2. Wait for all pre-existing RCU read-side critical sections to\n    completely finish (for example, by using the\n    `synchronize_rcu()` primitive).\n    The key observation here is that subsequent RCU read-side critical\n    sections have no way to gain a reference to the newly removed\n    element.\n\n3. Clean up, for example, free the element that was replaced above.\n\n\nThe following code fragment, adapted from those in the\n[previous section](https://lwn.net/Articles/262464/#Publish-Subscribe%20Mechanism),\ndemonstrates this process, with field `a` being the search key:\n\n```\n  1 struct foo {\n  2   struct list_head list;\n  3   int a;\n  4   int b;\n  5   int c;\n  6 };\n  7 LIST_HEAD(head);\n  8\n  9 /* . . . */\n 10\n 11 p = search(head, key);\n 12 if (p == NULL) {\n 13   /* Take appropriate action, unlock, and return. */\n 14 }\n 15 q = kmalloc(sizeof(*p), GFP_KERNEL);\n 16 *q = *p;\n 17 q->b = 2;\n 18 q->c = 3;\n 19 list_replace_rcu(&p->list, &q->list);\n 20 synchronize_rcu();\n 21 kfree(p);\n```\n\nLines 19, 20, and 21 implement the three steps called out above.\nLines 16-19 gives RCU (\"read-copy update\") its name: while permitting\nconcurrent _reads_, line 16 _copies_ and lines 17-19\ndo an _update_.\n\nThe `synchronize_rcu()` primitive might seem a bit\nmysterious at first.\nAfter all, it must wait for all RCU read-side critical sections to\ncomplete, and, as we saw earlier, the\n`rcu_read_lock()` and `rcu_read_unlock()` primitives\nthat delimit RCU read-side critical sections don't even generate any\ncode in non-`CONFIG_PREEMPT` kernels!\n\nThere is a trick, and the trick is that RCU Classic read-side critical\nsections delimited by `rcu_read_lock()` and\n`rcu_read_unlock()` are not permitted to block or sleep.\nTherefore, when a given CPU executes a context switch, we are guaranteed\nthat any prior RCU read-side critical sections will have completed.\nThis means that as soon as each\nCPU has executed at least one context switch, _all_\nprior RCU read-side critical sections are guaranteed to have completed,\nmeaning that `synchronize_rcu()` can safely return.\n\nThus, RCU Classic's `synchronize_rcu()`\ncan conceptually be as simple as the following:\n\n```\n  1 for_each_online_cpu(cpu)\n  2   run_on(cpu);\n```\n\nHere, `run_on()` switches the current thread to the\nspecified CPU, which forces a context switch on that CPU.\nThe `for_each_online_cpu()` loop therefore forces a\ncontext switch on each CPU, thereby guaranteeing that all prior\nRCU read-side critical sections have completed, as required.\nAlthough this simple approach works for kernels in which preemption\nis disabled across RCU read-side critical sections, in other\nwords, for non-`CONFIG_PREEMPT` and `CONFIG_PREEMPT`\nkernels, it does _not_ work for `CONFIG_PREEMPT_RT`\nrealtime (-rt) kernels.\nTherefore, [realtime RCU](http://lwn.net/Articles/253651/) uses\na different approach based loosely on reference counters.\n\nOf course, the actual implementation in the Linux kernel\nis much more complex, as it is required\nto handle interrupts, NMIs, CPU hotplug, and other hazards of\nproduction-capable kernels, but while also maintaining good performance and\nscalability.\nRealtime implementations of RCU must additionally help provide good\nrealtime response, which rules out implementations (like the simple\ntwo-liner above) that rely on disabling preemption.\n\nAlthough it is good to know that there is a simple conceptual\nimplementation of `synchronize_rcu()`, other questions remain.\nFor example, what exactly do RCU\nreaders see when traversing a concurrently updated list?\nThis question is addressed in the following section.\n\n### Maintain Multiple Versions of Recently Updated Objects\n\nThis section demonstrates how RCU maintains multiple versions of\nlists to accommodate synchronization-free readers.\nTwo examples are presented showing how an element\nthat might be referenced by a given reader must remain intact\nwhile that reader remains in its RCU read-side critical section.\nThe first example demonstrates deletion of a list element,\nand the second example demonstrates replacement of an element.\n\n### Example 1: Maintaining Multiple Versions During Deletion\n\nTo start the \"deletion\" example,\nwe will modify lines 11-21 in the\n[example in the previous section](https://lwn.net/Articles/262464/#Canonical%20Replacement%20Example)\nas follows:\n\n```\n  1 p = search(head, key);\n  2 if (p != NULL) {\n  3   list_del_rcu(&p->list);\n  4   synchronize_rcu();\n  5   kfree(p);\n  6 }\n```\n\nThe initial state of the list, including the pointer `p`,\nis as follows.\n\n> ![Initial list state.](https://static.lwn.net/images/ns/kernel/rcu/MultiVersion1.jpg)\n\nThe triples in each element represent the values of fields `a`,\n`b`, and `c`, respectively.\nThe red borders on\neach element indicate that readers might be holding references to them,\nand because readers do not synchronize directly with updaters,\nreaders might run concurrently with this entire replacement process.\nPlease note that\nwe have omitted the backwards pointers and the link from the tail\nof the list to the head for clarity.\n\nAfter the `list_del_rcu()` on\nline 3 has completed, the `5,6,7` element\nhas been removed from the list, as shown below.\nSince readers do not synchronize directly with updaters,\nreaders might be concurrently scanning this list.\nThese concurrent readers might or might not see the newly removed element,\ndepending on timing.\nHowever, readers that were delayed (e.g., due to interrupts, ECC memory\nerrors, or, in `CONFIG_PREEMPT_RT` kernels, preemption)\njust after fetching a pointer to the newly removed element might\nsee the old version of the list for quite some time after the\nremoval.\nTherefore, we now have two versions of the list, one with element\n`5,6,7` and one without.\nThe border of the `5,6,7` element is\nstill red, indicating\nthat readers might be referencing it.\n\n> ![After deletion.](https://static.lwn.net/images/ns/kernel/rcu/MultiVersionDelete2.jpg)\n\nPlease note that readers are not permitted to maintain references to\nelement `5,6,7` after exiting from their RCU read-side\ncritical sections.\nTherefore,\nonce the `synchronize_rcu()` on\nline 4 completes, so that all pre-existing readers are\nguaranteed to have completed,\nthere can be no more readers referencing this\nelement, as indicated by its black border below.\nWe are thus back to a single version of the list.\n\n> ![After deletion.](https://static.lwn.net/images/ns/kernel/rcu/MultiVersionDelete3.jpg)\n\nAt this point, the `5,6,7` element may safely be\nfreed, as shown below:\n\n> ![After deletion.](https://static.lwn.net/images/ns/kernel/rcu/MultiVersionDelete4.jpg)\n\nAt this point, we have completed the deletion of\nelement `5,6,7`.\nThe following section covers replacement.\n\n### Example 2: Maintaining Multiple Versions During Replacement\n\nTo start the replacement example,\nhere are the last few lines of the\n[example in the previous section](https://lwn.net/Articles/262464/#Canonical%20Replacement%20Example):\n\n```\n  1 q = kmalloc(sizeof(*p), GFP_KERNEL);\n  2 *q = *p;\n  3 q->b = 2;\n  4 q->c = 3;\n  5 list_replace_rcu(&p->list, &q->list);\n  6 synchronize_rcu();\n  7 kfree(p);\n```\n\nThe initial state of the list, including the pointer `p`,\nis the same as for the deletion example:\n\n> ![Initial list state.](https://static.lwn.net/images/ns/kernel/rcu/MultiVersion1.jpg)\n\nAs before,\nthe triples in each element represent the values of fields `a`,\n`b`, and `c`, respectively.\nThe red borders on\neach element indicate that readers might be holding references to them,\nand because readers do not synchronize directly with updaters,\nreaders might run concurrently with this entire replacement process.\nPlease note that\nwe again omit the backwards pointers and the link from the tail\nof the list to the head for clarity.\n\nLine 1 `kmalloc()`s a replacement element, as follows:\n\n> ![List state after allocation.](https://static.lwn.net/images/ns/kernel/rcu/MultiVersion2.jpg)\n\nLine 2 copies the old element to the new one:\n\n> ![List state after copy.](https://static.lwn.net/images/ns/kernel/rcu/MultiVersion3.jpg)\n\nLine 3 updates `q->b` to the value \"2\":\n\n> ![List state after update of b.](https://static.lwn.net/images/ns/kernel/rcu/MultiVersion4.jpg)\n\nLine 4 updates `q->c` to the value \"3\":\n\n> ![List state after update of c.](https://static.lwn.net/images/ns/kernel/rcu/MultiVersion5.jpg)\n\nNow, line 5 does the replacement, so that the new element is\nfinally visible to readers.\nAt this point, as shown below, we have two versions of the list.\nPre-existing readers might see the `5,6,7` element, but\nnew readers will instead see the `5,2,3` element.\nBut any given reader is guaranteed to see some well-defined list.\n\n> ![List state after replacement.](https://static.lwn.net/images/ns/kernel/rcu/MultiVersion6.jpg)\n\nAfter the `synchronize_rcu()` on line 6 returns,\na grace period will have elapsed, and so all reads that started before the\n`list_replace_rcu()` will have completed.\nIn particular, any readers that might have been holding references\nto the `5,6,7` element are guaranteed to have exited\ntheir RCU read-side critical sections, and are thus prohibited from\ncontinuing to hold a reference.\nTherefore, there can no longer be any readers holding references\nto the old element, as indicated by the thin black border around\nthe `5,6,7` element below.\nAs far as the readers are concerned, we are back to having a single version\nof the list, but with the new element in place of the old.\n\n> ![List state after grace period.](https://static.lwn.net/images/ns/kernel/rcu/MultiVersion7.jpg)\n\nAfter the `kfree()` on line 7 completes, the list will\nappear as follows:\n\n> ![List state after grace period.](https://static.lwn.net/images/ns/kernel/rcu/MultiVersion8.jpg)\n\nDespite the fact that RCU was named after the replacement case,\nthe vast majority of RCU usage within the Linux kernel relies on\nthe simple deletion case shown in the\n[previous section](https://lwn.net/Articles/262464/#Example%201:%20Maintaining%20Multiple%20Versions%20During%20Deletion).\n\n### Discussion\n\nThese examples assumed that a mutex was held across the entire\nupdate operation, which would mean that there could be at most two\nversions of the list active at a given time.\n\n**Quick Quiz 4**:\nHow would you modify the deletion example to permit more than two\nversions of the list to be active?\n\n**Quick Quiz 5**:\nHow many RCU versions of a given list can be active at any given time?\n\nThis sequence of events shows how RCU updates use multiple versions\nto safely carry out changes in presence of concurrent readers.\nOf course, some algorithms cannot gracefully handle multiple versions.\nThere are\n[techniques\\\\\n\\[PDF\\]](http://www.rdrop.com/users/paulmck/RCU/RCUdissertation.2004.07.14e1.pdf)\nfor adapting such algorithms to RCU,\nbut these are beyond the scope of this article.\n\n### Conclusion\n\nThis article has described the three fundamental components of RCU-based\nalgorithms:\n\n1. a publish-subscribe mechanism for adding new data,\n\n2. a way of waiting for pre-existing RCU readers to finish, and\n\n3. a discipline of maintaining multiple versions to permit\n    change without harming or unduly delaying concurrent RCU readers.\n\n\n**Quick Quiz 6**:\nHow can RCU updaters possibly delay RCU readers, given that the\n`rcu_read_lock()` and `rcu_read_unlock()`\nprimitives neither spin nor block?\n\nThese three RCU components\nallow data to be updated in face of concurrent readers, and\ncan be combined in different ways to\nimplement a surprising variety of different types of RCU-based algorithms,\nsome of which will\nbe the topic of the next installment in this \"What is RCU, Really?\"\nseries.\n\n### Acknowledgements\n\nWe are all indebted to Andy Whitcroft, Gautham Shenoy, and Mike Fulton,\nwhose review of an early draft of this document greatly improved it.\nWe owe thanks to the members of the Relativistic Programming project\nand to members of PNW TEC for many valuable discussions.\nWe are grateful to Dan Frye for his support of this effort.\nFinally, this material is based upon work supported by the National Science\nFoundation under Grant No. CNS-0719851.\n\nThis work represents the view of the authors and does not necessarily\nrepresent the view of IBM or of Portland State University.\n\nLinux is a registered trademark of Linus Torvalds.\n\nOther company, product, and service names may be trademarks or\nservice marks of others.\n\n### Answers to Quick Quizzes\n\n**Quick Quiz 1**:\nBut doesn't seqlock also permit readers and updaters to get work done\nconcurrently?\n\n**Answer**:\nYes and no.\nAlthough seqlock readers can run concurrently with\nseqlock writers, whenever this happens, the `read_seqretry()`\nprimitive will force the reader to retry.\nThis means that any work done by a seqlock reader running concurrently\nwith a seqlock updater will be discarded and redone.\nSo seqlock readers can _run_ concurrently with updaters,\nbut they cannot actually get any work done in this case.\n\nIn contrast, RCU readers can perform useful work even in presence\nof concurrent RCU updaters.\n\n**Quick Quiz 2**:\nWhat prevents the `list_for_each_entry_rcu()` from\ngetting a segfault if it happens to execute at exactly the same\ntime as the `list_add_rcu()`?\n\n**Answer**: On all systems running Linux, loads from and stores\nto pointers are atomic, that is, if a store to a pointer occurs at\nthe same time as a load from that same pointer, the load will return\neither the initial value or the value stored, never some bitwise mashup\nof the two.\nIn addition, the `list_for_each_entry_rcu()` always proceeds\nforward through the list, never looking back.\nTherefore, the `list_for_each_entry_rcu()` will either see\nthe element being added by `list_add_rcu()`, or it will not,\nbut either way, it will see a valid well-formed list.\n\n[**Back to Quick Quiz 2**.](https://lwn.net/Articles/262464/#Quick%20Quiz%202)\n\n**Quick Quiz 3**:\nWhy do we need to pass two pointers into\n`hlist_for_each_entry_rcu()`\nwhen only one is needed for `list_for_each_entry_rcu()`?\n\n**Answer**: Because in an hlist it is necessary to check for\nNULL rather than for encountering the head.\n(Try coding up a single-pointer `hlist_for_each_entry_rcu()`.\nIf you come up with a nice solution, it would be a very good thing!)\n\n[**Back to Quick Quiz 3**.](https://lwn.net/Articles/262464/#Quick%20Quiz%203)\n\n**Quick Quiz 4**:\nHow would you modify the deletion example to permit more than two\nversions of the list to be active?\n\n**Answer**:\nOne way of accomplishing this is as follows:\n\n```\nspin_lock(&mylock);\np = search(head, key);\nif (p == NULL)\n\tspin_unlock(&mylock);\nelse {\n\tlist_del_rcu(&p->list);\n\tspin_unlock(&mylock);\n\tsynchronize_rcu();\n\tkfree(p);\n}\n```\n\nNote that this means that multiple concurrent deletions might be\nwaiting in `synchronize_rcu()`.\n\n[**Back to Quick Quiz 4**.](https://lwn.net/Articles/262464/#Quick%20Quiz%204)\n\n**Quick Quiz 5**:\nHow many RCU versions of a given list can be active at any given time?\n\n**Answer**:\nThat depends on the synchronization design.\nIf a semaphore protecting the update is held across the grace period,\nthen there can be at most two versions, the old and the new.\n\nHowever, if only the search, the update, and the\n`list_replace_rcu()` were protected by a lock, then\nthere could be an arbitrary number of versions active, limited only\nby memory and by how many updates could be completed within a\ngrace period.\nBut please note that data structures that are updated so frequently\nprobably are not good candidates for RCU.\nThat said, RCU can handle high update rates when necessary.\n\n[**Back to Quick Quiz 5**.](https://lwn.net/Articles/262464/#Quick%20Quiz%205)\n\n**Quick Quiz 6**:\nHow can RCU updaters possibly delay RCU readers, given that the\n`rcu_read_lock()` and `rcu_read_unlock()`\nprimitives neither spin nor block?\n\n**Answer**:\nThe modifications undertaken by a given RCU updater will cause the\ncorresponding CPU to invalidate cache lines containing the data,\nforcing the CPUs running concurrent RCU readers to incur expensive\ncache misses.\n(Can you design an algorithm that changes a data structure _without_\ninflicting expensive cache misses on concurrent readers?\nOn subsequent readers?)\n\n[**Back t",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": true,
+      "metadata": {
+        "robots": "noai, noimageai",
+        "viewport": "width=device-width, initial-scale=1",
+        "title": "What is RCU, Fundamentally? [LWN.net]",
+        "language": "en",
+        "og:title": "What is RCU, Fundamentally?",
+        "ogSiteName": "LWN.net",
+        "ogDescription": "[Editor's note: this is the first in a three-part series on how the read-copy-update mechanism  [...]",
+        "og:site_name": "LWN.net",
+        "og:description": "[Editor's note: this is the first in a three-part series on how the read-copy-update mechanism  [...]",
+        "ogTitle": "What is RCU, Fundamentally?",
+        "og:type": "article",
+        "favicon": "https://static.lwn.net/images/favicon.png",
+        "scrapeId": "01a143e5-fd80-719b-b7af-14059656e15f",
+        "sourceURL": "https://lwn.net/Articles/262464",
+        "url": "https://lwn.net/Articles/262464/",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "proxyUsed": "basic",
+        "cacheState": "hit",
+        "cachedAt": "2026-10-15T07:50:16.943Z",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 467,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 557
+    },
+    {
+      "schema_version": "1.0",
+      "status": "error",
+      "url": "https://lwn.net",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "transport_error"
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "transport_error",
+          "message": "provider HTTP 429",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 10498
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 24511,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "tavily.search": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 1
+  }
+}

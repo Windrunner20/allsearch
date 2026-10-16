@@ -1,0 +1,344 @@
+{
+  "id": "ho-cross-mdn-flatmap",
+  "executed_at": "2026-10-16T08:53:33.274881+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "用中文找 MDN 上 Array.prototype.flatMap 的英文文档原文",
+  "answer": "英文原文在 MDN 英文站（非中文翻译页）：\n\n**主文档：** [Array.prototype.flatMap() - JavaScript | MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap)（最后修改：2025-07-20）\n\n原文要点（摘自该页）：\n\n> The **flatMap()** method of Array instances returns a new array formed by applying a given callback function to each element of the array, and then flattening the result by one level. It is identical to a map() followed by a flat() of depth 1 (`arr.map(...args).flat()`), but slightly more efficient than calling those two methods separately.\n\n语法：`flatMap(callbackFn)` / `flatMap(callbackFn, thisArg)`。返回值：callback 的结果再扁平化一层后的新数组。说明里写明它等于 `map(callbackFn, thisArg)` 再接 `flat(1)`。\n\n相关结果（最多 8 条）：\n\n1. **英文 flatMap 正文** — [developer.mozilla.org/.../Array/flatMap](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap)。定义、参数（`callbackFn`：`element` / `index` / `array`；可选 `thisArg`）、返回值、与 `map`+`flat(1)` 的关系。  \n2. **同页 Try it 示例** — 同上。`[1, 2, 1].flatMap((num) => (num === 2 ? [2, 2] : 1))` → `[1, 2, 2, 1]`。  \n3. **同页 Examples：map 与 flatMap** — 同上。`map` 得到嵌套数组；`flatMap` 只展平一层；句子拆词示例。  \n4. **同页：增减元素** — 同上。返回 `[]` 删除、单元素保留、多元素插入（相对 `filter`）。  \n5. **同页：稀疏数组与类数组** — 同上。空槽不调用 callback；`Array.prototype.flatMap.call` 只看 `length` 与整数下标；非数组返回值不会被展平。  \n6. **规范链接（该页 Specifications）** — [ECMAScript `sec-array.prototype.flatmap`](https://tc39.es/ecma262/multipage/indexed-collections.html#sec-array.prototype.flatmap)。  \n7. **对照：英文 `Array.prototype.flat()`** — [developer.mozilla.org/.../Array/flat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat)。按指定深度递归拼接子数组，默认深度 1。  \n8. **Array 总览中的一句话定义** — [developer.mozilla.org/.../Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)。`flatMap()`：对每个元素调用 callback，再将结果扁平化一层。\n\n中文页 [zh-CN/.../flatMap](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap) 是社区翻译，不是英文原文。",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap",
+      "url": "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "content/files/en-us/web/javascript/reference/global_objects/array/flatmap/index.md at main · mdn/content · GitHub",
+      "url": "https://github.com/mdn/content/blob/main/files/en-us/web/javascript/reference/global_objects/array/flatmap/index.md?plain=1",
+      "snippet": "166\n\n167\n\n168\n\n169\n\n170\n\n171\n\n172\n\n173\n\n174\n\n175\n\n176\n\n177\n\n178\n\n179\n\n180\n\n181\n\n182\n\n183\n\n184\n\n185\n\n186\n\n187\n\n188\n\n189\n\n190\n\n191\n\n192\n\n193\n\n194\n\n195\n\n196\n\n197\n\n198\n\n199\n\n200\n\n201\n\n202\n\n203\n\n204\n\n205\n\n206\n\n207\n\n208\n\n209\n\ntitle: Array.prototype.flatMap()\n\nshort-title: flatMap()\n\nslug: Web/JavaScript/Reference/Global\\_Objects/Array/flatMap\n\npage-type: javascript-instance-method\n\nbrowser-compat: javascript.builtins.Array.flatMap\n\nsidebar: jsref [...] sidebar: jsref\n\nThe \\\\`flatMap()`\\\\ method of {{jsxref(\"Array\")}} instances returns a new array formed by applying a given callback function to each element of the array, and then flattening the result by one level. It is identical to a {{jsxref(\"Array/map\", \"map()\")}} followed by a {{jsxref(\"Array/flat\", \"flat()\")}} of depth 1 (`arr.map(...args).flat()`), but slightly more efficient than calling those two methods separately. [...] ```js\n\nconst arr = [1, 2, 3, 4];\n\narr.map((x) => [x \\ 2]);\n\n// \n\narr.flatMap((x) => [x \\ 2]);\n\n// [2, 4, 6, 8]\n\n// only one level is flattened\n\narr.flatMap((x) => );\n\n// \n\n```\n\nWhile the above could have been achieved by using map itself, here is an example that\n\nbetter showcases the use of `flatMap()`.\n\nLet's generate a list of words from a list of sentences.\n\n```js\n\nconst arr = [\"it's Sunny in\", \"\", \"California\"];\n\narr.map((x) => x.split(\" \"));\n\n// \n\narr.flatMap((x) => x.split(\" \"));",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.8138313,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap",
+      "url": "https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "Array.prototype.flatMap() - JavaScript | MDN",
+      "url": "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap",
+      "snippet": "跳转到主要内容\n 跳转到搜索\n\n切换侧边栏 \n\n1. 面向开发者的 Web 技术\n2. JavaScript\n3. JavaScript 参考\n4. JavaScript 标准内置对象\n5. Array\n6. Array.prototype.flatMap()\n\n \n\n记住语言   了解更多\n\n Deutsch\n English (US)\n Español\n Français\n 日本語\n 한국어\n Português (do Brasil)\n Русский\n 中文 (简体)\n\n此页面由社区从英文翻译而来。了解更多并加入 MDN Web Docs 社区。\n\nView in English  Always switch to English\n\n# Array.prototype.flatMap()\n\n \n\n基线\n\n广泛可用\n\n自 2020年1月 起，此特性已在主流浏览器中得到支持，可在大多数设备和浏览器版本中正常使用。\n\n 查看完整兼容性\n 了解更多 [...] `element`\n    :   数组中正在处理的当前元素。\n\n    `index`\n    :   数组中正在处理的当前元素的索引。\n\n    `array`\n    :   调用 `flatMap()` 的当前数组。\n\n`thisArg` 可选\n:   在执行 `callbackFn` 时用作 `this` 的值。参见迭代方法。\n\n### 返回值\n\n一个新的数组，其中每个元素都是回调函数的结果，并且被展开一级。\n\n## 描述\n\n`flatMap()` 方法是一个迭代方法。有关回调函数的详细说明，请参见 `Array.prototype.map()`。`flatMap()` 方法等同于调用 `map(callbackFn, thisArg)` 后再调用 `flat(1)`——对于每个元素，它都会生成一个新元素数组，并将生成的数组连接起来形成一个新数组。\n\n`flatMap()` 方法是通用的。它只需要 `this` 值具有 `length` 属性和整数键属性即可。但是，如果要展开从回调函数 `callbackFn` 返回的值，则该值必须是数组。\n\n### 替代方案 [...] js\n\n```\nconst arrayLike = { length: 3, 0: 1, 1: 2, 2: 3, }; console.log(Array.prototype.flatMap.call(arrayLike, (x) => [x, x  2])); // [1, 2, 2, 4, 3, 6] // 回调函数返回的类数组对象不会被展平 console.log( Array.prototype.flatMap.call(arrayLike, (x) => ({ length: 1, 0: x, })), ); // [ { '0': 1, length: 1 }, { '0': 2, length: 1 }, { '0': 3, length: 1 } ] \n```\n\n## 规范\n\n| 规范 |\n\n| ECMAScript® 2027 Language Specification # sec-array.prototype.flatmap |\n\n## 参见",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "tavily"
+      ],
+      "score": 0.7593865,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap",
+      "url": "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "Array.prototype.flatMap() - JavaScript | MDN",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap",
+      "snippet": "Skip to search\n\nToggle sidebar \n\n1. Web\n2. JavaScript\n3. Reference\n4. Standard built-in objects\n5. Array\n6. flatMap()\n\n \n\nRemember language   Learn more\n\n Deutsch\n English (US)\n Español\n Français\n 日本語\n 한국어\n Português (do Brasil)\n Русский\n 中文 (简体)\n\n# Array.prototype.flatMap()\n\n \n\nBaseline\n\nWidely available\n\nThis feature is well established and works across many devices and browser versions. It’s been available across browsers since January 2020.\n\n See full compatibility\n Learn more [...] `flatMap` can be used as a way to add and remove items (modify the number of items) during a `map`. In other words, it allows you to map many items to many items (by handling each input item separately), rather than always one-to-one. In this sense, it works like the opposite of filter. Return a 1-element array to keep the item, a multiple-element array to add items, or a 0-element array to remove the item.\n\njs [...] | Specification |\n\n| ECMAScript® 2027 Language Specification # sec-array.prototype.flatmap |\n\n## Browser compatibility\n\n## See also\n\n Polyfill of `Array.prototype.flatMap` in `core-js`\")\n es-shims polyfill of `Array.prototype.flatMap`\")\n Indexed collections guide\n `Array`\n `Array.prototype.concat()`\n `Array.prototype.flat()`\n `Array.prototype.map()`\n `Array.prototype.reduce()`\n\n## Help improve MDN\n\n Learn how to contribute\n\nThis page was last modified on by MDN contributors.",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "tavily"
+      ],
+      "score": 0.63316137,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "Advanced JavaScript Array’s Methods — flat() and flatMap() | by Muhammad Taif Khan | Medium",
+      "url": "https://medium.com/@muhammadtaifkhan/advanced-javascript-arrays-methods-flat-and-flatmap-4d0dc3dfadb",
+      "snippet": "```\nconst arr1 = [0, 1, 2, [3, 4]];console.log(arr1.flat());// Expected output: Array [0, 1, 2, 3, 4]const arr2 = [0, 1, 2, ]];console.log(arr2.flat(2));// Expected output: Array [0, 1, 2, Array [3, 4]] const 0 1 2 3 4 console log flat\n// Expected output: Array [0, 1, 2, 3, 4] const 0 1 2 3 4 console log flat 2\n// Expected output: Array [0, 1, 2, Array [3, 4]]\n```\n\nRead more about flat() here…\n\n## flatMap():\n\nFrom Official MDN Docs: [...] Imagine you have an array, and you want to transform each element using a specific function.\n\nAfter applying the function to each element, you also want to flatten the resulting array by just one level.\n\n### Syntax:\n\n`Array.flatMap(callbackFn, thisArg)`\n\n`callbackFn` : A function to execute for each element in the array. It should return an array containing new elements of the new array, or a single non-array value to be added to the new array. [...] Prepare to unravel the hidden depths of the flat() and flatMap() methods!\n\n## flat():\n\nFrom MDN Docs:\n\n> The `flat()` method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.\n\nPut simply, the `flat()` method is a powerful tool that takes a nested array and magically combines all its elements into a single, straightforward array.",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.5489884,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap",
+      "url": "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "content/files/en-us/web/javascript/reference/global_objects/array/flatmap/index.md at main · mdn/content · GitHub",
+      "url": "https://github.com/mdn/content/blob/main/files/en-us/web/javascript/reference/global_objects/array/flatmap/index.md?plain=1",
+      "result_id": "r2",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap",
+      "url": "https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "Array.prototype.flatMap() - JavaScript | MDN",
+      "url": "https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap",
+      "result_id": "r4",
+      "providers": [
+        "xai",
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap",
+      "url": "https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "Array.prototype.flatMap() - JavaScript | MDN",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap",
+      "result_id": "r6",
+      "providers": [
+        "xai",
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "Advanced JavaScript Array’s Methods — flat() and flatMap() | by Muhammad Taif Khan | Medium",
+      "url": "https://medium.com/@muhammadtaifkhan/advanced-javascript-arrays-methods-flat-and-flatmap-4d0dc3dfadb",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Typed_arrays",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Typed_arrays",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/flat",
+      "url": "https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Array/flat",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap",
+      "url": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/flatMap",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/flat",
+      "url": "https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/flat",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "小米澎湃OS：小愛同學大模型推「文章摘要」功能 英文文章可直接生成中文摘要",
+      "url": "https://hk.finance.yahoo.com/news/%E5%B0%8F%E7%B1%B3%E6%BE%8E%E6%B9%83os-%E5%B0%8F%E6%84%9B%E5%90%8C%E5%AD%B8%E5%A4%A7%E6%A8%A1%E5%9E%8B%E6%8E%A8-%E6%96%87%E7%AB%A0%E6%91%98%E8%A6%81-%E5%8A%9F%E8%83%BD-%E8%8B%B1%E6%96%87%E6%96%87%E7%AB%A0%E5%8F%AF%E7%9B%B4%E6%8E%A5%E7%94%9F%E6%88%90%E4%B8%AD%E6%96%87%E6%91%98%E8%A6%81-062035653.html",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "【AI大戰】百度李彥宏：文心大模型4.0在中文上已明顯超越GPT-4",
+      "url": "https://hk.finance.yahoo.com/news/ai%E5%A4%A7%E6%88%B0-%E7%99%BE%E5%BA%A6%E6%9D%8E%E5%BD%A5%E5%AE%8F-%E6%96%87%E5%BF%83%E5%A4%A7%E6%A8%A1%E5%9E%8B4-0%E5%9C%A8%E4%B8%AD%E6%96%87%E4%B8%8A%E5%B7%B2%E6%98%8E%E9%A1%AF%E8%B6%85%E8%B6%8Agpt-4-074300161.html",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "【#職場分享】 職場3個提升英文水平的網上工具：完全免費！適合不同水平人士（Spencer Lam）",
+      "url": "https://hk.finance.yahoo.com/news/%E8%81%B7%E5%A0%B4%E5%88%86%E4%BA%AB-%E8%81%B7%E5%A0%B43%E5%80%8B%E6%8F%90%E5%8D%87%E8%8B%B1%E6%96%87%E6%B0%B4%E5%B9%B3%E7%9A%84%E7%B6%B2%E4%B8%8A%E5%B7%A5%E5%85%B7-%E5%AE%8C%E5%85%A8%E5%85%8D%E8%B2%BB-%E9%81%A9%E5%90%88%E4%B8%8D%E5%90%8C%E6%B0%B4%E5%B9%B3%E4%BA%BA%E5%A3%AB-spencer-094234741.html",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "中國｜內地學術論文造假一條龍服務 一篇博士論文2萬元",
+      "url": "https://hk.finance.yahoo.com/news/%E4%B8%AD%E5%9C%8B-%E5%85%A7%E5%9C%B0%E5%AD%B8%E8%A1%93%E8%AB%96%E6%96%87%E9%80%A0%E5%81%87-%E6%A2%9D%E9%BE%8D%E6%9C%8D%E5%8B%99-%E7%AF%87%E5%8D%9A%E5%A3%AB%E8%AB%96%E6%96%872%E8%90%AC%E5%85%83-035733744.html",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 16491,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "conditional_supplement",
+        "latency_ms": 1960,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "docs_signal",
+      "domains_below_threshold:1<2"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "timed_out": false,
+  "elapsed_ms": 18453,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "tavily.search": 1
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 1
+  }
+}

@@ -1,0 +1,379 @@
+{
+  "id": "zhihu-gil",
+  "executed_at": "2026-10-16T08:44:37.917586+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "知乎上关于 Python GIL 为什么让多线程吃不满多核的高赞回答",
+  "answer": "知乎上直接讲「GIL 为什么让多线程吃不满多核」的高赞内容，主要集中在下面这些问题和专栏。赞同数来自页面公开数据，会随时间变化。\n\n1. **[为什么有人说 Python 的多线程是鸡肋呢？](https://www.zhihu.com/question/23474039)**  \n   问题页高赞回答约 **1292 赞同**。核心说法：CPython 的 GIL 让任意时刻只有一个线程执行 Python 字节码；即使 100 个线程跑在 100 核上，纯 Python 计算也只能用到约 1 个核。I/O 时会放锁，所以 I/O 密集仍可用多线程；CPU 密集要用多进程或会释放 GIL 的 C 扩展。  \n   [[1]](https://www.zhihu.com/question/23474039)\n\n2. **[谈谈 python 的 GIL、多线程、多进程](https://zhuanlan.zhihu.com/p/20953544)**  \n   约 **533 赞同**。解释线程必须先拿 GIL 才能跑字节码；多核上释放锁后各核抢锁，常出现「线程颠簸」，多核多线程有时比单核更慢。每个进程有自己的 GIL，所以多进程才能真正并行。  \n   [[2]](https://zhuanlan.zhihu.com/p/20953544)\n\n3. **[深入理解 Python 中的 GIL（全局解释器锁）](https://zhuanlan.zhihu.com/p/75780308)**  \n   约 **503 赞同**。说明 GIL 是 CPython 的互斥锁，不是语言本身；它挡住多条原生线程同时执行字节码。单核时代影响小，多核后纯计算多线程无法并行；I/O 放锁则影响小，CPU 密集建议多进程。  \n   [[3]](https://zhuanlan.zhihu.com/p/75780308)\n\n4. **[python 下同样代码，多核多线程为什么比单核多线程慢很多？](https://www.zhihu.com/question/39923765)**  \n   经典问答。回答指出：多核上计算线程按 tick（旧实现约每 100 条字节码）或超时放 GIL，各核反复抢锁导致 thrashing；3.2 起改为请求锁后约 5ms 强制让出，但仍不能并行执行字节码。绕过方式是多进程或在 C 扩展里释放 GIL。  \n   [[4]](https://www.zhihu.com/question/39923765)\n\n5. **[从伪并行的 Python 多线程说起](https://zhuanlan.zhihu.com/p/34687635)**  \n   用斐波那契对比：CPython 下耗时几乎随线程数线性增加，和「多核真并行」相反。结论是同一时刻只有一条线程在执行，单进程吃不满多核；阻塞 I/O 仍适合线程。  \n   [[5]](https://zhuanlan.zhihu.com/p/34687635)\n\n6. **[一文理解 Python 的全局解释器锁（GIL）](https://zhuanlan.zhihu.com/p/690194234)**  \n   直接写：同一时刻只有一个线程执行字节码，多线程程序不能利用多核；CPU 密集被卡住，网络等 I/O 大部分时间在等待，多线程仍然合适。  \n   [[6]](https://zhuanlan.zhihu.com/p/690194234)\n\n7. **[Python 进阶：为什么 GIL 让多线程变得如此鸡肋？](https://www.zhihu.com/question/648464307)**  \n   回答概括为「一核干活、多核围观」：CPU 密集无法并行，频繁抢 GIL 还有切换开销，有时比单线程更慢；I/O 期间释放 GIL，多线程仍有用。  \n   [[7]](https://www.zhihu.com/question/648464307)\n\n8. **[Python 多进程、多线程、协程](https://zhuanlan.zhihu.com/p/351245279)**  \n   把 GIL 收成一句：一个解释器里即使开了多线程，同一时间也只有一个线程在做占用 CPU 的运算，所以只有多进程才是真并行；I/O 会放 GIL，因此 I/O 密集用多线程或协程即可加速。  \n   [[8]](https://zhuanlan.zhihu.com/p/351245279)\n\n这些回答的共识是：GIL 锁的是「执行 Python 字节码」的权利，不是整台机器。纯 Python 的 CPU 密集任务在一个进程里轮流跑，CPU 占用大约只有单核水平；I/O、以及 NumPy 这类会主动释放 GIL 的 C 扩展，不受同样限制。",
+  "results": [
+    {
+      "id": "r1",
+      "title": "1",
+      "url": "https://www.zhihu.com/question/23474039",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "2",
+      "url": "https://zhuanlan.zhihu.com/p/20953544",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "3",
+      "url": "https://zhuanlan.zhihu.com/p/75780308",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "4",
+      "url": "https://www.zhihu.com/question/39923765",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "5",
+      "url": "https://zhuanlan.zhihu.com/p/34687635",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "6",
+      "url": "https://zhuanlan.zhihu.com/p/690194234",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "7",
+      "url": "https://www.zhihu.com/question/648464307",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "8",
+      "url": "https://zhuanlan.zhihu.com/p/351245279",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "1",
+      "url": "https://www.zhihu.com/question/23474039",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "2",
+      "url": "https://zhuanlan.zhihu.com/p/20953544",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "3",
+      "url": "https://zhuanlan.zhihu.com/p/75780308",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "4",
+      "url": "https://www.zhihu.com/question/39923765",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "5",
+      "url": "https://zhuanlan.zhihu.com/p/34687635",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "6",
+      "url": "https://zhuanlan.zhihu.com/p/690194234",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "7",
+      "url": "https://www.zhihu.com/question/648464307",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "8",
+      "url": "https://zhuanlan.zhihu.com/p/351245279",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 40882,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://www.zhihu.com/question/23474039",
+      "final_url": "https://www.zhihu.com/question/23474039",
+      "title": "安全验证 - 知乎",
+      "content": "![ZhiHu logo](https://static.zhihu.com/heifetz/assets/wechat-share-logo.39ea9ecd.png)",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "language": "zh",
+        "viewport": "width=device-width,initial-scale=1,maximum-scale=1",
+        "renderer": "webkit",
+        "robots": "noindex",
+        "force-rendering": "webkit",
+        "ogDescription": "知乎，中文互联网高质量的问答社区和创作者聚集的原创内容平台，于 2011 年 1 月正式上线，以「让人们更好的分享知识、经验和见解，找到自己的解答」为品牌使命。知乎凭借认真、专业、友善的社区氛围、独特的产品机制以及结构化和易获得的优质内容，聚集了中文互联网科技、商业、影视、时尚、文化等领域最具创造力的人群，已成为综合性、全品类、在诸多领域具有关键影响力的知识分享社区和创作者聚集的原创内容平台，建立起了以社区驱动的内容变现商业模式。",
+        "google-site-verification": "\"FTeR0c8arOPKh8c5DYh_9uu98_zJbaWw53J-Sch9MTg\"",
+        "title": "安全验证 - 知乎",
+        "description": "知乎，中文互联网高质量的问答社区和创作者聚集的原创内容平台，于 2011 年 1 月正式上线，以「让人们更好的分享知识、经验和见解，找到自己的解答」为品牌使命。知乎凭借认真、专业、友善的社区氛围、独特的产品机制以及结构化和易获得的优质内容，聚集了中文互联网科技、商业、影视、时尚、文化等领域最具创造力的人群，已成为综合性、全品类、在诸多领域具有关键影响力的知识分享社区和创作者聚集的原创内容平台，建立起了以社区驱动的内容变现商业模式。",
+        "favicon": "https://static.zhihu.com/heifetz/assets/apple-touch-icon-152.81060cab.png",
+        "scrapeId": "01a143e3-199f-722a-bf2c-96ab4d681782",
+        "sourceURL": "https://www.zhihu.com/question/23474039",
+        "url": "https://www.zhihu.com/account/unhuman?type=U4E3Z1&need_login=true&session=44658b027e0b448554e62f6d27d163e1&next=%2Fsignin",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "proxyUsed": "basic",
+        "cacheState": "hit",
+        "cachedAt": "2026-10-15T08:41:49.400Z",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 420,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 460
+    },
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://zhuanlan.zhihu.com/p/20953544",
+      "final_url": "https://zhuanlan.zhihu.com/p/20953544",
+      "title": "安全验证 - 知乎",
+      "content": "![ZhiHu logo](https://static.zhihu.com/heifetz/assets/wechat-share-logo.39ea9ecd.png)",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "language": "zh",
+        "google-site-verification": "\"FTeR0c8arOPKh8c5DYh_9uu98_zJbaWw53J-Sch9MTg\"",
+        "description": "知乎，中文互联网高质量的问答社区和创作者聚集的原创内容平台，于 2011 年 1 月正式上线，以「让人们更好的分享知识、经验和见解，找到自己的解答」为品牌使命。知乎凭借认真、专业、友善的社区氛围、独特的产品机制以及结构化和易获得的优质内容，聚集了中文互联网科技、商业、影视、时尚、文化等领域最具创造力的人群，已成为综合性、全品类、在诸多领域具有关键影响力的知识分享社区和创作者聚集的原创内容平台，建立起了以社区驱动的内容变现商业模式。",
+        "force-rendering": "webkit",
+        "robots": "noindex",
+        "title": "安全验证 - 知乎",
+        "renderer": "webkit",
+        "ogDescription": "知乎，中文互联网高质量的问答社区和创作者聚集的原创内容平台，于 2011 年 1 月正式上线，以「让人们更好的分享知识、经验和见解，找到自己的解答」为品牌使命。知乎凭借认真、专业、友善的社区氛围、独特的产品机制以及结构化和易获得的优质内容，聚集了中文互联网科技、商业、影视、时尚、文化等领域最具创造力的人群，已成为综合性、全品类、在诸多领域具有关键影响力的知识分享社区和创作者聚集的原创内容平台，建立起了以社区驱动的内容变现商业模式。",
+        "viewport": "width=device-width,initial-scale=1,maximum-scale=1",
+        "favicon": "https://static.zhihu.com/heifetz/assets/apple-touch-icon-152.81060cab.png",
+        "scrapeId": "01a143e3-1b28-77b5-b35d-eeeb3040e308",
+        "sourceURL": "https://zhuanlan.zhihu.com/p/20953544",
+        "url": "https://www.zhihu.com/account/unhuman?type=U4E3Z1&need_login=true&session=aff38d9584f269282f4b7b693cef4ec6&next=%2Fsignin",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "proxyUsed": "basic",
+        "cacheState": "hit",
+        "cachedAt": "2026-10-15T08:01:27.025Z",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 412,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 492
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 41838,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 0
+  }
+}
