@@ -34,8 +34,7 @@ Offline suite: 350 passed, 1 skipped on Python 3.14 and 3.11 (commit 834194e).
 
 ## Not verified here
 
-- Docker build (user not in docker group) → CI `package` job.
-- Windows / macOS → CI matrix (branch not pushed yet).
+- Docker image run against real providers (build and token refusal pass in CI).
 - Reddit OAuth reading (no credentials; mocked tests only).
 - Claude Desktop, Cursor, VS Code (not installable here).
 
@@ -54,17 +53,17 @@ Offline suite: 350 passed, 1 skipped on Python 3.14 and 3.11 (commit 834194e).
 - Baseline does not record Grok usage, so baseline cost is estimated only.
   xAI `cost_in_usd_ticks` is converted at 1e10 ticks per USD (xAI docs).
 
+## CI
+
+Branch pushed 2026-10-16. GitHub Actions run 38885741984 (commit 1acd0da):
+all 10 jobs green — Linux, macOS, Windows × Python 3.11/3.12/3.13 and the
+package job (wheel install + Docker build). The first run failed only on
+Windows in the legacy Pi bridge (cp1252 stdout), fixed in 1acd0da.
+
 ## Next steps (in order)
 
-1. Push `dev/universal-mcp` — **blocked (2026-10-16)**: the HTTPS credential
-   available here is an OAuth app token without the `workflow` scope, and
-   GitHub rejects the push because the branch changes
-   `.github/workflows/tests.yml` (the OS × Python CI matrix). Nothing was
-   pushed. Options: grant `workflow` scope / push from an account that has
-   it, or push a rewritten branch without the workflow change.
-2. Read CI: Linux/macOS/Windows × 3.11–3.13, wheel and Docker build.
-3. Fix whatever CI reports; then decide on merging to `main` and tagging v0.3.0.
-4. Optional: one interleaved agent A/B after the post-run fixes (741d4be,
+1. Owner review; decide on merging `dev/universal-mcp` into `main` and tagging v0.3.0.
+2. Optional: one interleaved agent A/B after the post-run fixes (741d4be,
    include_domains fix); Reddit OAuth check if credentials are provided.
 
 ## Resume checklist

@@ -1,9 +1,8 @@
 # Compatibility matrix (0.3.0)
 
-"Verified" means it was exercised on 2026-10-16 in this repository's
-environment (Linux aarch64, Python 3.14 and 3.11) and the result is recorded
-in tests or in the development log. "CI" means it is covered by the GitHub
-Actions workflow but has not yet produced a result. "Not verified" means
+"Verified" means it was exercised on 2026-10-16, either in this
+repository's development environment (Linux aarch64, Python 3.14 and 3.11)
+or in GitHub Actions (Linux, macOS, Windows × Python 3.11–3.13). "Not verified" means
 only the documented configuration format was followed.
 
 ## MCP protocol
@@ -40,7 +39,7 @@ only the documented configuration format was followed.
 | Item | Status |
 | --- | --- |
 | Linux, Python 3.11 and 3.14 | verified (full offline suite) |
-| Linux / macOS / Windows × Python 3.11–3.13 | CI |
-| Wheel + sdist build, install into a clean venv, CLI runs | verified locally; also in CI |
-| Docker image build, refuses to start without tokens | CI only (no Docker daemon access here) |
+| Linux / macOS / Windows × Python 3.11–3.13 | verified in GitHub Actions run 38885741984 (offline suite) |
+| Wheel + sdist build, install into a clean venv, CLI runs | verified locally and in CI |
+| Docker image build, refuses to start without tokens | verified in CI (not built locally: no Docker daemon access); the image was not run against real providers |
 | POSIX permissions 0700/0600 | verified on Linux; Windows uses the profile ACL |
