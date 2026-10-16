@@ -910,7 +910,7 @@ class Orchestrator:
                         warnings=["rewrite_failed_using_rule_keywords"],
                     )
                 )
-        if self.native is None or request.include_domains:
+        if self.native is None:
             return out
 
         async def one(req: Any) -> _StageResult | None:

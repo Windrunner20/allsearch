@@ -69,6 +69,12 @@ def test_include_domains_overrides_site_detection():
     assert analyze("V2EX 上的帖子", include_domains=["example.com"]).sites == []
 
 
+def test_include_domains_on_a_known_site_is_a_site_requirement():
+    intent = analyze("SQLite application file format comment about disk", include_domains=["news.ycombinator.com"])
+    assert [(r.site.key, r.domains) for r in intent.sites] == [("hackernews", ("news.ycombinator.com",))]
+    assert intent.topic.startswith("SQLite application file format")
+
+
 def test_keywords_keep_topic_words():
     assert keywords("LWN.net article explaining RCU in the Linux kernel") == "explaining RCU Linux kernel"
     assert keywords("How to fix GitHub Actions caching error") == "fix GitHub Actions caching error"

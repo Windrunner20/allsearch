@@ -271,3 +271,12 @@ async def test_capped_primary_falls_back_to_tavily_answer_and_clean_wikipedia_qu
     assert resp.answer == "HTTP uses TCP port 80 by default."
     assert "answer_from_tavily_primary_timeout" in resp.warnings
     assert any(r.url == "https://en.wikipedia.org/wiki/HTTP" for r in resp.results)
+
+
+async def test_include_domains_on_known_site_uses_native_search(base_config):
+    url = "https://news.ycombinator.com/item?id=100"
+    native = FakeNative(search={"hackernews": [ProviderResultItem(title="SQLite as an Application File Format", url=url, provider="hackernews")]})
+    orch = make_orchestrator(base_config, xai=FakeXAI(_primary([url])), tavily=FakeTavily())
+    orch.native = native
+    await orch.search(SearchRequest(query="SQLite application file format", include_domains=["news.ycombinator.com"], fresh=True))
+    assert native.searches == [("hackernews", "SQLite application file format")]

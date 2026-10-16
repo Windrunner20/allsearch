@@ -17,7 +17,7 @@ import re
 from dataclasses import dataclass, field
 from typing import Any
 
-from allsearch.sites import SITE_BY_KEY, Site, mentioned_sites, used_as_place
+from allsearch.sites import SITE_BY_KEY, Site, mentioned_sites, site_for_url, used_as_place
 
 _CJK = re.compile(r"[㐀-鿿豈-﫿]")
 _LATIN = re.compile(r"[A-Za-z]")
@@ -243,6 +243,14 @@ def analyze(query: str, *, include_domains: list[str] | None = None) -> QueryInt
                 )
             else:
                 intent.mentioned.append(site.key)
+    else:
+        # A domain filter on a known site is the same requirement as naming the
+        # site, so site-native search and thread reading still apply.
+        for raw in include_domains:
+            domain = raw.strip().lower().lstrip(".")
+            site = site_for_url(f"https://{domain}/")
+            if site is not None and not any(r.site.key == site.key for r in intent.sites):
+                intent.sites.append(SiteRequirement(site=site, domains=(domain,), content_page=True))
     intent.comments = bool(COMMENT_RE.search(query))
     intent.thread = bool(THREAD_RE.search(query)) or intent.comments
     intent.official = bool(OFFICIAL_RE.search(query))
