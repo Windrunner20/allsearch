@@ -1,65 +1,62 @@
 # AllSearch 搜索 Benchmark
 
-这是基线评测，不改搜索算法。默认命令只读取路由规则或本地观察结果，不调用 Grok、Tavily、AnySearch 或 Firecrawl。
+## 文件
+
+| 文件 | 用途 |
+| --- | --- |
+| `cases.json` | 39 道开发题（知乎、贴吧、V2EX、Chiphell、Reddit、HN、X、GitHub、新闻、百科、文档、历史原文、冷门页面、付费墙、反爬壳、评论题等）。审计后修正的目标带 `grader_changes` |
+| `cases.v1.json` | 2026-10-15 评测时的原始题集，原样保留 |
+| `holdout/cases.json` | 9 道隐藏题，在 0.3 搜索改动之前写成并单独提交（`d6ddf39`），开发期间不运行 |
+| `harness.py` | 评分器 v2，以及 `plan` / `budget` / `score` 等离线命令 |
+| `grader_v1.py` | 2026-10-15 使用的评分器，冻结不改，用于复现历史分数 |
+| `audit.py` | 用 v1 和 v2 重新评分历史运行，写入 `runs/audit-20261016/`，不修改原始文件 |
+| `live_ab.py` + `live_worker.py` | 工具层实测：基线标签（git worktree）与当前代码同时运行同一题集 |
+| `live_agent.py` | Agent 层实测：Pi 通过 MCP 使用两个版本的服务；按工具实际返回的内容评分 |
+| `attribution.py` | 同一份原始数据分别用 v1、v2 规则 + v1 目标、v2 评分，检验提升是否来自评分器调整 |
 
 ```bash
-python -m benchmarks.harness budget --depth balanced
-python -m benchmarks.harness plan --depth verify
-python -m benchmarks.harness score --observations path/to/observations.json
-python -m benchmarks.harness protocol
+python -m benchmarks.harness budget --depth balanced     # 离线
+python -m benchmarks.audit                               # 离线
+python -m benchmarks.attribution benchmarks/runs/ab-...  # 离线
+python -m benchmarks.live_ab --depth balanced            # 调用付费 API
+python -m benchmarks.live_ab --cases benchmarks/holdout/cases.json
+python -m benchmarks.live_agent                          # 调用付费 API 与 Agent 模型
 ```
 
-`live` 会直接拒绝。真实联网前先看 `budget` 的调用次数，并单独决定是否执行。
+`harness.py live` 仍然拒绝执行；实测只能通过上面的专用脚本有意运行。
 
-## 题集
+## 评分维度（分开记录，不合并）
 
-`cases.json` 有 32 题，覆盖知乎、贴吧、V2EX、Chiphell、Reddit、Hacker News、X、GitHub、新闻、百科、普通中英文网页、文档、历史原文、冷门页面、付费墙和反爬壳。
+| 维度 | 通过条件 |
+| --- | --- |
+| discovery | 命中指定路径；需要时标题、摘要或该页抓取正文中含指定词。多目标默认全部命中 |
+| reading | 抓取到该 URL 的正文，且含阅读证据 |
+| comments | 有带 ID 的评论记录（来自平台 API），文本含证据，且属于目标帖子或指定评论 ID。页面正文不算评论 |
+| cross_language | 命中题目列出的外文目标页 |
+| synthesis | 答案含全部关键事实 |
+| freshness | `published_at` 落在执行时间前的窗口内 |
 
-每题分开记录：
+任务结果：`pass`、`fail`、`blocked`（实际读取时遇到登录、验证码、付费墙或站点不支持）、`timeout`、`not_answerable`、`not_attempted`。只有真实读取尝试中的标记才算访问受阻，搜索摘要里出现 “captcha” 等字样不算。
 
-- 检索目标
-- 期望来源类型和域名
-- 可核对的关键事实
-- 访问条件：`public`、`login`、`paywall`、`anti_bot`、`mixed`
-- 分项评价标准
+## v2 与 v1 的区别
 
-## 五个分数，不合并
+1. URL 先做百分号解码再匹配。
+2. 评论必须是带 ID、来自平台的记录；v1 把页面正文当成评论。
+3. `timeout`、`not_attempted` 单独记录。
+4. 审计发现误报或漏报的目标已修正（WSJ 物理奖而非化学奖、OpenAI 官方 X 账号、维基条目路径、HN 同一文章的多次投稿、CVE/NVD 二选一、Vue 文档无 `.html`、Discuz `thread-<tid>` 地址、PEP 末尾斜杠），每题注明在 `grader_changes`。
+5. 发现证据可以来自已抓取的该页正文。
+6. 访问受阻只看读取尝试，不看摘要。
 
-| 维度 | 通过条件 | 组件未做 |
-| --- | --- | --- |
-| discovery | 命中指定路径，需要时还要命中该页标题或摘要。多个目标必须全部命中 | fail |
-| reading | 抓到的是该 URL 的正文，且含阅读证据 | `not_attempted` |
-| comments | `comments` 里有指定评论 id 和评论原文。帖子 URL 不算 | `not_attempted` |
-| cross_language | 命中题目列出的外文目标页 | fail |
-| synthesis | 答案含全部关键事实 | 空答案为 fail |
-| freshness | `published_at` 落在 `executed_at` 前的窗口内 | `unverifiable` |
+Agent 轮：2026-10-15 的运行器把 Agent 最终回答复制进每条结果的摘要，相当于用模型自己的话证明发现。v2 运行器只用工具返回的内容；审计中把旧结果里只能靠回答文本通过的题标为 `pass_unverified`。
 
-组件可以是 `not_attempted`。如果这一项写在 `task_requires` 里，端到端任务记失败，不能因为没尝试就放过。`expected_access` 只表示平台预期限制；`observed_failure` 只来自本次结果里的登录、验证码或付费墙文本。
+## 历史结果审计
 
-登录、验证码、付费墙单独进入 `failure_class`。有这类标记时，不把该题算作算法失误。
+见 `runs/audit-20261016/AUDIT.md`。原始运行目录未改动。要点：工具 balanced 轮 v1 记录 10 通过，v2 重评 12；Agent 轮 v1 记录 14 通过，其中 8 题只能靠回答文本通过，11 题撞上 240 秒上限；deep 轮的 history-rfc791 通过无法从存档复现（0.2 的脱敏把 `rfc-editor.org` 存成了 `rfc-***`）。
 
-## 模式、来源和成本
+## 实测对照
 
-默认阈值：主结果至少 3 条带 URL 的引用、2 个独立域名，才算“足够”。`fast` 把这两个数减半。
+结果与分析见 [docs/REPORT-0.3.md](../docs/REPORT-0.3.md)。每轮原始数据在 `runs/ab-*`、`runs/agent-ab-*` 下保留。
 
-| 模式 | 一定会调用 | 可能不调用 | 原文抓取 |
-| --- | --- | --- | --- |
-| fast | Grok | 主结果足够时跳过 Tavily，时效题也不补 | 不抓 |
-| balanced | Grok | 同上。时效词（最新、新闻、today）仍会补 Tavily | 不抓。`scrape_after` 固定为 false |
-| verify | Grok + Tavily | 只有识别出垂直领域才加 AnySearch | 最多 2 页 Firecrawl |
-| deep | Grok + Tavily | 同上 | 最多 3 页 Firecrawl |
+## 成本记录
 
-社区名、对比、文档这些词本身不会强制补搜。对比题只有在独立域名少于 2 个时才算不够。因此 Grok 只要给出 3 个 URL、2 个域名，balanced 就会停，即使这些页面都不是目标论坛、评论或官方原文。
-
-`budget` 打印的是调用次数，不是美元。单价以厂商当时价目为准，避免在仓库里写会过期的价格。
-
-## 和 Pi Web Access 对照
-
-1. 固定同一份 `cases.json`。
-2. AllSearch 只用 `balanced`、45 秒总时限、相同 query，不改写问题。
-3. 对照方每个问题只做一次搜索，时限同样 45 秒，query 原文不变。
-4. 两边都存成同一种 observation JSON，再用 `score` 打分。
-5. verify 和 deep 另开一栏。不和 balanced 混成一个平均分。
-6. 成本按 API 次数比，不按墙钟时间单独比。
-
-观察结果至少包含 `id`、`answer`、`results`、`citations`、`fetched`、`errors`、`timing_ms`、`api_calls`。
+`live_worker.py` 记录每个 Provider 的调用次数和 xAI 返回的 `cost_in_usd_ticks`（按 1 美元 = 10¹⁰ tick 换算，经第三方网关时实际扣费可能不同）。0.2 基线不记录 Grok 用量，基线费用只能按调用次数估算。Tavily、Firecrawl 记调用次数。
