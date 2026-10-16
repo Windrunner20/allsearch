@@ -76,3 +76,24 @@ def test_answer_urls_alone_do_not_pass_discovery():
     case = next(c for c in load_cases() if c["id"] == "x-public-post")
     obs = observation_from_calls(case["id"], [], "OpenAI: https://x.com/OpenAI/status/1635687373060317185 GPT-4")
     assert score_observation(case, obs)["task"]["status"] == "fail"
+
+
+def test_model_failure_is_detected():
+    stdout = _events({"type": "message_end", "message": {"role": "assistant", "content": [], "stopReason": "error", "errorMessage": "503 unavailable"}})
+    calls, answer = _parse(stdout)
+    assert calls == [] and answer == ""
+    assert _parse.model_error.startswith("503")
+
+
+def test_pi_nested_call_tool_result_is_unwrapped():
+    """Pi puts the whole MCP CallToolResult into result.structuredContent."""
+    nested = {"content": [{"type": "text", "text": json.dumps(SEARCH)}], "structuredContent": SEARCH, "isError": False}
+    stdout = _events(
+        {"type": "tool_execution_start", "toolCallId": "x|y", "toolName": "mcp__allsearch__search", "args": {}},
+        {"type": "tool_execution_end", "toolCallId": "x|y", "toolName": "mcp__allsearch__search",
+         "result": {"content": nested["content"], "details": {"server": "allsearch"}, "structuredContent": nested}},
+    )
+    calls, _ = _parse(stdout)
+    assert calls[0]["result"]["result_id"] == "a" * 24
+    obs = observation_from_calls("x", calls, "")
+    assert obs["results"][0]["url"] == HN and obs["comments"][0]["id"] == "23552225"

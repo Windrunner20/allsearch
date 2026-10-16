@@ -42,6 +42,10 @@ PROMPT = (
     "最终答案必须给出可核对的原始链接。如果读到评论，请引用评论原句。\n问题："
 )
 TIMEOUT = 240
+# Pinned for both arms. The user's Pi default (settings.json) is not used:
+# it changes over time and loads the user's own Pi packages.
+MODEL = os.environ.get("ALLSEARCH_BENCH_PI_MODEL", "huu-gpt/gpt-5.6-terra")
+THINKING = os.environ.get("ALLSEARCH_BENCH_PI_THINKING", "medium")
 
 
 def _git(*args: str) -> str:
@@ -54,7 +58,7 @@ def _agent_dir(base: Path, arm: str, src: Path) -> Path:
     agent = base / f"pi-{arm}"
     agent.mkdir(mode=0o700)
     home = Path.home() / ".pi" / "agent"
-    for name in ("auth.json", "models.json", "models-store.json", "settings.json"):
+    for name in ("auth.json", "models.json", "models-store.json"):
         if (home / name).exists():
             (agent / name).symlink_to(home / name)
     env = {k: v for k, v in dotenv_values(ROOT / ".env").items() if v is not None and k.startswith("ALLSEARCH_")}
@@ -88,6 +92,7 @@ def _parse(stdout: str) -> tuple[list[dict[str, Any]], str]:
     calls: dict[str, dict[str, Any]] = {}
     order: list[str] = []
     answer = ""
+    model_error = ""
     for line in stdout.splitlines():
         try:
             event = json.loads(line)
@@ -102,6 +107,9 @@ def _parse(stdout: str) -> tuple[list[dict[str, Any]], str]:
             cid = str(event.get("toolCallId"))
             result = event.get("result") or {}
             structured = result.get("structuredContent") if isinstance(result, dict) else None
+            if isinstance(structured, dict) and "structuredContent" in structured and "content" in structured:
+                # Pi nests the whole MCP CallToolResult: {content, structuredContent, isError}.
+                structured = structured.get("structuredContent")
             if structured is None and isinstance(result, dict):
                 for block in result.get("content") or []:
                     if isinstance(block, dict) and block.get("type") == "text":
@@ -112,11 +120,14 @@ def _parse(stdout: str) -> tuple[list[dict[str, Any]], str]:
             calls.setdefault(cid, {"tool": event.get("toolName"), "args": {}})
             calls[cid].update(result=structured, is_error=bool(event.get("isError")), ms=event.get("durationMs"))
         elif kind == "message_end" and (event.get("message") or {}).get("role") == "assistant":
+            if (event.get("message") or {}).get("stopReason") == "error":
+                model_error = str((event.get("message") or {}).get("errorMessage") or "error")[:200]
             content = (event.get("message") or {}).get("content")
             if isinstance(content, str):
                 answer = content
             elif isinstance(content, list):
                 answer = "".join(str(p.get("text") or "") for p in content if isinstance(p, dict))
+    _parse.model_error = model_error  # type: ignore[attr-defined]
     return [calls[cid] for cid in order], answer
 
 
@@ -208,7 +219,8 @@ def run_case(agent_dir: Path, case: dict[str, Any], out: Path) -> dict[str, Any]
     with tempfile.TemporaryDirectory() as cwd:
         try:
             proc = subprocess.run(
-                ["pi", "--mode", "json", "--no-session", "--no-builtin-tools", "--tools", "mcp__allsearch__*", "-p", PROMPT + query],
+                ["pi", "--mode", "json", "--no-session", "--no-builtin-tools", "--tools", "mcp__allsearch__*",
+                 "--model", MODEL, "--thinking", THINKING, "-p", PROMPT + query],
                 cwd=cwd, env=env, stdin=subprocess.DEVNULL, capture_output=True, text=True, timeout=TIMEOUT,
             )
             stdout, code = proc.stdout, proc.returncode
@@ -216,9 +228,13 @@ def run_case(agent_dir: Path, case: dict[str, Any], out: Path) -> dict[str, Any]
             stdout = exc.stdout.decode("utf-8", "replace") if isinstance(exc.stdout, bytes) else (exc.stdout or "")
             code, timed_out = 124, True
     calls, answer = _parse(stdout)
+    model_error = getattr(_parse, "model_error", "")
     observation = observation_from_calls(case["id"], calls, answer)
     observation["timed_out"] = timed_out
     score = score_observation(case, observation)
+    if not answer and model_error and not timed_out:
+        # The agent's model failed (e.g. HTTP 503); not a search outcome.
+        score["task"] = {"status": "agent_error", "reasons": [model_error]}
     row = {
         "id": case["id"],
         "query": query,
@@ -226,6 +242,8 @@ def run_case(agent_dir: Path, case: dict[str, Any], out: Path) -> dict[str, Any]
         "elapsed_ms": int((time.perf_counter() - started) * 1000),
         "efficiency": efficiency(calls),
         "calls": [{k: v for k, v in c.items() if k != "result"} for c in calls],
+        # Raw tool results as the agent received them, bounded per call.
+        "tool_results": [json.dumps(c.get("result"), ensure_ascii=False)[:20000] for c in calls],
         "answer": answer[:6000],
         "observation": observation,
         "score": score,
@@ -257,7 +275,8 @@ def main(argv: list[str] | None = None) -> int:
     arms = [a for a in args.arms.split(",") if a]
     meta = {"started_at": stamp, "arms": arms, "baseline_ref": args.baseline_ref,
             "baseline_sha": _git("rev-parse", args.baseline_ref), "candidate_sha": _git("rev-parse", "HEAD"),
-            "cases_file": str(args.cases), "case_count": len(cases), "timeout_s": TIMEOUT, "client": "pi"}
+            "cases_file": str(args.cases), "case_count": len(cases), "timeout_s": TIMEOUT, "client": "pi",
+            "model": MODEL, "thinking": THINKING}
     (out / "meta.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
     with tempfile.TemporaryDirectory(prefix="allsearch-agent-") as tmp:
         base = Path(tmp)
