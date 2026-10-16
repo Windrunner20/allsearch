@@ -63,7 +63,14 @@ A/B parity checked: same .env (90 s budget, 60 s timeout), same model
 
 1. ~~Root-cause wiki-en-tcp~~ (5abf7bf). ~~Parity check, round 3~~. ~~Holdout~~.
    ~~Attribution~~ (all done 2026-10-16).
-5. Pi agent A/B with `benchmarks/live_agent.py` (offline-tested; pilot next).
+5. Pi agent A/B with `benchmarks/live_agent.py` — **running**
+   (`runs/agent-ab-20261016T090937Z`, model huu-gpt/gpt-5.6-terra, thinking
+   medium, 240 s cap, candidate 35467bd). Pilot findings already fixed:
+   pinned model (user default glm-5.3 returned 503), Pi nests CallToolResult
+   in structuredContent (runner fixed), agents paged ~200 comments
+   (matching comments now first + paging advice), agents' include_domains
+   disabled site-native search (fixed).
+5b. Final confirmatory tool A/B on the release candidate.
 6. README, CHANGELOG, migration/rollback, compatibility matrix, report.
 7. Push branch, read CI.
 
