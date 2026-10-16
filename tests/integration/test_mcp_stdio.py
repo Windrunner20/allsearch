@@ -16,7 +16,7 @@ async def test_tool_handlers_with_fakes(base_config, monkeypatch):
             query="integration path", depth="balanced"
         )
     )
-    assert search.schema_version == "1.0"
+    assert search.schema_version == "1.1"
     assert "route" in search.model_dump()
 
     health = await orch.health()
@@ -31,8 +31,8 @@ async def test_tool_handlers_with_fakes(base_config, monkeypatch):
     await orch.aclose()
 
 
-def test_mcp_tool_list_stable(base_config):
-    orch, mcp = build_mcp(base_config)
+def test_mcp_tool_list_stable(full_config):
+    orch, mcp = build_mcp(full_config)
     tm = getattr(mcp, "_tool_manager", None)
     tools = tm.list_tools() if tm and hasattr(tm, "list_tools") else list(getattr(tm, "_tools", {}).values())
     names = sorted(getattr(t, "name", None) or k for k, t in (
@@ -44,3 +44,13 @@ def test_mcp_tool_list_stable(base_config):
     else:
         names = sorted(getattr(tm, "_tools", {}).keys())
     assert names == ["fetch", "health", "search"]
+
+
+def test_compact_default_adds_read_result(base_config):
+    _orch, mcp = build_mcp(base_config)
+    assert sorted(t.name for t in mcp._tool_manager.list_tools()) == [
+        "fetch",
+        "health",
+        "read_result",
+        "search",
+    ]

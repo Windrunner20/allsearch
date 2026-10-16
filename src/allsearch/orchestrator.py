@@ -137,6 +137,17 @@ class Orchestrator:
     async def aclose(self) -> None:
         await self.transport.aclose()
 
+    def _check_url(self, url: str) -> str:
+        """Reject non-public destinations before Firecrawl fetches them.
+
+        Scheme, credentials, localhost and literal private IPs are always
+        rejected. Hostnames are resolved locally only when Firecrawl itself runs
+        on an internal address (see ``fetch_dns_check``); with hosted Firecrawl
+        the local resolver is not the one that will be used, and proxy fake-IP
+        resolvers (198.18.0.0/15) would otherwise block ordinary public sites.
+        """
+        return validate_public_http_url(url, resolve_dns=self.config.resolve_fetch_dns())
+
     def _search_cache_key(self, request: SearchRequest) -> str:
         payload = {
             "q": request.query,
@@ -420,12 +431,12 @@ class Orchestrator:
                     # order and completed scrapes survive a phase timeout.
                     async with sem:
                         try:
-                            validate_public_http_url(url, resolve_dns=True)
+                            self._check_url(url)
                             fr = await self.firecrawl.scrape(
                                 url, deadline_seconds=deadline.remaining
                             )
                             if fr.final_url:
-                                validate_public_http_url(fr.final_url, resolve_dns=True)
+                                self._check_url(fr.final_url)
                             raw = fr.content or ""
                             content = raw[:AUTO_SCRAPE_MAX_CHARS]
                             truncated = len(raw) > AUTO_SCRAPE_MAX_CHARS
@@ -684,7 +695,7 @@ class Orchestrator:
         warnings: list[str] = []
 
         try:
-            validate_public_http_url(request.url, resolve_dns=True)
+            self._check_url(request.url)
         except UnsafeURLError as exc:
             return FetchResponse(
                 status="error",
@@ -740,7 +751,7 @@ class Orchestrator:
             if result.final_url:
                 # Redirect destination must also pass SSRF checks; short /
                 # anti-bot content is still returned for explicit fetches.
-                validate_public_http_url(result.final_url, resolve_dns=True)
+                self._check_url(result.final_url)
             content = result.content or ""
             truncated = False
             if len(content) > request.max_chars:

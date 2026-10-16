@@ -14,8 +14,8 @@ def test_ensure_list_coerces_scalar():
 
 
 @pytest.mark.asyncio
-async def test_build_mcp_registers_three_tools(base_config):
-    orch, mcp = build_mcp(base_config)
+async def test_build_mcp_registers_three_tools(full_config):
+    orch, mcp = build_mcp(full_config)
     tools = getattr(mcp, "_tool_manager", None)
     if tools is not None and hasattr(tools, "list_tools"):
         names = sorted(t.name for t in tools.list_tools())

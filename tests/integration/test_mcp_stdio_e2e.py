@@ -121,7 +121,8 @@ async def _install(orch: Any, xai: FakeXAI, tavily: FakeTavily | None = None) ->
 
 
 @pytest.mark.asyncio
-async def test_stdio_session_lists_tools_and_parses_search(base_config: AllSearchConfig):
+async def test_stdio_session_lists_tools_and_parses_search(full_config: AllSearchConfig):
+    base_config = full_config
     xai = FakeXAI(_duplicate_primary())
     tavily = FakeTavily()
     orch, mcp = build_mcp(base_config)
@@ -139,7 +140,7 @@ async def test_stdio_session_lists_tools_and_parses_search(base_config: AllSearc
             )
             assert result.isError is False
             payload = _payload(result)
-            assert payload["schema_version"] == "1.0"
+            assert payload["schema_version"] == "1.1"
             assert payload["status"] == "ok"
             urls = [item["url"] for item in payload["results"]]
             assert urls.count("https://example.com/a") == 1
@@ -151,7 +152,8 @@ async def test_stdio_session_lists_tools_and_parses_search(base_config: AllSearc
 
 
 @pytest.mark.asyncio
-async def test_tool_argument_and_unsafe_url_errors_stay_structured(base_config: AllSearchConfig):
+async def test_tool_argument_and_unsafe_url_errors_stay_structured(full_config: AllSearchConfig):
+    base_config = full_config
     orch, mcp = build_mcp(base_config)
     await _install(orch, FakeXAI(), FakeTavily())
     try:
@@ -170,7 +172,8 @@ async def test_tool_argument_and_unsafe_url_errors_stay_structured(base_config: 
 
 
 @pytest.mark.asyncio
-async def test_primary_outage_does_not_call_backup(base_config: AllSearchConfig):
+async def test_primary_outage_does_not_call_backup(full_config: AllSearchConfig):
+    base_config = full_config
     xai = FakeXAI(ProviderUnavailableError("primary down", provider="xai"))
     tavily = FakeTavily()
     orch, mcp = build_mcp(base_config)
@@ -194,7 +197,8 @@ async def test_primary_outage_does_not_call_backup(base_config: AllSearchConfig)
 
 
 @pytest.mark.asyncio
-async def test_backup_rate_limit_keeps_partial_primary_results(base_config: AllSearchConfig):
+async def test_backup_rate_limit_keeps_partial_primary_results(full_config: AllSearchConfig):
+    base_config = full_config
     xai = FakeXAI(_thin_primary())
     tavily = FakeTavily(TransportError("429 rate limit", retryable=True, status_code=429))
     orch, mcp = build_mcp(base_config)
@@ -214,7 +218,8 @@ async def test_backup_rate_limit_keeps_partial_primary_results(base_config: AllS
 
 
 @pytest.mark.asyncio
-async def test_search_deadline_returns_without_starting_backup(base_config: AllSearchConfig):
+async def test_search_deadline_returns_without_starting_backup(full_config: AllSearchConfig):
+    base_config = full_config
     cfg = replace(
         base_config,
         reliability=replace(base_config.reliability, total_budget_seconds=0.4),
@@ -238,7 +243,8 @@ async def test_search_deadline_returns_without_starting_backup(base_config: AllS
 
 
 @pytest.mark.asyncio
-async def test_chinese_news_query_triggers_news_backup(base_config: AllSearchConfig):
+async def test_chinese_news_query_triggers_news_backup(full_config: AllSearchConfig):
+    base_config = full_config
     xai = FakeXAI()
     tavily = FakeTavily()
     orch, mcp = build_mcp(base_config)
@@ -319,6 +325,9 @@ def _isolated_env(port: int) -> dict[str, str]:
             "ALLSEARCH_XAI_FALLBACK_MODELS": "none",
             "ALLSEARCH_ALLOW_DEGRADED_SEARCH": "false",
             "ALLSEARCH_LOG_LEVEL": "ERROR",
+            "ALLSEARCH_OUTPUT_MODE": "full",
+            "ALLSEARCH_NATIVE_SOURCES": "false",
+            "ALLSEARCH_REWRITE_ENABLED": "false",
         }
     )
     return env
@@ -383,6 +392,6 @@ def test_pi_bridge_cli_chain_uses_stdio_server(mock_provider: _MockServer):
     assert envelope["status"] == "ok"
     assert "https://example.com/a" in envelope["digest"]
     artifact = json.loads(Path(envelope["artifact_path"]).read_text(encoding="utf-8"))
-    assert artifact["response"]["schema_version"] == "1.0"
+    assert artifact["response"]["schema_version"] == "1.1"
     assert artifact["response"]["results"]
     assert mock_provider.requests == ["/v1/responses"]

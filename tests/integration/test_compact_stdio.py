@@ -112,7 +112,10 @@ async def test_stdio_session_reuses_cache_and_pages_records(mock_provider: tuple
             first = _payload(await session.call_tool("search", {"query": "长连接", "depth": "fast"}))
             second = _payload(await session.call_tool("search", {"query": "长连接", "depth": "fast"}))
             assert first["cache"]["hit"] is False
-            assert second["cache"]["hit"] is True
+            # An identical call in the same session replays the stored record.
+            assert second["result_id"] == first["result_id"]
+            assert second["session"]["repeat"] is True
+            assert "already answered" in second["session"]["advice"]
             assert server.requests == ["/v1/responses"]
             page = _payload(
                 await session.call_tool(

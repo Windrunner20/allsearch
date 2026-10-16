@@ -6,7 +6,8 @@ from typing import Any, Literal
 
 from pydantic import BaseModel, Field, field_validator
 
-SCHEMA_VERSION = "1.0"
+# 1.1 is additive over 1.0: coverage, threads, next_steps, intent, fetch.thread.
+SCHEMA_VERSION = "1.1"
 
 SearchMode = Literal["auto", "web", "news", "docs", "research", "vertical"]
 SearchDepth = Literal["fast", "balanced", "verify", "deep"]
@@ -117,6 +118,59 @@ class ErrorItem(BaseModel):
     retryable: bool = False
 
 
+class Comment(BaseModel):
+    """One comment or reply read from a platform API, never from a search snippet."""
+
+    id: str
+    author: str = ""
+    created_at: str | None = None
+    text: str = ""
+    url: str = ""
+    parent_id: str | None = None
+    depth: int = 0
+    points: int | None = None
+    relevance: float | None = None
+
+
+ThreadStatus = Literal["found", "read", "comments_read", "failed", "blocked"]
+
+
+class ThreadEvidence(BaseModel):
+    """A forum thread and what was actually read from it.
+
+    ``found``: only the URL is known. ``read``: the opening post was read.
+    ``comments_read``: comments were read through the platform API.
+    ``failed`` / ``blocked``: the read was attempted and did not succeed.
+    """
+
+    platform: str
+    url: str
+    thread_id: str = ""
+    title: str = ""
+    author: str = ""
+    created_at: str | None = None
+    body: str = ""
+    status: ThreadStatus = "found"
+    comments_total: int | None = None
+    comments: list[Comment] = Field(default_factory=list)
+    source_api: str = ""
+    error: str | None = None
+
+
+class Requirement(BaseModel):
+    kind: str
+    target: str = ""
+    satisfied: bool = False
+    detail: str = ""
+
+
+class Coverage(BaseModel):
+    """Whether the evidence meets what the query asked for, requirement by requirement."""
+
+    status: Literal["sufficient", "insufficient", "not_applicable"] = "not_applicable"
+    requirements: list[Requirement] = Field(default_factory=list)
+
+
 class SearchResponse(BaseModel):
     schema_version: str = SCHEMA_VERSION
     status: ResponseStatus
@@ -130,6 +184,10 @@ class SearchResponse(BaseModel):
     warnings: list[str] = Field(default_factory=list)
     errors: list[ErrorItem] = Field(default_factory=list)
     timing_ms: int = 0
+    intent: dict[str, Any] = Field(default_factory=dict)
+    coverage: Coverage | None = None
+    threads: list[ThreadEvidence] = Field(default_factory=list)
+    next_steps: list[dict[str, Any]] = Field(default_factory=list)
 
 
 class FetchResponse(BaseModel):
@@ -148,6 +206,7 @@ class FetchResponse(BaseModel):
     warnings: list[str] = Field(default_factory=list)
     errors: list[ErrorItem] = Field(default_factory=list)
     timing_ms: int = 0
+    thread: ThreadEvidence | None = None
 
 
 class ProviderHealth(BaseModel):

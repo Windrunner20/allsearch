@@ -88,7 +88,7 @@ def test_record_permissions_ttl_and_capacity(tmp_path):
     assert store.get(first, now=1003) is None
     assert store.get(second, now=1003)["response"]["answer"] == "two"
     assert store.get(third, now=1003)["response"]["answer"] == "three"
-    path = tmp_path / f"{third}.json"
+    [path] = list(tmp_path.glob(f"*_{third}.json"))
     assert (path.stat().st_mode & 0o777) == 0o600
     assert store.get(second, now=1001 + 11) is None
     assert store.get("../" + third, now=1003) is None
@@ -134,22 +134,23 @@ async def test_compact_search_reuses_process_cache_and_pages_citations(base_conf
         names = sorted(tool.name for tool in mcp._tool_manager.list_tools())
         assert names == ["fetch", "health", "read_result", "search"]
         search = next(tool for tool in mcp._tool_manager.list_tools() if tool.name == "search")
-        first = await search.fn(query="bounded", depth="fast", fresh=False)
-        second = await search.fn(query="bounded", depth="fast", fresh=False)
+        first = _sc(await search.fn(query="bounded", depth="fast", fresh=False))
+        second = _sc(await search.fn(query="bounded", depth="fast", fresh=False))
         assert len(xai.calls) == 1
-        assert first["result_id"] != second["result_id"]
+        # Identical call in the same session: same record, flagged as a repeat.
+        assert first["result_id"] == second["result_id"]
         assert first["cache"]["hit"] is False
-        assert second["cache"]["hit"] is True
+        assert second["session"]["repeat"] is True
         encoded = json.dumps(first, ensure_ascii=False)
         assert "FULL-PAGE" not in encoded
         assert len(encoded.encode()) <= 8192
         assert first["citation_count"] == 3
         reader = next(tool for tool in mcp._tool_manager.list_tools() if tool.name == "read_result")
-        page = await reader.fn(result_id=first["result_id"], fields=["citations"], offset=0, limit=1, max_bytes=4096)
+        page = _sc(await reader.fn(result_id=first["result_id"], fields=["citations"], offset=0, limit=1, max_bytes=4096))
         assert page["data"]["citations_total"] == 3
         assert len(page["data"]["citations"]) == 1
         assert page["next_offset"] == 1
-        answer = await reader.fn(result_id=first["result_id"], fields=["answer"], offset=0, limit=20, max_bytes=4096)
+        answer = _sc(await reader.fn(result_id=first["result_id"], fields=["answer"], offset=0, limit=20, max_bytes=4096))
         assert answer["data"]["answer_chars"] == len(long_answer)
         assert len(answer["data"]["answer"]) <= 20
         assert len(xai.calls) == 1
@@ -164,9 +165,15 @@ async def test_read_result_unknown_id_is_a_tool_error(base_config, tmp_path):
     reader = next(tool for tool in mcp._tool_manager.list_tools() if tool.name == "read_result")
     try:
         with pytest.raises(Exception, match="unknown or expired"):
-            await reader.fn(result_id="0" * 16)
+            await reader.fn(result_id="0" * 24)
     finally:
         await orch.aclose()
+
+
+def _sc(result):
+    """structuredContent of a CallToolResult; the text block must carry the same object."""
+    assert json.loads(result.content[0].text) == result.structuredContent
+    return result.structuredContent
 
 
 def test_native_mcp_config_is_separate_from_the_extension():
@@ -232,6 +239,7 @@ def test_concurrent_puts_keep_the_entry_cap(tmp_path):
         ids = list(pool.map(write, range(24)))
     assert len(set(ids)) == 24
     assert len(list(tmp_path.glob("*.json"))) <= 8
+    assert not list(tmp_path.glob(".tmp-*"))
 
 
 @pytest.mark.asyncio
@@ -244,7 +252,9 @@ async def test_compact_record_redacts_secrets_and_keeps_error_codes(base_config,
     orch.tavily = FakeTavily()
     try:
         search = next(tool for tool in mcp._tool_manager.list_tools() if tool.name == "search")
-        summary = await search.fn(query="失败也不带密钥", depth="fast", fresh=True)
+        result = await search.fn(query="失败也不带密钥", depth="fast", fresh=True)
+        assert result.isError is True
+        summary = _sc(result)
         assert summary["errors"][0]["code"] == "transport_error"
         assert secret not in json.dumps(summary, ensure_ascii=False)
         stored = Path(tmp_path).read_text() if False else "\n".join(
@@ -257,8 +267,8 @@ async def test_compact_record_redacts_secrets_and_keeps_error_codes(base_config,
         await orch.aclose()
 
 
-def test_default_mode_does_not_add_read_result(base_config):
-    _orch, mcp = build_mcp(base_config)
+def test_full_mode_does_not_add_read_result(full_config):
+    _orch, mcp = build_mcp(full_config)
     names = sorted(tool.name for tool in mcp._tool_manager.list_tools())
     assert names == ["fetch", "health", "search"]
     assert SearchRequest(query="still valid").query == "still valid"

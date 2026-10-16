@@ -27,7 +27,10 @@ def clean_env(monkeypatch: pytest.MonkeyPatch):
 
 
 @pytest.fixture
-def base_config(clean_env) -> AllSearchConfig:
+def base_config(clean_env, tmp_path_factory) -> AllSearchConfig:
+    clean_env.setenv("ALLSEARCH_RECORD_DIR", str(tmp_path_factory.mktemp("records")))
+    clean_env.setenv("ALLSEARCH_NATIVE_SOURCES", "false")
+    clean_env.setenv("ALLSEARCH_REWRITE_ENABLED", "false")
     clean_env.setenv("ALLSEARCH_XAI_API_KEY", "test-xai-key")
     clean_env.setenv("ALLSEARCH_TAVILY_API_KEY", "test-tavily-key")
     clean_env.setenv("ALLSEARCH_ANYSEARCH_API_KEY", "test-anysearch-key")
@@ -35,6 +38,12 @@ def base_config(clean_env) -> AllSearchConfig:
     clean_env.setenv("ALLSEARCH_XAI_MODEL", "grok-4.20")
     clean_env.setenv("ALLSEARCH_ALLOW_DEGRADED_SEARCH", "false")
     return load_config()
+
+
+@pytest.fixture
+def full_config(base_config) -> AllSearchConfig:
+    """0.2-compatible full-JSON tool payloads (ALLSEARCH_OUTPUT_MODE=full)."""
+    return replace(base_config, compact_output=False)
 
 
 class FakeClock:

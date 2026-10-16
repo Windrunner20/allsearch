@@ -255,15 +255,50 @@ class AllSearchConfig:
     tavily: TavilyConfig
     anysearch: AnySearchConfig
     firecrawl: FirecrawlConfig
-    route_policy_version: str = "1"
-    # Opt-in bounded MCP responses. The default keeps the full tool payload so
-    # the existing Pi extension and tests stay compatible.
-    compact_output: bool = False
+    route_policy_version: str = "2"
+    # Bounded MCP responses plus read_result are the default since 0.3.
+    # ALLSEARCH_OUTPUT_MODE=full restores the 0.2 full-JSON tool payloads.
+    compact_output: bool = True
     record_dir: str = ""
     record_ttl_seconds: int = 3600
     record_max_entries: int = 200
     record_max_bytes: int = 33_554_432
+    record_max_entries_per_owner: int = 200
     compact_max_bytes: int = 8192
+    # Streamable HTTP security. See http_security.py.
+    http_token: str = ""
+    http_tokens_file: str = ""
+    http_allow_anonymous: bool = False
+    http_rate_per_minute: int = 120
+    http_burst: int = 30
+    http_max_body_bytes: int = 1_048_576
+    http_allowed_hosts: tuple[str, ...] = ()
+    http_allowed_origins: tuple[str, ...] = ()
+    # Rolling per-session budgets and repeat detection. See session.py.
+    session_window_seconds: int = 900
+    session_max_searches: int = 40
+    session_max_fetches: int = 80
+    # Site-native readers (Hacker News, V2EX, Stack Exchange, Reddit).
+    native_sources: bool = True
+    reddit_client_id: str = ""
+    reddit_client_secret: str = ""
+    stackexchange_key: str = ""
+    # Optional LLM query rewrite for cross-language and site-native search.
+    rewrite_enabled: bool = True
+    rewrite_model: str = ""
+    # Resolve fetch targets locally before handing them to Firecrawl.
+    # auto: only when Firecrawl is self-hosted on a private or loopback address,
+    # because a hosted Firecrawl resolves the URL from its own network.
+    fetch_dns_check: str = "auto"
+
+    def resolve_fetch_dns(self) -> bool:
+        if self.fetch_dns_check == "always":
+            return True
+        if self.fetch_dns_check == "never":
+            return False
+        from allsearch.security import host_is_internal
+
+        return host_is_internal(self.firecrawl.base_url)
 
     def enabled_provider_fingerprint(self) -> str:
         flags = [
@@ -286,6 +321,9 @@ class AllSearchConfig:
         data["tavily"]["extra_api_keys"] = len(self.tavily.extra_api_keys)
         data["anysearch"]["api_key"] = bool(self.anysearch.api_key)
         data["firecrawl"]["api_key"] = bool(self.firecrawl.api_key)
+        data["http_token"] = bool(self.http_token)
+        data["reddit_client_secret"] = bool(self.reddit_client_secret)
+        data["stackexchange_key"] = bool(self.stackexchange_key)
         return data
 
     def __repr__(self) -> str:  # pragma: no cover
@@ -296,13 +334,55 @@ class AllSearchConfig:
         )
 
 
-def load_dotenv_if_present(path: str | Path | None = None) -> None:
-    """Load .env without overriding process/OpenClaw-injected environment."""
+def dotenv_candidates() -> list[Path]:
+    """Where a .env may live, most specific first.
+
+    1. ``ALLSEARCH_ENV_FILE``
+    2. ``.env`` in the working directory
+    3. ``.env`` in the per-user config directory (``~/.config/allsearch``,
+       ``~/Library/Application Support/allsearch``, ``%APPDATA%\\allsearch``)
+    4. ``.env`` at the root of a source checkout, for ``pip install -e .``
+    """
+    from allsearch.paths import config_dir
+
+    out: list[Path] = []
+    explicit = os.environ.get("ALLSEARCH_ENV_FILE", "").strip()
+    if explicit:
+        out.append(Path(explicit).expanduser())
+    out.append(Path.cwd() / ".env")
+    out.append(config_dir() / ".env")
+    checkout = Path(__file__).resolve().parents[2]
+    if (checkout / "pyproject.toml").is_file():
+        out.append(checkout / ".env")
+    return out
+
+
+def load_dotenv_if_present(path: str | Path | None = None) -> Path | None:
+    """Load the first .env found. Process environment always wins."""
     if path is not None:
         load_dotenv(path, override=False)
-        return
-    # Prefer CWD, then package-adjacent parent
-    load_dotenv(override=False)
+        return Path(path)
+    for candidate in dotenv_candidates():
+        if candidate.is_file():
+            load_dotenv(candidate, override=False)
+            return candidate
+    return None
+
+
+def _fetch_dns_check() -> str:
+    value = _env_str("ALLSEARCH_FETCH_DNS_CHECK", default="auto").lower()
+    if value not in {"auto", "always", "never"}:
+        raise ConfigError("ALLSEARCH_FETCH_DNS_CHECK must be auto|always|never")
+    return value
+
+
+def _output_compact() -> bool:
+    mode = _env_str("ALLSEARCH_OUTPUT_MODE", default="").lower()
+    if mode:
+        if mode not in {"compact", "full"}:
+            raise ConfigError("ALLSEARCH_OUTPUT_MODE must be compact|full")
+        return mode == "compact"
+    return _env_bool("ALLSEARCH_COMPACT_OUTPUT", True)
 
 
 def load_config(*, env_file: str | Path | None = None) -> AllSearchConfig:
@@ -484,16 +564,41 @@ def load_config(*, env_file: str | Path | None = None) -> AllSearchConfig:
             only_main_content=_env_bool("ALLSEARCH_FIRECRAWL_ONLY_MAIN_CONTENT", True),
             max_pages=_env_int("ALLSEARCH_FIRECRAWL_MAX_PAGES", 3, min_value=0, max_value=10),
         ),
-        compact_output=_env_bool("ALLSEARCH_COMPACT_OUTPUT", False),
+        compact_output=_output_compact(),
         record_dir=_env_str("ALLSEARCH_RECORD_DIR", default=""),
         record_ttl_seconds=_env_int("ALLSEARCH_RECORD_TTL_SECONDS", 3600, min_value=1),
         record_max_entries=_env_int("ALLSEARCH_RECORD_MAX_ENTRIES", 200, min_value=1),
         record_max_bytes=_env_int(
             "ALLSEARCH_RECORD_MAX_BYTES", 33_554_432, min_value=4096
         ),
+        record_max_entries_per_owner=_env_int(
+            "ALLSEARCH_RECORD_MAX_ENTRIES_PER_OWNER",
+            _env_int("ALLSEARCH_RECORD_MAX_ENTRIES", 200, min_value=1),
+            min_value=1,
+        ),
         compact_max_bytes=_env_int(
             "ALLSEARCH_COMPACT_MAX_BYTES", 8192, min_value=1024, max_value=16384
         ),
+        http_token=_env_str("ALLSEARCH_HTTP_TOKEN"),
+        http_tokens_file=_env_str("ALLSEARCH_HTTP_TOKENS_FILE"),
+        http_allow_anonymous=_env_bool("ALLSEARCH_HTTP_ALLOW_ANONYMOUS", False),
+        http_rate_per_minute=_env_int("ALLSEARCH_HTTP_RATE_PER_MINUTE", 120, min_value=1),
+        http_burst=_env_int("ALLSEARCH_HTTP_BURST", 30, min_value=1),
+        http_max_body_bytes=_env_int(
+            "ALLSEARCH_HTTP_MAX_BODY_BYTES", 1_048_576, min_value=1024
+        ),
+        http_allowed_hosts=tuple(_csv_list(_env_str("ALLSEARCH_HTTP_ALLOWED_HOSTS"))),
+        http_allowed_origins=tuple(_csv_list(_env_str("ALLSEARCH_HTTP_ALLOWED_ORIGINS"))),
+        session_window_seconds=_env_int("ALLSEARCH_SESSION_WINDOW_SECONDS", 900, min_value=10),
+        session_max_searches=_env_int("ALLSEARCH_SESSION_MAX_SEARCHES", 40, min_value=0),
+        session_max_fetches=_env_int("ALLSEARCH_SESSION_MAX_FETCHES", 80, min_value=0),
+        native_sources=_env_bool("ALLSEARCH_NATIVE_SOURCES", True),
+        reddit_client_id=_env_str("ALLSEARCH_REDDIT_CLIENT_ID"),
+        reddit_client_secret=_env_str("ALLSEARCH_REDDIT_CLIENT_SECRET"),
+        stackexchange_key=_env_str("ALLSEARCH_STACKEXCHANGE_KEY"),
+        rewrite_enabled=_env_bool("ALLSEARCH_REWRITE_ENABLED", True),
+        rewrite_model=_env_str("ALLSEARCH_REWRITE_MODEL"),
+        fetch_dns_check=_fetch_dns_check(),
     )
 
 

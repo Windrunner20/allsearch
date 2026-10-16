@@ -78,9 +78,19 @@ def canonicalize_url(url: str) -> str:
         return raw
 
 
+_CGNAT = ipaddress.ip_network("100.64.0.0/10")
+
+
 def _is_blocked_ip(ip: ipaddress.IPv4Address | ipaddress.IPv6Address) -> bool:
+    if ip.version == 6:
+        mapped = ip.ipv4_mapped or ip.sixtofour
+        if mapped is not None:
+            return _is_blocked_ip(mapped)
+        if ip.teredo is not None:
+            return _is_blocked_ip(ip.teredo[1])
     return bool(
-        ip.is_private
+        (ip.version == 4 and ip in _CGNAT)
+        or ip.is_private
         or ip.is_loopback
         or ip.is_link_local
         or ip.is_multicast
@@ -143,6 +153,21 @@ def validate_public_http_url(url: str, *, resolve_dns: bool = True) -> str:
             raise UnsafeURLError("resolved destination is private/reserved and not allowed")
 
     return raw
+
+
+def host_is_internal(url: str) -> bool:
+    """True for loopback/private literal IPs, localhost, and single-label or
+    .local/.internal/.lan names. Does not touch DNS."""
+    host = hostname_of(url)
+    if not host:
+        return False
+    if host in {"localhost", "localhost.localdomain"} or host.endswith(".localhost"):
+        return True
+    try:
+        return _is_blocked_ip(ipaddress.ip_address(host))
+    except ValueError:
+        pass
+    return "." not in host or host.rsplit(".", 1)[-1] in {"local", "internal", "lan", "home", "corp"}
 
 
 def hostname_of(url: str) -> str:

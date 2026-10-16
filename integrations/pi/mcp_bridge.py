@@ -249,7 +249,7 @@ async def call_mcp(tool_name: str, arguments: dict[str, Any]) -> dict[str, Any]:
         command=str(ALLSEARCH_PYTHON),
         args=["-m", "allsearch", "--transport", "stdio", "--log-level", "WARNING"],
         cwd=str(ALLSEARCH_ROOT),
-        env=dict(os.environ),
+        env={"ALLSEARCH_OUTPUT_MODE": "full", **os.environ},
     )
     async with stdio_client(params) as (read_stream, write_stream):
         async with ClientSession(read_stream, write_stream) as session:

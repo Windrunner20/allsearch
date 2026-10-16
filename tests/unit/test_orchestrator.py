@@ -424,6 +424,7 @@ async def test_hard_deadline_strict_primary_incomplete_error(base_config, loop_c
 
 @pytest.mark.asyncio
 async def test_auto_scrape_validates_original_and_final_dns(base_config, no_dns):
+    base_config = replace(base_config, fetch_dns_check="always")
     from allsearch.models import ProviderFetchResult, SearchRequest
 
     class RedirectingFirecrawl:
@@ -534,6 +535,7 @@ async def test_auto_scrape_truncates_to_30000(base_config, no_dns):
 
 @pytest.mark.asyncio
 async def test_explicit_fetch_validates_final_url_and_returns_short(base_config, no_dns):
+    base_config = replace(base_config, fetch_dns_check="always")
     from allsearch.models import FetchRequest, ProviderFetchResult
 
     class RedirectingFirecrawl:
@@ -828,3 +830,13 @@ async def test_group1_overlap_proven_with_active_counter(base_config):
     resp = await asyncio.wait_for(search_task, timeout=5)
     assert resp.status in {"ok", "partial"}
     assert tavily.calls and anysearch.calls
+
+
+def test_fetch_dns_policy_follows_firecrawl_location(base_config):
+    hosted = base_config
+    assert hosted.resolve_fetch_dns() is False
+    for internal in ("http://127.0.0.1:3002", "http://firecrawl:3002", "http://fc.internal", "http://10.0.0.5"):
+        cfg = replace(base_config, firecrawl=replace(base_config.firecrawl, base_url=internal))
+        assert cfg.resolve_fetch_dns() is True, internal
+    assert replace(base_config, fetch_dns_check="always").resolve_fetch_dns() is True
+    assert replace(base_config, fetch_dns_check="never").resolve_fetch_dns() is False

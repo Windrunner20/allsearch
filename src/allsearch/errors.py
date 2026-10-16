@@ -103,7 +103,14 @@ def redact_text(value: str) -> str:
         r"\1\2***",
         out,
     )
-    out = re.sub(r"(?i)(sk-|xai-|tvly-|fc-)[A-Za-z0-9_\-]{8,}", r"\1***", out)
+    # Vendor key prefixes only count at a token start, and a key is a long
+    # unbroken run (after an optional short segment such as "dev-" or "proj-").
+    # URL slugs like "rfc-editor.org" or ".../sk-hynix-shares-jump" are words.
+    out = re.sub(
+        r"(?<![A-Za-z0-9])(sk-|xai-|tvly-|fc-)(?:[A-Za-z0-9]{1,12}-)?[A-Za-z0-9_]{16,}[A-Za-z0-9_\-]*",
+        r"\1***",
+        out,
+    )
     out = re.sub(r"(//[^/\s:]+:)[^@/\s]+@", r"\1***@", out)
     return out
 
