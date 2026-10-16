@@ -83,9 +83,10 @@ class FirecrawlProvider:
                     json=payload,
                     deadline_seconds=deadline_seconds,
                     provider=self.name,
-                    # A failed scrape of one URL fails again on retry; do not
-                    # spend the budget (or credits) on it.
-                    retries=0,
+                    # A per-URL failure (target timeout, every engine failed)
+                    # fails again on retry; rate limits and gateway errors
+                    # (429, 502-504) are still retried with backoff.
+                    no_retry_statuses=frozenset({408, 500}),
                 )
             except AllSearchError as exc:
                 target = self._target_error(exc)

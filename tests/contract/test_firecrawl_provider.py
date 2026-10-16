@@ -106,3 +106,28 @@ async def test_real_auth_failure_still_counts():
     with pytest.raises(AuthError):
         await provider.scrape("https://example.com/")
     assert health.get("firecrawl").last_error_code == "auth_error"
+
+
+@pytest.mark.asyncio
+@respx.mock
+async def test_rate_limit_is_retried_but_engine_failure_is_not():
+    """Regression: the final live A/B lost a docs.python.org fetch to one 429."""
+    route = respx.post("https://api.firecrawl.dev/v2/scrape").mock(
+        side_effect=[
+            httpx.Response(429, json={"error": "Rate limit exceeded"}, headers={"Retry-After": "0"}),
+            httpx.Response(200, json={"success": True, "data": {"markdown": "venv docs", "metadata": {"title": "venv"}}}),
+        ]
+    )
+    provider, _ = _provider()
+    result = await provider.scrape("https://docs.python.org/3/library/venv.html")
+    assert result.content == "venv docs" and route.call_count == 2
+
+    engine = respx.post("https://api.firecrawl.dev/v2/scrape").mock(
+        side_effect=None, return_value=httpx.Response(500, json={"error": "All scraping engines failed!"})
+    )
+    before = engine.call_count  # respx reuses the route object for the same pattern
+    from allsearch.errors import TargetError
+
+    with pytest.raises(TargetError):
+        await provider.scrape("https://tieba.baidu.com/p/1")
+    assert engine.call_count - before == 1

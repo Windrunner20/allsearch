@@ -59,6 +59,7 @@ class HttpTransport:
         allow_list: bool = False,
         form: dict[str, str] | None = None,
         retries: int | None = None,
+        no_retry_statuses: frozenset[int] = frozenset(),
     ) -> Any:
         """One JSON request with bounded retries.
 
@@ -121,7 +122,11 @@ class HttpTransport:
                         retryable=retryable,
                         status_code=response.status_code,
                     )
-                    if attempt <= max_retries and remaining - (asyncio.get_event_loop().time() - started) > delay:
+                    if (
+                        response.status_code not in no_retry_statuses
+                        and attempt <= max_retries
+                        and remaining - (asyncio.get_event_loop().time() - started) > delay
+                    ):
                         await asyncio.sleep(delay)
                         remaining -= asyncio.get_event_loop().time() - started
                         continue
