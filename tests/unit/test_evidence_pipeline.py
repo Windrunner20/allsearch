@@ -233,8 +233,9 @@ async def test_bare_citations_get_title_and_snippet_from_the_answer(base_config)
         "Relevant videos:\n\n"
         "1. **[Python GIL 详解](https://www.bilibili.com/video/BV1abc)** 讲解全局解释器锁为什么限制多核。\n"
         "2. Another one https://www.bilibili.com/video/BV2xyz about threads.\n"
+        "3. Marker only [1](https://www.bilibili.com/video/BV3num) about the GIL.\n"
     )
-    urls = ["https://www.bilibili.com/video/BV1abc", "https://www.bilibili.com/video/BV2xyz"]
+    urls = ["https://www.bilibili.com/video/BV1abc", "https://www.bilibili.com/video/BV2xyz", "https://www.bilibili.com/video/BV3num"]
     orch = make_orchestrator(base_config, xai=FakeXAI(_primary(urls, answer=answer)), tavily=FakeTavily())
     resp = await orch.search(SearchRequest(query="B站上介绍 Python GIL 的具体视频", fresh=True))
     first = next(r for r in resp.results if r.url.endswith("BV1abc"))
@@ -243,6 +244,8 @@ async def test_bare_citations_get_title_and_snippet_from_the_answer(base_config)
     assert first.metadata["snippet_source"] == "answer_context"
     second = next(r for r in resp.results if r.url.endswith("BV2xyz"))
     assert second.title.startswith("https://") and "threads" in second.snippet
+    third = next(r for r in resp.results if r.url.endswith("BV3num"))
+    assert third.title.startswith("https://") and "GIL" in third.snippet
 
 
 async def test_capped_primary_falls_back_to_tavily_answer_and_clean_wikipedia_query(base_config, monkeypatch):

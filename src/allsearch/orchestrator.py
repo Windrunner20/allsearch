@@ -101,6 +101,8 @@ def _answer_contexts(answer: str) -> dict[str, tuple[str, str]]:
             if not url.startswith(("http://", "https://")):
                 continue
             label = " ".join((match.group(1) or "").replace("*", "").split())
+            if not re.search(r"[^\W\d_]{2}", label):
+                label = ""  # citation markers such as [1] or [web:3] are not titles
             key = canonicalize_url(url)
             if key not in out or (label and not out[key][0]):
                 out[key] = (label, plain[:300])
