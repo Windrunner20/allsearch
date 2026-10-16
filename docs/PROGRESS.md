@@ -29,6 +29,13 @@ Offline suite: 342 passed, 1 skipped (Python 3.14, commit 5f8a78d).
 | --- | --- | --- |
 | `ab-balanced-20261016T040427Z` | 9 | 17 (commit 673dd56) |
 | `ab-balanced-20261016T041942Z` | 10 | 25 (commit 8bcad06) |
+| `ab-balanced-20261016T084437Z` | 11 | 24 (commit 75b0a8e), no pass→fail |
+| `holdout-ab-balanced-20261016` (9 holdout cases) | 4 | 9 (commit af3a809) |
+
+Same data under the original v1 grader + v1 targets (`benchmarks/attribution.py`):
+round 2 8 vs 19, round 3 8 vs 19, holdout 4 vs 9. The lead is not a grader artifact.
+A/B parity checked: same .env (90 s budget, 60 s timeout), same model
+(grok-4.7), concurrency 2 per arm, overlapping time windows.
 
 ## Not verified here
 
@@ -54,11 +61,9 @@ Offline suite: 342 passed, 1 skipped (Python 3.14, commit 5f8a78d).
 
 ## Next steps (in order)
 
-1. Root-cause wiki-en-tcp; minimal fix + regression test.
-2. Check A/B parity (budget, providers, grader); one more fair balanced A/B.
-3. Holdout run (baseline vs candidate), OrbStack case flagged.
-4. Attribute the gain: score round data under grader v1 rules vs v2.
-5. Pi agent A/B with `benchmarks/live_agent.py`.
+1. ~~Root-cause wiki-en-tcp~~ (5abf7bf). ~~Parity check, round 3~~. ~~Holdout~~.
+   ~~Attribution~~ (all done 2026-10-16).
+5. Pi agent A/B with `benchmarks/live_agent.py` (offline-tested; pilot next).
 6. README, CHANGELOG, migration/rollback, compatibility matrix, report.
 7. Push branch, read CI.
 
