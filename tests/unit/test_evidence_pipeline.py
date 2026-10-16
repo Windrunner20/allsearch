@@ -243,3 +243,28 @@ async def test_bare_citations_get_title_and_snippet_from_the_answer(base_config)
     assert first.metadata["snippet_source"] == "answer_context"
     second = next(r for r in resp.results if r.url.endswith("BV2xyz"))
     assert second.title.startswith("https://") and "threads" in second.snippet
+
+
+async def test_capped_primary_falls_back_to_tavily_answer_and_clean_wikipedia_query(base_config, monkeypatch):
+    """Regression for wiki-en-tcp in live A/B round 2: Grok stalled past its cap,
+    the answer came back empty, and the Wikipedia query kept the word "English"."""
+    monkeypatch.setattr("allsearch.orchestrator.MIN_BUDGET_FOR_PRIMARY_CAP", 0.1)
+    monkeypatch.setattr("allsearch.orchestrator.PRIMARY_SHARE", 0.3)
+
+    class StalledXAI(FakeXAI):
+        async def search(self, query: str, **kwargs: Any) -> ProviderSearchResult:
+            self.calls.append(kwargs)
+            await asyncio.sleep(5)
+            raise AssertionError("not cancelled")
+
+    native = FakeNative(search={"wikipedia": [ProviderResultItem(title="HTTP", url="https://en.wikipedia.org/wiki/HTTP", provider="wikipedia")]})
+    tavily = FakeTavily(ProviderSearchResult(provider="tavily", query="q", answer="HTTP uses TCP port 80 by default.",
+                                             results=[ProviderResultItem(title="HTTP", url="https://en.wikipedia.org/wiki/HTTP", provider="tavily")]))
+    cfg = replace(base_config, reliability=replace(base_config.reliability, total_budget_seconds=1.5))
+    orch = make_orchestrator(cfg, xai=StalledXAI(), tavily=tavily)
+    orch.native = native
+    resp = await orch.search(SearchRequest(query="English Wikipedia HTTP article: the default TCP port", fresh=True))
+    assert native.searches == [("wikipedia", "HTTP default TCP port")]
+    assert resp.answer == "HTTP uses TCP port 80 by default."
+    assert "answer_from_tavily_primary_timeout" in resp.warnings
+    assert any(r.url == "https://en.wikipedia.org/wiki/HTTP" for r in resp.results)

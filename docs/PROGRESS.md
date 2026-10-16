@@ -39,7 +39,14 @@ Offline suite: 342 passed, 1 skipped (Python 3.14, commit 5f8a78d).
 
 ## Known issues / open questions
 
-- wiki-en-tcp passed in baseline, failed in candidate in round 2 (investigating).
+- wiki-en-tcp (round 2 candidate fail) — **resolved**. Trigger: provider
+  latency, not the grader: the site-restricted Grok call stalled past the
+  58.5 s primary cap (same call took 9 s in round 1; baseline has its own
+  56–58 s outliers; restricted-call median 15 s vs 15–16 s unrestricted, so
+  restriction is not systematically slower). Two candidate defects turned the
+  stall into a failure: no fallback answer when the primary is capped, and the
+  native Wikipedia query kept "English" (no HTTP article in the top 5).
+  Both fixed; regression test in `tests/unit/test_evidence_pipeline.py`.
 - Holdout case `ho-v2ex-orbstack` is not independent: a similar OrbStack/V2EX
   query was used as a Claude Code smoke test on 2026-10-16.
 - Baseline does not record Grok usage, so baseline cost is estimated only.

@@ -915,6 +915,10 @@ class Orchestrator:
                 query = rewrite.get("topic_zh") or intent.topic
             else:
                 query = intent.topic
+            if key == "wikipedia":
+                # "English Wikipedia" / "中文维基百科" pick the language edition;
+                # the words themselves only dilute the article search.
+                query = " ".join(re.sub(r"(?i)\b(english|chinese)\b|英文|中文", " ", query).split())
             if not query:
                 return None
             op_started = time.perf_counter()
@@ -1178,18 +1182,21 @@ class Orchestrator:
         answer = ""
         if primary is not None:
             answer = primary.answer or ""
+        primary_capped = any(e.code == "primary_timeout" for e in errors)
+        if not answer and (degraded or primary_capped):
+            # Grok is down (degraded) or was stopped at its time cap: fall back
+            # to the Tavily answer when a Tavily stage produced one.
+            tav = next((r for r in provider_outputs.values() if r.provider == "tavily" and r.answer), None)
+            if tav is not None:
+                answer = tav.answer
+                warnings.append("degraded_answer_from_tavily" if degraded else "answer_from_tavily_primary_timeout")
+            elif degraded:
+                warnings.append("degraded_empty_answer")
         if threads and intent is not None and intent.comments:
             quoted = extractive_answer(threads)
             if quoted:
                 answer = f"{answer}\n\n{quoted}" if answer else quoted
                 warnings.append("answer_includes_api_comments")
-        elif degraded:
-            tav = provider_outputs.get("tavily")
-            if tav and tav.answer:
-                answer = tav.answer
-                warnings.append("degraded_answer_from_tavily")
-            else:
-                warnings.append("degraded_empty_answer")
 
         status = "ok"
         if errors and (results or answer):
