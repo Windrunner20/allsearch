@@ -1,0 +1,474 @@
+{
+  "id": "hn-sqlite",
+  "executed_at": "2026-10-16T04:21:44.670796+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "Hacker News discussion of SQLite as an application file format",
+  "answer": "Relevant Hacker News threads on using SQLite as an application file format:\n\n1. **[SQLite as an Application File Format](https://news.ycombinator.com/item?id=46076642)** — 178 points, 99 comments (about 10 months ago). Discussion of the official SQLite essay: Mapbox MBTiles origin story, when tree-shaped data fits less well than tables, WAL/journal side files, and practical benefits (migrations, constraints, off-the-shelf tools).\n\n2. **[What If OpenDocument Used SQLite?](https://news.ycombinator.com/item?id=45132498)** — 279 points, 105 comments (Sept 2025). HN thread on the SQLite case study. Strong comments on `secure_delete`, hardening for untrusted files, SQLite’s view of malicious DB files as a niche threat, and the 2 GiB BLOB limit.\n\n3. **[“The killer feature for me with SQLite is as an application file format”](https://news.ycombinator.com/item?id=40655974)** — Comment thread citing [sqlite.org/appfileformat.html](https://sqlite.org/appfileformat.html). Audacity project files, a game using SQLite so artists edit levels in ordinary DB GUIs, and warnings about leftover `-wal`/`-journal` files when users copy documents.\n\n4. **[Comment on “What If OpenDocument Used SQLite?”](https://news.ycombinator.com/item?id=45134010)** — Same security checklist in isolation: secure delete, untrusted-DB options, and the gap between SQLite’s CVE framing and real document-file use.\n\n5. **[“Most usages of SQLite *are* as an application file format”](https://news.ycombinator.com/item?id=45147835)** — Pushback that Firefox, chat apps, and OS subsystems already treat SQLite files as app storage, with a distinction between sandboxed private DBs and documents users exchange (PDF-like).\n\n6. **[Apple `.car` discussion that pivots to SQLite](https://news.ycombinator.com/item?id=47046185)** — Argues SQLite beats gzipped JSON for binary blobs; cites Audacity again, plus Firefox favicons, iOS photos, Kodi, and VC++ browsing data.\n\n7. **[Show HN: SQLite files as applications – uApps](https://news.ycombinator.com/item?id=49421475)** — Low-traffic Show HN: `.uapp` files are SQLite archives (sqlar-style) holding a web app plus user data, opened by a small local runtime.\n\n8. **[Side thread on the main post: SQLite instead of ELF](https://news.ycombinator.com/item?id=46079326)** — “Fascinating and horrifying” idea of executables as SQLite; links to early work and [sqlelf](https://github.com/fzakaria/sqlelf). Related later thread: [Executable Is a SQLite Database](https://news.ycombinator.com/item?id=49415271) (SELF).\n\nSource document those threads orbit: [SQLite As An Application File Format](https://sqlite.org/appfileformat.html).",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://news.ycombinator.com/item?id=46076642",
+      "url": "https://news.ycombinator.com/item?id=46076642",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "LangGraph Flaw Chain Exposes Self-Hosted AI Agents to Remote Code Execution - The Hacker News",
+      "url": "https://thehackernews.com/2026/06/langgraph-flaw-chain-exposes-self.html",
+      "snippet": "# LangGraph Flaw Chain Exposes Self-Hosted AI Agents to Remote Code Execution. Cybersecurity researchers have disclosed details of three now-patched security flaws impacting LangGraph, including a critical vulnerability chain that could result in remote code execution. \"An SQL injection in LangGraph's function could allow attackers to gain full control via remote code execution of a server by exploiting weaknesses in how the system processes and handles data,\" Check Point said. * **CVE-2026-28277** (CVSS score: 6.8) - An unsafe msgpack deserialization vulnerability in LangGraph that could be used to trigger object reconstruction when a checkpoint is loaded by an attacker who can modify checkpoint data. LangGraph has described CVE-2026-28277 as a post-exploitation issue, where successful exploitation requires the ability to write attacker-controlled checkpoint data and turn that into code execution in the application runtime, and it does not pose any risks to existing LangSmith-hosted deployments. Access Control, AI Agent, cybersecurity, Deserialization, LangChain, LangGraph, Redis, remote code execution, SQL Injection, SQLite.",
+      "content": null,
+      "published_at": "Fri, 12 Jun 2026 09:50:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.096851096,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://file-extensions.com/docs/db",
+      "url": "https://file-extensions.com/docs/db",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "CloudZ malware abuses Microsoft Phone Link to steal SMS and OTPs - BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/cloudz-malware-abuses-microsoft-phone-link-to-steal-sms-and-otps",
+      "snippet": "* CloudZ malware abuses Microsoft Phone Link to steal SMS and OTPs. A new version of the CloudZ remote access tool (RAT) is deploying a previously unseen malicious plugin called Pheno that hijacks the Microsoft Phone Link connection to steal sensitive codes from mobile devices. Microsoft Phone Link comes installed on Windows 10 and 11, and allows using the computer to make and take calls, respond to texts, or view notifications received on the mobile device (Android and iOS). By leveraging the application, the threat actor could intercept sensistive messages delivered to the target's mobile phone without compromising the device. Cisco Talos researchers say in a report today that Pheno monitors for active Phone Link sessions and accesses its local SQLite database, which may contain SMS and one-time passwords (OTPs). “With a confirmed Phone Link activity on the victim's machine, the attacker using the CloudZ RAT can potentially intercept the Phone Link application’s SQLite database file on the victim's machine, potentially compromising SMS-based OTP messages and other authenticator application notification messages,” Cisco Talos says.",
+      "content": null,
+      "published_at": "Tue, 05 May 2026 10:03:52 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.08377804,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://www.linuxcompatible.org/story/sqlite-3540-release-faster-engine-new-cli-features-and-dropped-windows-xp-support/",
+      "url": "https://www.linuxcompatible.org/story/sqlite-3540-release-faster-engine-new-cli-features-and-dropped-windows-xp-support",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "Microsoft says new Windows Recall bypass isn't a vulnerability - iTnews",
+      "url": "https://www.itnews.com.au/news/microsoft-says-new-windows-recall-bypass-isnt-a-vulnerability-624918",
+      "snippet": "## Microsoft says new Windows Recall bypass isn't a vulnerability ## Bendigo Bank rebuffs pressure to reveal staff impact of outsourcing ## FBI remotely patched privately-owned routers to evict Russian GRU spies ## Meta unveils first AI model from superintelligence team ## Bendigo Bank IT restructure continues with Infosys, Genpact deals. Microsoft has defended its relaunched Recall snapshotting utility for the Windows 11 operating system, after a researcher discovered a bypass to extract data from the allegedly secure database vault for the application. Now, Hagenah has again found what he sees as a new vulnerability in Recall, which he said allows full content extraction from the AI tool's SQLite database via a standard Windows uer account. Microsoft strengthened Recall's security from the ground up with Virtualisation-Based Security (VBS) enclaves, AES-256-GCM encryption, Windows Hello biometric authentication, and a Protected Process Light host for holding encryption keys.",
+      "content": null,
+      "published_at": "Fri, 10 Apr 2026 01:34:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.07069436,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://news.ycombinator.com/item?id=43682006",
+      "url": "https://news.ycombinator.com/item?id=43682006",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "AI slop is flooding the CVE pipeline with fake flaws - The Next Web",
+      "url": "https://thenextweb.com/news/ai-generated-fake-cves-nvd-pipeline-jfrog-sqlite-llm-slop",
+      "snippet": "A batch of critical SQLite vulnerabilities turned out to be AI-generated fiction, yet they reached the US government's official database. The pipeline runs on trust no one is checking, and the systems most likely to be fooled are the AI agents now trusted to fix real bugs. Someone is now seeding that list with breakage that no one ever found. Security firm JFrog found six critical SQLite flaws that were pure fiction, it reported. But the functions they blamed did not exist in the versions cited, and the proof-of-concept code ran without a crash. One new GitHub account posted 55 vulnerability reports in a matter of days, and JFrog found 54 fabrications. SQLite added the function it blamed in 2025, a year after the version it supposedly broke. The fakes did not stay on GitHub. They reached the National Vulnerability Database, the US government’s authoritative record. One AI writes a plausible advisory, a thinly staffed pipeline waves it through, and another AI tries to fix it.",
+      "content": null,
+      "published_at": "Tue, 04 Aug 2026 12:47:13 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.0552139,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://news.ycombinator.com/item?id=46076642",
+      "url": "https://news.ycombinator.com/item?id=46076642",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "LangGraph Flaw Chain Exposes Self-Hosted AI Agents to Remote Code Execution - The Hacker News",
+      "url": "https://thehackernews.com/2026/06/langgraph-flaw-chain-exposes-self.html",
+      "result_id": "r2",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://file-extensions.com/docs/db",
+      "url": "https://file-extensions.com/docs/db",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "CloudZ malware abuses Microsoft Phone Link to steal SMS and OTPs - BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/cloudz-malware-abuses-microsoft-phone-link-to-steal-sms-and-otps",
+      "result_id": "r4",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://www.linuxcompatible.org/story/sqlite-3540-release-faster-engine-new-cli-features-and-dropped-windows-xp-support/",
+      "url": "https://www.linuxcompatible.org/story/sqlite-3540-release-faster-engine-new-cli-features-and-dropped-windows-xp-support",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "Microsoft says new Windows Recall bypass isn't a vulnerability - iTnews",
+      "url": "https://www.itnews.com.au/news/microsoft-says-new-windows-recall-bypass-isnt-a-vulnerability-624918",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://news.ycombinator.com/item?id=43682006",
+      "url": "https://news.ycombinator.com/item?id=43682006",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "AI slop is flooding the CVE pipeline with fake flaws - The Next Web",
+      "url": "https://thenextweb.com/news/ai-generated-fake-cves-nvd-pipeline-jfrog-sqlite-llm-slop",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://spec-zone.ru/sqlite/appfileformat",
+      "url": "https://spec-zone.ru/sqlite/appfileformat",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://news.ycombinator.com/item?id=47046185",
+      "url": "https://news.ycombinator.com/item?id=47046185",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://www.chiark.greenend.org.uk/doc/sqlite3/appfileformat.html",
+      "url": "https://www.chiark.greenend.org.uk/doc/sqlite3/appfileformat.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://news.ycombinator.com/item?id=48046007",
+      "url": "https://news.ycombinator.com/item?id=48046007",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://news.ycombinator.com/item?id=39797104",
+      "url": "https://news.ycombinator.com/item?id=39797104",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://news.ycombinator.com/item?id=45132488",
+      "url": "https://news.ycombinator.com/item?id=45132488",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://news.ycombinator.com/item?id=49421475",
+      "url": "https://news.ycombinator.com/item?id=49421475",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://news.ycombinator.com/item?id=46079326",
+      "url": "https://news.ycombinator.com/item?id=46079326",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://news.ycombinator.com/item?id=45134010",
+      "url": "https://news.ycombinator.com/item?id=45134010",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://news.ycombinator.com/item?id=45132498",
+      "url": "https://news.ycombinator.com/item?id=45132498",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "https://x.com/dcolascione/status/2108641862232023258",
+      "url": "https://x.com/dcolascione/status/2108641862232023258",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "https://file-extensions.com/docs/sqlite",
+      "url": "https://file-extensions.com/docs/sqlite",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c21",
+      "title": "https://www.sqlite.org/onefile.html",
+      "url": "https://www.sqlite.org/onefile.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c22",
+      "title": "https://devdocs.io/sqlite/affcase1",
+      "url": "https://devdocs.io/sqlite/affcase1",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c23",
+      "title": "https://news.ycombinator.com/item?id=46435308",
+      "url": "https://news.ycombinator.com/item?id=46435308",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c24",
+      "title": "https://fzakaria.com/2026/08/23/your-executable-is-a-sqlite-database",
+      "url": "https://fzakaria.com/2026/08/23/your-executable-is-a-sqlite-database",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c25",
+      "title": "https://www.sqlite.org/forum/forumpost/f21062af30f83989?raw",
+      "url": "https://www.sqlite.org/forum/forumpost/f21062af30f83989?raw=",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c26",
+      "title": "https://news.ycombinator.com/item?id=49415271",
+      "url": "https://news.ycombinator.com/item?id=49415271",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c27",
+      "title": "https://news.ycombinator.com/item?id=45147835",
+      "url": "https://news.ycombinator.com/item?id=45147835",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c28",
+      "title": "https://news.ycombinator.com/item?id=40655974",
+      "url": "https://news.ycombinator.com/item?id=40655974",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c29",
+      "title": "Keep Android Open - Hacker News",
+      "url": "https://news.ycombinator.com/item?id=47091419",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c30",
+      "title": "Ask HN: What Are You Working On? (March 2026) - Hacker News",
+      "url": "https://news.ycombinator.com/item?id=47303111",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c31",
+      "title": "LibreOffice once again slams Microsoft for using \"lock-in\" with Office files - XDA",
+      "url": "https://www.xda-developers.com/libreoffice-once-again-slams-microsoft-for-using-lock-in-with-office-files",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c32",
+      "title": "Zero-day CSS: CVE-2026-2441 exists in the wild - Hacker News",
+      "url": "https://news.ycombinator.com/item?id=47062748",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 16787,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "conditional_supplement",
+        "latency_ms": 4597,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "recency_signal"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "timed_out": false,
+  "elapsed_ms": 21387,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "tavily.search": 1
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 1
+  }
+}

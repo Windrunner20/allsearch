@@ -1,0 +1,471 @@
+{
+  "id": "github-cpython-issue",
+  "executed_at": "2026-10-16T04:22:03.546790+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "PEP 703 page that proposes making the CPython GIL optional",
+  "answer": "**Primary page:** [PEP 703 – Making the Global Interpreter Lock Optional in CPython](https://peps.python.org/pep-0703/)\n\nUp to 8 relevant results:\n\n1. **[PEP 703 – Making the Global Interpreter Lock Optional in CPython](https://peps.python.org/pep-0703/)** — Official PEP by Sam Gross (sponsor Łukasz Langa). Status **Final** (historical). Proposes a `--disable-gil` build so CPython can run without the GIL, with thread-safety changes. Targets Python 3.13; current docs point to free-threading support. [web:8]\n\n2. **[Steering Council acceptance (Oct 24, 2023)](https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional-in-cpython-acceptance/37075)** — SC accepts PEP 703 with a gradual three-phase rollout (experimental, then supported but not default, then possibly default), and the ability to roll back if needed. Prefers the term “free-threaded.” [web:4]\n\n3. **[SC notice of intent to accept (July 28, 2023)](https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474)** — Earlier notice that the council intended to accept PEP 703, outlining short-, mid-, and long-term stages so the no-GIL build does not permanently split the ecosystem. [web:7]\n\n4. **[PEP 779 – Criteria for supported status for free-threaded Python](https://peps.python.org/pep-0779/)** — Follow-on PEP defining Phase II criteria (including a performance bound) so the free-threaded build can be officially supported; ties that step to Python 3.14. [web:9]\n\n5. **[What is PEP 703? (pydevtools)](https://pydevtools.com/handbook/explanation/what-is-pep-703.md)** — Summary: `--disable-gil` build, biased refcounting, ABI tag with a `t` suffix, experimental in 3.13 and supported (not default) in 3.14 under PEP 779. [web:1]\n\n6. **[GitHub PR #2955 (python/peps)](https://github.com/python/peps/pull/2955)** — PR that introduced PEP 703, merged Jan 10, 2023, from Sam Gross (`colesbury`). [web:5]\n\n7. **[Discourse thread: PEP 703 discussion](https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606)** — Early discussion of the proposal, including configure-flag naming (`--disable-gil` vs `--without-gil`). [web:6]\n\n8. **[PEP 805 – Safe Parallel Python](https://peps.python.org/pep-0805/)** — Later PEP that builds on PEP 703 (and PEP 734), contrasting PEP 703’s shared-memory parallelism with a race-free-by-default model. [web:10]",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606",
+      "url": "https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474",
+      "url": "https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://peps.python.org/pep-0803/",
+      "url": "https://peps.python.org/pep-0803",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "https://peps.python.org/pep-0779/",
+      "url": "https://peps.python.org/pep-0779",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://peps.python.org/pep-0780/",
+      "url": "https://peps.python.org/pep-0780",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "https://peps.python.org/pep-0805/",
+      "url": "https://peps.python.org/pep-0805",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://pydevtools.com/handbook/explanation/what-is-pep-703.md",
+      "url": "https://pydevtools.com/handbook/explanation/what-is-pep-703.md",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "https://juejin.cn/post/7694834709337145385",
+      "url": "https://juejin.cn/post/7694834709337145385",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606",
+      "url": "https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474",
+      "url": "https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://peps.python.org/pep-0803/",
+      "url": "https://peps.python.org/pep-0803",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "https://peps.python.org/pep-0779/",
+      "url": "https://peps.python.org/pep-0779",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://peps.python.org/pep-0780/",
+      "url": "https://peps.python.org/pep-0780",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "https://peps.python.org/pep-0805/",
+      "url": "https://peps.python.org/pep-0805",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://pydevtools.com/handbook/explanation/what-is-pep-703.md",
+      "url": "https://pydevtools.com/handbook/explanation/what-is-pep-703.md",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "https://juejin.cn/post/7694834709337145385",
+      "url": "https://juejin.cn/post/7694834709337145385",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://github.com/python/peps/pull/2955",
+      "url": "https://github.com/python/peps/pull/2955",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://peps.python.org/pep-0703/?featured_on=talkpython",
+      "url": "https://peps.python.org/pep-0703?featured_on=talkpython",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://peps.python.org/pep-0703/",
+      "url": "https://peps.python.org/pep-0703",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional-in-cpython-acceptance/37075",
+      "url": "https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional-in-cpython-acceptance/37075",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 10868,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606",
+      "final_url": "https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606",
+      "title": "PEP 703: Making the Global Interpreter Lock Optional - PEPs - Discussions on Python.org",
+      "content": "[Skip to last reply](https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606/131) [Skip to top](https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606/1)\n\n[Skip to main content](https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606#main-container)\n\n​\n\n\nPlease read our [Community Guidelines](https://discuss.python.org/guidelines/) that are tailored to this space in addition to the Python Software Foundation Code of Conduct that we’re bound by.\n\nReach out to [@moderators](https://discuss.python.org/groups/moderators) with any questions.\n\n# [PEP 703: Making the Global Interpreter Lock Optional](https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606)\n\n[PEPs](https://discuss.python.org/c/peps/19)\n\nYou have selected **0** posts.\n\n[select all](https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606)\n\n[cancel selecting](https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606)\n\n[Jan 2023](https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606/1 \"Jump to the first post\")\n\n1 / 130\n\n\nJan 2023\n\n\n[Oct 2024](https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606/131)\n\n## post by ambv on Jan 10, 2023\n\n[![](https://sea2.discourse-cdn.com/flex002/user_avatar/discuss.python.org/ambv/48/25884_2.png)](https://discuss.python.org/u/ambv)\n\n[Łukasz Langa](https://discuss.python.org/u/ambv)[ambv](https://discuss.python.org/u/ambv)[CPython core developer](https://discuss.python.org/g/committers)\n\n[Jan 2023](https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606 \"Post date\")\n\nHi ![:wave:](https://emoji.discourse-cdn.com/apple/wave.png?v=15)\n\nAs the sponsor of [@colesbury](https://discuss.python.org/u/colesbury)’s PEP, I’d like to invite you all to discuss the proposal to solve the biggest scalability limitation of CPython by making it possible to build a version of the interpreter which doesn’t use the Global Interpreter Lock.\n\nThe document is somewhat of a demanding read as it’s one of the top 10 longest PEPs. That was to be expected though as the problem goes back decades and requires nuance, trade-offs, and careful consideration of alternatives. Thanks in advance for your time reading the PEP and iterating on it with us.\n\nOur hope with this PEP is to get a definitive answer to the GIL question once and for all. We look forward to your feedback!\n\n– Sam Gross and Łukasz Langa\n\n# [Heading link](https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606\\#p-80646-see-the-latest-version-of-the-pep-1) See the latest version of the PEP\n\n( [python.org](http://python.org/) uses aggressive front-end caching so you might need to refresh the page your browser to see latest changes)\n\n- [A fast, free threading Python](https://discuss.python.org/t/a-fast-free-threading-python/27903/111)\n- [Is Free-Threading Our Only Option?](https://discuss.python.org/t/is-free-threading-our-only-option/91775/100)\n\n41.1k\nviews\n632\nlikes\n50+\nlinks\n48\nusers\n\n\n[![](https://sea2.discourse-cdn.com/flex002/user_avatar/discuss.python.org/colesbury/48/28031_2.png)18](https://discuss.python.org/u/colesbury \"colesbury\")\n\n[![](https://avatars.discourse-cdn.com/v4/letter/b/e9c0ed/48.png)11](https://discuss.python.org/u/barry-scott \"barry-scott\")\n\n[![](https://sea2.discourse-cdn.com/flex002/user_avatar/discuss.python.org/renejsum/48/2940_2.png)8](https://discuss.python.org/u/renejsum \"renejsum\")\n\n[![](https://sea2.discourse-cdn.com/flex002/user_avatar/discuss.python.org/ajoino/48/6907_2.png)6](https://discuss.python.org/u/ajoino \"ajoino\")\n\n[![](https://sea2.discourse-cdn.com/flex002/user_avatar/discuss.python.org/stonebig/48/2796_2.png)6](https://discuss.python.org/u/stonebig \"stonebig\")\n\nread\n37\nmin\n\n\nTop replies\n\n## post by ajoino on Jan 10, 2023\n\n## post by cirospaciari on Jan 10, 2023\n\n## post by ambv on Jan 10, 2023\n\n## post by barry-scott on Jan 10, 2023\n\n## post by h-vetinari on Jan 10, 2023\n\n## post by barry-scott on Jan 10, 2023\n\n## post by jeanas on Jan 10, 2023\n\n## post by methane on Jan 10, 2023\n\n## post by gregington on Jan 10, 2023\n\n## post by colesbury on Jan 11, 2023\n\n## post by colesbury on Jan 11, 2023\n\n## post by colesbury on Jan 11, 2023\n\n## post by petersuter on Jan 11, 2023\n\n## post by h-vetinari on Jan 11, 2023\n\n## post by encukou on Jan 11, 2023\n\n## post by ashbt on Jan 11, 2023\n\n## post by ashbt on Jan 11, 2023\n\n## post by mattip on Jan 11, 2023\n\n## post by ashbt on Jan 11, 2023\n\n## Load more posts below",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "twitter:description": "Hi 👋  As the sponsor of @colesbury’s PEP, I’d like to invite you all to discuss the proposal to solve the biggest scalability limitation of CPython by making it possible to build a version of the interpreter which doesn’t use the Global Interpreter Lock.  The document is somewhat of a demanding read as it’s one of the top 10 longest PEPs. That was to be expected though as the problem goes back decades and requires nuance, trade-offs, and careful consideration of alternatives. Thanks in adva...",
+        "language": "en",
+        "og:image": "https://us1.discourse-cdn.com/flex002/uploads/python1/original/1X/f93ff97c4f381b5e8add5a0c163b4ded29f20ed7.png",
+        "og:title": "PEP 703: Making the Global Interpreter Lock Optional - PEPs - Discussions on Python.org",
+        "og:ignore_canonical": "true",
+        "og:site_name": "Discussions on Python.org",
+        "twitter:title": "PEP 703: Making the Global Interpreter Lock Optional - PEPs - Discussions on Python.org",
+        "title": "PEP 703: Making the Global Interpreter Lock Optional - PEPs - Discussions on Python.org",
+        "viewport": "width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content",
+        "discourse/config/environment": "%7B%22modulePrefix%22%3A%22discourse%22%2C%22environment%22%3A%22production%22%2C%22rootURL%22%3A%22%22%2C%22locationType%22%3A%22history%22%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%2C%22EXTEND_PROTOTYPES%22%3Afalse%7D%2C%22APP%22%3A%7B%22name%22%3A%22discourse%22%2C%22version%22%3A%222026.10.0-latest%2060cbc8e4e4e52253d3fa2175b7f2431a38cb9487%22%7D%7D",
+        "og:article:section": "PEPs",
+        "ogDescription": "Hi 👋  As the sponsor of @colesbury’s PEP, I’d like to invite you all to discuss the proposal to solve the biggest scalability limitation of CPython by making it possible to build a version of the interpreter which doesn’t use the Global Interpreter Lock.  The document is somewhat of a demanding read as it’s one of the top 10 longest PEPs. That was to be expected though as the problem goes back decades and requires nuance, trade-offs, and careful consideration of alternatives. Thanks in adva...",
+        "discourse_current_homepage": "categories",
+        "ogTitle": "PEP 703: Making the Global Interpreter Lock Optional - PEPs - Discussions on Python.org",
+        "discourse-track-view-session-id": "EFCb8RuSRNkKmovfgSydsJhdGNZRNt0q",
+        "og:article:section:color": "0088CC",
+        "description": "Hi :wave: \nAs the sponsor of @colesbury’s PEP, I’d like to invite you all to discuss the proposal to solve the biggest scalability limitation of CPython by making it possible to build a version of the interpreter which d…",
+        "twitter:url": "https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606",
+        "article:published_time": "2023-01-10T16:08:09+00:00",
+        "og:url": "https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606",
+        "publishedTime": "2023-01-10T16:08:09+00:00",
+        "color-scheme": "light dark",
+        "twitter:card": "summary",
+        "fragment": "!",
+        "ogUrl": "https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606",
+        "discourse_theme_id": "2",
+        "twitter:image": "https://us1.discourse-cdn.com/flex002/uploads/python1/original/1X/f93ff97c4f381b5e8add5a0c163b4ded29f20ed7.png",
+        "og:description": "Hi 👋  As the sponsor of @colesbury’s PEP, I’d like to invite you all to discuss the proposal to solve the biggest scalability limitation of CPython by making it possible to build a version of the interpreter which doesn’t use the Global Interpreter Lock.  The document is somewhat of a demanding read as it’s one of the top 10 longest PEPs. That was to be expected though as the problem goes back decades and requires nuance, trade-offs, and careful consideration of alternatives. Thanks in adva...",
+        "og:type": "website",
+        "generator": "Discourse 2026.10.0-latest - https://github.com/discourse/discourse version 60cbc8e4e4e52253d3fa2175b7f2431a38cb9487",
+        "theme-color": [
+          "#fff",
+          "#111111"
+        ],
+        "ogImage": "https://us1.discourse-cdn.com/flex002/uploads/python1/original/1X/f93ff97c4f381b5e8add5a0c163b4ded29f20ed7.png",
+        "ogSiteName": "Discussions on Python.org",
+        "favicon": "https://us1.discourse-cdn.com/flex002/uploads/python1/optimized/1X/9997f0605d56c4bfecd63594f52f42cdafd6b06a_2_32x32.png",
+        "scrapeId": "01a142f2-42ec-771b-85ef-28faa35e8d2b",
+        "sourceURL": "https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606",
+        "url": "https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "cacheState": "miss",
+        "indexId": "55c2afb1-8d5b-4c5c-af57-c576d584ad7d",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 2899,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 2938
+    },
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474",
+      "final_url": "https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474",
+      "title": "A Steering Council notice about PEP 703 (Making the Global Interpreter Lock Optional in CPython) - Core Development - Discussions on Python.org",
+      "content": "[Skip to last reply](https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474/26) [Skip to top](https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474/1)\n\n[Skip to main content](https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474#main-container)\n\n​\n\n\nPlease read our [Community Guidelines](https://discuss.python.org/guidelines/) that are tailored to this space in addition to the Python Software Foundation Code of Conduct that we’re bound by.\n\nReach out to [@moderators](https://discuss.python.org/groups/moderators) with any questions.\n\n# [A Steering Council notice about PEP 703 (Making the Global Interpreter Lock Optional in CPython)](https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474)\n\n[Core Development](https://discuss.python.org/c/core-dev/23)\n\nYou have selected **0** posts.\n\n[select all](https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474)\n\n[cancel selecting](https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474)\n\n[Jul 2023](https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474/1 \"Jump to the first post\")\n\n1 / 26\n\n\nJul 2023\n\n\n[Aug 2023](https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474/26)\n\n## post by thomas on Jul 28, 2023\n\n[![](https://sea2.discourse-cdn.com/flex002/user_avatar/discuss.python.org/thomas/48/5492_2.png)](https://discuss.python.org/u/thomas)\n\n[Thomas Wouters](https://discuss.python.org/u/thomas)[thomas](https://discuss.python.org/u/thomas)\nSteering Council Member\n\n\n[Jul 2023](https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474 \"Post date\")\n\nPosting for the whole Steering Council, on the subject of [@colesbury](https://discuss.python.org/u/colesbury)’s [PEP 703 (Making the Global Interpreter Lock Optional in CPython)](https://peps.python.org/pep-0703/).\n\nThank you, everyone, for responding to the [poll on the no-GIL proposal](https://discuss.python.org/t/poll-feedback-to-the-sc-on-making-cpython-free-threaded-and-pep-703/28540). It’s clear that the overall sentiment is positive, both for the general idea and for PEP 703 specifically. The Steering Council is also largely positive on both. We intend to accept PEP 703, although we’re still working on the acceptance details.\n\nAs we’ve done a few times in the past, we want to communicate our intent to accept the PEP along with where our current thinking is on the details around acceptance.\n\nOur base assumptions are:\n\n- Long-term (probably 5+ years), the no-GIL build should be the only build. We do not want to create a permanent split between with-GIL and no-GIL builds (and extension modules).\n- We want to be very careful with backward compatibility. We do not want another Python 3 situation, so any changes in third-party code needed to accommodate no-GIL builds should just work in with-GIL builds (although backward compatibility with older Python versions will still need to be addressed). This is not Python 4. We are still considering the requirements we want to place on ABI compatibility and other details for the two builds and the effect on backward compatibility.\n- Before we commit to switching entirely to the no-GIL build, we need to see community support for it. We can’t just flip the default and expect the community to figure out what work they need to do to support it. We, the core devs, need to gain experience with the new build mode and all it entails. We will probably need to figure out new C APIs and Python APIs as we sort out thread safety in existing code. We also need to bring along the rest of the Python community as we gain those insights and make sure the changes we want to make, and the changes we want them to make, are palatable.\n- We want to be able to change our mind if it turns out, any time before we make no-GIL the default, that it’s just going to be too disruptive for too little gain. Such a decision could mean rolling back all of the work, so until we’re certain we want to make no-GIL the default, code specific to no-GIL should be somewhat identifiable.\n\nAs such, what we currently see as the way forward is three stages:\n\n- Short term, we add the no-GIL build as an experimental build mode, presumably in 3.13 (if it slips to 3.14, that is not a problem). We want the build mode to be experimental to make it clear that while the core devs support that build mode, we can’t expect the community to support it outright. We need time to figure out what we need to do, at the very least in terms of API design and packaging and distribution, to enable the community to support it. We also want to discourage distributors from shipping the experimental no-GIL build as a default interpreter.\n- Mid-term, after we have confidence that there is enough community support to make production use of no-GIL viable, we make the no-GIL build supported but not the default (yet), and set a target date/Python version for making it the default. The timing is going to depend a lot on, for example, how backward compatible the API changes end up being (e.g., what to do about the stable ABI), and how much work the community thinks they still need to do. We expect this to take at least a year or two, possibly more. Once we declare it supported we expect some distributors may start shipping no-GIL by default, although it will probably vary greatly by how many other Python packages support no-GIL at that point.\n- Long-term, we want no-GIL to be the default, and to remove any vestiges of the GIL (without unnecessarily breaking backward compatibility). We don’t want to wait too long with this, because having two common build modes may be a heavy burden on the community (as, for example, it can double test resources and debugging scenarios), but we can’t rush it either. We think it may take as much as five years to get to this stage.\n\nThroughout the process we (the core devs, not just the SC) will need to re-evaluate the progress and the suggested timelines. We don’t want this to turn into another ten year backward compatibility struggle, and we want to be able to call off PEP 703 and find another solution if it looks to become problematic, and so we need to regularly check that the continued work is worth it.\n\nWe hope that this gives some clarity into the future of the PEP while we work on the exact acceptance details. The SC will work to finalise the acceptance over the coming weeks.\n\n- [PEP 703: Making the Global Interpreter Lock Optional](https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606/122)\n- [PEP 703 (Making the Global Interpreter Lock Optional in CPython) acceptance](https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional-in-cpython-acceptance/37075)\n- [Status of PEP 703 Making the Global Interpreter Lock Optional in CPython): is it accepted or a draft?](https://discuss.python.org/t/status-of-pep-703-making-the-global-interpreter-lock-optional-in-cpython-is-it-accepted-or-a-draft/35635)\n- [June/July 2023 Steering Council Update](https://discuss.python.org/t/june-july-2023-steering-council-update/32542)\n- [PEP 779: Criteria for supported status for free-threaded Python](https://discuss.python.org/t/pep-779-criteria-for-supported-status-for-free-threaded-python/84319/15)\n\n97.4k\nviews\n327\nlikes\n12\nlinks\n20\nusers\n\n\n[![](https://sea2.discourse-cdn.com/flex002/user_avatar/discuss.python.org/davidism/48/3295_2.png)3](https://discuss.python.org/u/davidism \"davidism\")\n\n[![](https://sea2.discourse-cdn.com/flex002/user_avatar/discuss.python.org/jamestwebber/48/12799_2.png)2](https://discuss.python.org/u/jamestwebber \"jamestwebber\")\n\n[![](https://sea2.discourse-cdn.com/flex002/user_avatar/discuss.python.org/itamaro/48/20137_2.png)2](https://discuss.python.org/u/itamaro \"itamaro\")\n\n[![](https://sea2.discourse-cdn.com/flex002/user_avatar/discuss.python.org/rednafi/48/2934_2.png)2](https://discuss.python.org/u/rednafi \"rednafi\")\n\n[![](https://sea2.discourse-cdn.com/flex002/user_avatar/discuss.python.org/sunmy2019/48/11935_2.png)](https://discuss.python.org/u/sunmy2019 \"sunmy2019\")\n\nread\n5\nmin\n\n\nTop replies\n\n## post by bjkeefe on Jul 28, 2023\n\n## post by miraculixx on Jul 28, 2023\n\n## post by Eclips4 on Jul 28, 2023\n\n## post by diegor on Jul 28, 2023\n\n## post by itamaro on Jul 28, 2023\n\n## post by jamestwebber on Jul 28, 2023\n\n## post by ofek on Jul 28, 2023\n\n## post by Tinche on Jul 28, 2023\n\n## post by davidism on Jul 28, 2023\n\n## post by rednafi on Jul 28, 2023\n\n## post by rednafi on Jul 28, 2023\n\n## post by davidhewitt on Jul 29, 2023\n\n## post by itamaro on Jul 29, 2023\n\n## post by hugovk on Jul 29, 2023\n\n## post by sunmy2019 on Jul 29, 2023\n\n## post by abdnafees on Jul 29, 2023\n\n## post by jamestwebber on Jul 29, 2023\n\n## post by pradyunsg on Jul 31, 2023\n\n## post by brettcannon on Jul 31, 2023\n\n## Load more posts below",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "ogDescription": "Posting for the whole Steering Council, on the subject of @colesbury’s PEP 703 (Making the Global Interpreter Lock Optional in CPython).  Thank you, everyone, for responding to the poll on the no-GIL proposal. It’s clear that the overall sentiment is positive, both for the general idea and for PEP 703 specifically. The Steering Council is also largely positive on both. We intend to accept PEP 703, although we’re still working on the acceptance details.  As we’ve done a few times in the past, we ...",
+        "og:article:section": "Core Development",
+        "twitter:image": "https://us1.discourse-cdn.com/flex002/uploads/python1/original/1X/f93ff97c4f381b5e8add5a0c163b4ded29f20ed7.png",
+        "article:published_time": "2023-07-28T20:44:43+00:00",
+        "discourse/config/environment": "%7B%22modulePrefix%22%3A%22discourse%22%2C%22environment%22%3A%22production%22%2C%22rootURL%22%3A%22%22%2C%22locationType%22%3A%22history%22%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%2C%22EXTEND_PROTOTYPES%22%3Afalse%7D%2C%22APP%22%3A%7B%22name%22%3A%22discourse%22%2C%22version%22%3A%222026.10.0-latest%2060cbc8e4e4e52253d3fa2175b7f2431a38cb9487%22%7D%7D",
+        "og:title": "A Steering Council notice about PEP 703 (Making the Global Interpreter Lock Optional in CPython) - Core Development - Discussions on Python.org",
+        "og:description": "Posting for the whole Steering Council, on the subject of @colesbury’s PEP 703 (Making the Global Interpreter Lock Optional in CPython).  Thank you, everyone, for responding to the poll on the no-GIL proposal. It’s clear that the overall sentiment is positive, both for the general idea and for PEP 703 specifically. The Steering Council is also largely positive on both. We intend to accept PEP 703, although we’re still working on the acceptance details.  As we’ve done a few times in the past, we ...",
+        "discourse-track-view-session-id": "Yync9zziNKo6vE3T1DMIEVnYVMUkG1n0",
+        "og:ignore_canonical": "true",
+        "og:url": "https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474",
+        "ogUrl": "https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474",
+        "og:type": "website",
+        "publishedTime": "2023-07-28T20:44:43+00:00",
+        "fragment": "!",
+        "twitter:description": "Posting for the whole Steering Council, on the subject of @colesbury’s PEP 703 (Making the Global Interpreter Lock Optional in CPython).  Thank you, everyone, for responding to the poll on the no-GIL proposal. It’s clear that the overall sentiment is positive, both for the general idea and for PEP 703 specifically. The Steering Council is also largely positive on both. We intend to accept PEP 703, although we’re still working on the acceptance details.  As we’ve done a few times in the past, we ...",
+        "ogImage": "https://us1.discourse-cdn.com/flex002/uploads/python1/original/1X/f93ff97c4f381b5e8add5a0c163b4ded29f20ed7.png",
+        "color-scheme": "light dark",
+        "og:image": "https://us1.discourse-cdn.com/flex002/uploads/python1/original/1X/f93ff97c4f381b5e8add5a0c163b4ded29f20ed7.png",
+        "discourse_current_homepage": "categories",
+        "og:article:section:color": "25AAE2",
+        "viewport": "width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content",
+        "ogSiteName": "Discussions on Python.org",
+        "ogTitle": "A Steering Council notice about PEP 703 (Making the Global Interpreter Lock Optional in CPython) - Core Development - Discussions on Python.org",
+        "theme-color": [
+          "#fff",
+          "#111111"
+        ],
+        "og:site_name": "Discussions on Python.org",
+        "language": "en",
+        "twitter:title": "A Steering Council notice about PEP 703 (Making the Global Interpreter Lock Optional in CPython) - Core Development - Discussions on Python.org",
+        "title": "A Steering Council notice about PEP 703 (Making the Global Interpreter Lock Optional in CPython) - Core Development - Discussions on Python.org",
+        "twitter:card": "summary",
+        "generator": "Discourse 2026.10.0-latest - https://github.com/discourse/discourse version 60cbc8e4e4e52253d3fa2175b7f2431a38cb9487",
+        "description": "Posting for the whole Steering Council, on the subject of @colesbury’s PEP 703 (Making the Global Interpreter Lock Optional in CPython). \nThank you, everyone, for responding to the poll on the no-GIL proposal. It’s clear…",
+        "discourse_theme_id": "2",
+        "twitter:url": "https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474",
+        "favicon": "https://us1.discourse-cdn.com/flex002/uploads/python1/optimized/1X/9997f0605d56c4bfecd63594f52f42cdafd6b06a_2_32x32.png",
+        "scrapeId": "01a142f2-4dd3-7109-8b35-935f087fd3fa",
+        "sourceURL": "https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474",
+        "url": "https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "cacheState": "miss",
+        "indexId": "1fcd3beb-0f36-49fb-8589-c1554771e335",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 3399,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 3400
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 17209,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 0
+  }
+}

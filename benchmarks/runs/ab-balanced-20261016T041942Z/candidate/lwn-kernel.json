@@ -1,0 +1,515 @@
+{
+  "id": "lwn-kernel",
+  "executed_at": "2026-10-16T04:23:01.820317+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.3.0",
+  "provider_query": "LWN.net article explaining RCU in the Linux kernel",
+  "answer": "Canonical LWN explanations of Linux-kernel RCU (read-copy-update), mostly by Paul McKenney:\n\n1. **What is RCU, Fundamentally?** (Dec 2007) — First of the classic three-part series: publish–subscribe, waiting for pre-existing readers, and keeping multiple versions.  \n   https://lwn.net/Articles/262464/\n\n2. **What is RCU? Part 2: Usage** (Dec 2007) — Reader–writer lock replacement, deadlock immunity, latency, and common usage patterns.  \n   https://lwn.net/Articles/263130/\n\n3. **RCU part 3: the RCU API** (Jan 2008) — Family of wait-to-finish and publish/subscribe APIs (classic, BH, sched, realtime, SRCU).  \n   https://lwn.net/Articles/264090/\n\n4. **Hierarchical RCU** (Nov 2008) — How classic RCU scales with a hierarchy of quiescent-state tracking.  \n   https://lwn.net/Articles/305782/\n\n5. **Requirements for RCU part 1: the fundamentals** (Jul 2015) — Grace-period and publish–subscribe guarantees that define RCU.  \n   https://lwn.net/Articles/652156/\n\n6. **The RCU API, 2019 edition** (Jan 2019) — Flavor consolidation (BH, preempt, sched) and API changes since 2014.  \n   https://lwn.net/Articles/777036/\n\n7. **The RCU API, 2024 edition** (Sep 2024) — Recent API changes (including lazy RCU grace periods); points back to the classic series.  \n   https://lwn.net/Articles/988638/\n\n8. **RCU update 2024 background material** (Sep 2024) — Companion to the 2024 API article: purpose, read-side constraints, and list APIs.  \n   https://lwn.net/Articles/988641/\n\nStart with items 1–3 for the conceptual model; use 6–8 for the current kernel API.",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://lwn.net/Articles/1081009",
+      "url": "https://lwn.net/Articles/1081009",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "https://lwn.net/Articles/323929/",
+      "url": "https://lwn.net/Articles/323929",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://lwn.net/Articles/263130/",
+      "url": "https://lwn.net/Articles/263130",
+      "snippet": "2. What is RCU? Part 2: Usage (Dec 2007) — Reader–writer lock replacement, deadlock immunity, latency, and common usage patterns.",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r4",
+      "title": "https://lwn.net/Articles/652156",
+      "url": "https://lwn.net/Articles/652156",
+      "snippet": "5. Requirements for RCU part 1: the fundamentals (Jul 2015) — Grace-period and publish–subscribe guarantees that define RCU.",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r5",
+      "title": "https://lwn.net/Articles/777036/",
+      "url": "https://lwn.net/Articles/777036",
+      "snippet": "6. The RCU API, 2019 edition (Jan 2019) — Flavor consolidation (BH, preempt, sched) and API changes since 2014.",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r6",
+      "title": "https://lwn.net/Articles/573424",
+      "url": "https://lwn.net/Articles/573424",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://static.lwn.net/kerneldoc/RCU/index.html",
+      "url": "https://static.lwn.net/kerneldoc/RCU/index.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "https://lwn.net/ml/all/3bb52262-b183-437a-a7ba-9e5f3c32f355@paulmck-laptop/",
+      "url": "https://lwn.net/ml/all/3bb52262-b183-437a-a7ba-9e5f3c32f355@paulmck-laptop",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://lwn.net/Articles/1081009",
+      "url": "https://lwn.net/Articles/1081009",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "https://lwn.net/Articles/323929/",
+      "url": "https://lwn.net/Articles/323929",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://lwn.net/Articles/263130/",
+      "url": "https://lwn.net/Articles/263130",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "https://lwn.net/Articles/652156",
+      "url": "https://lwn.net/Articles/652156",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://lwn.net/Articles/777036/",
+      "url": "https://lwn.net/Articles/777036",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "https://lwn.net/Articles/573424",
+      "url": "https://lwn.net/Articles/573424",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://static.lwn.net/kerneldoc/RCU/index.html",
+      "url": "https://static.lwn.net/kerneldoc/RCU/index.html",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "https://lwn.net/ml/all/3bb52262-b183-437a-a7ba-9e5f3c32f355@paulmck-laptop/",
+      "url": "https://lwn.net/ml/all/3bb52262-b183-437a-a7ba-9e5f3c32f355@paulmck-laptop",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://lwn.net/Articles/988638/",
+      "url": "https://lwn.net/Articles/988638",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://lwn.net/Articles/653183",
+      "url": "https://lwn.net/Articles/653183",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://lwn.net/Articles/264090",
+      "url": "https://lwn.net/Articles/264090",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://lwn.net/Articles/653711/bigpage",
+      "url": "https://lwn.net/Articles/653711/bigpage",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://lwn.net/Articles/262464/",
+      "url": "https://lwn.net/Articles/262464",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://lwn.net/Articles/305782",
+      "url": "https://lwn.net/Articles/305782",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://lwn.net/Articles/1100449/",
+      "url": "https://lwn.net/Articles/1100449",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://lwn.net/Articles/418853/",
+      "url": "https://lwn.net/Articles/418853",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://lwn.net/Articles/988641/",
+      "url": "https://lwn.net/Articles/988641",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary_site_restricted",
+        "latency_ms": 10589,
+        "detail": "model=grok-4.7",
+        "usage": {
+          "input_tokens": 17444,
+          "input_tokens_details": {
+            "cached_tokens": 4352
+          },
+          "output_tokens": 597,
+          "output_tokens_details": {
+            "reasoning_tokens": 73
+          },
+          "total_tokens": 18041,
+          "num_sources_used": 0,
+          "num_server_side_tools_used": 2,
+          "cost_in_usd_ticks": 208602800,
+          "server_side_tool_usage_details": {
+            "web_search_calls": 2,
+            "x_search_calls": 0,
+            "x_posts_fetched": 0,
+            "x_users_fetched": 0,
+            "code_interpreter_calls": 0,
+            "file_search_calls": 0,
+            "mcp_calls": 0,
+            "document_search_calls": 0,
+            "image_generation_calls": 0
+          },
+          "context_details": {
+            "input_tokens": 15173,
+            "output_tokens": 493
+          }
+        }
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null,
+        "usage": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced"
+    ]
+  },
+  "coverage": {
+    "status": "sufficient",
+    "requirements": [
+      {
+        "kind": "site",
+        "target": "LWN.net",
+        "satisfied": true,
+        "detail": "15 content page(s), e.g. https://lwn.net/Articles/1081009"
+      }
+    ]
+  },
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.1",
+      "status": "ok",
+      "url": "https://lwn.net/Articles/1081009",
+      "final_url": "https://lwn.net/Articles/1081009",
+      "title": "Faster RCUs and lockless memory allocation [LWN.net]",
+      "content": "[![LWN.net Logo](https://static.lwn.net/images/logo/barepenguin-70.webp)LWN\\\\\n\\\\\n.netNews from the source](https://lwn.net/) [![LWN](https://static.lwn.net/images/lcorner-ss.png)](https://lwn.net/)\n\n- [**Content**](https://lwn.net/Articles/1081009/#t)\n  - [Weekly Edition](https://lwn.net/current/)\n  - [Archives](https://lwn.net/Archives/)\n  - [Search](https://lwn.net/Search/)\n  - [Kernel](https://lwn.net/Kernel/)\n  - [Security](https://lwn.net/Security/)\n  - [Events calendar](https://lwn.net/Calendar/)\n  - [Unread comments](https://lwn.net/Comments/unread)\n  - * * *\n\n  - [LWN FAQ](https://lwn.net/op/FAQ.lwn)\n  - [Write for us](https://lwn.net/op/AuthorGuide.lwn)\n- [**Edition**](https://lwn.net/Articles/1081009/#t)\n  - [Return to the Front page](https://lwn.net/Articles/1080836/)\n\n**User:****Password:** \\|\n\\|\n\n\n[**Log in**](https://lwn.net/Login/) /\n[**Subscribe**](https://lwn.net/subscribe/) /\n[**Register**](https://lwn.net/Login/newaccount)\n\n# Faster RCUs and lockless memory allocation\n\nBy **Daroc Alden**\n\nJuly 7, 2026\n\n* * *\n\n[LSFMM+BPF](https://lwn.net/Articles/lsfmmbpf2026/)\n\nPuranjay Mohan shared some of the\n[work](https://lwn.net/ml/all/20260417231203.785172-1-puranjay@kernel.org/) he's been doing recently on improving the\nperformance of read-copy-update (RCU) at the 2026\n[Linux\\\\\nStorage, Filesystem, Memory-Management, and BPF Summit](https://events.linuxfoundation.org/lsfmmbpf/); his talk would have\nbeen nice context to have earlier in the day when Harry Yoo and Alexei\nStarovoitov led a session about the\n[new `kmalloc_nolock()` function](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=af92793e52c3) that\nallows for lockless allocation from any kernel context, and which interacts with\nthe RCU subsystem to allow that. This article therefore covers the two sessions\ntogether and in the reverse order, to provide that missing context.\n\n#### Faster RCU periods\n\nThe idea for Mohan's performance work began, as so many RCU-related ideas do, while\nchatting with Paul McKenney.\nRCU works to protect data behind a pointer by having\nwriters create a new copy with any changes they wish to make, and then\natomically swapping the pointer to point to the new copy. Readers may still be\nreading the old version, so the writer cannot free the old version until it can\nbe sure that all of the readers have moved on.\n\n[![[Puranjay Mohan]](https://static.lwn.net/images/2026/puranjay-mohan-lsfmmbpf-small.png)](https://lwn.net/Articles/1081033)\n\nThat happens whenever the kernel reaches a \"quiescent state\": every CPU has gone\nthrough a context switch, idle, return to user space, or other transition that\nensures no reader can still exist. The RCU subsystem counts these events. When\nthe old version of an RCU-protected resource needs to be freed, the subsystem\nwaits until the counter is high enough (two more than the value of the\ncounter when the new copy was swapped in,\nso that at least one full period is guaranteed to have elapsed)\nbefore freeing the memory. This\nwait is called the RCU grace period. The work that is waiting on a grace period\nis managed using a linked list of callbacks.\n\nBut there are two different kinds of grace period. A call to\n[`synchronize_rcu()`](https://elixir.bootlin.com/linux/v7.1.2/source/kernel/rcu/tree.c#L3311) passively waits for CPUs to report that they have\nreached a quiescent state, which can take tens of milliseconds. A call to\n[`synchronize_rcu_expedited()`](https://elixir.bootlin.com/linux/v7.1.2/source/kernel/rcu/tree_exp.h#L904) sends inter-processor interrupts (IPIs) to\nforce CPUs to reach and report quiescent states faster than normal. The second kind of\ngrace period is, naturally, used in places where the kernel does not want to\nwait as long.\n\nThe problem is that these mechanisms run concurrently and don't know about each\nother. A callback waiting for the end of a normal RCU grace period is not\nnecessarily run when an expedited grace period ends, and vice versa. The idea\nthat came up in Mohan's discussion with McKenney is to fix this — allow normal\nRCU callbacks to be executed as soon as an expedited grace period ends.\nExpedited grace periods happen frequently in some workloads, especially when the\nsystem is under memory pressure, so this change could result in RCU-protected resources\nbeing freed much more quickly.\n\nThe fix is conceptually simple: have the callback list track both the\nnon-expedited grace-period number and the expedited grace-period number, and\nconsider callbacks eligible to run as soon as either is high enough. Alas, the\ndetails are a bit more complicated, especially because RCU is a\nperformance-critical part of the kernel.\nThere were three internal kernel functions —\n`rcu_exp_wait_wake()`, `rcu_pending()`, and `rcu_core()` —\nthat needed adjustments to their logic to handle the change.\n\nOnce it was working,\nMohan ran a series of benchmarks to evaluate what the actual impact of the\nchange would be. He set up fifteen threads to create and destroy sockets in a\nloop, which use RCU to free the memory. Other threads deliberately triggered\nexpedited grace periods. Then he measured how the rate of expedited grace\nperiods impacted the memory usage and latency of socket destruction. Overall, he\nsaw 33%-41% less allocated memory (since memory was being freed\nearlier), across all tested expedited grace\nperiod rates. The latency of `synchronize_rcu()` calls also went down,\nalthough in a way that was more sensitive to the actual rate of expedited grace\nperiods.\n\nYoo asked whether it made sense to ask for an expedited grace period\neven when there is no particular need for one, just to reclaim memory. Mohan\nagreed that his patch set would make that possible, but Starovoitov\nobjected that general best practice is to not use expedited grace periods unless\nthey're really needed, since IPIs are expensive.\nDuring an out-of-memory situation, it is often too late\nfor an expedited grace period to make a difference. Jakub Sitnicki suggested\nthat an expedited grace period could be used as part of direct reclaim;\nStarovoitov directed people to ask McKenney and the memory-management folks\nabout the consequences.\n\nAnother member of the audience asked whether Mohan knew how often expedited\ngrace periods were triggered in real workloads. Mohan didn't have production\ndata for that, but expected it to vary significantly depending on the workload,\nand particularly on whether any BPF programs perform \"map-in-map\" updates, which\nconsistently trigger expedited grace periods. That last question marked the end\nof the session.\n\n#### Lock-free memory allocation\n\nIn the past, programs that used BPF maps were required to preallocate the memory\nfor those maps, Yoo explained as he opened the session on\n`kmalloc_nolock()`.\nThis let the programs access the maps without needing to take the\nlocks needed by the normal memory allocator, but it also wasted memory in the\ncase that the program doesn't fill the map. The BPF allocator was\n[added to the kernel](https://lwn.net/Articles/883454/) to allocate that memory on demand, but it introduced its\nown challenges. For one thing, inventing a new memory allocator is not fun. It\nintroduces a maintenance burden that the BPF subsystem could do without. As\noriginally designed, the BPF allocator also couldn't be used outside the BPF\nsubsystem. The goal of the recent work on `kmalloc_nolock()` is to remove\nthe BPF allocator without bringing back preallocation of BPF maps.\n\nThe tricky part is that there are both sleepable and non-sleepable BPF programs\nthat can access this memory. Non-sleepable programs can even access it\nfrom inside RCU critical sections. So, to provide a viable replacement for the BPF\nallocator, any solution needs to support allocating memory from both sleepable\nand non-sleepable contexts and potentially having that memory accessed from the\nother kind of context. It also needs to support having that memory be\nimmediately freed, or even recycled using the\n[typesafety-by-RCU mechanism](https://www.kernel.org/doc/html/v6.16/RCU/rculist_nulls.html).\n\n[![[Harry Yoo]](https://static.lwn.net/images/2026/harry-yoo-lsfmmbpf-small.png)](https://lwn.net/Articles/1081035)\n\nAfter an RCU writer has swapped the pointer to an RCU-protected object,\nwhile it is waiting to be able to\nfree the old version, there is the possibility that it will need to allocate\nanother object of the same type. Normally, it would need to create a new\nallocation, since existing readers could still be referring to the old object.\nIn some cases, however, it can be safe to reuse the existing allocation, even\nthough readers may still be accessing it. Because using the allocation for a\ndifferent type of object could lead to undefined behavior, this is only safe\nwhen any readers will expect the object to be of the exact same type. That it\nwill be the same type, and not just an allocation of the same size, is\nguaranteed by the RCU subsystem, hence the name \"typesafety by RCU\".\n\nOne place that this technique is used is in BPF hashmaps. In the\nkernel, almost all hashmaps use linked lists for hash buckets, where each element in the\nlinked list contains a copy of the key and some associated data. The actual\nstructure definition is more complicated, but it can be thought of as:\n\n```\n    struct node {\n        long key;\n        void *data;\n        struct node *next;\n    };\n```\n\nWhen removing an element\nfrom a hash bucket, the writer knows that any readers will need to check whether\nthe key stored in the element is the one they're interested in.\nTherefore, after the object has been unlinked from the hash bucket, the\nwriter can atomically change the key to something else, then update the data,\nbefore finally adding the object back to the appropriate bucket of the hashmap.\nReaders need to load the data pointer, followed by the key, and then\nvalidate that the key matches the object they wanted before using the data\npointer. Since the writer updates\nthe key first and the reader fetches the data pointer first, as long as\nappropriate memory ordering is used, the reader never reads incorrect data. They\ncan read incorrect next pointers, however, which sends them traversing the wrong\nhash bucket. Therefore, each hash bucket ends with a structure saying which\nbucket this is the end of; if the reader reaches the end marker for a different\nbucket, it knows that it ran into this case, and needs to re-scan the correct\nbucket.\nThis whole careful dance avoids needing to\nwait for the object to be returned to the kernel's general memory pool, reducing\nlatency, memory churn, and memory usage.\n\nOne audience member asked why the allocator would need to support memory being freed\nimmediately. Starovoitov explained that some BPF iterators and helper functions\ncan do that under some circumstances. Yoo's slides had included a mention of a\n`kfree_nolock()` to accompany `kmalloc_nolock()`.\nAmery Hung pointed out that it is already possible to use `kfree()` in\nthese contexts, so there was probably no need for a separate\n`kfree_nolock()`. Yoo explained that the separate function is needed to\nsupport typesafety-by-RCU's caching, which is important for performance.\n\nStarovoitov elaborated by saying that \"back in the tracing days\" people\nwould add elements to BPF maps and then remove them within nanoseconds. That was\nan especially common pattern for latency profiling — adding and removing a\ntimestamp from a map. Freeing them using `free_rcu()` would go through a\nfull RCU cycle, potentially much longer than the object had been needed in the\nfirst place. Using typesafety-by-RCU avoids that overhead, but\nthe exact mechanism used to recycle freed memory\ndoesn't really matter as long as there is some way to do this instant reuse,\nStarovoitov said.\n\nThat prompted a digression about how this interacted with having different\nCPUs running BPF programs; in short, there's a potential for BPF programs to\nhave race-condition-related correctness bugs here, but not in a way that impacts\nthe kernel.\n\nEventually, Yoo brought the topic back to `kmalloc_nolock()` and\nacknowledged that there would probably also need to be a\n`kfree_rcu_nolock()` to handle some cases. Starovoitov then asked about\nhandling failure: `kmalloc_nolock()` succeeds \"pretty much all of the\ntime\", but sometimes there is just no memory that is available without taking\na lock. Yoo said that falling back to the buddy allocator and asking for a new\nslab might be a reasonable approach, but Starovoitov noted that that too can\nfail. He asked whether there was any way to handle failure in that case.\n\nAnother round of discussion eventually produced a design that should be more\nrobust to allocation failures, and support the ability to attach destructors to\nobjects, but that was not able to completely avoid the possibility of allocation\nfailure. Nevertheless, Starovoitov was pleased with the discussion, saying:\n\"I'm glad we talked it through.\" The new design will, presumably, be a\ngreat improvement over the existing allocator all around.\n\n| Index entries for this article |\n| --- |\n| [Kernel](https://lwn.net/Kernel/Index) | [Read-copy-update](https://lwn.net/Kernel/Index#Read-copy-update) |\n| [Conference](https://lwn.net/Archives/ConferenceIndex/) | [Storage, Filesystem, Memory-Management and BPF Summit/2026](https://lwn.net/Archives/ConferenceIndex/#Storage_Filesystem_Memory-Management_and_BPF_Summit-2026) |\n\n* * *\n\nto post comments\n\n\nCopyright © 2026, Eklektix, Inc.\n\nThis article may be redistributed under the terms of the\n[Creative\\\\\nCommons CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/) license\n\nComments and public postings are copyrighted by their creators.\n\nLinux is a registered trademark of Linus Torvalds",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "title": "Faster RCUs and lockless memory allocation [LWN.net]",
+        "robots": "noai, noimageai",
+        "og:type": "article",
+        "viewport": "width=device-width, initial-scale=1",
+        "ogDescription": " Puranjay Mohan shared some of the  work he's been doing recently on improving the performance  [...]",
+        "og:title": "Faster RCUs and lockless memory allocation",
+        "og:site_name": "LWN.net",
+        "og:description": " Puranjay Mohan shared some of the  work he's been doing recently on improving the performance  [...]",
+        "ogTitle": "Faster RCUs and lockless memory allocation",
+        "ogSiteName": "LWN.net",
+        "language": "en",
+        "favicon": "https://static.lwn.net/images/favicon.png",
+        "scrapeId": "01a142f3-2595-71cd-bda6-2d63af75a249",
+        "sourceURL": "https://lwn.net/Articles/1081009",
+        "url": "https://lwn.net/Articles/1081009/",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "cacheState": "miss",
+        "indexId": "9b2aa8f6-2872-41ed-87fc-462afb67500a",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 992,
+            "detail": null,
+            "usage": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 992,
+      "thread": null
+    },
+    {
+      "schema_version": "1.1",
+      "status": "ok",
+      "url": "https://lwn.net/Articles/323929",
+      "final_url": "https://lwn.net/Articles/323929",
+      "title": "RCU: The Bloatwatch Edition [LWN.net]",
+      "content": "[![LWN.net Logo](https://static.lwn.net/images/logo/barepenguin-70.webp)LWN\\\\\n\\\\\n.netNews from the source](https://lwn.net/) [![LWN](https://static.lwn.net/images/lcorner-ss.png)](https://lwn.net/)\n\n- [**Content**](https://lwn.net/Articles/323929/#t)\n  - [Weekly Edition](https://lwn.net/current/)\n  - [Archives](https://lwn.net/Archives/)\n  - [Search](https://lwn.net/Search/)\n  - [Kernel](https://lwn.net/Kernel/)\n  - [Security](https://lwn.net/Security/)\n  - [Events calendar](https://lwn.net/Calendar/)\n  - [Unread comments](https://lwn.net/Comments/unread)\n  - * * *\n\n  - [LWN FAQ](https://lwn.net/op/FAQ.lwn)\n  - [Write for us](https://lwn.net/op/AuthorGuide.lwn)\n- [**Edition**](https://lwn.net/Articles/323929/#t)\n  - [Return to the Kernel page](https://lwn.net/Articles/322913/)\n\n**User:****Password:** \\|\n\\|\n\n\n[**Log in**](https://lwn.net/Login/) /\n[**Subscribe**](https://lwn.net/subscribe/) /\n[**Register**](https://lwn.net/Login/newaccount)\n\n# RCU: The Bloatwatch Edition\n\nMarch 17, 2009\n\nThis article was contributed by Paul McKenney\n\n### Introduction\n\nRead-copy update (RCU) is a synchronization mechanism that was added to\nthe Linux kernel in October of 2002.\nRCU improves scalability\nby allowing readers to execute concurrently with writers.\nIn contrast, conventional locking primitives require that readers\nwait for ongoing writers and vice versa.\nRCU ensures read coherence by\nmaintaining multiple versions of data structures and ensuring that they are not\nfreed up until all pre-existing read-side critical sections complete.\nRCU relies on efficient and scalable mechanisms for publishing\nand reading new versions of an object, and also for deferring the collection\nof old versions.\nThese mechanisms distribute the work among read and\nupdate paths in such a way as to make read paths extremely fast. In some\ncases (non-preemptable kernels), RCU's read-side primitives have zero\noverhead.\nRCU updates can be expensive, so RCU is in general best-suited to\nread-mostly workloads.\n\nAlthough Classic RCU's memory footprint has been acceptable,\n[hierarchical RCU](http://lwn.net/Articles/305782/)\nhas a memory footprint that is considerably larger.\nI was surprised to find that this additional memory consumption\ndid not greatly concern the embedded Linux people I talked to,\nbut then again,\nI certainly do not know everyone in the embedded Linux community,\nand the complexity of both\n[hierarchical RCU](http://lwn.net/Articles/305782/),\n[preemptable RCU](http://lwn.net/Articles/253651/),\nand\n[the dynticks interface](http://lwn.net/Articles/279077/)\nmade the thought of a near-minimal kernel-capable RCU with a classic RCU\nAPI more interesting.\nIn addition, a recent [show of hands](http://paulmck.livejournal.com/2280.html) at [linux.conf.au](http://linux.conf.au/)\nindicated that there is still interest in running Linux on small-memory\nsingle-CPU systems.\nDiscussions with Josh Triplett identified an attractive optimization\nfor the uniprocessor case, and so\n“RCU: The Bloatwatch Edition” was born.\n\nContents:\n\n1. [Review of RCU Fundamentals](https://lwn.net/Articles/323929/#Review%20of%20RCU%20Fundamentals)\n2. [Design of Tiny RCU](https://lwn.net/Articles/323929/#Design%20of%20Tiny%20RCU)\n3. [Tiny-RCU Code Walkthrough](https://lwn.net/Articles/323929/#Tiny-RCU%20Code%20Walkthrough)\n4. [Testing](https://lwn.net/Articles/323929/#Testing)\n5. [Memory Footprint](https://lwn.net/Articles/323929/#Memory%20Footprint)\n\nThese sections are followed by\n[concluding remarks](https://lwn.net/Articles/323929/#Conclusion) and the\n[answers to the Quick Quizzes](https://lwn.net/Articles/323929/#Answers%20to%20Quick%20Quizzes).\n\n### Review of RCU Fundamentals\n\nThis section is quite similar to its counterpart in the\ndescription of\n[hierarchical RCU](http://lwn.net/Articles/305782).\nPeople familiar with RCU semantics may wish to proceed directly to the\n[next section](https://lwn.net/Articles/323929/#Design%20of%20Tiny%20RCU).\n\nIn its most basic form, RCU is a way of waiting for things to finish.\nOf course, there are a great many other ways of waiting for things to\nfinish, including reference counts, reader-writer locks, hashed locks,\nevents, and so on.\nThe great advantage of RCU is that it can wait for each of\n(say) 20,000 different things without having to explicitly\ntrack each and every one of them, and without having to worry about\nthe performance degradation, scalability limitations, complex deadlock\nscenarios, and memory-leak hazards that are inherent in schemes\nusing explicit tracking.\n\nIn RCU's case, the things waited on are called\n\"RCU read-side critical sections\".\nAn RCU read-side critical section starts with an\n`rcu_read_lock()` primitive, and ends with a corresponding\n`rcu_read_unlock()` primitive.\nRCU read-side critical sections can be nested, and may contain pretty\nmuch any code, as long as that code does not explicitly block or sleep.\nIf you abide by these conventions, you can use RCU to wait for pretty\nmuch any desired piece of code to complete.\n\n**Quick Quiz 1**:\nBut what if I need my RCU read-side critical section to sleep and block?\n\nRCU accomplishes this feat by indirectly determining when these\nother things have finished, as has been described elsewhere for\n[Classic RCU](http://www.rdrop.com/users/paulmck/RCU/whatisRCU.html) and\n[realtime RCU](http://lwn.net/Articles/253651/).\n\nIn particular, as shown in the following figure, RCU is a way of\nwaiting for pre-existing RCU read-side critical sections to completely\nfinish, including memory operations executed by those critical sections.\n\n> ![Grace periods extend to contain pre-existing RCU read-side critical sections.](https://lwn.net/images/ns/kernel/brcu/GracePeriodGood.png)\n\nHowever, note that RCU read-side critical sections\nthat begin after the beginning\nof a given grace period can and will extend beyond the end of that grace\nperiod.\n\nThe following section gives a very high-level view of how\nthe Tiny RCU implementation operates.\n\n### Design of Tiny RCU\n\nThe key restriction that enables a smaller and simpler RCU\nimplementation is `CONFIG_SMP=n`, which means that\nany time the sole CPU passes through a quiescent state, a\ngrace period has elapsed.\nIn principle, the scheduler could simply invoke all pending RCU callbacks\non each context switch, but in practice it is wise to maintain a degree\nof isolation between the scheduler and RCU.\nAn arms-length relationship allows RCU callbacks to invoke appropriate\nscheduler functions (e.g., `wake_up()`) without potential\ndeadlock issues.\nTherefore, the RCU core runs in softirq context.\n\nThis uniprocessor approach also simplifies the data structure, so\nthat each flavor of RCU (`rcu_ctrlblk` and\n`rcu_bh_ctrlblk`) has the following structure:\n\n```\n  1 struct rcu_ctrlblk {\n  2   long completed;\n  3   struct rcu_head *rcucblist;\n  4   struct rcu_head **donetail;\n  5   struct rcu_head **curtail;\n  6 };\n```\n\nThe `->completed` field is required only for the\n`rcu_batches_completed()` and\n`rcu_batches_completed_bh()` interfaces used by the\nRCU torture tests.\nThe `->rcucblist` field is the header for the list\nof RCU callbacks (`rcu_head` structures), the\n`->donetail` field references the `next`\npointer of the last `rcu_head` structure in the list\nwhose grace period has completed, and the `->curtail`\nfield references the `next` pointer of the last\n`rcu_head` structure in the list.\n\nThe following figure shows a sample callback list that has two callbacks\nready to invoke and a third callback still waiting for a grace\nperiod (or, equivalently on a uniprocessor system, for a quiescent\nstate):\n\n> ![Tiny RCU callback list](https://lwn.net/images/ns/kernel/brcu/TinyRCUCallbacks.png)\n\n**Quick Quiz 2**:\nBut we should be able to simply execute _all_ callbacks at each\nquiescent state!\nSo why bother with separate `->donetail` and\n`->curtail` sublists?\n\n![Schematic of Tree RCU](https://lwn.net/images/ns/kernel/brcu/RCUbweBlock-sm.png)\n\nA block diagram of tiny RCU appears to the right; see [this page](https://lwn.net/Articles/323939/) for a full-size version.\n\nThe blue rectangles in this diagram represent functions making up\ntiny RCU, the blue rectangles with rounded corners represent\ndata structures within tiny RCU, and the red rectangles represent\nother parts of the Linux kernel.\nSolid arrows represent function-call interfaces, while dashed arrows\nrepresent indirect invocation.\nThe RCU read-side and list-manipulation primitives are not shown,\nnor are the interfaces specific to the \"rcutorture\" test module.\n\nLike classic and hierarchical RCU, tiny RCU's grace-period detection\nis driven by context switches, the scheduling-clock interrupt\n(`scheduler_tick()`), and the idle loop.\nThe scheduling-clock interrupt handler and idle loops contain code as follows:\n\n```\n    if (rcu_pending(cpu))\n\trcu_check_callbacks(cpu, 0);\n```\n\nSo if `rcu_pending()` indicates that the RCU core has\nany work to do,\n`rcu_check_callbacks()` is invoked, which in turn checks to see if\nthe CPU is currently in a quiescent state, invoking either or both\nof `rcu_qsctr_inc()` and `rcu_bh_qsctr_inc()`\nas appropriate.\nThese in turn invoke `rcu_qsctr_help()`, which, if there are\nRCU callbacks present, updates the callback lists to indicate that\ntheir grace period has elapsed and returns 1 to tell the caller to\ninvoke `raise_softirq()`.\nAt some later time, `rcu_process_callbacks()` will be invoked\nfrom softirq context, which, via `__rcu_process_callbacks()`,\ninvokes all callbacks in `rcu_ctrlblk` and\n`rcu_bh_ctrlblk`.\n\nTiny RCU also interfaces to dynticks, albeit in a slightly different way than\ndo the classic, preemptable, and hierarchical RCU implementations.\nBecause there is but a single CPU, entering dynticks-idle mode is both\na quiescent state and a grace period, allowing `rcu_qsctr_inc()` to\ndirectly invoke `raise_softirq()`. This direct invocation in turn\nmeans that `rcu_needs_cpu()` can simply return zero, since any\ncallbacks are processed on the way into dynticks-idle state.\n\nThe `call_rcu()` and `call_rcu_bh()`\ninterfaces queue callbacks\nvia the `__call_rcu()` helper function.\nThe `synchronize_rcu()` interface is a special case that will be\ndescribed in the code walkthrough in the next section.\n\nInterestingly enough, the general shape of the above block diagram\napplies to all RCU implementations.\nOf course, the processing is more complex in the `CONFIG_SMP`\ncase, particularly in the `__rcu_process_callbacks()` area.\n\n### Tiny-RCU Code Walkthrough\n\nThis code walkthrough starts with tiny RCU's update-side API, then discusses\nthe grace-period machinery, and finally the dynticks interface.\n\n#### Update-Side API\n\nThe code for `synchronize_rcu()` is as follows:\n\n```\n  1 void synchronize_rcu(void)\n  2 {\n  3   unsigned long flags;\n  4\n  5   local_irq_save(flags);\n  6   rcu_ctrlblk.completed++;\n  7   local_irq_restore(flags);\n  8 }\n```\n\nThis code merely increments the `->completed` field\nwith interrupts disabled.\nThis works because `synchronize_rcu()` may only be invoked\nwhen it is legal to block, in other words, `synchronize_rcu()`\ncannot be called from within an RCU read-side critical section.\nTherefore, anywhere `synchronize_rcu()` may legally\nbe invoked is guaranteed to be a quiescent state.\nBecause quiescent states are also grace periods on uniprocessor systems,\nas noted by Josh Triplett,\nany call to `synchronize_rcu()` is automatically a grace\nperiod.\n\n**Quick Quiz 3**:\nIf all calls to `synchronize_rcu()` are automatically\ngrace periods, why isn't `synchronize_rcu()` simply\nan empty function?\n\n**Quick Quiz 4**:\nIf all calls to `synchronize_rcu()` are automatically\ngrace periods, why doesn't `synchronize_rcu()` process\nany pending RCU callbacks?\n\nThe following shows the code for the `call_rcu()` group\nof functions:\n\n```\n  1 static void __call_rcu(struct rcu_head *head,\n  2            void (*func)(struct rcu_head *rcu),\n  3            struct rcu_ctrlblk *rcp)\n  4 {\n  5   unsigned long flags;\n  6\n  7   head->func = func;\n  8   head->next = NULL;\n  9   local_irq_save(flags);\n 10   *rcp->curtail = head;\n 11   rcp->curtail = &head->next;\n 12   local_irq_restore(flags);\n 13 }\n 14\n 15 void call_rcu(struct rcu_head *head,\n 16         void (*func)(struct rcu_head *rcu))\n 17 {\n 18   __call_rcu(head, func, &rcu_ctrlblk);\n 19 }\n 20\n 21 void call_rcu_bh(struct rcu_head *head,\n 22      void (*func)(struct rcu_head *rcu))\n 23 {\n 24   __call_rcu(head, func, &rcu_bh_ctrlblk);\n 25 }\n```\n\nLines 1-13 show the code for `__call_rcu()`, which is a\ncommon-code helping function.\nLines 7-8 initialize the specified `rcu_head`\nstructure.\nLine 9 disables interrupts (and line 12 restores them),\nso that lines 10-11 can enqueue the callback undisturbed by\ninterrupt handlers that might also invoke `call_rcu()`.\n\nLines 15-19 and lines 21-25 are simple wrappers\nimplementing `call_rcu()` (which enqueues the callback\nto `rcu_ctrlblk`) and `call_rcu_bh()`\n(which enqueues the callback to `rcu_bh_ctrlblk`),\nrespectively.\nThe callbacks are enqueued to the last segment of the queue, in other\nwords, to the portion still waiting for a grace period to end.\n\n#### Grace-Period Machinery\n\nThe lowest-level grace-period machinery is supplied by\nthe `rcu_qsctr_inc()` family of interfaces that\nreport passage through a quiescent state.\nThese functions are implemented as follows:\n\n```\n  1 static int rcu_qsctr_help(struct rcu_ctrlblk *rcp)\n  2 {\n  3   if (rcp->rcucblist != NULL &&\n  4       rcp->donetail != rcp->curtail) {\n  5     rcp->donetail = rcp->curtail;\n  6     return 1;\n  7   }\n  8   return 0;\n  9 }\n 10\n 11 void rcu_qsctr_inc(int cpu)\n 12 {\n 13   if (rcu_qsctr_help(&rcu_ctrlblk) ||\n 14       rcu_qsctr_help(&rcu_bh_ctrlblk))\n 15         raise_softirq(RCU_SOFTIRQ);\n 16 }\n 17\n 18 void rcu_bh_qsctr_inc(int cpu)\n 19 {\n 20   if (rcu_qsctr_help(&rcu_bh_ctrlblk))\n 21         raise_softirq(RCU_SOFTIRQ);\n 22 }\n```\n\nLines 1-9 show `rcu_qsctr_help()`, which is a\ncommon-code helper function for `rcu_qsctr_inc()`\n(lines 11-16) and `rcu_bh_qsctr_inc()`\n(lines 18-22), which in turn report \\`\\`rcu'' and \\`\\`rcu\\_bh''\nquiescent states, respectively.\n\nWithin `rcu_qsctr_help`,\nlines 3-4 check to see if there are any RCU callbacks\nwithin the specified `rcu_ctrlblk` structure that are still\nwaiting for their grace period to complete, and, if so,\nline 5 updates the pointers so as to mark them as being ready to\ninvoke, and line 6 returns non-zero in order to tell the caller\nto cause the callback-processing code to start running.\nOtherwise, line 8 returns zero to tell the caller that it is not necessary\nto process callbacks.\n\nThe `rcu_qsctr_inc()` function\ninvokes `rcu_qsctr_help()`\ntwice, once for rcu and once again for rcu\\_bh, and, if either indicates\nthat callback processing is required, it also invokes\n`raise_softirq(RCU_SOFTIRQ)` to cause callback processing\nto be performed.\n\n**Quick Quiz 5**:\nWhy not simply directly call `rcu_process_callbacks()`?\n\nThe `rcu_bh_qsctr_inc()` function\ninvokes `rcu_qsctr_help()`, but only for rcu\\_bh.\nIf the return value indicates that callback processing is required,\n`raise_softirq(RCU_SOFTIRQ)` is invoked to make this happen.\n\n#### Dynticks Interface\n\nThe tinyrcu dynticks interface is refreshingly simple, because uniprocessor\nsystems need not worry about the dynticks-idle state of the nonexistent\nother CPUs.\nThe code is as follows:\n\n```\n  1 void rcu_enter_nohz(void)\n  2 {\n  3   if (--dynticks_nesting == 0)\n  4     rcu_qsctr_inc(0);\n  5 }\n  6\n  7 void rcu_exit_nohz(void)\n  8 {\n  9   dynticks_nesting++;\n 10 }\n 11\n 12 void rcu_irq_enter(void)\n 13 {\n 14   rcu_exit_nohz();\n 15 }\n 16\n 17 void rcu_irq_exit(void)\n 18 {\n 19   rcu_enter_nohz();\n 20 }\n 21\n 22 void rcu_nmi_enter(void)\n 23 {\n 24 }\n 25\n 26 void rcu_nmi_exit(void)\n 27 {\n 28 }\n```\n\nThe `rcu_enter_nohz()` function is shown on\nlines 1-5.\nLine 3 decrements the `dynticks_nesting` global variable,\nand, if the result is zero, the CPU has entered dynticks-idle\nmode, which is a quiescent state.\n(The `dynticks_nesting` global variable is initialized to 1.)\n\n**Quick Quiz 6**:\nWhy is only `rcu_qsctr_inc()` invoked?\nWhat about `rcu_bh_qsctr_inc()`?\n\nThe `rcu_exit_nohz()` function is shown on lines 7-10.\nThis function simply increments the `dynticks_nesting` global\nvariable.\n\nAs can be seen on lines 12-20, the `rcu_irq_enter()`\nand `rcu_irq_exit()` functions are simple wrappers around\n`rcu_exit_nohz()` and `rcu_enter_nohz()`,\nrespectively.\nPlease note that entering an interrupt handler exits dynticks-idle\nmode from an RCU viewpoint, and vice versa.\nThis often-confusing relationship is maintained in the names of these\nfunctions.\n\nLines 22-28 show `rcu_nmi_enter()` and\n`rcu_nmi_exit()`, both of which are empty functions.\nBecause we are running on a uniprocessor, we can safely ignore\nNMI handlers.\nThe reason this is safe is that there cannot be any quiescent states\non this CPU within an NMI handler, and there are no other CPUs to\nexecute concurrent quiescent states.\n\nFinally, the `rcu_needs_cpu` function (not shown)\nsimply returns non-zero,\nindicating that RCU is always prepared for a given CPU to go into\ndynticks-idle mode.\n\n### Testing\n\nRunning the [script](http://lwn.net/Articles/305787/)\nincluded in the\n[hierarchical RCU article](http://lwn.net/Articles/305782/)\nshows that the `CONFIG_NO_HZ` kernel config parameter\nis important, and further\ninvestigation identifies the `CONFIG_PREEMPT` parameter\nas well.\n\nThis results in a nice small set of testing scenarios:\n\n1. `!CONFIG_PREEMPT` and `!CONFIG_NO_HZ`\n2. `!CONFIG_PREEMPT` and `CONFIG_NO_HZ`\n3. `CONFIG_PREEMPT` and `!CONFIG_NO_HZ`\n4. `CONFIG_PREEMPT` and `CONFIG_NO_HZ`\n\nThis is a welcome contrast to the situation for hierarchical RCU.\n\n### Memory Footprint\n\nSimpler code means smaller memory footprint, as can be seen in\nthe following table:\n\n> |  | Memory use |  |\n> | --- | --- | --- |\n> | Implementation | text | data | bss | total | filename |\n> | Classic RCU | 363 | 12 | 24 | 399 | kernel/rcupdate.o |\n> | 1237 | 64 | 124 | 1425 | kernel/rcuclassic.o |\n> |  |  |  | 1824 | Classic RCU Total |\n> |  |\n> | Hierarchical RCU | 363 | 12 | 24 | 399 | kernel/rcupdate.o |\n> | 2344 | 240 | 184 | 2768 | kernel/rcutree.o |\n> |  |  |  | 3167 | Hierarchical RCU Total |\n> |  |\n> | Tiny RCU | 294 | 12 | 24 | 330 | kernel/rcupdate.o |\n> | 563 | 36 | 0 | 599 | kernel/rcutiny.o |\n> |  |  |  | 929 | Tiny RCU Total |\n\nTiny RCU is about twice as small as Classic RCU (almost 900 bytes\nsaved), and more\nthan three times smaller than Hierarchical RCU (more than 2KB saved).\n\n### Conclusion\n\nAs RCU's capabilities have grown, so has its code size.\nThis Bloatwatch edition of RCU forces this trend in reverse,\nproducing a very small\nimplementation via the `!CONFIG_SMP` restriction.\nThis implementation also provides a minimal Linux-kernel-capable\nimplementation that may provide a good starting point for people wishing\nto learn about RCU implementations.\n\n### Acknowledgements\n\nI am grateful to Josh Triplett for the conversation that got this\nproject started,\nto Ingo Molnar and David Howells for their encouragement to see this through,\nto Will Schmidt for his help getting this to human-readable state,\nand to Kathy Bennett for her support of this effort.\n\nThis work represents the view of the authors and does not necessarily\nrepresent the view of IBM.\n\n### Answers to Quick Quizzes\n\n**Quick Quiz 1**:\nBut what if I need my RCU read-side critical section to sleep and block?\n\n**Answer**:\nA special form of RCU called\n\" [SRCU](http://lwn.net/Articles/202847/)\"\ndoes permit general sleeping in SRCU read-side critical sections.\nHowever, it is usually better to rework your RCU read-side critical\nsection to avoid sleeping and blocking.\nOne other exception is\n[preemptable RCU](http://lwn.net/Articles/253651/),\nwhich allows RCU read-side\ncritical sections to be preempted and to block while acquiring\nwhat in non-RT kernels would be spinlocks.\n\n[**Back to Quick Quiz 1**.](https://lwn.net/Articles/323929/#Quick%20Quiz%201)\n\n**Quick Quiz 2**:\nBut we should be able to simply execute _all_ callbacks at each\nquiescent state!\nWhy to we need to separate `->donetail` and\n`->curtail` sublists?\n\n**Answer**:\nRecall that the callbacks are not invoked directly from the scheduler,\nbut rather from softirq context.\nIt would be illegal to invoke callbacks that were registered\nafter the quiescent state but before softirq commenced execution.\nSuch callbacks could be registered from within irq handlers by\ninvoking `call_rcu()`, and these irq handlers could be\ninvoked between the time that the quiescent state occurred and the\ntime that the softirq handler started executing.\n\n[**Back to Quick Quiz 2**.](https://lwn.net/Articles/323929/#Quick%20Quiz%202)\n\n**Quick Quiz 3**:\nIf all calls to `synchronize_rcu()` are automatically\ngrace periods, why isn't `synchronize_rcu()` simply\nan empty function?\n\n**Answer**: If `synchronize_rcu()` were an\nempty function, then rcutorture would incorrectly conclude that\nRCU was not working, as it would appear to rcutorture that grace\nperiods were never ending.\nFurthermore, `synchronize_rcu()` must at least prevent\nthe compiler from reordering code across the call to\n`synchronize_rcu()`.\n\n[**Back to Quick Quiz 3**.](https://lwn.net/Articles/323929/#Quick%20Quiz%203)\n\n**Quick Quiz 4**:\nIf all calls to `synchronize_rcu()` are automatically\ngrace periods, why doesn't `synchronize_rcu()` process\nany pending RCU callbacks?\n\n**Answer**:\nBecause there currently appears to be no need to do so, given that\ncallbacks will be processed on the next context switch or the next\nscheduling-clock interrupt from either user-mode execution or from\nthe idle loop.\nShould experience demonstrate that these are insufficient, then\none approach would be to add a `raise_softirq(RCU_SOFTIRQ)`\nstatement to `synchronize_rcu()`.\n\n[**Back to Quick Quiz 4**.](https://lwn.net/Articles/323929/#Quick%20Quiz%204)\n\n**Quick Quiz 5**:\nWhy not simply directly call `rcu_process_callbacks()`?\n\n**Answer**:\nDeferring execution to the softirq environment disentangles RCU callback\ninvocation from the scheduler, permitting the callbacks to freely\ninvoke things like `wake_up()`.\nIn addition, for rcu\\_bh, quiescent states might occur with locks\nheld, and the RCU callbacks might well need to acquire these locks,\npotentially resulting in deadlock.\nIn both cases, deferring to the softirq environment ensures a clean\nstate for the callback.\n\n[**Back to Quick Quiz 5**.](https://lwn.net/Articles/323929/#Quick%20Quiz%205)\n\n**Quick Quiz 6**:\nWhy is only `rcu_qsctr_inc()` invoked?\nWhat about `rcu_bh_qsctr_inc()`?\n\n**Answer**:\nBecause `rcu_qsctr_inc()` includes an implicit\n`rcu_bh_qsctr_inc()`, as can be seen from the code\nin the previous section.\n\n[**Back to Quick Quiz 6**.](https://lwn.net/Articles/323929/#Quick%20Quiz%206)\n\n| Index entries for this article |\n| --- |\n| [Kernel](https://lwn.net/Kernel/Index) | [Read-copy-update](https://lwn.net/Kernel/Index#Read-copy-update) |\n| [GuestArticles](https://lwn.net/Archives/GuestIndex/) | [McKenney, Paul E.](https://lwn.net/Archives/GuestIndex/#McKenney_Paul_E.) |\n\n* * *\n\nThe LWN site is currently under high scraper load, so comment\ndisplay has been suppressed for anonymous users.\nIf you are a\nhuman, you may read the comments by clicking the button below:\n\n\n**Note**: you can avoid this step in the future by logging\ninto your LWN account.\n\n\nCopyright © 2009, Eklektix, Inc.\n\n\nComments and public postings are copyrighted by their creators.\n\nLinux is a registered trademark of Linus Torvalds",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "ogSiteName": "LWN.net",
+        "og:type": "article",
+        "title": "RCU: The Bloatwatch Edition [LWN.net]",
+        "ogTitle": "RCU: The Bloatwatch Edition",
+        "og:site_name": "LWN.net",
+        "language": "en",
+        "og:title": "RCU: The Bloatwatch Edition",
+        "ogDescription": "Introduction  Read-copy update (RCU) is a synchronization mechanism that was added to the Linux [...]",
+        "viewport": "width=device-width, initial-scale=1",
+        "og:description": "Introduction  Read-copy update (RCU) is a synchronization mechanism that was added to the Linux [...]",
+        "robots": "noai, noimageai",
+        "favicon": "https://static.lwn.net/images/favicon.png",
+        "scrapeId": "01a142f3-28f2-7208-80c9-58ce3c80265b",
+        "sourceURL": "https://lwn.net/Articles/323929",
+        "url": "https://lwn.net/Articles/323929/",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "proxyUsed": "basic",
+        "cacheState": "hit",
+        "cachedAt": "2026-10-15T09:34:39.428Z",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 399,
+            "detail": null,
+            "usage": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 399,
+      "thread": null
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 11987,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 208602800,
+    "tavily_credits_estimate": 0
+  }
+}

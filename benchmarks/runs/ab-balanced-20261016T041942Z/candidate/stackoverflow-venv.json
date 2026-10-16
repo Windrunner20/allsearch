@@ -1,0 +1,708 @@
+{
+  "id": "stackoverflow-venv",
+  "executed_at": "2026-10-16T04:22:52.299347+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.3.0",
+  "provider_query": "Stack Overflow question page about creating a Python virtual environment",
+  "answer": "Here are relevant Stack Overflow pages on creating a Python virtual environment.\n\n1. **How can I create a virtual environment with Python 3?**  \n   Recommended command is `python3 -m venv .venv` (or a path). Also covers activation (`source .venv/bin/activate`), deactivation, and the `virtualenv` alternative.  \n   https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3\n\n2. **What is a virtualenv, and why should I use one?**  \n   Explains isolation from the system Python and shows creation with `python3 -m venv ENV_DIR`, plus Unix and Windows activation.  \n   https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one\n\n3. **What's the difference between \"virtualenv\" and \"-m venv\"?**  \n   `venv` ships with Python 3.3+; `virtualenv` is a separate package with extra features. For Python 3, `python -m venv` is usually enough.  \n   https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt\n\n4. **How can I specify the Python version used to create a virtual environment?**  \n   Use the interpreter you want, e.g. `python3.5 -m venv test35`, or `virtualenv -p /path/to/python new_env`.  \n   https://stackoverflow.com/questions/45293436/how-can-i-specify-the-python-version-used-to-create-a-virtual-environment\n\n5. **python3 -m venv: how to specify Python point release/version?**  \n   Run the desired binary: `python3.6 -m venv whatever`. Also notes a pyenv workflow that still creates the env in the project.  \n   https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version\n\n6. **How to create a venv with a different Python version**  \n   Examples such as `python3.9 -m venv ~/.venvs/my-venv-name`, Windows `py -3.7 -m venv test_env`, and `virtualenv -p <python>`.  \n   https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version\n\n7. **How to create a Python virtualenv in the project directory with a specific (uninstalled) Python version**  \n   Install the version with pyenv, then `python -m venv .venv` (or `virtualenv .venv -p $(pyenv which python)`) so the env stays in the project.  \n   https://stackoverflow.com/questions/69072606/how-to-create-a-python-virtualenv-within-my-project-directory-with-a-specific-b\n\n8. **How to create a Python 3.8 virtual environment in Ubuntu 16.04**  \n   On Debian/Ubuntu you often need `apt install python3.8-venv` before `python3.8 -m venv venv_dir`.  \n   https://stackoverflow.com/questions/63090345/how-to-create-a-python-3-8-virtual-environment-in-ubuntu-16-04\n\n**Typical pattern from these answers:** `python3 -m venv .venv`, then `source .venv/bin/activate` (Unix) or `.venv\\Scripts\\activate` (Windows). Use a version-specific interpreter (`python3.11 -m venv …`) when you need a particular Python.",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+      "url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+      "snippet": "2. What is a virtualenv, and why should I use one? Explains isolation from the system Python and shows creation with python3 -m venv ENV DIR , plus Unix and Windows activation.",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r2",
+      "title": "Python - Virtual Environment uses System Directories",
+      "url": "https://stackoverflow.com/questions/41763306/python-virtual-environment-uses-system-directories",
+      "snippet": "score 1, 1 answers, tags: python, virtualenv",
+      "content": null,
+      "published_at": "2017-01-20T12:06:19Z",
+      "source_type": "social",
+      "provider": "stackexchange",
+      "matched_providers": [
+        "stackexchange"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "question_id": 41763306,
+        "is_answered": true
+      }
+    },
+    {
+      "id": "r3",
+      "title": "Python: How to create a virtual environment at temp dir and install modules with pip",
+      "url": "https://stackoverflow.com/questions/63468006/python-how-to-create-a-virtual-environment-at-temp-dir-and-install-modules-with",
+      "snippet": "I want to create a temp file and write a python script. I want to create a virtual environment at this temp dir and use pip and then run this script with the virtual environment.\n\nimport pathlib\nimport tempfile \nimport venv\n\ntemp = tempfile.TemporaryDirectory()\n\nvirtualenv = venv.EnvBuilder(system_s",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "stackexchange"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "Python virtual environment and pyvenv.cfg file",
+      "url": "https://stackoverflow.com/questions/75667341/python-virtual-environment-and-pyvenv-cfg-file",
+      "snippet": "score 0, 0 answers, tags: python, virtualenv, python-venv, pyvenv",
+      "content": null,
+      "published_at": "2023-03-07T21:30:27Z",
+      "source_type": "social",
+      "provider": "stackexchange",
+      "matched_providers": [
+        "stackexchange"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "question_id": 75667341,
+        "is_answered": false
+      }
+    },
+    {
+      "id": "r5",
+      "title": "https://stackoverflow.com/questions/63090345/how-to-create-a-python-3-8-virtual-environment-in-ubuntu-16-04",
+      "url": "https://stackoverflow.com/questions/63090345/how-to-create-a-python-3-8-virtual-environment-in-ubuntu-16-04",
+      "snippet": "8. How to create a Python 3.8 virtual environment in Ubuntu 16.04 On Debian/Ubuntu you often need apt install python3.8-venv before python3.8 -m venv venv dir .",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r6",
+      "title": "Python is in a Conda environment, but it has not been activated in a Windows virtual environment",
+      "url": "https://stackoverflow.com/questions/56679132/python-is-in-a-conda-environment-but-it-has-not-been-activated-in-a-windows-vir",
+      "snippet": "score 22, 8 answers, tags: python, windows-10, anaconda, activation, virtual-environment",
+      "content": null,
+      "published_at": "2019-06-20T04:46:01Z",
+      "source_type": "social",
+      "provider": "stackexchange",
+      "matched_providers": [
+        "stackexchange"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "question_id": 56679132,
+        "is_answered": true
+      }
+    },
+    {
+      "id": "r7",
+      "title": "https://stackoverflow.com/questions/64881285/how-to-create-a-python-3-environment-that-has-only-standard-lib-no-extra-packag",
+      "url": "https://stackoverflow.com/questions/64881285/how-to-create-a-python-3-environment-that-has-only-standard-lib-no-extra-packag",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "Default libraries in freshly created Python virtual environment",
+      "url": "https://stackoverflow.com/questions/27101695/default-libraries-in-freshly-created-python-virtual-environment",
+      "snippet": "score 4, 4 answers, tags: python, virtualenv, python-venv",
+      "content": null,
+      "published_at": "2014-11-24T09:39:18Z",
+      "source_type": "social",
+      "provider": "stackexchange",
+      "matched_providers": [
+        "stackexchange"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "question_id": 27101695,
+        "is_answered": true
+      }
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+      "url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "Python - Virtual Environment uses System Directories",
+      "url": "https://stackoverflow.com/questions/41763306/python-virtual-environment-uses-system-directories",
+      "result_id": "r2",
+      "providers": [
+        "stackexchange"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://stackoverflow.com/questions/63468006/python-how-to-create-a-virtual-environment-at-temp-dir-and-install-modules-with",
+      "url": "https://stackoverflow.com/questions/63468006/python-how-to-create-a-virtual-environment-at-temp-dir-and-install-modules-with",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "Python virtual environment and pyvenv.cfg file",
+      "url": "https://stackoverflow.com/questions/75667341/python-virtual-environment-and-pyvenv-cfg-file",
+      "result_id": "r4",
+      "providers": [
+        "stackexchange"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://stackoverflow.com/questions/63090345/how-to-create-a-python-3-8-virtual-environment-in-ubuntu-16-04",
+      "url": "https://stackoverflow.com/questions/63090345/how-to-create-a-python-3-8-virtual-environment-in-ubuntu-16-04",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "Python is in a Conda environment, but it has not been activated in a Windows virtual environment",
+      "url": "https://stackoverflow.com/questions/56679132/python-is-in-a-conda-environment-but-it-has-not-been-activated-in-a-windows-vir",
+      "result_id": "r6",
+      "providers": [
+        "stackexchange"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://stackoverflow.com/questions/64881285/how-to-create-a-python-3-environment-that-has-only-standard-lib-no-extra-packag",
+      "url": "https://stackoverflow.com/questions/64881285/how-to-create-a-python-3-environment-that-has-only-standard-lib-no-extra-packag",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "Default libraries in freshly created Python virtual environment",
+      "url": "https://stackoverflow.com/questions/27101695/default-libraries-in-freshly-created-python-virtual-environment",
+      "result_id": "r8",
+      "providers": [
+        "stackexchange"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt/44091914",
+      "url": "https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt/44091914",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://stackoverflow.com/questions/69072606/how-to-create-a-python-virtualenv-within-my-project-directory-with-a-specific-b",
+      "url": "https://stackoverflow.com/questions/69072606/how-to-create-a-python-virtualenv-within-my-project-directory-with-a-specific-b",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://stackoverflow.com/questions/45293436/how-can-i-specify-the-python-version-used-to-create-a-virtual-environment",
+      "url": "https://stackoverflow.com/questions/45293436/how-can-i-specify-the-python-version-used-to-create-a-virtual-environment",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://stackoverflow.com/questions/60873454/how-can-i-list-all-the-virtual-environments-created-with-venv",
+      "url": "https://stackoverflow.com/questions/60873454/how-can-i-list-all-the-virtual-environments-created-with-venv",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version",
+      "url": "https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+      "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://stackoverflow.com/questions/18580620/what-does-source-create-or-activate-in-the-virtual-environment",
+      "url": "https://stackoverflow.com/questions/18580620/what-does-source-create-or-activate-in-the-virtual-environment",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version",
+      "url": "https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://stackoverflow.com/questions/65962887/how-to-specify-python-version-used-to-create-virtual-environment-through-venv",
+      "url": "https://stackoverflow.com/questions/65962887/how-to-specify-python-version-used-to-create-virtual-environment-through-venv",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://stackoverflow.com/questions/74966861/activating-python-virtual-environment-on-windows-11",
+      "url": "https://stackoverflow.com/questions/74966861/activating-python-virtual-environment-on-windows-11",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "Difference between an ipynb kernal (Jupyter lab / Jupyter notebook) and a python virtual environment ( created through venv)",
+      "url": "https://stackoverflow.com/questions/78798551/difference-between-an-ipynb-kernal-jupyter-lab-jupyter-notebook-and-a-python",
+      "result_id": null,
+      "providers": [
+        "stackoverflow"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary_site_restricted",
+        "latency_ms": 10018,
+        "detail": "model=grok-4.7",
+        "usage": {
+          "input_tokens": 13650,
+          "input_tokens_details": {
+            "cached_tokens": 4352
+          },
+          "output_tokens": 954,
+          "output_tokens_details": {
+            "reasoning_tokens": 77
+          },
+          "total_tokens": 14604,
+          "num_sources_used": 0,
+          "num_server_side_tools_used": 2,
+          "cost_in_usd_ticks": 190086400,
+          "server_side_tool_usage_details": {
+            "web_search_calls": 2,
+            "x_search_calls": 0,
+            "x_posts_fetched": 0,
+            "x_users_fetched": 0,
+            "code_interpreter_calls": 0,
+            "file_search_calls": 0,
+            "mcp_calls": 0,
+            "document_search_calls": 0,
+            "image_generation_calls": 0
+          },
+          "context_details": {
+            "input_tokens": 11380,
+            "output_tokens": 875
+          }
+        }
+      },
+      {
+        "provider": "stackexchange",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "site_native",
+        "latency_ms": 170,
+        "detail": "5 results",
+        "usage": null
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null,
+        "usage": null
+      },
+      {
+        "provider": "stackexchange",
+        "operation": "read_thread",
+        "outcome": "ok",
+        "reason": "thread",
+        "latency_ms": 318,
+        "detail": "1 comments",
+        "usage": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "domains_below_threshold:1<2"
+    ]
+  },
+  "coverage": {
+    "status": "sufficient",
+    "requirements": [
+      {
+        "kind": "site",
+        "target": "Stack Overflow",
+        "satisfied": true,
+        "detail": "19 content page(s), e.g. https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one"
+      }
+    ]
+  },
+  "threads": [
+    {
+      "platform": "stackexchange",
+      "url": "https://stackoverflow.com/questions/63468006/python-how-to-create-a-virtual-environment-at-temp-dir-and-install-modules-with",
+      "thread_id": "63468006",
+      "title": "Python: How to create a virtual environment at temp dir and install modules with pip",
+      "author": "ikreb",
+      "created_at": "2020-08-18T11:50:07Z",
+      "body": "I want to create a temp file and write a python script. I want to create a virtual environment at this temp dir and use pip and then run this script with the virtual environment.\n\nimport pathlib\nimport tempfile \nimport venv\n\ntemp = tempfile.TemporaryDirectory()\n\nvirtualenv = venv.EnvBuilder(system_site_packages=false)\nvirtualenv.create(temp.name)\n\n# how could I activate the virtual environment and install the pip module?\n\nwith open(pathlib.Path(temp.name)/\"run.py\", \"w\") as f:\n f.write(\"#/usr/bin/env python\\n\\n\")\n f.write(\"import requests\\n\")\n\np = subprocess.run([\"python\", temp.name\", \"run.py\"])",
+      "status": "comments_read",
+      "comments_total": 1,
+      "source_api": "api.stackexchange.com/2.3 site=stackoverflow",
+      "error": null,
+      "comments_read": 1
+    }
+  ],
+  "next_steps": [
+    {
+      "tool": "read_result",
+      "fields": [
+        "comments"
+      ],
+      "why": "comments read through the platform API are stored with ids, authors and timestamps"
+    }
+  ],
+  "comments": [
+    {
+      "id": "63774332",
+      "author": "sinoroc [accepted]",
+      "created_at": "2020-09-07T08:52:51Z",
+      "text": "I believe the following should achieve your expectations:\n\n#!/usr/bin/env python3\n\nimport pathlib\nimport string\nimport subprocess\nimport tempfile\nimport venv\n\nSCRIPT_TEMPLATE = '''\\\n#!${venv_executable}\n\nimport requests\nprint(requests)\n'''\n\nclass EnvBuilder(venv.EnvBuilder):\n\n def __init__(self, *args, **kwargs):\n super().__init__(*args, **kwargs)\n self.context = None\n\n def post_setup(self, context):\n self.context = context\n\ndef main():\n with tempfile.TemporaryDirectory() as target_dir_path:\n print(f\" *** Created temporary directory '{target_dir_path}'.\")\n #\n print(f\" *** Creating virtual environment...\")\n venv_builder = EnvBuilder(with_pip=True)\n venv_builder.create(str(target_dir_path))\n venv_context = venv_builder.context\n #\n requirements = [\n 'requests',\n ]\n print(f\" *** Installing {requirements}...\")\n pip_install_command = [\n venv_context.env_exe,\n '-m',\n 'pip',\n 'install',\n *requirements,\n ]\n subprocess.check_call(pip_install_command)\n #\n print(\" *** Generating script...\")\n script_substitutions = {\n 'venv_executable': venv_context.env_exe,\n }\n script = (\n string.Template(SCRIPT_TEMPLATE).substitute(script_substitutions)\n )\n print(\" *** Generated script:\")\n print(\"'''\")\n print(script)\n print(\"'''\")\n #\n script_path = pathlib.Path(target_dir_path).joinpath('run.py')\n print(f\" *** Writing script '{script_path}'\")\n script_path.write_text(script)\n #\n print(\" *** Executing script...\")\n script_command = [\n venv_context.env_exe,\n str(script_path),\n ]\n subprocess.check_call(script_command)\n\nif __name__ == '__main__':\n main()",
+      "url": "https://stackoverflow.com/questions/63468006/python-how-to-create-a-virtual-environment-at-temp-dir-and-install-modules-with#63774332",
+      "parent_id": "63468006",
+      "depth": 0,
+      "points": 1,
+      "relevance": 0.971,
+      "thread_url": "https://stackoverflow.com/questions/63468006/python-how-to-create-a-virtual-environment-at-temp-dir-and-install-modules-with",
+      "source": "api"
+    },
+    {
+      "id": "41972262",
+      "author": "Kevin [accepted]",
+      "created_at": "2017-02-01T05:06:23Z",
+      "text": "Running with the system Python and libraries limits you to one specific Python version, chosen by your OS provider. Trying to run all Python applications on one Python installation makes it likely that version conflicts will occur among the collection of libraries. It's also possible that changes to the system Python will break other OS features that depend on it.\n\nVirtual environments, or \"virtualenvs\" are lightweight, self-contained Python installations, designed to be set up with a minimum of fuss, and to \"just work\" without requiring extensive configuration or specialized knowledge.\n\nvirtualenv avoids the need to install Python packages globally. When a virtualenv is active, pip will install packages within the environment, which does not affect the base Python installation in any way.\n\nIn Python 3.3 or later, you can create a virtualenv as follows:\n\n$ python3 -m venv ENV_DIR\n\nFor Windows, you should replace python3 with the full path to python.exe:\n\n>C:\\Python34\\python.exe -m venv ENV_DIR\n\n(This is a typical Python installation; your system may vary.)\n\nIn older versions of Python, including Python 2, one of the following commands should work in most cases:\n\n$ virtualenv ENV_DIR\n$ venv ENV_DIR\n$ pyvenv ENV_DIR\n$ pyvenv3 ENV_DIR\n\nENV_DIR should be a non-existent directory. The directory can have any name, but to keep these instructions simple, I will assume you have created your virtualenv in a directory called venv (e.g. with python3 -m venv ./venv).\n\nTo work in your virtualenv, you activate it:\n\n$ . ./venv/bin/activate\n(venv)$ \n\nOr use this if you have a windows system:\n\n$ venv\\Scripts\\activate\n\nThe (venv) in the shell prompt lets you know which virtualenv you have activated, but you can turn this feature off if you do not like it. You can run all the usual Python commands, and they will be local to your virtualenv:\n\n(venv)$ pip install requests numpy\n[...]\n(venv)$ python\n[...]\n>>> import requests\n>>> import numpy as np\n>>> \n\npython will run the version of Python that you installed into your virtualenv, so (for example) you don't have to type python3 to get Python 3. The Python that it runs will have access to all the standard library modules and all the packages you installed into the virtualenv, but (by default) none of the packages installed in the system-wide site-packages directory.\n\nThis last rule is important: by restricting your virtualenv to only use locally-installed packages, you can ensure that you control exactly which dependencies your project is using, even if some new system-wide package gets installed or updated next week. If you like, you can get a listing of your installed packages:\n\n(venv)$ pip freeze\nrequests==2.13.0\nnumpy==1.12.0\n(venv)$ \n\npip can also parse this format and install from it, and it will install the same versions, even if updates have been released in the meantime:\n\n(venv)$ pip freeze >requirements.txt\n\n(some-other-venv)$ pip install -r requirements.txt\n[...]\n(some-other-venv)$ python\n>>> import requests\n>>> import numpy as np\n>>> \n\nYou can get out of the virtualenv by deactivating it:\n\n(venv)$ deactivate\n$ python\n[...]\n>>> import requests\nTraceback (most recent call last):\n File \"<stdin>\", line 1, in <module>\nImportError: No module named 'requests'\n\nYou can create as many virtualenvs as you like, and they won't interfere with each other, nor with your system packages. A virtualenv is \"just\" a directory with a bunch of binaries and scripts under it, so you can remove a virtualenv the same way you remove any directory (rm -r venv on Unix). If the virtualenv is activated when you remove it, you may confuse your shell, so it's probably a good idea to deactivate first in that case.",
+      "url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one#41972262",
+      "parent_id": "41972261",
+      "depth": 0,
+      "points": 132,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+      "source": "api"
+    },
+    {
+      "id": "52009839",
+      "author": "Hadi Rasekh",
+      "created_at": "2018-08-24T18:17:27Z",
+      "text": "Installing packages with sudo pip will install packages globally, which may break some system tools. \n\nBy install globally it means you will install your packages in place like /usr/lib/python2.7/site-package so if some packages need a previous version of your python packages, this action may break it.\n\nvirtualenv allows you to avoid installing Python packages globally by making an isolated python environment. That means it will install packages just in your desire project folder.\n\nOn mac and linux\n\nInstall\n\npython3 -m pip install --user virtualenv\n\nCreating a Virtual Env: Go to your desired project folder\n\npython3 -m virtualenv env\n\nActivating a virtualenv: In your desired project folder\n\nsource env/bin/activate\n\nAfter activating you can install your packages using pip.\n\nFor more information about using it in Windows:\nHow to use virtualenv in Windows",
+      "url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one#52009839",
+      "parent_id": "41972261",
+      "depth": 0,
+      "points": 11,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+      "source": "api"
+    },
+    {
+      "id": "42041471",
+      "author": "ARKhan",
+      "created_at": "2017-02-04T14:24:52Z",
+      "text": "Some times you are not given root privileges and you might end up not being able to use sudo. Many other times, it's not advisable to use sudo to install packages as it might overwrite some package which might be in use by some other applications.\n\nVirtualenv can help you create a separate environment where you don't need root privileges as well as be able to tailor the environment according to your need. It consists of self-contained python installation which only interacts with your specific created environment.\n\nSo basically, it gives you a bit of freedom as well as avoid damaging (or modifying) the root environment which might be hosting many old functionalities of old applications. \n\nInstallation is pretty easy too.",
+      "url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one#42041471",
+      "parent_id": "41972261",
+      "depth": 0,
+      "points": 8,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+      "source": "api"
+    },
+    {
+      "id": "71086705",
+      "author": "Akshay Katiha",
+      "created_at": "2022-02-11T21:27:49Z",
+      "text": "I am going to break your question into two parts.\n\nWhat is a virtualenv?\n\nPython has its own way of downloading, storing, and resolving site packages. But Python can not differentiate between different versions in the site-package directory. Packages will be installed in one of the directories, whose name can be found by running the site.getsitepackages() commands.\n\n>>> import site\n>>> site.getsitepackages()\n\nThis means package_v2.0.1 and package_v3.0.1 have to be in the same directory with the same name i.e. package, which is obviously not possible. Now, you may ask why we would need the same package with different versions on our system. This is because multiple projects may require different versions of Python packages or even different Python versions themselves. So there was a need to have something which will resolve these conflicts and Virtualenv came into the picture to solve this issue.\n\nWhat does it do for me?\n\nIt isolates the environment for Python projects so that each project can have its own dependencies.",
+      "url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one#71086705",
+      "parent_id": "41972261",
+      "depth": 0,
+      "points": 3,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+      "source": "api"
+    },
+    {
+      "id": "41763896",
+      "author": "Myridium",
+      "created_at": "2017-01-20T12:38:07Z",
+      "text": "Here was the problem:\n\nIt seems that if you run pip on a venv without a local pip installation, then it will default to the system's pip outside the venv. Even if you've activated a virtual environment, this seems to want to install packages on the system rather than in the venv.\n\nHere was the solution:\n\nFirst, I had to install the virtual environment without pip due to a bug that has long remained unresolved.\n\nSecond, I installed pip in the virtual environment as per the instruction here. However, doing so required using some temporary folders that for some reason my user didn't have access to. So this failed, and the only way I could get it to work was to become root.\n\nsudo su\n\nactivate ..../venvs/deep-learning/bin/activate to activate the virtual environment.\n\ncurl --silent --show-error --retry 5 https://bootstrap.pypa.io/get-pip.py | python as per the answer linked above.\n\nAlthough which pip now indicated the correct pip (inside the venv) was being used, running pip would use the system one! Deactivating (deactivate) and reactivating the venv solved this.\n\nNow it took me a while to realise that having installed this as root caused me permission errors when trying to install more packages using pip inside the virtual environment.\n\nchown <user>:<group> -R ..../venvs/deep-learning/*\n\nAnd that was it. After these steps, I could activate the venv and run pip correctly. It would use the pip inside the venv, and install packages inside the venv.",
+      "url": "https://stackoverflow.com/questions/41763306/python-virtual-environment-uses-system-directories#41763896",
+      "parent_id": "41763306",
+      "depth": 0,
+      "points": 1,
+      "relevance": null,
+      "thread_url": "https://stackoverflow.com/questions/41763306/python-virtual-environment-uses-system-directories",
+      "source": "api"
+    }
+  ],
+  "fetched": [
+    {
+      "schema_version": "1.1",
+      "status": "ok",
+      "url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+      "final_url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+      "title": "What is a virtualenv, and why should I use one?",
+      "content": "# What is a virtualenv, and why should I use one?\n\nby Kevin · 2017-02-01T05:06:23Z · via api.stackexchange.com/2.3 site=stackoverflow\n\nI am trying to install a Python package with this command\n\npip install <name of package>\n\nI'm getting permission errors and I'm not sure why. I could run it with sudo, but someone told me that was a bad idea, and I should use a virtualenv instead.\n\nWhat is a virtualenv? What does it do for me?\n\n## Comments (4 shown of 4)\n\n### [41972262] Kevin [accepted] · 2017-02-01T05:06:23Z · reply to 41972261\nhttps://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one#41972262\n\nRunning with the system Python and libraries limits you to one specific Python version, chosen by your OS provider. Trying to run all Python applications on one Python installation makes it likely that version conflicts will occur among the collection of libraries. It's also possible that changes to the system Python will break other OS features that depend on it.\n\nVirtual environments, or \"virtualenvs\" are lightweight, self-contained Python installations, designed to be set up with a minimum of fuss, and to \"just work\" without requiring extensive configuration or specialized knowledge.\n\nvirtualenv avoids the need to install Python packages globally. When a virtualenv is active, pip will install packages within the environment, which does not affect the base Python installation in any way.\n\nIn Python 3.3 or later, you can create a virtualenv as follows:\n\n$ python3 -m venv ENV_DIR\n\nFor Windows, you should replace python3 with the full path to python.exe:\n\n>C:\\Python34\\python.exe -m venv ENV_DIR\n\n(This is a typical Python installation; your system may vary.)\n\nIn older versions of Python, including Python 2, one of the following commands should work in most cases:\n\n$ virtualenv ENV_DIR\n$ venv ENV_DIR\n$ pyvenv ENV_DIR\n$ pyvenv3 ENV_DIR\n\nENV_DIR should be a non-existent directory. The directory can have any name, but to keep these instructions simple, I will assume you have created your virtualenv in a directory called venv (e.g. with python3 -m venv ./venv).\n\nTo work in your virtualenv, you activate it:\n\n$ . ./venv/bin/activate\n(venv)$ \n\nOr use this if you have a windows system:\n\n$ venv\\Scripts\\activate\n\nThe (venv) in the shell prompt lets you know which virtualenv you have activated, but you can turn this feature off if you do not like it. You can run all the usual Python commands, and they will be local to your virtualenv:\n\n(venv)$ pip install requests numpy\n[...]\n(venv)$ python\n[...]\n>>> import requests\n>>> import numpy as np\n>>> \n\npython will run the version of Python that you installed into your virtualenv, so (for example) you don't have to type python3 to get Python 3. The Python that it runs will have access to all the standard library modules and all the packages you installed into the virtualenv, but (by default) none of the packages installed in the system-wide site-packages directory.\n\nThis last rule is important: by restricting your virtualenv to only use locally-installed packages, you can ensure that you control exactly which dependencies your project is using, even if some new system-wide package gets installed or updated next week. If you like, you can get a listing of your installed packages:\n\n(venv)$ pip freeze\nrequests==2.13.0\nnumpy==1.12.0\n(venv)$ \n\npip can also parse this format and install from it, and it will install the same versions, even if updates have been released in the meantime:\n\n(venv)$ pip freeze >requirements.txt\n\n(some-other-venv)$ pip install -r requirements.txt\n[...]\n(some-other-venv)$ python\n>>> import requests\n>>> import numpy as np\n>>> \n\nYou can get out of the virtualenv by deactivating it:\n\n(venv)$ deactivate\n$ python\n[...]\n>>> import requests\nTraceback (most recent call last):\n File \"<stdin>\", line 1, in <module>\nImportError: No module named 'requests'\n\nYou can create as many virtualenvs as you like, and they won't interfere with each other, nor with your system packages. A virtualenv is \"just\" a directory with a bunch of binaries and scripts under it, so you can remove a virtualenv the same way you remove any directory (rm -r venv on Unix). If the virtualenv is activated when you remove it, you may confuse your shell, so it's probably a good idea to deactivate first in that case.\n\n### [52009839] Hadi Rasekh · 2018-08-24T18:17:27Z · reply to 41972261\nhttps://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one#52009839\n\nInstalling packages with sudo pip will install packages globally, which may break some system tools. \n\nBy install globally it means you will install your packages in place like /usr/lib/python2.7/site-package so if some packages need a previous version of your python packages, this action may break it.\n\nvirtualenv allows you to avoid installing Python packages globally by making an isolated python environment. That means it will install packages just in your desire project folder.\n\nOn mac and linux\n\nInstall\n\npython3 -m pip install --user virtualenv\n\nCreating a Virtual Env: Go to your desired project folder\n\npython3 -m virtualenv env\n\nActivating a virtualenv: In your desired project folder\n\nsource env/bin/activate\n\nAfter activating you can install your packages using pip.\n\nFor more information about using it in Windows:\nHow to use virtualenv in Windows\n\n### [42041471] ARKhan · 2017-02-04T14:24:52Z · reply to 41972261\nhttps://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one#42041471\n\nSome times you are not given root privileges and you might end up not being able to use sudo. Many other times, it's not advisable to use sudo to install packages as it might overwrite some package which might be in use by some other applications.\n\nVirtualenv can help you create a separate environment where you don't need root privileges as well as be able to tailor the environment according to your need. It consists of self-contained python installation which only interacts with your specific created environment.\n\nSo basically, it gives you a bit of freedom as well as avoid damaging (or modifying) the root environment which might be hosting many old functionalities of old applications. \n\nInstallation is pretty easy too.\n\n### [71086705] Akshay Katiha · 2022-02-11T21:27:49Z · reply to 41972261\nhttps://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one#71086705\n\nI am going to break your question into two parts.\n\nWhat is a virtualenv?\n\nPython has its own way of downloading, storing, and resolving site packages. But Python can not differentiate between different versions in the site-package directory. Packages will be installed in one of the directories, whose name can be found by running the site.getsitepackages() commands.\n\n>>> import site\n>>> site.getsitepackages()\n\nThis means package_v2.0.1 and package_v3.0.1 have to be in the same directory with the same name i.e. package, which is obviously not possible. Now, you may ask why we would need the same package with different versions on our system. This is because multiple projects may require different versions of Python packages or even different Python versions themselves. So there was a need to have something which will resolve these conflicts and Virtualenv came into the picture to solve this issue.\n\nWhat does it do for me?\n\nIt isolates the environment for Python projects so that each project can have its own dependencies.\n",
+      "content_type": "text/markdown",
+      "provider": "stackexchange",
+      "truncated": false,
+      "metadata": {
+        "source_api": "api.stackexchange.com/2.3 site=stackoverflow",
+        "comments_total": 4
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "stackexchange",
+            "operation": "read_thread",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 174,
+            "detail": "4 comments",
+            "usage": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 174,
+      "thread": {
+        "platform": "stackexchange",
+        "url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+        "thread_id": "41972261",
+        "title": "What is a virtualenv, and why should I use one?",
+        "author": "Kevin",
+        "created_at": "2017-02-01T05:06:23Z",
+        "body": "I am trying to install a Python package with this command\n\npip install <name of package>\n\nI'm getting permission errors and I'm not sure why. I could run it with sudo, but someone told me that was a bad idea, and I should use a virtualenv instead.\n\nWhat is a virtualenv? What does it do for me?",
+        "status": "comments_read",
+        "comments_total": 4,
+        "comments": [
+          {
+            "id": "41972262",
+            "author": "Kevin [accepted]",
+            "created_at": "2017-02-01T05:06:23Z",
+            "text": "Running with the system Python and libraries limits you to one specific Python version, chosen by your OS provider. Trying to run all Python applications on one Python installation makes it likely that version conflicts will occur among the collection of libraries. It's also possible that changes to the system Python will break other OS features that depend on it.\n\nVirtual environments, or \"virtualenvs\" are lightweight, self-contained Python installations, designed to be set up with a minimum of fuss, and to \"just work\" without requiring extensive configuration or specialized knowledge.\n\nvirtualenv avoids the need to install Python packages globally. When a virtualenv is active, pip will install packages within the environment, which does not affect the base Python installation in any way.\n\nIn Python 3.3 or later, you can create a virtualenv as follows:\n\n$ python3 -m venv ENV_DIR\n\nFor Windows, you should replace python3 with the full path to python.exe:\n\n>C:\\Python34\\python.exe -m venv ENV_DIR\n\n(This is a typical Python installation; your system may vary.)\n\nIn older versions of Python, including Python 2, one of the following commands should work in most cases:\n\n$ virtualenv ENV_DIR\n$ venv ENV_DIR\n$ pyvenv ENV_DIR\n$ pyvenv3 ENV_DIR\n\nENV_DIR should be a non-existent directory. The directory can have any name, but to keep these instructions simple, I will assume you have created your virtualenv in a directory called venv (e.g. with python3 -m venv ./venv).\n\nTo work in your virtualenv, you activate it:\n\n$ . ./venv/bin/activate\n(venv)$ \n\nOr use this if you have a windows system:\n\n$ venv\\Scripts\\activate\n\nThe (venv) in the shell prompt lets you know which virtualenv you have activated, but you can turn this feature off if you do not like it. You can run all the usual Python commands, and they will be local to your virtualenv:\n\n(venv)$ pip install requests numpy\n[...]\n(venv)$ python\n[...]\n>>> import requests\n>>> import numpy as np\n>>> \n\npython will run the version of Python that you installed into your virtualenv, so (for example) you don't have to type python3 to get Python 3. The Python that it runs will have access to all the standard library modules and all the packages you installed into the virtualenv, but (by default) none of the packages installed in the system-wide site-packages directory.\n\nThis last rule is important: by restricting your virtualenv to only use locally-installed packages, you can ensure that you control exactly which dependencies your project is using, even if some new system-wide package gets installed or updated next week. If you like, you can get a listing of your installed packages:\n\n(venv)$ pip freeze\nrequests==2.13.0\nnumpy==1.12.0\n(venv)$ \n\npip can also parse this format and install from it, and it will install the same versions, even if updates have been released in the meantime:\n\n(venv)$ pip freeze >requirements.txt\n\n(some-other-venv)$ pip install -r requirements.txt\n[...]\n(some-other-venv)$ python\n>>> import requests\n>>> import numpy as np\n>>> \n\nYou can get out of the virtualenv by deactivating it:\n\n(venv)$ deactivate\n$ python\n[...]\n>>> import requests\nTraceback (most recent call last):\n File \"<stdin>\", line 1, in <module>\nImportError: No module named 'requests'\n\nYou can create as many virtualenvs as you like, and they won't interfere with each other, nor with your system packages. A virtualenv is \"just\" a directory with a bunch of binaries and scripts under it, so you can remove a virtualenv the same way you remove any directory (rm -r venv on Unix). If the virtualenv is activated when you remove it, you may confuse your shell, so it's probably a good idea to deactivate first in that case.",
+            "url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one#41972262",
+            "parent_id": "41972261",
+            "depth": 0,
+            "points": 132,
+            "relevance": null
+          },
+          {
+            "id": "52009839",
+            "author": "Hadi Rasekh",
+            "created_at": "2018-08-24T18:17:27Z",
+            "text": "Installing packages with sudo pip will install packages globally, which may break some system tools. \n\nBy install globally it means you will install your packages in place like /usr/lib/python2.7/site-package so if some packages need a previous version of your python packages, this action may break it.\n\nvirtualenv allows you to avoid installing Python packages globally by making an isolated python environment. That means it will install packages just in your desire project folder.\n\nOn mac and linux\n\nInstall\n\npython3 -m pip install --user virtualenv\n\nCreating a Virtual Env: Go to your desired project folder\n\npython3 -m virtualenv env\n\nActivating a virtualenv: In your desired project folder\n\nsource env/bin/activate\n\nAfter activating you can install your packages using pip.\n\nFor more information about using it in Windows:\nHow to use virtualenv in Windows",
+            "url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one#52009839",
+            "parent_id": "41972261",
+            "depth": 0,
+            "points": 11,
+            "relevance": null
+          },
+          {
+            "id": "42041471",
+            "author": "ARKhan",
+            "created_at": "2017-02-04T14:24:52Z",
+            "text": "Some times you are not given root privileges and you might end up not being able to use sudo. Many other times, it's not advisable to use sudo to install packages as it might overwrite some package which might be in use by some other applications.\n\nVirtualenv can help you create a separate environment where you don't need root privileges as well as be able to tailor the environment according to your need. It consists of self-contained python installation which only interacts with your specific created environment.\n\nSo basically, it gives you a bit of freedom as well as avoid damaging (or modifying) the root environment which might be hosting many old functionalities of old applications. \n\nInstallation is pretty easy too.",
+            "url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one#42041471",
+            "parent_id": "41972261",
+            "depth": 0,
+            "points": 8,
+            "relevance": null
+          },
+          {
+            "id": "71086705",
+            "author": "Akshay Katiha",
+            "created_at": "2022-02-11T21:27:49Z",
+            "text": "I am going to break your question into two parts.\n\nWhat is a virtualenv?\n\nPython has its own way of downloading, storing, and resolving site packages. But Python can not differentiate between different versions in the site-package directory. Packages will be installed in one of the directories, whose name can be found by running the site.getsitepackages() commands.\n\n>>> import site\n>>> site.getsitepackages()\n\nThis means package_v2.0.1 and package_v3.0.1 have to be in the same directory with the same name i.e. package, which is obviously not possible. Now, you may ask why we would need the same package with different versions on our system. This is because multiple projects may require different versions of Python packages or even different Python versions themselves. So there was a need to have something which will resolve these conflicts and Virtualenv came into the picture to solve this issue.\n\nWhat does it do for me?\n\nIt isolates the environment for Python projects so that each project can have its own dependencies.",
+            "url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one#71086705",
+            "parent_id": "41972261",
+            "depth": 0,
+            "points": 3,
+            "relevance": null
+          }
+        ],
+        "source_api": "api.stackexchange.com/2.3 site=stackoverflow",
+        "error": null
+      }
+    },
+    {
+      "schema_version": "1.1",
+      "status": "ok",
+      "url": "https://stackoverflow.com/questions/41763306/python-virtual-environment-uses-system-directories",
+      "final_url": "https://stackoverflow.com/questions/41763306/python-virtual-environment-uses-system-directories",
+      "title": "Python - Virtual Environment uses System Directories",
+      "content": "# Python - Virtual Environment uses System Directories\n\nby Myridium · 2017-01-20T12:06:19Z · via api.stackexchange.com/2.3 site=stackoverflow\n\nI've created a Python virtual environment, and activate it by doing:\n\njoe@joe-mint $ source ./venvs/deep-learning/bin/activate\n\nWhich turns the prompt into:\n\n(deep-learning) joe@joe-mint $\n\nNow whenever I run a python package or try to install one, the system seems to ignore the fact that it's in a virtual environment and does things system-wide:\n\n(deep-learning) joe@joe-mint $ which pip\n/usr/local/bin/pip\n\nThe same happens when I try to install new packages that aren't on my system; it installs them to the system files (i.e. /usr/bin) instead of the virtual environment.\n\nWhat's wrong with my virtual environment? How do I get it to ignore system files and do everything inside the environment?\n\nI've looked at this question which says to use an explicit flag when creating the virtual environment to make it use the local environment packages, but I used python-3.5 -m venv to create the virtual environment, and this flag is removed in this version as it's now a default option.\n\nI've also looked at this question and can confirm that the VIRTUAL_ENV variable is set correctly in the activate file of the virtual environment.\n\n## Comments (1 shown of 1)\n\n### [41763896] Myridium · 2017-01-20T12:38:07Z · reply to 41763306\nhttps://stackoverflow.com/questions/41763306/python-virtual-environment-uses-system-directories#41763896\n\nHere was the problem:\n\nIt seems that if you run pip on a venv without a local pip installation, then it will default to the system's pip outside the venv. Even if you've activated a virtual environment, this seems to want to install packages on the system rather than in the venv.\n\nHere was the solution:\n\nFirst, I had to install the virtual environment without pip due to a bug that has long remained unresolved.\n\nSecond, I installed pip in the virtual environment as per the instruction here. However, doing so required using some temporary folders that for some reason my user didn't have access to. So this failed, and the only way I could get it to work was to become root.\n\nsudo su\n\nactivate ..../venvs/deep-learning/bin/activate to activate the virtual environment.\n\ncurl --silent --show-error --retry 5 https://bootstrap.pypa.io/get-pip.py | python as per the answer linked above.\n\nAlthough which pip now indicated the correct pip (inside the venv) was being used, running pip would use the system one! Deactivating (deactivate) and reactivating the venv solved this.\n\nNow it took me a while to realise that having installed this as root caused me permission errors when trying to install more packages using pip inside the virtual environment.\n\nchown <user>:<group> -R ..../venvs/deep-learning/*\n\nAnd that was it. After these steps, I could activate the venv and run pip correctly. It would use the pip inside the venv, and install packages inside the venv.\n",
+      "content_type": "text/markdown",
+      "provider": "stackexchange",
+      "truncated": false,
+      "metadata": {
+        "source_api": "api.stackexchange.com/2.3 site=stackoverflow",
+        "comments_total": 1
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "stackexchange",
+            "operation": "read_thread",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 180,
+            "detail": "1 comments",
+            "usage": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 180,
+      "thread": {
+        "platform": "stackexchange",
+        "url": "https://stackoverflow.com/questions/41763306/python-virtual-environment-uses-system-directories",
+        "thread_id": "41763306",
+        "title": "Python - Virtual Environment uses System Directories",
+        "author": "Myridium",
+        "created_at": "2017-01-20T12:06:19Z",
+        "body": "I've created a Python virtual environment, and activate it by doing:\n\njoe@joe-mint $ source ./venvs/deep-learning/bin/activate\n\nWhich turns the prompt into:\n\n(deep-learning) joe@joe-mint $\n\nNow whenever I run a python package or try to install one, the system seems to ignore the fact that it's in a virtual environment and does things system-wide:\n\n(deep-learning) joe@joe-mint $ which pip\n/usr/local/bin/pip\n\nThe same happens when I try to install new packages that aren't on my system; it installs them to the system files (i.e. /usr/bin) instead of the virtual environment.\n\nWhat's wrong with my virtual environment? How do I get it to ignore system files and do everything inside the environment?\n\nI've looked at this question which says to use an explicit flag when creating the virtual environment to make it use the local environment packages, but I used python-3.5 -m venv to create the virtual environment, and this flag is removed in this version as it's now a default option.\n\nI've also looked at this question and can confirm that the VIRTUAL_ENV variable is set correctly in the activate file of the virtual environment.",
+        "status": "comments_read",
+        "comments_total": 1,
+        "comments": [
+          {
+            "id": "41763896",
+            "author": "Myridium",
+            "created_at": "2017-01-20T12:38:07Z",
+            "text": "Here was the problem:\n\nIt seems that if you run pip on a venv without a local pip installation, then it will default to the system's pip outside the venv. Even if you've activated a virtual environment, this seems to want to install packages on the system rather than in the venv.\n\nHere was the solution:\n\nFirst, I had to install the virtual environment without pip due to a bug that has long remained unresolved.\n\nSecond, I installed pip in the virtual environment as per the instruction here. However, doing so required using some temporary folders that for some reason my user didn't have access to. So this failed, and the only way I could get it to work was to become root.\n\nsudo su\n\nactivate ..../venvs/deep-learning/bin/activate to activate the virtual environment.\n\ncurl --silent --show-error --retry 5 https://bootstrap.pypa.io/get-pip.py | python as per the answer linked above.\n\nAlthough which pip now indicated the correct pip (inside the venv) was being used, running pip would use the system one! Deactivating (deactivate) and reactivating the venv solved this.\n\nNow it took me a while to realise that having installed this as root caused me permission errors when trying to install more packages using pip inside the virtual environment.\n\nchown <user>:<group> -R ..../venvs/deep-learning/*\n\nAnd that was it. After these steps, I could activate the venv and run pip correctly. It would use the pip inside the venv, and install packages inside the venv.",
+            "url": "https://stackoverflow.com/questions/41763306/python-virtual-environment-uses-system-directories#41763896",
+            "parent_id": "41763306",
+            "depth": 0,
+            "points": 1,
+            "relevance": null
+          }
+        ],
+        "source_api": "api.stackexchange.com/2.3 site=stackoverflow",
+        "error": null
+      }
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 10699,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "stackexchange.search": 1,
+      "stackexchange.read_thread": 3
+    },
+    "xai_cost_ticks": 190086400,
+    "tavily_credits_estimate": 0
+  }
+}

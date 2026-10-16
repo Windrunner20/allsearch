@@ -1,0 +1,284 @@
+{
+  "id": "compare-react-vue",
+  "executed_at": "2026-10-16T04:24:07.580503+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "对比 React 官方的 managing state 和 Vue 官方的 reactivity fundamentals",
+  "answer": "These two official chapters cover different layers of the same problem. React’s [Managing State](https://react.dev/learn/managing-state) is an intermediate guide to organizing UI state. Vue’s [Reactivity Fundamentals](https://vuejs.org/guide/essentials/reactivity-fundamentals) is an essentials guide to how reactive values are declared and tracked.\n\n1. **Scope** — React’s chapter is about structure and data flow: visual states, avoiding duplicate state, lifting state, preserving/resetting with `key`, reducers, and Context. Vue’s page is about the reactivity primitives themselves: `data`, `ref()`, `reactive()`, deep mutation, and when the DOM updates.\n\n2. **Mental model** — React says you do not command the UI (“disable the button”). You describe visual states and switch them with state. Vue says reactivity is dependency tracking: reads are tracked during render, writes trigger updates. Plain JS variables cannot be tracked; property get/set can.\n\n3. **Declaring state** — React uses `useState` (and later `useReducer`). Each call returns the current snapshot and a setter that schedules a re-render. Vue Options API uses a `data()` function whose returned object is proxied onto `this`. Composition API prefers `ref(0)` (read/write `.value` in JS; auto-unwrapped in templates) or `reactive({ ... })` for an object proxy. `<script setup>` exposes top-level bindings to the template automatically.\n\n4. **Mutation style** — React treats state as immutable: replace objects/arrays and let the setter request a new render. State does not change inside the current render (see also [State as a Snapshot](https://react.dev/learn/state-as-a-snapshot)). Vue is mutable by default: `this.count++`, `count.value++`, and nested pushes/property writes are tracked. DOM updates are buffered to the next tick (`nextTick`), not applied synchronously.\n\n5. **Derived data** — React’s chapter warns that redundant state (for example storing `fullName` alongside `firstName` and `lastName`) is a common bug source; compute it during render. Vue’s fundamentals page does not center that design rule; derived values are usually `computed` (covered in the reactivity API, not this page’s main examples).\n\n6. **Deep updates** — Vue state is deeply reactive by default: nested object and array mutations are detected. Opt out with shallow refs when the cost is high or an external library owns the data. React has no proxy layer; nested updates only show up if you produce a new state value and pass it to the setter.\n\n7. **Sharing and lifetime** — React’s chapter spends most of its space on ownership: lift state to the closest common parent, pass it down as props, reset state by changing `key`, and scale with reducer + Context. Vue’s fundamentals page stays inside one component instance. Cross-component sharing is elsewhere (props, provide/inject, stores).\n\n8. **What “reactivity” means in each doc** — In React’s managing-state chapter, “reactive” means the UI is a function of state and re-renders when you set state. In Vue’s page, “reactive” means a Proxy (objects) or getter/setter (`ref`) so the framework can track and trigger without you calling a setter. Vue 3 leaves the original object non-reactive; you must read state through the proxy (`this` or the `reactive()` result).\n\n**Practical contrast:** React’s doc teaches *where state lives and how not to duplicate it*. Vue’s doc teaches *how a value becomes observable and how you mutate it*. They are complementary, not parallel chapters.",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://react.dev/learn/managing-state",
+      "url": "https://react.dev/learn/managing-state",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "https://v2.vuejs.org/v2/guide/reactivity.html",
+      "url": "https://v2.vuejs.org/v2/guide/reactivity.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://vuejs.org/api/options-state",
+      "url": "https://vuejs.org/api/options-state",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "https://react.dev/learn/state-as-a-snapshot",
+      "url": "https://react.dev/learn/state-as-a-snapshot",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://react.dev/reference/react/useReducer",
+      "url": "https://react.dev/reference/react/useReducer",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "https://vuejs.org/api/reactivity-core.html",
+      "url": "https://vuejs.org/api/reactivity-core.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://react.dev/learn/reacting-to-input-with-state",
+      "url": "https://react.dev/learn/reacting-to-input-with-state",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html",
+      "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://react.dev/learn/managing-state",
+      "url": "https://react.dev/learn/managing-state",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "https://v2.vuejs.org/v2/guide/reactivity.html",
+      "url": "https://v2.vuejs.org/v2/guide/reactivity.html",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://vuejs.org/api/options-state",
+      "url": "https://vuejs.org/api/options-state",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "https://react.dev/learn/state-as-a-snapshot",
+      "url": "https://react.dev/learn/state-as-a-snapshot",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://react.dev/reference/react/useReducer",
+      "url": "https://react.dev/reference/react/useReducer",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "https://vuejs.org/api/reactivity-core.html",
+      "url": "https://vuejs.org/api/reactivity-core.html",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://react.dev/learn/reacting-to-input-with-state",
+      "url": "https://react.dev/learn/reacting-to-input-with-state",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html",
+      "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+      "url": "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+      "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://react.dev/llms.txt",
+      "url": "https://react.dev/llms.txt",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 25247,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "comparison_signal"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "timed_out": false,
+  "elapsed_ms": 25249,
+  "usage": {
+    "calls": {
+      "xai.search": 1
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 0
+  }
+}

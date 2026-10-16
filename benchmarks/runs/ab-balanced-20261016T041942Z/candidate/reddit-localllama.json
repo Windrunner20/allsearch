@@ -1,0 +1,607 @@
+{
+  "id": "reddit-localllama",
+  "executed_at": "2026-10-16T04:20:31.199895+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.3.0",
+  "provider_query": "Reddit thread in r/LocalLLaMA about running a quantized local model on one GPU",
+  "answer": "Relevant r/LocalLLaMA threads on running quantized models on a single GPU:\n\n1. **Guide to choosing quants and engines** — For a single GPU when the model fits in VRAM, recommends EXL2 + exllamav2 (or GPTQ + exllamav2 at 4-bit); GGUF + llama.cpp when you need offloading. Also covers fitting a 34B on one 4090 by tuning bpw.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1anb2fz/guide_to_choosing_quants_and_engines/ [web:0]\n\n2. **Ornith-1.0-35B Q3_K_M on one GPU** — Q3_K_M lands at ~17 GiB VRAM (~16.8 GB on disk), KLD-checked vs BF16, ~240 tok/s single-stream on llama.cpp CUDA.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1ugqipi/ornith1035b_q3_k_m_17_gb_vram_kldchecked_against [web:2]\n\n3. **Qwen 3.8 27B ~140 tok/s on one RTX 3090** — CUDA megakernel for Q4_K_M, 1.4–1.9× llama.cpp, single GPU, 24 GB+ (tuned on 3090), long context with quantized KV.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1x37q7b/update_qwen_38_27b_140_toks_on_single_rtx_3090/ [web:3]\n\n4. **120 tok/s on 12 GB with Gemma 4 12B QAT** — Unsloth QAT GGUF plus MTP draft model fully in VRAM on an RTX 4070 Super 12 GB via llama.cpp.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1typjmc/120_toks_on_12gb_vram_with_gemma_4_12b_qat_mtp [web:8]\n\n5. **Qwen3.5-35B-A3B quants on RTX 5080 16 GB** — Q8_0 vs Q4_K_M vs UD-Q4_K_XL perplexity and speed; best ~70 tok/s with Q4_K_M and partial MoE offload on one 16 GB card.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1rei65v/ [web:26]\n\n6. **KV cache quantization memory tests** — q4_0 KV cache lets Command R (35B) fit on a single 24 GB Tesla P40 at 8192 context.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1dalkm8/memory_tests_using_llamacpp_kv_cache_quantization/ [web:27]\n\n7. **AQLM 2–2.5 bit quantization** — Claims 70B on an RTX 3090 (and Mixtral-class models on a 4060) with less quality loss than QuIP# / 3-bit GPTQ.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1al58xw/yet_another_state_of_the_art_in_llm_quantization/ [web:7]\n\n8. **Flyweight: MoE bigger than VRAM on one GPU** — C++/CUDA GGUF engine; experts on CPU or a hot set in VRAM. Example: laptop 5070 Ti 12 GB + 60 GB RAM, Qwen3.8-Flash-Next IQ1_S ~35 tok/s.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1wjjmj9/flyweight_opensource_ccuda_engine_for_running_moe/ [web:32]",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://www.reddit.com/r/LocalLLaMA/comments/1swzjnu/to_16gb_vram_users_plug_in_your_old_gpu/",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1swzjnu/to_16gb_vram_users_plug_in_your_old_gpu",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "https://www.reddit.com/r/MachineLearning/comments/rd2l00/p_1st_ever_method_to_perform_gpu_quantization_on/",
+      "url": "https://www.reddit.com/r/MachineLearning/comments/rd2l00/p_1st_ever_method_to_perform_gpu_quantization_on",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://old.reddit.com/r/LocalLLaMA/comments/1ba55rj/overview_of_gguf_quantization_methods/",
+      "url": "https://old.reddit.com/r/LocalLLaMA/comments/1ba55rj/overview_of_gguf_quantization_methods",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "https://old.reddit.com/r/singularity/comments/1kz6qku/you_can_now_run_deepseekr10528_on_your_local.json",
+      "url": "https://old.reddit.com/r/singularity/comments/1kz6qku/you_can_now_run_deepseekr10528_on_your_local.json",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://www.reddit.com/r/selfhosted/comments/1juj6kk/you_can_now_run_llama_4_on_your_own_local_device/",
+      "url": "https://www.reddit.com/r/selfhosted/comments/1juj6kk/you_can_now_run_llama_4_on_your_own_local_device",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "https://old.reddit.com/r/LocalLLaMA/comments/1eb764f/run_llama_31_now_with_correct_rope_insitu.json?sort=top",
+      "url": "https://old.reddit.com/r/LocalLLaMA/comments/1eb764f/run_llama_31_now_with_correct_rope_insitu.json?sort=top",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://www.reddit.com/r/LocalLLaMA/comments/1x37q7b/update_qwen_38_27b_140_toks_on_single_rtx_3090/",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1x37q7b/update_qwen_38_27b_140_toks_on_single_rtx_3090",
+      "snippet": "3. Qwen 3.8 27B ~140 tok/s on one RTX 3090 — CUDA megakernel for Q4 K M, 1.4–1.9× llama.cpp, single GPU, 24 GB+ (tuned on 3090), long context with quantized KV.",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r8",
+      "title": "https://www.reddit.com/r/Qwen_AI/comments/1x4d6rk/i_built_an_inference_engine_that_only_runs_qwen38/",
+      "url": "https://www.reddit.com/r/Qwen_AI/comments/1x4d6rk/i_built_an_inference_engine_that_only_runs_qwen38",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://www.reddit.com/r/LocalLLaMA/comments/1swzjnu/to_16gb_vram_users_plug_in_your_old_gpu/",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1swzjnu/to_16gb_vram_users_plug_in_your_old_gpu",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "https://www.reddit.com/r/MachineLearning/comments/rd2l00/p_1st_ever_method_to_perform_gpu_quantization_on/",
+      "url": "https://www.reddit.com/r/MachineLearning/comments/rd2l00/p_1st_ever_method_to_perform_gpu_quantization_on",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://old.reddit.com/r/LocalLLaMA/comments/1ba55rj/overview_of_gguf_quantization_methods/",
+      "url": "https://old.reddit.com/r/LocalLLaMA/comments/1ba55rj/overview_of_gguf_quantization_methods",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "https://old.reddit.com/r/singularity/comments/1kz6qku/you_can_now_run_deepseekr10528_on_your_local.json",
+      "url": "https://old.reddit.com/r/singularity/comments/1kz6qku/you_can_now_run_deepseekr10528_on_your_local.json",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://www.reddit.com/r/selfhosted/comments/1juj6kk/you_can_now_run_llama_4_on_your_own_local_device/",
+      "url": "https://www.reddit.com/r/selfhosted/comments/1juj6kk/you_can_now_run_llama_4_on_your_own_local_device",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "https://old.reddit.com/r/LocalLLaMA/comments/1eb764f/run_llama_31_now_with_correct_rope_insitu.json?sort=top",
+      "url": "https://old.reddit.com/r/LocalLLaMA/comments/1eb764f/run_llama_31_now_with_correct_rope_insitu.json?sort=top",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://www.reddit.com/r/LocalLLaMA/comments/1x37q7b/update_qwen_38_27b_140_toks_on_single_rtx_3090/",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1x37q7b/update_qwen_38_27b_140_toks_on_single_rtx_3090",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "https://www.reddit.com/r/Qwen_AI/comments/1x4d6rk/i_built_an_inference_engine_that_only_runs_qwen38/",
+      "url": "https://www.reddit.com/r/Qwen_AI/comments/1x4d6rk/i_built_an_inference_engine_that_only_runs_qwen38",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://www.reddit.com/r/LocalLLaMA/comments/1wjjmj9/flyweight_opensource_ccuda_engine_for_running_moe/",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1wjjmj9/flyweight_opensource_ccuda_engine_for_running_moe",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://www.reddit.com/r/LocalLLaMA/comments/1dalkm8/memory_tests_using_llamacpp_kv_cache_quantization/",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1dalkm8/memory_tests_using_llamacpp_kv_cache_quantization",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://old.reddit.com/r/LocalLLaMA/comments/1typjmc/120_toks_on_12gb_vram_with_gemma_4_12b_qat_mtp.json",
+      "url": "https://old.reddit.com/r/LocalLLaMA/comments/1typjmc/120_toks_on_12gb_vram_with_gemma_4_12b_qat_mtp.json",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://old.reddit.com/r/LocalLLM/comments/1kz6tl1/you_can_now_run_deepseekr10528_on_your_local.json",
+      "url": "https://old.reddit.com/r/LocalLLM/comments/1kz6tl1/you_can_now_run_deepseekr10528_on_your_local.json",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://www.reddit.com/r/LocalLLM/comments/1x22inc/polystrata_strata_with_four_more_moe_models/",
+      "url": "https://www.reddit.com/r/LocalLLM/comments/1x22inc/polystrata_strata_with_four_more_moe_models",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://www.reddit.com/r/LocalLLaMA/comments/1kgzey8/run_flux1_losslessly_on_a_gpu_with_20gb_vram/",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1kgzey8/run_flux1_losslessly_on_a_gpu_with_20gb_vram",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://www.reddit.com/r/unsloth/comments/1pttoqq/run_glm47_locally_guide_128gb_ram/",
+      "url": "https://www.reddit.com/r/unsloth/comments/1pttoqq/run_glm47_locally_guide_128gb_ram",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://www.reddit.com/r/LocalLLaMA/comments/1ugqipi/ornith1035b_q3_k_m_17_gb_vram_kldchecked_against",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ugqipi/ornith1035b_q3_k_m_17_gb_vram_kldchecked_against",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://www.reddit.com/r/LocalLLM/comments/1np1o9e/comment/nfy9ji5/",
+      "url": "https://www.reddit.com/r/LocalLLM/comments/1np1o9e/comment/nfy9ji5",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://www.reddit.com/r/LocalLLaMA/comments/1wwwmy1/running_qwen38_flash_next_176b_on_a_16gb_rtx_3080/",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1wwwmy1/running_qwen38_flash_next_176b_on_a_16gb_rtx_3080",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "https://www.reddit.com/r/LocalLLM/comments/1ulhwi0/can_we_full_finetune_an_8b_model_on_a_single_rtx",
+      "url": "https://www.reddit.com/r/LocalLLM/comments/1ulhwi0/can_we_full_finetune_an_8b_model_on_a_single_rtx",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "https://www.reddit.com/r/LocalLLaMA/comments/1anb2fz/guide_to_choosing_quants_and_engines/",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1anb2fz/guide_to_choosing_quants_and_engines",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c21",
+      "title": "https://www.reddit.com/r/LocalLLaMA/comments/1al58xw/yet_another_state_of_the_art_in_llm_quantization/",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1al58xw/yet_another_state_of_the_art_in_llm_quantization",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c22",
+      "title": "https://www.reddit.com/r/txtai/comments/1ft4zob/if_youre_running_on_constrained_hardware_andor",
+      "url": "https://www.reddit.com/r/txtai/comments/1ft4zob/if_youre_running_on_constrained_hardware_andor",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c23",
+      "title": "https://www.reddit.com/r/LLMDevs/comments/1l1v8ml/how_i_got_qwen330b_moe_running_at_24_toks_on_an",
+      "url": "https://www.reddit.com/r/LLMDevs/comments/1l1v8ml/how_i_got_qwen330b_moe_running_at_24_toks_on_an",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c24",
+      "title": "https://www.reddit.com/r/LocalLLaMA/comments/1gfqip9/xmad_has_just_released_the_best_quantized/",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1gfqip9/xmad_has_just_released_the_best_quantized",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c25",
+      "title": "https://reddit.com/r/StableDiffusion/comments/1tj5nhq/ggufy_easy_quantization_for_the_gpu_poor/",
+      "url": "https://reddit.com/r/StableDiffusion/comments/1tj5nhq/ggufy_easy_quantization_for_the_gpu_poor",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c26",
+      "title": "https://www.reddit.com/r/LocalLLaMA/comments/1rei65v/",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rei65v",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c27",
+      "title": "https://www.reddit.com/r/LocalLLaMA/comments/1egn0yh/llama31_8b_4bit_hqqcalibrated_quantized_model_993/",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1egn0yh/llama31_8b_4bit_hqqcalibrated_quantized_model_993",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c28",
+      "title": "https://www.reddit.com/r/LocalLLM/s/DEP7KZFc3i",
+      "url": "https://www.reddit.com/r/LocalLLM/s/DEP7KZFc3i",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary_site_restricted",
+        "latency_ms": 13869,
+        "detail": "model=grok-4.7",
+        "usage": {
+          "input_tokens": 27591,
+          "input_tokens_details": {
+            "cached_tokens": 3328
+          },
+          "output_tokens": 1093,
+          "output_tokens_details": {
+            "reasoning_tokens": 86
+          },
+          "total_tokens": 28684,
+          "num_sources_used": 0,
+          "num_server_side_tools_used": 3,
+          "cost_in_usd_ticks": 342943200,
+          "server_side_tool_usage_details": {
+            "web_search_calls": 3,
+            "x_search_calls": 0,
+            "x_posts_fetched": 0,
+            "x_users_fetched": 0,
+            "code_interpreter_calls": 0,
+            "file_search_calls": 0,
+            "mcp_calls": 0,
+            "document_search_calls": 0,
+            "image_generation_calls": 0
+          },
+          "context_details": {
+            "input_tokens": 25313,
+            "output_tokens": 935
+          }
+        }
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null,
+        "usage": null
+      },
+      {
+        "provider": "reddit",
+        "operation": "read_thread",
+        "outcome": "skipped",
+        "reason": "thread",
+        "latency_ms": 0,
+        "detail": "reddit_oauth_not_configured",
+        "usage": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced"
+    ]
+  },
+  "coverage": {
+    "status": "sufficient",
+    "requirements": [
+      {
+        "kind": "site",
+        "target": "Reddit",
+        "satisfied": true,
+        "detail": "27 content page(s), e.g. https://www.reddit.com/r/LocalLLaMA/comments/1swzjnu/to_16gb_vram_users_plug_in_your_old_gpu"
+      }
+    ]
+  },
+  "threads": [
+    {
+      "platform": "reddit",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1x37q7b/update_qwen_38_27b_140_toks_on_single_rtx_3090",
+      "thread_id": "1x37q7b",
+      "title": "",
+      "author": "",
+      "created_at": null,
+      "body": "",
+      "status": "found",
+      "comments_total": null,
+      "source_api": "",
+      "error": "reddit_oauth_not_configured",
+      "comments_read": 0
+    }
+  ],
+  "next_steps": [
+    {
+      "tool": "fetch",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1x37q7b/update_qwen_38_27b_140_toks_on_single_rtx_3090",
+      "why": "comments not readable via API (reddit_oauth_not_configured); fetch reads the page if it is public"
+    }
+  ],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.1",
+      "status": "error",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1x37q7b/update_qwen_38_27b_140_toks_on_single_rtx_3090",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "transport_error",
+            "usage": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "transport_error",
+          "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 12, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or please retry after 19s, r",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 67,
+      "thread": null
+    },
+    {
+      "schema_version": "1.1",
+      "status": "error",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1swzjnu/to_16gb_vram_users_plug_in_your_old_gpu",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "transport_error",
+            "usage": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "transport_error",
+          "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 13, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or please retry after 19s, r",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 84,
+      "thread": null
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 14031,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 342943200,
+    "tavily_credits_estimate": 0
+  }
+}

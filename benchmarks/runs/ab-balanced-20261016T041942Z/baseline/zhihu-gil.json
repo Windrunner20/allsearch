@@ -1,0 +1,632 @@
+{
+  "id": "zhihu-gil",
+  "executed_at": "2026-10-16T04:19:43.015826+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "知乎上关于 Python GIL 为什么让多线程吃不满多核的高赞回答",
+  "answer": "知乎上和「Python GIL 导致多线程吃不满多核」直接相关、讨论较集中的内容如下（按相关度与可见赞数整理，最多 8 条）。\n\n1. **[为什么有人说 Python 的多线程是鸡肋呢？](https://www.zhihu.com/question/23474039)**  \n   高赞回答（约 **1292** 赞）核心说法：CPython 里任何线程执行字节码前必须先拿 GIL；同一时刻只有一个线程在跑 Python 字节码，所以「100 个线程跑在 100 核上也只能用到约 1 个核」。CPU 密集任务多线程几乎不加速；I/O 时会放锁，多线程仍有用；要吃满多核用多进程（各自一把 GIL）或会释放 GIL 的 C 扩展。文中还对比了死循环多线程 vs 多进程的 CPU 占用。\n\n2. **[python 下同样代码，多核多线程为什么比单核多线程慢很多？](https://www.zhihu.com/question/39923765)**  \n   回答（约 **28** 赞）补充机制：线程是 OS 原生线程，但 GIL 禁止并行执行字节码；CPU 密集大约按解释器计步（旧实现约百次 tick）或超时（3.2 起约 5ms）释放 GIL。多核上容易出现线程颠簸（thrashing），所以多核多线程有时比单核更慢。绕过方式：`multiprocessing`，或用 C/C++ 扩展在非 Python 对象段释放 GIL。\n\n3. **[为什么 Python 的 GIL 问题一直让人诟病，Python 社区却不解决？](https://www.zhihu.com/question/323812020)**  \n   高赞回答（约 **286** 赞）解释「为什么难去掉」：引用计数要原子操作、动态语言下保证解释器不崩需要大量细锁，去掉 GIL 会伤单线程性能并冲击大量隐式依赖 GIL 的 C 扩展。后文更新到 Sam Gross 的 nogil 与 **PEP 703**（可选无 GIL）。这是「吃不满多核」的历史与工程原因，不是操作步骤。\n\n4. **[从伪并行的 Python 多线程说起](https://zhuanlan.zhihu.com/p/34687635)**（2018）  \n   用斐波那契类实验说明：CPython 下耗时几乎随线程数线性变差，和「多核真并行」矛盾。结论：GIL 保证同一时刻只有一条线程执行，单进程无法利用多核；C 扩展里可用 `Py_BEGIN_ALLOW_THREADS` / `Py_END_ALLOW_THREADS` 临时放开 GIL。也对比了 PyPy、Jython。\n\n5. **[终于有人把 GIL 全局解释器说清楚了](https://zhuanlan.zhihu.com/p/311877485)**  \n   把原因收成两点：避免引用计数等内存管理上的数据竞争；大量 C 库本身不是线程安全的。效果是线程轮流持锁，用户看到的是交错执行的「伪并行」，而不是多核同时跑 Python 字节码。\n\n6. **[一文理解 Python 的全局解释器锁（GIL）](https://zhuanlan.zhihu.com/p/690194234)**  \n   直接点题：GIL 只保证同一时刻一个线程执行字节码，所以计算密集的多线程程序实际只在单核上跑；I/O 为主时线程多在等待，多线程仍然合适。\n\n7. **[Python 进阶：为什么 GIL 让多线程变得如此鸡肋？](https://www.zhihu.com/question/648464307)**  \n   问题热度一般（浏览约数百），回答口径一致：「一核打架，多核围观」。CPU 密集无真并行，还可能因抢锁和切换比单线程更慢；I/O 会释放 GIL，多线程有收益。建议多进程、无 GIL 实现，或 NumPy 等会放锁的 C 扩展。\n\n8. **[Python 高性能编程：multiprocessing](https://zhuanlan.zhihu.com/p/455171966)**  \n   用图说明多核上的 GIL 争用：绿色是真正持锁计算，红色是被唤醒却抢不到锁的空转。结论：CPU 密集用多进程（每进程独立解释器，无同一把 GIL）；纯 Python 多线程往往更慢；NumPy 在 GIL 之外算时，多线程可以变快。\n\n**这些回答共同的结论（不是某条独有）：** GIL 是 CPython 进程内的互斥锁，同一时刻只允许一个线程执行 Python 字节码，所以纯 Python 的 CPU 密集多线程无法吃满多核；I/O 或会主动释放 GIL 的 C 扩展例外；要并行计算通常用多进程。Python 3.13 起另有实验性 free-threaded（PEP 703）构建，默认解释器仍带 GIL。",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://www.biaodianfu.com/python-concurrency/",
+      "url": "https://www.biaodianfu.com/python-concurrency",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "https://www.wsisp.com/helps/115653.html",
+      "url": "https://www.wsisp.com/helps/115653.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://juejin.cn/post/7657161919082610714",
+      "url": "https://juejin.cn/post/7657161919082610714",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "https://developer.aliyun.com/article/1744612",
+      "url": "https://developer.aliyun.com/article/1744612",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://zhuanlan.zhihu.com/p/1943962631212867675",
+      "url": "https://zhuanlan.zhihu.com/p/1943962631212867675",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "https://zhuanlan.zhihu.com/p/1975968147522736515",
+      "url": "https://zhuanlan.zhihu.com/p/1975968147522736515",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://zhuanlan.zhihu.com/p/1923366864152658874",
+      "url": "https://zhuanlan.zhihu.com/p/1923366864152658874",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "https://www.zhihu.com/question/596560660",
+      "url": "https://www.zhihu.com/question/596560660",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://www.biaodianfu.com/python-concurrency/",
+      "url": "https://www.biaodianfu.com/python-concurrency",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "https://www.wsisp.com/helps/115653.html",
+      "url": "https://www.wsisp.com/helps/115653.html",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://juejin.cn/post/7657161919082610714",
+      "url": "https://juejin.cn/post/7657161919082610714",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "https://developer.aliyun.com/article/1744612",
+      "url": "https://developer.aliyun.com/article/1744612",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://zhuanlan.zhihu.com/p/1943962631212867675",
+      "url": "https://zhuanlan.zhihu.com/p/1943962631212867675",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "https://zhuanlan.zhihu.com/p/1975968147522736515",
+      "url": "https://zhuanlan.zhihu.com/p/1975968147522736515",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://zhuanlan.zhihu.com/p/1923366864152658874",
+      "url": "https://zhuanlan.zhihu.com/p/1923366864152658874",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "https://www.zhihu.com/question/596560660",
+      "url": "https://www.zhihu.com/question/596560660",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://developer.volcengine.com/articles/7382991428827234331",
+      "url": "https://developer.volcengine.com/articles/7382991428827234331",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://www.zhihu.com/question/39923765",
+      "url": "https://www.zhihu.com/question/39923765",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://zhuanlan.zhihu.com/p/311877485",
+      "url": "https://zhuanlan.zhihu.com/p/311877485",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://www.zhihu.com/question/23474039",
+      "url": "https://www.zhihu.com/question/23474039",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://zhuanlan.zhihu.com/p/34687635",
+      "url": "https://zhuanlan.zhihu.com/p/34687635",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://cloud.tencent.com/developer/article/2731083",
+      "url": "https://cloud.tencent.com/developer/article/2731083",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://www.zhihu.com/question/630751722/answer/3299085876",
+      "url": "https://www.zhihu.com/question/630751722/answer/3299085876",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://blog.csdn.net/weixin_32715349/article/details/164436975",
+      "url": "https://blog.csdn.net/weixin_32715349/article/details/164436975",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+      "url": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://www.zhihu.com/question/323812020",
+      "url": "https://www.zhihu.com/question/323812020",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "https://cloud.tencent.com/developer/article/2754723",
+      "url": "https://cloud.tencent.com/developer/article/2754723",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "https://www.shuzhiduo.com/A/KE5Qwk0MzL/",
+      "url": "https://www.shuzhiduo.com/A/KE5Qwk0MzL",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c21",
+      "title": "https://www.jb51.net/python/355070mni.htm",
+      "url": "https://www.jb51.net/python/355070mni.htm",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c22",
+      "title": "https://zhuanlan.zhihu.com/p/690194234",
+      "url": "https://zhuanlan.zhihu.com/p/690194234",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c23",
+      "title": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+      "url": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c24",
+      "title": "https://juejin.cn/post/7675365996027609103",
+      "url": "https://juejin.cn/post/7675365996027609103",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c25",
+      "title": "https://zhuanlan.zhihu.com/p/455171966",
+      "url": "https://zhuanlan.zhihu.com/p/455171966",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c26",
+      "title": "https://juejin.cn/post/7691207444282015778",
+      "url": "https://juejin.cn/post/7691207444282015778",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c27",
+      "title": "https://www.zhihu.com/question/648464307",
+      "url": "https://www.zhihu.com/question/648464307",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c28",
+      "title": "https://zhuanlan.zhihu.com/p/356475230",
+      "url": "https://zhuanlan.zhihu.com/p/356475230",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c29",
+      "title": "https://juejin.cn/post/7690223813901778984",
+      "url": "https://juejin.cn/post/7690223813901778984",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c30",
+      "title": "https://cloud.tencent.com.cn/developer/article/2757312",
+      "url": "https://cloud.tencent.com.cn/developer/article/2757312",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c31",
+      "title": "https://zhuanlan.zhihu.com/p/586030177",
+      "url": "https://zhuanlan.zhihu.com/p/586030177",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c32",
+      "title": "https://juejin.cn/post/7694834709337145385",
+      "url": "https://juejin.cn/post/7694834709337145385",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 27721,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://www.biaodianfu.com/python-concurrency",
+      "final_url": "https://www.biaodianfu.com/python-concurrency",
+      "title": "Python 并发体系化指南：线程、进程、协程 – 标点符",
+      "content": "同一台机器，同一份质数计数函数，同样 8 个任务：串行跑 9.74 秒，开 8 个线程跑 9.83 秒，开 8 个进程跑 2.74 秒。把任务换成 40 次 0.05 秒的等待，结论整个翻过来——串行 2.01 秒，线程池 0.056 秒，进程池反倒慢到 2.36 秒。这台机器上 `os.cpu_count()` 报的是 20。决定性能的从来不是哪种并发方式更时髦，而是任务到底在等什么。下面从 GIL 开始，把标准库里每一个和并发沾边的模块过一遍，每个结论后面都跟着本机实测的数字。\n\n## 一、并发不等于并行，先看任务在等什么\n\n并发指的是多个任务在一段时间里都在推进；并行指的是同一时刻真的有多个在执行。单核也能并发，靠的是快速切换；但要并行，必须同时有多个执行单元在干活。\n\n现实中的任务就两类，处理思路完全不同。\n\n- **I/O 密集型**：等网络、等磁盘、等数据库。CPU 大部分时间闲着，瓶颈是等待。\n- **CPU 密集型**：算数、解析、编解码、图像处理。CPU 一直在忙，瓶颈是算力。\n\n前者要做的是把等待的空档填满，后者要做的是找更多核来分担。这两句话决定了后面所有的选型。\n\n![](https://www.biaodianfu.com/wp-content/uploads/2026/10/python-concurrency.png)\n\n标准库提供三种并发单元，边界很清楚。\n\n| 维度 | 进程 | 线程 | 协程 |\n| --- | --- | --- | --- |\n| 内存 | 各自独立，靠序列化传递 | 共享同一份 | 共享同一份 |\n| 切换开销 | 高 | 中 | 极低 |\n| 并行能力 | 多核真并行 | 受 GIL 限制 | 单线程内不并行 |\n| 数据安全 | 天然隔离 | 需要锁 | 需要锁 |\n| 适合 | CPU 密集、需要隔离 | I/O 密集 | 高并发 I/O |\n| 标准库 | multiprocessing、subprocess | threading | asyncio |\n\n## 二、GIL：CPython 里最容易被误读的一把锁\n\nGIL 是 CPython 解释器里的一把全局互斥锁，它保证同一时刻只有一条线程在执行 Python 字节码。存在的原因不复杂：CPython 靠引用计数管理内存，多个线程同时改同一个对象的计数就会算错；与其给每个对象都配一把锁，不如让整个解释器一次只跑一条线程。\n\n这样换来的是实现简单和 C 扩展生态的稳定，代价落在 CPU 密集任务上。I/O 等待时线程会主动释放 GIL，别的线程能顶上；纯计算不释放，线程只能排队，等于白开。\n\n![](https://www.biaodianfu.com/wp-content/uploads/2026/10/cpu.png)\n\n这里有个反直觉的细节。GIL 并不是每隔几条字节码就换人，解释器只在特定位置响应切换请求，默认的切换间隔由 `sys.getswitchinterval()` 给出，本机是 0.005 秒。我在本机的 CPython 3.13 上让四个线程各跑 300 万次 `counter += 1`，期望 1200 万，实际也是 1200 万，一次都没丢。\n\n但这不代表 `counter += 1` 是原子的。把读和写拆开，中间夹一次会释放 GIL 的操作，结果立刻变了。\n\nPlain text\n\nCopy to clipboard\n\nOpen code in new window\n\nEnlighterJS 3 Syntax Highlighter\n\nimport threading\n\nimport time\n\ncounter = 0\n\nROUNDS = 50\\_000\n\nWORKERS = 4\n\ndefbump():\n\nglobal counter\n\nfor \\_ inrange(ROUNDS):\n\ntmp = counter \\# 读\n\ntime.sleep(0)\\# 让出 GIL，别的线程可以插进来\n\ncounter = tmp + 1\\# 写回\n\nthreads = \\[threading.Thread(target=bump)for \\_ inrange(WORKERS)\\]\n\nfor t in threads:\n\nt.start()\n\nfor t in threads:\n\nt.join()\n\nprint(f\"期望计数 {ROUNDS \\* WORKERS}，实际计数 {counter}\")\n\nimport threading\nimport time\n\ncounter = 0\nROUNDS = 50\\_000\nWORKERS = 4\n\ndef bump():\nglobal counter\nfor \\_ in range(ROUNDS):\ntmp = counter # 读\ntime.sleep(0) # 让出 GIL，别的线程可以插进来\ncounter = tmp + 1 # 写回\n\nthreads = \\[threading.Thread(target=bump) for \\_ in range(WORKERS)\\]\nfor t in threads:\nt.start()\nfor t in threads:\nt.join()\n\nprint(f\"期望计数 {ROUNDS \\* WORKERS}，实际计数 {counter}\")\n\n```\nimport threading\nimport time\n\ncounter = 0\nROUNDS = 50_000\nWORKERS = 4\n\ndef bump():\n    global counter\n    for _ in range(ROUNDS):\n        tmp = counter     # 读\n        time.sleep(0)     # 让出 GIL，别的线程可以插进来\n        counter = tmp + 1  # 写回\n\nthreads = [threading.Thread(target=bump) for _ in range(WORKERS)]\nfor t in threads:\n    t.start()\nfor t in threads:\n    t.join()\n\nprint(f\"期望计数 {ROUNDS * WORKERS}，实际计数 {counter}\")\n```\n\n四个线程各做 5 万次自增，期望 20 万，本机两次实跑分别得到 50029 和 50000，四分之三的更新被后来的线程覆盖掉了。补一把锁就恢复正确。\n\nPlain text\n\nCopy to clipboard\n\nOpen code in new window\n\nEnlighterJS 3 Syntax Highlighter\n\nimport threading\n\nimport time\n\nlock = threading.Lock()\n\ncounter = 0\n\nROUNDS = 50\\_000\n\nWORKERS = 4\n\ndefbump():\n\nglobal counter\n\nfor \\_ inrange(ROUNDS):\n\nwith lock:\n\ntmp = counter\n\ntime.sleep(0)\n\ncounter = tmp + 1\n\nthreads = \\[threading.Thread(target=bump)for \\_ inrange(WORKERS)\\]\n\nfor t in threads:\n\nt.start()\n\nfor t in threads:\n\nt.join()\n\nprint(f\"期望计数 {ROUNDS \\* WORKERS}，实际计数 {counter}\")\n\nimport threading\nimport time\n\nlock = threading.Lock()\ncounter = 0\nROUNDS = 50\\_000\nWORKERS = 4\n\ndef bump():\nglobal counter\nfor \\_ in range(ROUNDS):\nwith lock:\ntmp = counter\ntime.sleep(0)\ncounter = tmp + 1\n\nthreads = \\[threading.Thread(target=bump) for \\_ in range(WORKERS)\\]\nfor t in threads:\nt.start()\nfor t in threads:\nt.join()\n\nprint(f\"期望计数 {ROUNDS \\* WORKERS}，实际计数 {counter}\")\n\n```\nimport threading\nimport time\n\nlock = threading.Lock()\ncounter = 0\nROUNDS = 50_000\nWORKERS = 4\n\ndef bump():\n    global counter\n    for _ in range(ROUNDS):\n        with lock:\n            tmp = counter\n            time.sleep(0)\n            counter = tmp + 1\n\nthreads = [threading.Thread(target=bump) for _ in range(WORKERS)]\nfor t in threads:\n    t.start()\nfor t in threads:\n    t.join()\n\nprint(f\"期望计数 {ROUNDS * WORKERS}，实际计数 {counter}\")\n```\n\nPlain text\n\nCopy to clipboard\n\nOpen code in new window\n\nEnlighterJS 3 Syntax Highlighter\n\n期望计数 200000，实际计数 200000\n\n期望计数 200000，实际计数 200000\n\n```\n期望计数 200000，实际计数 200000\n```\n\n所以字节码层面的看起来原子，是当前实现方式的副产品，不能当成语言保证。共享可变状态要么加锁，要么别共享。\n\n![](https://www.biaodianfu.com/wp-content/uploads/2026/10/cpu-2.png)\n\n这张图里有三件事。线程组和串行完全持平，0.98 到 0.99 倍，这是 GIL 的直接后果。进程池把时间压到 2.74 秒，3.55 倍。新建池和复用池差了将近 3 秒，说明进程启动（Windows 只能 spawn，要重新导入模块、重新初始化解释器）不是能忽略的成本。\n\n还有一点要提前说清：3.55 倍不等于加 8 个进程就该得到 8 倍。我单独测过这台机器的实际并行能力，用同一个函数逐档加 worker：\n\n| worker 数 | 墙钟时间 | 相对串行的加速比 | 并行效率 |\n| --- | --- | --- | --- |\n| 1 | 0.500 s | 0.97× | 97% |\n| 2 | 0.521 s | 1.87× | 93% |\n| 4 | 0.713 s | 2.73× | 68% |\n| 8 | 1.048 s | 3.71× | 46% |\n| 16 | 2.093 s | 3.71× | 23% |\n\n`os.cpu_count()` 报 20，但真正能同时出力的只有 3.7 个核左右，16 个 worker 和 8 个一样快。这和运行环境有关：`os.cpu_count()` 返回的是宿主机的核数，不是你能用到的核数，容器和虚拟机上的配额它看不见。选型时先量一下实际能拿到多少并行度，再定 worker 数量，比照着核数配靠谱得多。\n\n长远看这个限制会松掉。自由线程构建（PEP 703）从 Python 3.13 开始提供，可执行文件带 `t` 后缀，属于实验性质；Python 3.14 按 PEP 779 把它转为官方支持，但依然是可选的独立安装，默认构建照样带 GIL。官方推动它转正的关键依据之一，是单线程性能开销已经收敛到 5% 到 10% 这个区间。在那之前，CPU 密集任务仍然得靠多进程。\n\n## 三、标准库的并发版图\n\n![](https://www.biaodianfu.com/wp-content/uploads/2026/10/bingfa.png)\n\n三层各管一件事。最上面一层，你只描述有哪些任务、结果怎么收，调度交给 concurrent.futures 和 asyncio。中间一层决定任务本身怎么跑、之间怎么交换数据。最下面一层把等待交给操作系统。实际写代码时，绝大多数场景是上层选一个、中层选一个。\n\n## 四、threading：线程和它的七把锁\n\n起一个线程只要四步：构造、start、join、看结果。\n\n| 成员 | 作用 |\n| --- | --- |\n| Thread | 构造函数，可传 target、args、kwargs、name、daemon |\n| start() | 启动线程，这时才真正创建系统线程 |\n| run() | 线程体，子类化时重写它 |\n| join() | 等待线程结束，可带 timeout |\n| is\\_alive() | 查询线程是否还在运行 |\n| current\\_thread() | 取当前线程对象 |\n| local() | 线程私有存储，各线程各存一份互不干扰 |\n\n最容易被忽略的是 `daemon`。守护线程不会阻止进程退出，主线程一结束它就被直接终止，`with` 块和 `finally` 都跑不完。需要收尾的工作不要放在守护线程里。\n\n同步原语有七个常用成员，语义差别不小。\n\n| 原语 | 解决的问题 | 典型用法 |\n| --- | --- | --- |\n| Lock | 互斥访问 | 保护一段临界区，最常见 |\n| RLock | 同一线程要重复加同一把锁 | 递归函数里再次进入同一个临界区 |\n| Semaphore | 限制同时进行的数量 | 限流、连接池 |\n| Event | 一对多的信号通知 | 一个线程准备就绪，多个线程等它放行 |\n| Condition | 等某个条件成立 | 生产者消费者，等队列非空 |\n| Barrier | 让一批线程在某个点对齐 | 分片计算，等所有分片都到齐 |\n| Timer | 延时执行一次 | 简单超时动作、延迟触发 |\n\n用错原语最常见的后果是死锁：两把锁、两个线程、相反的加锁顺序，程序就停在那儿。工程上的解法不是小心翼翼地写，而是约定全局加锁顺序，或者干脆只用一把锁。\n\n## 五、multiprocessing：用独立进程绕开 GIL\n\n多进程是在 Python 层面绕开 GIL 最直接的办法：每个进程有自己的解释器，也有自己的 GIL。代价是内存不再共享，数据要序列化。\n\n第一件必须知道的事是启动方式，它决定了子进程从哪里来。\n\n| 方式 | 行为 | 默认平台 |\n| --- | --- | --- |\n| spawn | 开一个全新解释器进程，重新导入主模块 | Windows 和 macOS 的默认值 |\n| fork | 直接复制父进程，快但不安全 | 3.13 及以前 Linux 的默认值，3.14 起不再是 |\n| forkserver | 先起一个干净的服务进程，再由它 fork | 3.14 起非 macOS 的 Unix 默认值 |\n\n除 fork 之外的两种方式都要求把入口代码放进 `if __name__ == \"__main__\"` 保护里，否则子进程导入模块时会再次执行创建进程的代码，一层层递归下去。这是 Windows 上第一次写多进程最常见的报错来源。\n\nPlain text\n\nCopy to clipboard\n\nOpen code in new window\n\nEnlighterJS 3 Syntax Highlighter\n\n<code>import multiprocessing as mp\n\ndefsquare(x):\n\nreturn x \\* x\n\nif\\_\\_name\\_\\_ == \"\\_\\_main\\_\\_\":\n\nwith mp.Pool(processes=4)as pool:\n\nprint(\"map:\", pool.map(square, \\[1, 2, 3, 4\\]))\n\nprint(\"父进程也可以正常往下走\")</code>\n\n<code>import multiprocessing as mp\n\ndef square(x):\nreturn x \\* x\n\nif \\_\\_name\\_\\_ == \"\\_\\_main\\_\\_\":\nwith mp.Pool(processes=4) as pool:\nprint(\"map:\", pool.map(square, \\[1, 2, 3, 4\\]))\nprint(\"父进程也可以正常往下走\")</code>\n\n```\nimport multiprocessing as mp\n\ndef square(x):\n    return x * x\n\nif __name__ == \"__main__\":\n    with mp.Pool(processes=4) as pool:\n        print(\"map:\", pool.map(square, [1, 2, 3, 4]))\n    print(\"父进程也可以正常往下走\")\n```\n\nPlain text\n\nCopy to clipboard\n\nOpen code in new window\n\nEnlighterJS 3 Syntax Highlighter\n\nmap: \\[1, 4, 9, 16\\]\n\n父进程也可以正常往下走\n\nmap: \\[1, 4, 9, 16\\]\n父进程也可以正常往下走\n\n```\nmap: [1, 4, 9, 16]\n父进程也可以正常往下走\n```\n\n进程之间交换数据有四种通道，按需求选。\n\n| 通道 | 特点 |\n| --- | --- |\n| Queue | 进程安全的队列，最常用，底层是管道加锁 |\n| Pipe | 一对一的双向管道，两个进程之间用它最省事 |\n| Manager | 代理对象，能把 list、dict 共享出去，慢但省心 |\n| shared\\_memory | 共享内存块，追求吞吐时用，配 numpy 很合适 |\n\nPool 负责进程的复用和任务派发，map、apply、apply\\_async、imap 是常用入口。要注意 multiprocessing.Pool 和后面要讲的 ProcessPoolExecutor 不是一回事：前者要手动 close 加 join 收尾，后者一个 with 语句就够了。\n\n多进程的代价得说清楚。创建开销比线程大一个数量级；跨进程传的东西必须能 pickle，lambda、局部函数、数据库连接、文件句柄、锁都不行；子进程拿到的是一份拷贝，父进程后面的修改它看不到。\n\n## 六、concurrent.futures：把线程池和进程池统一成一套 API\n\n这个模块把线程池和进程池抽象成同一个 Executor 接口，切换方案只需要换一个类名。\n\nPlain text\n\nCopy to clipboard\n\nOpen code in new window\n\nEnlighterJS 3 Syntax Highlighter\n\nimport time\n\nfrom concurrent.futures import ThreadPoolExecutor, as\\_completed\n\ndefjob(name, delay):\n\ntime.sleep(delay)\n\nreturn f\"{name} 完成\"\n\ntasks = {\"A\": 0.30, \"B\": 0.10, \"C\": 0.20, \"D\": 0.05}\n\nwithThreadPoolExecutor(max\\_workers=4)as ex:\n\nfutures = {ex.submit(job, k, v): k for k, v in tasks.items()}\n\nfor fut inas\\_completed(futures):\n\nprint(fut.result())\n\nimport time\nfrom concurrent.futures import ThreadPoolExecutor, as\\_completed\n\ndef job(name, delay):\ntime.sleep(delay)\nreturn f\"{name} 完成\"\n\ntasks = {\"A\": 0.30, \"B\": 0.10, \"C\": 0.20, \"D\": 0.05}\n\nwith ThreadPoolExecutor(max\\_workers=4) as ex:\nfutures = {ex.submit(job, k, v): k for k, v in tasks.items()}\nfor fut in as\\_completed(futures):\nprint(fut.result())\n\n```\nimport time\nfrom concurrent.futures import ThreadPoolExecutor, as_completed\n\ndef job(name, delay):\n    time.sleep(delay)\n    return f\"{name} 完成\"\n\ntasks = {\"A\": 0.30, \"B\": 0.10, \"C\": 0.20, \"D\": 0.05}\n\nwith ThreadPoolExecutor(max_workers=4) as ex:\n    futures = {ex.submit(job, k, v): k for k, v in tasks.items()}\n    for fut in as_completed(futures):\n        print(fut.result())\n```\n\nPlain text\n\nCopy to clipboard\n\nOpen code in new window\n\nEnlighterJS 3 Syntax Highlighter\n\nD 完成\n\nB 完成\n\nC 完成\n\nA 完成\n\nD 完成\nB 完成\nC 完成\nA 完成\n\n```\nD 完成\nB 完成\nC 完成\nA 完成\n```\n\n这里用的是 `as_completed`，它按任务完成的先后顺序产出结果，谁先跑完谁先出来。对比 `map`，后者保持输入顺序，代价是要等前面的任务全部返回才开始给后面的结果。\n\nPlain text\n\nCopy to clipboard\n\nOpen code in new window\n\nEnlighterJS 3 Syntax Highlighter\n\n<code>from concurrent.futures import ThreadPoolExecutor\n\ndefdivide(x):\n\nreturn10 // x\n\nwithThreadPoolExecutor()as ex:\n\ngood = ex.submit(divide, 2)\n\nbad = ex.submit(divide, 0)\n\nprint(\"正常任务:\", good.result())\n\ntry:\n\nbad.result()\n\nexcept ZeroDivisionError as e:\n\nprint(\"异常任务:\", type(e).\\_\\_name\\_\\_, e)</code>\n\n<code>from concurrent.futures import ThreadPoolExecutor\n\ndef divide(x):\nreturn 10 // x\n\nwith ThreadPoolExecutor() as ex:\ngood = ex.submit(divide, 2)\nbad = ex.submit(divide, 0)\nprint(\"正常任务:\", good.result())\ntry:\nbad.result()\nexcept ZeroDivisionError as e:\nprint(\"异常任务:\", type(e).\\_\\_name\\_\\_, e)</code>\n\n```\nfrom concurrent.futures import ThreadPoolExecutor\n\ndef divide(x):\n    return 10 // x\n\nwith ThreadPoolExecutor() as ex:\n    good = ex.submit(divide, 2)\n    bad = ex.submit(divide, 0)\n    print(\"正常任务:\", good.result())\n    try:\n        bad.result()\n    except ZeroDivisionError as e:\n        print(\"异常任务:\", type(e).__name__, e)\n```\n\nPlain text\n\nCopy to clipboard\n\nOpen code in new window\n\nEnlighterJS 3 Syntax Highlighter\n\n正常任务: 5\n\n异常任务: ZeroDivisionError integer division or modulo by zero\n\n正常任务: 5\n异常任务: ZeroDivisionError integer division or modulo by zero\n\n```\n正常任务: 5\n异常任务: ZeroDivisionError integer division or modulo by zero\n```\n\n这是 concurrent.futures 比裸线程好用的地方：任务里抛出的异常不会悄无声息地丢掉，而是被 Future 记下来，在你调 `result()` 的时候原样抛出。裸线程就不一样，线程体里未捕获的异常只会打到 stderr，主线程完全不知道。\n\n常用的几个入口和它们的分工：\n\n| 入口 | 行为 |\n| --- | --- |\n| submit(fn) | 提交单个任务，立刻返回 Future |\n| map(fn, it) | 批量提交，按输入顺序取结果 |\n| as\\_completed() | 按完成顺序迭代 |\n| wait() | 等一批任务，返回已完成和未完成两个集合 |\n| Future.result() | 取结果，任务未完成则阻塞，可带 timeout |\n| Future.cancel() | 尝试取消，只有还没开始的能取消成功 |\n| add\\_done\\_callback() | 完成时回调，省掉手动轮询 |\n\n线程池还是进程池，回到第一节那句话：任务在等，用 ThreadPoolExecutor；任务在算，用 ProcessPoolExecutor。下面这张是 I/O 场景的横评，答案很直白。\n\n![](https://www.biaodianfu.com/wp-content/uploads/2026/10/io.png)\n\n40 个 0.05 秒的等待，串行要 2.01 秒，线程池 0.056 秒，快了 36 倍；asyncio 0.062 秒，几乎一样；而进程池 2.36 秒，比串行还慢。原因不复杂：进程池每个任务都要把参数和返回值序列化一遍，而 sleep 本身几乎没有计算量，序列化的开销远大于那 0.05 秒的等待。\n\n## 七、asyncio：单线程里的高并发\n\n协程的并发模型和线程完全不同。线程是抢占式的，操作系统随时可能把它切走；协程是协作式的，只有执行到 await 才让出控制权。代价是任何一段阻塞代码都会卡住整个事件循环，收益是一个线程就能挂住成千上万个等待中的任务，几乎没有切换开销。\n\nPlain text\n\nCopy to clipboard\n\nOpen code in new window\n\nEnlighterJS 3 Syntax Highlighter\n\nimport asyncio\n\nasyncdeffetch(name, delay):\n\nawait asyncio.sleep(delay)\n\nreturn f\"{name} 用时 {delay}s\"\n\nasyncdefmain():\n\nresults = await asyncio.gather(\n\nfetch(\"A\", 0.3),\n\nfetch(\"B\", 0.1),\n\nfetch(\"C\", 0.2),\n\n)\n\nfor r in results:\n\nprint(r)\n\nasyncio.run(main())\n\nimport asyncio\n\nasync def fetch(name, delay):\nawait asyncio.sleep(delay)\nreturn f\"{name} 用时 {delay}s\"\n\nasync def main():\nresults = await asyncio.gather(\nfetch(\"A\", 0.3),\nfetch(\"B\", 0.1),\nfetch(\"C\", 0.2),\n)\nfor r in results:\nprint(r)\n\nasyncio.run(main())\n\n```\nimport asyncio\n\nasync def fetch(name, delay):\n    await asyncio.sleep(delay)\n    return f\"{name} 用时 {delay}s\"\n\nasync def main():\n    results = await asyncio.gather(\n        fetch(\"A\", 0.3),\n        fetch(\"B\", 0.1),\n        fetch(\"C\", 0.2),\n    )\n    for r in results:\n        print(r)\n\nasyncio.run(main())\n```\n\nPlain text\n\nCopy to clipboard\n\nOpen code in new window\n\nEnlighterJS 3 Syntax Highlighter\n\nA 用时 0.3s\n\nB 用时 0.1s\n\nC 用时 0.2s\n\nA 用时 0.3s\nB 用时 0.1s\nC 用时 0.2s\n\n```\nA 用时 0.3s\nB 用时 0.1s\nC 用时 0.2s\n```\n\ngather 会把结果按传入顺序拼成列表返回，所以哪怕 B 先跑完，输出顺序依然是 A、B、C。\n\n反过来说，只要有一段同步阻塞代码混进协程，整条链路就废了。\n\nPlain text\n\nCopy to clipboard\n\nOpen code in new window\n\nEnlighterJS 3 Syntax Highlighter\n\nimport asyncio\n\nimport time\n\ndefblocking\\_io(n):\n\ntime.sleep(0.05)\n\nreturn n \\* 2\n\nasyncdefmain():\n\n\\# 直接调用：事件循环被整个卡住，别的协程一步都动不了\n\ndirect = \\[blocking\\_io(i)for i inrange(3)\\]\n\nprint(\"直接调用:\", direct)\n\n\\# 交给线程池去跑，事件循环继续调度别的任务\n\npooled = await asyncio.gather(\n\n\\*(asyncio.to\\_thread(blocking\\_io, i)for i inrange(3))\n\n)\n\nprint(\"to\\_thread:\", pooled)\n\nasyncio.run(main())\n\nimport asyncio\nimport time\n\ndef blocking\\_io(n):\ntime.sleep(0.05)\nreturn n \\* 2\n\nasync def main():\n# 直接调用：事件循环被整个卡住，别的协程一步都动不了\ndirect = \\[blocking\\_io(i) for i in range(3)\\]\nprint(\"直接调用:\", direct)\n\n# 交给线程池去跑，事件循环继续调度别的任务\npooled = await asyncio.gather(\n\\*(asyncio.to\\_thread(blocking\\_io, i) for i in range(3))\n)\nprint(\"to\\_thread:\", pooled)\n\nasyncio.run(main())\n\n```\nimport asyncio\nimport time\n\ndef blocking_io(n):\n    time.sleep(0.05)\n    return n * 2\n\nasync def main():\n    # 直接调用：事件循环被整个卡住，别的协程一步都动不了\n    direct = [blocking_io(i) for i in range(3)]\n    print(\"直接调用:\", direct)\n\n    # 交给线程池去跑，事件循环继续调度别的任务\n    pooled = await asyncio.gather(\n        *(asyncio.to_thread(blocking_io, i) for i in range(3))\n    )\n    print(\"to_thread:\", pooled)\n\nasyncio.run(main())\n```\n\nPlain text\n\nCopy to clipboard\n\nOpen code in new window\n\nEnlighterJS 3 Syntax Highlighter\n\n直接调用: \\[0, 2, 4\\]\n\nto\\_thread: \\[0, 2, 4\\]\n\n直接调用: \\[0, 2, 4\\]\nto\\_thread: \\[0, 2, 4\\]\n\n```\n直接调用: [0, 2, 4]\nto_thread: [0, 2, 4]\n```\n\n两种调用算出来的结果一样，区别在别人身上。直接调用会让事件循环在整整 0.15 秒里一步都动不了；`to_thread` 把阻塞调用挪到线程池，事件循环继续调度其他协程。凡是躲不掉的同步库调用，比如 requests、老式数据库驱动、普通文件读写，都该走 `to_thread` 或者 `loop.run_in_executor`。\n\nasyncio 也有一整套自己的同步原语，语义和 threading 对齐，但只能在协程里用。\n\n| asyncio 提供的 | 对应 threading 的 |\n| --- | --- |\n| asyncio.Lock | threading.Lock |\n| asyncio.Event | threading.Event |\n| asyncio.Condition | threading.Condition |\n| asyncio.Semaphore | threading.Semaphore |\n| asyncio.Queue | queue.Queue |\n| asyncio.gather | 无对应，批量等待并收结果 |\n| TaskGroup | 无对应，3.11 起的结构化并发 |\n| asyncio.timeout | 无对应，3.11 起的超时控制 |\n\nTaskGroup 比 gather 更适合一个失败就整体取消的场景：组里任何一个任务抛异常，其余任务会被自动取消，异常以 ExceptionGroup 的形式抛出。\n\n线程和协程不是二选一。同一个进程里，事件循环跑在自己的线程上，躲不开的阻塞调用扔给工作线程池，CPU 密集的部分再交给进程池，这三层可以同时用。\n\n## 八、queue：线程之间最省事的通信方式\n\nqueue 模块提供三种线程安全队列，锁已经帮你加好了。\n\n| 类 | 特点 |\n| --- | --- |\n| Queue | 先进先出，最常用 |\n| LifoQueue | 后进先出，当栈用 |\n| PriorityQueue | 按优先级出队，元素需要可比较 |\n| SimpleQueue | 无界 FIFO，功能最少但最快 |\n\n生产者消费者是它最典型的用法。判断队列空不空不要用 `empty()` 去猜，那只是一个瞬时快照，用结束信号更稳。\n\nPlain text\n\nCopy to clipboard\n\nOpen code in new window\n\nEnlighterJS 3 Syntax Highlighter\n\nimport queue\n\nimport threading\n\nq = queue.Queue()\n\nconsumed = \\[\\]\n\ndefproducer():\n\nfor i inrange(5):\n\nq.put(i)\n\nq.put(None)\\# 结束信号\n\ndefconsumer():\n\nwhileTrue:\n\nitem = q.get()\n\nq.task\\_done()\n\nif item isNone:\n\nbreak\n\nconsumed.append(item)\n\np = threading.Thread(target=producer)\n\nc = threading.Thread(target=consumer)\n\np.start()\n\nc.start()\n\np.join()\n\nc.join()\n\nprint(\"消费到的元素:\", consumed)\n\nprint(\"队列剩余:\", q.qsize())\n\nprint(\"未完成任务数:\", q.unfinished\\_tasks)\n\nimport queue\nimport threading\n\nq = queue.Queue()\nconsumed = \\[\\]\n\ndef producer():\nfor i in range(5):\nq.put(i)\nq.put(None) # 结束信号\n\ndef consumer():\nwhile True:\nitem = q.get()\nq.task\\_done()\nif item is None:\nbreak\nconsumed.append(item)\n\np = threading.Thread(target=producer)\nc = threading.Thread(target=consumer)\np.start()\nc.start()\np.join()\nc.join()\n\nprint(\"消费到的元素:\", consumed)\nprint(\"队列剩余:\", q.qsize())\nprint(\"未完成任务数:\", q.unfinished\\_tasks)\n\n```\nimport queue\nimport threading\n\nq = queue.Queue()\nconsumed = []\n\ndef producer():\n    for i in range(5):\n        q.put(i)\n    q.put(None)          # 结束信号\n\ndef consumer():\n    while True:\n        item = q.get()\n        q.task_done()\n        if item is None:\n            break\n        consumed.append(item)\n\np = threading.Thread(target=producer)\nc = threading.Thread(target=consumer)\np.start()\nc.start()\np.join()\nc.join()\n\nprint(\"消费到的元素:\", consumed)\nprint(\"队列剩余:\", q.qsize())\nprint(\"未完成任务数:\", q.unfinished_tasks)\n```\n\nPlain text\n\nCopy to clipboard\n\nOpen code in new window\n\nEnlighterJS 3 Syntax Highlighter\n\n消费到的元素: \\[0, 1, 2, 3, 4\\]\n\n队列剩余: 0\n\n未完成任务数: 0\n\n消费到的元素: \\[0, 1, 2, 3, 4\\]\n队列剩余: 0\n未完成任务数: 0\n\n```\n消费到的元素: [0, 1, 2, 3, 4]\n队列剩余: 0\n未完成任务数: 0\n```\n\n`task_done()` 和 `join()` 是一对：每处理完一个元素调一次 task\\_done，join 会一直等到所有元素都被处理完。这是等队列真正清空的正确姿势，比轮询 qsize 可靠得多。\n\n名字里都带 Queue，但三个模块的队列不能混用。queue.Queue 给同一进程内的线程用。multiprocessing.Queue 给进程用，底层是管道加锁，放进队列的对象必须能 pickle。asyncio.Queue 给协程用，它的 get 和 put 都是协程，必须 await。\n\n## 九、subprocess：把外部命令也算作一个并发单元\n\n调用外部程序时，那个程序是一个独立的进程，和你的 Python 进程并行跑。subprocess 是这套能力里最该用的模块，os.system 和 os.spawn 系列都可以放下了。\n\n| 接口 | 行为 |\n| --- | --- |\n| run() | 启动、等待、收结果一气呵成，最常用 |\n| Popen | 底层接口，进程起来后还能继续跟它交互 |\n| call() | 只关心返回码 |\n| check\\_call() | 返回码非零就抛 CalledProcessError |\n| check\\_output() | 返回标准输出，返回码非零同样抛异常 |\n\n常用参数里，`capture_output=True` 负责把标准输出和标准错误收进返回对象，`text=True` 让输出是字符串而不是字节，`timeout` 到点抛 TimeoutExpired，`check=True` 把非零返回码变成异常。\n\nPlain text\n\nCopy to clipboard\n\nOpen code in new window\n\nEnlighterJS 3 Syntax Highlighter\n\nimport subprocess\n\nimport sys\n\nresult = subprocess.run(\n\n\\[sys.executable, \"-c\", \"print(6 \\* 7)\"\\],\n\ncapture\\_output=True,\n\ntext=True,\n\ncheck=True,\n\n)\n\nprint(\"返回码:\", result.returncode)\n\nprint(\"标准输出:\", result.stdout.strip())\n\nimport subprocess\nimport sys\n\nresult = subprocess.run(\n\\[sys.executable, \"-c\", \"print(6 \\* 7)\"\\],\ncapture\\_output=True,\ntext=True,\ncheck=True,\n)\nprint(\"返回码:\", result.returncode)\nprint(\"标准输出:\", result.stdout.strip())\n\n```\nimport subprocess\nimport sys\n\nresult = subprocess.run(\n    [sys.executable, \"-c\", \"print(6 * 7)\"],\n    capture_output=True,\n    text=True,\n    check=True,\n)\nprint(\"返回码:\", result.returncode)\nprint(\"标准输出:\", result.stdout.strip())\n```\n\nPlain text\n\nCopy to clipboard\n\nOpen code in new window\n\nEnlighterJS 3 Syntax Highlighter\n\n返回码: 0\n\n标准输出: 42\n\n返回码: 0\n标准输出: 42\n\n```\n返回码: 0\n标准输出: 42\n```\n\n三个坑值得单独记住。`shell=True` 会把命令交给 shell 解析，用户可控的字符串一旦拼进去就是命令注入，能用列表参数就别用 shell。用 Popen 且两端都接 PIPE 时，大量输出会写满管道缓冲区，双方互相等对方先读，就死锁了，`communicate()` 是标准解法。超时之后子进程不会自己消失，要显式 kill 掉。\n\n## 十、sched 和 select：两个不常被提起但要认识的模块\n\nsched 是一个单线程的延时调度器，它不创建线程，只负责按时间顺序排队。\n\nPlain text\n\nCopy to clipboard\n\nOpen code in new window\n\nEnlighterJS 3 Syntax Highlighter\n\n<code>import sched\n\nimport time\n\nscheduler = sched.scheduler(time.time, time.sleep)\n\nfor delay, name in((0.3, \"任务 A\"), (0.1, \"任务 B\")):\n\nscheduler.enter(delay, 1, print, argument=(f\"{name} 在 {delay}s 后触发\",))\n\nstart = time.time()\n\nscheduler.run()\n\nprint(f\"全部完成，共耗时 {time.time() - start:.2f}s\")</code>\n\n<code>import sched\nimport time\n\nscheduler = sched.scheduler(time.time, time.sleep)\n\nfor delay, name in ((0.3, \"任务 A\"), (0.1, \"任务 B\")):\nscheduler.enter(delay, 1, print, argument=(f\"{name} 在 {delay}s 后触发\",))\n\nstart = time.time()\nscheduler.run()\nprint(f\"全部完成，共耗时 {time.time() - start:.2f}s\")</code>\n\n```\nimport sched\nimport time\n\nscheduler = sched.scheduler(time.time, time.sleep)\n\nfor delay, name in ((0.3, \"任务 A\"), (0.1, \"任务 B\")):\n    scheduler.enter(delay, 1, print, argument=(f\"{name} 在 {delay}s 后触发\",))\n\nstart = time.time()\nscheduler.run()\nprint(f\"全部完成，共耗时 {time.time() - start:.2f}s\")\n```\n\n它把什么时候执行和谁来等待分开了：调度器自己只维护一个按时间排序的堆，等待的动作交给传进去的 delayfunc。所以它既有 threading.Timer 的定时能力，又不额外占线程。边界也很清楚，只有几十个任务、延迟都是秒级时够用；任务多了或者要 cron 式的周期规则，就该换 APScheduler 这类专门的库。\n\nselect 是另一个方向的东西，它解决的是一个线程怎么盯住很多个连接，也就是 I/O 多路复用。\n\n| 接口 | 适用情况 |\n| --- | --- |\n| select() | 最古老，跨平台最好，但描述符数量受 FD\\_SETSIZE 限制，通常是 1024 |\n| poll() | 没有数量上限，Unix 系可用，Windows 上没有 |\n| epoll() | Linux 专用，事件驱动，大规模连接下效率最高 |\n| kqueue() | BSD 和 macOS 上的对应物 |\n| DefaultSelector | 按平台自动挑最快的那个，写代码应该用它 |\n\nPlain text\n\nCopy to clipboard\n\nOpen code in new window\n\nEnlighterJS 3 Syntax Highlighter\n\nimport selectors\n\nimport socket\n\nsel = selectors.DefaultSelector()\n\nserver = socket.socket()\n\nserver.bind((\"127.0.0.1\", 0))\n\nserver.listen()\n\nserver.setblocking(False)\n\nsel.register(server, selectors.EVENT\\_READ)\n\nprint(\"默认选择器:\", type(sel).\\_\\_name\\_\\_)\n\nprint(\"是否已注册:\", server in\\[k.fileobj for k in sel.get\\_map().values()\\])\n\nsel.close()\n\nserver.close()\n\nimport selectors\nimport socket\n\nsel = selectors.DefaultSelector()\nserver = socket.socket()\nserver.bind((\"127.0.0.1\", 0))\nserver.listen()\nserver.setblocking(False)\n\nsel.register(server, selectors.EVENT\\_READ)\n\nprint(\"默认选择器:\", type(sel).\\_\\_name\\_\\_)\nprint(\"是否已注册:\", server in \\[k.fileobj for k in sel.get\\_map().values()\\])\n\nsel.close()\nserver.close()\n\n```\nimport selectors\nimport socket\n\nsel = selectors.DefaultSelector()\nserver = socket.socket()\nserver.bind((\"127.0.0.1\", 0))\nserver.listen()\nserver.setblocking(False)\n\nsel.register(server, selectors.EVENT_READ)\n\nprint(\"默认选择器:\", type(sel).__name__)\nprint(\"是否已注册:\", server in [k.fileobj for k in sel.get_map().values()])\n\nsel.close()\nserver.close()\n```\n\nPlain text\n\nCopy to clipboard\n\nOpen code in new window\n\nEnlighterJS 3 Syntax Highlighter\n\n默认选择器: SelectSelector\n\n是否已注册: True\n\n默认选择器: SelectSelector\n是否已注册: True\n\n```\n默认选择器: SelectSelector\n是否已注册: True\n```\n\nselectors 是标准库给的统一门面：在 Linux 上它给你 EpollSelector，在 Windows 上给你 SelectSelector，业务代码不用改。asyncio 的事件循环底下就是它，理解了这一层，就明白为什么协程能用一个线程挂住上万个连接。\n\n## 十一、怎么选：一张决策表\n\n把前面所有结论压成一张表。\n\n| 场景 | 推荐方案 | 理由 | 要避开的 |\n| --- | --- | --- | --- |\n| 批量网络请求 | asyncio，或 ThreadPoolExecutor | 全是等待，GIL 在等待期间会释放 | 别用进程池，序列化成本比等待还高 |\n| 文件与数据库 | ThreadPoolExecutor | 同上，而且多数驱动还不是异步的 | 别在协程里直接调阻塞驱动 |\n| 数值与图像计算 | ProcessPoolExecutor | 只有多进程能拿到多核 | 别用线程，GIL 下等于白开 |\n| 调用外部命令 | subprocess | 外部程序本身就是独立进程 | 别用 shell=True 拼用户输入 |\n| 定时调度 | 任务少用 sched，周期规则用 APScheduler | 看任务规模和规则复杂度 | 别用 sleep 轮询代替调度 |\n| 大量并发连接 | asyncio，底层是 selectors | 事件驱动，开销与连接数无关 | 别把阻塞代码混进事件循环 |\n| 多任务共享数据 | queue 配合 threading | 队列自带锁，不用自己写同步 | 别裸用 list 加一个布尔标志 |\n\n## 十二、几个反复踩的坑\n\n| 坑 | 表现 | 怎么避开 |\n| --- | --- | --- |\n| 死锁 | 程序卡住不退出，CPU 占用接近 0 | 约定全局加锁顺序，或者合并成一把锁 |\n| 线程池吞掉异常 | 任务失败了，程序照常往下走 | 一定取 result()，或者给 Future 加完成回调 |\n| 进程池传不进对象 | 报 cannot pickle 之类的错 | 只传模块级函数和可序列化数据，用 functools.partial 固定部分参数 |\n| 忘记 \\_\\_main\\_\\_ 保护 | 子进程无限递归创建进程 | 入口代码一律放进 if \\_\\_name\\_\\_ == “\\_\\_main\\_\\_” 里 |\n| 守护线程被强杀 | 收尾代码没执行，文件没关 | 关键收尾放进普通线程，主线程 join 它 |\n| 按核数配 worker | 容器里抢不到核，反而更慢 | 先实测实际并行度，再从实测值往下取 |\n| 协程里调用阻塞函数 | 整条链路卡住，日志里看不出原因 | 用 asyncio.to\\_thread 把阻塞调用挪出去 |\n\n这篇文章里的每一个耗时数字，都来自本机实测的脚本，跑的是一台 `os.cpu_count()` 报 20、实际并行度约 3.7 核的 Windows 机器，Python 3.13.14。换一台机器，绝对值会变，方向不会。\n\n0\n\n**相关文章:**\n\n1. [Python协程与异步](https://www.biaodianfu.com/python-coroutine-asyncio/ \"Python协程与异步\")\n2. [开源因果推断库CausalML](https://www.biaodianfu.com/causalml/ \"开源因果推断库CausalML\")\n3. [Python 多线程与多进程](https://www.biaodianfu.com/python-multi-thread-and-multi-process/ \"Python 多线程与多进程\")\n\n[GIL](https://www.biaodianfu.com/tag/gil/) [Python](https://www.biaodianfu.com/tag/python/) [并发编程](https://www.biaodianfu.com/tag/%e5%b9%b6%e5%8f%91%e7%bc%96%e7%a8%8b/) [标准库](https://www.biaodianfu.com/tag/%e6%a0%87%e5%87%86%e5%ba%93/) [线程与协程](https://www.biaodianfu.com/tag/%e7%ba%bf%e7%a8%8b%e4%b8%8e%e5%8d%8f%e7%a8%8b/)\n\n### 发表评论 [取消回复](https://www.biaodianfu.com/python-concurrency/\\#respond)\n\n你的邮箱地址不会被公开。\n\n评论\n\n姓名\n\n邮箱\n\n网站\n\n在此浏览器中保存我的显示名称、邮箱地址和网站地址，以便下次评论时使用。\n\n发布\n\nΔ\n\n[![AnythingLLM 把文档变成能提问的知识库](https://www.biaodianfu.com/wp-content/uploads/2026/10/anythingllm-1-280x200.png)](https://www.biaodianfu.com/anythingllm/)\n\n### [AnythingLLM 把文档变成能提问的知识库](https://www.biaodianfu.com/anythingllm/)\n\n[![Python 标准库之运行时服务](https://www.biaodianfu.com/wp-content/uploads/2026/10/action-280x200.png)](https://www.biaodianfu.com/python-standard-library-runtime-services/)\n\n### [Python 标准库之运行时服务](https://www.biaodianfu.com/python-standard-library-runtime-services/)\n\n[![Linux 动态追踪三剑客：strace、perf 与 bpftrace](https://www.biaodianfu.com/wp-content/uploads/2026/09/probe-280x200.png)](https://www.biaodianfu.com/linux-strace-perf-bpftrace/)\n\n### [Linux 动态追踪三剑客：strace、perf 与 bpftrace](https://www.biaodianfu.com/linux-strace-perf-bpftrace/)\n\n[![CachyOS 桌面美化指南](https://www.biaodianfu.com/wp-content/uploads/2026/09/Plasma-280x200.png)](https://www.biaodianfu.com/cachyos-desktop-beautification-guide/)\n\n### [CachyOS 桌面美化指南](https://www.biaodianfu.com/cachyos-desktop-beautification-guide/)\n\n[![从轨迹到洞察：scikit-mobility 的系统性介绍](https://www.biaodianfu.com/wp-content/uploads/2026/09/scikit-mobility-280x200.png)](https://www.biaodianfu.com/scikit-mobility/)\n\n### [从轨迹到洞察：scikit-mobility 的系统性介绍](https://www.biaodianfu.com/scikit-mobility/)\n\n[![Unsloth：让单张消费级显卡也能微调大模型](https://www.biaodianfu.com/wp-content/uploads/2026/09/Unsloth-280x200.png)](https://www.biaodianfu.com/unsloth/)\n\n### [Unsloth：让单张消费级显卡也能微调大模型](https://www.biaodianfu.com/unsloth/)\n\n### 分享文章\n\n复制链接\n\n微信\n\n![微信扫码分享](https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Fwww.biaodianfu.com%2Fpython-concurrency%2F)\n\n打开微信\"扫一扫\"\n\n[微博](https://service.weibo.com/share/share.php?url=https%3A%2F%2Fwww.biaodianfu.com%2Fpython-concurrency%2F&title=Python+%E5%B9%B6%E5%8F%91%E4%BD%93%E7%B3%BB%E5%8C%96%E6%8C%87%E5%8D%97%EF%BC%9A%E7%BA%BF%E7%A8%8B%E3%80%81%E8%BF%9B%E7%A8%8B%E3%80%81%E5%8D%8F%E7%A8%8B) [QQ](https://connect.qq.com/widget/shareqq/index.html?url=https%3A%2F%2Fwww.biaodianfu.com%2Fpython-concurrency%2F&title=Python+%E5%B9%B6%E5%8F%91%E4%BD%93%E7%B3%BB%E5%8C%96%E6%8C%87%E5%8D%97%EF%BC%9A%E7%BA%BF%E7%A8%8B%E3%80%81%E8%BF%9B%E7%A8%8B%E3%80%81%E5%8D%8F%E7%A8%8B)\n\n### 打赏作者\n\n如果这篇文章对你有帮助，欢迎打赏支持作者继续创作\n\n![微信支付](https://www.biaodianfu.com/wp-content/themes/wp-medium/assets/images/wechat.jpg)微信支付\n\n![支付宝](https://www.biaodianfu.com/wp-content/themes/wp-medium/assets/images/alipay.jpg)支付宝\n\n#### 内容目录\n\nPython 并发体系化指南：线程、进程、协程\n\n- [一、并发不等于并行，先看任务在等什么](https://www.biaodianfu.com/python-concurrency/#heading-%e4%b8%80%e3%80%81%e5%b9%b6%e5%8f%91%e4%b8%8d%e7%ad%89%e4%ba%8e%e5%b9%b6%e8%a1%8c%ef%bc%8c%e5%85%88%e7%9c%8b%e4%bb%bb%e5%8a%a1%e5%9c%a8%e7%ad%89%e4%bb%80%e4%b9%88-1)\n- [二、GIL：CPython 里最容易被误读的一把锁](https://www.biaodianfu.com/python-concurrency/#heading-%e4%ba%8c%e3%80%81gil%ef%bc%9acpython-%e9%87%8c%e6%9c%80%e5%ae%b9%e6%98%93%e8%a2%ab%e8%af%af%e8%af%bb%e7%9a%84%e4%b8%80%e6%8a%8a%e9%94%81-2)\n- [三、标准库的并发版图](https://www.biaodianfu.com/python-concurrency/#heading-%e4%b8%89%e3%80%81%e6%a0%87%e5%87%86%e5%ba%93%e7%9a%84%e5%b9%b6%e5%8f%91%e7%89%88%e5%9b%be-3)\n- [四、threading：线程和它的七把锁](https://www.biaodianfu.com/python-concurrency/#heading-%e5%9b%9b%e3%80%81threading%ef%bc%9a%e7%ba%bf%e7%a8%8b%e5%92%8c%e5%ae%83%e7%9a%84%e4%b8%83%e6%8a%8a%e9%94%81-4)\n- [五、multiprocessing：用独立进程绕开 GIL](https://www.biaodianfu.com/python-concurrency/#heading-%e4%ba%94%e3%80%81multiprocessing%ef%bc%9a%e7%94%a8%e7%8b%ac%e7%ab%8b%e8%bf%9b%e7%a8%8b%e7%bb%95%e5%bc%80-gil-5)\n- [六、concurrent.futures：把线程池和进程池统一成一套 API](https://www.biaodianfu.com/python-concurrency/#heading-%e5%85%ad%e3%80%81concurrent-futures%ef%bc%9a%e6%8a%8a%e7%ba%bf%e7%a8%8b%e6%b1%a0%e5%92%8c%e8%bf%9b%e7%a8%8b%e6%b1%a0%e7%bb%9f%e4%b8%80%e6%88%90%e4%b8%80%e5%a5%97-api-6)\n- [七、asyncio：单线程里的高并发](https://www.biaodianfu.com/python-concurrency/#heading-%e4%b8%83%e3%80%81asyncio%ef%bc%9a%e5%8d%95%e7%ba%bf%e7%a8%8b%e9%87%8c%e7%9a%84%e9%ab%98%e5%b9%b6%e5%8f%91-7)\n- [八、queue：线程之间最省事的通信方式](https://www.biaodianfu.com/python-concurrency/#heading-%e5%85%ab%e3%80%81queue%ef%bc%9a%e7%ba%bf%e7%a8%8b%e4%b9%8b%e9%97%b4%e6%9c%80%e7%9c%81%e4%ba%8b%e7%9a%84%e9%80%9a%e4%bf%a1%e6%96%b9%e5%bc%8f-8)\n- [九、subprocess：把外部命令也算作一个并发单元](https://www.biaodianfu.com/python-concurrency/#heading-%e4%b9%9d%e3%80%81subprocess%ef%bc%9a%e6%8a%8a%e5%a4%96%e9%83%a8%e5%91%bd%e4%bb%a4%e4%b9%9f%e7%ae%97%e4%bd%9c%e4%b8%80%e4%b8%aa%e5%b9%b6%e5%8f%91%e5%8d%95%e5%85%83-9)\n- [十、sched 和 select：两个不常被提起但要认识的模块](https://www.biaodianfu.com/python-concurrency/#heading-%e5%8d%81%e3%80%81sched-%e5%92%8c-select%ef%bc%9a%e4%b8%a4%e4%b8%aa%e4%b8%8d%e5%b8%b8%e8%a2%ab%e6%8f%90%e8%b5%b7%e4%bd%86%e8%a6%81%e8%ae%a4%e8%af%86%e7%9a%84%e6%a8%a1%e5%9d%97-10)\n- [十一、怎么选：一张决策表](https://www.biaodianfu.com/python-concurrency/#heading-%e5%8d%81%e4%b8%80%e3%80%81%e6%80%8e%e4%b9%88%e9%80%89%ef%bc%9a%e4%b8%80%e5%bc%a0%e5%86%b3%e7%ad%96%e8%a1%a8-11)\n- [十二、几个反复踩的坑](https://www.biaodianfu.com/python-concurrency/#heading-%e5%8d%81%e4%ba%8c%e3%80%81%e5%87%a0%e4%b8%aa%e5%8f%8d%e5%a4%8d%e8%b8%a9%e7%9a%84%e5%9d%91-12)",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "ogTitle": "Python 并发体系化指南：线程、进程、协程 - 标点符",
+        "description": "同一台机器，同一份质数计数函数，同样 8 个任务：串行跑 9.74 秒，开 8 个线程跑 9.83 秒，开 8 个进程跑...",
+        "modifiedTime": "2026-10-09T08:48:47+08:00",
+        "og:url": "https://www.biaodianfu.com/python-concurrency/",
+        "title": "Python 并发体系化指南：线程、进程、协程 – 标点符",
+        "ogImage": "https://www.biaodianfu.com/wp-content/uploads/2026/10/python-concurrency.png",
+        "ogSiteName": "标点符",
+        "ogLocale": "zh_CN",
+        "og:locale": "zh_CN",
+        "og:type": "article",
+        "og:title": "Python 并发体系化指南：线程、进程、协程 - 标点符",
+        "article:modified_time": "2026-10-09T08:48:47+08:00",
+        "article:published_time": "2026-10-04T11:37:35+08:00",
+        "twitter:title": "Python 并发体系化指南：线程、进程、协程 - 标点符",
+        "language": "zh-Hans",
+        "robots": "max-image-preview:large",
+        "twitter:description": "同一台机器，同一份质数计数函数，同样 8 个任务：串行跑 9.74 秒，开 8 个线程跑 9.83 秒，开 8 个进程跑...",
+        "twitter:image": "https://www.biaodianfu.com/wp-content/uploads/2026/10/python-concurrency.png",
+        "og:site_name": "标点符",
+        "og:description": "同一台机器，同一份质数计数函数，同样 8 个任务：串行跑 9.74 秒，开 8 个线程跑 9.83 秒，开 8 个进程跑...",
+        "ogUrl": "https://www.biaodianfu.com/python-concurrency/",
+        "publishedTime": "2026-10-04T11:37:35+08:00",
+        "og:image": "https://www.biaodianfu.com/wp-content/uploads/2026/10/python-concurrency.png",
+        "twitter:card": "summary_large_image",
+        "ogDescription": "同一台机器，同一份质数计数函数，同样 8 个任务：串行跑 9.74 秒，开 8 个线程跑 9.83 秒，开 8 个进程跑...",
+        "viewport": "width=device-width, initial-scale=1",
+        "scrapeId": "01a142f0-60f8-76b1-bbda-51b479a3af68",
+        "sourceURL": "https://www.biaodianfu.com/python-concurrency",
+        "url": "https://www.biaodianfu.com/python-concurrency/",
+        "statusCode": 200,
+        "contentType": "text/html; charset=UTF-8",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "cacheState": "miss",
+        "indexId": "902b176a-3897-4ef6-8ca4-22407961f9b1",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 3876,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 4224
+    },
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://www.wsisp.com/helps/115653.html",
+      "final_url": "https://www.wsisp.com/helps/115653.html",
+      "title": "Python 3.13 自由线程（nogil）模式初探：实测高并发向量矩阵运算下的真多线程红利 - 网硕互联帮助中心",
+      "content": "![封面信息图](https://www.wsisp.com/helps/wp-content/uploads/2026/10/20261012133259-6acce18b66166.webp)\n\n自 1991 年 Guido van Rossum 创造 Python 语言以来的三十余年历史中，全局解释器锁（Global Interpreter Lock, 简称 GIL） 始终是悬在所有 Python 架构师与高性能系统工程师心头的一块巨大阴霾。\n\n尽管当今云原生环境下的服务器已经普及了 32 核、64 核甚至 128 核心的高性能处理器，但在传统的 CPython 解释器中，由于 GIL 的存在，同一个 Python 进程在任何给定微秒内，只能允许一个操作系统线程执行 Python 字节码。对于 Web I/O 密集型应用，我们尚能通过 asyncio 异步事件循环在等待网络时优雅让渡控制权；但在面向大模型 RAG 架构、高维向量点积批量推算、矩阵距离度量以及高密特征清洗等典型的 CPU 密集型（Compute-Bound）场景 中，GIL 展现出了极其冷酷的枷锁效应：如果你在一个标准的 Python 进程中拉起 16 个线程并发执行向量相似度矩阵运算，执行耗时不仅完全无法缩短为原来的十六分之一，反而会因为操作系统线程之间发生疯狂的 GIL 锁争抢与密集的 CPU 核心上下文切换，导致总耗时比单一线程串行跑还要慢上 15% 到 35%！\n\n为了打破这一长达三十余年的算力桎梏，Python 社区迎来了里程碑式的重大革命——在 Python 3.13 中正式合入了著名的 PEP 703，推出了官方实验性的自由线程模式（Free-Threaded CPython，即俗称的 nogil 模式）。\n\n本文将深入拆解 Python 3.13 自由线程模式在底层 C 源码层面的重构机理，并在真实的生产级高维向量批量检索矩阵运算场景下，手把手进行基准实测，深度剖析无 GIL 时代为 Python 高并发系统带来的真多线程并行红利与潜在的线程安全新挑战。\n\n### 一、没有了 GIL，Python 底层是如何保证内存安全的？\n\n很多工程师曾误以为“去除 GIL 只需要把 C 源码里的 PyMUTEX\\_LOCK 删掉就行了”。事实上，GIL 之所以盘踞三十年无法撼动，是因为 CPython 内部庞大的对象模型极其依赖它来保护引用计数（Reference Counting）与内存分配器。如果贸然移除了全局大锁，多个线程同时对同一个 Python 对象进行引用计数加减，会瞬间引发原子竞争条件（Race Condition），导致内存踩踏并直接发生 Segmentation Fault (SIGSEGV) 崩溃。\n\n在 Python 3.13 nogil 模式中，开发团队通过三大底层前沿技术的融合重构，彻底实现了无全局锁的内存安全性：\n\n┌────────────────────────────────────────────────────────┐\n\n│ 技术一: 偏向引用计数 (Biased Reference Counting, BRC) │ ──► \\[单线程私有对象无锁操作，仅在跨线程共享时原子CAS\\]\n\n└──────────────────────────┬─────────────────────────────┘\n\n│\n\n▼\n\n┌────────────────────────────────────────────────────────┐\n\n│ 技术二: 线程局部内存分配器 (Mimalloc 集成) │ ──► \\[各线程拥有独立的内存池 Arena，彻底消灭内存申请锁争抢\\]\n\n└──────────────────────────┬─────────────────────────────┘\n\n│\n\n▼\n\n┌────────────────────────────────────────────────────────┐\n\n│ 技术三: 不可变对象推迟引用 (Deferred Reference Counting)│ ──► \\[单例、类型对象与常量免除引用计数，彻底消除缓存颠簸\\]\n\n└────────────────────────────────────────────────────────┘\n\n#### 1\\. 偏向引用计数（Biased Reference Counting, BRC）\n\n在真实程序中，绝大多数 Python 对象的生命周期仅局限在创建它的那一个单线程内部。Python 3.13 采用偏向锁思想：每个对象在头部记录自己的“宿主线程 ID”。只要当前操作它的线程是宿主线程，引用计数的增减完全不需要任何原子加锁开销（普通的 CPU 寄存器增减）；只有当其他线程跨线程访问该对象时，才安全退化为原子的 CAS（Compare-And-Swap）总线锁指令，极大兼顾了单线程性能与多线程安全。\n\n#### 2\\. 线程局部内存分配器（Mimalloc）\n\n传统堆内存分配器在多线程频繁申请对象（如创建成千上万个浮点数向量）时，会产生严重的全局堆互斥锁争抢。Python 3.13 全面集成了微软开源的高性能内存分配器 Mimalloc，每个线程独占私有的内存 Arena，完全消除跨核内存分配的串行排队。\n\n### 二、真实场景：高维向量矩阵并行相似度运算实测\n\n为了检验 Python 3.13 自由线程模式在处理 CPU 密集型任务时的真实并发加速能力，我们搭建了一套工业级的评测基准：\n\n- 硬件环境：16 核心 32 线程 AMD EPYC 高性能处理器，32GB 内存，Ubuntu 24.04 LTS；\n- 任务载荷：在内存中模拟 50,000 条 1024 维的高精度浮点数 Embedding 向量，并发计算其与目标 Query 向量的余弦相似度（纯 CPU 密集型张量计算）；\n- 对比版本：\n\n- 标准 CPython 3.13（带 GIL 默认版本）；\n- Free-threaded CPython 3.13t（编译时开启 –disable-gil 版本）。\n\n以下为用于实测对比的核心 Python 基准代码：\n\nimport sys\n\nimport time\n\nimport math\n\nimport concurrent.futures\n\nfrom typing import List, Tuple\n\n\\# 验证当前运行环境是否真正关闭了 GIL\n\ndef check\\_gil\\_status():\n\nstatus = getattr(sys, \"\\_is\\_gil\\_enabled\", None)\n\nif status is None:\n\nreturn \"未知 (非 3.13 标准环境)\"\n\nreturn \"已启用 (With GIL)\" if status() else \"已禁用 (Free-Threaded / nogil)\"\n\ndef compute\\_cosine\\_batch(query\\_vec: List\\[float\\], candidate\\_chunk: List\\[List\\[float\\]\\]) -> List\\[float\\]:\n\n\"\"\"纯 Python 密集浮点数点积与余弦计算 (强行考验 Python 原生算力，释放计算压力)\"\"\"\n\nresults = \\[\\]\n\n# 预计算 Query 范数\n\nquery\\_norm = math.sqrt(sum(x \\* x for x in query\\_vec))\n\nif query\\_norm == 0:\n\nquery\\_norm = 1.0\n\nfor doc\\_vec in candidate\\_chunk:\n\ndot\\_product = 0.0\n\ndoc\\_norm\\_sq = 0.0\n\nfor q\\_val, d\\_val in zip(query\\_vec, doc\\_vec):\n\ndot\\_product += q\\_val \\* d\\_val\n\ndoc\\_norm\\_sq += d\\_val \\* d\\_val\n\ndoc\\_norm = math.sqrt(doc\\_norm\\_sq)\n\nscore = dot\\_product / (query\\_norm \\* doc\\_norm) if doc\\_norm > 0 else 0.0\n\nresults.append(score)\n\nreturn results\n\ndef run\\_multithreaded\\_benchmark(num\\_vectors: int = 40000, dim: int = 512, num\\_threads: int = 8) -> float:\n\n# 构造假数据\n\nimport random\n\nrandom.seed(42)\n\nquery = \\[random.random() for \\_ in range(dim)\\]\n\ncorpus = \\[\\[random.random() for \\_ in range(dim)\\] for \\_ in range(num\\_vectors)\\]\n\nchunk\\_size = len(corpus) // num\\_threads\n\nchunks = \\[corpus\\[i \\* chunk\\_size : (i + 1) \\* chunk\\_size\\] for i in range(num\\_threads)\\]\n\nstart\\_time = time.time()\n\n# 启动标准操作系统线程池\n\nwith concurrent.futures.ThreadPoolExecutor(max\\_workers=num\\_threads) as executor:\n\nfutures = \\[executor.submit(compute\\_cosine\\_batch, query, chk) for chk in chunks\\]\n\nfor f in concurrent.futures.as\\_completed(futures):\n\n\\_ = f.result()\n\nelapsed = time.time() – start\\_time\n\nreturn elapsed\n\n### 三、实测性能数据震撼对比与线性加速比\n\n我们在同一台物理机上，逐步将并发工作线程数从 1 增加至 16，分别在两种解释器下运行上述基准脚本，测试结果如下：\n\n+—————-+————————–+——————————+——————–+\n\n\\| 并发工作线程数 \\| 标准 Python 3.13 (含GIL) \\| 自由线程 Python 3.13t(nogil) \\| 自由线程加速比 \\|\n\n+—————-+————————–+——————————+——————–+\n\n\\| 1 线程 (单核) \\| 4.82 秒 \\| 5.12 秒 (轻微性能损耗 6%) \\| 0.94x \\|\n\n\\| 2 线程 \\| 4.95 秒 (无任何加速!) \\| 2.61 秒 \\| 1.96x (近乎完美双倍)\\|\n\n\\| 4 线程 \\| 5.10 秒 (发生锁竞争变慢) \\| 1.34 秒 \\| 3.82x \\|\n\n\\| 8 线程 \\| 5.28 秒 (性能严重倒退) \\| 0.71 秒 \\| 7.21x \\|\n\n\\| 16 线程 \\| 5.65 秒 (严重锁冲突卡顿) \\| 0.38 秒 \\| \\*\\*13.47x (极限跃升)\\|\n\n+—————-+————————–+——————————+——————–+\n\n#### 1\\. 突破天花板的真多线程红利\n\n测试数据展示了令人窒息的对比反差：\n\n- 在传统的带 GIL 环境中，无论线程数开到 4 还是 16，耗时始终无法低于 4.8 秒，甚至因为密集的线程争抢反而一路恶化至 5.65 秒，证明了传统的多线程在 CPU 密集场景下完全是虚假并发；\n- 而在开启自由线程模式（nogil）后，耗时随着线程数的增加呈现出极为优美逼真的近线性加速比！在 16 线程全开时，运算时间从 5.12 秒被暴力压缩至仅仅 0.38 秒，实测加速比高达 13.47 倍！打开 htop 查看，全机 16 个 CPU 物理核心被全部打满至 100%，展现出了前所未有的纯粹多核并行算力！\n\n#### 2\\. 单核轻微性能损耗的工程代价\n\n客观地审视数据：在纯单线程运行下，Python 3.13t 相比带 GIL 版本慢了约 6%（4.82s vs 5.12s）。这是由于偏向引用计数与原子指令检查引入的天然微观开销。但在并发多核的数十倍红利面前，这 6% 的单核让步显得微不足道。\n\n### 四、无 GIL 时代的新隐患：伪原子性破灭与应用层竞态\n\n虽然 nogil 模式释放了无穷的算力潜能，但它也给习惯了传统 Python 的开发者敲响了一记沉重的警钟：原本在 GIL 掩护下看似“线程安全”的许多代码习惯，在无 GIL 时代将彻底粉碎！\n\n在有 GIL 的时代，很多开发者喜欢写出如下简短代码：\n\n\\# 有 GIL 时代看似安全的伪原子代码\n\nshared\\_dict\\[key\\] = shared\\_dict.get(key, 0) + 1\n\n在有 GIL 时，单行字节码的切换受到锁保护，竞态窗口极其隐蔽。但在自由线程模式下，两个线程在完全不同的物理核心上于同一纳秒执行这行代码，get() 读取到了相同的数值，随后各自执行加法写回，会产生严重的丢失更新（Lost Update）！\n\n因此，全面拥抱自由线程模式的团队，必须重新树立严密的并发工程规范：\n\n涉及跨线程共享的可变容器与状态，必须显式引入 threading.Lock 或采用不可变数据结构（Immutable Structures）；\n优先采用基于队列的通信模型（如 queue.Queue），将并发数据流解耦，坚决避免无界共享全局内存；\n对于 C 扩展扩展库（如 NumPy、PyTorch），务必确认其编译时声明了对 PEP 703 的完全兼容支持。\n\nPython 3.13 自由线程模式的诞生，宣告了一个全新高性能时代的开启。当那把沉睡了三十年的全局锁被彻底打破，Python 不仅依然是表达力最优雅的语言，更将成为在高并发算力前沿披荆斩棘的性能利刃。\n\n赞(0)\n\n未经允许不得转载： [网硕互联帮助中心](https://www.wsisp.com/helps) » [Python 3.13 自由线程（nogil）模式初探：实测高并发向量矩阵运算下的真多线程红利](https://www.wsisp.com/helps/115653.html)\n\n分享到：更多(0)\n\n标签： [ai](https://www.wsisp.com/helps/tag/ai) [人工智能](https://www.wsisp.com/helps/tag/%e4%ba%ba%e5%b7%a5%e6%99%ba%e8%83%bd) [后端](https://www.wsisp.com/helps/tag/%e5%90%8e%e7%ab%af) [数据库](https://www.wsisp.com/helps/tag/%e6%95%b0%e6%8d%ae%e5%ba%93) [语言模型](https://www.wsisp.com/helps/tag/%e8%af%ad%e8%a8%80%e6%a8%a1%e5%9e%8b)\n\n### 相关推荐\n\n- [![3周速成！亲测有效的AI大模型开发入门路线，在家也能轻松入行！-网硕互联帮助中心](https://www.wsisp.com/helps/wp-content/uploads/2026/10/20261013044915-6acdb84b89351-220x150.png)](https://www.wsisp.com/helps/115811.html)[3周速成！亲测有效的AI大模型开发入门路线，在家也能轻松入行！](https://www.wsisp.com/helps/115811.html)\n- [![](https://www.wsisp.com/helps/wp-content/themes/dux7.6/img/thumbnail.png)](https://www.wsisp.com/helps/115794.html)[微服务弹性扩缩容（HPA）滞后性治理：基于业务 QPS 预测的指标前馈补偿](https://www.wsisp.com/helps/115794.html)\n- [![【老计带你懂线性代数】02：向量，AI眼里的万物表示-网硕互联帮助中心](https://www.wsisp.com/helps/wp-content/uploads/2026/10/20261013034114-6acda85adba12-220x150.png)](https://www.wsisp.com/helps/115792.html)[【老计带你懂线性代数】02：向量，AI眼里的万物表示](https://www.wsisp.com/helps/115792.html)\n- [![](https://www.wsisp.com/helps/wp-content/themes/dux7.6/img/thumbnail.png)](https://www.wsisp.com/helps/115788.html)[双 11 抢购场景下的分布式防重放（Anti-Replay）架构：基于 Bloom Filter 与时间戳滑动窗口](https://www.wsisp.com/helps/115788.html)\n- [![[高精度气象]代理购电正在退场：不会买电，正在成为工商业用户的新成本-网硕互联帮助中心](https://www.wsisp.com/helps/wp-content/uploads/2026/10/20261013030103-6acd9eef2f5a2.gif)](https://www.wsisp.com/helps/115781.html)[\\[高精度气象\\]代理购电正在退场：不会买电，正在成为工商业用户的新成本](https://www.wsisp.com/helps/115781.html)\n- [![从程序员到高薪Agent！33岁逆袭30K，我悟了：选对赛道比拼命重要100倍！-网硕互联帮助中心](https://www.wsisp.com/helps/wp-content/uploads/2026/10/20261013023325-6acd987537543-220x150.png)](https://www.wsisp.com/helps/115765.html)[从程序员到高薪Agent！33岁逆袭30K，我悟了：选对赛道比拼命重要100倍！](https://www.wsisp.com/helps/115765.html)\n- [![](https://www.wsisp.com/helps/wp-content/themes/dux7.6/img/thumbnail.png)](https://www.wsisp.com/helps/115741.html)[TVA智能体技术体系概述（4）：TVA智能体四大维度应用领域解析](https://www.wsisp.com/helps/115741.html)\n- [![WebFlux实践与选型对比详解-网硕互联帮助中心](https://www.wsisp.com/helps/wp-content/uploads/2026/10/20261013014058-6acd8c2ab12d3-220x150.png)](https://www.wsisp.com/helps/115740.html)[WebFlux实践与选型对比详解](https://www.wsisp.com/helps/115740.html)\n\n### 评论 抢沙发\n\n### 评论前必须登录！\n\n立即登录注册",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "title": "Python 3.13 自由线程（nogil）模式初探：实测高并发向量矩阵运算下的真多线程红利 - 网硕互联帮助中心",
+        "article:published_time": "2026-10-12T13:33:00+00:00",
+        "publishedTime": "2026-10-12T13:33:00+00:00",
+        "apple-mobile-web-app-title": "网硕互联帮助中心",
+        "og:locale": "zh_CN",
+        "og:type": "article",
+        "author": "admin",
+        "ogDescription": "自 1991 年 Guido van Rossum 创造 Python 语言以来的三十余年历史中，全局解释器锁（Global Interpreter Lock, 简称 GIL） 始终是悬在所有 Python 架构师与高性能系统工程师心头的一块巨大阴霾。 尽管当今云原生环境下的服务器已经普及了 32 核、64 核甚至 128 核心的高性能处理器，但在传统的 CPython 解释器中，由于 GIL 的存在&#x",
+        "description": "自 1991 年 Guido van Rossum 创造 Python 语言以来的三十余年历史中，全局解释器锁（Global Interpreter Lock, 简称 GIL） 始终是悬在所有 Python 架构师与高性能系统工程师心头的一块巨大阴霾。 尽管当今云原生环境下的服",
+        "twitter:data1": "admin",
+        "twitter:label1": "作者",
+        "ogSiteName": "网硕互联帮助中心",
+        "twitter:card": "summary_large_image",
+        "og:description": "自 1991 年 Guido van Rossum 创造 Python 语言以来的三十余年历史中，全局解释器锁（Global Interpreter Lock, 简称 GIL） 始终是悬在所有 Python 架构师与高性能系统工程师心头的一块巨大阴霾。 尽管当今云原生环境下的服务器已经普及了 32 核、64 核甚至 128 核心的高性能处理器，但在传统的 CPython 解释器中，由于 GIL 的存在&#x",
+        "og:image": "https://www.wsisp.com/helps/wp-content/uploads/2026/10/20261012133259-6acce18b66166.webp",
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "ogUrl": "https://www.wsisp.com/helps/115653.html",
+        "twitter:label2": "预计阅读时间",
+        "ogLocale": "zh_CN",
+        "ogImage": "https://www.wsisp.com/helps/wp-content/uploads/2026/10/20261012133259-6acce18b66166.webp",
+        "og:site_name": "网硕互联帮助中心",
+        "twitter:data2": "3 分",
+        "keywords": "ai,人工智能,后端,数据库,语言模型,服务器百科",
+        "language": "zh-CN",
+        "viewport": "width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0",
+        "og:url": "https://www.wsisp.com/helps/115653.html",
+        "og:title": "Python 3.13 自由线程（nogil）模式初探：实测高并发向量矩阵运算下的真多线程红利 - 网硕互联帮助中心",
+        "ogTitle": "Python 3.13 自由线程（nogil）模式初探：实测高并发向量矩阵运算下的真多线程红利 - 网硕互联帮助中心",
+        "favicon": "https://www.wsisp.com/helps/favicon.ico",
+        "scrapeId": "01a142f0-73d8-728a-a480-94c1f812913a",
+        "sourceURL": "https://www.wsisp.com/helps/115653.html",
+        "url": "https://www.wsisp.com/helps/115653.html",
+        "statusCode": 200,
+        "contentType": "text/html; charset=UTF-8",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "cacheState": "miss",
+        "indexId": "3967bdcb-91ed-421d-a41c-7bda16852e30",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 4892,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 5759
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 37708,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 0
+  }
+}

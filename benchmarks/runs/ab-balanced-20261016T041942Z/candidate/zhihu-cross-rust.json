@@ -1,0 +1,361 @@
+{
+  "id": "zhihu-cross-rust",
+  "executed_at": "2026-10-16T04:19:43.038442+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.3.0",
+  "provider_query": "用中文找 Rust 所有权机制的英文原文，要 The Rust Book 的 ownership 章节",
+  "answer": "The Rust Book 里讲所有权的是第 4 章 **Understanding Ownership**，英文原文在官方文档站。当前版入口与小节如下。\n\n1. **章首页（当前稳定版）**  \n   [Understanding Ownership](https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html)  \n   来源：doc.rust-lang.org/book。开篇说明 ownership 是 Rust 最独特的特性，在无 GC 的情况下保证内存安全；本章还覆盖 borrowing、slices 以及数据在内存中的布局。\n\n2. **4.1 What Is Ownership?**  \n   [What is Ownership?](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html)  \n   来源：同上。三条规则：每个值有一个 owner；同一时刻只能有一个 owner；owner 离开作用域时值被 drop。\n\n3. **4.2 References and Borrowing**  \n   [References and Borrowing](https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html)  \n   来源：同上。引用不取得所有权；借用规则（同一时刻要么一个可变引用，要么任意多个不可变引用）。\n\n4. **4.3 The Slice Type**  \n   [The Slice Type](https://doc.rust-lang.org/book/ch04-03-slices.html)  \n   来源：同上。slice 作为不拥有数据的引用视图。\n\n5. **全书入口与目录**  \n   [The Rust Programming Language](https://doc.rust-lang.org/book/) · [目录](https://doc.rust-lang.org/stable/book/toc.html)  \n   来源：doc.rust-lang.org。作者 Steve Klabnik、Carol Nichols、Chris Krycho 及社区；稳定版 HTML 也在 `https://doc.rust-lang.org/stable/book/`。\n\n6. **文档总览（Rust Bookshelf）**  \n   [Rust Documentation](https://doc.rust-lang.org/)  \n   来源：doc.rust-lang.org。把 “the book” 列为学习资源；本地可用 `rustup doc --book`。\n\n7. **旧版重定向页**  \n   [nightly 旧链接 Ownership](https://doc.rust-lang.org/nightly/book/ownership.html)  \n   来源：doc.rust-lang.org/nightly。标明已有新版，并复述三条 ownership 规则，指向新书对应章节。\n\n8. **第一版（已停更）**  \n   [Ownership（first edition）](https://doc.rust-lang.org/book/first-edition/ownership.html)  \n   来源：doc.rust-lang.org。页面写明第一版不再随文档分发，应改用当前版。",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://doc.rust-lang.org/1.33.0/book/ch04-00-understanding-ownership.html",
+      "url": "https://doc.rust-lang.org/1.33.0/book/ch04-00-understanding-ownership.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "目录",
+      "url": "https://doc.rust-lang.org/stable/book/toc.html",
+      "snippet": "5. 全书入口与目录 The Rust Programming Language · 目录 来源：doc.rust-lang.org。作者 Steve Klabnik、Carol Nichols、Chris Krycho 及社区；稳定版 HTML 也在",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r3",
+      "title": "What is Ownership?",
+      "url": "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html",
+      "snippet": "2. 4.1 What Is Ownership? What is Ownership? 来源：同上。三条规则：每个值有一个 owner；同一时刻只能有一个 owner；owner 离开作用域时值被 drop。",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r4",
+      "title": "nightly 旧链接 Ownership",
+      "url": "https://doc.rust-lang.org/nightly/book/ownership.html",
+      "snippet": "7. 旧版重定向页 nightly 旧链接 Ownership 来源：doc.rust-lang.org/nightly。标明已有新版，并复述三条 ownership 规则，指向新书对应章节。",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r5",
+      "title": "https://doc.rust-lang.org/1.57.0/book/ch04-01-what-is-ownership.html",
+      "url": "https://doc.rust-lang.org/1.57.0/book/ch04-01-what-is-ownership.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "https://doc.rust-lang.org/1.56.0/book/ch04-02-references-and-borrowing.html",
+      "url": "https://doc.rust-lang.org/1.56.0/book/ch04-02-references-and-borrowing.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "The Rust Programming Language",
+      "url": "https://doc.rust-lang.org/book",
+      "snippet": "5. 全书入口与目录 The Rust Programming Language · 目录 来源：doc.rust-lang.org。作者 Steve Klabnik、Carol Nichols、Chris Krycho 及社区；稳定版 HTML 也在",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r8",
+      "title": "Ownership（first edition）",
+      "url": "https://doc.rust-lang.org/book/first-edition/ownership.html",
+      "snippet": "8. 第一版（已停更） Ownership（first edition） 来源：doc.rust-lang.org。页面写明第一版不再随文档分发，应改用当前版。",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://doc.rust-lang.org/1.33.0/book/ch04-00-understanding-ownership.html",
+      "url": "https://doc.rust-lang.org/1.33.0/book/ch04-00-understanding-ownership.html",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "目录",
+      "url": "https://doc.rust-lang.org/stable/book/toc.html",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "What is Ownership?",
+      "url": "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "nightly 旧链接 Ownership",
+      "url": "https://doc.rust-lang.org/nightly/book/ownership.html",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://doc.rust-lang.org/1.57.0/book/ch04-01-what-is-ownership.html",
+      "url": "https://doc.rust-lang.org/1.57.0/book/ch04-01-what-is-ownership.html",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "https://doc.rust-lang.org/1.56.0/book/ch04-02-references-and-borrowing.html",
+      "url": "https://doc.rust-lang.org/1.56.0/book/ch04-02-references-and-borrowing.html",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "The Rust Programming Language",
+      "url": "https://doc.rust-lang.org/book",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "Ownership（first edition）",
+      "url": "https://doc.rust-lang.org/book/first-edition/ownership.html",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://doc.rust-lang.org/1.68.2/book/ch04-00-understanding-ownership.html",
+      "url": "https://doc.rust-lang.org/1.68.2/book/ch04-00-understanding-ownership.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://doc.rust-lang.org/",
+      "url": "https://doc.rust-lang.org/",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html",
+      "url": "https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 13448,
+        "detail": "model=grok-4.7",
+        "usage": {
+          "input_tokens": 9456,
+          "input_tokens_details": {
+            "cached_tokens": 4352
+          },
+          "output_tokens": 798,
+          "output_tokens_details": {
+            "reasoning_tokens": 96
+          },
+          "total_tokens": 10254,
+          "num_sources_used": 0,
+          "num_server_side_tools_used": 2,
+          "cost_in_usd_ticks": 158384800,
+          "server_side_tool_usage_details": {
+            "web_search_calls": 2,
+            "x_search_calls": 0,
+            "x_posts_fetched": 0,
+            "x_users_fetched": 0,
+            "code_interpreter_calls": 0,
+            "file_search_calls": 0,
+            "mcp_calls": 0,
+            "document_search_calls": 0,
+            "image_generation_calls": 0
+          },
+          "context_details": {
+            "input_tokens": 7174,
+            "output_tokens": 693
+          }
+        }
+      },
+      {
+        "provider": "xai",
+        "operation": "rewrite",
+        "outcome": "ok",
+        "reason": "cross_language",
+        "latency_ms": 7582,
+        "detail": null,
+        "usage": {
+          "input_tokens": 3466,
+          "input_tokens_details": {
+            "cached_tokens": 1152
+          },
+          "output_tokens": 474,
+          "output_tokens_details": {
+            "reasoning_tokens": 438
+          },
+          "total_tokens": 3940,
+          "num_sources_used": 0,
+          "num_server_side_tools_used": 0,
+          "cost_in_usd_ticks": 27363200,
+          "context_details": {
+            "input_tokens": 3466,
+            "output_tokens": 481
+          }
+        }
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null,
+        "usage": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "domains_below_threshold:1<2"
+    ]
+  },
+  "coverage": {
+    "status": "sufficient",
+    "requirements": [
+      {
+        "kind": "language",
+        "target": "en",
+        "satisfied": true,
+        "detail": "7 result(s) with en titles"
+      }
+    ]
+  },
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "timed_out": false,
+  "elapsed_ms": 13515,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "xai.rewrite": 1
+    },
+    "xai_cost_ticks": 185748000,
+    "tavily_credits_estimate": 0
+  }
+}

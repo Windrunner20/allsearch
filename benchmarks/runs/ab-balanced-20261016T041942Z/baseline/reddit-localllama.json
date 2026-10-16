@@ -1,0 +1,351 @@
+{
+  "id": "reddit-localllama",
+  "executed_at": "2026-10-16T04:21:07.995054+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "Reddit thread in r/LocalLLaMA about running a quantized local model on one GPU",
+  "answer": "Here are up to eight relevant r/LocalLLaMA threads on running quantized models on a single GPU:\n\n1. **Ornith-1.0-35B Q3_K_M (~17 GB VRAM)** — Q3_K_M GGUF sized for one GPU, with KL-divergence vs BF16 and llama.cpp CUDA throughput (~240 tok/s single stream).  \n   https://www.reddit.com/r/LocalLLaMA/comments/1ugqipi/ornith1035b_q3_k_m_17_gb_vram_kldchecked_against [[1]](https://www.reddit.com/r/LocalLLaMA/comments/1ugqipi/ornith1035b_q3_k_m_17_gb_vram_kldchecked_against)\n\n2. **Qwen 3.8 27B at ~140 tok/s on one RTX 3090** — Q4_K_M (and related quants) on a single 24 GB GPU via a CUDA megakernel, with accuracy vs llama.cpp and context limits.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1x37q7b/update_qwen_38_27b_140_toks_on_single_rtx_3090/ [[2]](https://www.reddit.com/r/LocalLLaMA/comments/1x37q7b/update_qwen_38_27b_140_toks_on_single_rtx_3090/)\n\n3. **Llama 3.1 70B AQLM-PV on one 3090** — ~22 GB compressed weights that fit a single RTX 3090, with reported MMLU drop.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1fiscnl/release_of_llama3170b_weights_with_aqlmpv/ [[3]](https://reddit.com/r/LocalLLaMA/comments/1fiscnl/release_of_llama3170b_weights_with_aqlmpv/)\n\n4. **Gemma 4 12B QAT on 12 GB** — QAT GGUF fully in VRAM on an RTX 4070 Super 12 GB, with MTP draft model and ~120 tok/s.  \n   https://old.reddit.com/r/LocalLLaMA/comments/1typjmc/120_toks_on_12gb_vram_with_gemma_4_12b_qat_mtp [[4]](https://old.reddit.com/r/LocalLLaMA/comments/1typjmc/120_toks_on_12gb_vram_with_gemma_4_12b_qat_mtp.json)\n\n5. **AQLM 2–2.5-bit: 70B on one RTX 3090** — Low-bit quant method aimed at fitting 70B-class models on a single 3090 (and smaller MoE-style models on a 4060).  \n   https://www.reddit.com/r/LocalLLaMA/comments/1al58xw/yet_another_state_of_the_art_in_llm_quantization/ [[5]](https://www.reddit.com/r/LocalLLaMA/comments/1al58xw/yet_another_state_of_the_art_in_llm_quantization/)\n\n6. **Qwen 3.8 27B IQ3_S on 16 GB** — GSQ-RCO IQ3_S on a 5060 Ti 16 GB with KV streaming for long context on one GPU.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1wzfv45/just_my_how_i_run_qwen38_27b_on_16gb_experience/ [[6]](https://ssl.reddit.com/r/LocalLLaMA/comments/1wzfv45/just_my_how_i_run_qwen38_27b_on_16gb_experience/)\n\n7. **Qwen 3.8 Flash Next, UD-Q3_K_XL, one RTX 3090** — Single 3090 + 128 GB RAM setup using Unsloth’s dynamic Q3 quant and Strata vs llama.cpp speeds.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1wwamjw/strata_rtx_3090_128_ram_qwen_38_flash_next/ [[7]](https://www.reddit.com/r/LocalLLaMA/comments/1wwamjw/strata_rtx_3090_128_ram_qwen_38_flash_next/)\n\n8. **1-bit 27B on a 6 GB laptop GPU** — Native ~1.14-bit 27B (~3.8 GB weights) in the browser via WebGPU at about 25–30 tok/s on an RTX 3060 Laptop.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1wbm50k/1bit_27b_in_the_browser_2530_toks_on_a_6_gb_rtx/ [[8]](https://www.reddit.com/r/LocalLLaMA/comments/1wbm50k/1bit_27b_in_the_browser_2530_toks_on_a_6_gb_rtx/)",
+  "results": [
+    {
+      "id": "r1",
+      "title": "1",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ugqipi/ornith1035b_q3_k_m_17_gb_vram_kldchecked_against",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "2",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1x37q7b/update_qwen_38_27b_140_toks_on_single_rtx_3090",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "3",
+      "url": "https://reddit.com/r/LocalLLaMA/comments/1fiscnl/release_of_llama3170b_weights_with_aqlmpv",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "4",
+      "url": "https://old.reddit.com/r/LocalLLaMA/comments/1typjmc/120_toks_on_12gb_vram_with_gemma_4_12b_qat_mtp.json",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "5",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1al58xw/yet_another_state_of_the_art_in_llm_quantization",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "6",
+      "url": "https://ssl.reddit.com/r/LocalLLaMA/comments/1wzfv45/just_my_how_i_run_qwen38_27b_on_16gb_experience",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "7",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1wwamjw/strata_rtx_3090_128_ram_qwen_38_flash_next",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "8",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1wbm50k/1bit_27b_in_the_browser_2530_toks_on_a_6_gb_rtx",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "1",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ugqipi/ornith1035b_q3_k_m_17_gb_vram_kldchecked_against",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "2",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1x37q7b/update_qwen_38_27b_140_toks_on_single_rtx_3090",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "3",
+      "url": "https://reddit.com/r/LocalLLaMA/comments/1fiscnl/release_of_llama3170b_weights_with_aqlmpv",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "4",
+      "url": "https://old.reddit.com/r/LocalLLaMA/comments/1typjmc/120_toks_on_12gb_vram_with_gemma_4_12b_qat_mtp.json",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "5",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1al58xw/yet_another_state_of_the_art_in_llm_quantization",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "6",
+      "url": "https://ssl.reddit.com/r/LocalLLaMA/comments/1wzfv45/just_my_how_i_run_qwen38_27b_on_16gb_experience",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "7",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1wwamjw/strata_rtx_3090_128_ram_qwen_38_flash_next",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "8",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1wbm50k/1bit_27b_in_the_browser_2530_toks_on_a_6_gb_rtx",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 16949,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "error",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ugqipi/ornith1035b_q3_k_m_17_gb_vram_kldchecked_against",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "auth_error"
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "auth_error",
+          "message": "authentication failed (403)",
+          "retryable": false
+        }
+      ],
+      "timing_ms": 280
+    },
+    {
+      "schema_version": "1.0",
+      "status": "error",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1x37q7b/update_qwen_38_27b_140_toks_on_single_rtx_3090",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "auth_error"
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "auth_error",
+          "message": "authentication failed (403)",
+          "retryable": false
+        }
+      ],
+      "timing_ms": 137
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 17368,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 0
+  }
+}

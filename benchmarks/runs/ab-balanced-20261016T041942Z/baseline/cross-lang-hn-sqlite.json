@@ -1,0 +1,447 @@
+{
+  "id": "cross-lang-hn-sqlite",
+  "executed_at": "2026-10-16T04:26:33.506590+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "用中文找 Hacker News 上把 SQLite 当作应用程序文件格式来讨论的英文帖子",
+  "answer": "以下是 Hacker News 上讨论「把 SQLite 当作应用程序文件格式」的英文帖，按相关度列出（最多 8 条）：\n\n1. **[SQLite as an Application File Format](https://news.ycombinator.com/item?id=46076642)**  \n   直接讨论官方文章 [sqlite.org/appfileformat](https://sqlite.org/appfileformat.html)。评论里有 Mapbox 的 MBTiles、树形数据是否适合用表、以及类型安全、迁移、现成 GUI 等好处。约 178 分、99 条评论。\n\n2. **[SQLite as an Application File Format (2014)](https://news.ycombinator.com/item?id=18754634)**  \n   同一主题的较早长帖（约 211 分、161 条评论）。涉及单文件文档、美国国会图书馆推荐、WAL/SHM 会破坏「只有一个文件」的假设，以及文件格式是否公开可解析。\n\n3. **[What If OpenDocument Used SQLite?](https://news.ycombinator.com/item?id=45132498)**  \n   假设办公文档用 SQLite。高赞评论强调：应用文件格式应开 `secure_delete`、按官方建议处理不可信数据库文件，并注意 SQLite 对「打开不可信文件」这一场景的安全态度；也有人认为多数实际用法本来就是应用文件格式（Firefox、聊天记录等）。约 279 分。\n\n4. **[The killer feature for me with SQLite is as an application file format](https://news.ycombinator.com/item?id=40655974)**  \n   评论帖，指向官方 app file format 页面。提到可增量更新、Audacity 把录音流进 SQLite 工程文件、用 SQLite 做游戏关卡数据以便用普通数据库工具编辑。\n\n5. **[Show HN: SQLite files as applications - uApps](https://news.ycombinator.com/item?id=49421475)**  \n   把 Web 应用和数据都放进基于 SQLite Archive 的 `.uapp` 文件，用本地运行时打开，目标是像表格一样分发、可继续改的本地工具。\n\n6. **[gzipped JSON vs SQLite as an application file format](https://news.ycombinator.com/item?id=47046185)**  \n   在 Apple `.car` 格式讨论下，主张存二进制 blob 时用 SQLite 优于 gzip+JSON；举例 Firefox favicon、iOS 照片、Kodi、VC++ 浏览数据，以及 Audacity 工程的崩溃安全与廉价增量写入。\n\n7. **[sqlite is great as a \"file format\" for a particular application…](https://news.ycombinator.com/item?id=39797104)**  \n   在 Pack 容器格式帖下：SQLite 适合某个应用自己的文件，但不适合当通用交换格式（必须捆绑 SQLite）。并指出应用应用 `application_id`，让 `file(1)` 能识别具体类型。\n\n8. **[Somehow my first thought… using sqlite as a format for applications (ELF)](https://news.ycombinator.com/item?id=46079326)**  \n   挂在第 1 条帖子下的支线：有人把标题理解成「用 SQLite 当可执行文件格式（替代 ELF）」，并提到用 SQLite 表存 ELF、以及 [sqlelf](https://github.com/fzakaria/sqlelf)。这是旁支，不是文档格式本身。",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://news.ycombinator.com/item?id=45132498",
+      "url": "https://news.ycombinator.com/item?id=45132498",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "AI辅助爬虫实战：用Gemini从零搭一个帖子采集程序",
+      "url": "https://bbs.csdn.net/weixin_42523711/article/details/100305154",
+      "snippet": "本文系统阐述AI Newsletter如何通过人机协同信号共振、五层信息源矩阵与七步知识晶体化SOP，实现从海量信息到可行动技术信号的提纯。核心聚焦于时效性-相关性耦合验证、工程落地信号强度评估、决策杠杆点识别三大过滤机制，并构建‘3+2+1’认知结构、反PR选题免疫机制及信号雷达监控系统，最终将技术文档转化为面向CTO、Tech Lead、SRE等角色的决策语言，解决AI时代的信息过载与认知负荷问题。\n\nweixin\\_3031479330秒完成全网调研: last30days-skill 快速上手指南\n\nlast30days-skill 是一款开源AI agent技能，支持在Reddit、X（Twitter）、YouTube、Hacker News、Polymarket等10+平台并行抓取过去30天的原始讨论数据，并基于互动量（点赞、评论、转发）排序，生成带来源标注的结构化调研简报。适用于人物背调、竞品对比、趋势发现与热点分析，支持vs语法对比、自动源识别、HTML导出、SQLite存储及定时监控，数据本地处理，MIT协议。 [...] PYTHON\n\n1\n\nimport sqlite3\n\n2\n\n3\n\nDB\\_PATH = \"posts.db\"\n\n4\n\n5\n\ndef save\\_to\\_db(item):\n\n6\n\n\"\"\"将单个帖子插入数据库，url 重复则忽略。\"\"\"\n\n7\n\nconn = sqlite3.connect(DB\\_PATH)\n\n8\n\ntry:\n\n9\n\nconn.execute(\"\"\"\n\n10\n\nINSERT OR IGNORE INTO posts (title, url, author, content, published\\_at)\n\n11\n\nVALUES (?, ?, ?, ?, ?)\n\n12\n\n\"\"\", (item[\"title\"], item[\"url\"], item[\"author\"],\n\n13\n\nitem[\"content\"], item[\"published\\_at\"]))\n\n14\n\nconn.commit()\n\n15\n\nfinally:\n\n16\n\nconn.close()\n\n17\n\n18\n\ndef init\\_db():\n\n19\n\n\"\"\"初始化数据表。\"\"\"\n\n20 [...] 4\n\nHEADERS = {\n\n5\n\n\"User-Agent\": \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 \"\n\n6\n\n\"(KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36\",\n\n7\n\n\"Accept-Language\": \"zh-CN,zh;q=0.9\",\n\n8\n\n}\n\n9\n\n10\n\ndef fetch\\_page(url):\n\n11\n\n\"\"\"请求页面，返回 HTML 文本。\"\"\"\n\n12\n\nresp = requests.get(url, headers=HEADERS, timeout=10)\n\n13\n\nresp.raise\\_for\\_status()\n\n14\n\n# 让 requests 根据响应内容自动推断编码，解决中文乱码\n\n15\n\nresp.encoding = resp.apparent\\_encoding\n\n16\n\nreturn resp.text\n\n17\n\n18\n\ndef parse\\_list(html):\n\n19",
+      "content": null,
+      "published_at": "Thu, 17 Sep 2026 00:00:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.19410832,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://www.linuxcompatible.org/story/sqlite-3540-release-faster-engine-new-cli-features-and-dropped-windows-xp-support/",
+      "url": "https://www.linuxcompatible.org/story/sqlite-3540-release-faster-engine-new-cli-features-and-dropped-windows-xp-support",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "12 个最佳数据工程项目：上手实践 | DataCamp",
+      "url": "https://www.datacamp.com/zh/blog/data-engineering-projects",
+      "snippet": "该项目使用 AWS 生态中的高级数据处理工具，构建包含多个步骤的复杂数据流水线。\n\n不同于受限的社交媒体 API，您将使用完全免费开放的 Hacker News API。您将搭建 Apache Airflow 来抽取热门帖子与评论，转换数据以扁平化嵌套 JSON 结构，并将其加载到云端。\n\n该架构遵循标准的“现代数据栈”模式：\n\n1. 抽取：Airflow 触发 Python 脚本从 Hacker News API 获取数据。\n2. 加载： 原始 JSON 数据被写入 Amazon S3 存储桶（您的“数据湖”）。\n3. 转换：您将使用 AWS Glue 爬取数据并创建模式。\n4. 分析：最后，您将使用 Amazon Athena 直接对 S3 数据运行 SQL（无服务器分析），或将其加载到 Amazon Redshift 进行仓储。\n\n#### 资源\n\n以下资源包括课程与视频教程，提供分步指导：\n\n文档：\n\n Hacker News API： 官方文档简单明了，托管在 GitHub 上。 教您如何遍历“Item ID”以查找帖子与评论。\n\nGitHub 仓库： [...] GitHub 仓库：\n\n 使用 Airflow 与 AWS 的新闻数据流水线：寻找演示“Airflow 到 S3”流水线的仓库。您只需将 API 端点从 “NewsAPI” 改为 “Hacker News” 即可轻松改造。\n dlt（Data Load Tool）Hacker News 示例：来自`dltHub` 团队的博文与仓库专门介绍如何将 Hacker News 数据导入数据仓库。这是很好的现代替代参考。\n\n课程与教程：\n\n AWS 概念：该课程系统介绍 AWS 的基础概念与工具。理解 S3、Glue、Athena 与 Redshift 等 AWS 服务的基础，对成功实施本项目至关重要。\n AWS Glue 与 Athena：重点查找关于“使用 Glue 爬取 S3 中的 JSON 数据”的教程，了解如何将原始文件转为可查询的表。\n\n#### 获得的技能 [...] | 11. 在 AWS 上的 Hacker News ETL | 高级 | 编排；处理嵌套 JSON；数据湖；无服务器 SQL；基础设施管理。 | Apache Airflow、AWS S3、AWS Glue、AWS Athena、AWS Redshift |\n| 12. 实时数据流水线 | 高级 | 实时数据流；高吞吐摄取；监控与告警；事件驱动架构。 | PySpark、Apache Kafka、Amazon Redshift |",
+      "content": null,
+      "published_at": "Tue, 06 Oct 2026 00:00:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.16257967,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://news.ycombinator.com/item?id=39797104",
+      "url": "https://news.ycombinator.com/item?id=39797104",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "周e信 存档",
+      "url": "https://www.zhouexin.com/archives",
+      "snippet": "前端\n\n负字间距过渡：纯 CSS 低成本做文字渐显交互🔗\n\n得克萨斯州女子因发布关于城镇水质的Facebook帖子被捕🔗\n\n数据库\n\n厌倦了与AI交谈🔗\n\nSQLite是持久化工作流所需的全部🔗\n\n人工智能\n\n我认为Anthropic和OpenAI已找到产品市场契合点🔗\n\n在谷歌表示人们喜欢AI模式后，DuckDuckGo搜索访问量增长了28%🔗\n\nDeepSeek reasonix，高缓存低成本的DeepSeek原生编码代理🔗\n\nAI将导致大规模失业消费崩溃和民主制度瓦解🔗\n\n运维\n\n加州拟豁免开源操作系统（如Linux）免受年龄验证法约束🔗\n\n教宗良十四世在人工智能时代呼吁回归人的尊严与共同善🔗\n\nBricks and Minifigs偷走了一名男子价值20万美元的乐高收藏品🔗\n\n其他\n\n我花了50小时画一个折线图🔗\n\n由于AI,Sentry 开源负责人宣布退出科技行业🔗\n\nLast.fm现已独立🔗\n\nGTA 6开发者成立工会🔗\n\n第 370 期 — 2026-05-30\n\nNode.js\n\n告别 Next.js RSC：回归 SPA 与独立后端🔗 [...] 服务端组件的性能比较🔗\n\n移动端\n\nGrapheneOS 是唯一提供完整安全补丁的 Android 操作系统🔗\n\nApple 锁定了我的 Apple ID，我无计可施。求助信🔗\n\n人工智能\n\n让 AI 工具 Claude 反复 “优化” 自己的小应用代码库🔗\n\n获取 Gemini API 密钥令人沮丧🔗\n\nOxide公司如何使用大型语言模型🔗\n\n运维\n\nLinux内核中的 Rust 已成为核心组成部分🔗\n\n其他\n\n用事后诸葛的眼光自动评分十年前的 Hacker News 讨论🔗\n\n澳大利亚开始执行全球首个青少年社交媒体禁令🔗\n\nLets Encrypt 十周年🔗\n\n第 346 期 — 2025-12-13\n\nNode.js\n\nts-exec - 无需预先编译运行.ts和.tsx🔗\n\nnpm 完成经典令牌的淘汰并推出多项安全更新🔗\n\nnpm 发布安全防护方案🔗\n\nJavascript\n\nIBM CEO表示，AI数据中心支出根本“不可能”收回成本🔗\n\nVScode插件 JSTS Modernize - 轻松给老的 JSTS 项目升级换代🔗\n\n前端 [...] 15个实用vue组件🔗\n\niframe-resizer-react react iframe自动适应大小组件🔗\n\n数据库\n\n炒一吵- Hack News: Mysql 还是 Postgres🔗\n\nSQLTools - VSCode SQL数据库客户端插件支持提示🔗\n\n人工智能\n\ngenerated.photos 十万份AI画的人脸,非商业免费用🔗\n\n其他\n\n游戏-飞翔的鸡蛋(Aero Egg)🔗)\n\n第 21 期 — 2019-09-22\n\nNode.js\n\ngit-quick-stats git统计命令行工具🔗\n\n为什么0.1+0.2 不等于 0.3🔗\n\nnpm公共仓库限流政策🔗\n\nHumanizeDuration.js-将毫秒格式为可读的字符串-支持多语言🔗\n\nradar开源其google球面积几何地图库s2的typescript绑定实现🔗\n\n十大 npm 最佳安全指南，教你如何避免安全漏洞！🔗\n\nOpenSSL 九月的security发布对nodejs没有影响🔗\n\nJavascript\n\ngeometric-几何学库🔗\n\n前端\n\n教程-炫酷按钮动画-hover时颜色波浪变化🔗",
+      "content": null,
+      "published_at": "Sat, 10 Oct 2026 04:00:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.14011282,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://news.ycombinator.com/item?id=43682006",
+      "url": "https://news.ycombinator.com/item?id=43682006",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "rising repo",
+      "url": "https://yanggggjie.github.io/rising-repo",
+      "snippet": "| Image 903: xindooavatar agentic-design-patterns 谷歌新书Agent设计模式(agentic design patterns)最佳中文版，持续优化。附：在线阅读、pdf和epub电子书下载。 | +2 | 1 Year | HTML |\n| Image 904: arjaythedevavatar twelve-dollar-server-challenge Implement one small API on SQLite in any language; we benchmark it on a $12 server (1 vCPU, 2 GB) | +2 | 11 Day | Shell | [...] sqlite trino | +2 | 9 Month | TypeScript | [...] mem0 memory-engine openmemory rag sqlite supermemory | +4 | 1 Year | TypeScript |",
+      "content": null,
+      "published_at": "Wed, 14 Oct 2026 19:55:18 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.12722936,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://news.ycombinator.com/item?id=45132498",
+      "url": "https://news.ycombinator.com/item?id=45132498",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "AI辅助爬虫实战：用Gemini从零搭一个帖子采集程序",
+      "url": "https://bbs.csdn.net/weixin_42523711/article/details/100305154",
+      "result_id": "r2",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://www.linuxcompatible.org/story/sqlite-3540-release-faster-engine-new-cli-features-and-dropped-windows-xp-support/",
+      "url": "https://www.linuxcompatible.org/story/sqlite-3540-release-faster-engine-new-cli-features-and-dropped-windows-xp-support",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "12 个最佳数据工程项目：上手实践 | DataCamp",
+      "url": "https://www.datacamp.com/zh/blog/data-engineering-projects",
+      "result_id": "r4",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://news.ycombinator.com/item?id=39797104",
+      "url": "https://news.ycombinator.com/item?id=39797104",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "周e信 存档",
+      "url": "https://www.zhouexin.com/archives",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://news.ycombinator.com/item?id=43682006",
+      "url": "https://news.ycombinator.com/item?id=43682006",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "rising repo",
+      "url": "https://yanggggjie.github.io/rising-repo",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://news.ycombinator.com/item?id=29413800",
+      "url": "https://news.ycombinator.com/item?id=29413800",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://news.ycombinator.com/item?id=49544166",
+      "url": "https://news.ycombinator.com/item?id=49544166",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://news.ycombinator.com/item?id=49421475",
+      "url": "https://news.ycombinator.com/item?id=49421475",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://news.ycombinator.com/item?id=48046007",
+      "url": "https://news.ycombinator.com/item?id=48046007",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://wizardforcel.gitbooks.io/sqlite-doc-en/content/50.html",
+      "url": "https://wizardforcel.gitbooks.io/sqlite-doc-en/content/50.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://news.ycombinator.com/item?id=42965198",
+      "url": "https://news.ycombinator.com/item?id=42965198",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://www.weaving.news/news/019acaaa-47ce-7724-80ac-9da4051fb2b9",
+      "url": "https://www.weaving.news/news/019acaaa-47ce-7724-80ac-9da4051fb2b9",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://news.ycombinator.com/item?id=46079326",
+      "url": "https://news.ycombinator.com/item?id=46079326",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://news.ycombinator.com/item?id=40655974",
+      "url": "https://news.ycombinator.com/item?id=40655974",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://news.ycombinator.com/item?id=18754634",
+      "url": "https://news.ycombinator.com/item?id=18754634",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "https://news.ycombinator.com/item?id=45132488",
+      "url": "https://news.ycombinator.com/item?id=45132488",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "https://news.ycombinator.com/item?id=47046185",
+      "url": "https://news.ycombinator.com/item?id=47046185",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c21",
+      "title": "https://news.ycombinator.com/item?id=45134010",
+      "url": "https://news.ycombinator.com/item?id=45134010",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c22",
+      "title": "https://simonwillison.net/2026/Aug/24/your-executable-is-a-sqlite-database/",
+      "url": "https://simonwillison.net/2026/Aug/24/your-executable-is-a-sqlite-database",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c23",
+      "title": "https://news.ycombinator.com/item?id=37558809",
+      "url": "https://news.ycombinator.com/item?id=37558809",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c24",
+      "title": "https://news.ycombinator.com/item?id=33381514",
+      "url": "https://news.ycombinator.com/item?id=33381514",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c25",
+      "title": "https://news.ycombinator.com/item?id=46076642",
+      "url": "https://news.ycombinator.com/item?id=46076642",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c26",
+      "title": "Hermes Agent 实践案例与真实工作流 | HermesCN",
+      "url": "https://hermescn.org/best-practices",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c27",
+      "title": "Hermes Agent：实践者参考指南（2026）",
+      "url": "https://blakecrosley.com/zh-Hans/guides/hermes",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c28",
+      "title": "AI Daily Picks | Maomao AI Lab",
+      "url": "https://maomaoailab.com/news",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c29",
+      "title": "GitHub Repositories Ranking",
+      "url": "https://wangchujiang.com/github-rank/repos.html",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 20313,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "conditional_supplement",
+        "latency_ms": 5654,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "recency_signal"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "timed_out": false,
+  "elapsed_ms": 25969,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "tavily.search": 1
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 1
+  }
+}

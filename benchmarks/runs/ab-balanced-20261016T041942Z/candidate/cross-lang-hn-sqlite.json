@@ -1,0 +1,664 @@
+{
+  "id": "cross-lang-hn-sqlite",
+  "executed_at": "2026-10-16T04:25:20.098456+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.3.0",
+  "provider_query": "用中文找 Hacker News 上把 SQLite 当作应用程序文件格式来讨论的英文帖子",
+  "answer": "以下是 Hacker News 上讨论「把 SQLite 当作应用程序文件格式」的英文帖（最多 8 条），均指向官方文档或实际用法讨论。\n\n1. **SQLite as an Application File Format**（sqlite.org，约 178 分、99 评论）  \n   主帖直接讨论官方文章。评论提到 Mapbox 的 MBTiles、树形数据 vs 表结构、以及现成 GUI/迁移等好处。  \n   https://news.ycombinator.com/item?id=46076642\n\n2. **SQLite as an Application File Format (2014)**  \n   较早一轮讨论。评论对比 .docx（zip+XML）、Lightroom 与 Clip Studio 的做法，并强调单文件可被普通 SQLite 工具打开。  \n   https://news.ycombinator.com/item?id=23508923\n\n3. **What If OpenDocument Used SQLite?**（约 279 分）  \n   假设办公文档改用 SQLite。高赞评论提醒：开启 `secure_delete`、按不可信数据库加固打开选项，并指出官方对“当文件格式用”的安全态度偏保守。  \n   https://news.ycombinator.com/item?id=45132498\n\n4. **评论串：SQLite 作为应用文件格式是 killer feature**  \n   引用 https://sqlite.org/appfileformat.html。举例 Audacity 把录音流写入工程文件、游戏关卡用 SQLite 让美术用现成数据库工具编辑。也提到 WAL/journal 对用户可见文件的坑。  \n   https://news.ycombinator.com/item?id=40655974\n\n5. **对比 gzipped JSON 的评论（Apple .car 讨论下）**  \n   认为存图片等二进制时，业界常选 “SQLite 当文件格式”（Firefox favicon、iOS 照片、Kodi、MSVC 浏览数据等），并再次举 Audacity 抗崩溃、增量写入的例子。  \n   https://news.ycombinator.com/item?id=47046185\n\n6. **“适合当本应用文件格式，但不适合当交换格式”**  \n   讨论 Pack 等基于 SQLite 的容器：要捆绑 SQLite、自定义魔数会失去现成工具兼容；并提到应设置 `application_id`，让 `file(1)` 能识别具体类型。  \n   https://news.ycombinator.com/item?id=39797104\n\n7. **I see no downside in using sqlite as an application file format**  \n   短评：开放格式便于第三方读写；若想防篡改可去头或加密（如 SQLCipher）。  \n   https://news.ycombinator.com/item?id=46079942\n\n8. **Show HN: SQLite files as applications - uApps**  \n   把压缩的 Web 应用和用户数据放进基于 SQLite Archive（sqlar）的 `.uapp`，用本地运行时打开并回写数据库。  \n   https://news.ycombinator.com/item?id=49421475",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://news.ycombinator.com/item?id=46079942",
+      "url": "https://news.ycombinator.com/item?id=46079942",
+      "snippet": "7. I see no downside in using sqlite as an application file format 短评：开放格式便于第三方读写；若想防篡改可去头或加密（如 SQLCipher）。",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r2",
+      "title": "https://news.ycombinator.com/item?id=23508923",
+      "url": "https://news.ycombinator.com/item?id=23508923",
+      "snippet": "2. SQLite as an Application File Format (2014) 较早一轮讨论。评论对比 .docx（zip+XML）、Lightroom 与 Clip Studio 的做法，并强调单文件可被普通 SQLite 工具打开。",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "hackernews"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r3",
+      "title": "SQLite as an Application File Format (2014)",
+      "url": "https://news.ycombinator.com/item?id=18754634",
+      "snippet": "211 points, 161 comments, by kjeetgill on 2018-12-24. Links to https://www.sqlite.org/appfileformat.html",
+      "content": null,
+      "published_at": "2018-12-24T22:29:06Z",
+      "source_type": "social",
+      "provider": "hackernews",
+      "matched_providers": [
+        "hackernews"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "points": 211,
+        "num_comments": 161,
+        "story_url": "https://www.sqlite.org/appfileformat.html"
+      }
+    },
+    {
+      "id": "r4",
+      "title": "https://news.ycombinator.com/item?id=46080273",
+      "url": "https://news.ycombinator.com/item?id=46080273",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://news.ycombinator.com/item?id=46076642",
+      "url": "https://news.ycombinator.com/item?id=46076642",
+      "snippet": "1. SQLite as an Application File Format （sqlite.org，约 178 分、99 评论） 主帖直接讨论官方文章。评论提到 Mapbox 的 MBTiles、树形数据 vs 表结构、以及现成 GUI/迁移等好处。",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "hackernews"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r6",
+      "title": "https://news.ycombinator.com/item?id=39797104",
+      "url": "https://news.ycombinator.com/item?id=39797104",
+      "snippet": "6. “适合当本应用文件格式，但不适合当交换格式” 讨论 Pack 等基于 SQLite 的容器：要捆绑 SQLite、自定义魔数会失去现成工具兼容；并提到应设置 application id ，让 file(1) 能识别具体类型。",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "hackernews"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r7",
+      "title": "SQLite as an Application File Format",
+      "url": "https://news.ycombinator.com/item?id=10308691",
+      "snippet": "12 points, 0 comments, by otoolep on 2015-10-01. Links to https://www.sqlite.org/appfileformat.html",
+      "content": null,
+      "published_at": "2015-10-01T01:35:17Z",
+      "source_type": "social",
+      "provider": "hackernews",
+      "matched_providers": [
+        "hackernews"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "points": 12,
+        "num_comments": 0,
+        "story_url": "https://www.sqlite.org/appfileformat.html"
+      }
+    },
+    {
+      "id": "r8",
+      "title": "https://news.ycombinator.com/front?day=2026-10-15",
+      "url": "https://news.ycombinator.com/front?day=2026-10-15",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://news.ycombinator.com/item?id=46079942",
+      "url": "https://news.ycombinator.com/item?id=46079942",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "https://news.ycombinator.com/item?id=23508923",
+      "url": "https://news.ycombinator.com/item?id=23508923",
+      "result_id": "r2",
+      "providers": [
+        "xai",
+        "hackernews"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "SQLite as an Application File Format (2014)",
+      "url": "https://news.ycombinator.com/item?id=18754634",
+      "result_id": "r3",
+      "providers": [
+        "hackernews"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "https://news.ycombinator.com/item?id=46080273",
+      "url": "https://news.ycombinator.com/item?id=46080273",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://news.ycombinator.com/item?id=46076642",
+      "url": "https://news.ycombinator.com/item?id=46076642",
+      "result_id": "r5",
+      "providers": [
+        "xai",
+        "hackernews"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "https://news.ycombinator.com/item?id=39797104",
+      "url": "https://news.ycombinator.com/item?id=39797104",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "SQLite as an Application File Format",
+      "url": "https://news.ycombinator.com/item?id=10308691",
+      "result_id": "r7",
+      "providers": [
+        "hackernews"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "https://news.ycombinator.com/front?day=2026-10-15",
+      "url": "https://news.ycombinator.com/front?day=2026-10-15",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://news.ycombinator.com/item?id=49442589",
+      "url": "https://news.ycombinator.com/item?id=49442589",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://news.ycombinator.com/item?id=43682006",
+      "url": "https://news.ycombinator.com/item?id=43682006",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://news.ycombinator.com/item?id=48046007",
+      "url": "https://news.ycombinator.com/item?id=48046007",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://news.ycombinator.com/item?id=49421475",
+      "url": "https://news.ycombinator.com/item?id=49421475",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://news.ycombinator.com/item?id=40655974",
+      "url": "https://news.ycombinator.com/item?id=40655974",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://news.ycombinator.com/item?id=47046185",
+      "url": "https://news.ycombinator.com/item?id=47046185",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://news.ycombinator.com/item?id=45132488",
+      "url": "https://news.ycombinator.com/item?id=45132488",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://news.ycombinator.com/item?id=50008427",
+      "url": "https://news.ycombinator.com/item?id=50008427",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://news.ycombinator.com/item?id=49415271",
+      "url": "https://news.ycombinator.com/item?id=49415271",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://news.ycombinator.com/item?id=45134010",
+      "url": "https://news.ycombinator.com/item?id=45134010",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "https://news.ycombinator.com/item?id=45132498",
+      "url": "https://news.ycombinator.com/item?id=45132498",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "https://news.ycombinator.com/item?id=42965198",
+      "url": "https://news.ycombinator.com/item?id=42965198",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c21",
+      "title": "https://news.ycombinator.com/item?id=46079326",
+      "url": "https://news.ycombinator.com/item?id=46079326",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c22",
+      "title": "SQLite as an Application File Format",
+      "url": "https://news.ycombinator.com/item?id=13021541",
+      "result_id": null,
+      "providers": [
+        "hackernews"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary_site_restricted",
+        "latency_ms": 18087,
+        "detail": "model=grok-4.7",
+        "usage": {
+          "input_tokens": 22147,
+          "input_tokens_details": {
+            "cached_tokens": 4352
+          },
+          "output_tokens": 1133,
+          "output_tokens_details": {
+            "reasoning_tokens": 365
+          },
+          "total_tokens": 23280,
+          "num_sources_used": 0,
+          "num_server_side_tools_used": 3,
+          "cost_in_usd_ticks": 301517600,
+          "server_side_tool_usage_details": {
+            "web_search_calls": 3,
+            "x_search_calls": 0,
+            "x_posts_fetched": 0,
+            "x_users_fetched": 0,
+            "code_interpreter_calls": 0,
+            "file_search_calls": 0,
+            "mcp_calls": 0,
+            "document_search_calls": 0,
+            "image_generation_calls": 0
+          },
+          "context_details": {
+            "input_tokens": 19864,
+            "output_tokens": 997
+          }
+        }
+      },
+      {
+        "provider": "xai",
+        "operation": "rewrite",
+        "outcome": "ok",
+        "reason": "cross_language",
+        "latency_ms": 3208,
+        "detail": null,
+        "usage": {
+          "input_tokens": 3467,
+          "input_tokens_details": {
+            "cached_tokens": 1664
+          },
+          "output_tokens": 292,
+          "output_tokens_details": {
+            "reasoning_tokens": 259
+          },
+          "total_tokens": 3759,
+          "num_sources_used": 0,
+          "num_server_side_tools_used": 0,
+          "cost_in_usd_ticks": 21046000,
+          "context_details": {
+            "input_tokens": 3467,
+            "output_tokens": 299
+          }
+        }
+      },
+      {
+        "provider": "hackernews",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "site_native",
+        "latency_ms": 0,
+        "detail": "5 results",
+        "usage": null
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null,
+        "usage": null
+      },
+      {
+        "provider": "hackernews",
+        "operation": "read_thread",
+        "outcome": "ok",
+        "reason": "thread",
+        "latency_ms": 577,
+        "detail": "11 comments",
+        "usage": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "domains_below_threshold:1<2"
+    ]
+  },
+  "coverage": {
+    "status": "sufficient",
+    "requirements": [
+      {
+        "kind": "site",
+        "target": "Hacker News",
+        "satisfied": true,
+        "detail": "21 content page(s), e.g. https://news.ycombinator.com/item?id=46079942"
+      },
+      {
+        "kind": "language",
+        "target": "en",
+        "satisfied": true,
+        "detail": "8 result(s) with en titles"
+      }
+    ]
+  },
+  "threads": [
+    {
+      "platform": "hackernews",
+      "url": "https://news.ycombinator.com/item?id=39797104",
+      "thread_id": "39797104",
+      "title": "",
+      "author": "Retr0id",
+      "created_at": "2024-03-23T03:13:08.000Z",
+      "body": "sqlite is great as a \"file format\" for a particular application, but I think it's a bad interchange format.\nAs mediocre as zip and tar are, you can cobble together read/write support without even needing a library. With sqlite, your only real option is to bundle sqlite itself, and while it's relatively lightweight, it's far from trivial.\nzip has support for zstd, and if you wanted to make it go faster, you could embed some index metadata.\nI can't see any specs for their format, not even a description of the sqlite tables.",
+      "status": "comments_read",
+      "comments_total": 11,
+      "source_api": "hn.algolia.com/api/v1/items (story 39793805)",
+      "error": null,
+      "comments_read": 11
+    }
+  ],
+  "next_steps": [
+    {
+      "tool": "read_result",
+      "fields": [
+        "comments"
+      ],
+      "why": "comments read through the platform API are stored with ids, authors and timestamps"
+    }
+  ],
+  "comments": [
+    {
+      "id": "39803417",
+      "author": "Retr0id",
+      "created_at": "2024-03-23T22:09:52.000Z",
+      "text": "Thank you for the detailed response(s). I must admit I'm warming up to the idea of Pack, it does perform well in my testing (I didn't test at first because I'm on aarch64 linux, for which there are no compatible builds).\nNot including metadata is an opinionated stance, but I can certainly get behind it, especially as a default. 99% of the time I do not care about metadata when producing a file archive.\nCompatibility with existing SQLite tooling is not just useful for debugging, it is extremely useful for writing alternative implementations. If you want Pack to be successful as a format and not just as a piece of software, I think you should do everything you can to make this easier.\nIn my experimentation, I wrote a simple python script to extract files from a Pack archive. Conveniently, sqlite is part of the python standard library, but in order to make it work with that version (as opposed to compiling my own) I had to edit the file header first, which is inconvenient and not always possible to do (e.g. if write permissions are not available).\nDespite that inconvenience, it took less code than a comparably basic ZIP extractor, which is cool!\nI worry that requiring a custom VFS will make it harder for people to produce compatible software implementations.\nI think your concerns about people contacting SQLite for support are overblown. I assume you've heard the `etilqs_` story[0], but in this case, you need to use a hex-editor or a utility like `file` to even see the header bytes. I think anyone capable of discovering that it's an SQLite DB will be smart enough not to contact SQLite for support with it.\nThe `Application ID`[1] field in the SQLite header is designed with this exact purpose in mind\n> The application_id PRAGMA is used to query or set the 32-bit signed big-endian \"Application ID\" integer located at offset 68 into the database header. Applications that use SQLite as their application file-format should set the Application ID integer to a unique integer so that utilities such as file(1) can determine the specific file type rather than just reporting \"SQLite3 Database\".\nIt's convenient that `Pack` is 32 bits long ;)\n[0] https://github.com/mackyle/sqlite/blob/18cf47156abe94255ae14...\n[1] https://www.sqlite.org/pragma.html#pragma_application_id",
+      "url": "https://news.ycombinator.com/item?id=39803417",
+      "parent_id": "39801059",
+      "depth": 3,
+      "points": null,
+      "relevance": 4.821,
+      "thread_url": "https://news.ycombinator.com/item?id=39797104",
+      "source": "api"
+    },
+    {
+      "id": "39803561",
+      "author": "OttoCoddo",
+      "created_at": "2024-03-23T22:44:32.000Z",
+      "text": "I am happy to hear that, and I really appreciate your interest.\nDid you compile it for yourself? Any problem or steps you used, I will be happy to hear, o at pack.ac or GitHub, as it is hard to follow the building here.\nAs a reminder, Pack Draft 0 has Compatibility with SQLite tools; the only needed step is to change the first 16 bytes. Again, you can use `--activate-other-options --transform-to-sqlite3` with the CLI tool, and you will get a perfectly working SQLite file.\nVFS is not needed; they can change the header after writing; VFS was just cleaner to me.\nMy first work was using application_id, after a while, it did not feel right to me, so I changed it for good. It allows easier future development, fewer problems for file type detection, a decreased chance of mistaken change (you already saw many negative comments on using SQLite as a base), and the support reason: just yesterday I was reading a forum post about people asking for support on software because it was using SQLite. application_id seems like a great choice if you are doing a DB-related task or making a custom DB for transfer on wire, to communicate between internal and semi-public tools. Using it for a format that could potentially get to an innumerable count seemed unwise.",
+      "url": "https://news.ycombinator.com/item?id=39803561",
+      "parent_id": "39803417",
+      "depth": 4,
+      "points": null,
+      "relevance": 3.88,
+      "thread_url": "https://news.ycombinator.com/item?id=39797104",
+      "source": "api"
+    },
+    {
+      "id": "39797637",
+      "author": "Retr0id",
+      "created_at": "2024-03-23T05:13:53.000Z",
+      "text": "I've reverse engineered the format and written up my findings here: https://github.com/DavidBuchanan314/pack-analysis\nSummary:\n- Custom sqlite magic bytes makes the format incompatible with all existing sqlite tooling.\n- No support for file metadata.\n- There's no version field (afaict), making future format improvements difficult.\nEdit: A previous version of this comment had a much longer list of complaints, but after taking a closer look, I retract them. I was looking at the MediaKit.pack file as an example, which, due to being relatively small, packed all its files into a single BLOB. I was under the mistaken impression that the same approach was taken for larger files, but after some further testing I see that they're split up into ~8MB chunks.\nThough, if you have lots of small files (say, a couple of kilobytes each) then random access performance could suffer.",
+      "url": "https://news.ycombinator.com/item?id=39797637",
+      "parent_id": "39797154",
+      "depth": 1,
+      "points": null,
+      "relevance": 2.572,
+      "thread_url": "https://news.ycombinator.com/item?id=39797104",
+      "source": "api"
+    },
+    {
+      "id": "39801054",
+      "author": "OttoCoddo",
+      "created_at": "2024-03-23T16:27:45.000Z",
+      "text": "I guess you are overestimating the \"cobble together read/write support without even needing a library.\"\nLet's imagine: You want to read a ZIP file. Will you write your own reader? I seriously doubt it, as the work, stabilising, and security (random memory access as an example) would be issues.\nBut let's think we are couraginous. OK, we read rather not so simple format and carefully read the binary. Now, will you write your own DEFLATE and Huffman coding? Again, a bigger doubt.\nI would argue that if someone cares enough to reimplement ZIP, it would at worst be twice as hard to write a Pack reader from scratch with no ZSTD or SQLite. And for those serious people, reading a format that lets them store better and faster would be a prize that is hard to say no to.\nBut I get your point, and if you are in a desert and need something to put together fast before going out of water, tar may be a good choice.",
+      "url": "https://news.ycombinator.com/item?id=39801054",
+      "parent_id": "39797104",
+      "depth": 0,
+      "points": null,
+      "relevance": 1.961,
+      "thread_url": "https://news.ycombinator.com/item?id=39797104",
+      "source": "api"
+    },
+    {
+      "id": "39803233",
+      "author": "Retr0id",
+      "created_at": "2024-03-23T21:32:21.000Z",
+      "text": "I have written my own zip, deflate, and huffman coding - although the latter two were \"just for fun\". But I would definitely consider writing ad-hoc zip logic in real software, if I couldn't pull in a library for whatever reason. This isn't just a hypothetical, it happens a lot - there are many independent ZIP implementations in the wild, for better or for worse.\nYou're right to call out security though, because the multiple implementations cause security issues where they disagree, my favorite example being https://bugzilla.mozilla.org/show_bug.cgi?id=1534483 . Although arguably this is a symptom of ZIP being a poorly thought out file format (too many ambiguous edge-cases), rather than a symptom of it being easy to implement.",
+      "url": "https://news.ycombinator.com/item?id=39803233",
+      "parent_id": "39801054",
+      "depth": 1,
+      "points": null,
+      "relevance": 1.366,
+      "thread_url": "https://news.ycombinator.com/item?id=39797104",
+      "source": "api"
+    },
+    {
+      "id": "39801059",
+      "author": "OttoCoddo",
+      "created_at": "2024-03-23T16:28:01.000Z",
+      "text": "Hello David, and thank you for your comment, analysis, and the issues you opened. I will get to them all.\n- SQLite tooling: You will not need it unless you are debugging something, then you can change the header or just use the `--activate-other-options --transform-to-sqlite3` parameter to transform a Pack file to SQLite3, and use the `--activate-other-options --transform-to-pack` to go back. This way, you get a true SQLite3 database that you can browse as you wish. For most people, mixing Pack with SQLite was just a call for problems for the SQLite team (imagine people coming and asking to fix their Pack file from the team; that would not be fair) and a harder future for Pack to update.\n- Metadata is not stored in Pack. I don’t want the metadata of my machine attached to a file. It’s a never-ending nightmare to match source and destination OS metadata. There will always be something missing, and Pack tends to get everything perfect or nothing. Storing metadata adds extra weight that most users don’t care about and complicates the ability to store other types of data alongside files. It may get added as an option in the future if many people need it.\n- There is a version field. It is currently in Draft 0, and it is written using a custom VFS. Look here for more information: https://github.com/PackOrganization/Pack/blob/main/Source/Dr...\n- All future versions of Pack must handle previous versions and must only write the latest version. So any files created right now (Draft 0) will be read correctly for ever to come.\n- Each Draft proposal will get its own version, and if it gets final, it will be set to final.\n- Two byte after 'Pack' header in little endian as (1 (Draft) shl 13 + 0 (version 0) = 8192). Final would be 0, so the first Final version will be 0 shl 13 + 1 = 1. and the second will be 2. It is by design, so any Draft version gets a higher number, preventing future mixups.\n- 8 MB chunks are the default; Pack may choose smaller or bigger (16 MB for many small files or 32 MB for Hard Press).\n- Random access is proper as unpacking steps take into account what you want and decompress a Content just once for many neighbouring files. But even for reading just one file, here is an example: if I want to extract just a .c file from the whole codebase of Linux, it can be done (on my machine) in 30 ms, compared to near 500 ms for WinRAR or 2500 ms for tar.gz. And it will just worsen when you count encryption. For now, Pack encryption is not public, but when it is, you can access a file in a locked Pack file in a matter of milliseconds rather than seconds.",
+      "url": "https://news.ycombinator.com/item?id=39801059",
+      "parent_id": "39797637",
+      "depth": 2,
+      "points": null,
+      "relevance": 1.241,
+      "thread_url": "https://news.ycombinator.com/item?id=39797104",
+      "source": "api"
+    },
+    {
+      "id": "39801056",
+      "author": "OttoCoddo",
+      "created_at": "2024-03-23T16:27:51.000Z",
+      "text": "Thank you for the check.\nNo index, as they take space, and I wrote the queries considering SQLite automatic indexes. They will be created on demand, at unpacking time. All the unpacking processes are made to read and decompress content just once, so there are no worries about slowdowns.\nI suggest trying Pack for yourself and seeing the speed.\nOr deeper, use `--activate-other-options --transform-to-sqlite3` to transform a Pack file to SQLite3, create your own indexes, and use `--activate-other-options --transform-to-pack` to convert it to Pack and then try unpacking. You will not see any worthy difference.\nYes, Contents are like packages of raw data from a chunk, a whole, or many of the items (files or data). They may be compressed if needed (With Zstandard). ItemContent table helps to find the needed Item parts.\nThe Content structure circumvents any BLOB limit, but it is also made to give better compression while keeping random access.",
+      "url": "https://news.ycombinator.com/item?id=39801056",
+      "parent_id": "39797154",
+      "depth": 1,
+      "points": null,
+      "relevance": 1.022,
+      "thread_url": "https://news.ycombinator.com/item?id=39797104",
+      "source": "api"
+    },
+    {
+      "id": "39803292",
+      "author": "OttoCoddo",
+      "created_at": "2024-03-23T21:41:47.000Z",
+      "text": "You are one of the bravest. And you know that, using SQLite as the base storage, rules out many of the security problems we can face.\nAnyone needing to reimplement Pack, can do it, very easily, if not easier than implementing ZIP, IF they use SQLite and Zstandard. Maybe a day of work or less. If they want to rewrite (reading part of) them too, it will be a couple of days of work.",
+      "url": "https://news.ycombinator.com/item?id=39803292",
+      "parent_id": "39803233",
+      "depth": 2,
+      "points": null,
+      "relevance": 0.581,
+      "thread_url": "https://news.ycombinator.com/item?id=39797104",
+      "source": "api"
+    },
+    {
+      "id": "39797154",
+      "author": "Retr0id",
+      "created_at": "2024-03-23T03:24:13.000Z",
+      "text": "After overwriting the \"Pack\" magic bytes back to the SQLite default values, I was able to open it and see the following tables\n CREATE TABLE Content(ID INTEGER PRIMARY KEY, Value BLOB);\n CREATE TABLE Item(ID INTEGER PRIMARY KEY, Parent INTEGER, Kind INTEGER, Name TEXT);\n CREATE TABLE ItemContent(ID INTEGER PRIMARY KEY, Item INTEGER, ItemPosition INTEGER, Content INTEGER, ContentPosition INTEGER, Size INTEGER);\n\nAccording to the `.indexes` directive, there are... no indexes. What's the point of sqlite if you're not going to index things?\nAll the data is stored in one big blob (the \"Value\" column of the \"Content\" table), with the metadata storing offsets into it. It looks like there's still the possibility of things being split over multiple blobs (to circumvent the 2GB blob size limit)",
+      "url": "https://news.ycombinator.com/item?id=39797154",
+      "parent_id": "39797104",
+      "depth": 0,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=39797104",
+      "source": "api"
+    },
+    {
+      "id": "39802483",
+      "author": "me-vs-cat",
+      "created_at": "2024-03-23T19:28:04.000Z",
+      "text": "> - All future versions of Pack must handle previous versions and must only write the latest version.\nI believe you are making a mistake by preventing Pack from writing archives that are compatible with prior versions.",
+      "url": "https://news.ycombinator.com/item?id=39802483",
+      "parent_id": "39801059",
+      "depth": 3,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=39797104",
+      "source": "api"
+    },
+    {
+      "id": "39803252",
+      "author": "Retr0id",
+      "created_at": "2024-03-23T21:35:31.000Z",
+      "text": "Fair point, I can see that indexes are not really necessary.",
+      "url": "https://news.ycombinator.com/item?id=39803252",
+      "parent_id": "39801056",
+      "depth": 2,
+      "points": null,
+      "relevance": null,
+      "thread_url": "https://news.ycombinator.com/item?id=39797104",
+      "source": "api"
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 18672,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "xai.rewrite": 1,
+      "hackernews.search": 1,
+      "hackernews.read_thread": 1
+    },
+    "xai_cost_ticks": 322563600,
+    "tavily_credits_estimate": 0
+  }
+}

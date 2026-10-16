@@ -1,0 +1,957 @@
+{
+  "id": "hn-comment-dissent",
+  "executed_at": "2026-10-16T04:25:00.814669+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "In the Hacker News thread about SQLite as an application file format, find a comment that says the user interface should not wait on disk before responding",
+  "answer": "Closest matches are in the June 2020 HN thread **“SQLite as an Application File Format (2014)”** ([story](https://news.ycombinator.com/item?id=23508923)). None use that sentence verbatim; these are the comments that make the same point.\n\n1. **lostmyoldone** ([comment](https://news.ycombinator.com/item?id=23510744)): “If you have an FPS or interactivity target that needs to be guaranteed to be better than about 0.1–1 second… you can't have any disk IO at all on the UI thread, or any thread that's supposed to react at interactive rates at all times.” Also notes that OS disk I/O can still pause even when APIs claim not to.\n\n2. **lillecarl** ([comment](https://news.ycombinator.com/item?id=23552225)): “If the user interface depends on synchronous IO something is very wrong.”\n\n3. **sdinsn** ([comment](https://news.ycombinator.com/item?id=23514509)): “You never should have to block the UI thread. That's just poor application design, independent of the file format; you cannot blame that on SQLite.”\n\n4. **lalaland1125** ([comment](https://news.ycombinator.com/item?id=23510836)): “Why would you block the UI thread on a transaction?”\n\n5. **ori_b** ([comment](https://news.ycombinator.com/item?id=23510524)): A single durable transaction is already in the human-perception range; blocking the UI thread on it drops frames (about 6 at 60 fps) and causes lag. Points at SQLite FAQ question 19.\n\n6. **ori_b** ([comment](https://news.ycombinator.com/item?id=23510865)): Agrees there should be no disk I/O on the interactive path, and argues other formats push work into memory until an explicit save, while SQLite-as-the-document tends to sprinkle small delays through every interaction.\n\n7. **yellowapple** ([comment](https://news.ycombinator.com/item?id=23513977)): Don’t block the UI thread; show a loading indicator while another thread does the transaction. The stall is the disk, not SQLite specifically, and the same issue exists for any file format.\n\n8. **gwbas1c** ([comment](https://news.ycombinator.com/item?id=23523335)): File→Save is leftover from when disk writes took seconds and you couldn’t edit while writing; apps should save continuously instead.",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://news.ycombinator.com/item?id=20777183",
+      "url": "https://news.ycombinator.com/item?id=20777183",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "Free software scares normal people - Hacker News",
+      "url": "https://news.ycombinator.com/item?id=45760878",
+      "snippet": "reply | | | |  | | --- | | DrewADesign 21 hours ago  | parent | prev | next )   Overall, the development world does not intuitively understand the difficulty of creating good interfaces (for people that aren’t developers.) In dev work, the complexity is obvious, and that makes it easy for outsiders to understand— they look at the code we’re writing and say “wow you can read that?!” I think that can give developers a mistaken impression that other peoples work is far less complex than it is.",
+      "content": null,
+      "published_at": "Thu, 30 Oct 2025 15:13:06 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.05906367,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://www.chiark.greenend.org.uk/doc/sqlite3/atomiccommit.html",
+      "url": "https://www.chiark.greenend.org.uk/doc/sqlite3/atomiccommit.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "AI Backlash Is Here: Even Sophisticated Users Are Getting Sick of Tech's Latest Obsession - Decrypt",
+      "url": "https://decrypt.co/346170/ai-backlash-sophisticated-users-getting-sick-techs-latest-obsession",
+      "snippet": "## Forced AI software features are stirring real user frustration, while studies on fatigue are piling up. * Hacker News users railed against forced AI integrations that bloat tools and disrupt workflows. * Analysts warn that user burnout, not regulation, may be the real brake on the AI gold rush. A fiery Hacker News thread, \"I'm drowning in AI features I never asked for and I hate it,\" has become a digital bonfire for tech-savvy users venting their spleen, amassing over 300 points and 200 comments in a collective cry against the relentless, often bungled infusion of AI into everyday tools. The \"AI Paradox\" shows frequent users hit 45% burnout rates, as tools meant to streamline instead amplify stress.",
+      "content": null,
+      "published_at": "Tue, 28 Oct 2025 21:43:17 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.057456363,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://news.ycombinator.com/item?id=42973622",
+      "url": "https://news.ycombinator.com/item?id=42973622",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "CloudZ malware abuses Microsoft Phone Link to steal SMS and OTPs - BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/cloudz-malware-abuses-microsoft-phone-link-to-steal-sms-and-otps",
+      "snippet": "* CloudZ malware abuses Microsoft Phone Link to steal SMS and OTPs. A new version of the CloudZ remote access tool (RAT) is deploying a previously unseen malicious plugin called Pheno that hijacks the Microsoft Phone Link connection to steal sensitive codes from mobile devices. Microsoft Phone Link comes installed on Windows 10 and 11, and allows using the computer to make and take calls, respond to texts, or view notifications received on the mobile device (Android and iOS). By leveraging the application, the threat actor could intercept sensistive messages delivered to the target's mobile phone without compromising the device. Cisco Talos researchers say in a report today that Pheno monitors for active Phone Link sessions and accesses its local SQLite database, which may contain SMS and one-time passwords (OTPs). “With a confirmed Phone Link activity on the victim's machine, the attacker using the CloudZ RAT can potentially intercept the Phone Link application’s SQLite database file on the victim's machine, potentially compromising SMS-based OTP messages and other authenticator application notification messages,” Cisco Talos says.",
+      "content": null,
+      "published_at": "Tue, 05 May 2026 10:03:52 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.048590824,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://www.sqlite.org/forum/forumpost/b16511518bf627ec?t=h&unf",
+      "url": "https://www.sqlite.org/forum/forumpost/b16511518bf627ec?t=h&unf=",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "Kagi Translate's AI answers the question \"What would horny Margaret Thatcher say?\" - Ars Technica",
+      "url": "https://arstechnica.com/ai/2026/03/kagi-translates-ai-answers-the-question-what-would-horny-margaret-thatcher-say",
+      "snippet": "At launch, the company said Kagi Translate “uses a combination of LLMs, selecting and optimizing the best output for each task,” a fact that “can occasionally lead to quirks that we’re actively working to resolve.”. Early Tuesday morning, though, these unorthodox use cases broke containment after a Hacker News user delighted in reporting that “Kagi Translate now supports LinkedIn Speak as an output language.” Further down in that popular HN thread, other users noticed that you can alter the output language just by typing into the search bar of Kagi Translate’s web interface, and the tool’s underlying AI would do its best to accommodate you. Of course, Kagi’s social media team leaned into the fun, encouraging people to use the “LinkedIn Speak” translations to “fit right into that crowd.”. By putting that kind of LLM into a silly translation container, Kagi Translate brings back LLMs’ whimsical ability to synthesize language patterns in some truly creative ways.",
+      "content": null,
+      "published_at": "Wed, 18 Mar 2026 22:06:32 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.035121746,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://news.ycombinator.com/item?id=20777183",
+      "url": "https://news.ycombinator.com/item?id=20777183",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "Free software scares normal people - Hacker News",
+      "url": "https://news.ycombinator.com/item?id=45760878",
+      "result_id": "r2",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://www.chiark.greenend.org.uk/doc/sqlite3/atomiccommit.html",
+      "url": "https://www.chiark.greenend.org.uk/doc/sqlite3/atomiccommit.html",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "AI Backlash Is Here: Even Sophisticated Users Are Getting Sick of Tech's Latest Obsession - Decrypt",
+      "url": "https://decrypt.co/346170/ai-backlash-sophisticated-users-getting-sick-techs-latest-obsession",
+      "result_id": "r4",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://news.ycombinator.com/item?id=42973622",
+      "url": "https://news.ycombinator.com/item?id=42973622",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "CloudZ malware abuses Microsoft Phone Link to steal SMS and OTPs - BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/cloudz-malware-abuses-microsoft-phone-link-to-steal-sms-and-otps",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://www.sqlite.org/forum/forumpost/b16511518bf627ec?t=h&unf",
+      "url": "https://www.sqlite.org/forum/forumpost/b16511518bf627ec?t=h&unf=",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "Kagi Translate's AI answers the question \"What would horny Margaret Thatcher say?\" - Ars Technica",
+      "url": "https://arstechnica.com/ai/2026/03/kagi-translates-ai-answers-the-question-what-would-horny-margaret-thatcher-say",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://news.ycombinator.com/item?id=42965198",
+      "url": "https://news.ycombinator.com/item?id=42965198",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://news.ycombinator.com/item?id=46276002",
+      "url": "https://news.ycombinator.com/item?id=46276002",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://x.com/theo/status/2110321385105166643",
+      "url": "https://x.com/theo/status/2110321385105166643",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://hn.algolia.com/api/v1/search_by_date?query=%22should%20not%20wait%22&tags=comment",
+      "url": "https://hn.algolia.com/api/v1/search_by_date?query=%22should+not+wait%22&tags=comment",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://x.com/dcolascione/status/2108641862232023258",
+      "url": "https://x.com/dcolascione/status/2108641862232023258",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://www.shayon.dev/post/2026/283/versioned-filesystem-for-disposable-sandboxes/",
+      "url": "https://www.shayon.dev/post/2026/283/versioned-filesystem-for-disposable-sandboxes",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://hn.nuxt.dev/item/42965198",
+      "url": "https://hn.nuxt.dev/item/42965198",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://x.com/shahidcodes/status/2108554390718365805",
+      "url": "https://x.com/shahidcodes/status/2108554390718365805",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://hn.algolia.com/api/v1/search?query=%22wait%20on%20disk%22&tags=comment&hitsPerPage=5",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=5&query=%22wait+on+disk%22&tags=comment",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://www.sqlite.org/onefile.html",
+      "url": "https://www.sqlite.org/onefile.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "https://x.com/chamdom/status/2110339996821451249",
+      "url": "https://x.com/chamdom/status/2110339996821451249",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "https://sqlite.org/faq.html",
+      "url": "https://sqlite.org/faq.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c21",
+      "title": "https://www.chiark.greenend.org.uk/doc/sqlite3/fasterthanfs.html",
+      "url": "https://www.chiark.greenend.org.uk/doc/sqlite3/fasterthanfs.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c22",
+      "title": "https://www.sqlite.org/forum/forumpost/7570282785c47cee?t=h&unf",
+      "url": "https://www.sqlite.org/forum/forumpost/7570282785c47cee?t=h&unf=",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c23",
+      "title": "https://news.ycombinator.com/item?id=46791944",
+      "url": "https://news.ycombinator.com/item?id=46791944",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c24",
+      "title": "https://hn.algolia.com/api/v1/items/23510880",
+      "url": "https://hn.algolia.com/api/v1/items/23510880",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c25",
+      "title": "https://x.com/bcardarella/status/2110874784393519123",
+      "url": "https://x.com/bcardarella/status/2110874784393519123",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c26",
+      "title": "https://docs.w3cub.com/sqlite/appfileformat.html",
+      "url": "https://docs.w3cub.com/sqlite/appfileformat.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c27",
+      "title": "https://hn.algolia.com/?query=React%20Native%20for%20macOS&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0",
+      "url": "https://hn.algolia.com/?dateRange=all&page=0&prefix=&query=React+Native+for+macOS&sort=byDate&storyText=false&type=story",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c28",
+      "title": "https://news.ycombinator.com/item?id=49124652",
+      "url": "https://news.ycombinator.com/item?id=49124652",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c29",
+      "title": "https://github.com/sqliteai/sqlite-multiwriter",
+      "url": "https://github.com/sqliteai/sqlite-multiwriter",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c30",
+      "title": "https://github.com/torymur/sqlite-repr",
+      "url": "https://github.com/torymur/sqlite-repr",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c31",
+      "title": "https://news.ycombinator.com/item?id=49712278",
+      "url": "https://news.ycombinator.com/item?id=49712278",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c32",
+      "title": "https://hn.algolia.com/?query=What%20is%20Local%20first%20development&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0",
+      "url": "https://hn.algolia.com/?dateRange=all&page=0&prefix=&query=What+is+Local+first+development&sort=byDate&storyText=false&type=story",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c33",
+      "title": "https://wizardforcel.gitbooks.io/sqlite-doc-en/content/50.html",
+      "url": "https://wizardforcel.gitbooks.io/sqlite-doc-en/content/50.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c34",
+      "title": "https://news.ycombinator.com/item?id=46435308",
+      "url": "https://news.ycombinator.com/item?id=46435308",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c35",
+      "title": "https://news.ycombinator.com/item?id=47534283",
+      "url": "https://news.ycombinator.com/item?id=47534283",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c36",
+      "title": "https://hn.algolia.com/api/v1/search?query=wait%20disk%20UI%20sqlite&tags=comment&hitsPerPage=20",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=20&query=wait+disk+UI+sqlite&tags=comment",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c37",
+      "title": "https://sqlite.org/forum/forumpost/1d6752587a71c422?raw",
+      "url": "https://sqlite.org/forum/forumpost/1d6752587a71c422?raw=",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c38",
+      "title": "https://hn.algolia.com/api/v1/search?query=%22SQLite%20as%20an%20Application%20File%20Format%22&tags=story&hitsPerPage=5",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=5&query=%22SQLite+as+an+Application+File+Format%22&tags=story",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c39",
+      "title": "https://hn.algolia.com/api/v1/search?query=%22respond%22%20disk%20interface%20sqlite&tags=comment&hitsPerPage=5",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=5&query=%22respond%22+disk+interface+sqlite&tags=comment",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c40",
+      "title": "https://hn.algolia.com/api/v1/search?query=%22application%20file%20format%22%20sqlite%20disk%20UI&tags=comment",
+      "url": "https://hn.algolia.com/api/v1/search?query=%22application+file+format%22+sqlite+disk+UI&tags=comment",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c41",
+      "title": "https://hn.algolia.com/api/v1/search?query=%22disk%22&tags=comment,story_23508923&hitsPerPage=20",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=20&query=%22disk%22&tags=comment%2Cstory_23508923",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c42",
+      "title": "https://news.ycombinator.com/item?id=39797104",
+      "url": "https://news.ycombinator.com/item?id=39797104",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c43",
+      "title": "https://uxmag.com/articles/the-day-the-interface-stopped-waiting",
+      "url": "https://uxmag.com/articles/the-day-the-interface-stopped-waiting",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c44",
+      "title": "https://news.ycombinator.com/item?id=48046144",
+      "url": "https://news.ycombinator.com/item?id=48046144",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c45",
+      "title": "https://lobste.rs/c/7vf5ln",
+      "url": "https://lobste.rs/c/7vf5ln",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c46",
+      "title": "https://x.com/betterhn20/status/2109496280904867857",
+      "url": "https://x.com/betterhn20/status/2109496280904867857",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c47",
+      "title": "https://sqlite.org/forum/info/56cb31ff3b1c4821",
+      "url": "https://sqlite.org/forum/info/56cb31ff3b1c4821",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c48",
+      "title": "https://hn.algolia.com/api/v1/search?query=wait%20disk&tags=comment,story_23508923&hitsPerPage=20",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=20&query=wait+disk&tags=comment%2Cstory_23508923",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c49",
+      "title": "https://news.ycombinator.com/front?day=2026-10-15",
+      "url": "https://news.ycombinator.com/front?day=2026-10-15",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c50",
+      "title": "https://devdocs.io/sqlite/aff_short",
+      "url": "https://devdocs.io/sqlite/aff_short",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c51",
+      "title": "https://news.ycombinator.com/item?id=45781298",
+      "url": "https://news.ycombinator.com/item?id=45781298",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c52",
+      "title": "https://news.ycombinator.com/item?id=50088558",
+      "url": "https://news.ycombinator.com/item?id=50088558",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c53",
+      "title": "https://news.ycombinator.com/item?id=44569287",
+      "url": "https://news.ycombinator.com/item?id=44569287",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c54",
+      "title": "https://x.com/evoluhq/status/2108308261266956638",
+      "url": "https://x.com/evoluhq/status/2108308261266956638",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c55",
+      "title": "https://news.ycombinator.com/item?id=49421475",
+      "url": "https://news.ycombinator.com/item?id=49421475",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c56",
+      "title": "https://news.ycombinator.com/item?id=45132498",
+      "url": "https://news.ycombinator.com/item?id=45132498",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c57",
+      "title": "https://www.linuxcompatible.org/story/sqlite-3540-release-faster-engine-new-cli-features-and-dropped-windows-xp-support/",
+      "url": "https://www.linuxcompatible.org/story/sqlite-3540-release-faster-engine-new-cli-features-and-dropped-windows-xp-support",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c58",
+      "title": "https://hn.algolia.com/?query=Head%20First%20Git&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0",
+      "url": "https://hn.algolia.com/?dateRange=all&page=0&prefix=&query=Head+First+Git&sort=byDate&storyText=false&type=story",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c59",
+      "title": "https://news.ycombinator.com/item?id=42382126",
+      "url": "https://news.ycombinator.com/item?id=42382126",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c60",
+      "title": "https://news.ycombinator.com/item?id=46076642",
+      "url": "https://news.ycombinator.com/item?id=46076642",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c61",
+      "title": "https://news.ycombinator.com/item?id=40655974",
+      "url": "https://news.ycombinator.com/item?id=40655974",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c62",
+      "title": "https://news.ycombinator.com/item?id=43682006",
+      "url": "https://news.ycombinator.com/item?id=43682006",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c63",
+      "title": "https://devdocs.io/sqlite/affcase1",
+      "url": "https://devdocs.io/sqlite/affcase1",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c64",
+      "title": "https://x.com/TheCodingSloth1/status/2110413572891398146",
+      "url": "https://x.com/TheCodingSloth1/status/2110413572891398146",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c65",
+      "title": "https://news.ycombinator.com/item?id=47874647",
+      "url": "https://news.ycombinator.com/item?id=47874647",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c66",
+      "title": "https://marcobambini.substack.com/p/we-solved-sqlites-single-writer-limitation",
+      "url": "https://marcobambini.substack.com/p/we-solved-sqlites-single-writer-limitation",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c67",
+      "title": "https://hn.algolia.com/api/v1/search?query=%22user%20interface%22%20disk&tags=comment&hitsPerPage=10",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=10&query=%22user+interface%22+disk&tags=comment",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c68",
+      "title": "https://hn.algolia.com/api/v1/search?query=interface&tags=comment,story_18754634&hitsPerPage=20",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=20&query=interface&tags=comment%2Cstory_18754634",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c69",
+      "title": "https://hn.algolia.com/api/v1/search?query=%22UI%20thread%22&tags=comment,story_23508923&hitsPerPage=10",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=10&query=%22UI+thread%22&tags=comment%2Cstory_23508923",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c70",
+      "title": "What people get wrong about working in tech, according to tech workers - Business Insider",
+      "url": "https://www.businessinsider.com/biggest-misconceptions-working-in-tech-industry-jobs-careers-amazon-google-2026-7",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c71",
+      "title": "AI isn't replacing jobs. AI spending is - Hacker News",
+      "url": "https://news.ycombinator.com/item?id=45866243",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c72",
+      "title": "Someone targeted security researchers using a fake crypto conference as a lure - TechCrunch",
+      "url": "https://techcrunch.com/2026/08/20/someone-targeted-security-researchers-using-a-fake-crypto-conference-as-a-lure",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c73",
+      "title": "Someone Finally Fixed Installing Apps on a Mac - WIRED",
+      "url": "https://www.wired.com/story/easydmg-finally-fixed-installing-apps-on-a-mac",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 58075,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "conditional_supplement",
+        "latency_ms": 5693,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "recency_signal"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://news.ycombinator.com/item?id=20777183",
+      "final_url": "https://news.ycombinator.com/item?id=20777183",
+      "title": "It's possible you are using it wrong. | Hacker News",
+      "content": "|     |     |     |\n| --- | --- | --- |\n| |     |     |     |\n| --- | --- | --- |\n| [![](https://news.ycombinator.com/y18.svg)](https://news.ycombinator.com/) | **[Hacker News](https://news.ycombinator.com/news)** [new](https://news.ycombinator.com/newest) \\| [past](https://news.ycombinator.com/front) \\| [comments](https://news.ycombinator.com/newcomments) \\| [ask](https://news.ycombinator.com/ask) \\| [show](https://news.ycombinator.com/show) \\| [jobs](https://news.ycombinator.com/jobs) \\| [submit](https://news.ycombinator.com/submit) | [login](https://news.ycombinator.com/login?goto=item%3Fid%3D20777183) | |\n\n| |     |     |     |\n| --- | --- | --- |\n|  |  | [breakingcups](https://news.ycombinator.com/user?id=breakingcups) [on Aug 23, 2019](https://news.ycombinator.com/item?id=20777183) \\| [parent](https://news.ycombinator.com/item?id=20776687) \\| [context](https://news.ycombinator.com/item?id=20775992#20777183) \\| [favorite](https://news.ycombinator.com/fave?id=20777183) \\| on: [SuperSQLite: SQLite library for Python (2018)](https://news.ycombinator.com/item?id=20775992 \"SuperSQLite: SQLite library for Python (2018)\")<br>It's possible you are using it wrong. |\n\n|     |     |     |\n| --- | --- | --- |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [firebacon](https://news.ycombinator.com/user?id=firebacon) [on Aug 23, 2019](https://news.ycombinator.com/item?id=20778168)\\[–\\]<br>The less flippant explanation is that SQLite can only handle a single writer at any time and when you try to access it with two concurrent writers (or a concurrent reader and writer in some modes) it will by default return a \"BUSY\" error instead of blocking.<br>So, if you're were getting _unexpected_ \"BUSY\" erorrs than, yes, you would be using it incorrectly. However, AIUI, you are always expected to see some amount of BUSY errors during normal, concurrent operation and have to deal with them explicitly. So the fact that you're seeing BUSY errors alone doesn't mean you're doing anything wrong...<br>To use SQLite correctly from multiple processes, you have to do one of two things:<br>```<br>  - Add explicit code to retry on BUSY errors everywhere you do SQL queries<br>  - Serialize all access the database, e.g. by using a mutex<br>```<br>GP appears to have chosen the second option. | | |\n| ![](https://news.ycombinator.com/s.gif)\n\n|     |\n| --- |\n|  |\n\n[Consider applying for YC's Winter 2027 batch! Applications are open till November 2.](https://www.ycombinator.com/apply/)\n\n[Guidelines](https://news.ycombinator.com/newsguidelines.html) \\| [FAQ](https://news.ycombinator.com/newsfaq.html) \\| [Lists](https://news.ycombinator.com/lists) \\| [API](https://github.com/HackerNews/API) \\| [Security](https://news.ycombinator.com/security.html) \\| [Legal](https://www.ycombinator.com/legal/) \\| [Apply to YC](https://www.ycombinator.com/apply/) \\| [Contact](mailto:hn@ycombinator.com)\n\nSearch: |",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "title": "It's possible you are using it wrong. | Hacker News",
+        "language": "en",
+        "referrer": "origin",
+        "viewport": "width=device-width, initial-scale=1.0",
+        "favicon": "https://news.ycombinator.com/y18.svg",
+        "scrapeId": "01a142f5-c64a-718e-b0e6-a8fd29e76deb",
+        "sourceURL": "https://news.ycombinator.com/item?id=20777183",
+        "url": "https://news.ycombinator.com/item?id=20777183",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "cacheState": "miss",
+        "indexId": "840da172-ba4e-421c-a405-c03004a24394",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 1265,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 1317
+    },
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://news.ycombinator.com/item?id=45760878",
+      "final_url": "https://news.ycombinator.com/item?id=45760878",
+      "title": "Free software scares normal people | Hacker News",
+      "content": "|     |     |     |\n| --- | --- | --- |\n| |     |     |     |\n| --- | --- | --- |\n| [![](https://news.ycombinator.com/y18.svg)](https://news.ycombinator.com/) | **[Hacker News](https://news.ycombinator.com/news)** [new](https://news.ycombinator.com/newest) \\| [past](https://news.ycombinator.com/front) \\| [comments](https://news.ycombinator.com/newcomments) \\| [ask](https://news.ycombinator.com/ask) \\| [show](https://news.ycombinator.com/show) \\| [jobs](https://news.ycombinator.com/jobs) \\| [submit](https://news.ycombinator.com/submit) | [login](https://news.ycombinator.com/login?goto=item%3Fid%3D45760878) | |\n\n| |     |     |     |\n| --- | --- | --- |\n|  |  | [Free software scares normal people](https://danieldelaney.net/normal/) ( [danieldelaney.net](https://news.ycombinator.com/from?site=danieldelaney.net)) |\n|  | 944 points by [cryptophreak](https://news.ycombinator.com/user?id=cryptophreak) [11 months ago](https://news.ycombinator.com/item?id=45760878) \\| [hide](https://news.ycombinator.com/hide?id=45760878&goto=item%3Fid%3D45760878) \\| [past](https://hn.algolia.com/?query=Free%20software%20scares%20normal%20people&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0) \\| [favorite](https://news.ycombinator.com/fave?id=45760878) \\| [623 comments](https://news.ycombinator.com/item?id=45760878) |\n|  |  |\n\n|     |     |     |\n| --- | --- | --- |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [squeedles](https://news.ycombinator.com/user?id=squeedles) [11 months ago](https://news.ycombinator.com/item?id=45761639) \\| [next](https://news.ycombinator.com/item?id=45760878#45762648)\\[–\\]<br>Good article, but the reasoning is wrong. It isn't easy to make a simple interface in the same way that Pascal apologized for writing a long letter because he didn't have time to write a shorter one.<br>Implementing the UI for one exact use case is not much trouble, but figuring out what that use case _is_ difficult. And defending that use case from the line of people who want \"that + this little extra thing\", or the \"I just need ...\" is difficult. It takes a single strong-willed defender, or some sort of onerous management structure, to prevent the interface from quickly devolving back into the million options or schizming into other projects.<br>Simply put, it is a desirable state, but an unstable one. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [DrewADesign](https://news.ycombinator.com/user?id=DrewADesign) [11 months ago](https://news.ycombinator.com/item?id=45761787) \\| [parent](https://news.ycombinator.com/item?id=45760878#45761639) \\| [next](https://news.ycombinator.com/item?id=45760878#45761688)\\[–\\]<br>Overall, the development world does not intuitively understand the difficulty of creating good interfaces (for people that aren’t developers.) In dev work, the complexity is obvious, and that makes it easy for outsiders to understand— they look at the code we’re writing and say “wow you can read that?!” I think that can give developers a mistaken impression that other peoples work is far less complex than it is. With interface design, everybody knows what a button does and what a text field is for, and developers know more than most about the tools used to create interfaces, so the language seems simple. The problems you need to solve with that language are complex and while failure is obvious, success is much more nebulous and user-specific. So much of what good interfaces convey to users is implied rather than expressed, and that’s a tricky task. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [makeitdouble](https://news.ycombinator.com/user?id=makeitdouble) [11 months ago](https://news.ycombinator.com/item?id=45767103) \\| [root](https://news.ycombinator.com/item?id=45760878#45761639) \\| [parent](https://news.ycombinator.com/item?id=45760878#45761787) \\| [next](https://news.ycombinator.com/item?id=45760878#45761895)\\[–\\]<br>\\> creating good interfaces (for people that aren’t developers.)<br>This is the part where people get excited about AI. I personally think they're dead wrong on the process, but strongly empathize with that end goal.<br>Giving people the power to make the interfaces they need is the most enduring solution to this issue. We had attempts like HyperCard or Delphi, or Access forms. We still get Excel forms, Google forms etc.<br>Having tools to incrementaly try stuff without having to ask the IT department is IMHO the best way forward, and we could look at those as prototypes for more robust applications to create from there.<br>Now, if we could find a way to aggregate these ad hoc apps in an OSS way... | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [marcus\\_holmes](https://news.ycombinator.com/user?id=marcus_holmes) [11 months ago](https://news.ycombinator.com/item?id=45767704) \\| [root](https://news.ycombinator.com/item?id=45760878#45761639) \\| [parent](https://news.ycombinator.com/item?id=45760878#45767103) \\| [next](https://news.ycombinator.com/item?id=45760878#45769563)\\[–\\]<br>I have nightmare stories to tell of Access Forms from my time dealing with them in the 90's.<br>The usual situation is that the business department hires someone with a modicum of talent or interest in tech, who then uses Access to build an application that automates or helps with some aspect of the department's work. They then leave (in a couple of cases these people were just interns) and the IT department is then called in to fix everything when it inevitably goes wrong. We're faced with a bunch of beginner spaghetti code \\[0\\], utterly terrible schema, no documentation, no spec, no structure, and tasked with fixing it urgently. This monster is now business-critical because in the three months it's been running the rest of the department has forgotten how to do the process the old way, and that process is time-critical.<br>Spinning up a proper project to replace this application isn't feasible in the short term, because there are processes around creating software in the organisation, for very good reasons learned painfully from old mistakes, and there just isn't time to go through that. We have to fix what we can and get it working immediately. And, of course, these fixes cause havoc with the project planning of all our other projects because they're unpredictable, urgent, and high priority. This delays all the other projects and helps to give IT a reputation as taking too long and not delivering on our promised schedules.<br>So yeah, what appears to be the best solution from a non-IT perspective is a long, long way from the best solution from an IT perspective.<br>\\[0\\] and other messes; in one case the code refused to work unless a field in the application had the author's name in it, for no other reason than vanity, and they'd obfuscated the code that checked for that. Took me a couple of hours to work out wtf they'd done and pull it all out. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [nradov](https://news.ycombinator.com/user?id=nradov) [11 months ago](https://news.ycombinator.com/item?id=45768297) \\| [root](https://news.ycombinator.com/item?id=45760878#45761639) \\| [parent](https://news.ycombinator.com/item?id=45760878#45767704) \\| [next](https://news.ycombinator.com/item?id=45760878#45768433)\\[–\\]<br>Of course this is ultimately the IT department's own fault for not responding quickly enough to legitimate business requirements. They need to actively look for ways to help rather than processing tickets. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [marcus\\_holmes](https://news.ycombinator.com/user?id=marcus_holmes) [11 months ago](https://news.ycombinator.com/item?id=45768375) \\| [root](https://news.ycombinator.com/item?id=45760878#45761639) \\| [parent](https://news.ycombinator.com/item?id=45760878#45768297) \\| [next](https://news.ycombinator.com/item?id=45760878#45771719)\\[–\\]<br>Yeah, this is always the response. But it's wildly impractical - there are only so many developer hours available. The budget is limited, so not everyone gets what they want immediately. This should be obvious.<br>Part of the problem is that the novices that create these applications don't consider all the edge cases and gnarly non-golden-path situations, but the experienced devs do. So the novice slaps together something that does 95% of the job with 5% of the effort, but when it goes wrong the department calls in IT to fix it, and that means doing the rest of the 95% of the effort. The result is that IT is seen as being slow and bureaucratic, when in fact they're just doing the fecking job properly. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [nradov](https://news.ycombinator.com/user?id=nradov) [11 months ago](https://news.ycombinator.com/item?id=45768466) \\| [root](https://news.ycombinator.com/item?id=45760878#45761639) \\| [parent](https://news.ycombinator.com/item?id=45760878#45768375) \\| [next](https://news.ycombinator.com/item?id=45760878#45771381)\\[–\\]<br>In most organizations the problem is lack of _urgency_ rather than lack of developer hours. The developers sit in isolated siloes rather than going out and directly engaging with business units. This is mostly a management problem but there are plenty of individual developers who wait to be told what to do rather than actively seeking out better solutions for business problems. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [marcus\\_holmes](https://news.ycombinator.com/user?id=marcus_holmes) [11 months ago](https://news.ycombinator.com/item?id=45768500) \\| [root](https://news.ycombinator.com/item?id=45760878#45761639) \\| [parent](https://news.ycombinator.com/item?id=45760878#45768466) \\| [next](https://news.ycombinator.com/item?id=45760878#45770901)\\[–\\]<br>This usually comes back to maker time vs manager time.<br>If you want a developer to write good code quickly, put them in an isolated silo and don't disturb them.<br>If you want a developer to engage with the business units more, be prepared for their productivity to drop sharply.<br>As with all things in tech, it's a trade-off. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [TeMPOraL](https://news.ycombinator.com/user?id=TeMPOraL) [11 months ago](https://news.ycombinator.com/item?id=45769465) \\| [root](https://news.ycombinator.com/item?id=45760878#45761639) \\| [parent](https://news.ycombinator.com/item?id=45760878#45768500) \\| [next](https://news.ycombinator.com/item?id=45760878#45772675)\\[–\\]<br>I think that's the lesser problem. The bigger problem is the attitude of IT is wrong from the start. When they start doing something, they want to Do It Right. They want to automate the business process. But that's the wrong goal! You can spend years doing that and go all the way to building a homegrown SAP, and it will _still_ suck and people will still use their half-assed Excel sheets and Access hacks.<br>IT should not be focusing on the theoretical, platonic Business Process. It never exists in practice anyway. They should focus on _streamlining actual workflow of actual people_. I.e. the opposite advice to the usual. Instead of understanding what users want and doing it, just do what they tell you they want. The problem with standard advice is that the thing you seek to understand is emergent, no one has a good definition, and will change three times before you finish your design doc.<br>To help company get rid of YOLOed hacks in Excel and such made by interns, IT should YOLO better hacks. Rapid delivery and responsiveness, but much more robust and reliable because of actual developer expertise behind it. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [thyristan](https://news.ycombinator.com/user?id=thyristan) [11 months ago](https://news.ycombinator.com/item?id=45769676) \\| [root](https://news.ycombinator.com/item?id=45760878#45761639) \\| [parent](https://news.ycombinator.com/item?id=45760878#45769465) \\| [next](https://news.ycombinator.com/item?id=45760878#45772675)\\[–\\]<br>\\> They should focus on streamlining actual workflow of actual people.<br>If you streamline a shitty process, you will have diarrhea...<br>Unfortunately, most processes suck and need improvement. It isn't actually IT's job to improve processes. But almost always, IT is the only department that is able to change those processes nowadays since they are usually tied to some combination of lore, traditions, spreadsheets and misused third-party software.<br>If you just streamline what is there, you are cementing those broken processes. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [TeMPOraL](https://news.ycombinator.com/user?id=TeMPOraL) [11 months ago](https://news.ycombinator.com/item?id=45769809) \\| [root](https://news.ycombinator.com/item?id=45760878#45761639) \\| [parent](https://news.ycombinator.com/item?id=45760878#45769676) \\| [next](https://news.ycombinator.com/item?id=45760878#45772675)\\[–\\]<br>That's precisely the mistake I'm talking about. You think you're smarter than people on the ground, and know better how they should do their job.<br>It's because of that condescending, know-it-all attitude that people actively avoid getting IT involved in anything, and prefer half-assed Excel hacks. And they're absolutely right.<br>Work with them and not over them, and you may get an opportunity to improve the process in ways that are actually useful. Those improvements aren't apparent until you're knee-deep in mud yourself, working hand by hand with the people you're trying to help. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [littlecosmic](https://news.ycombinator.com/user?id=littlecosmic) [11 months ago](https://news.ycombinator.com/item?id=45772163) \\| [root](https://news.ycombinator.com/item?id=45760878#45761639) \\| [parent](https://news.ycombinator.com/item?id=45760878#45769809) \\| [next](https://news.ycombinator.com/item?id=45760878#45770256)\\[–\\]<br>In my experience, it’s often the business side - rather than IT - that tries to use a technical change to force change to the business process that they have failed to change politically… and it usually turns out that a technical change isn’t enough either. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [TeMPOraL](https://news.ycombinator.com/user?id=TeMPOraL) [11 months ago](https://news.ycombinator.com/item?id=45780201) \\| [root](https://news.ycombinator.com/item?id=45760878#45761639) \\| [parent](https://news.ycombinator.com/item?id=45760878#45772163) \\| [next](https://news.ycombinator.com/item?id=45760878#45770256)\\[–\\]<br>Right. But it would help if internal IT wouldn't reinforce the business side in their delusions, and it starts with a mindset problem: IT thinking of itself as a department that delivers products and solutions, instead of a support force of servants meant to run around in the background and respond to immediate needs of people in the field. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [ozim](https://news.ycombinator.com/user?id=ozim) [11 months ago](https://news.ycombinator.com/item?id=45780915) \\| [root](https://news.ycombinator.com/item?id=45760878#45761639) \\| [parent](https://news.ycombinator.com/item?id=45760878#45780201) \\| [next](https://news.ycombinator.com/item?id=45760878#45770256)\\[–\\]<br>You went too far and mixing IT with software development.<br>Software development delivers products, internal products and solutions that should be leveraged by business to improve rate of growth.<br>If you have software development department chucked into IT and make them be supporters that run in the background you are wasting potential or wasting money on their salaries.<br>If you want supporters make it IT only and pay for SaaS solutions that everyone is using. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [skydhash](https://news.ycombinator.com/user?id=skydhash) [11 months ago](https://news.ycombinator.com/item?id=45770256) \\| [root](https://news.ycombinator.com/item?id=45760878#45761639) \\| [parent](https://news.ycombinator.com/item?id=45760878#45769809) \\| [prev](https://news.ycombinator.com/item?id=45760878#45772163) \\| [next](https://news.ycombinator.com/item?id=45760878#45772675)\\[–\\]<br>The problem with hackish solution is that they get put in places they don’t belong. In other professions, there’s regulation in place to prevent these kind of shortcuts.<br>Also, if you have ever worked with anyone trying to get specifications worked out, you’ll see that most people (including devs) rely on intuition rather than checklists and will always forget to tell you something that is critical.<br>The thing is that cost of changes in the business can be a simple memo. But for software that usually means redesign. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [TeMPOraL](https://news.ycombinator.com/user?id=TeMPOraL) [11 months ago](https://news.ycombinator.com/item?id=45770624) \\| [root](https://news.ycombinator.com/item?id=45760878#45761639) \\| [parent](https://news.ycombinator.com/item?id=45760878#45770256) \\| [next](https://news.ycombinator.com/item?id=45760878#45772675)\\[–\\]<br>\\> _The problem with hackish solution is that they get put in places they don’t belong. In other professions, there’s regulation in place to prevent these kind of shortcuts._ <br>That's an illusion. The reality is, it's _all_ hacky solutions on top of hacky solutions. Even in manufacturing: the spec may be fixed, and the factory line produces identical products by the million - but the spec was developed through an ad-hoc process, and _the factory line itself_ is a pile of hacks that needs continued tuning to operate. And there is no perfectly specced out procedure for retooling a factory line to support the newest spec that came out of design department - retooling is, in itself, a small R&D project.<br>\\> _Also, if you have ever worked with anyone trying to get specifications worked out, you’ll see that most people (including devs) rely on intuition rather than checklists and will always forget to tell you something that is critical._<br>This is the dirty truth about the universe - human organizations are piles of hacks, always in flux; _and so is life itself_. The sameness and harmony we see in nature is an illusion brought on by scale (in two ways - at large scale, because we live too short to see changes happening; at small scale, because the chaos at biomolecular level averages out to something simpler at the scale we can perceive).<br>Order and structure are not the default. It takes hard work to create and maintain them, so it's better be worth the cost. The prevalence of Excel-based hacks in corporate is a proof positive that, for internal software, it usually isn't worth it, despite what the IT department thinks.<br>\\> _The thing is that cost of changes in the business can be a simple memo. But for software that usually means redesign._<br>Which is why you shouldn't be building cathedrals that need expensive rework every other week because of some random memo. Instead, go down to where people work; see them tweaking their shovels, take those shovels and make the tweak they want the proper way. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [skydhash](https://news.ycombinator.com/user?id=skydhash) [11 months ago](https://news.ycombinator.com/item?id=45772344) \\| [root](https://news.ycombinator.com/item?id=45760878#45761639) \\| [parent](https://news.ycombinator.com/item?id=45760878#45770624) \\| [next](https://news.ycombinator.com/item?id=45760878#45772675)\\[–\\]<br>We could do this. And if you take a look at some solutions like the old VisualBasic/Delphi/Unix scripts, the philosophy is the same: Create small software quickly that solves some user/business needs. Systems like Java/.Net and their IDEs, as all as current mobile SDK, they run against that need.<br>A bit of tangent: I think the idea of coddling users is what’s leading to the complexity of all those system. We’re building cathedrals when we need tents. Instead of having small, sharp software tools that can be adjusted easily, we’re developing behemoths that’s supposed to handle everything under the sun (systemd, a lot of modern package managers, languages that is tied to that one IDE,…) | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [ghaff](https://news.ycombinator.com/user?id=ghaff) [11 months ago](https://news.ycombinator.com/item?id=45773462) \\| [root](https://news.ycombinator.com/item?id=45760878#45761639) \\| [parent](https://news.ycombinator.com/item?id=45760878#45772344) \\| [next](https://news.ycombinator.com/item?id=45760878#45772675)\\[–\\]<br>Well, except you end up with 20 different incompatible tools with different workflows.<br>I'm not really arguing for mega-tools with locked-down workflows. But there's usually some happy-ish medium between chaos and rigid monoliths. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [listenallyall](https://news.ycombinator.com/user?id=listenallyall) [11 months ago](https://news.ycombinator.com/item?id=45778616) \\| [root](https://news.ycombinator.com/item?id=45760878#45761639) \\| [parent](https://news.ycombinator.com/item?id=45760878#45773462) \\| [next](https://news.ycombinator.com/item?id=45760878#45772675)\\[–\\]<br>\\> 20 different incompatible tools with different workflows<br>Kinda the whole goal behind (and \"benefit\" of) microservices, right? Totally independent dev teams, all uncoupled from each other, no need to look inside at the code, language-independent - just pass data according to an API and dont look behind the curtain. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [TeMPOraL](https://news.ycombinator.com/user?id=TeMPOraL) [11 months ago](https://news.ycombinator.com/item?id=45780176) \\| [root](https://news.ycombinator.com/item?id=45760878#45761639) \\| [parent](https://news.ycombinator.com/item?id=45760878#45778616) \\| [next](https://news.ycombinator.com/item?id=45760878#45782505)\\[–\\]<br>Internally it could work if the teams understand that their services are never done - they're part of a _living organism_, and the responsibility of a team assigned to a service is to _keep it working_. Shit will break constantly, but that's not a problem as long as it gets fixed. It's labor-intensive, but done right, we're talking few devs being busy maintaining a process that benefits thousands, or hundreds of thousands of their colleagues. _It's what the internal development is meant to be_.<br>At some point in our industry, \"service providers\" started thinking of themselves as kings, instead of what they were supposed to be - _servants_. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [ghaff](https://news.ycombinator.com/user?id=ghaff) [11 months ago](https://news.ycombinator.com/item?id=45782505) \\| [root](https://news.ycombinator.com/item?id=45760878#45761639) \\| [parent](https://news.ycombinator.com/item?id=45760878#45778616) \\| [prev](https://news.ycombinator.com/item?id=45760878#45780176) \\| [next](https://news.ycombinator.com/item?id=45760878#45772675)\\[–\\]<br>That's the theory. You can also end up with a lot of effort devoted to maintaining totally independent tool chains which may have a single person bus factor. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [nradov](https://news.ycombinator.com/user?id=nradov) [11 months ago](https://news.ycombinator.com/item?id=45772675) \\| [root](https://news.ycombinator.com/item?id=45760878#45761639) \\| [parent](https://news.ycombinator.com/item?id=45760878#45768500) \\| [prev](https://news.ycombinator.com/item?id=45760878#45769465) \\| [next](https://news.ycombinator.com/item?id=45760878#45769228)\\[–\\]<br>Actually there is no trade-off. That's a common misunderstanding. Reducing latency creates more business value than increasing productivity.<br>[http://lpd2.com/](http://lpd2.com/) | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [thesumofall](https://news.ycombinator.com/user?id=thesumofall) [11 months ago](https://news.ycombinator.com/item?id=45769228) \\| [root](https://news.ycombinator.com/item?id=45760878#45761639) \\| [parent](https://news.ycombinator.com/item?id=45760878#45768500) \\| [prev](https://news.ycombinator.com/item?id=45760878#45772675) \\| [next](https://news.ycombinator.com/item?id=45760878#45770901)\\[–\\]<br>That depends if one measures productivity in LOCs or business impact. As always, it’s not black or white, but my experience is that higher proximity is a net benefit | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [scott\\_w](https://news.ycombinator.com/user?id=scott_w) [11 months ago](https://news.ycombinator.com/item?id=45770901) \\| [root](https://news.ycombinator.com/item?id=45760878#45761639) \\| [parent](https://news.ycombinator.com/item?id=45760878#45768466) \\| [prev](https://news.ycombinator.com/item?id=45760878#45768500) \\| [next](https://news.ycombinator.com/item?id=45760878#45771381)\\[–\\]<br>\\> In most organizations the problem is lack of urgency rather than lack of developer hours.<br>I disagree: it's a business prioritisation issue (not necessarily a problem). Ultimately, a lot of the processes are there because the wider business (rightly) wants IT to work on the highest impact issues. A random process that 3 people suffer from probably isn't the highest impact for the business as a whole.<br>Also, because it's not high impact, it makes sense that an intern is co-opted to make life easier (also as a learning experience), however it also causes the issues OP highlighted.<br>The problem is solvable, I think, but it's not easily solvable! | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [HeyLaughingBoy](https://news.ycombinator.com/user?id=HeyLaughingBoy) [11 months ago](https://news.ycombinator.com/item?id=45777298) \\| [root](https://news.ycombinator.com/item?id=45760878#45761639) \\| [parent](https://news.ycombinator.com/item?id=45760878#45770901) \\| [next](https://news.ycombinator.com/item?id=45760878#45771381)\\[–\\]<br>Yes, but often the \"business priorities\" get so screwed up that people's needs go unmet, and the business ends up wasting money as a result.<br>My best example was a conversation I had with one of the scientists at my job when she mentioned that she had people spending hours every day generating reports from data our instruments produced. I pointed out that with the code we had it would be simple to generate the reports automatically.<br>Her response that she had asked repeatedly for a developer to be assigned to the task, but she kept being pushed away because it was low priority.<br>I couldn't just change the codebase on my own (it was for a medical device), but it was easy enough to spend a lazy afternoon writing a tool to consume the output logs from the device and generate the reports that she needed. That's it: about 4 hours of work and produced something this person had asked for a year prior, and that people were already spending hours each day doing!<br>The people in charge of vetting requests never even bothered to ask a developer to estimate the task. They just heard that there was a work around, so it immediately became \"low priority.\" | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [scott\\_w](https://news.ycombinator.com/user?id=scott_w) [11 months ago](https://news.ycombinator.com/item?id=45793805) \\| [root](https://news.ycombinator.com/item?id=45760878#45761639) \\| [parent](https://news.ycombinator.com/item?id=45760878#45777298) \\| [next](https://news.ycombinator.com/item?id=45760878#45771381)\\[–\\]<br>\\> That's it: about 4 hours of work and produced something this person had asked for a year prior, and that people were already spending hours each day doing!<br>This leads to the exact problem OP brings up: who fixes it if it breaks? If it becomes critical, now other priorities go unhandled as a person or team are dragged into resolution.<br>I’ll bring a couple more counter arguments:<br>\\- When I was running an internal enablement team, I reckon I had 12 months worth of work of these simple requests at any given point in time.<br>\\- Even that time saving might not be worth it, if it means those 4 hours could have been spent building something the company can sell (which for a SaaS product, is literally millions over its lifetime).<br>Just to be clear, I’m not saying you did the wrong thing at all. Hell, I’ve done this stuff myself. I’m just pointing out it’s not as easy as “just spend 4 hours on it and it’s done!” I’d go on but I think I’d just end up regurgitating the article. | |\n| |     |     |     |\n| --- | --- | --- |\n| ![](https://news.ycombinator.com/s.gif) |  | [listenallyall](https://news.ycombinator.com/user?id=listenallyall) [11 months ago](https://news.ycombinator.com/item?id=45771381) \\| [root](https://news.ycombinator.com/item?id=45760878#45761639) \\| [parent](https://news.ycombinator.com/item?id=45760878#45768375) \\| [prev](https://news.ycombinator.com/item?id=45760878#45768466) \\| [next](https://news.ycombinator.com/item?id=45760878#45771719)\\[–\\]<br>\\> wildly impractical - there are only so many developer",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": true,
+      "metadata": {
+        "language": "en",
+        "title": "Free software scares normal people | Hacker News",
+        "referrer": "origin",
+        "viewport": "width=device-width, initial-scale=1.0",
+        "favicon": "https://news.ycombinator.com/y18.svg",
+        "scrapeId": "01a142f5-cacf-7633-883a-ea347af48a29",
+        "sourceURL": "https://news.ycombinator.com/item?id=45760878",
+        "url": "https://news.ycombinator.com/item?id=45760878",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "proxyUsed": "basic",
+        "cacheState": "hit",
+        "cachedAt": "2026-10-16T04:02:27.445Z",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 1044,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 1066
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 66158,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "tavily.search": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 1
+  }
+}
