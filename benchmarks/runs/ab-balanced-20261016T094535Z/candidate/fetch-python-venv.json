@@ -1,0 +1,83 @@
+{
+  "id": "fetch-python-venv",
+  "executed_at": "2026-10-16T09:49:31.871239+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.3.0",
+  "provider_query": "Read the Python venv documentation and confirm it documents the venv module",
+  "fetched": [
+    {
+      "schema_version": "1.1",
+      "status": "error",
+      "url": "https://docs.python.org/3/library/venv.html",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "transport_error",
+            "usage": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "transport_error",
+          "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 12, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or please retry after 35s, r",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 65,
+      "thread": null
+    }
+  ],
+  "results": [
+    {
+      "url": "https://docs.python.org/3/library/venv.html",
+      "title": "",
+      "snippet": ""
+    }
+  ],
+  "answer": "",
+  "errors": [
+    {
+      "provider": "firecrawl",
+      "code": "transport_error",
+      "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 12, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or please retry after 35s, r",
+      "retryable": true
+    }
+  ],
+  "comments": [],
+  "timed_out": false,
+  "elapsed_ms": 65,
+  "usage": {
+    "calls": {
+      "firecrawl.scrape": 1
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 0
+  }
+}

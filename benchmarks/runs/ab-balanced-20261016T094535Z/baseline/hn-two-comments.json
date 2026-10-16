@@ -1,0 +1,944 @@
+{
+  "id": "hn-two-comments",
+  "executed_at": "2026-10-16T09:52:20.629325+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "In the Hacker News discussion of SQLite as an application file format, read both the comment that rejects waiting on disk in the interface and the comment about Windows file-system snapshots",
+  "answer": "Both comments are in the June 2020 HN thread on [SQLite as an Application File Format (2014)](https://news.ycombinator.com/item?id=23508923) (`sqlite.org/appfileformat.html`), not the later resubmission.\n\n1. **lillecarl** rejects disk waits on the UI thread: “If the user interface depends on synchronous IO something is very wrong.” Comment [23552225](https://news.ycombinator.com/item?id=23552225), 17 Jun 2020, reply under the save/IO thread.\n\n2. **lostmyoldone** states the same constraint more strongly: interactive work (about 0.1–1s) cannot do disk IO on the UI thread or any thread that must stay interactive, because OSes can still stall on disk even when an API claims not to. Comment [23510744](https://news.ycombinator.com/item?id=23510744), 13 Jun 2020.\n\n3. **ori_b** agrees and argues other formats push in-memory edits and one save, while SQLite-as-a-file-format spreads small disk delays across every interaction. Comment [23510865](https://news.ycombinator.com/item?id=23510865), 13 Jun 2020.\n\n4. **lxdesk** replies that schema use and storage use can be split: keep custom in-memory structures and write a BLOB only on save. Comment [23511746](https://news.ycombinator.com/item?id=23511746), 13 Jun 2020.\n\n5. **yellowapple** says the stall is the disk, not SQLite, and UI toolkits should move the transaction off the UI thread (loading indicator). Comment [23513977](https://news.ycombinator.com/item?id=23513977), 14 Jun 2020.\n\n6. **int_19h** on Windows filesystem snapshots: Windows had snapshot-based transactions across the whole filesystem (NTFS only); the feature was deprecated, and the comment treats that as a failure to move past a decades-old filesystem model. Comment [23546691](https://news.ycombinator.com/item?id=23546691), 17 Jun 2020.\n\n7. **corysama** (parent of that snapshot note) recommends LMDB over rolling your own reliable blob store. Comment [23510271](https://news.ycombinator.com/item?id=23510271), 13 Jun 2020.\n\n8. **hedora** (same subtree) gives the POSIX overwrite recipe: write a temp file, `fsync`, `rename` over the target, then `sync`, and treat any error as a failed write. Comment [23510704](https://news.ycombinator.com/item?id=23510704), 13 Jun 2020.",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://news.ycombinator.com/item?id=11429099",
+      "url": "https://news.ycombinator.com/item?id=11429099",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "CloudZ malware abuses Microsoft Phone Link to steal SMS and OTPs - BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/cloudz-malware-abuses-microsoft-phone-link-to-steal-sms-and-otps",
+      "snippet": "* CloudZ malware abuses Microsoft Phone Link to steal SMS and OTPs. A new version of the CloudZ remote access tool (RAT) is deploying a previously unseen malicious plugin called Pheno that hijacks the Microsoft Phone Link connection to steal sensitive codes from mobile devices. Microsoft Phone Link comes installed on Windows 10 and 11, and allows using the computer to make and take calls, respond to texts, or view notifications received on the mobile device (Android and iOS). By leveraging the application, the threat actor could intercept sensistive messages delivered to the target's mobile phone without compromising the device. Cisco Talos researchers say in a report today that Pheno monitors for active Phone Link sessions and accesses its local SQLite database, which may contain SMS and one-time passwords (OTPs). “With a confirmed Phone Link activity on the victim's machine, the attacker using the CloudZ RAT can potentially intercept the Phone Link application’s SQLite database file on the victim's machine, potentially compromising SMS-based OTP messages and other authenticator application notification messages,” Cisco Talos says.",
+      "content": null,
+      "published_at": "Tue, 05 May 2026 10:03:52 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.057076775,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://github.com/openclaw/openclaw/blob/8a63a49829287f29d8a7513c66d63429297950ee/src/infra/sqlite-snapshot.ts",
+      "url": "https://github.com/openclaw/openclaw/blob/8a63a49829287f29d8a7513c66d63429297950ee/src/infra/sqlite-snapshot.ts",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "Microsoft admits a Windows 11 bug is eating up to 500GB of storage, verify if you are affected - Windows Latest",
+      "url": "https://www.windowslatest.com/2026/07/06/microsoft-admits-a-windows-11-bug-is-eating-up-to-500gb-of-storage-verify-if-you-are-affected",
+      "snippet": "+ ### Microsoft admits a Windows 11 bug is eating up to 500GB…. # Microsoft admits a Windows 11 bug is eating up to 500GB of storage, verify if you are affected. If you’ve got a gut feeling that something is using your storage on Windows 11 and it’s not your random downloads, I recommend opening **Settings** > **Storage** > **System & Reserved**, then checking System storage. If it’s using hundreds of gigabytes of storage, it’s most likely due to a recent bug where a file called “*CapabilityAccessManager.db-wal*” continues to fill the system drive until it runs out of storage. If your PC is affected, the safest fix is to install Windows 11 KB5095093 from Windows Update, or wait for the July 2026 Patch Tuesday update, where the fix is expected to roll out automatically. “[Storage] This update improves disk space usage for the CapabilityAccessManager.db-wal file,” Microsoft noted in the release notes of Windows 11 KB5095093 (June 2026 optional update).",
+      "content": null,
+      "published_at": "Mon, 06 Jul 2026 03:09:13 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.0513153,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://news.ycombinator.com/item?id=42698170",
+      "url": "https://news.ycombinator.com/item?id=42698170",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "Microsoft confirms Windows 11 bug can steal over 500GB of storage – here's how to check and fix it - TechSpot",
+      "url": "https://www.techspot.com/news/113029-microsoft-confirms-windows-11-bug-can-steal-over.html",
+      "snippet": "# Microsoft confirms Windows 11 bug can steal over 500GB of storage – here's how to check and fix it. ## The bug causes a hidden Windows system file to keep growing, making some SSDs look mysteriously full. Then you may be one of the people experiencing yet another bizarre Windows 11 bug, one that can gobble up more than 500GB of drive space. The bug, which was spotted by Windows Latest, is related to Windows 11's Capability Access Manager, a system component tied to Microsoft's app permission controls. The problem is not with the permission system itself so much as one of the files behind it: CapabilityAccessManager.db-wal, the write-ahead log for the Capability Access Manager database. Microsoft's release notes now state that KB5095093 \"improves disk space usage for the CapabilityAccessManager.db-wal file,\" though the company has not offered a full public explanation for why some Windows 11 systems allowed the file to balloon into the hundreds of gigabytes in the first place.",
+      "content": null,
+      "published_at": "Tue, 07 Jul 2026 13:51:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.04478529,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://hn.algolia.com/api/v1/search?query=interface&tags=comment,story_23508923&hitsPerPage=10",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=10&query=interface&tags=comment%2Cstory_23508923",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "Microsoft Finally Ups FAT32 Size Limit - Hackaday",
+      "url": "https://hackaday.com/2026/04/17/microsoft-finally-ups-fat32-size-limit",
+      "snippet": "You probably don’t spend a lot of time using the FAT32 file system anymore, since it’s thoroughly been superseded many times over. Finally, the stock Windows tools will let you format a FAT32 drive up to 2 TB instead of locking you to a 32 GB maximum! It’s actually been possible to create larger FAT32 volumes for some time, you just couldn’t easily do it with Microsoft’s standard formatting tools. FAT32 is still a terrible file system to use in 2026, mostly because it has a hard limit on file size that tops out at 4 GB. 1. I’m pretty sure it used to be possible to format a 1 TiB USB hard drive into FAT32 using the My Computer dialog around Windows XP times, until Microsoft started pushing exFAT (whether for technical reasons or patent fees, I dunno). 5. I don’t think I will ever use this update in a meaningful way, but LOADs of sbc systems use FAT32 for their trickery as do many other small computers.",
+      "content": null,
+      "published_at": "Fri, 17 Apr 2026 11:00:55 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.040666364,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://news.ycombinator.com/item?id=11429099",
+      "url": "https://news.ycombinator.com/item?id=11429099",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "CloudZ malware abuses Microsoft Phone Link to steal SMS and OTPs - BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/cloudz-malware-abuses-microsoft-phone-link-to-steal-sms-and-otps",
+      "result_id": "r2",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://github.com/openclaw/openclaw/blob/8a63a49829287f29d8a7513c66d63429297950ee/src/infra/sqlite-snapshot.ts",
+      "url": "https://github.com/openclaw/openclaw/blob/8a63a49829287f29d8a7513c66d63429297950ee/src/infra/sqlite-snapshot.ts",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "Microsoft admits a Windows 11 bug is eating up to 500GB of storage, verify if you are affected - Windows Latest",
+      "url": "https://www.windowslatest.com/2026/07/06/microsoft-admits-a-windows-11-bug-is-eating-up-to-500gb-of-storage-verify-if-you-are-affected",
+      "result_id": "r4",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://news.ycombinator.com/item?id=42698170",
+      "url": "https://news.ycombinator.com/item?id=42698170",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "Microsoft confirms Windows 11 bug can steal over 500GB of storage – here's how to check and fix it - TechSpot",
+      "url": "https://www.techspot.com/news/113029-microsoft-confirms-windows-11-bug-can-steal-over.html",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://hn.algolia.com/api/v1/search?query=interface&tags=comment,story_23508923&hitsPerPage=10",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=10&query=interface&tags=comment%2Cstory_23508923",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "Microsoft Finally Ups FAT32 Size Limit - Hackaday",
+      "url": "https://hackaday.com/2026/04/17/microsoft-finally-ups-fat32-size-limit",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://hn.algolia.com/api/v1/items/23510271",
+      "url": "https://hn.algolia.com/api/v1/items/23510271",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://typeerror.org/docs/sqlite/fileio",
+      "url": "https://typeerror.org/docs/sqlite/fileio",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://news.ycombinator.com/item?id=43857834",
+      "url": "https://news.ycombinator.com/item?id=43857834",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://hn.algolia.com/api/v1/search?query=%22on%20disk%22%20OR%20fsync%20OR%20synchronous%20OR%20interface&tags=comment,story_23508923&hitsPerPage=20",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=20&query=%22on+disk%22+OR+fsync+OR+synchronous+OR+interface&tags=comment%2Cstory_23508923",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://news.ycombinator.com/item?id=44671373",
+      "url": "https://news.ycombinator.com/item?id=44671373",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://hn.algolia.com/api/v1/search?query=waiting%20disk%20OR%20interface&tags=comment,story_23508923&hitsPerPage=10",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=10&query=waiting+disk+OR+interface&tags=comment%2Cstory_23508923",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://news.ycombinator.com/item?id=42358471",
+      "url": "https://news.ycombinator.com/item?id=42358471",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://www.sqlite.org/howtocorrupt.html",
+      "url": "https://www.sqlite.org/howtocorrupt.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://sqlite.org/lpc2019/doc/trunk/briefing.md",
+      "url": "https://sqlite.org/lpc2019/doc/trunk/briefing.md",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://news.ycombinator.com/item?id=44674547",
+      "url": "https://news.ycombinator.com/item?id=44674547",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "https://npmjs.com/package/@effect-vfs/persistence",
+      "url": "https://npmjs.com/package/@effect-vfs/persistence",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "https://hn.algolia.com/api/v1/search?query=interactive&tags=comment,story_23508923,author_ori_b&hitsPerPage=5",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=5&query=interactive&tags=comment%2Cstory_23508923%2Cauthor_ori_b",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c21",
+      "title": "https://news.ycombinator.com/item?id=49519289",
+      "url": "https://news.ycombinator.com/item?id=49519289",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c22",
+      "title": "https://hn.algolia.com/api/v1/search?query=SQLite%20application%20file%20format%20snapshot%20Windows&tags=comment&hitsPerPage=20",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=20&query=SQLite+application+file+format+snapshot+Windows&tags=comment",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c23",
+      "title": "https://x.com/shahidcodes/status/2108554390718365805",
+      "url": "https://x.com/shahidcodes/status/2108554390718365805",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c24",
+      "title": "https://news.ycombinator.com/front?day=2026-10-15",
+      "url": "https://news.ycombinator.com/front?day=2026-10-15",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c25",
+      "title": "https://www.idc10000.net/news/content/9069.html",
+      "url": "https://www.idc10000.net/news/content/9069.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c26",
+      "title": "https://wizardforcel.gitbooks.io/sqlite-doc-en/content/50.html",
+      "url": "https://wizardforcel.gitbooks.io/sqlite-doc-en/content/50.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c27",
+      "title": "https://news.ycombinator.com/item?id=50009295",
+      "url": "https://news.ycombinator.com/item?id=50009295",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c28",
+      "title": "https://news.ycombinator.com/item?id=42965198",
+      "url": "https://news.ycombinator.com/item?id=42965198",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c29",
+      "title": "https://news.ycombinator.com/item?id=39797104",
+      "url": "https://news.ycombinator.com/item?id=39797104",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c30",
+      "title": "https://www.loc.gov/preservation/digital/formats/fdd/fdd000461.shtml",
+      "url": "https://www.loc.gov/preservation/digital/formats/fdd/fdd000461.shtml",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c31",
+      "title": "https://news.ycombinator.com/item?id=45005071",
+      "url": "https://news.ycombinator.com/item?id=45005071",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c32",
+      "title": "https://x.com/spyced/status/2107953784336867721",
+      "url": "https://x.com/spyced/status/2107953784336867721",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c33",
+      "title": "https://news.ycombinator.com/item?id=45132498",
+      "url": "https://news.ycombinator.com/item?id=45132498",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c34",
+      "title": "https://news.ycombinator.com/item?id=30315866",
+      "url": "https://news.ycombinator.com/item?id=30315866",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c35",
+      "title": "https://news.ycombinator.com/item?id=47534283",
+      "url": "https://news.ycombinator.com/item?id=47534283",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c36",
+      "title": "https://news.ycombinator.com/item?id=44624786",
+      "url": "https://news.ycombinator.com/item?id=44624786",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c37",
+      "title": "https://devblogs.sh/posts/fdatasync-vs-fsync-for-wal-commits-when-is-it-faster-and-what-are-the-tradeoffs",
+      "url": "https://devblogs.sh/posts/fdatasync-vs-fsync-for-wal-commits-when-is-it-faster-and-what-are-the-tradeoffs",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c38",
+      "title": "https://x.com/aladagberk/status/2110331372871225432",
+      "url": "https://x.com/aladagberk/status/2110331372871225432",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c39",
+      "title": "https://news.ycombinator.com/item?id=46435308",
+      "url": "https://news.ycombinator.com/item?id=46435308",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c40",
+      "title": "https://hn.algolia.com/api/v1/items/23510744",
+      "url": "https://hn.algolia.com/api/v1/items/23510744",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c41",
+      "title": "https://sqlite-users.sqlite.narkive.com/EDfJsg1n/sqlite-sqlite-support-for-vss-writer",
+      "url": "https://sqlite-users.sqlite.narkive.com/EDfJsg1n/sqlite-sqlite-support-for-vss-writer",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c42",
+      "title": "https://news.ycombinator.com/item?id=23511126",
+      "url": "https://news.ycombinator.com/item?id=23511126",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c43",
+      "title": "https://sources.debian.org/src/sqlite3/3.8.7.1-1%2Bdeb8u2/www/appfileformat.html",
+      "url": "https://sources.debian.org/src/sqlite3/3.8.7.1-1%2Bdeb8u2/www/appfileformat.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c44",
+      "title": "https://news.ycombinator.com/item?id=46076642",
+      "url": "https://news.ycombinator.com/item?id=46076642",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c45",
+      "title": "https://news.ycombinator.com/item?id=32628367",
+      "url": "https://news.ycombinator.com/item?id=32628367",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c46",
+      "title": "https://news.ycombinator.com/item?id=50039627",
+      "url": "https://news.ycombinator.com/item?id=50039627",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c47",
+      "title": "https://hn.algolia.com/api/v1/search?query=disk&tags=comment,story_23508923&hitsPerPage=30",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=30&query=disk&tags=comment%2Cstory_23508923",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c48",
+      "title": "https://hn.algolia.com/api/v1/items/23511126",
+      "url": "https://hn.algolia.com/api/v1/items/23511126",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c49",
+      "title": "https://github.com/algolia/hn-search",
+      "url": "https://github.com/algolia/hn-search",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c50",
+      "title": "https://sqldocs.org/sqlite-write-ahead-logging/",
+      "url": "https://sqldocs.org/sqlite-write-ahead-logging",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c51",
+      "title": "https://hn.algolia.com/api/v1/search?query=%22file%20format%22%20sqlite%20snapshot&tags=comment&hitsPerPage=15",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=15&query=%22file+format%22+sqlite+snapshot&tags=comment",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c52",
+      "title": "https://marcobambini.substack.com/p/we-solved-sqlites-single-writer-limitation",
+      "url": "https://marcobambini.substack.com/p/we-solved-sqlites-single-writer-limitation",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c53",
+      "title": "https://sources.debian.org/src/sqlite3/3.27.2-3%2Bdeb10u1/www/appfileformat.html",
+      "url": "https://sources.debian.org/src/sqlite3/3.27.2-3%2Bdeb10u1/www/appfileformat.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c54",
+      "title": "https://hn.algolia.com/api/v1/search?query=snapshot&tags=comment,story_46076642&hitsPerPage=20",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=20&query=snapshot&tags=comment%2Cstory_46076642",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c55",
+      "title": "https://www.chiark.greenend.org.uk/doc/sqlite3/tempfiles.html",
+      "url": "https://www.chiark.greenend.org.uk/doc/sqlite3/tempfiles.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c56",
+      "title": "https://github.com/asg017/sqlite-vss/blob/main/docs.md",
+      "url": "https://github.com/asg017/sqlite-vss/blob/main/docs.md",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c57",
+      "title": "https://www.sqlite.org/walformat.html",
+      "url": "https://www.sqlite.org/walformat.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c58",
+      "title": "https://www.linuxcompatible.org/story/sqlite-3540-release-faster-engine-new-cli-features-and-dropped-windows-xp-support/",
+      "url": "https://www.linuxcompatible.org/story/sqlite-3540-release-faster-engine-new-cli-features-and-dropped-windows-xp-support",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c59",
+      "title": "https://hn.algolia.com/api/v1/search?query=disk&tags=comment,story_46076642&hitsPerPage=30",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=30&query=disk&tags=comment%2Cstory_46076642",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c60",
+      "title": "https://hn.algolia.com/api/v1/search?query=Windows%20snapshot&tags=comment,story_23508923&hitsPerPage=10",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=10&query=Windows+snapshot&tags=comment%2Cstory_23508923",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c61",
+      "title": "https://x.com/theo/status/2110321385105166643",
+      "url": "https://x.com/theo/status/2110321385105166643",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c62",
+      "title": "https://news.ycombinator.com/item?id=39139026",
+      "url": "https://news.ycombinator.com/item?id=39139026",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c63",
+      "title": "https://hn.algolia.com/api/v1/search?query=wait%20disk&tags=comment,story_46076642&hitsPerPage=20",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=20&query=wait+disk&tags=comment%2Cstory_46076642",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c64",
+      "title": "Here’s How to Check If Windows 11 Is Secretly Gobbling Up Your Disk Space - Gizmodo",
+      "url": "https://gizmodo.com/heres-how-to-check-if-windows-11-is-secretly-gobbling-up-your-disk-space-2000782327",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c65",
+      "title": "Microsoft highlights all the new features that have shipped on Windows 11 in 2025 — and promises more to come - Windows Central",
+      "url": "https://www.windowscentral.com/microsoft/windows-11/microsoft-highlights-all-the-new-features-that-have-shipped-on-windows-11-in-2025-and-promises-more-to-come",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c66",
+      "title": "Someone Finally Fixed Installing Apps on a Mac - WIRED",
+      "url": "https://www.wired.com/story/easydmg-finally-fixed-installing-apps-on-a-mac",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c67",
+      "title": "Microsoft is removing 32GB size limit for FAT32 volumes, this time for real - TechSpot",
+      "url": "https://www.techspot.com/news/112058-microsoft-removing-32gb-size-limit-fat32-volumes-time.html",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 41391,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "conditional_supplement",
+        "latency_ms": 6986,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "recency_signal"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://news.ycombinator.com/item?id=11429099",
+      "final_url": "https://news.ycombinator.com/item?id=11429099",
+      "title": "You *really* want to ensure you've setup your disks *very* carefully if you have... | Hacker News",
+      "content": "|     |     |     |\n| --- | --- | --- |\n| |     |     |     |\n| --- | --- | --- |\n| [![](https://news.ycombinator.com/y18.svg)](https://news.ycombinator.com/) | **[Hacker News](https://news.ycombinator.com/news)** [new](https://news.ycombinator.com/newest) \\| [past](https://news.ycombinator.com/front) \\| [comments](https://news.ycombinator.com/newcomments) \\| [ask](https://news.ycombinator.com/ask) \\| [show](https://news.ycombinator.com/show) \\| [jobs](https://news.ycombinator.com/jobs) \\| [submit](https://news.ycombinator.com/submit) | [login](https://news.ycombinator.com/login?goto=item%3Fid%3D11429099) | |\n\n| |     |     |     |\n| --- | --- | --- |\n|  |  | [chris\\_wot](https://news.ycombinator.com/user?id=chris_wot) [on April 5, 2016](https://news.ycombinator.com/item?id=11429099) \\| [parent](https://news.ycombinator.com/item?id=11428865) \\| [context](https://news.ycombinator.com/item?id=11425343#11429099) \\| [favorite](https://news.ycombinator.com/fave?id=11429099) \\| on: [PostgreSQL Bloat: origins, monitoring and managing](https://news.ycombinator.com/item?id=11425343 \"PostgreSQL Bloat: origins, monitoring and managing\")<br>You _really_ want to ensure you've setup your disks _very_ carefully if you have a database that you are using snapshot isolation on.<br>TempDB runs the following across _all_ databases on SQL Server. I'll just quote Microsoft directly here:<br>```<br>  The tempdb system database is a global resource that is available to all<br>  users connected to the instance of SQL Server and is used to hold the<br>  following:<br>  Temporary user objects that are explicitly created, such as: global or<br>  local temporary tables, temporary stored procedures, table variables, or<br>  cursors.<br>  Internal objects that are created by the SQL Server Database Engine, for<br>  example, work tables to store intermediate results for spools or<br>  sorting.<br>  Row versions that are generated by data modification transactions in a<br>  database that uses read-committed using row versioning isolation or<br>  snapshot isolation transactions.<br>  Row versions that are generated by data modification transactions for<br>  features, such as: online index operations, Multiple Active Result Sets<br>  (MARS), and AFTER triggers. [1]<br>```<br>...and the following article \\[2\\] also notes that tempdb also handles \"Materialized static cursors\". The \"internal objects\" include:<br>```<br>  Work tables for cursor or spool operations and temporary large object<br>  (LOB) storage.<br>  Work files for hash join or hash aggregate operations.<br>  Intermediate sort results for operations such as creating or rebuilding<br>  indexes (if SORT_IN_TEMPDB is specified), or certain GROUP BY, ORDER BY,<br>  or UNION queries. [3]<br>```<br>... and yet another article \\[4\\] explains that tempdb is used:<br>```<br>  To store intermediate runs for sort.<br>  To store intermediate results for hash joins and hash aggregates.<br>  To store XML variables or other large object (LOB) data type variables.<br>  The LOB data type includes all of the large object types: text, image,<br>  ntext, varchar(max), varbinary(max), and all others.<br>  By queries that need a spool to store intermediate results.<br>  By keyset cursors to store the keys.<br>  By static cursors to store a query result.<br>  By Service Broker to store messages in transit.<br>  By INSTEAD OF triggers to store data for internal processing.<br>```<br>In other words, if you run snapshot isolation, it's possible that someone running a query that uses a largish temporary table or cursor can cause disk contention that will affect snapshot isolation. Similarly, if you run a largish query - or many queries for that matter - that involves a query where your plan shows a sort or spool (several join operators can cause this) then these can affect snapshot isolation also.<br>SQL Server is honestly the only database I know that puts all these operations into a single shared resource database. Oracle allows you to hive this sort of stuff off to other tablespaces and you can reconfigure and tune your disks to your hearts content.<br>This has been a known issue for a long time by Microsoft and pretty much any serious SQL Server DBA. You don't have to take my word for it, take a look at the following articles that go into a lot of detail about how to handle tempdb:<br>\\\\* Optimizing tempdb Performance (MSDN) explains some strategies for configuring tempdb as \"the size and physical placement of the tempdb database can affect the performance of a system\" \\[5\\] - I strongly recommend reading this article when you setup a new database server or have an opportunity to do serious database maintenance that allows you to reconfigure you disk setup<br>\\\\* Capacity Planning for tempdb \\[3\\] - actually, _definitely_ read this one as it gives a comprehensive list of things done in the tempdb<br>\\\\* Working with tempdb in SQL Server 2005 \\[4\\] - yeah, it mentions SQL Server 2005, but I think a lot of it still applies<br>\\\\* Recommendations to reduce allocation contention in SQL Server tempdb database \\[6\\] - the symptom is:<br>```<br>  You observe severe blocking when the SQL Server is experiencing heavy<br>  load. When you examine the Dynamic Management Views [sys.dm_exec_request<br>  or sys.dm_os_waiting_tasks], you observe that these requests or tasks are<br>  waiting for tempdb resources. You will notice that the wait type and wait<br>  resource point to LATCH waits on pages in tempdb. These pages might be of<br>  the format 2:1:1, 2:1:3, etc.<br>```<br>And the cause is:<br>```<br>  When the tempdb database is heavily used, SQL Server may experience<br>  contention when it tries to allocate pages. Depending on the degree of<br>  contention, this may cause queries and requests that involve tempdb to be<br>  unresponsive for short periods of time.<br>```<br>1\\. [https://msdn.microsoft.com/en-us/library/ms190768.aspx](https://msdn.microsoft.com/en-us/library/ms190768.aspx) <br>2\\. [https://support.microsoft.com/en-us/kb/307487](https://support.microsoft.com/en-us/kb/307487)<br>3\\. [https://technet.microsoft.com/en-us/library/ms345368(v=sql.1...](https://technet.microsoft.com/en-us/library/ms345368(v=sql.105).aspx)<br>4\\. [https://technet.microsoft.com/en-us/library/cc966545.aspx](https://technet.microsoft.com/en-us/library/cc966545.aspx)<br>5\\. [https://technet.microsoft.com/en-us/library/ms175527(v=sql.1...](https://technet.microsoft.com/en-us/library/ms175527(v=sql.105).aspx)<br>6\\. [https://support.microsoft.com/en-us/kb/2154845](https://support.microsoft.com/en-us/kb/2154845) |\n\n|\n| |\n| ![](https://news.ycombinator.com/s.gif)\n\n|     |\n| --- |\n|  |\n\n[Consider applying for YC's Winter 2027 batch! Applications are open till November 2.](https://www.ycombinator.com/apply/)\n\n[Guidelines](https://news.ycombinator.com/newsguidelines.html) \\| [FAQ](https://news.ycombinator.com/newsfaq.html) \\| [Lists](https://news.ycombinator.com/lists) \\| [API](https://github.com/HackerNews/API) \\| [Security](https://news.ycombinator.com/security.html) \\| [Legal](https://www.ycombinator.com/legal/) \\| [Apply to YC](https://www.ycombinator.com/apply/) \\| [Contact](mailto:hn@ycombinator.com)\n\nSearch: |",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "language": "en",
+        "title": "You *really* want to ensure you've setup your disks *very* carefully if you have... | Hacker News",
+        "referrer": "origin",
+        "viewport": "width=device-width, initial-scale=1.0",
+        "favicon": "https://news.ycombinator.com/y18.svg",
+        "scrapeId": "01a14421-354b-714d-bae6-87b698642778",
+        "sourceURL": "https://news.ycombinator.com/item?id=11429099",
+        "url": "https://news.ycombinator.com/item?id=11429099",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "cacheState": "miss",
+        "indexId": "034a3ee2-e4cf-43ae-aef8-f1a4584f8633",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 1364,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 1458
+    },
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://www.bleepingcomputer.com/news/security/cloudz-malware-abuses-microsoft-phone-link-to-steal-sms-and-otps",
+      "final_url": "https://www.bleepingcomputer.com/news/security/cloudz-malware-abuses-microsoft-phone-link-to-steal-sms-and-otps",
+      "title": "CloudZ malware abuses Microsoft Phone Link to steal SMS and OTPs",
+      "content": "[![](https://www.bleepstatic.com/c/w/Promp-Injection-IR-Playbook-250.jpg)](https://www.wiz.io/lp/prompt-injection-incident-response-playbook?utm_source=bleepingcomputer&utm_medium=display&utm_campaign=FY27Q3_INB_FORM_Prompt-Injection-Incident-Response-Playbook&sfcid=701Vh00000hpZhNIAU&utm_term=FY27Q3-bleepingcomputer-970x250-Oct&utm_content=Prompt-Injection-Playbook)\n\n- [Home](https://www.bleepingcomputer.com/)\n- [News](https://www.bleepingcomputer.com/news/)\n- [Security](https://www.bleepingcomputer.com/news/security/)\n- CloudZ malware abuses Microsoft Phone Link to steal SMS and OTPs\n\n# CloudZ malware abuses Microsoft Phone Link to steal SMS and OTPs\n\nBy\n\n###### [Bill Toulas](https://www.bleepingcomputer.com/author/bill-toulas/)\n\n- May 5, 2026\n- 06:03 AM\n- [0](https://www.bleepingcomputer.com/news/security/cloudz-malware-abuses-microsoft-phone-link-to-steal-sms-and-otps/#comment_form)\n\n![CloudZ malware abuses Microsoft Phone Link to steal SMS and OTPs](https://www.bleepstatic.com/content/hl-images/2026/02/13/Windows_headpic.jpg)\n\nA new version of the CloudZ remote access tool (RAT) is deploying a previously unseen malicious plugin called Pheno that hijacks the Microsoft Phone Link connection to steal sensitive codes from mobile devices.\n\nThe malware was discovered in an intrusion that was active since at least January and researchers believe the threat actor's purpose was to steal credentials and temporary passcodes.\n\nMicrosoft Phone Link comes installed on Windows 10 and 11, and allows using the computer to make and take calls, respond to texts, or view notifications received on the mobile device (Android and iOS).\n\nBy leveraging the application, the threat actor could intercept sensistive messages delivered to the target's mobile phone without compromising the device.\n\nCisco Talos researchers say in a report today that Pheno monitors for active Phone Link sessions and accesses its local SQLite database, which may contain SMS and one-time passwords (OTPs).\n\nThis gives the attacker access to sensitive information without needing to comprmise the mobile device.\n\n“With a confirmed Phone Link activity on the victim's machine, the attacker using the CloudZ RAT can potentially intercept the Phone Link application’s SQLite database file on the victim's machine, potentially compromising SMS-based OTP messages and other authenticator application notification messages,” [Cisco Talos says](https://blog.talosintelligence.com/cloudz-pheno-infostealer/).\n\n![Pheno scanning for active phone links](https://www.bleepstatic.com/images/news/u/1220909/2026/May/pheno-checks.jpg)**Pheno scanning for active phone links**\n\n_Source: Cisco Talos_\n\nBesides the capabilities present in the Pheno plugin, CloudZ can target data stored on web browsers, profile host systems, and execute commands for:\n\n- File management operations (delete, download and write)\n- Shell command execution\n- Start screen recording\n- Plugin management (load, remove, save to disk)\n- Terminate the RAT process\n\nCisco reports that CloudZ rotates between three hardcoded user-agent strings to make HTTP traffic appear as legitimate browser requests. Each HTTP request includes anti-caching headers to prevent proxies/CDNs from caching C2 or staging-server details.\n\nThe researchers haven’t identified the initial access vector, but they found that the infection starts when the victim executes a fake ScreenConnect update, which drops a Rust-based loader. This is followed by the deployment of a .NET loader, which installs CloudZ RAT and establishes persistence via a scheduled task.\n\nThe .NET loader also includes anti-analysis checks, such as time-based sandbox evasion steps, checks for analysis tools like Wireshark, Fiddler, Procmon, and Sysmon, and checks for VM- and sandbox-related strings.\n\n![The loader's environment checks](https://www.bleepstatic.com/images/news/u/1220909/2026/May/netchecks.jpg)**The loader's environment checks**\n\n_Source: Cisco Talos_\n\nTo defend against such attacks, users should avoid SMS-based OTP services and use authenticator apps that do not require push notifications that could be intercepted.. For more sensitive information, it is recommended to switch to using phishing-resistant solutions such as hardware keys.\n\nCisco Talos has published a set of indicators of compromise, including URLs, hashes for malicious components, domains, and IP addresses, which defenders can use to protect their environments.\n\n[![article image](https://www.bleepstatic.com/c/p/p-blue-report-26.jpg)](https://hubs.li/Q04sB3fb0)\n\n## [Once attackers have valid credentials, only 37% of their actions are blocked](https://hubs.li/Q04sB3fb0)\n\nOverall prevention scores can hide what happens after initial access. Once attackers are using valid credentials, prevention drops sharply.\n\nThe Blue Report 2026 measures defenses technique by technique across 338 million simulations run in customer production environments.\n\n[Get the report](https://hubs.li/Q04sB3fb0)\n\n### Related Articles:\n\n[New RemControl Android banking malware targets users in Europe and Canada](https://www.bleepingcomputer.com/news/security/new-remcontrol-android-banking-malware-targets-users-in-europe-and-canada/)\n\n[New RatHat Android malware uses AI to automate device control](https://www.bleepingcomputer.com/news/security/new-rathat-android-malware-uses-ai-to-automate-device-control/)\n\n[ToxicPanda Android malware uses VPN permissions to block Google Play](https://www.bleepingcomputer.com/news/security/toxicpanda-android-malware-uses-vpn-permissions-to-block-google-play/)\n\n[New Manic Android malware can exfiltrate data through nearby devices](https://www.bleepingcomputer.com/news/security/new-manic-android-malware-can-exfiltrate-data-through-nearby-devices/)\n\n[Android gets AI defenses against messaging scams, fake calls](https://www.bleepingcomputer.com/news/security/android-gets-ai-defenses-against-messaging-scams-fake-calls/)\n\n- [CloudZ](https://www.bleepingcomputer.com/tag/cloudz/)\n- [Malware](https://www.bleepingcomputer.com/tag/malware/)\n- [Microsoft Phone Link](https://www.bleepingcomputer.com/tag/microsoft-phone-link/)\n- [Mobile](https://www.bleepingcomputer.com/tag/mobile/)\n- [OTP](https://www.bleepingcomputer.com/tag/otp/)\n- [Phone Link](https://www.bleepingcomputer.com/tag/phone-link/)\n- [SMS](https://www.bleepingcomputer.com/tag/sms/)\n\n- [Print article](https://www.bleepingcomputer.com/news/security/cloudz-malware-abuses-microsoft-phone-link-to-steal-sms-and-otps/# \"Print article\")\n\n[Photo of Bill Toulas](https://www.bleepingcomputer.com/author/bill-toulas/)\n\n##### [Bill Toulas](https://www.bleepingcomputer.com/author/bill-toulas/)[Email bill.toulas@bleepingcomputer.com](mailto:bill.toulas@bleepingcomputer.com)[Open Author's twitter page](https://twitter.com/billtoulas)\n\nBill Toulas is a tech writer and infosec news reporter with over a decade of experience working on various online publications, covering open-source, Linux, malware, data breach incidents, and hacks.\n\n\n- [Previous Article](https://www.bleepingcomputer.com/news/security/scarcruft-hackers-push-birdcall-android-malware-via-game-platform/)\n- [Next Article](https://www.bleepingcomputer.com/news/security/karakurt-extortion-gang-negotiator-sentenced-to-85-years-in-prison/)\n\n##### Post a Comment [Community Rules](https://www.bleepingcomputer.com/posting-guidelines/)\n\n###### You need to login in order to post a comment\n\nNot a member yet? [Register Now](https://www.bleepingcomputer.com/forums/index.php?app=core&module=global&section=register)\n\n### You may also like:\n\n[![](https://www.bleepstatic.com/c/a/cam-400.jpg)](https://www.adaptivesecurity.com/cybersecurity-awareness-month?utm_source=display_network&utm_medium=paid_display&utm_campaign=2026_10_display_banner_bleepingcomputer&utm_id=701Rd00000qUUqjIAG)\n\nPopular Stories\n\n- [![Microsoft Patch Tuesday](https://www.bleepstatic.com/content/hl-images/2024/10/08/thumb/292x176_patch_tuesday_microsoft.jpg)\\\\\n\\\\\nMicrosoft October 2026 Patch Tuesday fixes 1,411 flaws, 3 zero-days](https://www.bleepingcomputer.com/news/microsoft/microsoft-october-2026-patch-tuesday-fixes-1-411-flaws-3-zero-days/)\n- [![Palo Alto Networks](https://www.bleepstatic.com/content/hl-images/2024/10/09/thumb/292x176_Palo-Alto-Networks.jpg)\\\\\n\\\\\nPalo Alto Networks warns of PAN-OS RCE flaw exploited in attacks](https://www.bleepingcomputer.com/news/security/palo-alto-networks-warns-of-pan-os-rce-flaw-exploited-in-attacks/)\n- [![Windows](https://www.bleepstatic.com/content/hl-images/2026/10/14/thumb/292x176_Windows_headpic.jpg)\\\\\n\\\\\nMicrosoft: Recent Windows updates may trigger Remote Desktop failures](https://www.bleepingcomputer.com/news/security/microsoft-recent-windows-updates-may-trigger-remote-desktop-failures/)\n\nSponsor Posts\n\n- [![Pentest your web apps on-demand. Find what humans miss. Scope and launch a pentest in minutes.](https://www.bleepstatic.com/content/posts/2026/10/12/thumb/100x82_intruder-ufo.jpg)\\\\\n\\\\\nPentest your web apps on-demand. Find what humans miss. Scope and launch a pentest in minutes.](https://www.intruder.io/pentest-pricing?utm_source=bleepingcomputer&utm_medium=p_referral&utm_campaign=global|fixed|ai_vs_human_pentesting)\n- [![AI is a data-breach time bomb: Read the new report](https://www.bleepstatic.com/content/posts/2026/10/08/thumb/100x82_avisloader.jpg)\\\\\n\\\\\nAI is a data-breach time bomb: Read the new report](https://info.varonis.com/en/state-of-data-security-report-2025?utm_source=bleepingcomputer&utm_medium=referral&utm_campaign=bleepingcomputer_referral&utm_content=article)\n- [![Overdue a password health-check? Audit your Active Directory for free](https://www.bleepstatic.com/content/posts/2026/10/06/thumb/100x82_specops-mfa-gaps.jpg)\\\\\n\\\\\nOverdue a password health-check? Audit your Active Directory for free](https://specopssoft.com/product/specops-password-auditor/?utm_source=bleepingcomputer&utm_medium=referral&utm_campaign=bleepingcomputer_referral_na&utm_content=article)\n- [![Get a full picture of your validation coverage, beyond what pentesting can see.](https://www.bleepstatic.com/images/news/security/p/picus/blind-spots-agentic-pentesting/picus-sidebar.jpg)\\\\\n\\\\\nGet a full picture of your validation coverage, beyond what pentesting can see.](https://hubs.li/Q04zT2pc0)\n- [![AWS saw a valid key and let the agent clear a production bucket. See how Token Security ties each agent to its owner and limits it to read-only access.](https://www.bleepstatic.com/content/posts/2026/10/07/thumb/100x82_token-ai-agents.jpg)\\\\\n\\\\\nAWS saw a valid key and let the agent clear a production bucket. See how Token Security ties each agent to its owner and limits it to read-only access.](https://www.token.security/book-a-demo?utm_source=bleepingcomputer&utm_medium=3rd-party&utm_campaign=bleepingcomputer&utm_content=oct-9)\n- [![Move from visibility to action with AITEM, Criminal IP’s next evolution of ASM](https://www.bleepstatic.com/content/posts/2026/10/06/thumb/100x82_criminal-ip-aitem.jpg)\\\\\n\\\\\nMove from visibility to action with AITEM, Criminal IP’s next evolution of ASM](https://www.criminalip.io/?mtm_campaign=GovWare_2026&mtm_source=BleepingComputer&mtm_medium=press)\n\n[Back to Top](https://www.bleepingcomputer.com/news/security/cloudz-malware-abuses-microsoft-phone-link-to-steal-sms-and-otps/# \"Back to Top\")\n\n#### Login\n\nUsername\n\nPassword\n\nRemember Me\n\nSign in anonymously\n\n[![Sign in with Twitter button](https://www.bleepstatic.com/images/site/login/twitter.png) Sign in with Twitter](https://www.bleepingcomputer.com/forums/index.php?app=core&module=global&section=login&serviceClick=twitter&return=https://www.bleepingcomputer.com/news/security/cloudz-malware-abuses-microsoft-phone-link-to-steal-sms-and-otps/)\n\n* * *\n\nNot a member yet? [Register Now](https://www.bleepingcomputer.com/forums/index.php?app=core&module=global&section=register \"Register account\")\n\n#### Reporter\n\n###### Help us understand the problem. What is going on with this comment?\n\n- Spam\n- Abusive or Harmful\n- Inappropriate content\n- Strong language\n- Other\n\nRead our [posting guidelinese](https://www.bleepingcomputer.com/posting-guidelines/) to learn what content is prohibited.\n\nSubmitting...\n\n[SUBMIT](https://www.bleepingcomputer.com/news/security/cloudz-malware-abuses-microsoft-phone-link-to-steal-sms-and-otps/# \"Submit\")",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "og:type": "article",
+        "Keywords": "computers, windows, linux, mac, support, tech support, spyware, malware, virus, security, CloudZ, Malware, Microsoft Phone Link, Mobile, OTP, Phone Link, SMS,virus removal, malware removal, computer help, technical support",
+        "description": "A new version of the CloudZ remote access tool (RAT) is deploying a previously unseen malicious plugin called Pheno that hijacks the Microsoft Phone Link connection to steal sensitive codes from mobile devices.",
+        "article:content_tier": "free",
+        "twitter:card": "summary_large_image",
+        "ogSiteName": "BleepingComputer",
+        "ogLocale": "en_us",
+        "application-name": "BleepingComputer",
+        "og:image": "https://www.bleepstatic.com/content/hl-images/2026/02/13/Windows_headpic.jpg",
+        "fb:app_id": "517620508265293",
+        "og:image:secure_url": "https://www.bleepstatic.com/content/hl-images/2026/02/13/Windows_headpic.jpg",
+        "abstract": "A new version of the CloudZ remote access tool (RAT) is deploying a previously unseen malicious plugin called Pheno that hijacks the Microsoft Phone Link connection to steal sensitive codes from mobile devices.",
+        "og:image:width": "1600",
+        "twitter:creator": "@BleepinComputer",
+        "robots": "max-image-preview:large",
+        "news_keywords": "CloudZ, Malware, Microsoft Phone Link, Mobile, OTP, Phone Link, SMS, Security, InfoSec, Computer Security",
+        "og:description": "A new version of the CloudZ remote access tool (RAT) is deploying a previously unseen malicious plugin called Pheno that hijacks the Microsoft Phone Link connection to steal sensitive codes from mobile devices.",
+        "title": "CloudZ malware abuses Microsoft Phone Link to steal SMS and OTPs",
+        "og:locale": "en_us",
+        "og:site_name": "BleepingComputer",
+        "og:title": "CloudZ malware abuses Microsoft Phone Link to steal SMS and OTPs",
+        "position": [
+          "1",
+          "2",
+          "3",
+          "4"
+        ],
+        "Owner": "Bleeping Computer, LLC.",
+        "ogTitle": "CloudZ malware abuses Microsoft Phone Link to steal SMS and OTPs",
+        "ogUrl": "https://www.bleepingcomputer.com/news/security/cloudz-malware-abuses-microsoft-phone-link-to-steal-sms-and-otps/",
+        "twitter:site": "@BleepinComputer",
+        "articleSection": [
+          "Security",
+          "Mobile"
+        ],
+        "ogImage": "https://www.bleepstatic.com/content/hl-images/2026/02/13/Windows_headpic.jpg",
+        "twitter:description": "A new version of the CloudZ remote access tool (RAT) is deploying a previously unseen malicious plugin called Pheno that hijacks the Microsoft Phone Link connection to steal sensitive codes from mobile devices.",
+        "ogDescription": "A new version of the CloudZ remote access tool (RAT) is deploying a previously unseen malicious plugin called Pheno that hijacks the Microsoft Phone Link connection to steal sensitive codes from mobile devices.",
+        "twitter:image": "https://www.bleepstatic.com/content/hl-images/2026/02/13/Windows_headpic.jpg",
+        "language": "en-us",
+        "og:url": "https://www.bleepingcomputer.com/news/security/cloudz-malware-abuses-microsoft-phone-link-to-steal-sms-and-otps/",
+        "viewport": "width=device-width, initial-scale=1",
+        "twitter:title": "CloudZ malware abuses Microsoft Phone Link to steal SMS and OTPs",
+        "og:image:height": "900",
+        "favicon": "https://www.bleepstatic.com/favicon/bleeping.ico",
+        "scrapeId": "01a14421-39c4-71e2-a1b6-d29fa8b467c1",
+        "sourceURL": "https://www.bleepingcomputer.com/news/security/cloudz-malware-abuses-microsoft-phone-link-to-steal-sms-and-otps",
+        "url": "https://www.bleepingcomputer.com/news/security/cloudz-malware-abuses-microsoft-phone-link-to-steal-sms-and-otps/",
+        "statusCode": 200,
+        "contentType": "text/html; charset=UTF-8",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "cacheState": "miss",
+        "indexId": "350f6111-6786-4c84-99bb-28e8749c8983",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 1189,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 1257
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 51099,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "tavily.search": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 1
+  }
+}

@@ -1,0 +1,502 @@
+{
+  "id": "antibot-shell",
+  "executed_at": "2026-10-16T09:50:22.443055+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "Open the Chiphell viewthread page and record whether the body is a captcha shell",
+  "answer": "**No — the viewthread body that loaded is a normal Discuz thread, not a captcha shell.**\n\n1. **`forum.php?mod=viewthread&tid=2438513`** — Full thread page (title, posts, reply box, footer). No captcha markup. [web:20]  \n   https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513\n\n2. **`forum.php?mod=viewthread&tid=2509145`** — Fetch returned **no content** (empty body), not a readable captcha page. [web:13]  \n   https://www.chiphell.com/forum.php?mod=viewthread&tid=2509145\n\n3. **`thread-2509145-1-1.html`** — Same empty result. [web:14]  \n   https://www.chiphell.com/thread-2509145-1-1.html\n\n4. **Search snippet of `thread-2509145-1-1.html`** — Indexed as a normal UI-layout thread, not a captcha interstitial. [web:2]  \n   https://www.chiphell.com/thread-2509145-1-1.html\n\n5. **Search snippet of `thread-2438513-1-1.html`** — Indexed as the archived-posts discussion, full post text. [web:5]  \n   https://www.chiphell.com/thread-2438513-1-1.html\n\n6. **Printable viewthread** — Search shows printable thread text, not a captcha shell. [web:1]  \n   https://www.chiphell.com/forum.php?action=printable&mod=viewthread&tid=2438513\n\n7. **Related user report** — Nighttime “请求已被站点的安全策略拦截” (WAF/policy block), not described as a captcha page on the thread itself. [web:16]  \n   https://www.chiphell.com/thread-2844250-1-1.html\n\n8. **Related user report** — Baidu WAF / remote-login SMS check, then normal access; thread body is a normal post. [web:18]  \n   https://www.chiphell.com/thread-2648682-1-1.html\n\n**Record:** On the viewthread URL that returned a body, the page is a standard Chiphell/Discuz thread. Two other viewthread URLs returned an empty body, which is not identifiable as a captcha shell from the fetch.",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://greasyfork.org/it/scripts/7752-appchan-x/code",
+      "url": "https://greasyfork.org/it/scripts/7752-appchan-x/code",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "https://www.chiphell.com/thread-2509145-1-1.html",
+      "url": "https://www.chiphell.com/thread-2509145-1-1.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://www.chiphell.com/thread-2438513-1-1.html",
+      "url": "https://www.chiphell.com/thread-2438513-1-1.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "https://www.chiphell.com/forum.php?mod=forumdisplay&fid=315&filter=reply&orderby=views&typeid=935&page=2",
+      "url": "https://www.chiphell.com/forum.php?fid=315&filter=reply&mod=forumdisplay&orderby=views&page=2&typeid=935",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://www.chiphell.com/thread-2648682-1-1.html",
+      "url": "https://www.chiphell.com/thread-2648682-1-1.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "https://www.chiphell.com/thread-2615820-1-1.html",
+      "url": "https://www.chiphell.com/thread-2615820-1-1.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://www.chiphell.com/forum.php?mod=viewthread&tid=2509145",
+      "url": "https://www.chiphell.com/forum.php?mod=viewthread&tid=2509145",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "https://www.chiphell.com/thread-2543210-1-1.html",
+      "url": "https://www.chiphell.com/thread-2543210-1-1.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://greasyfork.org/it/scripts/7752-appchan-x/code",
+      "url": "https://greasyfork.org/it/scripts/7752-appchan-x/code",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "https://www.chiphell.com/thread-2509145-1-1.html",
+      "url": "https://www.chiphell.com/thread-2509145-1-1.html",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://www.chiphell.com/thread-2438513-1-1.html",
+      "url": "https://www.chiphell.com/thread-2438513-1-1.html",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "https://www.chiphell.com/forum.php?mod=forumdisplay&fid=315&filter=reply&orderby=views&typeid=935&page=2",
+      "url": "https://www.chiphell.com/forum.php?fid=315&filter=reply&mod=forumdisplay&orderby=views&page=2&typeid=935",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://www.chiphell.com/thread-2648682-1-1.html",
+      "url": "https://www.chiphell.com/thread-2648682-1-1.html",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "https://www.chiphell.com/thread-2615820-1-1.html",
+      "url": "https://www.chiphell.com/thread-2615820-1-1.html",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://www.chiphell.com/forum.php?mod=viewthread&tid=2509145",
+      "url": "https://www.chiphell.com/forum.php?mod=viewthread&tid=2509145",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "https://www.chiphell.com/thread-2543210-1-1.html",
+      "url": "https://www.chiphell.com/thread-2543210-1-1.html",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://www.chiphell.com/forum.php?mod=forumdisplay&fid=146&orderby=dateline&filter=author&mobile=no&page=71",
+      "url": "https://www.chiphell.com/forum.php?fid=146&filter=author&mobile=no&mod=forumdisplay&orderby=dateline&page=71",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://www.chiphell.com/forum.php?action=printable&mod=viewthread&tid=2438513",
+      "url": "https://www.chiphell.com/forum.php?action=printable&mod=viewthread&tid=2438513",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://www.chiphell.com/forum.php?mod=forumdisplay&fid=146&filter=typeid&mobile=no&mod=forumdisplay&typ=&page=295",
+      "url": "https://www.chiphell.com/forum.php?fid=146&filter=typeid&mobile=no&mod=forumdisplay&mod=forumdisplay&page=295&typ=",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://www.chiphell.com/thread-2582504-1-1.html",
+      "url": "https://www.chiphell.com/thread-2582504-1-1.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://captchaforum.com/threads/how-to-solve-chinese-captcha-a-comprehensive-guide.6079/",
+      "url": "https://captchaforum.com/threads/how-to-solve-chinese-captcha-a-comprehensive-guide.6079",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://gitextract.com/c0ny1/captcha-killer",
+      "url": "https://gitextract.com/c0ny1/captcha-killer",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://www.chiphell.com/forum.php?mod=forumdisplay&fid=146&filter=reply&orderby=views&recommend=1&mobile=no&page=922",
+      "url": "https://www.chiphell.com/forum.php?fid=146&filter=reply&mobile=no&mod=forumdisplay&orderby=views&page=922&recommend=1",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://capmonster.cloud/en/blog/identify-captcha-types/",
+      "url": "https://capmonster.cloud/en/blog/identify-captcha-types",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://trycap.dev/guide/troubleshooting/instrumentation.html",
+      "url": "https://trycap.dev/guide/troubleshooting/instrumentation.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://www.chiphell.com/thread-2844250-1-1.html",
+      "url": "https://www.chiphell.com/thread-2844250-1-1.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513",
+      "url": "https://www.chiphell.com/forum.php?mod=viewthread&tid=2438513",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "https://www.chiphell.com/thread-1041179-1-1.html",
+      "url": "https://www.chiphell.com/thread-1041179-1-1.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 17881,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://greasyfork.org/it/scripts/7752-appchan-x/code",
+      "final_url": "https://greasyfork.org/it/scripts/7752-appchan-x/code",
+      "title": "appchan x - Codice sorgente",
+      "content": "**[Greasy Fork is available in English.](https://greasyfork.org/en/scripts/7752-appchan-x/code)**\n\n- [Informazioni](https://greasyfork.org/it/scripts/7752-appchan-x)\n- Codice\n- [Storia](https://greasyfork.org/it/scripts/7752-appchan-x/versions)\n- [Feedback (0)](https://greasyfork.org/it/scripts/7752-appchan-x/feedback)\n- [Statistiche](https://greasyfork.org/it/scripts/7752-appchan-x/stats)\n\n[Installa questo script](https://update.greasyfork.org/scripts/7752/appchan%20x.user.js) [?](https://greasyfork.org/it/help/installing-user-scripts \"Come installare\")\n\n[Fai una domanda, pubblica una recensione](https://greasyfork.org/it/scripts/7752-appchan-x/feedback#post-discussion), oppure [segnala lo script](https://greasyfork.org/it/reports/new?item_class=script&item_id=7752).\n\nManda a capo le linee\n\n```\n// Generated by CoffeeScript\n// ==UserScript==\n// @name         appchan x\n// @version      2.10.15\n// @minGMVer     1.14\n// @minFFVer     26\n// @namespace    zixaphir\n// @description  The most comprehensive 4chan userscript.\n// @license      MIT; https://github.com/zixaphir/appchan-x/blob/master/LICENSE\n// @match        *://*.4chan.org/*\n// @match        *://boards.4chan.org/*\n// @match        *://sys.4chan.org/*\n// @match        *://a.4cdn.org/*\n// @match        *://i.4cdn.org/*\n// @match        *://www.google.com/recaptcha/api/fallback?k=6Ldp2bsSAAAAAAJ5uyx_lx34lJeEpTLVkP5k04qc\n// @exclude      *://blog.4chan.org/*\n// @exclude      *://dis.4chan.org/*\n// @grant        GM_getValue\n// @grant        GM_setValue\n// @grant        GM_deleteValue\n// @grant        GM_listValues\n// @grant        GM_openInTab\n// @grant        GM_xmlhttpRequest\n// @run-at       document-start\n// @icon         data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAElBMVEX///8EZgR8ulSk0oT///8EAgQ1A88mAAAAAXRSTlMAQObYZgAAAIpJREFUeF6t0sENwjAMhWF84N4H6gAYMUBkdQMYwfuvwmstEeD4kl892P0OaaWcpga2/K0SGII1HNBXARgu7veoY3ANd+esgMHZIz85u0EABrbms3pl/bkC1Tn5ihGOfQwqHeZ/FdYdirEMgCG2ZAQWDTL0m9FvjAhcvoGNAK2gZhGYYX9+ZgFm9gaiNmNkMENY4QAAAABJRU5ErkJggg==\n// ==/UserScript==\n\n/*\n* appchan x - Version 2.10.15 - 2016-02-12\n*\n* Licensed under the MIT license.\n* https://github.com/zixaphir/appchan-x/blob/master/LICENSE\n*\n* Appchan X Copyright © 2013-2016 Zixaphir <zixaphirmoxphar@gmail.com>\n* http://zixaphir.github.io/appchan-x/\n* 4chan x Copyright © 2009-2011 James Campos <james.r.campos@gmail.com>\n* https://github.com/aeosynth/4chan-x\n* 4chan x Copyright © 2012-2016 Nicolas Stepien <stepien.nicolas@gmail.com>\n* https://4chan-x.just-believe.in/\n* 4chan x Copyright © 2013-2016 Jordan Bates <saudrapsmann@gmail.com>\n* http://seaweedchan.github.io/4chan-x/\n* 4chan x Copyright © 2012-2016 ihavenoface\n* http://ihavenoface.github.io/4chan-x/\n* 4chan SS Copyright © 2011-2013 Ahodesuka\n* https://github.com/ahodesuka/4chan-Style-Script/\n*\n* Permission is hereby granted, free of charge, to any person\n* obtaining a copy of this software and associated documentation\n* files (the \"Software\"), to deal in the Software without\n* restriction, including without limitation the rights to use,\n* copy, modify, merge, publish, distribute, sublicense, and/or sell\n* copies of the Software, and to permit persons to whom the\n* Software is furnished to do so, subject to the following\n* conditions:\n*\n* The above copyright notice and this permission notice shall be\n* included in all copies or substantial portions of the Software.\n* THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\n* EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES\n* OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\n* NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT\n* HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,\n* WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING\n* FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR\n* OTHER DEALINGS IN THE SOFTWARE.\n*\n* Contributors:\n* aeosynth\n* mayhemydg\n* noface\n* !K.WeEabo0o\n* blaise\n* that4chanwolf\n* desuwa\n* seaweed\n* e000\n* ahodesuka\n* Shou\n* ferongr\n* xat\n* Ongpot\n* thisisanon\n* Anonymous\n* Seiba\n* herpaderpderp\n* WakiMiko\n* btmcsweeney\n* AppleBloom\n* detharonil\n*\n* All the people who've taken the time to write bug reports.\n*\n* Thank you.\n*/\n\n/*\n* Contains data from external sources:\n*\n* audio/beep.wav from http://freesound.org/people/pierrecartoons1979/sounds/90112/\n*   cc-by-nc-3.0\n*\n* 4chan/4chan-JS (https://github.com/4chan/4chan-JS)\n*   Copyright (c) 2012-2013, 4chan LLC\n*   All rights reserved.\n*\n*   license: https://github.com/4chan/4chan-JS/blob/master/LICENSE\n*\n* jsColor: (http://jscolor.com/)\n*   Copyright (c) Jan Odvarko, http://odvarko.cz\n*\n*   license: http://www.gnu.org/copyleft/lesser.html\n*\n*/\n'use strict';\n\n(function() {\n  var $, $$, Anonymize, AntiAutoplay, ArchiveLink, Banner, Board, Build, Callbacks, Captcha, CatalogLinks, CatalogThread, Clone, Color, Conf, Config, Connection, CrossOrigin, CustomCSS, DataBoard, DeleteLink, DownloadLink, E, Embedding, ExpandComment, ExpandThread, FappeTyme, Favicon, FileInfo, Filter, Flash, Fourchan, Gallery, Get, GlobalMessage, Header, IDColor, IDHighlight, ImageCommon, ImageExpand, ImageHover, ImageLoader, Index, JSColor, Keybinds, Labels, Linkify, Main, MarkNewIPs, MascotTools, Mascots, Menu, Nav, Navigate, Notice, PSAHiding, Polyfill, Post, PostHiding, QR, QuoteBacklink, QuoteInline, QuoteMarkers, QuotePreview, QuoteStrikeThrough, QuoteThreading, Quotify, RandomAccessList, Recursive, Redirect, RelativeDates, RemoveSpoilers, ReportLink, RevealSpoilers, Rice, Sauce, Settings, ShimSet, SimpleDict, Style, ThemeTools, Themes, Thread, ThreadExcerpt, ThreadStats, ThreadUpdater, ThreadWatcher, Time, UI, Unread, c, d, doc, editMascot, editTheme, g, userNavigation,\n    __slice = [].slice,\n    __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; },\n    __hasProp = {}.hasOwnProperty,\n    __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; },\n    __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };\n\n  Array.prototype.indexOf = function(val, i) {\n    var len;\n    i || (i = 0);\n    len = this.length;\n    while (i < len) {\n      if (this[i] === val) {\n        return i;\n      }\n      i++;\n    }\n    return -1;\n  };\n\n  __indexOf = [].indexOf;\n\n  Config = {\n    main: {\n      'Miscellaneous': {\n        'JSON Navigation': [true, 'Use JSON for loading the Board Index and Threads. Also allows searching and sorting the board index and infinite scolling.'],\n        'Update Stale Index': [true, 'Updates the board index if it hasn\\'t been updated in ten or more minutes when 4chan gains browser focus (like switching tabs or windows).'],\n        'Catalog Links': [true, 'Add toggle link in header menu to turn Navigation links into links to each board\\'s catalog.'],\n        'External Catalog': [false, 'Link to external catalog instead of the internal one.'],\n        'Desktop Notifications': [false, 'Enables desktop notifications across various appchan x features.'],\n        '404 Redirect': [true, 'Redirect dead threads and images.'],\n        'Exempt Archives from Encryption': [false, 'Permit loading content from, and warningless redirects to, HTTP-only archives from HTTPS pages.'],\n        'Keybinds': [true, 'Bind actions to keyboard shortcuts.'],\n        'Time Formatting': [true, 'Localize and format timestamps.'],\n        'Relative Post Dates': [true, 'Display dates like \"3 minutes ago\". Tooltip shows the timestamp.'],\n        'Relative Date Title': [false, 'Show Relative Post Date only when hovering over dates.', 1],\n        'File Info Formatting': [true, 'Reformat the file information.'],\n        'Thread Expansion': [true, 'Add buttons to expand threads.'],\n        'Comment Expansion': [false, 'Expand Comments that are too long to display on the index. Does not work with JSON Navigation.'],\n        'Index Navigation': [false, 'Add buttons to navigate between threads.'],\n        'Reply Navigation': [false, 'Add buttons to navigate to top / bottom of thread.'],\n        'Show Dice Roll': [true, 'Show dice that were entered into the email field.'],\n        'Color User IDs': [true, 'Assign unique colors to user IDs on boards that use them'],\n        'Remove Spoilers': [false, 'Remove all spoilers in text.'],\n        'Reveal Spoilers': [false, 'Indicate spoilers if Remove Spoilers is enabled, or make the text appear hovered if Remove Spoiler is disabled.'],\n        'Show Support Message': [true, 'Warn if your browser is unsupported. appchan x may not operate correctly on unsupported browser versions.'],\n        'Normalize URL': [true, 'Rewrite the URL of the current page, removing stubs and changing /res/ to /thread/.'],\n        'Announcement Hiding': [true, 'Enable announcements to be hidden.'],\n        'Disable Autoplaying Sounds': [false, 'Prevent sounds on the page from autoplaying.']\n      },\n      'Linkification': {\n        'Linkify': [true, 'Convert text into links where applicable.'],\n        'Link Title': [true, 'Replace the link of a supported site with its actual title. Currently Supported: YouTube, Vimeo, SoundCloud, and Github gists', 1],\n        'Embedding': [true, 'Embed supported services. Note: Some services don\\'t work on HTTPS.', 1],\n        'Auto-embed': [false, 'Auto-embed Linkify Embeds.', 2],\n        'Floating Embeds': [false, 'Embed content in a frame that remains in place when the page is scrolled.', 2]\n      },\n      'Filtering': {\n        'Anonymize': [false, 'Make everyone Anonymous.'],\n        'Filter': [true, 'Self-moderation placebo.'],\n        'Recursive Hiding': [true, 'Hide replies of hidden posts, recursively.'],\n        'Post Hiding': [false, 'Add buttons to hide posts.'],\n        'Filtered Backlinks': [true, 'When enabled, shows backlinks to filtered posts with a line-through decoration. Otherwise, hides the backlinks.'],\n        'Stubs': [true, 'Show stubs of hidden threads / replies.']\n      },\n      'Images and Videos': {\n        'Image Expansion': [true, 'Expand images / videos.'],\n        'Image Hover': [true, 'Show full image / video on mouseover.'],\n        'Image Hover in Catalog': [false, 'Show full image / video on mouseover on hover in the catalog.'],\n        'Gallery': [true, 'Adds a simple and cute image gallery.'],\n        'Fullscreen Gallery': [false, 'Open gallery in fullscreen mode.', 1],\n        'PDF in Gallery': [false, 'Show PDF files in gallery.', 1],\n        'Sauce': [true, 'Add sauce links to images.'],\n        'Reveal Spoiler Thumbnails': [false, 'Replace spoiler thumbnails with the original image.'],\n        'Replace GIF': [false, 'Replace gif thumbnails with the actual image.'],\n        'Replace JPG': [false, 'Replace jpg thumbnails with the actual image.'],\n        'Replace PNG': [false, 'Replace png thumbnails with the actual image.'],\n        'Replace WEBM': [false, 'Replace webm thumbnails with the actual webm video. Probably will degrade browser performance ;)'],\n        'Image Prefetching': [false, 'Add link in header menu to turn on image preloading.'],\n        'Fappe Tyme': [false, 'Hide posts without images when header menu item is checked. *hint* *hint*'],\n        'Werk Tyme': [false, 'Hide all post images when header menu item is checked.'],\n        'Autoplay': [true, 'Videos begin playing immediately when opened.'],\n        'Restart when Opened': [true, 'Restart GIFs and WebMs when you hover over or expand them.'],\n        'Show Controls': [true, 'Show controls on videos expanded inline. Turn this off if you want to contract videos by clicking on them.'],\n        'Loop in New Tab': [true, 'Loop videos opened in their own tabs.'],\n        'Add Download Attribute to Filename': [true, 'Adds the Download attribute to the file link above image thumbnails. Useful for download managers like DownThemAll 3.0 that support renaming downloads with the download attribute.']\n      },\n      'Menu': {\n        'Menu': [true, 'Add a drop-down menu to posts.'],\n        'Report Link': [true, 'Add a report link to the menu.', 1],\n        'Post Hiding Link': [true, 'Add a link to hide posts.', 1],\n        'Delete Link': [true, 'Add post and image deletion links to the menu.', 1],\n        'Download Link': [true, 'Add a download with original filename link to the menu.', 1],\n        'Archive Link': [true, 'Add an archive link to the menu.', 1]\n      },\n      'Monitoring': {\n        'Thread Updater': [true, 'Fetch and insert new replies. Has more options in its own dialog.'],\n        'Unread Count': [true, 'Show the unread posts count in the tab title.'],\n        'Quoted Title': [false, 'Change the page title to reflect you\\'ve been quoted.', 1],\n        'Hide Unread Count at (0)': [false, 'Hide the unread posts count in the tab title when it reaches 0.', 1],\n        'Unread Favicon': [true, 'Show a different favicon when there are unread posts.'],\n        'Unread Line': [true, 'Show a line to distinguish read posts from unread ones.'],\n        'Scroll to Last Read Post': [true, 'Scroll back to the last read post when reopening a thread.'],\n        'Thread Stats': [true, 'Display reply and image count.'],\n        'IP Count in Stats': [true, 'Display the unique IP count in the thread stats.', 1],\n        'Page Count in Stats': [true, 'Display the page count in the thread stats.', 1],\n        'Updater and Stats in Header': [true, 'Places the thread updater and thread stats in the header instead of floating them.'],\n        'Thread Watcher': [true, 'Bookmark threads.'],\n        'Mark New IPs': [false, 'Label each post from a new IP with the thread\\'s current IP count.']\n      },\n      'Posting': {\n        'Header Shortcut': [true, 'Add a shortcut to the header to toggle the QR.'],\n        'Page Shortcut': [false, 'Add a shortcut to the top of the page to toggle the QR.'],\n        'Persistent QR': [true, 'The Quick reply won\\'t disappear after posting.'],\n        'Auto Hide QR': [true, 'Automatically hide the quick reply when posting.'],\n        'Open Post in New Tab': [true, 'Open new threads or replies to a thread from the index in a new tab.'],\n        'Remember QR Size': [false, 'Remember the size of the quick reply\\'s comment field.'],\n        'Remember Spoiler': [false, 'Remember the spoiler state, instead of resetting after posting.'],\n        'Show Name and Subject': [false, 'Show the classic name, email, and subject fields in the QR, even when 4chan doesn\\'t use them all.'],\n        'Cooldown': [true, 'Indicate the remaining time before posting again.'],\n        'Posting Success Notifications': [true, 'Show notifications on successful post creation or file uploading.'],\n        'Captcha Warning Notifications': [true, 'When disabled, shows a red border on the CAPTCHA input until a key is pressed instead of a notification.'],\n        'Dump List Before Comment': [false, 'Position of the QR\\'s Dump List.'],\n        'Auto-load captcha': [false, 'Automatically load the captcha in the QR even if your post is empty.'],\n        'Post on Captcha Completion': [false, 'Submit the post immediately when the captcha is completed.'],\n        'Captcha Fixes': [true, 'Make captcha easier to use, especially with the keyboard.'],\n        'Use Recaptcha v1': [false, 'Use the old text version of Recaptcha.']\n      },\n      'Quote Links': {\n        'Quote Backlinks': [true, 'Add quote backlinks.'],\n        'OP Backlinks': [true, 'Add backlinks to the OP.', 1],\n        'Quote Inlining': [true, 'Inline quoted post on click.'],\n        'Quote Hash Navigation': [false, 'Include an extra link after quotes for autoscrolling to quoted posts.', 1],\n        'Forward Hiding': [true, 'Hide original posts of inlined backlinks.', 1],\n        'Quote Previewing': [true, 'Show quoted post on hover.'],\n        'Quote Highlighting': [true, 'Highlight the previewed post.', 1],\n        'Resurrect Quotes': [true, 'Link dead quotes to the archives.'],\n        'Mark Quotes of You': [true, 'Add \\'(You)\\' to quotes linking to your posts.'],\n        'Highlight Posts Quoting You': [false, 'Highlights any posts that contain a quote to your post.', 1],\n        'Highlight Own Posts': [false, 'Highlights own posts if Quote Markers are enabled.', 1],\n        'Double Beep': [false, 'Beeps twice to notify you of a post made that is quoting you.', 1],\n        'Mark OP Quotes': [true, 'Add \\'(OP)\\' to OP quotes.'],\n        'Mark Cross-thread Quotes': [true, 'Add \\'(Cross-thread)\\' to cross-threads quotes.'],\n        'Quote Threading': [false, 'Thread conversations']\n      }\n    },\n    imageExpansion: {\n      'Fit width': [true, ''],\n      'Fit height': [false, ''],\n      'Scroll into view': [true, 'Scroll down when expanding images to bring the full image into view.'],\n      'Expand spoilers': [false, 'Expand all images along with spoilers.'],\n      'Expand videos': [false, 'Expand all images also expands videos.'],\n      'Expand from here': [false, 'Expand all images only from current position to thread end.'],\n      'Advance on contract': [false, 'Advance to next post when contracting an expanded image.']\n    },\n    gallery: {\n      'Hide Thumbnails': [false],\n      'Fit Width': [true],\n      'Fit Height': [true],\n      'Scroll to Post': [true],\n      'Slide Delay': [6.0]\n    },\n    style: {\n      Interface: {\n        'Single Column Mode': [true, 'Presents options in a single column, rather than in blocks.'],\n        'Sidebar': ['normal', 'Alter the sidebar size. Completely hiding it can cause content to overlap, but with the correct option combinations can create a minimal 4chan layout that has more efficient screen real-estate than vanilla 4chan.', ['large', 'normal', 'minimal', 'hide']],\n        'Sidebar Location': ['right', 'The side of the page the sidebar content is on. It is highly recommended that you do not hide the sidebar if you change this option.', ['left', 'right']],\n        'Top Thread Padding': ['0', 'Add some spacing between the top edge of document and the threads.', 'text'],\n        'Bottom Thread Padding': ['0', 'Add some spacing between the bottom edge of document and the threads.', 'text'],\n        'Left Thread Padding': ['0', 'Add some spacing between the left edge of document and the threads.', 'text'],\n        'Right Thread Padding': ['0', 'Add some spacing between the right edge of document and the threads.', 'text'],\n        'Announcements': ['slideout', 'The style of announcements and the ability to hide them.', ['4chan default', 'slideout', 'hide']],\n        'Board Title': ['at sidebar top', 'The positioning of the board\\'s logo and subtitle.', ['at sidebar top', 'at sidebar bottom', 'at top', 'under post form', 'hide']],\n        'Custom Board Titles': [false, 'Customize Board Titles by shift-clicking the board title or subtitle.'],\n        'Persistent Custom Board Titles': [false, 'Forces custom board titles to be persistent, even if moot updates the board titles.'],\n        'Board Subtitle': [true, 'Show the board subtitle.'],\n        '4chan Banner': ['at sidebar top', 'The positioning of 4chan\\'s image banner.', ['at sidebar top', 'at sidebar bottom', 'under post form', 'at top', 'hide']],\n        'Icon Orientation': ['horizontal', 'Change the orientation of the appchan x icons.', ['horizontal', 'vertical']],\n        'Slideout Watcher': [true, 'Adds an icon you can hover over to show the watcher, as opposed to having the watcher always visible.'],\n        'Hide Navlinks': [false, 'Hides the UI at the top of the page that allows you to navigate between pages, like \"Return\", \"Catalog\", \"Bottom\".']\n      },\n      Posts: {\n        'Alternate Post Colors': [false, 'Make post background colors alternate every other post.'],\n        'Color Reply Headings': [false, 'Give the post info a background.'],\n        'Color File Info': [false, 'Give the file info a background.'],\n        'OP Background': [false, 'Adds a border and background color to the OP Post, as if it were a reply.'],\n        'Backlinks Position': ['default', 'The position of backlinks in relation to the post.', ['default', 'lower left', 'lower right']],\n        'Filtered Backlinks': [true, 'Hide backlinks to filtered posts.'],\n        'Force Reply Break': [false, 'Force replies to occupy their own line and not be adjacent to the OP image.'],\n        'Fit Width Replies': [false, 'Replies fit the entire width of the page.'],\n        'Indent Replies': [true, 'Indent posts under the OP.'],\n        'Hide Delete UI': [false, 'Hides vanilla report and delete functionality and UI. This does not affect Appchan\\'s Menu functionality.'],\n        'Post Spacing': ['3', 'The amount of space between replies.', 'text'],\n        'Vertical Post Padding': ['5', 'The vertical padding around post content of replies.', 'text'],\n        'Horizontal Post Padding': ['20', 'The horizontal padding around post content of replies.', 'text'],\n        'Hide Horizontal Rules': [false, 'Hides lines between threads.'],\n        'Backlink Icons': [false, 'Replaces backlink text with a small, compact icon.'],\n        'Compact File Text': [false, 'Shrink the font of the file text to be less obtrusive.']\n      },\n      Aesthetics: {\n        '4chan SS Navigation': [false, 'Try to emulate the appearance of 4chan SS\\'s Navigation.'],\n        '4chan SS Sidebar': [false, 'Try to emulate the appearance of 4chan SS\\'s Sidebar.'],\n        '4chan Banner Reflection': [false, 'Adds reflection effects to 4chan\\'s image banner.'],\n        'Faded 4chan Banner': [true, 'Make 4chan\\'s image banner translucent.'],\n        'Hide Ads': [false, 'Block advertisements. It\\'s probably better to use AdBlock for this.'],\n        'Shrink Ads': [false, 'Make 4chan advertisements smaller.'],\n        'Fade Ads': [true, 'Make 4chan\\'s ads translucent.'],\n        'Bolds': [true, 'Bold text for names and such.'],\n        'Italics': [false, 'Give tripcodes italics.'],\n        'Sidebar Glow': [false, 'Adds a glow to the sidebar\\'s text.'],\n        'Circle Checkboxes': [false, 'Make checkboxes circular.'],\n        'Font': ['sans-serif', 'The font used by all elements of 4chan.', 'text'],\n        'Font Size': ['13', 'The font size of posts and various UI. This changes most, but not all, font sizes.', 'text'],\n        'Icons': ['oneechan', 'Icon theme which Appchan will use.', ['oneechan', '4chan SS']],\n        'Invisible Icons': [false, 'Makes icons invisible unless hovered. Invisible really is \"invisible\", so don\\'t use it if you don\\'t have your icons memorized or don\\'t use keybinds.'],\n        'Quote Shadows': [true, 'Add shadows to the quote previews and inline quotes.'],\n        'Rounded Edges': [false, 'Round the edges of various 4chan elements.'],\n        'Underline Links': [false, 'Put lines under hyperlinks.'],\n        'NSFW/SFW Themes': [false, 'Choose your theme based on the SFW status of the board you are viewing.']\n      },\n      Mascots: {\n        'Mascots': [true, 'Add a pretty picture of your waifu to Appchan.'],\n        'Click to Toggle': [true, 'Click your current mascot to switch between your enabled mascots.'],\n        'Mascot Location': ['sidebar', 'Change where your mascot is located.', ['sidebar', 'opposite']],\n        'Mascot Position': ['default', 'Change where your mascot is placed in relation to the post form.', ['above post form', 'default', 'bottom', 'middle']],\n        'Mascots Overlap Posts': [true, 'Mascots overlap threads and posts.'],\n        'NSFW/SFW Mascots': [false, 'Enable or disable mascots based on the SFW status of the board you are viewing.'],\n        'Grayscale Mascots': [false, 'Force mascots to be monochrome.'],\n        'Mascot Opacity': ['1.00', 'Make Mascots transparent.', 'text'],\n        'Hide Mascots on Catalog': [false, 'Do not show mascots on the official catalog pages.'],\n        'Silhouettize Mascots': [false, 'Apply a filter to mascots to try to turn them into silhouettes.'],\n        'Silhouette Contrast': ['0', 'A number to increase the contrast of silhouettes. Suggested values: 0, 8, 16 ...', 'text']\n      },\n      Navigation: {\n        'Navigation Alignment': ['left', 'Change the text alignment of the navigation.', ['left', 'center', 'right']],\n        'Slideout Navigation': ['compact', 'How the slideout navigation will be displayed.', ['compact', 'list', 'hide']],\n        'Pagination': ['sticky bottom', 'The position of 4chan page navigation', ['sticky top', 'sticky bottom', 'top', 'bottom', 'on side', 'hide']],\n        'Pagination Alignment': ['center', 'Change the text alignment of the pagination.', ['left', 'center', 'right']],\n        'Hide Navigation Decorations': [false, 'Hide non-link text in the board navigation and pagination. This also disables the delimiters in <code>Custom Navigation</code>']\n      },\n      'Post Form': {\n        'Compact Post Form Inputs': [true, 'Use compact inputs on the post form.'],\n        'Show Post Form Header': [false, 'Force the Post Form to have a header.'],\n        'Post Form Style': ['tabbed slideout', 'How the post form will sit on the page.', ['fixed', 'slideout', 'tabbed slideout', 'slideup', 'tabbed slideup', 'float']],\n        'Post Form Slideout Transitions': [true, 'Animate slideouts for the post form.'],\n        'Transparent Post Form': [false, 'Make the post form almost invisible.'],\n        'Post Form Decorations': [false, 'Add a border and background to the post form (does not apply to the \"float\" post form style.'],\n        'Textarea Resize': ['vertical', 'Options to resize the post form\\'s comment box.', ['both', 'horizontal', 'vertical', 'none']],\n        'Tripcode Hider': [true, 'Intelligent name field hiding.'],\n        'Images Overlap Post Form': [true, 'Images expand over the post form and sidebar content, usually used with \"Expand images\" set to \"full\".'],\n        'Captcha Filter': [false, 'Apply an SVG filter to the captcha to make it match your theme. WARNING: May cause invisible captchas.']\n      }\n    },\n    threadWatcher: {\n      'Current Board': [false, 'Only show watched threads from the current board.'],\n      'Auto Update Thread Watcher': [true, 'Periodically check status of watched threads.'],\n      'Auto Watch': [false, 'Automatically watch threads you start.'],\n      'Auto Watch Reply': [false, 'Automatically watch threads you reply to.'],\n      'Auto Prune': [false, 'Automatically remove dead threads.'],\n      'Show Unread Count': [true, 'Show number of unread posts in watched threads.']\n    },\n    filter: {\n      name: \"# Filter any namefags:\\n#/^(?!Anonymous$)/\",\n      uniqueID: \"# Filter a specific ID:\\n#/Txhvk1Tl/\",\n      tripcode: \"# Filter any tripfag\\n#/^!/\",\n      capcode: \"# Set a custom class for mods:\\n#/Mod$/;highlight:mod;op:yes\\n# Set a custom class for moot:\\n#/Admin$/;highlight:moot;op:yes\",\n      subject: \"# Filter Generals on /v/:\\n#/general/i;boards:v;op:only\",\n      comment: \"# Filter Stallman copypasta on /g/:\\n#/what you\\'re refer+ing to as linux/i;boards:g\",\n      flag: '',\n      filename: '',\n      dimensions: \"# Highlight potential wallpapers:\\n#/1920x1080/;op:yes;highlight;top:no;boards:w,wg\",\n      filesize: '',\n      MD5: ''\n    },\n    sauces: \"https://www.google.com/searchbyimage?image_url=%TURL\\nhttp://iqdb.org/?url=%TURL\\n#//tineye.com/search?url=%TURL\\n#http://saucenao.com/search.php?url=%TURL\\n#http://3d.iqdb.org/?url=%TURL\\n#http://regex.info/exif.cgi?imgurl=%URL\\n# uploaders:\\n#http://imgur.com/upload?url=%URL;text:Upload to imgur\\n#http://ompldr.org/upload?url1=%URL;text:Upload to ompldr\\n# \\\"View Same\\\" in archives:\\n#//archive.foolz.us/_/search/image/%MD5/;text:View same on foolz\\n#//archive.foolz.us/%board/search/image/%MD5/;text:View same on foolz /%board/\\n#//archive.installgentoo.net/%board/image/%MD5;text:View same on installgentoo /%board/\",\n    FappeT: {\n      fappe: false,\n      werk: false\n    },\n    'Custom CSS': false,\n    Index: {\n      'Index Mode': 'paged',\n      'Previous Index Mode': 'paged',\n      'Index Sort': 'bump',\n      'Index Size': 'small',\n      'Threads per Page': 0,\n      'Open threads in a new tab': false,\n      'Show Replies': true,\n      'Pin Watched Threads': false,\n      'Anchor Hidden Threads': true,\n      'Refreshed Navigation': false\n    },\n    Header: {\n      'Fixed Header': true,\n      'Header auto-hide': false,\n      'Header auto-hide on scroll': false,\n      'Bottom Header': false,\n      'Header catalog links': false,\n      'Bottom Board List': true,\n      'Custom Board Navigation': true\n    },\n    boardnav: \"[ toggle-all ]\\na-replace\\nc-replace\\ng-replace\\nk-replace\\nv-replace\\nvg-replace\\nvr-replace\\nck-replace\\nco-replace\\nfit-replace\\njp-replace\\nmu-replace\\nsp-replace\\ntv-replace\\nvp-replace\\n[external-text:\\\"FAQ\\\",\\\"https://github.com/zixaphir/appchan-x/wiki/Frequently-Asked-Questions\\\"]\",\n    QR: {\n      'QR.personas': \"#options:\\\"sage\\\";boards:jp;always\"\n    },\n    time: '%m/%d/%y(%a)%H:%M:%S',\n    backlink: '>>%id',\n    fileInfo: '%l (%p%s, %r)',\n    favicon: 'ferongr',\n    usercss: \"/* Tripcode Italics: */\\n/*\\nspan.postertrip {\\n  font-style: italic;\\n}\\n*/\\n\\n/* Add a rounded border to thumbnails (but not expanded images): */\\n/*\\n.fileThumb > img:first-child {\\n  border: solid 2px rgba(0,0,100,0.5);\\n  border-radius: 10px;\\n}\\n*/\\n\\n/* Make highlighted posts look inset on the page: */\\n/*\\ndiv.post:target,\\ndiv.post.highlight {\\n  box-shadow: inset 2px 2px 2px rgba(0,0,0,0.2);\\n}\\n*/\",\n    hotkeys: {\n      'Toggle board list': ['Ctrl+b', 'Toggle the full board list.'],\n      'Toggle header': ['Shift+h', 'Toggle the auto-hide option of the header.'],\n      'Open empty QR': ['i', 'Open QR without post number inserted.'],\n      'Open QR': ['Shift+i', 'Open QR with post number inserted.'],\n      'Open settings': ['Alt+o', 'Open Settings.'],\n      'Close': ['Esc', 'Close Settings, Notifications or QR.']",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": true,
+      "metadata": {
+        "title": "appchan x - Codice sorgente",
+        "csrf-param": "authenticity_token",
+        "csrf-token": "cNYIwul7PZ-ifrKp0KFzGTN9_mhNouHPaQnrgONblAauvcww7C3_Seg5PU65h-cE-5-w3-COpvJdpcLwC6YOYw",
+        "og:title": "appchan x",
+        "og:description": "The most comprehensive 4chan userscript.",
+        "twitter:card": "summary",
+        "lhverifycode": "32dc01246faccb7f5b3cad5016dd5033",
+        "ogUrl": "https://greasyfork.org/scripts/7752-appchan-x",
+        "ogTitle": "appchan x",
+        "language": "it",
+        "ogDescription": "The most comprehensive 4chan userscript.",
+        "og:url": "https://greasyfork.org/scripts/7752-appchan-x",
+        "viewport": "width=device-width, initial-scale=1",
+        "clckd": "bf6242cc3039bff31a7815dff8ee247b",
+        "favicon": "https://greasyfork.org/vite/assets/blacklogo16-DftkYuVe.png",
+        "scrapeId": "01a1441e-efa3-70af-a423-da474c14368e",
+        "sourceURL": "https://greasyfork.org/it/scripts/7752-appchan-x/code",
+        "url": "https://greasyfork.org/it/scripts/7752-appchan-x/code",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "cacheState": "miss",
+        "indexId": "372ffab3-482a-460c-9657-0213780e49d5",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 2395,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 2417
+    },
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://www.chiphell.com/thread-2509145-1-1.html",
+      "final_url": "https://www.chiphell.com/thread-2509145-1-1.html",
+      "title": "从UI设计的角度考虑，论坛是否可以重新排版一下？ - 电脑讨论(新) -  Chiphell - 分享与交流用户体验   ",
+      "content": "设为首页 [收藏本站](https://www.chiphell.com/)\n\n请 **登录** 后使用快捷导航\n\n没有账号？ [加入我们](https://www.chiphell.com/member.php?mod=register)\n\n## [![Chiphell - 分享与交流用户体验](https://www.chiphell.com/static/image/common/logo.png)](https://www.chiphell.com/ \"Chiphell - 分享与交流用户体验\")\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| 账号 |  | 自动登录 | 找回密码 |\n| 密码 |  | _登录_ | [加入我们](https://www.chiphell.com/member.php?mod=register) |\n\n快捷导航\n\n- [首页](https://www.chiphell.com/)\n- [评测](https://www.chiphell.com/portal.php?mod=list&catid=1)\n- [电脑](https://www.chiphell.com/portal.php?mod=list&catid=2)\n- [掌设](https://www.chiphell.com/portal.php?mod=list&catid=36)\n- [摄影](https://www.chiphell.com/portal.php?mod=list&catid=31)\n- [照片](https://www.chiphell.com/portal.php?mod=list&catid=3)\n- [汽车](https://www.chiphell.com/portal.php?mod=list&catid=32)\n- [单车](https://www.chiphell.com/portal.php?mod=list&catid=29)\n- [模型](https://www.chiphell.com/portal.php?mod=list&catid=30)\n- [败家](https://www.chiphell.com/portal.php?mod=list&catid=33)\n- [时尚](https://www.chiphell.com/portal.php?mod=list&catid=118)\n- [腕表](https://www.chiphell.com/portal.php?mod=list&catid=125)\n- [视听](https://www.chiphell.com/portal.php?mod=list&catid=66)\n- [美食](https://www.chiphell.com/portal.php?mod=list&catid=67)\n- [家居](https://www.chiphell.com/portal.php?mod=list&catid=132)\n- [活宠](https://www.chiphell.com/portal.php?mod=list&catid=133)\n- [文化](https://www.chiphell.com/portal.php?mod=list&catid=37)\n- [社区BBS](https://www.chiphell.com/forum.php \"BBS\")\n\n- [视频评测](https://www.chiphell.com/portal.php?mod=list&catid=39)\n- [笔记本](https://www.chiphell.com/portal.php?mod=list&catid=19)\n- [机箱](https://www.chiphell.com/portal.php?mod=list&catid=11)\n- [处理器](https://www.chiphell.com/portal.php?mod=list&catid=13)\n- [散热器](https://www.chiphell.com/portal.php?mod=list&catid=14)\n- [主板](https://www.chiphell.com/portal.php?mod=list&catid=15)\n- [内存](https://www.chiphell.com/portal.php?mod=list&catid=137)\n- [外设](https://www.chiphell.com/portal.php?mod=list&catid=18)\n- [电源](https://www.chiphell.com/portal.php?mod=list&catid=35)\n- [存储](https://www.chiphell.com/portal.php?mod=list&catid=23)\n- [显示设备](https://www.chiphell.com/portal.php?mod=list&catid=21)\n- [台式机](https://www.chiphell.com/portal.php?mod=list&catid=88)\n- [显卡](https://www.chiphell.com/portal.php?mod=list&catid=10)\n- [相机](https://www.chiphell.com/portal.php?mod=list&catid=116)\n\n- [配件开箱](https://www.chiphell.com/portal.php?mod=list&catid=98)\n- [整机搭建](https://www.chiphell.com/portal.php?mod=list&catid=99)\n- [升级改造](https://www.chiphell.com/portal.php?mod=list&catid=100)\n- [桌面书房](https://www.chiphell.com/portal.php?mod=list&catid=101)\n\n- [智能手机](https://www.chiphell.com/portal.php?mod=list&catid=40)\n- [智能穿戴](https://www.chiphell.com/portal.php?mod=list&catid=89)\n- [笔电平板](https://www.chiphell.com/portal.php?mod=list&catid=41)\n- [周边附件](https://www.chiphell.com/portal.php?mod=list&catid=92)\n\n- [微单卡片](https://www.chiphell.com/portal.php?mod=list&catid=52)\n- [单反单电](https://www.chiphell.com/portal.php?mod=list&catid=51)\n- [经典旁轴](https://www.chiphell.com/portal.php?mod=list&catid=53)\n- [怀旧菲林](https://www.chiphell.com/portal.php?mod=list&catid=54)\n- [影音摄像](https://www.chiphell.com/portal.php?mod=list&catid=57)\n- [周边附件](https://www.chiphell.com/portal.php?mod=list&catid=55)\n\n- [人物肖像](https://www.chiphell.com/portal.php?mod=list&catid=102)\n- [风景游记](https://www.chiphell.com/portal.php?mod=list&catid=103)\n- [微距静物](https://www.chiphell.com/portal.php?mod=list&catid=104)\n- [人文扫街](https://www.chiphell.com/portal.php?mod=list&catid=105)\n- [动物植物](https://www.chiphell.com/portal.php?mod=list&catid=106)\n- [其它作品](https://www.chiphell.com/portal.php?mod=list&catid=107)\n\n- [买菜车](https://www.chiphell.com/portal.php?mod=list&catid=58)\n- [商务车](https://www.chiphell.com/portal.php?mod=list&catid=59)\n- [性能车](https://www.chiphell.com/portal.php?mod=list&catid=63)\n- [旅行车](https://www.chiphell.com/portal.php?mod=list&catid=60)\n- [SUV](https://www.chiphell.com/portal.php?mod=list&catid=61)\n- [MPV](https://www.chiphell.com/portal.php?mod=list&catid=95)\n- [摩托轻骑](https://www.chiphell.com/portal.php?mod=list&catid=65)\n- [改装配件](https://www.chiphell.com/portal.php?mod=list&catid=96)\n- [CHH Auto Club](https://www.chiphell.com/portal.php?mod=list&catid=138)\n\n- [山地车](https://www.chiphell.com/portal.php?mod=list&catid=108)\n- [公路车](https://www.chiphell.com/portal.php?mod=list&catid=109)\n- [折叠车](https://www.chiphell.com/portal.php?mod=list&catid=110)\n- [休旅车](https://www.chiphell.com/portal.php?mod=list&catid=111)\n\n- [人偶手办](https://www.chiphell.com/portal.php?mod=list&catid=112)\n- [比例成品](https://www.chiphell.com/portal.php?mod=list&catid=113)\n- [拼装自组](https://www.chiphell.com/portal.php?mod=list&catid=114)\n- [RC遥控](https://www.chiphell.com/portal.php?mod=list&catid=115)\n\n- [收藏爱好](https://www.chiphell.com/portal.php?mod=list&catid=47)\n- [品质生活](https://www.chiphell.com/portal.php?mod=list&catid=45)\n- [数码前沿](https://www.chiphell.com/portal.php?mod=list&catid=46)\n- [小资情调](https://www.chiphell.com/portal.php?mod=list&catid=44)\n- [女王最大](https://www.chiphell.com/portal.php?mod=list&catid=48)\n- [吃喝玩乐](https://www.chiphell.com/portal.php?mod=list&catid=49)\n- [育儿分享](https://www.chiphell.com/portal.php?mod=list&catid=87)\n\n- [鞋类](https://www.chiphell.com/portal.php?mod=list&catid=122)\n- [服饰](https://www.chiphell.com/portal.php?mod=list&catid=123)\n- [箱包](https://www.chiphell.com/portal.php?mod=list&catid=124)\n\n- [机械表](https://www.chiphell.com/portal.php?mod=list&catid=128)\n- [电子表](https://www.chiphell.com/portal.php?mod=list&catid=126)\n\n- [耳机耳放](https://www.chiphell.com/portal.php?mod=list&catid=71)\n- [音箱功放](https://www.chiphell.com/portal.php?mod=list&catid=72)\n- [解码转盘](https://www.chiphell.com/portal.php?mod=list&catid=73)\n- [随身设备](https://www.chiphell.com/portal.php?mod=list&catid=74)\n- [唱片录音](https://www.chiphell.com/portal.php?mod=list&catid=75)\n\n- [当地美食](https://www.chiphell.com/portal.php?mod=list&catid=68)\n- [世界美食](https://www.chiphell.com/portal.php?mod=list&catid=117)\n- [私房菜品](https://www.chiphell.com/portal.php?mod=list&catid=69)\n- [美食器材](https://www.chiphell.com/portal.php?mod=list&catid=70)\n\n|     |     |     |     |     |\n| --- | --- | --- | --- | --- |\n|  |  | 帖子 | **搜索** |  |\n\n搜索\n\n- 本版\n- 文章\n- 帖子\n\n[Chiphell - 分享与交流用户体验](https://www.chiphell.com/ \"首页\") _»_ [社区](https://www.chiphell.com/forum.php) _›_ [讨论区-生活与技术的讨论](https://www.chiphell.com/forum.php?gid=3) _›_ [电脑讨论(新)](https://www.chiphell.com/forum-146-1.html) _›_ [从UI设计的角度考虑，论坛是否可以重新排版一下？ ...](https://www.chiphell.com/thread-2509145-1-1.html)\n\n[返回列表](https://www.chiphell.com/forum-146-1.html)发新帖\n\n|     |     |\n| --- | --- |\n| 查看:7507\\|回复:13 | [打印](https://www.chiphell.com/forum.php?mod=viewthread&action=printable&tid=2509145 \"打印\")[上一主题](https://www.chiphell.com/forum.php?mod=redirect&goto=nextoldset&tid=2509145 \"上一主题\")[下一主题](https://www.chiphell.com/forum.php?mod=redirect&goto=nextnewset&tid=2509145 \"下一主题\")<br># [\\[软件\\]](https://www.chiphell.com/forum.php?mod=forumdisplay&fid=146&filter=typeid&typeid=997) 从UI设计的角度考虑，论坛是否可以重新排版一下？<br>[\\[复制链接\\]](https://www.chiphell.com/thread-2509145-1-1.html) |\n\n|     |     |\n| --- | --- |\n| [Astro.Neo](https://www.chiphell.com/space-uid-367638.html)<br>**[Astro.Neo](https://www.chiphell.com/space-uid-367638.html)** _当前离线_<br>积分[-543](https://www.chiphell.com/home.php?mod=space&uid=367638&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=367638&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/36/76/38_avatar_middle.jpg)](https://www.chiphell.com/space-uid-367638.html) | 电梯直达\n\n**[_1_#](https://www.chiphell.com/thread-2509145-1-1.html)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-4-15 16:34_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2509145&page=1&authorid=367638) \\| [只看大图](https://www.chiphell.com/forum.php?mod=viewthread&tid=2509145&from=album) \\| [倒序浏览](https://www.chiphell.com/forum.php?mod=viewthread&tid=2509145&extra=page%3D1&ordertype=1) \\|阅读模式\n\n|     |\n| --- |\n| 从UI设计的角度看，似乎这是有问题的啊<br>我收藏夹有国内外有100多个it电脑类论坛的 网页，chh可能是唯一个打开论坛主页面，必须把整个页面下滑一页半 才能正常浏览新内容网页 的电脑论坛<br>不是说置顶的信息过多，或不重要，而是99%的人点开看过一次，以后不停反复进论坛都不会再看第二次。而是看新内容。但是每一次都必须下滑一整页 下滑跳过<br>如果重新排版一下，我相信用户体验会好很多。 <br>纯粹出于好人好心，从用户体验出发 |\n\n[无标题.jpg](https://static.chiphell.com/forum/202304/15/163352ybr2f1f2laridlna.jpg) _(214.48 KB, 下载次数:_\n_81)_\n\n[下载附件](https://static.chiphell.com/forum/202304/15/163352ybr2f1f2laridlna.jpg)\n\n2023-4-15 16:33 上传\n\n![无标题.jpg](https://static.chiphell.com/forum/202304/15/163352ybr2f1f2laridlna.jpg) |\n| [_收藏4_](https://www.chiphell.com/home.php?mod=spacecp&ac=favorite&type=thread&id=2509145&formhash=3a4a97cc \"收藏本帖\") |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2509145&reppost=52403235&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [晓古城](https://www.chiphell.com/space-uid-228764.html)<br>**[晓古城](https://www.chiphell.com/space-uid-228764.html)** _当前离线_<br>积分[4552](https://www.chiphell.com/home.php?mod=space&uid=228764&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=228764&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/22/87/64_avatar_middle.jpg)](https://www.chiphell.com/space-uid-228764.html) | **[_2_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2509145&pid=52403245)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-4-15 16:36_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2509145&page=1&authorid=228764)\n\n|     |\n| --- |\n| _本帖最后由 晓古城 于 2023-4-15 16:38 编辑_<br>订阅旁边的➖号？置顶帖也能隐藏 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2509145&repquote=52403245&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [slymitec](https://www.chiphell.com/space-uid-350561.html)<br>**[slymitec](https://www.chiphell.com/space-uid-350561.html)** _当前离线_<br>积分[3601](https://www.chiphell.com/home.php?mod=space&uid=350561&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=350561&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/35/05/61_avatar_middle.jpg)](https://www.chiphell.com/space-uid-350561.html) | **[_3_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2509145&pid=52403254)**<br>![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-4-15 16:37_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2509145&page=1&authorid=350561)<br>提示: _作者被禁止或删除 内容自动屏蔽_ |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2509145&repquote=52403254&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [Astro.Neo](https://www.chiphell.com/space-uid-367638.html)<br>**[Astro.Neo](https://www.chiphell.com/space-uid-367638.html)** _当前离线_<br>积分[-543](https://www.chiphell.com/home.php?mod=space&uid=367638&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=367638&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/36/76/38_avatar_middle.jpg)](https://www.chiphell.com/space-uid-367638.html) | **[_4_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2509145&pid=52403291)**\n\n楼主\\| _发表于 2023-4-15 16:42_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2509145&page=1&authorid=367638)\n\n|     |\n| --- |\n| > [晓古城 发表于 2023-4-15 16:36](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&pid=52403245&ptid=2509145)<br>> <br>> 订阅旁边的➖号？置顶帖也能隐藏<br>没用，上面一大坨 点了-  ，打开也还是一整页，看不到 主版，太长了 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2509145&repquote=52403291&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [uuyyhhjj](https://www.chiphell.com/space-uid-295178.html)<br>**[uuyyhhjj](https://www.chiphell.com/space-uid-295178.html)** _当前离线_<br>积分[45160](https://www.chiphell.com/home.php?mod=space&uid=295178&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=295178&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/29/51/78_avatar_middle.jpg)](https://www.chiphell.com/space-uid-295178.html) | **[_5_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2509145&pid=52403333)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-4-15 16:48_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2509145&page=1&authorid=295178)\n\n|     |\n| --- |\n| [www.chiphell.com/forum.php?mod=guide&view=newthread](http://www.chiphell.com/forum.php?mod=guide&view=newthread)<br>可以用这个看，如果你只需看新帖的话 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2509145&repquote=52403333&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [Astro.Neo](https://www.chiphell.com/space-uid-367638.html)<br>**[Astro.Neo](https://www.chiphell.com/space-uid-367638.html)** _当前离线_<br>积分[-543](https://www.chiphell.com/home.php?mod=space&uid=367638&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=367638&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/36/76/38_avatar_middle.jpg)](https://www.chiphell.com/space-uid-367638.html) | **[_6_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2509145&pid=52403450)**\n\n楼主\\| _发表于 2023-4-15 17:02_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2509145&page=1&authorid=367638)\n\n|     |\n| --- |\n| > [uuyyhhjj 发表于 2023-4-15 16:48](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&pid=52403333&ptid=2509145)<br>> <br>> www.chiphell.com/forum.php?mod=guide&view=newthread<br>> <br>> 可以用这个看，如果你只需看新帖的话 ...<br>谢谢，但是这解决不了99.9%的人，一千个用户里可能只有一个人 打开这个看 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2509145&repquote=52403450&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [kinglfa](https://www.chiphell.com/space-uid-425035.html)<br>**[kinglfa](https://www.chiphell.com/space-uid-425035.html)** _当前离线_<br>积分[4487](https://www.chiphell.com/home.php?mod=space&uid=425035&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=425035&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/42/50/35_avatar_middle.jpg)](https://www.chiphell.com/space-uid-425035.html) | **[_7_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2509145&pid=52403569)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-4-15 17:22_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2509145&page=1&authorid=425035)\n\n|     |\n| --- |\n| 暗色主题是用了什么插件？ | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2509145&repquote=52403569&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [Astro.Neo](https://www.chiphell.com/space-uid-367638.html)<br>**[Astro.Neo](https://www.chiphell.com/space-uid-367638.html)** _当前离线_<br>积分[-543](https://www.chiphell.com/home.php?mod=space&uid=367638&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=367638&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/36/76/38_avatar_middle.jpg)](https://www.chiphell.com/space-uid-367638.html) | **[_8_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2509145&pid=52403593)**\n\n楼主\\| _发表于 2023-4-15 17:25_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2509145&page=1&authorid=367638)\n\n|     |\n| --- |\n| > [kinglfa 发表于 2023-4-15 17:22](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&pid=52403569&ptid=2509145)<br>> <br>> 暗色主题是用了什么插件？<br>谷歌 chrome 或edge  搜索 打开暗黑模式<br>-------具体步骤<br>1.输入 chrome://flags<br>2.搜索dark<br>3.把default 改成enabled<br>效果是所有网站几乎都支持暗黑模式了，<br>好处是 极大保护了眼睛，降低疲劳和视网膜脱落风险，强烈建议oled显示器 或者其他所有高强度用户 试用 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2509145&repquote=52403593&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [mrshi](https://www.chiphell.com/space-uid-211158.html)<br>**[mrshi](https://www.chiphell.com/space-uid-211158.html)** _当前离线_<br>积分[1653](https://www.chiphell.com/home.php?mod=space&uid=211158&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=211158&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/21/11/58_avatar_middle.jpg)](https://www.chiphell.com/space-uid-211158.html) | **[_9_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2509145&pid=52403610)**<br>![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-4-15 17:27_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2509145&page=1&authorid=211158)<br>提示: _作者被禁止或删除 内容自动屏蔽_ |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2509145&repquote=52403610&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [龟派气功波](https://www.chiphell.com/space-uid-285098.html)<br>**[龟派气功波](https://www.chiphell.com/space-uid-285098.html)** _当前离线_<br>积分[6359](https://www.chiphell.com/home.php?mod=space&uid=285098&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=285098&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/28/50/98_avatar_middle.jpg)](https://www.chiphell.com/space-uid-285098.html) | **[_10_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2509145&pid=52403612)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-4-15 17:28_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2509145&page=1&authorid=285098)\n\n|     |\n| --- |\n| > [Astro.Neo 发表于 2023-4-15 17:25](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&pid=52403593&ptid=2509145)<br>> <br>> 谷歌 chrome 或edge  搜索 打开暗黑模式<br>> <br>> -------具体步骤<br>> <br>> 1.输入 chrome://flags<br>啊啊啊啊，成功了！！！！舒服多了 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2509145&repquote=52403612&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [kinglfa](https://www.chiphell.com/space-uid-425035.html)<br>**[kinglfa](https://www.chiphell.com/space-uid-425035.html)** _当前离线_<br>积分[4487](https://www.chiphell.com/home.php?mod=space&uid=425035&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=425035&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/42/50/35_avatar_middle.jpg)](https://www.chiphell.com/space-uid-425035.html) | **[_11_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2509145&pid=52404119)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-4-15 19:05_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2509145&page=1&authorid=425035)\n\n|     |\n| --- |\n| > [Astro.Neo 发表于 2023-4-15 17:25](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&pid=52403593&ptid=2509145)<br>> <br>> 谷歌 chrome 或edge  搜索 打开暗黑模式<br>> <br>> -------具体步骤<br>> <br>> 1.输入 chrome://flags<br>哇！！！！！终于解脱了<br>太谢谢你了<br>360浏览器 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2509145&repquote=52404119&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [風吹花影動](https://www.chiphell.com/space-uid-214275.html)<br>**[風吹花影動](https://www.chiphell.com/space-uid-214275.html)** _当前离线_<br>积分[3140](https://www.chiphell.com/home.php?mod=space&uid=214275&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=214275&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/21/42/75_avatar_middle.jpg)](https://www.chiphell.com/space-uid-214275.html) | **[_12_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2509145&pid=52404611)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-4-15 20:39_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2509145&page=1&authorid=214275)\n\n|     |\n| --- |\n| 我就发现升级以后不能搜索了，不知道是不是个例 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2509145&repquote=52404611&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [nickson1989](https://www.chiphell.com/space-uid-179236.html)<br>**[nickson1989](https://www.chiphell.com/space-uid-179236.html)** _当前离线_<br>积分[2576](https://www.chiphell.com/home.php?mod=space&uid=179236&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=179236&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/17/92/36_avatar_middle.jpg)](https://www.chiphell.com/space-uid-179236.html) | **[_13_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2509145&pid=52405017)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-4-15 21:48_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2509145&page=1&authorid=179236)\n\n|     |\n| --- |\n| > [晓古城 发表于 2023-4-15 16:36](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&pid=52403245&ptid=2509145)<br>> <br>> 订阅旁边的➖号？置顶帖也能隐藏<br>老实说，我也第一次知道，哈哈哈 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2509145&repquote=52405017&extra=page%3D1&page=1)_<br>举报 |\n\n|     |     |\n| --- | --- |\n| [晓古城](https://www.chiphell.com/space-uid-228764.html)<br>**[晓古城](https://www.chiphell.com/space-uid-228764.html)** _当前离线_<br>积分[4552](https://www.chiphell.com/home.php?mod=space&uid=228764&do=profile)<br>[![查看详细资料](https://www.chiphell.com/static/image/common/userinfo.gif)](https://www.chiphell.com/home.php?mod=space&uid=228764&do=profile \"查看详细资料\")<br>[![](https://www.chiphell.com/data/avatar/000/22/87/64_avatar_middle.jpg)](https://www.chiphell.com/space-uid-228764.html) | **[_14_#](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&ptid=2509145&pid=52405057)**\n\n![](https://www.chiphell.com/static/image/common/online_member.gif)_发表于 2023-4-15 21:55_ \\| [只看该作者](https://www.chiphell.com/forum.php?mod=viewthread&tid=2509145&page=1&authorid=228764)\n\n|     |\n| --- |\n| > [nickson1989 发表于 2023-4-15 21:48](https://www.chiphell.com/forum.php?mod=redirect&goto=findpost&pid=52405017&ptid=2509145)<br>> <br>> 老实说，我也第一次知道，哈哈哈<br>我也没调过![](https://www.chiphell.com/static/image/smiley/diy/confused.gif)看见有人问才整 | |\n|  |\n\n|  | _[回复](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2509145&repquote=52405057&extra=page%3D1&page=1)_<br>举报 |\n\n[返回列表](https://www.chiphell.com/forum-146-1.html)发新帖\n\n|     |     |\n| --- | --- |\n|  | [高级模式](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2509145)<br>BColorImageLinkQuoteCodeSmilies<br>您需要登录后才可以回帖 [登录](https://www.chiphell.com/member.php?mod=logging&action=login) \\| [加入我们](https://www.chiphell.com/member.php?mod=register)<br>[本版积分规则](https://www.chiphell.com/home.php?mod=spacecp&ac=credit&op=rule&fid=146) **发表回复**回帖后跳转到最后一页 |\n\n[Archiver](https://www.chiphell.com/archiver/) \\| [手机版](https://www.chiphell.com/forum.php?showmobile=yes) \\| [小黑屋](https://www.chiphell.com/forum.php?mod=misc&action=showdarkroom) \\| **[Chiphell](https://www.chiphell.com/)**\n( [沪ICP备12027953号-5](https://beian.miit.gov.cn/) ) [![沪公网备](https://www.chiphell.com/static/image/common/picp_bg.png)310112100042806](http://www.zx110.org/picp?sn=:31011209000102) [![上海市互联网违法与不良信息举报中心](https://www.chiphell.com/static/image/common/shjbzx.png)](http://www.shjbzx.cn/)\n\nGMT+8, 2026-10-16 17:50\n, Processed in 0.008906 second(s), 5 queries\n, Gzip On, Redis On.\n\nPowered by **[Discuz!](https://www.discuz.vip/)** _X3.5_ [Licensed](https://license.discuz.vip/?pid=1&host=www.chiphell.com)\n\n© 2007-2024 **[Chiphell.com](https://www.chiphell.com/)** All rights reserved.\n\n[**快速回复**](https://www.chiphell.com/forum.php?mod=post&action=reply&fid=146&tid=2509145&extra=page%3D1&page=1 \"快速回复\")**返回顶部**[**返回列表**](https://www.chiphell.com/forum-146-1.html \"返回列表\")",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "description": "从UI设计的角度考虑，论坛是否可以重新排版一下？,从UI设计的角度看，似乎这是有问题的啊我收藏夹有国内外有100多个it电脑类论坛的 网页，chh可能是唯一个打开论坛主页面，必须把整个页面下滑一页半 才能正常浏览新内容网 ...,电脑讨论(新),讨论区-生活与技术的讨论 ,Chiphell - 分享与交流用户体验",
+        "application-name": "Chiphell - 分享与交流用户体验",
+        "msapplication-tooltip": "Chiphell - 分享与交流用户体验",
+        "keywords": "从UI设计的角度考虑，论坛是否可以重新排版一下？,电脑讨论(新),讨论区-生活与技术的讨论,Chiphell",
+        "copyright": "2001-2026 Discuz! Team.",
+        "title": "从UI设计的角度考虑，论坛是否可以重新排版一下？ - 电脑讨论(新) -  Chiphell - 分享与交流用户体验   ",
+        "MSSmartTagsPreventParsing": "True",
+        "author": "Discuz! Team and Comsenz UI Team",
+        "msapplication-task": [
+          "name=首页;action-uri=https://www.chiphell.com/portal.php;icon-uri=https://www.chiphell.com/static/image/common/portal.ico",
+          "name=社区;action-uri=https://www.chiphell.com/forum.php;icon-uri=https://www.chiphell.com/static/image/common/bbs.ico",
+          "name=家园;action-uri=https://www.chiphell.com/home.php;icon-uri=https://www.chiphell.com/static/image/common/home.ico"
+        ],
+        "generator": "Discuz! X3.5",
+        "msapplication-TileColor": "#da532c",
+        "theme-color": "#ffffff",
+        "referrer": "origin",
+        "favicon": "https://www.chiphell.com/favicon-32x32.png",
+        "scrapeId": "01a1441e-f8c0-72c9-b1ad-6b86c13c4499",
+        "sourceURL": "https://www.chiphell.com/thread-2509145-1-1.html",
+        "url": "https://www.chiphell.com/thread-2509145-1-1.html",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "cacheState": "miss",
+        "indexId": "7d0d7698-8b8d-413a-93d8-506494b3262f",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 2817,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 2843
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 23144,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 0
+  }
+}

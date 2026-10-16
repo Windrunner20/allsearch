@@ -1,0 +1,344 @@
+{
+  "id": "wechat-mp-discovery",
+  "executed_at": "2026-10-16T09:49:44.426721+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.3.0",
+  "provider_query": "找一篇讲解 Python GIL 的微信公众号文章原文链接",
+  "answer": "下面是几篇专门或重点讲解 Python GIL（全局解释器锁）的微信公众号原文，按主题相关度排列，最多 8 条。\n\n1. **什么是Python的GIL？**（真格量化，2019-07-11）  \n   入门向：GIL 是什么、获取/释放时机、线程执行模型。  \n   http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA==&mid=2247484178&idx=1&sn=fa385d6a50de9262cf16f8b737b20b80\n\n2. **说说Python中的GIL是什么？**（编程IT圈 / 小猿同学，2019-10-16）  \n   面试题风格：定义、为何无法多核并行、官方表述。  \n   http://mp.weixin.qq.com/s?__biz=MzA5NzgzODI5NA%3D%3D&chksm=872bb019b05c390f567449c5deebc4033d055a744c07cc5a4bb1663d4044e3404a7f673b1ce3&idx=4&mid=2454037920&sn=4e08d690d7951f87d467ca6eeb0acea0\n\n3. **CPython的线程与GIL**（leveryd，2021-03-29）  \n   源码向：结合 CPython 3.8 讲 GIL 存在原因、申请与释放。  \n   https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ\n\n4. **Python 有可能删除 GIL 吗？**（Python七号 / somenzz，2021-02-18）  \n   讲引用计数、为何用一把大锁，以及历史上去掉 GIL 的尝试。  \n   https://mp.weixin.qq.com/s/1YajqhcWoGGPQcOQiAATgA\n\n5. **Python新版本去GIL刷屏…**（InfoQ，2025-10-12）  \n   Python 3.14 自由线程 / no-GIL、影响与争议。  \n   https://mp.weixin.qq.com/s/2Ictx9VbqNTuBw1yZQDIOg\n\n6. **含「GIL 单通道收费站」讲解的并发文章**（公众号页，标题未在摘要完整给出）  \n   用比喻说明 CPU 密集 vs I/O 密集，以及多进程绕过方式。  \n   https://mp.weixin.qq.com/s/-0wQCHrTO6JXRQNLO0i7WQ\n\n7. **你真的懂线程吗？史上最全Python线程解析**（挖地兔，2019-04-14）  \n   线程专题中解释 GIL 与 CPython 的关系。  \n   https://mp.weixin.qq.com/s?__biz=MzAwOTgzMDk5Ng==&mid=2650834758&idx=1&sn=68b632c9192a463a1440b74fc274ea10\n\n8. **Python的多线程和多进程 —— 从一个爬虫任务谈起**（真格量化，2019-06-27）  \n   从爬虫场景对比多线程/多进程，说明 GIL 对 CPU 密集任务的影响。  \n   http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA==&mid=2247484113&idx=1&sn=fadf6af7898772b46393c3771e1deb85\n\n若只要一篇「专门讲 GIL」的入门文，优先看第 1 或第 2 条；想看源码机制看第 3 条。",
+  "results": [
+    {
+      "id": "r1",
+      "title": "http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA==&mid=2247484178&idx=1&sn=fa385d6a50de9262cf16f8b737b20b80&chksm=fdc603edcab18afbbb665903d4ff939c9b3fdf6c8d6b2065d8dfa60ff4002eae495eeb5560ea&scene=21",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA%3D%3D&chksm=fdc603edcab18afbbb665903d4ff939c9b3fdf6c8d6b2065d8dfa60ff4002eae495eeb5560ea&idx=1&mid=2247484178&scene=21&sn=fa385d6a50de9262cf16f8b737b20b80",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA==&mid=2247484113&idx=1&sn=fadf6af7898772b46393c3771e1deb85&chksm=fdc6022ecab18b38928d9ec3b8b067043c541bb99c99f44104fe0c9a72d2cf68370463ca19e8&scene=21",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA%3D%3D&chksm=fdc6022ecab18b38928d9ec3b8b067043c541bb99c99f44104fe0c9a72d2cf68370463ca19e8&idx=1&mid=2247484113&scene=21&sn=fadf6af7898772b46393c3771e1deb85",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://mp.weixin.qq.com/s/cc_yM0waqSOqq8xfg1G79Q",
+      "url": "https://mp.weixin.qq.com/s/cc_yM0waqSOqq8xfg1G79Q",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "https://mp.weixin.qq.com/s/H-0pd3NcAJDbUckNi0-IEw",
+      "url": "https://mp.weixin.qq.com/s/H-0pd3NcAJDbUckNi0-IEw",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://mp.weixin.qq.com/s/1YajqhcWoGGPQcOQiAATgA",
+      "url": "https://mp.weixin.qq.com/s/1YajqhcWoGGPQcOQiAATgA",
+      "snippet": "4. Python 有可能删除 GIL 吗？ （Python七号 / somenzz，2021-02-18） 讲引用计数、为何用一把大锁，以及历史上去掉 GIL 的尝试。",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {
+        "snippet_source": "answer_context"
+      }
+    },
+    {
+      "id": "r6",
+      "title": "http://mp.weixin.qq.com/s/Km-HAY9Jbg5hbuTl5Xj8dw",
+      "url": "http://mp.weixin.qq.com/s/Km-HAY9Jbg5hbuTl5Xj8dw",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://mp.weixin.qq.com/s/gX_-JECFEFKaK0AyJiUjTw",
+      "url": "https://mp.weixin.qq.com/s/gX_-JECFEFKaK0AyJiUjTw",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "http://mp.weixin.qq.com/s?__biz=MzA4MjEyNTA5Mw==&mid=2652568514&idx=1&sn=9a5f20e1141dad543ae7f9e765a660b7&chksm=8464d388b3135a9e76bfe57603b4518ae4e12018c45a120fd30229e14970687881e307fb8b85&scene=21",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzA4MjEyNTA5Mw%3D%3D&chksm=8464d388b3135a9e76bfe57603b4518ae4e12018c45a120fd30229e14970687881e307fb8b85&idx=1&mid=2652568514&scene=21&sn=9a5f20e1141dad543ae7f9e765a660b7",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA==&mid=2247484178&idx=1&sn=fa385d6a50de9262cf16f8b737b20b80&chksm=fdc603edcab18afbbb665903d4ff939c9b3fdf6c8d6b2065d8dfa60ff4002eae495eeb5560ea&scene=21",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA%3D%3D&chksm=fdc603edcab18afbbb665903d4ff939c9b3fdf6c8d6b2065d8dfa60ff4002eae495eeb5560ea&idx=1&mid=2247484178&scene=21&sn=fa385d6a50de9262cf16f8b737b20b80",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA==&mid=2247484113&idx=1&sn=fadf6af7898772b46393c3771e1deb85&chksm=fdc6022ecab18b38928d9ec3b8b067043c541bb99c99f44104fe0c9a72d2cf68370463ca19e8&scene=21",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA%3D%3D&chksm=fdc6022ecab18b38928d9ec3b8b067043c541bb99c99f44104fe0c9a72d2cf68370463ca19e8&idx=1&mid=2247484113&scene=21&sn=fadf6af7898772b46393c3771e1deb85",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://mp.weixin.qq.com/s/cc_yM0waqSOqq8xfg1G79Q",
+      "url": "https://mp.weixin.qq.com/s/cc_yM0waqSOqq8xfg1G79Q",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "https://mp.weixin.qq.com/s/H-0pd3NcAJDbUckNi0-IEw",
+      "url": "https://mp.weixin.qq.com/s/H-0pd3NcAJDbUckNi0-IEw",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://mp.weixin.qq.com/s/1YajqhcWoGGPQcOQiAATgA",
+      "url": "https://mp.weixin.qq.com/s/1YajqhcWoGGPQcOQiAATgA",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "http://mp.weixin.qq.com/s/Km-HAY9Jbg5hbuTl5Xj8dw",
+      "url": "http://mp.weixin.qq.com/s/Km-HAY9Jbg5hbuTl5Xj8dw",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://mp.weixin.qq.com/s/gX_-JECFEFKaK0AyJiUjTw",
+      "url": "https://mp.weixin.qq.com/s/gX_-JECFEFKaK0AyJiUjTw",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "http://mp.weixin.qq.com/s?__biz=MzA4MjEyNTA5Mw==&mid=2652568514&idx=1&sn=9a5f20e1141dad543ae7f9e765a660b7&chksm=8464d388b3135a9e76bfe57603b4518ae4e12018c45a120fd30229e14970687881e307fb8b85&scene=21",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzA4MjEyNTA5Mw%3D%3D&chksm=8464d388b3135a9e76bfe57603b4518ae4e12018c45a120fd30229e14970687881e307fb8b85&idx=1&mid=2652568514&scene=21&sn=9a5f20e1141dad543ae7f9e765a660b7",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "http://mp.weixin.qq.com/s?__biz=MzA5NzgzODI5NA%3D%3D&chksm=872bb019b05c390f567449c5deebc4033d055a744c07cc5a4bb1663d4044e3404a7f673b1ce3&idx=4&mid=2454037920&scene=21&sn=4e08d690d7951f87d467ca6eeb0acea0",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzA5NzgzODI5NA%3D%3D&chksm=872bb019b05c390f567449c5deebc4033d055a744c07cc5a4bb1663d4044e3404a7f673b1ce3&idx=4&mid=2454037920&scene=21&sn=4e08d690d7951f87d467ca6eeb0acea0",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://mp.weixin.qq.com/s/2Ictx9VbqNTuBw1yZQDIOg",
+      "url": "https://mp.weixin.qq.com/s/2Ictx9VbqNTuBw1yZQDIOg",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ",
+      "url": "https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://mp.weixin.qq.com/s?__biz=MzAwOTgzMDk5Ng==&mid=2650834758&idx=1&sn=68b632c9192a463a1440b74fc274ea10&chksm=80adb07db7da396b90a4862c606b0d787790fa975282a79528b8b75b86cb3ad30b33ce73396c&scene=27",
+      "url": "https://mp.weixin.qq.com/s?__biz=MzAwOTgzMDk5Ng%3D%3D&chksm=80adb07db7da396b90a4862c606b0d787790fa975282a79528b8b75b86cb3ad30b33ce73396c&idx=1&mid=2650834758&scene=27&sn=68b632c9192a463a1440b74fc274ea10",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://mp.weixin.qq.com/s/-0wQCHrTO6JXRQNLO0i7WQ",
+      "url": "https://mp.weixin.qq.com/s/-0wQCHrTO6JXRQNLO0i7WQ",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary_site_restricted",
+        "latency_ms": 12076,
+        "detail": "model=grok-4.7",
+        "usage": {
+          "input_tokens": 18003,
+          "input_tokens_details": {
+            "cached_tokens": 4352
+          },
+          "output_tokens": 1026,
+          "output_tokens_details": {
+            "reasoning_tokens": 76
+          },
+          "total_tokens": 19029,
+          "num_sources_used": 0,
+          "num_server_side_tools_used": 3,
+          "cost_in_usd_ticks": 271155600,
+          "server_side_tool_usage_details": {
+            "web_search_calls": 3,
+            "x_search_calls": 0,
+            "x_posts_fetched": 0,
+            "x_users_fetched": 0,
+            "code_interpreter_calls": 0,
+            "file_search_calls": 0,
+            "mcp_calls": 0,
+            "document_search_calls": 0,
+            "image_generation_calls": 0
+          },
+          "context_details": {
+            "input_tokens": 15730,
+            "output_tokens": 907
+          }
+        }
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null,
+        "usage": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "domains_below_threshold:1<2"
+    ]
+  },
+  "coverage": {
+    "status": "sufficient",
+    "requirements": [
+      {
+        "kind": "site",
+        "target": "微信公众号",
+        "satisfied": true,
+        "detail": "13 content page(s), e.g. http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA%3D%3D&chksm=fdc603edcab18afbbb665903d4ff939c9b3fdf6c8d6b2065d8dfa60ff4002eae495eeb5560ea&idx=1&mid=2247484178&scene=21&sn=fa385d6a50de9262cf16f8b737b20b80"
+      }
+    ]
+  },
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "timed_out": false,
+  "elapsed_ms": 12085,
+  "usage": {
+    "calls": {
+      "xai.search": 1
+    },
+    "xai_cost_ticks": 271155600,
+    "tavily_credits_estimate": 0
+  }
+}

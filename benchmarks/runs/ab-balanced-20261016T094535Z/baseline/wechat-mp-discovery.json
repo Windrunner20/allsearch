@@ -1,0 +1,330 @@
+{
+  "id": "wechat-mp-discovery",
+  "executed_at": "2026-10-16T09:50:45.593159+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "找一篇讲解 Python GIL 的微信公众号文章原文链接",
+  "answer": "以下是几篇专门或重点讲解 Python GIL 的微信公众号文章（链接为检索到的原文地址）：\n\n1. **《什么是Python的GIL？》** — 真格量化，2019-07-11  \n   讲 GIL 是什么、为何存在、I/O 时释放与 CPU 密集时按 tick 切换，以及多线程执行模型。  \n   http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA==&mid=2247484178&idx=1&sn=fa385d6a50de9262cf16f8b737b20b80  \n   [[1]](http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA==&mid=2247484178&idx=1&sn=fa385d6a50de9262cf16f8b737b20b80&chksm=fdc603edcab18afbbb665903d4ff939c9b3fdf6c8d6b2065d8dfa60ff4002eae495eeb5560ea&scene=21)\n\n2. **《说说Python中的GIL是什么？》** — 编程IT圈（小猿同学），2019-10-16  \n   面试题风格：GIL 保证同一时刻只有一个线程执行字节码，是 CPython 内存管理非线程安全的结果，并引用官方表述。  \n   http://mp.weixin.qq.com/s?__biz=MzA5NzgzODI5NA%3D%3D&mid=2454037920&idx=4&sn=4e08d690d7951f87d467ca6eeb0acea0  \n   [[2]](http://mp.weixin.qq.com/s?__biz=MzA5NzgzODI5NA%3D%3D&chksm=872bb019b05c390f567449c5deebc4033d055a744c07cc5a4bb1663d4044e3404a7f673b1ce3&idx=4&mid=2454037920&scene=21&sn=4e08d690d7951f87d467ca6eeb0acea0)\n\n3. **《CPython的线程与GIL》** — leveryd，2021-03-29  \n   结合 CPython 3.8 源码说明 GIL、线程与 GIL 的关系，以及为何字节码级安全不等于一行 Python 代码线程安全（如 `n = n + 1`）。  \n   https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ  \n   [[3]](https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ)\n\n4. **《Python新版本去GIL刷屏，Karpathy 点赞敢死队，Python 之父：冷静，别神话并发》** — InfoQ，2025-10-12  \n   讲 Python 3.14 自由线程（可禁用 GIL）、默认构建仍带 GIL，以及性能与内存权衡。  \n   https://mp.weixin.qq.com/s/2Ictx9VbqNTuBw1yZQDIOg  \n   [[4]](https://mp.weixin.qq.com/s/2Ictx9VbqNTuBw1yZQDIOg)\n\n5. **《Python笔记二之多线程》** — Hunter后端，2023-11-18  \n   多线程笔记中专段解释 GIL：同一时刻只有一个线程跑 Python 字节码；I/O 密集适合多线程，CPU 密集难以真正并行。  \n   https://mp.weixin.qq.com/s/LXYy-caA9R1VKZ4SZCNODQ  \n   [[5]](https://mp.weixin.qq.com/s/LXYy-caA9R1VKZ4SZCNODQ)\n\n6. **《理解Python并发编程一篇就够了 | 进程篇》** — Python之美（董伟明），2016-12-05  \n   从 GIL 出发说明为何 CPU 任务应改用 `multiprocessing`，并用斐波那契对比单进程与多进程耗时。  \n   http://mp.weixin.qq.com/s/Km-HAY9Jbg5hbuTl5Xj8dw  \n   [[6]](http://mp.weixin.qq.com/s/Km-HAY9Jbg5hbuTl5Xj8dw)\n\n7. **含「Python 的老大难问题：GIL」专节的文章**  \n   用“单通道收费站”类比 GIL，说明何时释放（I/O、`sleep` 等），以及为何 CPU 密集要改用多进程。  \n   https://mp.weixin.qq.com/s/-0wQCHrTO6JXRQNLO0i7WQ  \n   [[7]](https://mp.weixin.qq.com/s/-0wQCHrTO6JXRQNLO0i7WQ)\n\n8. **《深入理解Python异步编程(上)》** — 驹说码事，2018-01-15  \n   在对比多线程时说明：因 GIL，一个进程里同时只有一个线程在跑 Python；阻塞系统调用时会释放 GIL。  \n   https://mp.weixin.qq.com/s/H-0pd3NcAJDbUckNi0-IEw  \n   [[8]](https://mp.weixin.qq.com/s/H-0pd3NcAJDbUckNi0-IEw)\n\n若只想看一篇入门，优先第 1、2 篇；想看源码机制看第 3 篇；想看近年 free-threading 看第 4 篇。公众号链接有时会因环境打不开，可复制到微信内置浏览器打开。",
+  "results": [
+    {
+      "id": "r1",
+      "title": "1",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA%3D%3D&chksm=fdc603edcab18afbbb665903d4ff939c9b3fdf6c8d6b2065d8dfa60ff4002eae495eeb5560ea&idx=1&mid=2247484178&scene=21&sn=fa385d6a50de9262cf16f8b737b20b80",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "3抓取微信公众号第一篇文章 | Pursue Wind",
+      "url": "https://doc.pursue.pub/01.%E5%90%8E%E7%AB%AF/200.Python/02.%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E7%88%AC%E8%99%AB/3.%E6%8A%93%E5%8F%96%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0",
+      "snippet": "article = {'app_msg_ext_info': article = {'app_msg_ext_info':  {'title': '11月赠书，总共10本，附Python书单', {'title': '11月赠书，总共10本，附Python书单', 'copyright_stat': 11,  'copyright_stat': 11, 'is_multi': 1,  'is_multi': 1, 'content': '',  'content': '', 'author': '刘志军',  'author': '刘志军', 'subtype': 9,  'subtype': 9, 'del_flag': 1,  'del_flag': 1, 'fileid': 502883895,  'fileid': 502883895, 'content_url': 'http:\\\\/\\\\/mp.weixin.qq.com...',  'content_url': 'http: \\\\/ \\\\/mp.weixin.qq.com...',  ''  '' 'digest': [...] python [...] 暂且不去分析（猜测）每个参数的意义，也不知道那些参数是必须的，总之我把这些参数全部提取出来。然后把 Headers 拷贝出来，发现 Fiddler 把 请求行、响应行、响应头都包括进来了，我们只需要中间的请求头部分。\n\n因为 requests.get 方法里面的 headers 参数必须是字典对象，所以，先要写个函数把刚刚拷贝的字符串转换成字典对象。\n\npython",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.5150107,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "2",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzA5NzgzODI5NA%3D%3D&chksm=872bb019b05c390f567449c5deebc4033d055a744c07cc5a4bb1663d4044e3404a7f673b1ce3&idx=4&mid=2454037920&scene=21&sn=4e08d690d7951f87d467ca6eeb0acea0",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "如何爬取微信公众号的所有文章-CSDN博客",
+      "url": "https://blog.csdn.net/u012110870/article/details/108236001",
+      "snippet": "IPD（集成产品开发）是一种以市场为导向的结构化产品开发管理模式，通过跨部门协作、异步开发、CBB（通用构建模块）和管道管理等手段，实现产品全生命周期高效管理。体系包含七大核心要素：跨部门团队（如IPMT决策层、PDT执行层）、结构化流程（分阶段评审）、端到端项目管理（WBS分级计划）、客户需求分析、投资组合优化及质量管控（TR技术评审）。各业务领域术语涵盖财务（NPV、IRR）、开发（需求分解、基线化）、制造（可制造性设计）、采购（Sourcing团队）及市场（ cdfunlove的博客 467_Python_ _微信公众号_ _文章_ _爬取_ _Python_ _微信公众号_ _文章_ _爬取_ 一.思路二.接口分析三.实现第一步：第二步：1.请求获取对应公众号接口，取到我们需要的fakeid2.请求获取 _微信公众号_ _文章_ 接口，取到我们需要的 _文章_ 数据四.总结 一.思路 我们通过网页版的微信公众平台的图文消息中的超链接获取到我们需要的接口 从接口中我们可以得到对应的 _微信公众号_ 和对应的所有 _微信公众号_ _文章_。 二.接口分析 获取 _微信公众号_ [...] 1024大促\n\n关注博主即可阅读全文\n\n·\n\n收录于\n\n当前文章被以下社区和专栏收录：\n\n标签\n\n#python#java#linux#小程序#jwt\n\n 版权声明：本文为博主原创文章，遵循CC 4.0 BY-NC-SA版权协议，转载请附上原文出处链接和本声明。 \n\n用 _Python_ _爬取_ 公众号历史所有 _文章_，看这篇就够了 手把手教你 _爬取_ 公众号历史所有 _文章_ 阅读详情\n\n### 相关推荐\n\n 换一换 [...] ```python",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.45507812,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "3",
+      "url": "https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "使用Python爬取公众号的合集内容 - 妙妙屋（zy） - 博客园",
+      "url": "https://www.cnblogs.com/ZYPLJ/p/17609348.html",
+      "snippet": "博客园logo\n搜索\n搜索\n搜索\n搜索\n写随笔\n我的博客\n短消息\n简洁模式\n用户头像\n返回主页\n\n# ZYPLJ\n\n## \n\n# 使用Python爬取公众号的合集内容\n\n# 使用Python爬取公众号的合集\n\n# 前言\n\n。。。最近老是更新关于博客的文章，很久没更新其他的了，然后写一下如何爬取微信公众号里面的图片吧！\n\n先看看微信公众号的样子吧：\n\nimage\n\nimage\n\n我爬取的是公众号的合集内容\n\n# 讲解\n\n首先用手机打开某个图片公众号的文章，然后复制链接用电脑打开，它的url为：\n\n以下所展示的链接都是被我修改了的\n\n每个参数的作用 [...] `# 设置请求参数\nurl = '\n# 设置请求参数\nparams = {\n'action': 'getalbum',\n'__biz': 'MzDg3MjY3g==',\n'album_id': '2646021169516584499',\n'count': 10,\n'is_reverse': 1, # 为倒叙也就是从第一篇文章开始\n'uin': '',\n'key': '',\n'pass_ticket': '',\n'wxtoken': '',\n'devicetype': '',\n'clientversion': '',\n'__biz': 'MzDg3MjY3g==',\n'appmsg_token': '',\n'x5': 0,\n'f': 'json'\n}\n# 设置请求头\nheaders = {\n'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3',\n'Referer': '', [...] 'Referer': '',\n'Host': 'mp.weixin.qq.com',\n'Accept-Encoding': 'gzip, deflate',\n'Cookie': ''\n}`",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.37093207,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "4",
+      "url": "https://mp.weixin.qq.com/s/2Ictx9VbqNTuBw1yZQDIOg",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "Python——如何优雅的爬取公众号信息-腾讯云开发者社区-腾讯云",
+      "url": "https://developer.cloud.tencent.com/article/1506163?policyId=1004",
+      "snippet": "create_date = time.strftime(\"%Y-%m-%d\", time.localtime(item['create_time'])) update_date = time.strftime(\"%Y-%m-%d\", time.localtime(item['update_time'])) title = item['title'].replace(\"\\n\", \"\") link = item['link'] with open(output_path, 'a', encoding='utf-8') as fh: article_info = \"%s|%s|%s|%s\\n\" % (create_date, update_date, title, link) fh.write(article_info) fh.flush() loop_count = math.ceil(count / 5) total_page = loop_count+1 while loop_count > 1: time.sleep(5) loop_count -= 1 self.begin = [...] ``` [...] ```",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.33254933,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "1",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA%3D%3D&chksm=fdc603edcab18afbbb665903d4ff939c9b3fdf6c8d6b2065d8dfa60ff4002eae495eeb5560ea&idx=1&mid=2247484178&scene=21&sn=fa385d6a50de9262cf16f8b737b20b80",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "3抓取微信公众号第一篇文章 | Pursue Wind",
+      "url": "https://doc.pursue.pub/01.%E5%90%8E%E7%AB%AF/200.Python/02.%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E7%88%AC%E8%99%AB/3.%E6%8A%93%E5%8F%96%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0",
+      "result_id": "r2",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "2",
+      "url": "http://mp.weixin.qq.com/s?__biz=MzA5NzgzODI5NA%3D%3D&chksm=872bb019b05c390f567449c5deebc4033d055a744c07cc5a4bb1663d4044e3404a7f673b1ce3&idx=4&mid=2454037920&scene=21&sn=4e08d690d7951f87d467ca6eeb0acea0",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "如何爬取微信公众号的所有文章-CSDN博客",
+      "url": "https://blog.csdn.net/u012110870/article/details/108236001",
+      "result_id": "r4",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "3",
+      "url": "https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "使用Python爬取公众号的合集内容 - 妙妙屋（zy） - 博客园",
+      "url": "https://www.cnblogs.com/ZYPLJ/p/17609348.html",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "4",
+      "url": "https://mp.weixin.qq.com/s/2Ictx9VbqNTuBw1yZQDIOg",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "Python——如何优雅的爬取公众号信息-腾讯云开发者社区-腾讯云",
+      "url": "https://developer.cloud.tencent.com/article/1506163?policyId=1004",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "5",
+      "url": "https://mp.weixin.qq.com/s/LXYy-caA9R1VKZ4SZCNODQ",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "6",
+      "url": "http://mp.weixin.qq.com/s/Km-HAY9Jbg5hbuTl5Xj8dw",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "7",
+      "url": "https://mp.weixin.qq.com/s/-0wQCHrTO6JXRQNLO0i7WQ",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "8",
+      "url": "https://mp.weixin.qq.com/s/H-0pd3NcAJDbUckNi0-IEw",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "9.5-使用代理爬取微信公众号文章 | Python3网络爬虫开发实战",
+      "url": "https://python3webspider.cuiqingcai.com/9.5-shi-yong-dai-li-pa-qu-wei-xin-gong-zhong-hao-wen-zhang",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "微信公众号爬取研究 · DropsDevopsOrg/ECommerceCrawlers Wiki · GitHub",
+      "url": "https://github.com/DropsDevopsOrg/ECommerceCrawlers/wiki/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E7%88%AC%E5%8F%96%E7%A0%94%E7%A9%B6",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "微信：公眾號可「帶貨」微信小店 一篇文最多加50條商品鏈接",
+      "url": "https://hk.finance.yahoo.com/news/%E5%BE%AE%E4%BF%A1-%E5%85%AC%E7%9C%BE%E8%99%9F%E5%8F%AF-%E5%B8%B6%E8%B2%A8-%E5%BE%AE%E4%BF%A1%E5%B0%8F%E5%BA%97-%E7%AF%87%E6%96%87%E6%9C%80%E5%A4%9A%E5%8A%A050%E6%A2%9D%E5%95%86%E5%93%81%E9%8F%88%E6%8E%A5-094128270.html",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "微信公众号上手体验 - mx's blog",
+      "url": "https://x-wei.github.io/tech/weixin-gongzhonghao-tiyan.html",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 54440,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "conditional_supplement",
+        "latency_ms": 3479,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "domains_below_threshold:1<2"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "timed_out": false,
+  "elapsed_ms": 57924,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "tavily.search": 1
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 1
+  }
+}

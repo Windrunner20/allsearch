@@ -1,0 +1,559 @@
+{
+  "id": "zhihu-gil",
+  "executed_at": "2026-10-16T09:45:35.561805+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "知乎上关于 Python GIL 为什么让多线程吃不满多核的高赞回答",
+  "answer": "以下是知乎上与「Python GIL 导致多线程吃不满多核」直接相关、相对高赞或常被引用的内容（最多 8 条）。点赞数为检索时页面可见数字，会随时间变化。\n\n1. **《谈谈python的GIL、多线程、多进程》**（专栏，约 533 赞）  \n   https://zhuanlan.zhihu.com/p/20953544  \n   核心：同一进程同时只有持有 GIL 的线程能执行字节码；多核上释放 GIL 后其他核被唤醒却经常抢不到锁，造成线程颠簸，多核多线程有时比单核更差。CPU 密集用多进程（每进程独立 GIL）。\n\n2. **《为什么有人说 Python 的多线程是鸡肋呢？》**（问题，高赞回答里有经典表述）  \n   https://www.zhihu.com/question/23474039  \n   核心：执行前必须拿 GIL，按字节码/时间片轮流让出；即使 100 个线程在 100 核上，纯 Python 计算也大约只用到 1 个核。I/O 调用前会释放 GIL，所以 I/O 密集仍可用多线程；真并行靠多进程或释放 GIL 的 C 扩展。\n\n3. **《为什么 Python 的 GIL 问题一直让人诟病，Python 社区却不解决？》**（问题；一则回答约 1084 赞）  \n   https://www.zhihu.com/question/323812020  \n   核心：解释为何长期不拆 GIL（引用计数、C 扩展兼容、单线程变慢），并介绍后来的 nogil / PEP 703。偏「为什么难去掉」，同时点明 GIL 让 CPU 密集多线程无法并行。\n\n4. **《python下同样代码，多核多线程为什么比单核多线程慢很多？》**  \n   https://www.zhihu.com/question/39923765  \n   核心：计算密集约每百次 tick 释放 GIL；单核切换开销小，多核易 thrashing。Python 3.2 起改为超时强制让锁（约 5ms），但仍不能并行执行字节码。建议 `multiprocessing`。\n\n5. **《从伪并行的 Python 多线程说起》**（2018 专栏）  \n   https://zhuanlan.zhihu.com/p/34687635  \n   核心：用斐波那契类实验说明耗时几乎随线程数线性变差，与多核真并行矛盾；解释器同一时刻只有一条线程在跑。对比 CPython / PyPy / Jython，并说明 C 扩展可在计算段释放 GIL。\n\n6. **《Python进阶：为什么GIL让多线程变得如此鸡肋？》**  \n   https://www.zhihu.com/question/648464307  \n   核心：GIL 是 CPython 互斥锁，任意时刻只有一个线程执行字节码，表现为「一核干活、多核围观」。CPU 密集几乎无加速；I/O 时释放 GIL，多线程仍有用。绕开方式：多进程、无 GIL 实现、NumPy 等会放锁的 C 扩展。\n\n7. **《一文理解Python的全局解释器锁（GIL）》**  \n   https://zhuanlan.zhihu.com/p/690194234  \n   核心：拿锁 → 执行字节码 → 释放后别人才能抢。计算密集程序即使用多线程也基本只在单核上跑；I/O 等待期间多线程有意义。\n\n8. **《炸裂！Python 官宣删除 GIL 倒计时！…》**（专栏，约 68 赞）  \n   https://zhuanlan.zhihu.com/p/1918634950082688599  \n   核心：回顾 GIL 为何成为多核瓶颈，并给出 3.13 可选 free-threaded 构建的对比（文中示例从约 13.5s 降到约 3.7s）。属较新的「去 GIL」讨论，不是早期高赞原理帖。\n\n**共识（这些回答反复出现的点）**  \nCPython 的 GIL 保证同一时刻只有一个线程执行 Python 字节码，所以纯 Python、CPU 密集的多线程无法把多个核打满，有时还会因抢锁更慢；I/O 或主动释放 GIL 的 C 扩展例外；要吃满多核，传统做法是多进程（或后来的 free-threaded 构建）。",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://cloud.tencent.com.cn/developer/article/2757312",
+      "url": "https://cloud.tencent.com.cn/developer/article/2757312",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "https://juejin.cn/post/7657161919082610714",
+      "url": "https://juejin.cn/post/7657161919082610714",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://juejin.cn/post/7675365996027609103",
+      "url": "https://juejin.cn/post/7675365996027609103",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "https://www.jb51.net/python/355070mni.htm",
+      "url": "https://www.jb51.net/python/355070mni.htm",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://www.zhihu.com/question/560479035/answer/1885989035534685246",
+      "url": "https://www.zhihu.com/question/560479035/answer/1885989035534685246",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "https://zhuanlan.zhihu.com/p/690194234",
+      "url": "https://zhuanlan.zhihu.com/p/690194234",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://blog.csdn.net/weixin_32715349/article/details/164436975",
+      "url": "https://blog.csdn.net/weixin_32715349/article/details/164436975",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "https://zhuanlan.zhihu.com/p/34687635",
+      "url": "https://zhuanlan.zhihu.com/p/34687635",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://cloud.tencent.com.cn/developer/article/2757312",
+      "url": "https://cloud.tencent.com.cn/developer/article/2757312",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "https://juejin.cn/post/7657161919082610714",
+      "url": "https://juejin.cn/post/7657161919082610714",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://juejin.cn/post/7675365996027609103",
+      "url": "https://juejin.cn/post/7675365996027609103",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "https://www.jb51.net/python/355070mni.htm",
+      "url": "https://www.jb51.net/python/355070mni.htm",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://www.zhihu.com/question/560479035/answer/1885989035534685246",
+      "url": "https://www.zhihu.com/question/560479035/answer/1885989035534685246",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "https://zhuanlan.zhihu.com/p/690194234",
+      "url": "https://zhuanlan.zhihu.com/p/690194234",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://blog.csdn.net/weixin_32715349/article/details/164436975",
+      "url": "https://blog.csdn.net/weixin_32715349/article/details/164436975",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "https://zhuanlan.zhihu.com/p/34687635",
+      "url": "https://zhuanlan.zhihu.com/p/34687635",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://www.zhihu.com/question/39923765",
+      "url": "https://www.zhihu.com/question/39923765",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://zhuanlan.zhihu.com/p/1943962631212867675",
+      "url": "https://zhuanlan.zhihu.com/p/1943962631212867675",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://zhuanlan.zhihu.com/p/1923366864152658874",
+      "url": "https://zhuanlan.zhihu.com/p/1923366864152658874",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+      "url": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+      "url": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://www.zhihu.com/question/23474039",
+      "url": "https://www.zhihu.com/question/23474039",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://cloud.tencent.com/developer/article/2754723",
+      "url": "https://cloud.tencent.com/developer/article/2754723",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://www.biaodianfu.com/python-concurrency/",
+      "url": "https://www.biaodianfu.com/python-concurrency",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://developer.volcengine.com/articles/7382991428827234331",
+      "url": "https://developer.volcengine.com/articles/7382991428827234331",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://zhuanlan.zhihu.com/p/1975968147522736515",
+      "url": "https://zhuanlan.zhihu.com/p/1975968147522736515",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "https://zhuanlan.zhihu.com/p/20953544",
+      "url": "https://zhuanlan.zhihu.com/p/20953544",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "https://www.zhihu.com/question/579042308",
+      "url": "https://www.zhihu.com/question/579042308",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c21",
+      "title": "https://juejin.cn/post/7694834709337145385",
+      "url": "https://juejin.cn/post/7694834709337145385",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c22",
+      "title": "https://www.wsisp.com/helps/115653.html",
+      "url": "https://www.wsisp.com/helps/115653.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c23",
+      "title": "https://zhuanlan.zhihu.com/p/356475230",
+      "url": "https://zhuanlan.zhihu.com/p/356475230",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c24",
+      "title": "https://www.zhihu.com/question/648464307",
+      "url": "https://www.zhihu.com/question/648464307",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c25",
+      "title": "https://www.zhihu.com/question/323812020",
+      "url": "https://www.zhihu.com/question/323812020",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 25618,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://cloud.tencent.com.cn/developer/article/2757312",
+      "final_url": "https://cloud.tencent.com.cn/developer/article/2757312",
+      "title": "Python 的 GIL 到底卡住了啥？为什么多线程跑不快，3 个实验看清真相-腾讯云开发者社区-腾讯云",
+      "content": "[小小张说故事](https://cloud.tencent.com.cn/developer/user/6689525)\n\n作者相关精选\n\n## Python 的 GIL 到底卡住了啥？为什么多线程跑不快，3 个实验看清真相\n\n原创\n\n关注作者\n\n[_腾讯云_](https://cloud.tencent.com.cn/?from=20060&from_column=20060)\n\n[_开发者社区_](https://cloud.tencent.com.cn/developer)\n\n[文档](https://cloud.tencent.com.cn/document/product?from=20702&from_column=20702) [建议反馈](https://cloud.tencent.com.cn/voc/?from=20703&from_column=20703) [控制台](https://console.cloud.tencent.com.cn/?from=20063&from_column=20063)\n\n登录/注册\n\n[首页](https://cloud.tencent.com.cn/developer)\n\n学习\n\n活动\n\n专区\n\n圈层\n\n工具\n\n[MCP广场![](https://qccommunity.qcloudimg.com/image/new.png)](https://cloud.tencent.com.cn/developer/mcp)\n\n文章/答案/技术大牛搜索\n\n搜索关闭\n\n发布\n\n小小张说故事\n\n[社区首页](https://cloud.tencent.com.cn/developer) > [专栏](https://cloud.tencent.com.cn/developer/column) >Python 的 GIL 到底卡住了啥？为什么多线程跑不快，3 个实验看清真相\n\n# Python 的 GIL 到底卡住了啥？为什么多线程跑不快，3 个实验看清真相\n\n原创\n\n发布于 2026-10-08 23:15:15\n\n发布于 2026-10-08 23:15:15\n\n950\n\n举报\n\n> 系列：Python 底层设计逻辑｜类型：原理拆解型｜分发：CSDN / 博客园 / 腾讯云\n> 字数：约 1600 字\n\n**结论先行：GIL（全局** **解释器** **锁）是 CPython 里一把\"全局锁\"，保证同一时刻只有一个线程在跑 Python 字节码。它锁的是\"解释器执行权\"，不是你的变量。所以 CPU 密集型任务用多线程基本白搭——多个线程轮流抢这把锁，反而有切换开销；但 I/O 密集型任务（网络、文件）不受影响，因为等待时会释放 GIL。想真并行算，得上多进程或把计算丢给 C 扩展。**\n\n* * *\n\n### 1\\. 先破除一个误解：GIL 锁的不是你的数据\n\n很多人以为 GIL 是防止多线程改同一个变量。错。保护变量靠的是你自己的锁（`threading.Lock`）。GIL 锁的是 **解释器本身**——CPython 的内存管理（引用计数）不是线程安全的，所以干脆让同一时刻只有一个线程能执行字节码，从根本上避开竞争。\n\n代码语言：python\n\nAI代码解释\n\n复制\n\n```python\n\n```\n\n**关键**：上例结果不对，是因为 `x += 1` 不是原子操作，GIL 会在中间切换——这跟 GIL\"防竞争\"没关系，恰恰说明 GIL **不** 保护你的数据，你得自己加锁。\n\n### 2\\. 实验一：CPU 密集型，多线程 vs 多进程\n\n代码语言：python\n\nAI代码解释\n\n复制\n\n```python\n\n```\n\n**现象**：四核机器上，多进程明显比多线程快接近一倍，多线程几乎没加速。原因就是 GIL——四个线程挤一把锁，谁也别想真并行算。\n\n### 3\\. 实验二：I/O 密集型，多线程反而香\n\n代码语言：python\n\nAI代码解释\n\n复制\n\n```python\n\n```\n\n**为什么**：网络请求时线程在等，CPython 会在等待点 **释放 GIL**，别的线程就能跑。所以 I/O 密集场景多线程完全能打，这也是 Web 服务爱用多线程的原因。\n\n### 4\\. 实验三：GIL 在 Python 3 里其实会变脸\n\nPython 3.2 之后 GIL 改用\"超时切换\"：一个线程默认跑 5 毫秒就主动让出，避免单线程霸占。你可以用 `sys.setswitchinterval` 调这个值观察行为变化。但 **别指望它让 CPU 任务变快**——切换更公平，不等于能并行。\n\n### 5\\. 那到底怎么绕开 GIL？\n\n- **CPU 密集**：用 `multiprocessing` 开多进程，每个进程独立 GIL、独立解释器，真并行。（代价是进程间通信贵。）\n- **计算下沉 C**：NumPy、Pandas 的底层是 C，计算时释放 GIL，所以向量化操作不受 GIL 拖累。\n- **异步** **`asyncio`**：单线程并发处理海量 I/O，本就不依赖多线程。\n- **换解释器**：PyPy、Jython 没有 CPython 这种 GIL；官方也在做\"nogil\"实验分支。\n\n* * *\n\n### 对照表：什么时候 GIL 是事，什么时候不是\n\n| 场景 | 多线程有效吗 | 原因 |\n| --- | --- | --- |\n| 纯计算（循环/数学） | ❌ 几乎无效 | 抢同一把 GIL，无法并行 |\n| 网络/文件 I/O | ✅ 有效 | 等待时释放 GIL |\n| NumPy 向量化计算 | ✅ 有效 | 底层 C 释放 GIL |\n| 多进程 | ✅ 真并行 | 每进程一把独立 GIL |\n\n* * *\n\n### 排错清单（收藏级）\n\n- **\"我开了 8 个线程为啥 CPU 只跑满 1 核\"**：CPU 密集任务被 GIL 卡住，改多进程。\n- **多线程改同一变量结果错**：GIL 不保护你的数据，该加 `Lock` 还得加。\n- **Web 服务用多线程没问题**：因为瓶颈在 I/O，GIL 早释放了。\n- **想加速数值计算**：优先向量化（NumPy），别盲目堆线程。\n- **别神话多进程**：进程开销大、不能共享内存，轻量并发还是线程/协程。\n\n**一句话记住**：GIL 锁的是解释器的\"执行权\"，不是你的数据。CPU 活儿上进程，I/O 活儿随便多线程——先分清瓶颈在哪，再决定怎么绕。\n\n原创声明：本文系作者授权腾讯云开发者社区发表，未经许可，不得转载。\n\n如有侵权，请联系 [cloudcommunity@tencent.com](mailto:cloudcommunity@tencent.com) 删除。\n\n[python](https://cloud.tencent.com.cn/developer/tag/10169)\n\n[python-3.4](https://cloud.tencent.com.cn/developer/tag/15483)\n\n评论\n\n登录后参与评论\n\n暂无评论\n\n登录 后参与评论\n\n推荐阅读\n\n编辑精选文章\n\n换一批\n\n[万字详解高可用架构设计\\\\\n21801](https://cloud.tencent.com.cn/developer/article/2485144)\n\n[Go 开发者必备：Protocol Buffers 入门指南\\\\\n15015](https://cloud.tencent.com.cn/developer/article/2490247)\n\n[10分钟带你彻底搞懂分布式链路跟踪\\\\\n13972](https://cloud.tencent.com.cn/developer/article/2493091)\n\n[多租户的 4 种常用方案\\\\\n16994](https://cloud.tencent.com.cn/developer/article/2497507)\n\n[亿级月活的社交 APP，陌陌如何做到 3 分钟定位故障？\\\\\n14116](https://cloud.tencent.com.cn/developer/article/2416967)\n\n[60页PPT全解：DeepSeek系列论文技术要点整理\\\\\n15817](https://cloud.tencent.com.cn/developer/article/2505000)\n\n[深扒 Python GIL：从底层原理到多进程实战，搞懂为什么多线程不加速](https://cloud.tencent.com.cn/developer/article/2754723?policyId=1003)\n\n[python](https://cloud.tencent.com.cn/developer/tag/10169)\n\n[先给结论：GIL（全局解释器锁）是 CPython 的一把进程级互斥锁，它强制同一时刻只有一个线程能执行 Python 字节码。 这意味着哪怕你开了 8 个线程、跑在 8 核 CPU 上，纯 Python 的 CPU 密集型任务也只能在单核上“轮流跑”，根本享受不到多核并行。很多人写了多线程以为能加速，结果耗时反而更久了——这不是你的代码有问题，是 GIL 在背后“单线调度”。](https://cloud.tencent.com.cn/developer/article/2754723?policyId=1003)\n\n小小张说故事\n\n2026/10/02\n\n1620\n\n![深扒 Python GIL：从底层原理到多进程实战，搞懂为什么多线程不加速](https://developer.qcloudimg.com/http-save/yehe-6689525/a9c24e0c7ccd04fcffa7fcb8b015d1ad.png)\n\n[为什么Python的多线程总是跑不满CPU？](https://cloud.tencent.com.cn/developer/article/2701036?policyId=1003)\n\n[python](https://cloud.tencent.com.cn/developer/tag/10169)\n\n[两年前，我接了一个任务：优化一个数据处理程序。现有代码是单线程跑的，处理200万条数据要花12秒。我想着服务器是8核的，开8个线程并行处理，理论上1.5秒就能跑完。](https://cloud.tencent.com.cn/developer/article/2701036?policyId=1003)\n\n风一样的男子\n\n2026/07/01\n\n3500\n\n[从入门到放弃，Python的GIL锁比我想象的还要‘坑’](https://cloud.tencent.com.cn/developer/article/2735223?policyId=1003)\n\n[python](https://cloud.tencent.com.cn/developer/tag/10169)\n\n[现有代码是单线程跑的，处理200万条数据要花12秒。我看了看服务器配置——8核。心想这不简单吗？开8个线程并行处理，理论上1.5秒就能跑完。](https://cloud.tencent.com.cn/developer/article/2735223?policyId=1003)\n\n风一样的男子\n\n2026/09/01\n\n1710\n\n[Python多线程居然比单线程还慢？记住一个坑](https://cloud.tencent.com.cn/developer/article/2700092?policyId=1003)\n\n[python](https://cloud.tencent.com.cn/developer/tag/10169)\n\n[去年有个朋友跟我吐槽，说他想用多线程加速一个数据处理任务。原代码是单线程跑的，处理100万条数据要8秒。他觉得CPU利用率太低，心想：\"我有8个核，开8个线程，岂不是1秒就能跑完？\"](https://cloud.tencent.com.cn/developer/article/2700092?policyId=1003)\n\n风一样的男子\n\n2026/06/29\n\n4100\n\n[Python 多线程编程](https://cloud.tencent.com.cn/developer/article/1545789?policyId=1003)\n\n[python](https://cloud.tencent.com.cn/developer/tag/10169) [编程算法](https://cloud.tencent.com.cn/developer/tag/10663)\n\n[总共用时 28 秒，如果开启两条线程来执行上面的操作（假设处理器为多核 CPU），如下所示：](https://cloud.tencent.com.cn/developer/article/1545789?policyId=1003)\n\n纯洁的微笑\n\n2019/11/29\n\n1K0\n\n[Python中的GIL（全局解释器锁）是什么？它如何影响多线程编程？](https://cloud.tencent.com.cn/developer/article/2523141?policyId=1003)\n\n[python](https://cloud.tencent.com.cn/developer/tag/10169) [编程](https://cloud.tencent.com.cn/developer/tag/17183) [多线程](https://cloud.tencent.com.cn/developer/tag/17250) [线程](https://cloud.tencent.com.cn/developer/tag/17508) [解释器](https://cloud.tencent.com.cn/developer/tag/17872)\n\n[在Python中，GIL（Global Interpreter Lock） 是一个非常重要的概念，它对Python的多线程性能产生了深远的影响。尽管Python支持多线程编程，但是由于GIL的存在，它在处理并发时并不像其他语言那样高效。本文将详细讲解GIL的工作原理，探讨它对多线程编程的影响，并给出如何在Python中有效地进行并发处理的解决方案。🎉](https://cloud.tencent.com.cn/developer/article/2523141?policyId=1003)\n\n默 语\n\n2025/05/21\n\n1.7K0\n\n[Python多线程居然比单线程还慢？原来GIL坑在这](https://cloud.tencent.com.cn/developer/article/2685337?policyId=1003)\n\n[python](https://cloud.tencent.com.cn/developer/tag/10169)\n\n[事情是这样的。公司有一批大约五千万条的日志文件需要清洗和解析，每行数据要做正则匹配、字段提取、格式转换。我的笔记本电脑是八核的，心想：Python多线程不是能利用多核吗？开八个线程同时干，速度起码能快个四五倍吧？](https://cloud.tencent.com.cn/developer/article/2685337?policyId=1003)\n\n风一样的男子\n\n2026/06/09\n\n3440\n\n[python并发编程-多线程实现服务端并发-GIL全局解释器锁-验证python多线程是否有用-死锁-递归锁-信号量-Event事件-线程结合队列-03](https://cloud.tencent.com.cn/developer/article/1513639?policyId=1003)\n\n[编程算法](https://cloud.tencent.com.cn/developer/tag/10663) [python](https://cloud.tencent.com.cn/developer/tag/10169) [数据安全](https://cloud.tencent.com.cn/developer/tag/10600)\n\n[正确，如果解释型语言能够利用多核优势，并行地执行代码，就会出现垃圾回收机制干扰线程数据的情况，CPython中就采用了CIL全局解释器锁来解决这一问题，牺牲多核优势保证线程安全](https://cloud.tencent.com.cn/developer/article/1513639?policyId=1003)\n\nsuwanbin\n\n2019/09/26\n\n7650\n\n![python并发编程-多线程实现服务端并发-GIL全局解释器锁-验证python多线程是否有用-死锁-递归锁-信号量-Event事件-线程结合队列-03](https://ask.qcloudimg.com/http-save/yehe-3758006/htmgz62p2l.png)\n\n[Python 多线程操作](https://cloud.tencent.com.cn/developer/article/1758810?policyId=1003)\n\n[python](https://cloud.tencent.com.cn/developer/tag/10169) [编程算法](https://cloud.tencent.com.cn/developer/tag/10663)\n\n[线程（Thread）也叫轻量级进程，是操作系统能够进行运算调度的最小单位，它被包涵在进程之中，是进程中的实际运作单位。线程自己不拥有系统资源，只拥有一点儿在运行中必不可少的资源，但它可与同属一个进程的其它线程共享进程所拥有的全部资源。一个线程可以创建和撤消另一个线程，同一进程中的多个线程之间可以并发执行。\\\\\n举个简单的例子来理解下：\\\\\n假定有一 7 \\* 24 小时不停工的工厂，由于其电力有限，一次仅供一个车间使用，当一个车间在生产时，其他车间停工。在这里我们可以理解这个工厂相当于操作系统，供电设备相当于 CPU，一个车间相当于一个进程。](https://cloud.tencent.com.cn/developer/article/1758810?policyId=1003)\n\nsomenzz\n\n2020/12/10\n\n1.3K0\n\n![Python 多线程操作](https://ask.qcloudimg.com/http-save/yehe-2196272/mvcgh30ny2.jpeg)\n\n[银河it-Python 并发与并行：从 GIL 到自由线程的工程真相](https://cloud.tencent.com.cn/developer/article/2752932?policyId=1003)\n\n[大模型部署](https://cloud.tencent.com.cn/developer/tag/18105)\n\n[“Python 多线程是假的。”\\\\\n“GIL 让 Python 永远只能跑一个核。”\\\\\n“想并行？上多进程。”](https://cloud.tencent.com.cn/developer/article/2752932?policyId=1003)\n\n用户12502671\n\n2026/09/29\n\n1290\n\n[Python GIL到底是什么，为什么很多人误解它](https://cloud.tencent.com.cn/developer/article/2712622?policyId=1003)\n\n[进程](https://cloud.tencent.com.cn/developer/tag/17332) [内存](https://cloud.tencent.com.cn/developer/tag/17382) [设计](https://cloud.tencent.com.cn/developer/tag/17423) [线程](https://cloud.tencent.com.cn/developer/tag/17508) [python](https://cloud.tencent.com.cn/developer/tag/10169)\n\n[GIL，全称Global Interpreter Lock，是CPython解释器内部的一个互斥锁。规则很简单：同一个进程里，任何时候只有一个线程能执行Python字节码。](https://cloud.tencent.com.cn/developer/article/2712622?policyId=1003)\n\n用户11081884\n\n2026/07/20\n\n3340\n\n![Python GIL到底是什么，为什么很多人误解它](https://developer.qcloudimg.com/http-save/10011/5be68c4e4c8f5bb337ffb85ce0aee6ad.jpg)\n\n[Python进阶——为什么GIL让多线程变得如此鸡肋？](https://cloud.tencent.com.cn/developer/article/1805429?policyId=1003)\n\n[python](https://cloud.tencent.com.cn/developer/tag/10169) [编程算法](https://cloud.tencent.com.cn/developer/tag/10663) [java](https://cloud.tencent.com.cn/developer/tag/10164)\n\n[做 Python 开发时，想必你肯定听过 GIL，它经常被 Python 程序员吐槽，说 Python 的多线程非常鸡肋，因为 GIL 的存在，Python 无法利用多线程提高性能。](https://cloud.tencent.com.cn/developer/article/1805429?policyId=1003)\n\n\\_Kaito\n\n2021/03/23\n\n1.3K0\n\n![Python进阶——为什么GIL让多线程变得如此鸡肋？](https://ask.qcloudimg.com/http-save/yehe-5190064/3zypsdsjsa.png)\n\n[Python的全局解释器锁（GIL）GIL是什么为什么会有GILGIL的影响顺序执行的单线程(single\\_thread.py)同时执行的两个并发线程(multi\\_thread.py)当前GIL设计的](https://cloud.tencent.com.cn/developer/article/1106632?policyId=1003)\n\n[python](https://cloud.tencent.com.cn/developer/tag/10169)\n\n[转一篇关于Python GIL的文章。\\\\\n归纳一下，CPU的大规模电路设计基本已经到了物理意义的尽头，所有厂商们都开始转向多核以进一步提高性能。Python为了能利用多核多线程的的优势，但又要保证线程之间数据完整性和状态同步，就采用了最简单的加锁的方式（所以说Python的GIL是设计之初一时偷懒造成的！）。Python库的开发者们接受了这个设定，即默认Python是thread-safe，所以开始大量依赖这个特性，无需在实现时考虑额外的内存锁和同步操作。但是GIL的设计有时会显得笨拙低效，但是此时由于内](https://cloud.tencent.com.cn/developer/article/1106632?policyId=1003)\n\nSeanCheney\n\n2018/04/24\n\n1.9K0\n\n![Python的全局解释器锁（GIL）GIL是什么为什么会有GILGIL的影响顺序执行的单线程(single_thread.py)同时执行的两个并发线程(multi_thread.py)当前GIL设计的](https://ask.qcloudimg.com/http-save/yehe-1731059/pd33hwmpl9.png)\n\n[Python的GIL锁把我坑惨了，原来多线程计算真的一点用都没有](https://cloud.tencent.com.cn/developer/article/2731083?policyId=1003)\n\n[python](https://cloud.tencent.com.cn/developer/tag/10169)\n\n[去年我接到一个任务：优化一个数据处理程序。输入是100万个JSON文件，需要对每个文件做解析、特征提取，然后汇总结果。单核跑要40多分钟，太慢了。](https://cloud.tencent.com.cn/developer/article/2731083?policyId=1003)\n\n风一样的男子\n\n2026/08/24\n\n1960\n\n[python多线程菜鸟教程\\_python实现多线程有几种方式](https://cloud.tencent.com.cn/developer/article/2041935?policyId=1003)\n\n[编程算法](https://cloud.tencent.com.cn/developer/tag/10663) [python](https://cloud.tencent.com.cn/developer/tag/10169)\n\n[大家好，我是架构君，一个会写代码吟诗的架构师。今天说一说python多线程菜鸟教程\\_python实现多线程有几种方式,希望能够帮助大家进步!!!](https://cloud.tencent.com.cn/developer/article/2041935?policyId=1003)\n\nJava架构师必看\n\n2022/07/06\n\n1.2K0\n\n[Python多线程居然比单线程还慢？是哪里出问题了](https://cloud.tencent.com.cn/developer/article/2702119?policyId=1003)\n\n[python](https://cloud.tencent.com.cn/developer/tag/10169)\n\n[他盯着屏幕看了五分钟，冒出一句：\"为什么两个线程反而比一个线程慢了一倍多？ 是我写错了吗？\"](https://cloud.tencent.com.cn/developer/article/2702119?policyId=1003)\n\n风一样的男子\n\n2026/07/02\n\n2700\n\n[Python的GIL把我坑惨了，原来多线程和多进程的区别这么大](https://cloud.tencent.com.cn/developer/article/2712999?policyId=1003)\n\n[python](https://cloud.tencent.com.cn/developer/tag/10169)\n\n[前年接了一个图像批处理项目。每天有上万张商品图片需要做缩放、水印和格式转换。我心想：“这还不简单？多线程并行处理，分分钟搞定。”](https://cloud.tencent.com.cn/developer/article/2712999?policyId=1003)\n\n风一样的男子\n\n2026/07/21\n\n3020\n\n[Python Web学习笔记之GIL机制下的鸡肋多线程](https://cloud.tencent.com.cn/developer/article/1149739?policyId=1003)\n\n[python](https://cloud.tencent.com.cn/developer/tag/10169)\n\n[为什么有人会说 Python 多线程是鸡肋？知乎上有人提出这样一个问题，在我们常识中，多进程、多线程都是通过并发的方式充分利用硬件资源提高程序的运行效率，怎么在 Python 中反而成了鸡肋？\\\\\n有同学可能知道答案，因为 Python 中臭名昭著的 GIL。\\\\\n那么 GIL 是什么？为什么会有 GIL？多线程真的是鸡肋吗？ GIL 可以去掉吗？带着这些问题，我们一起往下看，同时需要你有一点点耐心。\\\\\n多线程是不是鸡肋，我们先做个实验，实验非常简单，就是将数字 “1亿” 递减，减到 0 程序就终止，这个任务如果我们](https://cloud.tencent.com.cn/developer/article/1149739?policyId=1003)\n\nJetpropelledsnake21\n\n2018/06/20\n\n9770\n\n[进程队列补充、socket实现服务器并发、线程完结](https://cloud.tencent.com.cn/developer/article/1554225?policyId=1003)\n\n[编程算法](https://cloud.tencent.com.cn/developer/tag/10663) [python](https://cloud.tencent.com.cn/developer/tag/10169)\n\n[解释型语言单个进程下多个线程不可以并行，但是向C语言等其他语言中在多核情况下是可以实现并行的，所有语言在单核下都是无法实现并行的，只能并发。](https://cloud.tencent.com.cn/developer/article/1554225?policyId=1003)\n\nGH\n\n2019/12/16\n\n8620\n\n![进程队列补充、socket实现服务器并发、线程完结](https://ask.qcloudimg.com/http-save/yehe-6817597/d7ye00efg5.png)\n\n[python程序默认执行与多线程](https://cloud.tencent.com.cn/developer/article/1570297?policyId=1003)\n\n[编程算法](https://cloud.tencent.com.cn/developer/tag/10663) [python](https://cloud.tencent.com.cn/developer/tag/10169)\n\n[1程序执行流程\\\\\n有类似脚本程序或编程经验的同学都知道,程序默认是自上而下,从左到右的按顺序执行,也叫串行执行;而多线程类似于并行执行,即A模块(函数)执行时B也执行不需要等A执行完再执行,这里请区别对待并发执行(同一时间执行);以上是简单概念性描述,](https://cloud.tencent.com.cn/developer/article/1570297?policyId=1003)\n\npy3study\n\n2020/01/10\n\n1.1K0\n\n[小小张说故事](https://cloud.tencent.com.cn/developer/user/6689525) 0\n\nLV.2\n\n这个人很懒，什么都没有留下～\n\n关注\n\n[文章\\\\\n\\\\\n15](https://cloud.tencent.com.cn/developer/user/6689525/articles) [获赞\\\\\n\\\\\n14](https://cloud.tencent.com.cn/developer/user/6689525) [排名\\\\\n\\\\\n1407](https://cloud.tencent.com.cn/developer/rank?type=heat)\n\n作者相关精选\n\n- [深扒 Python GIL：从底层原理到多进程实战，搞懂为什么多线程不加速](https://cloud.tencent.com.cn/developer/article/2754723)\n- [Python logging 不打印 / 重复打印 / 中文乱码？9 个高频坑对照表（附排查清单）](https://cloud.tencent.com.cn/developer/article/2755253)\n\n目录\n\n- 1\\. 先破除一个误解：GIL 锁的不是你的数据\n\n- 2\\. 实验一：CPU 密集型，多线程 vs 多进程\n\n- 3\\. 实验二：I/O 密集型，多线程反而香\n\n- 4\\. 实验三：GIL 在 Python 3 里其实会变脸\n\n- 5\\. 那到底怎么绕开 GIL？\n\n- 对照表：什么时候 GIL 是事，什么时候不是\n\n- 排错清单（收藏级）\n\n交个朋友\n\n\n加入腾讯云官网粉丝站\n\n\n蹲全网底价单品 享第一手活动信息\n\n\n![](https://cs.cloud.tencent.com/group1/M00/2E/70/C6E9n2gN0X-ACMf9AAAeCb2HQQE475.png?id=1)\n\n[![](https://dscache.tencent-cloud.cn/upload/nodir/workbuddy-buddy-686x194-7a8326f3f1c95b746ebdf653b15b8641a066878b.png)广告](https://cloud.tencent.com.cn/act/pro/workbuddy?ad_trace=fb581a76eda64d0ca858436ad89a2628&from=30202&from_column=30202)\n\n加入讨论\n\n[的问答专区 >](https://cloud.tencent.com.cn/developer/ask)\n\n[用户12732775](https://cloud.tencent.com.cn/developer/user/12732775) 0\n\n提问\n\n- [区块链是什么？](https://cloud.tencent.com.cn/developer/ask/37393)\n- [这是啥东东？](https://cloud.tencent.com.cn/developer/ask/223451)\n- [你好，啥再去看还是显示有黑客呀，啥 回事？](https://cloud.tencent.com.cn/developer/ask/215227)\n\n相关课程\n\n[一站式学习中心 >](https://cloud.tencent.com.cn/developer/learning)\n\n[Java\\\\\n\\\\\n2926人在学](https://cloud.tencent.com.cn/developer/learning/graph/2)\n\n[java](https://cloud.tencent.com.cn/developer/tag/10164)\n\n[前端\\\\\n\\\\\n1550人在学](https://cloud.tencent.com.cn/developer/learning/graph/8)\n\n[前端](https://cloud.tencent.com.cn/developer/tag/17397)\n\n[Python教程-Django框架快速入门到实战\\\\\n\\\\\n1445人在学](https://cloud.tencent.com.cn/developer/learning/camp/17)\n\n[对象存储](https://cloud.tencent.com.cn/developer/tag/110)\n\n[python](https://cloud.tencent.com.cn/developer/tag/10169)\n\n[开源框架](https://cloud.tencent.com.cn/developer/tag/17342)\n\n领券\n\n- ### 社区\n\n\n\n  - [技术文章](https://cloud.tencent.com.cn/developer/column)\n  - [技术问答](https://cloud.tencent.com.cn/developer/ask)\n  - [技术沙龙](https://cloud.tencent.com.cn/developer/salon)\n  - [技术视频](https://cloud.tencent.com.cn/developer/video)\n  - [学习中心](https://cloud.tencent.com.cn/developer/learning)\n  - [技术百科](https://cloud.tencent.com.cn/developer/techpedia)\n  - [技术专区](https://cloud.tencent.com.cn/developer/zone/list)\n\n- ### 活动\n\n\n\n  - [自媒体同步曝光计划](https://cloud.tencent.com.cn/developer/support-plan)\n  - [邀请作者入驻](https://cloud.tencent.com.cn/developer/support-plan-invitation)\n  - [自荐上首页](https://cloud.tencent.com.cn/developer/article/1535830)\n  - [技术竞赛](https://cloud.tencent.com.cn/developer/competition)\n\n- ### 圈层\n\n\n\n  - [腾讯云最具价值专家](https://cloud.tencent.com.cn/tvp)\n  - [腾讯云架构师技术同盟](https://cloud.tencent.com.cn/developer/program/tm)\n  - [腾讯云创作之星](https://cloud.tencent.com.cn/developer/program/tci)\n  - [腾讯云TDP](https://cloud.tencent.com.cn/tdp)\n\n- ### 关于\n\n\n\n  - [社区规范](https://cloud.tencent.com.cn/developer/article/1006434)\n  - [免责声明](https://cloud.tencent.com.cn/developer/article/1006435)\n  - [联系我们](mailto:cloudcommunity@tencent.com)\n  - [友情链接](https://cloud.tencent.com.cn/developer/friendlink)\n  - [MCP广场开源版权声明](https://cloud.tencent.com.cn/developer/article/2537547)\n\n### 腾讯云开发者\n\n![扫码关注腾讯云开发者](https://qcloudimg.tencent-cloud.cn/raw/a8907230cd5be483497c7e90b061b861.png?imageView2/2/w/200)\n\n扫码关注腾讯云开发者\n\n领取腾讯云代金券\n\n### 热门产品\n\n- [域名注册](https://cloud.tencent.com.cn/product/domain?from=20064&from_column=20064)\n- [云服务器](https://cloud.tencent.com.cn/product/cvm?from=20064&from_column=20064)\n- [区块链服务](https://cloud.tencent.com.cn/product/tbaas?from=20064&from_column=20064)\n- [消息队列](https://cloud.tencent.com.cn/product/message-queue-catalog?from=20064&from_column=20064)\n- [网络加速](https://cloud.tencent.com.cn/product/ecdn?from=20064&from_column=20064)\n- [云数据库](https://cloud.tencent.com.cn/product/tencentdb-catalog?from=20064&from_column=20064)\n- [域名解析](https://cloud.tencent.com.cn/product/dns?from=20064&from_column=20064)\n- [云存储](https://cloud.tencent.com.cn/product/cos?from=20064&from_column=20064)\n- [视频直播](https://cloud.tencent.com.cn/product/css?from=20064&from_column=20064)\n\n### 热门推荐\n\n- [人脸识别](https://cloud.tencent.com.cn/product/facerecognition?from=20064&from_column=20064)\n- [腾讯会议](https://cloud.tencent.com.cn/product/tm?from=20064&from_column=20064)\n- [企业云](https://cloud.tencent.com.cn/act/pro/enterprise2022?from=20064&from_column=20064)\n- [CDN加速](https://cloud.tencent.com.cn/product/cdn?from=20064&from_column=20064)\n- [视频通话](https://cloud.tencent.com.cn/product/trtc?from=20064&from_column=20064)\n- [图像分析](https://cloud.tencent.com.cn/product/imagerecognition?from=20064&from_column=20064)\n- [MySQL 数据库](https://cloud.tencent.com.cn/product/cdb?from=20064&from_column=20064)\n- [SSL 证书](https://cloud.tencent.com.cn/product/ssl?from=20064&from_column=20064)\n- [语音识别](https://cloud.tencent.com.cn/product/asr?from=20064&from_column=20064)\n\n### 更多推荐\n\n- [数据安全](https://cloud.tencent.com.cn/solution/data_protection?from=20064&from_column=20064)\n- [负载均衡](https://cloud.tencent.com.cn/product/clb?from=20064&from_column=20064)\n- [短信](https://cloud.tencent.com.cn/product/sms?from=20064&from_column=20064)\n- [文字识别](https://cloud.tencent.com.cn/product/ocr?from=20064&from_column=20064)\n- [云点播](https://cloud.tencent.com.cn/product/vod?from=20064&from_column=20064)\n- [大数据](https://cloud.tencent.com.cn/product/bigdata-class?from=20064&from_column=20064)\n- [小程序开发](https://cloud.tencent.com.cn/solution/la?from=20064&from_column=20064)\n- [网站监控](https://cloud.tencent.com.cn/product/tcop?from=20064&from_column=20064)\n- [数据迁移](https://cloud.tencent.com.cn/product/cdm?from=20064&from_column=20064)\n\nCopyright © 2013 - 2026 Tencent Cloud. All Rights Reserved. 腾讯云 版权所有\n\n[深圳市腾讯计算机系统有限公司](https://qcloudimg.tencent-cloud.cn/raw/986376a919726e0c35e96b311f54184d.jpg) ICP备案/许可证号： [粤B2-20090059](https://beian.miit.gov.cn/#/Integrated/index)![](https://qcloudimg.tencent-cloud.cn/raw/eed02831a0e201b8d794c8282c40cf2e.png) [粤公网安备44030502008569号](https://beian.mps.gov.cn/#/query/webSearch?code=44030502008569)\n\n[腾讯云计算（北京）有限责任公司](https://qcloudimg.tencent-cloud.cn/raw/a2390663ee4a95ceeead8fdc34d4b207.jpg) 京ICP证150476号 \\|  [京ICP备11018762号](https://beian.miit.gov.cn/#/Integrated/index)\n\n[问题归档](https://cloud.tencent.com.cn/developer/ask/archives.html) [专栏文章](https://cloud.tencent.com.cn/developer/column/archives.html) [快讯文章归档](https://cloud.tencent.com.cn/developer/news/archives.html) [关键词归档](https://cloud.tencent.com.cn/developer/information/all.html) [开发者手册归档](https://cloud.tencent.com.cn/developer/devdocs/archives.html) [开发者手册 Section 归档](https://cloud.tencent.com.cn/developer/devdocs/sections_p1.html)\n\n登录 后参与评论\n\n1\n\n目录\n\n100\n\n推荐\n\n[首页](https://cloud.tencent.com.cn/developer)\n\n[MCP广场![](https://qccommunity.qcloudimg.com/image/new.png)](https://cloud.tencent.com.cn/developer/mcp)\n\n[返回腾讯云官网](https://cloud.tencent.com.cn/?from=20060&from_column=20060)\n\n[首页](https://cloud.tencent.com.cn/developer)\n\n[MCP广场![](https://qccommunity.qcloudimg.com/image/new.png)](https://cloud.tencent.com.cn/developer/mcp)\n\n[返回腾讯云官网](https://cloud.tencent.com.cn/?from=20060&from_column=20060)",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "magicSource": "N",
+        "title": "Python 的 GIL 到底卡住了啥？为什么多线程跑不快，3 个实验看清真相-腾讯云开发者社区-腾讯云",
+        "description": "GIL是CPython解释器的全局锁，限制同一时刻仅一个线程执行字节码，不保护数据变量。CPU密集型任务多线程因锁竞争几乎无效，而I/O密集任务因等待时释放GIL表现良好。绕开方案包括多进程、C扩展（NumPy）或asyncio，适合优化并发性能。",
+        "language": "zh",
+        "ogImage": "https://cloudcache.tencent-cloud.com/open_proj/proj_qcloud_v2/gateway/shareicons/cloud.png",
+        "format-detection": "telephone=no",
+        "next-head-count": "22",
+        "ogDescription": "GIL是CPython解释器的全局锁，限制同一时刻仅一个线程执行字节码，不保护数据变量。CPU密集型任务多线程因锁竞争几乎无效，而I/O密集任务因等待时释放GIL表现良好。绕开方案包括多进程、C扩展（NumPy）或asyncio，适合优化并发性能。",
+        "keywords": "GIL原理,CPython多线程,CPU密集型优化,I/O并发模型",
+        "og:title": "Python 的 GIL 到底卡住了啥？为什么多线程跑不快，3 个实验看清真相-腾讯云开发者社区-腾讯云",
+        "og:image": "https://cloudcache.tencent-cloud.com/open_proj/proj_qcloud_v2/gateway/shareicons/cloud.png",
+        "referrer": "unsafe-url",
+        "subjectTime": "2026-10-09 11:15:15",
+        "ogTitle": "Python 的 GIL 到底卡住了啥？为什么多线程跑不快，3 个实验看清真相-腾讯云开发者社区-腾讯云",
+        "authorType": "O",
+        "authorUID": "6689525",
+        "articleSource": "O",
+        "og:description": "GIL是CPython解释器的全局锁，限制同一时刻仅一个线程执行字节码，不保护数据变量。CPU密集型任务多线程因锁竞争几乎无效，而I/O密集任务因等待时释放GIL表现良好。绕开方案包括多进程、C扩展（NumPy）或asyncio，适合优化并发性能。",
+        "viewport": "width=device-width, initial-scale=1.0, maximum-scale=1, viewport-fit=cover",
+        "subject": "通用技术-编程语言-python,其他-空类-python-3.4",
+        "productSlug": "none",
+        "favicon": "https://cloudcache.tencent-cloud.com/qcloud/favicon.ico?t=201902181234",
+        "scrapeId": "01a1441a-af60-7721-8561-9cd83e1a8641",
+        "sourceURL": "https://cloud.tencent.com.cn/developer/article/2757312",
+        "url": "https://cloud.tencent.com.cn/developer/article/2757312",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "cacheState": "miss",
+        "indexId": "ab6ace20-60e8-4c62-8fae-fce4e220cc57",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 6211,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 6800
+    },
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://juejin.cn/post/7657161919082610714",
+      "final_url": "https://juejin.cn/post/7657161919082610714",
+      "title": "为什么Python的多线程总是跑不满CPU？免费编程软件「python+pycharm」 链接：https://pan. - 掘金",
+      "content": "# 为什么Python的多线程总是跑不满CPU？\n\n[站大爷IP](https://juejin.cn/user/2905353241759261/posts)\n\n2026-06-30\n\n48\n\n阅读5分钟\n\n\n**免费编程软件「python+pycharm」**\n**链接： [pan.quark.cn/s/48a86be2f…](https://link.juejin.cn/?target=https%3A%2F%2Fpan.quark.cn%2Fs%2F48a86be2fdc0 \"https://pan.quark.cn/s/48a86be2fdc0\")**\n\n## 一个让我怀疑人生的性能测试\n\n两年前，我接了一个任务：优化一个数据处理程序。现有代码是单线程跑的，处理200万条数据要花12秒。我想着服务器是8核的，开8个线程并行处理，理论上1.5秒就能跑完。\n\n我信心满满地改了代码：\n\n```python\n\npython\n复制代码\n\nimport threading\nimport time\n\ndef cpu_task(n):\n    \"\"\"纯计算任务：累加\"\"\"\n    total = 0\n    for i in range(n):\n        total += i\n    return total\n\n# 单线程\nstart = time.time()\nfor _ in range(4):\n    cpu_task(50_000_000)\nprint(f\"单线程: {time.time() - start:.2f}秒\")\n\n# 4个线程并行\nthreads = []\nstart = time.time()\nfor _ in range(4):\n    t = threading.Thread(target=cpu_task, args=(50_000_000,))\n    threads.append(t)\n    t.start()\nfor t in threads:\n    t.join()\nprint(f\"4线程: {time.time() - start:.2f}秒\")\n```\n\n跑完一看结果：\n\n```makefile\n\nmakefile\n复制代码\n\n单线程: 10.21秒\n4线程: 12.58秒\n```\n\n**多线程反而更慢了？** 我盯着屏幕看了五分钟，不敢相信自己的眼睛。\n\n后来我才知道，这不是Python的bug，这是Python最著名的\"特性\"—— **GIL（全局解释器锁）** 。\n\n* * *\n\n## GIL是什么？为什么会有这个东西？\n\nGIL的全称是Global Interpreter Lock，是CPython（也就是我们平时用的那个Python解释器）里的一个 **互斥锁**。\n\n它的作用很直接： **同一时刻，只有一个线程能执行Python字节码**。\n\n你可以把它想象成一把\"令牌\"——哪个线程拿到令牌，才能执行代码。执行一会儿（比如运行15毫秒，或者执行一定数量的字节码指令），就把令牌放下，让其他线程去抢。\n\n**为什么要有GIL？**\n\n原因很简单：Python的内存管理用的是 **引用计数**——每个对象都记录着被引用的次数。如果两个线程同时修改同一个对象的引用计数，没有加锁保护，计数就可能出错，导致程序崩溃。\n\n为了简化内存管理的复杂度，Python设计者决定 **用一把全局锁来保护一切**。这个决定让Python在单核时代运行得很好，但到了多核时代，问题就暴露了。\n\n* * *\n\n## 多核CPU上，GIL是怎么\"坑\"你的？\n\n在单核CPU上，GIL其实没什么问题——反正同一时间只有一个核心在工作。但到了多核时代，问题就来了。\n\n想象一下：你有8个CPU核心，开了8个Python线程做计算。GIL只允许一个线程执行Python字节码，其他7个核心只能干瞪眼等着。\n\n**更糟糕的是线程切换的开销**：\n\n当线程A执行了一段时间，主动释放GIL，准备让线程B上场。但注意，在线程B被操作系统唤醒并拿到GIL之前，线程A可能已经把GIL又抢回去了——因为线程A还在就绪状态，离CPU更近。\n\n这就导致了一个尴尬的局面： **多个核心忙来忙去，大部分时间都在\"抢锁\"和\"等锁\"，真正干活的时间没增加多少**。\n\n实验结果也证明了这一点。有研究者用RSA加密算法做测试，在6核机器上跑：1个线程耗时1.98秒，6个线程耗时居然也是2.1秒左右，几乎没有任何提升。\n\n* * *\n\n## 什么样的任务不会被GIL影响？\n\n**I/O密集型任务**。\n\n如果你的程序大部分时间在等待网络响应、读写文件、查询数据库，这些操作会 **主动释放GIL**，其他线程就能趁机执行。\n\n所以，对于Web服务器、爬虫、文件处理这类任务，Python多线程是有效果的。\n\n**CPU密集型任务**——比如循环累加、数学计算、数据处理——GIL就成了瓶颈。这类任务才是\"多线程跑不满CPU\"的元凶。\n\n有一个例外：如果底层用的是 **C扩展库**（比如NumPy），这些库在执行计算时会主动释放GIL，所以多线程依然能加速。\n\n* * *\n\n## 怎么办？绕过GIL的三种方案\n\n### 方案1：多进程（multiprocessing）\n\n既然GIL只锁线程，那就用进程。\n\n每个进程有自己独立的Python解释器和GIL，多个进程可以真正并行地跑在不同的CPU核心上。\n\n```python\n\npython\n复制代码\n\nfrom multiprocessing import Pool\n\ndef cpu_task(n):\n    total = 0\n    for i in range(n):\n        total += i\n    return total\n\nwith Pool(4) as pool:\n    results = pool.map(cpu_task, [50_000_000] * 4)\n```\n\n实际测试中，多进程在4核机器上能达到接近3.7倍的加速比。\n\n**代价**：每个进程有独立的内存空间，数据共享需要序列化和进程间通信（IPC），内存占用会显著增加。\n\n### 方案2：用C扩展库\n\n如果你用的是NumPy这类底层用C/C++写的库，它们执行时 **会释放GIL**，可以充分利用多核。\n\n这也是为什么数据科学领域用Python做计算依然很快——因为真正吃计算的部分是C写的。\n\n### 方案3：asyncio异步编程\n\n对于I/O密集型任务，`asyncio`可以在 **单线程** 内实现高并发，效率比多线程更高，而且没有GIL的烦恼。\n\n* * *\n\n## 好消息：Python正在移除GIL\n\nPython 3.13已经提供了 **实验性** 的无GIL版本（free-threaded build）。在Python 3.14中，这个特性进一步完善。\n\n测试表明，对于可并行且数据独立的工作负载，无GIL版本能把执行时间缩短到原来的 **1/4**，能耗也显著降低。\n\n但要注意代价：\n\n- 单线程性能会下降约5-10%\n- 内存占用会增加约10%（引入了更细粒度的锁机制）\n- 第三方库的兼容性还在逐步完善中\n\n* * *\n\n## 记住这个结论\n\n- **I/O密集型任务** → 放心用`threading`，多线程能提速\n- **CPU密集型任务** → 用`multiprocessing`或C扩展，纯Python多线程不仅不加速，可能还更慢\n- 原因就是 **GIL**——CPython解释器的全局锁，让多线程无法真正并行\n\n那个让我怀疑人生的性能测试，后来用`multiprocessing`改写了。4个进程并行，耗时从10秒降到了2.8秒。核心原因就是绕开了GIL。\n\n理解了GIL，你就能在Python的并发编程里少走很多弯路。下次有人问你\"为什么Python多线程跑不满CPU\"，你就知道答案了—— **不是线程不够多，是GIL在中间当\"交警\"，只允许一辆车通过。**\n\n标签：\n\n[后端](https://juejin.cn/tag/%E5%90%8E%E7%AB%AF)\n\n![](https://lf-web-assets.juejin.cn/obj/juejin-web/xitu_juejin_web/c12d6646efb2245fa4e88f0e1a9565b7.svg)\n\n![](https://lf-web-assets.juejin.cn/obj/juejin-web/xitu_juejin_web/336af4d1fafabcca3b770c8ad7a50781.svg)\n\n![](https://lf-web-assets.juejin.cn/obj/juejin-web/xitu_juejin_web/3d482c7a948bac826e155953b2a28a9e.svg)\n\n加个关注，精彩更新不错过~\n\n![avatar](https://p6-passport.byteacctimg.com/img/user-avatar/ad043edc47df16dfd28b4708db9938c1~40x40.awebp)\n\n关注\n\n\nAPP内打开\n\n- ![下载掘金APP](https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2ad212d53ccd44569d10317171664bae~tplv-k3u1fbpfcp-jj:90:0:0:0:q75.avis)下载APP\n\n\n\n\n\n\n\n\n\n\n下载APP\n- ![微信扫一扫](https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/9f4933cc8fdb411cba89904f14a3ec0a~tplv-k3u1fbpfcp-jj:90:0:0:0:q75.avis)微信扫一扫\n\n\n\n\n\n\n\n\n\n\n微信公众号\n- [新浪微博](https://weibo.com/xitucircle)\n\n![](https://lf-web-assets.juejin.cn/obj/juejin-web/xitu_juejin_web/img/MaskGroup.13dfc4f.png)选择你感兴趣的技术方向\n\n跳过\n\n上一步\n\n至少选择1个分类\n\n\n![](https://lf-web-assets.juejin.cn/obj/juejin-web/xitu_juejin_web/8867e249c23a7c0ea596c139befc04d7.svg)\n\n温馨提示\n\n当前操作失败，如有疑问，可点击申诉\n\n前往申诉我知道了",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "description": "免费编程软件「python+pycharm」 链接：https://pan.quark.cn/s/48a86be2fdc0 一个让我怀疑人生的性能测试 两年前，我接了一个任务：优化一个数据处理程序。现免费编程软件「python+pycharm」\n链接：https://pan.quark.cn/s/48a86be2fdc",
+        "language": "zh",
+        "image": "https://p1-jj.byteimg.com/tos-cn-i-t2oaga2asx/gold-assets/icon/icon-128.png~tplv-t2oaga2asx-image.image",
+        "height": "180",
+        "apple-itunes-app": "app-id=987739104",
+        "datePublished": "2026-07-01T03:18:51.000Z",
+        "viewport": "width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover",
+        "pics-expire-time": "1792552810",
+        "msvalidate.01": "BADCF2429624CB0432BE8924E5343343",
+        "width": "180",
+        "theme-color": "#ffffff",
+        "google-site-verification": "H_4N6FRhUA633zQuLcgQvaDDceBxlcb6vMSFXm5G4i8",
+        "msapplication-TileColor": "#da532c",
+        "keywords": [
+          "后端中文技术社区,前端开发社区,前端技术交流,前端框架教程,JavaScript 学习资源,CSS 技巧与最佳实践,HTML5 最新动态,前端工程师职业发展,开源前端项目,前端技术趋势",
+          "后端"
+        ],
+        "headline": "为什么Python的多线程总是跑不满CPU？",
+        "name": [
+          "站大爷IP",
+          "掘金"
+        ],
+        "url": "https://juejin.cn/post/7657161919082610714",
+        "title": "为什么Python的多线程总是跑不满CPU？免费编程软件「python+pycharm」 链接：https://pan. - 掘金",
+        "favicon": "https://lf-web-assets.juejin.cn/obj/juejin-web/xitu_juejin_web/static/favicons/favicon-32x32.png",
+        "scrapeId": "01a1441a-cad2-767e-93a5-046aa5e10555",
+        "sourceURL": "https://juejin.cn/post/7657161919082610714",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "proxyUsed": "basic",
+        "cacheState": "hit",
+        "cachedAt": "2026-10-15T08:25:19.726Z",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 280,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 1164
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 33587,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 0
+  }
+}

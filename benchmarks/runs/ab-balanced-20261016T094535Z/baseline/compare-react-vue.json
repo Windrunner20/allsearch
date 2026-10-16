@@ -1,0 +1,320 @@
+{
+  "id": "compare-react-vue",
+  "executed_at": "2026-10-16T09:49:43.723045+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "对比 React 官方的 managing state 和 Vue 官方的 reactivity fundamentals",
+  "answer": "React 的 [Managing State](https://react.dev/learn/managing-state) 讲的是**怎么组织状态和数据流**；Vue 的 [Reactivity Fundamentals](https://vuejs.org/guide/essentials/reactivity-fundamentals) 讲的是**状态怎么被做成可响应、变更怎么被追踪**。两者不是同一层文档。\n\n1. **文档定位**  \n   React 这一章是中级主题：状态结构、共享、重置、reducer、Context。Vue 这一页是基础：声明响应式状态、`ref` / `reactive`、深层响应、更新时机。  \n   [react.dev/learn/managing-state](https://react.dev/learn/managing-state) · [vuejs.org reactivity-fundamentals](https://vuejs.org/guide/essentials/reactivity-fundamentals)\n\n2. **心智模型**  \n   React：用状态描述 UI，不直接改 DOM；设状态会请求重新渲染，状态是当次渲染的快照。Vue：依赖追踪——渲染时记录读过的 ref，之后改写会触发依赖它的更新。  \n   [Reacting to Input with State](https://react.dev/learn/reacting-to-input-with-state) · [State as a Snapshot](https://react.dev/learn/state-as-a-snapshot) · [Why Refs?](https://vuejs.org/guide/essentials/reactivity-fundamentals#why-refs)\n\n3. **声明与更新**  \n   React：`useState` 给出当前值和 setter，用新值替换（不可变）。Vue Options：`data()` 返回对象，`this.count++` 直接改。Vue Composition：`ref(0)`，脚本里用 `.value`，模板里自动解包。  \n   [Managing State](https://react.dev/learn/managing-state) · [Declaring Reactive State](https://vuejs.org/guide/essentials/reactivity-fundamentals#declaring-reactive-state)\n\n4. **对象和数组**  \n   Vue 默认深层响应：嵌套属性赋值、`push` 都会被检测到；也可用 `shallowRef` 关掉深层观察。React 要求替换新引用；原地改同一对象再传回 setter，通常不会触发更新。  \n   [Deep Reactivity](https://vuejs.org/guide/essentials/reactivity-fundamentals#deep-reactivity) · [Updating Objects / Arrays](https://react.dev/learn/updating-objects-in-state)\n\n5. **派生数据**  \n   React 官方建议少存冗余状态，在渲染时算出来（如 `fullName = firstName + ' ' + lastName`）。Vue 用 `computed`（及 Options 的 `computed`）缓存，依赖变了才重算。  \n   [Choosing the State Structure](https://react.dev/learn/choosing-the-state-structure) · [Options: computed](https://vuejs.org/api/options-state)\n\n6. **跨组件共享**  \n   React 主路径是提升状态到最近公共父组件，再用 props 下发；更深时用 Context，复杂逻辑用 reducer。Vue 这一页不讲跨组件方案，只讲组件内响应式；共享通常另用 props、provide/inject 或 Pinia。  \n   [Sharing State](https://react.dev/learn/sharing-state-between-components) · [Scaling Up with Reducer and Context](https://react.dev/learn/scaling-up-with-reducer-and-context)\n\n7. **复杂更新逻辑**  \n   React 把分散的 `setState` 收成纯函数 reducer，事件只 `dispatch` action。Vue 没有对等章节；复杂变更仍是改 `ref` / `reactive`，或抽成普通函数。  \n   [Extracting State Logic into a Reducer](https://react.dev/learn/extracting-state-logic-into-a-reducer) · [useReducer](https://react.dev/reference/react/useReducer)\n\n8. **更新时机与状态寿命**  \n   Vue：多次变更会缓冲到 next tick，组件只更新一次；可用 `nextTick` 等 DOM。React：状态在一次渲染内不变；组件身份默认保留状态，换 `key` 会重置。  \n   [DOM Update Timing](https://vuejs.org/guide/essentials/reactivity-fundamentals#dom-update-timing) · [Preserving and Resetting State](https://react.dev/learn/preserving-and-resetting-state)\n\n**一句话**：React 文档教你“状态放哪、怎么替换、怎么共享”；Vue 文档教你“Proxy/`ref` 如何追踪读写并更新视图”。对比时应对齐的是 React 的 `useState` + 快照渲染，和 Vue 的 `ref`/`reactive` + 细粒度依赖追踪，而不是把两篇目录当成同一主题。",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://vuejs.org/api/reactivity-core.html",
+      "url": "https://vuejs.org/api/reactivity-core.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "https://react.dev/learn/reacting-to-input-with-state",
+      "url": "https://react.dev/learn/reacting-to-input-with-state",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://v2.vuejs.org/v2/guide/reactivity.html",
+      "url": "https://v2.vuejs.org/v2/guide/reactivity.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "https://fadamakis.com/learning-vue-for-react-developers-602d0f98755a.html",
+      "url": "https://fadamakis.com/learning-vue-for-react-developers-602d0f98755a.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://vuejs.org/api/options-state",
+      "url": "https://vuejs.org/api/options-state",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "https://react.dev/learn/managing-state",
+      "url": "https://react.dev/learn/managing-state",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://www.telerik.com/blogs/react-vue-developers-part-2-state-effects-why-react-re-renders-differently",
+      "url": "https://www.telerik.com/blogs/react-vue-developers-part-2-state-effects-why-react-re-renders-differently",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "https://coddy.tech/docs/react/react-vs-vue",
+      "url": "https://coddy.tech/docs/react/react-vs-vue",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://vuejs.org/api/reactivity-core.html",
+      "url": "https://vuejs.org/api/reactivity-core.html",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "https://react.dev/learn/reacting-to-input-with-state",
+      "url": "https://react.dev/learn/reacting-to-input-with-state",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://v2.vuejs.org/v2/guide/reactivity.html",
+      "url": "https://v2.vuejs.org/v2/guide/reactivity.html",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "https://fadamakis.com/learning-vue-for-react-developers-602d0f98755a.html",
+      "url": "https://fadamakis.com/learning-vue-for-react-developers-602d0f98755a.html",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://vuejs.org/api/options-state",
+      "url": "https://vuejs.org/api/options-state",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "https://react.dev/learn/managing-state",
+      "url": "https://react.dev/learn/managing-state",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://www.telerik.com/blogs/react-vue-developers-part-2-state-effects-why-react-re-renders-differently",
+      "url": "https://www.telerik.com/blogs/react-vue-developers-part-2-state-effects-why-react-re-renders-differently",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "https://coddy.tech/docs/react/react-vs-vue",
+      "url": "https://coddy.tech/docs/react/react-vs-vue",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://react.dev/learn/state-as-a-snapshot",
+      "url": "https://react.dev/learn/state-as-a-snapshot",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://react.dev/reference/react/useReducer",
+      "url": "https://react.dev/reference/react/useReducer",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://react.dev/llms.txt",
+      "url": "https://react.dev/llms.txt",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://v1.vuejs.org/guide/reactivity.html",
+      "url": "https://v1.vuejs.org/guide/reactivity.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://daily.dev/posts/react-for-vue-developers-2-state-effects-re-renders-lf4kx00ba",
+      "url": "https://daily.dev/posts/react-for-vue-developers-2-state-effects-re-renders-lf4kx00ba",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+      "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://www.stanza.dev/compare/react-vs-vue",
+      "url": "https://www.stanza.dev/compare/react-vs-vue",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 21104,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "comparison_signal"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "timed_out": false,
+  "elapsed_ms": 21106,
+  "usage": {
+    "calls": {
+      "xai.search": 1
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 0
+  }
+}

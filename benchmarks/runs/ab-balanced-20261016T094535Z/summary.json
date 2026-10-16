@@ -1,0 +1,201 @@
+{
+  "baseline": {
+    "cases": 39,
+    "task": {
+      "blocked": 2,
+      "pass": 15,
+      "fail": 21,
+      "timeout": 1
+    },
+    "dimensions": {
+      "discovery": {
+        "fail": 15,
+        "pass": 22
+      },
+      "comments": {
+        "fail": 11
+      },
+      "synthesis": {
+        "pass": 16,
+        "fail": 1
+      },
+      "cross_language": {
+        "pass": 4
+      },
+      "reading": {
+        "fail": 4,
+        "not_attempted": 5,
+        "pass": 6
+      },
+      "freshness": {
+        "pass": 1
+      }
+    },
+    "calls": {
+      "firecrawl.scrape": 35,
+      "tavily.search": 8,
+      "xai.search": 37
+    },
+    "xai_cost_ticks": 0,
+    "xai_cost_usd_reported": 0.0,
+    "elapsed_ms_total": 903521,
+    "elapsed_ms_median": 18555
+  },
+  "candidate": {
+    "cases": 39,
+    "task": {
+      "blocked": 1,
+      "pass": 24,
+      "fail": 14
+    },
+    "dimensions": {
+      "discovery": {
+        "fail": 8,
+        "pass": 29
+      },
+      "comments": {
+        "fail": 7,
+        "pass": 4
+      },
+      "synthesis": {
+        "pass": 17
+      },
+      "cross_language": {
+        "pass": 4
+      },
+      "reading": {
+        "fail": 6,
+        "not_attempted": 5,
+        "pass": 4
+      },
+      "freshness": {
+        "pass": 1
+      }
+    },
+    "calls": {
+      "firecrawl.scrape": 29,
+      "hackernews.read_thread": 10,
+      "hackernews.search": 4,
+      "stackexchange.read_thread": 3,
+      "stackexchange.search": 1,
+      "tavily.search": 1,
+      "v2ex.read_thread": 4,
+      "v2ex.search": 2,
+      "wikipedia.search": 2,
+      "xai.rewrite": 4,
+      "xai.search": 38
+    },
+    "xai_cost_ticks": 12507738400,
+    "xai_cost_usd_reported": 1.2508,
+    "elapsed_ms_total": 615217,
+    "elapsed_ms_median": 14089
+  },
+  "changes": [
+    {
+      "id": "tieba-camera",
+      "baseline": "blocked",
+      "candidate": "fail",
+      "candidate_reasons": [
+        "discovery:fail",
+        "comments:fail"
+      ]
+    },
+    {
+      "id": "v2ex-macos",
+      "baseline": "fail",
+      "candidate": "pass",
+      "candidate_reasons": []
+    },
+    {
+      "id": "hn-sqlite",
+      "baseline": "fail",
+      "candidate": "pass",
+      "candidate_reasons": []
+    },
+    {
+      "id": "history-rfc791",
+      "baseline": "pass",
+      "candidate": "fail",
+      "candidate_reasons": [
+        "reading:fail"
+      ]
+    },
+    {
+      "id": "stackoverflow-venv",
+      "baseline": "fail",
+      "candidate": "pass",
+      "candidate_reasons": []
+    },
+    {
+      "id": "github-code-search",
+      "baseline": "pass",
+      "candidate": "fail",
+      "candidate_reasons": [
+        "discovery:fail",
+        "reading:fail"
+      ]
+    },
+    {
+      "id": "baidu-baike",
+      "baseline": "fail",
+      "candidate": "pass",
+      "candidate_reasons": []
+    },
+    {
+      "id": "dual-forum-hardware",
+      "baseline": "fail",
+      "candidate": "pass",
+      "candidate_reasons": []
+    },
+    {
+      "id": "paywall-wsj",
+      "baseline": "fail",
+      "candidate": "pass",
+      "candidate_reasons": []
+    },
+    {
+      "id": "fetch-python-venv",
+      "baseline": "pass",
+      "candidate": "fail",
+      "candidate_reasons": [
+        "reading:fail"
+      ]
+    },
+    {
+      "id": "hn-comment-dissent",
+      "baseline": "timeout",
+      "candidate": "pass",
+      "candidate_reasons": []
+    },
+    {
+      "id": "wechat-mp-discovery",
+      "baseline": "fail",
+      "candidate": "pass",
+      "candidate_reasons": []
+    },
+    {
+      "id": "xiaohongshu-note-discovery",
+      "baseline": "fail",
+      "candidate": "pass",
+      "candidate_reasons": []
+    },
+    {
+      "id": "youtube-me-at-the-zoo",
+      "baseline": "fail",
+      "candidate": "pass",
+      "candidate_reasons": []
+    },
+    {
+      "id": "hn-two-comments",
+      "baseline": "fail",
+      "candidate": "pass",
+      "candidate_reasons": []
+    },
+    {
+      "id": "cross-lang-hn-sqlite",
+      "baseline": "fail",
+      "candidate": "pass",
+      "candidate_reasons": []
+    }
+  ]
+}
