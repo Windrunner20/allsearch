@@ -16,7 +16,7 @@ path.write_text(json.dumps(data, indent=2, ensure_ascii=False) + "\n", encoding=
 PY
 
 # 2. Load the legacy extension again. Do not do this while the native server remains enabled.
-ln -s /home/bowie/allsearch/integrations/pi /home/bowie/.pi/agent/extensions/allsearch
+ln -s /path/to/allsearch/integrations/pi ~/.pi/agent/extensions/allsearch
 ```
 
 A copy of the previous `mcp.json` is at `~/.pi/agent/mcp.json.bak-allsearch-native`. The removed symlink target was saved at `~/.pi/agent/extensions/allsearch.disabled-target`.

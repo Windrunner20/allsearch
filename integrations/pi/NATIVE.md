@@ -1,16 +1,36 @@
-# Native Pi MCP
+# Pi Coding Agent
 
-Pi loads AllSearch from `~/.pi/agent/mcp.json` as the stdio server `allsearch`, with `exposure: "direct"` and `ALLSEARCH_COMPACT_OUTPUT=true`.
+Pi is one MCP client among several; AllSearch has no Pi-specific code path.
+Use Pi's built-in MCP support with the generic stdio configuration in
+[examples/clients/pi.json](../../examples/clients/pi.json) (or
+[mcp.native.json](mcp.native.json), which is the same server started from a
+checkout's `.venv`).
+
+Verified on 2026-10-16 with Pi's native MCP: `pi mcp list` shows
+`allsearch: connected, 4 tools`, and a `pi -p` run called
+`mcp__allsearch__fetch` and answered from its result.
 
 Tools:
 
-- `mcp__allsearch__search` returns a bounded summary and `result_id`.
-- `mcp__allsearch__fetch` returns a short preview and `result_id`.
+- `mcp__allsearch__search` returns a bounded summary, a `coverage` block and a `result_id`.
+- `mcp__allsearch__fetch` returns a short preview and a `result_id`; forum threads on
+  Hacker News, V2EX and Stack Exchange come back with comment ids and authors.
 - `mcp__allsearch__read_result` pages the stored result. It does not call a provider.
 - `mcp__allsearch__health` reports provider and circuit state.
 
-Full responses are stored in `~/.local/state/allsearch/records` (mode `0700` / `0600`, one-hour TTL). The code default for compact output remains off, so the legacy bridge still receives full tool payloads if it is explicitly started. The Pi server turns compact output on.
+Since 0.3.0 compact output is the server default, so no environment variable
+is needed for it. The process is long-lived for the whole Pi session, so the
+in-memory cache, circuit breakers and the per-session loop counters are
+shared across the session's calls.
 
-The legacy extension is not loaded. Its source remains in this directory. See `ROLLBACK.md` before enabling it again. Do not enable both.
+When running `pi -p` from a script, close stdin (`< /dev/null`); otherwise Pi
+waits on it and the run looks hung.
 
-`pi mcp list` shows connection state and tools. In a session, `/mcp` uses the same configuration. A session that was already open keeps the tools it loaded at startup; start a new session to drop the extension and pick up the native server.
+## Legacy extension
+
+`index.ts` and `mcp_bridge.py` in this directory are the 0.1/0.2 Pi extension.
+It is not the recommended setup and is kept only so existing installs can
+roll back ([ROLLBACK.md](ROLLBACK.md)). The bridge pins
+`ALLSEARCH_OUTPUT_MODE=full`, because it formats full payloads itself. Do not
+enable the extension and the native MCP server together: both can search, and
+the model may call both.

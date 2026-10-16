@@ -184,7 +184,10 @@ def test_native_mcp_config_is_separate_from_the_extension():
     server = config["mcpServers"]["allsearch_native"]
     assert server["type"] == "stdio"
     assert "mcp_bridge.py" not in json.dumps(server)
-    assert server["env"]["ALLSEARCH_COMPACT_OUTPUT"] == "true"
+    # Compact output is the 0.3 default, so the config does not need to set it,
+    # and it must not force the legacy full mode.
+    assert server["env"].get("ALLSEARCH_OUTPUT_MODE", "compact") == "compact"
+    assert server["env"].get("ALLSEARCH_COMPACT_OUTPUT", "true") == "true"
     assert "allsearch_search" not in json.dumps(config)
 
 
