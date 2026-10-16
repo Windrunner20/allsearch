@@ -147,6 +147,54 @@ def _collect_done(tasks: list[Any]) -> list[Any | None]:
     return out
 
 
+_IDENT = re.compile(
+    r"(?<![\w.])(?:v?\d+(?:\.\d+){1,3}|\d{3,}|[A-Za-z]+\d+[A-Za-z\d]*|[A-Za-z][A-Za-z0-9]*(?:_[A-Za-z0-9]+)+|[A-Z][A-Za-z0-9]*\.[a-z][A-Za-z0-9]+)(?![\w])"
+)
+
+
+def query_identifiers(query: str) -> list[str]:
+    """Exact tokens worth matching in URLs and titles: numbers of 3+ digits,
+    versions, alphanumeric codes, snake_case and Type.member names."""
+    found = []
+    for token in _IDENT.findall(query):
+        if re.fullmatch(r"(19|20)\d\d", token):
+            continue  # years match too many unrelated pages
+        found.append(token)
+    return list(dict.fromkeys(found))[:6]
+
+
+def identifier_hits(identifiers: list[str], text: str) -> int:
+    hay = (text or "").lower()
+    hits = 0
+    for ident in identifiers:
+        low = ident.lower().lstrip("v")
+        if low.isdigit():
+            if re.search(r"(?<!\d)0*" + low + r"(?!\d)", hay):
+                hits += 1
+        elif low in hay:
+            hits += 1
+    return hits
+
+
+def extractive_answer(threads: list[ThreadEvidence], limit: int = 3) -> str:
+    """Answer text built only from comments read through platform APIs."""
+    picked = []
+    for thread in threads:
+        for comment in thread.comments:
+            if (comment.relevance or 0) > 0:
+                picked.append((comment.relevance or 0, thread, comment))
+    picked.sort(key=lambda item: item[0], reverse=True)
+    if not picked:
+        return ""
+    lines = ["Most relevant comments read from the thread API (verbatim, not a summary):"]
+    for _, thread, comment in picked[:limit]:
+        text = " ".join(comment.text.split())
+        if len(text) > 400:
+            text = text[:399] + "…"
+        lines.append(f"- {comment.author} ({comment.created_at or 'undated'}) {comment.url}: \"{text}\" — in \"{thread.title}\"")
+    return "\n".join(lines)
+
+
 def _next_steps(
     intent: QueryIntent,
     coverage: Coverage,
@@ -313,6 +361,19 @@ class Orchestrator:
                 if stage.provider == "xai":
                     stage.include_domains = site_domains
                     stage.reason = "primary_site_restricted"
+                    if (
+                        intent.comments
+                        and intent.topic
+                        and self.native is not None
+                        and all(req.site.reader and self.native.can_read(req.site.reader) for req in intent.sites)
+                    ):
+                        # The comment itself is found by reading the thread API;
+                        # Grok only needs to locate the threads, which it does far
+                        # faster than hunting for one comment (that hunt never
+                        # finished within 90 s in the 0.2 runs).
+                        names = " ".join(req.site.name for req in intent.sites)
+                        stage.query = f"{names} threads about: {intent.topic}"
+                        stage.reason = "primary_threads_only"
 
         group0 = [s for s in plan.stages if s.parallel_group == 0]
         group1 = [s for s in plan.stages if s.parallel_group == 1]
@@ -1030,14 +1091,19 @@ class Orchestrator:
             include_domains=request.include_domains,
             exclude_domains=request.exclude_domains,
         )
-        if intent is not None and intent.sites:
-            # Content pages on the requested sites first; order otherwise kept.
-            def rank(item: ResultItem) -> int:
+        identifiers = query_identifiers(request.query)
+        if intent is not None and (intent.sites or identifiers):
+            # Content pages on the requested sites first, then pages that carry
+            # the exact identifiers the query names (RFC 791, PEP 703, 22.0.0,
+            # PyObject_Malloc); provider order otherwise kept.
+            def rank(item: ResultItem) -> tuple[int, int]:
+                site_rank = 2
                 host = hostname_of(item.url or "")
                 for req in intent.sites:
                     if host and req.site.owns(host):
-                        return 0 if req.site.is_content_url(item.url) else 1
-                return 2
+                        site_rank = 0 if req.site.is_content_url(item.url) else 1
+                        break
+                return (site_rank if intent.sites else 0, -identifier_hits(identifiers, f"{item.url} {item.title}"))
 
             results = sorted(results, key=rank)
             for index, item in enumerate(results, start=1):
@@ -1079,6 +1145,11 @@ class Orchestrator:
         answer = ""
         if primary is not None:
             answer = primary.answer or ""
+        if threads and intent is not None and intent.comments:
+            quoted = extractive_answer(threads)
+            if quoted:
+                answer = f"{answer}\n\n{quoted}" if answer else quoted
+                warnings.append("answer_includes_api_comments")
         elif degraded:
             tav = provider_outputs.get("tavily")
             if tav and tav.answer:

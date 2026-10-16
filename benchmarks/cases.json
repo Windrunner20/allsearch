@@ -642,7 +642,7 @@
         "id": "vue-reactivity",
         "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html",
         "host": "vuejs.org",
-        "path_contains": "/guide/essentials/reactivity-fundamentals.html",
+        "path_regex": "/guide/essentials/reactivity-fundamentals(\\.html)?$",
         "reading_evidence": ["reactivity"]
       }
     ],
@@ -650,6 +650,9 @@
     "key_facts": ["React", "Vue"],
     "url_checked": true,
     "notes": "两个 URL 本机都已打开。只找到其中一个时发现分为 partial，任务失败。",
+    "grader_changes": [
+      "v2: vuejs.org serves the page at /guide/essentials/reactivity-fundamentals without .html (the .html URL redirects there); both forms count. v1 required .html."
+    ],
     "rubric": {"discovery": "两页都在", "cross_language": "中文对比题召回两份英文文档", "synthesis": "两边都提到"}
   },
   {

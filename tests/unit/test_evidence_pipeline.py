@@ -193,3 +193,36 @@ async def test_fetch_reports_login_walls(base_config, no_dns):
     resp = await orch.fetch(FetchRequest(url="https://e.com/a", fresh=True))
     assert resp.status == "partial"
     assert resp.errors[0].code == "login_required"
+
+
+async def test_exact_identifiers_rank_first(base_config):
+    urls = [
+        "https://www.rfc-editor.org/info/rfc8999",
+        "https://datatracker.ietf.org/doc/html/rfc2529.txt",
+        "https://www.rfc-editor.org/rfc/rfc791.txt",
+    ]
+    orch = make_orchestrator(base_config, xai=FakeXAI(_primary(urls)), tavily=FakeTavily())
+    resp = await orch.search(SearchRequest(query="RFC 791 text for the Internet Protocol Version field", fresh=True))
+    assert resp.results[0].url == "https://www.rfc-editor.org/rfc/rfc791.txt"
+    assert resp.citations[0].url == resp.results[0].url and resp.citations[0].result_id == "r1"
+
+
+async def test_comment_task_on_readable_site_sends_grok_the_thread_topic(base_config):
+    url = "https://news.ycombinator.com/item?id=100"
+    thread = ThreadEvidence(
+        platform="hackernews", url=url, title="SQLite essay", status="comments_read",
+        comments=[Comment(id="101", author="lillecarl", url="https://news.ycombinator.com/item?id=101",
+                          text="If the user interface depends on synchronous IO something is very wrong.", relevance=4.0)],
+    )
+    native = FakeNative(threads={url: thread}, search={"hackernews": [ProviderResultItem(title="SQLite as an Application File Format", url=url, provider="hackernews")]})
+    xai = FakeXAI(_primary([url], answer="Threads: item 100."))
+    orch = make_orchestrator(base_config, xai=xai, tavily=FakeTavily())
+    orch.native = native
+    resp = await orch.search(SearchRequest(
+        query="In the Hacker News thread about SQLite as an application file format, find a comment that says the user interface should not wait on disk",
+        fresh=True,
+    ))
+    assert xai.calls[0]["query"] == "Hacker News threads about: SQLite as application file format"
+    assert resp.answer.startswith("Threads: item 100.")
+    assert "synchronous IO" in resp.answer and "lillecarl" in resp.answer
+    assert "answer_includes_api_comments" in resp.warnings
