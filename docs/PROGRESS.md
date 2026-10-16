@@ -56,8 +56,12 @@ Offline suite: 350 passed, 1 skipped on Python 3.14 and 3.11 (commit 834194e).
 
 ## Next steps (in order)
 
-1. Push `dev/universal-mcp` — **blocked: this machine has no GitHub credentials**
-   (no credential helper, no SSH key). Needs the owner's token or key.
+1. Push `dev/universal-mcp` — **blocked (2026-10-16)**: the HTTPS credential
+   available here is an OAuth app token without the `workflow` scope, and
+   GitHub rejects the push because the branch changes
+   `.github/workflows/tests.yml` (the OS × Python CI matrix). Nothing was
+   pushed. Options: grant `workflow` scope / push from an account that has
+   it, or push a rewritten branch without the workflow change.
 2. Read CI: Linux/macOS/Windows × 3.11–3.13, wheel and Docker build.
 3. Fix whatever CI reports; then decide on merging to `main` and tagging v0.3.0.
 4. Optional: one interleaved agent A/B after the post-run fixes (741d4be,
