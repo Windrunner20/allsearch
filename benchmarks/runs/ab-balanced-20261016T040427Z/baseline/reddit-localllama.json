@@ -1,0 +1,351 @@
+{
+  "id": "reddit-localllama",
+  "executed_at": "2026-10-16T04:05:35.047009+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "Reddit thread in r/LocalLLaMA about running a quantized local model on one GPU",
+  "answer": "Relevant r/LocalLLaMA threads on running quantized models on one GPU (up to 8):\n\n1. **Qwen3.5-35B-A3B quant quality + speed on RTX 5080 16GB** — Compares Q8_0, Q4_K_M, and UD-Q4_K_XL on a single GPU with llama.cpp; recommends Q4_K_M plus partial MoE offload (~70 tok/s, ~2% perplexity hit vs Q8).  \n   https://www.reddit.com/r/LocalLLaMA/comments/1rei65v/  \n   [[1]](https://www.reddit.com/r/LocalLLaMA/comments/1rei65v/)\n\n2. **Follow-up: Qwen3.5-35B-A3B experiments on RTX 5080 16GB** — More single-GPU configs, MoE vs dense speed, and a simpler `--fit on` launch for 16GB cards.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1rg4zqv/  \n   [[2]](https://www.reddit.com/r/LocalLLaMA/comments/1rg4zqv/followup_qwen3535ba3b_7_communityrequested?tl=pt-pt)\n\n3. **Qwen 3.8 27B ~140 tok/s on a single RTX 3090** — CUDA megakernel vs llama.cpp for a Q4_K_M quant; single-GPU only, 24GB+ cards, long context.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1x37q7b/  \n   [[3]](https://www.reddit.com/r/LocalLLaMA/comments/1x37q7b/update_qwen_38_27b_140_toks_on_single_rtx_3090/)\n\n4. **How to run Qwen3.8 27B on 16GB** — GSQ-RCO IQ3_S on one 16GB GPU with KV streaming for large context and measured decode speeds.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1wzfv45/  \n   [[4]](https://ssl.reddit.com/r/LocalLLaMA/comments/1wzfv45/just_my_how_i_run_qwen38_27b_on_16gb_experience/)\n\n5. **120 tok/s on 12GB VRAM with Gemma 4 12B QAT** — Full-VRAM QAT GGUF plus MTP draft model on an RTX 4070 Super 12GB.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1typjmc/  \n   [[5]](https://old.reddit.com/r/LocalLLaMA/comments/1typjmc/120_toks_on_12gb_vram_with_gemma_4_12b_qat_mtp.json)\n\n6. **Llama 3.1 70B AQLM-PV on one 3090** — ~22GB compressed weights that fit a single 3090, with reported MMLU drop.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1fiscnl/  \n   [[6]](https://www.reddit.com/r/LocalLLaMA/comments/1fiscnl/release_of_llama3170b_weights_with_aqlmpv/)\n\n7. **Luce Spark: 35B MoE on a 16GB GPU** — Expert caching so Qwen3.6 35B-A3B / Laguna stay under 16GB on one GPU without a full offload speed cliff.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1u0b3cu/  \n   [[7]](https://www.reddit.com/r/LocalLLaMA/comments/1u0b3cu/luce_spark_a_35b_moe_on_a_16_gb_gpu_without_the/)\n\n8. **Running Qwen3 235B on a single 3060 12GB** — Unsloth Q2_K_XL with all MoE experts on CPU/RAM; ~6 tok/s, 16k context, one 12GB GPU.  \n   https://www.reddit.com/r/LocalLLaMA/comments/1ki3sze/  \n   [[8]](https://www.reddit.com/r/LocalLLaMA/comments/1ki3sze/comment/mre66td/?force-legacy-sct=1)",
+  "results": [
+    {
+      "id": "r1",
+      "title": "1",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rei65v",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "2",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rg4zqv/followup_qwen3535ba3b_7_communityrequested?tl=pt-pt",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "3",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1x37q7b/update_qwen_38_27b_140_toks_on_single_rtx_3090",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "4",
+      "url": "https://ssl.reddit.com/r/LocalLLaMA/comments/1wzfv45/just_my_how_i_run_qwen38_27b_on_16gb_experience",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "5",
+      "url": "https://old.reddit.com/r/LocalLLaMA/comments/1typjmc/120_toks_on_12gb_vram_with_gemma_4_12b_qat_mtp.json",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "6",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1fiscnl/release_of_llama3170b_weights_with_aqlmpv",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "7",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1u0b3cu/luce_spark_a_35b_moe_on_a_16_gb_gpu_without_the",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "8",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ki3sze/comment/mre66td?force-legacy-sct=1",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "1",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rei65v",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "2",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rg4zqv/followup_qwen3535ba3b_7_communityrequested?tl=pt-pt",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "3",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1x37q7b/update_qwen_38_27b_140_toks_on_single_rtx_3090",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "4",
+      "url": "https://ssl.reddit.com/r/LocalLLaMA/comments/1wzfv45/just_my_how_i_run_qwen38_27b_on_16gb_experience",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "5",
+      "url": "https://old.reddit.com/r/LocalLLaMA/comments/1typjmc/120_toks_on_12gb_vram_with_gemma_4_12b_qat_mtp.json",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "6",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1fiscnl/release_of_llama3170b_weights_with_aqlmpv",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "7",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1u0b3cu/luce_spark_a_35b_moe_on_a_16_gb_gpu_without_the",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "8",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1ki3sze/comment/mre66td?force-legacy-sct=1",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 12186,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "error",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rei65v",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "circuit_open"
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "circuit_open",
+          "message": "circuit open for provider firecrawl",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 1
+    },
+    {
+      "schema_version": "1.0",
+      "status": "error",
+      "url": "https://www.reddit.com/r/LocalLLaMA/comments/1rg4zqv/followup_qwen3535ba3b_7_communityrequested?tl=pt-pt",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "circuit_open"
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "circuit_open",
+          "message": "circuit open for provider firecrawl",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 0
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 12190,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 0
+  }
+}

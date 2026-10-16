@@ -1,0 +1,1057 @@
+{
+  "id": "hn-two-comments",
+  "executed_at": "2026-10-16T04:10:23.715770+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "In the Hacker News discussion of SQLite as an application file format, read both the comment that rejects waiting on disk in the interface and the comment about Windows file-system snapshots",
+  "answer": "Both comments are in the June 2020 Hacker News thread [SQLite as an Application File Format (2014)](https://news.ycombinator.com/item?id=23508923) (sqlite.org/appfileformat.html).\n\n**Rejects waiting on disk in the interface** — [ori_b](https://news.ycombinator.com/item?id=23510865), replying to lostmyoldone:\n\nOther formats push “load into memory, edit, write once on explicit Save,” so the common path has no disk I/O. SQLite-as-a-file-format pushes the opposite: small delays on ordinary interactions if the UI waits on transactions. A single durable transaction is already in the range of human perception (about six frames at 60 fps if the UI thread blocks). Source cited in the parent note: SQLite FAQ question 19.\n\nNearby replies in the same subthread:\n\n- [ori_b](https://news.ycombinator.com/item?id=23510524): blocking the UI thread on a transaction drops frames; blocking later work on that commit adds lag.\n- [lostmyoldone](https://news.ycombinator.com/item?id=23510744): for ~0.1–1 s interactivity, no disk I/O on the UI thread; OSes can still stall on disk unless the API promises not to.\n- [lalaland1125](https://news.ycombinator.com/item?id=23510836) / [sdinsn](https://news.ycombinator.com/item?id=23514509) / [lillecarl](https://news.ycombinator.com/item?id=23552225): the UI thread should not be the one waiting; that is an app-design issue, not inherent to the format.\n- [yellowapple](https://news.ycombinator.com/item?id=23513977): do the transaction on another thread and show a loading indicator; the stall is the disk, and any format that writes durably hits it.\n\n**Windows file-system snapshots** — [int_19h](https://news.ycombinator.com/item?id=23546691):\n\nWindows had snapshot-based transactions spanning the whole NTFS volume. That feature was deprecated. The comment treats that as a failure to move past a decades-old filesystem model (the thread is discussing atomic save / TxF-style alternatives to app-level journaling).\n\nRelated in the same thread, not the same claim:\n\n- [hedora](https://news.ycombinator.com/item?id=23510704): POSIX (and, the author believes, Windows) atomic durable replace via temp file, `fsync`, `rename`, then `sync`.\n- [bob1029](https://news.ycombinator.com/item?id=23510506): splitting blobs out of the DB breaks consistency under VM snapshots.",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://hn.algolia.com/api/v1/search?query=snapshot&tags=comment,story_46076642&hitsPerPage=20",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=20&query=snapshot&tags=comment%2Cstory_46076642",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "Windows BitLocker 0-Day Vulnerability Enables Access to Encrypted Drives - CyberSecurityNews",
+      "url": "https://cybersecuritynews.com/windows-bitlocker-0-day-vulnerability",
+      "snippet": "Cyber Security NewsLatest Cyber Security News. # Windows BitLocker 0-Day Vulnerability Enables Access to Encrypted Drives. The exploits include a critical BitLocker encryption bypass called YellowKey and a privilege escalation flaw named GreenPlasma. The most critical of these flaws, dubbed “YellowKey,” enables a total bypass of BitLocker encryption, granting attackers completely unrestricted access to locked system drives. YellowKey is a critical exploit that allows threat actors with physical access to entirely bypass BitLocker full-disk encryption in minutes. The vulnerability resides within the Windows Recovery Environment (WinRE) and exclusively impacts Windows 11, Windows Server 2022, and Windows Server 2025. By rebooting the system into the recovery agent using specific key combinations, the exploit leverages WinRE components to spawn a shell with unrestricted access to the protected volume. Alongside the encryption bypass, the hacker released partial proof-of-concept code for GreenPlasma, a severe local privilege escalation vulnerability. | YellowKey | Encryption Bypass | Windows 11, Server 2022/2025 | `System Volume Information\\FsTx` directory |.",
+      "content": null,
+      "published_at": "Thu, 14 May 2026 03:01:04 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.060646243,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://hn.algolia.com/api/v1/search?query=disk%20interface&tags=comment,story_23508923&hitsPerPage=10",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=10&query=disk+interface&tags=comment%2Cstory_23508923",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "New GreatXML Exploit Bypasses Windows BitLocker via Recovery Partition XML Files - The Hacker News",
+      "url": "https://thehackernews.com/2026/06/new-greatxml-exploit-bypasses-windows.html",
+      "snippet": "# New GreatXML Exploit Bypasses Windows BitLocker via Recovery Partition XML Files. Security researcher Chaotic Eclipse (aka Nightmare-Eclipse and MSNightmare) has released a new Windows BitLocker bypass dubbed **GreatXML**, a day after they published an exploit for Microsoft Defender. \"If you ever attempted to use Windows Defender Offline Scan, you're automatically vulnerable to a BitLocker bypass. The release of GreatXML comes not long after RoguePlanet, a zero-day flaw in Microsoft Defender that facilitates local privilege escalation (LPE) to SYSTEM, granting the attacker the ability to run arbitrary code or perform unauthorized actions. GreatXML is also the second BitLocker bypass released by Chaotic Eclipse after YellowKey (aka CVE-2026-45585), patches for which were released by Microsoft this week as part of Patch Tuesday updates. BitLocker, cybersecurity, exploit, Microsoft, Microsoft Defender, patch Tuesday, privilege escalation, Vulnerability, Windows, WinRE. Chrome V8 Zero-Day CVE-2026-11645 Exploited in the Wild - Patch Now. New FROST Attack Lets Websites Track What Sites and Apps You Open via SSD Timing.",
+      "content": null,
+      "published_at": "Thu, 11 Jun 2026 17:43:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.05958685,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://sqldocs.org/sqlite-database-is-locked/",
+      "url": "https://sqldocs.org/sqlite-database-is-locked",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "CloudZ malware abuses Microsoft Phone Link to steal SMS and OTPs - BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/cloudz-malware-abuses-microsoft-phone-link-to-steal-sms-and-otps",
+      "snippet": "* CloudZ malware abuses Microsoft Phone Link to steal SMS and OTPs. A new version of the CloudZ remote access tool (RAT) is deploying a previously unseen malicious plugin called Pheno that hijacks the Microsoft Phone Link connection to steal sensitive codes from mobile devices. Microsoft Phone Link comes installed on Windows 10 and 11, and allows using the computer to make and take calls, respond to texts, or view notifications received on the mobile device (Android and iOS). By leveraging the application, the threat actor could intercept sensistive messages delivered to the target's mobile phone without compromising the device. Cisco Talos researchers say in a report today that Pheno monitors for active Phone Link sessions and accesses its local SQLite database, which may contain SMS and one-time passwords (OTPs). “With a confirmed Phone Link activity on the victim's machine, the attacker using the CloudZ RAT can potentially intercept the Phone Link application’s SQLite database file on the victim's machine, potentially compromising SMS-based OTP messages and other authenticator application notification messages,” Cisco Talos says.",
+      "content": null,
+      "published_at": "Tue, 05 May 2026 10:03:52 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.05382461,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://news.ycombinator.com/item?id=49519289",
+      "url": "https://news.ycombinator.com/item?id=49519289",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "A security researcher says Microsoft secretly built a backdoor into BitLocker, releases an exploit to prove it - TechSpot",
+      "url": "https://www.techspot.com/news/112410-security-researcher-microsoft-secretly-built-backdoor-bitlocker-releases.html",
+      "snippet": "# A security researcher says Microsoft secretly built a backdoor into BitLocker, releases an exploit to prove it. **The Epitome of WTF:** A researcher known as \"Nightmare-Eclipse\" recently released YellowKey, a security vulnerability that allegedly enables a full bypass of BitLocker's full-volume encryption. The researcher described YellowKey as one of the most \"insane\" flaws they have ever encountered and has also accused Microsoft of potentially embedding a legitimate backdoor in BitLocker's data protection system. According to the researcher, YellowKey appears unusual for a previously unknown security bug. Nightmare-Eclipse explained that the flaw can be reproduced by copying an attached \"FsTx\" folder to a USB drive formatted with a Windows-compatible file system such as NTFS, FAT32, or exFAT. The vulnerability may also work without a USB drive if the FsTx files are copied to the Windows EFI partition and the encrypted disk is temporarily disconnected from the system. Nightmare-Eclipse believes that YellowKey's vulnerability could reasonably be considered a backdoor intentionally introduced into BitLocker by Microsoft.",
+      "content": null,
+      "published_at": "Thu, 14 May 2026 17:45:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.05097407,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://hn.algolia.com/api/v1/search?query=snapshot&tags=comment,story_46076642&hitsPerPage=20",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=20&query=snapshot&tags=comment%2Cstory_46076642",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "Windows BitLocker 0-Day Vulnerability Enables Access to Encrypted Drives - CyberSecurityNews",
+      "url": "https://cybersecuritynews.com/windows-bitlocker-0-day-vulnerability",
+      "result_id": "r2",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://hn.algolia.com/api/v1/search?query=disk%20interface&tags=comment,story_23508923&hitsPerPage=10",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=10&query=disk+interface&tags=comment%2Cstory_23508923",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "New GreatXML Exploit Bypasses Windows BitLocker via Recovery Partition XML Files - The Hacker News",
+      "url": "https://thehackernews.com/2026/06/new-greatxml-exploit-bypasses-windows.html",
+      "result_id": "r4",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://sqldocs.org/sqlite-database-is-locked/",
+      "url": "https://sqldocs.org/sqlite-database-is-locked",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "CloudZ malware abuses Microsoft Phone Link to steal SMS and OTPs - BleepingComputer",
+      "url": "https://www.bleepingcomputer.com/news/security/cloudz-malware-abuses-microsoft-phone-link-to-steal-sms-and-otps",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://news.ycombinator.com/item?id=49519289",
+      "url": "https://news.ycombinator.com/item?id=49519289",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "A security researcher says Microsoft secretly built a backdoor into BitLocker, releases an exploit to prove it - TechSpot",
+      "url": "https://www.techspot.com/news/112410-security-researcher-microsoft-secretly-built-backdoor-bitlocker-releases.html",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://news.ycombinator.com/item?id=41085529",
+      "url": "https://news.ycombinator.com/item?id=41085529",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://hn.algolia.com/api/v1/search?query=interface&tags=comment,story_46076642&hitsPerPage=10",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=10&query=interface&tags=comment%2Cstory_46076642",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://news.ycombinator.com/front?day=2026-10-15",
+      "url": "https://news.ycombinator.com/front?day=2026-10-15",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://news.ycombinator.com/item?id=39139026",
+      "url": "https://news.ycombinator.com/item?id=39139026",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://hn.algolia.com/api/v1/search?query=SQLite%20application%20file%20format%20windows%20snapshot&tags=comment",
+      "url": "https://hn.algolia.com/api/v1/search?query=SQLite+application+file+format+windows+snapshot&tags=comment",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://news.ycombinator.com/item?id=38823297",
+      "url": "https://news.ycombinator.com/item?id=38823297",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://news.ycombinator.com/item?id=43857834",
+      "url": "https://news.ycombinator.com/item?id=43857834",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://github.com/rhashimoto/sqlite-blocking-vfs",
+      "url": "https://github.com/rhashimoto/sqlite-blocking-vfs",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://www.shayon.dev/post/2026/283/versioned-filesystem-for-disposable-sandboxes/",
+      "url": "https://www.shayon.dev/post/2026/283/versioned-filesystem-for-disposable-sandboxes",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://news.ycombinator.com/item?id=39796651",
+      "url": "https://news.ycombinator.com/item?id=39796651",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "https://news.ycombinator.com/item?id=46846129",
+      "url": "https://news.ycombinator.com/item?id=46846129",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "https://hn.algolia.com/api/v1/items/23510271",
+      "url": "https://hn.algolia.com/api/v1/items/23510271",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c21",
+      "title": "https://marcobambini.substack.com/p/we-solved-sqlites-single-writer-limitation",
+      "url": "https://marcobambini.substack.com/p/we-solved-sqlites-single-writer-limitation",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c22",
+      "title": "https://news.ycombinator.com/item?id=47786159",
+      "url": "https://news.ycombinator.com/item?id=47786159",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c23",
+      "title": "https://news.ycombinator.com/item?id=42382126",
+      "url": "https://news.ycombinator.com/item?id=42382126",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c24",
+      "title": "https://news.ycombinator.com/item?id=49415271",
+      "url": "https://news.ycombinator.com/item?id=49415271",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c25",
+      "title": "https://sqldocs.org/sqlite-database-disk-image-is-malformed/",
+      "url": "https://sqldocs.org/sqlite-database-disk-image-is-malformed",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c26",
+      "title": "https://sqldocs.org/install-sqlite3-on-windows/",
+      "url": "https://sqldocs.org/install-sqlite3-on-windows",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c27",
+      "title": "https://x.com/shahidcodes/status/2108554390718365805",
+      "url": "https://x.com/shahidcodes/status/2108554390718365805",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c28",
+      "title": "https://news.ycombinator.com/item?id=45132498",
+      "url": "https://news.ycombinator.com/item?id=45132498",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c29",
+      "title": "https://hn.algolia.com/api/v1/search?query=%22on%20disk%22&tags=comment,story_23508923&hitsPerPage=15",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=15&query=%22on+disk%22&tags=comment%2Cstory_23508923",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c30",
+      "title": "https://news.ycombinator.com/item?id=42358471",
+      "url": "https://news.ycombinator.com/item?id=42358471",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c31",
+      "title": "https://www.phoronix.com/news/SQLite-3.54-Released",
+      "url": "https://www.phoronix.com/news/SQLite-3.54-Released",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c32",
+      "title": "https://docs.w3cub.com/sqlite/appfileformat.html",
+      "url": "https://docs.w3cub.com/sqlite/appfileformat.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c33",
+      "title": "https://learn.microsoft.com/en-us/windows/win32/vss/excluding-files-from-shadow-copies",
+      "url": "https://learn.microsoft.com/en-us/windows/win32/vss/excluding-files-from-shadow-copies",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c34",
+      "title": "https://hn.algolia.com/api/v1/search?query=%22on%20disk%22%20interface%20sqlite%20application&tags=comment&hitsPerPage=5",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=5&query=%22on+disk%22+interface+sqlite+application&tags=comment",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c35",
+      "title": "https://hn.algolia.com/?query=What%20is%20Local%20first%20development&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0",
+      "url": "https://hn.algolia.com/?dateRange=all&page=0&prefix=&query=What+is+Local+first+development&sort=byDate&storyText=false&type=story",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c36",
+      "title": "https://hn.algolia.com/api/v1/search?query=Windows&tags=comment,story_46076642&hitsPerPage=20",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=20&query=Windows&tags=comment%2Cstory_46076642",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c37",
+      "title": "https://x.com/phoronix/status/2108719851673993627",
+      "url": "https://x.com/phoronix/status/2108719851673993627",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c38",
+      "title": "https://hn.algolia.com/api/v1/search?query=sqlite%20%22file%20system%20snapshots%22%20OR%20%22filesystem%20snapshots%22%20windows&tags=comment&hitsPerPage=10",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=10&query=sqlite+%22file+system+snapshots%22+OR+%22filesystem+snapshots%22+windows&tags=comment",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c39",
+      "title": "https://hn.algolia.com/?dateRange=all&page=0&prefix=true&query=wiki+static+sqlite&sort=byPopularity&type=all",
+      "url": "https://hn.algolia.com/?dateRange=all&page=0&prefix=true&query=wiki+static+sqlite&sort=byPopularity&type=all",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c40",
+      "title": "https://news.ycombinator.com/item?id=42965198",
+      "url": "https://news.ycombinator.com/item?id=42965198",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c41",
+      "title": "https://hn.algolia.com/api/v1/search?query=%22snapshot%22%20sqlite%20windows%20filesystem%20OR%20%22file%20system%22&tags=comment&hitsPerPage=10",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=10&query=%22snapshot%22+sqlite+windows+filesystem+OR+%22file+system%22&tags=comment",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c42",
+      "title": "https://news.ycombinator.com/item?id=48954157",
+      "url": "https://news.ycombinator.com/item?id=48954157",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c43",
+      "title": "https://hn.algolia.com/api/v1/search?query=disk&tags=comment,story_40655974&hitsPerPage=15",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=15&query=disk&tags=comment%2Cstory_40655974",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c44",
+      "title": "https://news.ycombinator.com/item?id=16982752",
+      "url": "https://news.ycombinator.com/item?id=16982752",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c45",
+      "title": "https://news.ycombinator.com/item?id=34391597",
+      "url": "https://news.ycombinator.com/item?id=34391597",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c46",
+      "title": "https://hn.algolia.com/api/v1/search_by_date?tags=comment,story_46076642&hitsPerPage=5",
+      "url": "https://hn.algolia.com/api/v1/search_by_date?hitsPerPage=5&tags=comment%2Cstory_46076642",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c47",
+      "title": "https://hn.algolia.com/api/v1/search?query=wait%20disk&tags=comment,story_23508923&hitsPerPage=10",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=10&query=wait+disk&tags=comment%2Cstory_23508923",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c48",
+      "title": "https://news.ycombinator.com/item?id=47888037",
+      "url": "https://news.ycombinator.com/item?id=47888037",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c49",
+      "title": "https://www.chiark.greenend.org.uk/doc/sqlite3/appfileformat.html",
+      "url": "https://www.chiark.greenend.org.uk/doc/sqlite3/appfileformat.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c50",
+      "title": "https://sqlite.org/lpc2019/doc/trunk/briefing.md",
+      "url": "https://sqlite.org/lpc2019/doc/trunk/briefing.md",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c51",
+      "title": "https://hn.algolia.com/api/v1/items/23510335",
+      "url": "https://hn.algolia.com/api/v1/items/23510335",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c52",
+      "title": "https://news.ycombinator.com/item?id=49432434",
+      "url": "https://news.ycombinator.com/item?id=49432434",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c53",
+      "title": "https://www.linuxcompatible.org/story/sqlite-3540-release-faster-engine-new-cli-features-and-dropped-windows-xp-support/",
+      "url": "https://www.linuxcompatible.org/story/sqlite-3540-release-faster-engine-new-cli-features-and-dropped-windows-xp-support",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c54",
+      "title": "https://news.ycombinator.com/item?id=44673671",
+      "url": "https://news.ycombinator.com/item?id=44673671",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c55",
+      "title": "https://hn.algolia.com/api/v1/search?query=%22application%20file%20format%22%20sqlite%20windows&tags=comment&hitsPerPage=20",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=20&query=%22application+file+format%22+sqlite+windows&tags=comment",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c56",
+      "title": "https://hn.algolia.com/api/v1/search?query=wait&tags=comment,story_46076642&hitsPerPage=10",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=10&query=wait&tags=comment%2Cstory_46076642",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c57",
+      "title": "https://hn.algolia.com/api/v1/search?query=blocking&tags=comment,story_23508923&hitsPerPage=5",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=5&query=blocking&tags=comment%2Cstory_23508923",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c58",
+      "title": "https://news.ycombinator.com/item?id=42965714",
+      "url": "https://news.ycombinator.com/item?id=42965714",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c59",
+      "title": "https://www.sqlite.org/forum/forumpost/80541d6ba99cdc90?t=c&unf",
+      "url": "https://www.sqlite.org/forum/forumpost/80541d6ba99cdc90?t=c&unf=",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c60",
+      "title": "https://news.ycombinator.com/item?id=42698170",
+      "url": "https://news.ycombinator.com/item?id=42698170",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c61",
+      "title": "https://news.ycombinator.com/item?id=50009295",
+      "url": "https://news.ycombinator.com/item?id=50009295",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c62",
+      "title": "https://news.ycombinator.com/item?id=50008427",
+      "url": "https://news.ycombinator.com/item?id=50008427",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c63",
+      "title": "https://news.ycombinator.com/item?id=46076642",
+      "url": "https://news.ycombinator.com/item?id=46076642",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c64",
+      "title": "https://news.ycombinator.com/item?id=39797104",
+      "url": "https://news.ycombinator.com/item?id=39797104",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c65",
+      "title": "https://hn.algolia.com/?query=Show%20HN%3A%20A%20Source%20File%20Viewer&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0",
+      "url": "https://hn.algolia.com/?dateRange=all&page=0&prefix=&query=Show+HN%3A+A+Source+File+Viewer&sort=byDate&storyText=false&type=story",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c66",
+      "title": "https://www.linuxtoday.com/blog/checksums-won-btrfs-bcachefs-openzfs-xfs-ntfs-and-refs-in-late-2026/",
+      "url": "https://www.linuxtoday.com/blog/checksums-won-btrfs-bcachefs-openzfs-xfs-ntfs-and-refs-in-late-2026",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c67",
+      "title": "https://hn.algolia.com/?query=When%20to%20Use%20a%20Database%20%28As%20a%20Spreadsheet%29&type=story&dateRange=all&sort=byDate&storyText=false&prefix&page=0",
+      "url": "https://hn.algolia.com/?dateRange=all&page=0&prefix=&query=When+to+Use+a+Database+%28As+a+Spreadsheet%29&sort=byDate&storyText=false&type=story",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c68",
+      "title": "https://hn.algolia.com/api/v1/search?query=snapshot&tags=comment,story_23508923&hitsPerPage=10",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=10&query=snapshot&tags=comment%2Cstory_23508923",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c69",
+      "title": "https://hn.algolia.com/api/v1/search?query=%22application%20file%20format%22&tags=story&hitsPerPage=15",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=15&query=%22application+file+format%22&tags=story",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c70",
+      "title": "https://hn.algolia.com/api/v1/items/23510524",
+      "url": "https://hn.algolia.com/api/v1/items/23510524",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c71",
+      "title": "https://news.ycombinator.com/item?id=40655974",
+      "url": "https://news.ycombinator.com/item?id=40655974",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c72",
+      "title": "https://en.hacks.gr/sqlite-3-54-peripoy-7-5-tachytero-apo-tin-ekdosi-3-51-stis-dokimes-linux/",
+      "url": "https://en.hacks.gr/sqlite-3-54-peripoy-7-5-tachytero-apo-tin-ekdosi-3-51-stis-dokimes-linux",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c73",
+      "title": "https://hn.algolia.com/api/v1/search?query=%22I%20don%27t%20want%22&tags=comment,story_23508923&hitsPerPage=5",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=5&query=%22I+don%27t+want%22&tags=comment%2Cstory_23508923",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c74",
+      "title": "https://news.ycombinator.com/item?id=47534283",
+      "url": "https://news.ycombinator.com/item?id=47534283",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c75",
+      "title": "https://hn.algolia.com/api/v1/search?query=%22wait%20on%20disk%22%20OR%20%22waiting%20on%20disk%22%20sqlite&tags=comment&hitsPerPage=10",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=10&query=%22wait+on+disk%22+OR+%22waiting+on+disk%22+sqlite&tags=comment",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c76",
+      "title": "https://news.ycombinator.com/item?id=45508462",
+      "url": "https://news.ycombinator.com/item?id=45508462",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c77",
+      "title": "Microsoft admits a Windows 11 bug is eating up to 500GB of storage, verify if you are affected - Windows Latest",
+      "url": "https://www.windowslatest.com/2026/07/06/microsoft-admits-a-windows-11-bug-is-eating-up-to-500gb-of-storage-verify-if-you-are-affected",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c78",
+      "title": "Microsoft confirms Windows 11 bug can steal over 500GB of storage – here's how to check and fix it - TechSpot",
+      "url": "https://www.techspot.com/news/113029-microsoft-confirms-windows-11-bug-can-steal-over.html",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c79",
+      "title": "Microsoft highlights all the new features that have shipped on Windows 11 in 2025 — and promises more to come - Windows Central",
+      "url": "https://www.windowscentral.com/microsoft/windows-11/microsoft-highlights-all-the-new-features-that-have-shipped-on-windows-11-in-2025-and-promises-more-to-come",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c80",
+      "title": "Here’s How to Check If Windows 11 Is Secretly Gobbling Up Your Disk Space - Gizmodo",
+      "url": "https://gizmodo.com/heres-how-to-check-if-windows-11-is-secretly-gobbling-up-your-disk-space-2000782327",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 55917,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "conditional_supplement",
+        "latency_ms": 5985,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "recency_signal"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=20&query=snapshot&tags=comment%2Cstory_46076642",
+      "final_url": "https://hn.algolia.com/api/v1/search?hitsPerPage=20&query=snapshot&tags=comment%2Cstory_46076642",
+      "title": "",
+      "content": "```json\n{\"exhaustive\":{\"nbHits\":false,\"typo\":false},\"exhaustiveNbHits\":false,\"exhaustiveTypo\":false,\"hits\":[],\"hitsPerPage\":20,\"nbHits\":0,\"nbPages\":0,\"page\":0,\"params\":\"query=snapshot&tags=comment%2Cstory_46076642&hitsPerPage=20&advancedSyntax=true&analyticsTags=backend\",\"processingTimeMS\":16,\"processingTimingsMS\":{\"_request\":{\"roundTrip\":15},\"fetch\":{\"query\":15,\"total\":15},\"total\":16},\"query\":\"snapshot\",\"serverTimeMS\":16}\n\n```",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "scrapeId": "01a142e8-5d26-724a-b85f-e21dec5a07b4",
+        "sourceURL": "https://hn.algolia.com/api/v1/search?hitsPerPage=20&query=snapshot&tags=comment%2Cstory_46076642",
+        "url": "https://hn.algolia.com/api/v1/search?hitsPerPage=20&query=snapshot&tags=comment%2Cstory_46076642",
+        "statusCode": 200,
+        "contentType": "application/json",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "cacheState": "miss",
+        "indexId": "9556b142-3a09-46d7-b7d4-d6a1e1be415a",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 886,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 957
+    },
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://cybersecuritynews.com/windows-bitlocker-0-day-vulnerability",
+      "final_url": "https://cybersecuritynews.com/windows-bitlocker-0-day-vulnerability",
+      "title": "Windows BitLocker 0-Day Vulnerability Enables Access to Encrypted Drives",
+      "content": "[Linkedin](https://www.linkedin.com/company/cybersecurity-news/ \"Linkedin\")[Naver](https://news.google.com/publications/CAAqMggKIixDQklTR3dnTWFoY0tGV041WW1WeWMyVmpkWEpwZEhsdVpYZHpMbU52YlNnQVAB?hl=en-IN&gl=IN&ceid=IN:en \"Naver\")[RSS](https://cybersecuritynews.com/feed/ \"RSS\")[Twitter](https://twitter.com/The_Cyber_News \"Twitter\")\n\n- [Home](https://cybersecuritynews.com/)\n- [Threats](https://cybersecuritynews.com/category/threats/)\n- [Cyber Attacks](https://cybersecuritynews.com/category/cyber-attack/)\n- [Vulnerabilities](https://cybersecuritynews.com/category/vulnerability/)\n- [Breaches](https://cybersecuritynews.com/category/data-breaches/)\n- [Top 10](https://cybersecuritynews.com/category/top-10/)\n\nSearch\n\n[![Cyber Security News](https://cybersecuritynews.com/wp-content/uploads/2025/05/Cyber-Security-News-Logo.webp)Cyber Security NewsLatest Cyber Security News](https://cybersecuritynews.com/ \"Cyber Security News\")\n\nFriday, October 16, 2026\n\n[Linkedin](https://www.linkedin.com/company/cybers%E4%B8%80security%E4%B8%80news/ \"Linkedin\")\n\n[RSS](https://cybersecuritynews.com/feed/ \"RSS\")\n\n[Twitter](https://x.com/The_Cyber_News \"Twitter\")\n\n[WhatsApp](https://whatsapp.com/channel/0029VbDC7Ji8PgsNa4m6J82w \"WhatsApp\")\n\n[Google News](https://news.google.com/publications/CAAqMggKIixDQklTR3dnTWFoY0tGV041WW1WeWMyVmpkWEpwZEhsdVpYZHpMbU52YlNnQVAB?hl=en-IN&gl=IN&ceid=IN:en \"Google News\") [Google News](https://news.google.com/publications/CAAqMggKIixDQklTR3dnTWFoY0tGV041WW1WeWMyVmpkWEpwZEhsdVpYZHpMbU52YlNnQVAB?hl=en-IN&gl=IN&ceid=IN:en)\n\n[![Cyber Security News](https://cybersecuritynews.com/wp-content/uploads/2025/05/Cyber-Security-News-Logo.webp)Cyber Security NewsLatest Cyber Security News](https://cybersecuritynews.com/ \"Cyber Security News\")\n\n- [Home](https://cybersecuritynews.com/)\n- [Threats](https://cybersecuritynews.com/category/threats/)\n- [Cyber Attacks](https://cybersecuritynews.com/category/cyber-attack/)\n- [Vulnerabilities](https://cybersecuritynews.com/category/vulnerability/)\n- [Breaches](https://cybersecuritynews.com/category/data-breaches/)\n- [Top 10](https://cybersecuritynews.com/category/top-10/)\n\n[Follow on LinkedIn](https://www.linkedin.com/company/cybers%E4%B8%80security%E4%B8%80news/ \"Follow on LinkedIn\")\n\nSearch\n\n[Search](https://cybersecuritynews.com/windows-bitlocker-0-day-vulnerability/#)\n\n[Home](https://cybersecuritynews.com/ \"\")[Cyber Security](https://cybersecuritynews.com/category/cyber-security/ \"View all posts in Cyber Security\")\n\n# Windows BitLocker 0-Day Vulnerability Enables Access to Encrypted Drives\n\n[![Guru Baran](https://secure.gravatar.com/avatar/72f86da0bb72b6886d25f0ef0c881daba3a98356bc44f916f8d3a62c9e856579?s=26&d=mm&r=g)](https://cybersecuritynews.com/author/guru/ \"Guru Baran\")\n\nBy [Guru Baran](https://cybersecuritynews.com/author/guru/)\n\nMay 14, 2026\n\n[![](https://cybersecuritynews.com/wp-content/uploads/2026/04/Google-Prefered.svg)](https://accounts.google.com/v3/signin/identifier?continue=https%3A%2F%2Fwww.google.com%2Fpreferences%2Fsource%3Fq%3Dcybersecuritynews.com&dsh=S-1711039385%3A1777114446800583&hl=en-IN&rip=1&sacu=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin&ifkv=AT1y2_WJowZHdf0E80itpn_VjD7EqSL_cDLxwrMfAAoXv5E9mGOhMTOdqeDczZHvxM8Lfmw6HNjt) [![](https://cybersecuritynews.com/wp-content/uploads/2026/04/Google-news.svg)](https://news.google.com/publications/CAAqMggKIixDQklTR3dnTWFoY0tGV041WW1WeWMyVmpkWEpwZEhsdVpYZHpMbU52YlNnQVAB?hl=en-IN&gl=IN&ceid=IN:en)\n\n[![Windows BitLocker 0-Day Vulnerability](https://cybersecuritynews.com/wp-content/uploads/2026/05/Windows-BitLocker-0-Day-Vulnerability-696x392.webp)](https://cybersecuritynews.com/wp-content/uploads/2026/05/Windows-BitLocker-0-Day-Vulnerability.webp)\n\nTwo new unpatched Windows BitLocker zero-day vulnerabilities significantly compromise Microsoft’s ecosystem. The exploits include a critical BitLocker encryption bypass called YellowKey and a privilege escalation flaw named GreenPlasma.\n\nThe most critical of these flaws, dubbed “YellowKey,” enables a total bypass of BitLocker encryption, granting attackers completely unrestricted access to locked system drives.\n\nFollowing [Microsoft’s recent Patch Tuesday](https://cybersecuritynews.com/microsoft-patch-tuesday-may-2026/), a frustrated researcher escalated an ongoing dispute by dropping two severe zero-day exploits.\n\nThe researcher expressed extreme dissatisfaction with Microsoft’s handling of previous disclosures, threatening further disruption and releasing the code as a direct retaliation. This unexpected release leaves millions of enterprise and government devices vulnerable.\n\nHe further claims these vulnerabilities are intentionally placed backdoors, actively crediting internal Microsoft threat groups like MSTIC and GHOST in a highly unusual public flex.\n\n## **YellowKey BitLocker Bypass**\n\n[YellowKey is a critical exploit](https://github.com/Nightmare-Eclipse/YellowKey) that allows threat actors with physical access to entirely bypass [BitLocker full-disk encryption in minutes](https://cybersecuritynews.com/bitlocker-encryption-bypassed/). The vulnerability resides within the Windows Recovery Environment (WinRE) and exclusively impacts Windows 11, Windows Server 2022, and Windows Server 2025.\n\nWindows 10 remains unaffected due to structural differences in its recovery architecture. Attackers only need to copy a specifically named `FsTx` folder onto a compatible USB stick and plug it into the target machine.\n\n![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzptNz93Ozht9Vc8YzteO5irWtTZA_rgeuuxSjiWV_czfySuSdDrZdNoNsXEdPYqyGiojcL5vPqUCCMVOY7nPMXxi7c-giKty-Us8Tp0eTqk9bVRYvU4DBozgZhvqCTh95xzSGJ5zu76Cy6o2MAxkQ9SFsSiaYYpumfAn5JmTn5-AMAvQaibdRKltmG7wE/w640-h338/Bitlocker%20Yellow.webp)\n\nAlternatively, attackers can physically extract the target drive, copy the exploit files directly into the EFI partition, and remount the drive to achieve the exact same result.\n\nBy rebooting the system into the recovery agent using specific key combinations, the exploit leverages WinRE components to spawn a shell with unrestricted access to the protected volume.\n\n## **GreenPlasma Privilege Escalation**\n\nAlongside the encryption bypass, the hacker released partial proof-of-concept code for [GreenPlasma, a severe local privilege escalation](https://github.com/Nightmare-Eclipse/GreenPlasma) vulnerability. This specific flaw exploits the Windows CTFMON service through arbitrary memory section creation.\n\nAn unprivileged attacker can create these memory-section objects within directory structures that are normally writable only by the administrative SYSTEM account. Consequently, malicious actors can manipulate trusted Windows services and kernel-mode drivers into executing unauthorized commands.\n\n![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJT3LAP8toPIGrM8OUGQn_4SurR5W4RPG4TaQQLm9TJmX7o0DC4L9nbTydwnIcZdAWLqChH9Z0OniaVJUNhRmrpELfHfJjE1HwxyIvzxFQnye-Bv5yQ3U7NamcQTS-5AYwvTBc72re2g8mtt1qYhyUvq0oxa3Vce81S1xgnY8SXvSuwrVlRifS1zWtz2x7/w640-h386/Greenplasma.webp)\n\nWhile the current public code triggers a User Account Control prompt and requires additional weaponization to achieve a completely silent attack, it poses a substantial challenge for security defenders.\n\nIf fully chained with initial access vectors, this could allow persistent, full access to the core of the operating system.\n\n| Threat Component | Vulnerability Type | Affected Systems | Key Artifacts |\n| --- | --- | --- | --- |\n| YellowKey | Encryption Bypass | Windows 11, Server 2022/2025 | `System Volume Information\\FsTx` directory |\n| YellowKey | WinRE Exploit | Windows 11, Server 2022/2025 | `bootmgfw.efi` manipulation |\n| GreenPlasma | Privilege Escalation | Windows 11, Server 2022/2025 | CTFMON Arbitrary Section Creation |\n| GreenPlasma | Memory Manipulation | Windows 11, Server 2022/2025 | SYSTEM-writable directory objects |\n\nMicrosoft has not yet issued an official patch for these freshly dropped zero-day exploits. Independent security researchers analyzing the YellowKey threat strongly recommend implementing a custom BitLocker PIN and a robust BIOS password as immediate defensive mitigations.\n\nWhile Nightmare-Eclipse claims the core vulnerability bypasses TPM and PIN configurations, the public proof-of-concept currently lacks that execution capability.\n\nSecurity teams should actively monitor physical access to hardware endpoints and restrict unauthorized WinRE modifications until Microsoft officially resolves the situation.\n\n**Follow us on [Google News](https://news.google.com/publications/CAAqMggKIixDQklTR3dnTWFoY0tGV041WW1WeWMyVmpkWEpwZEhsdVpYZHpMbU52YlNnQVAB?hl=en-IN&gl=IN&ceid=IN:en), [LinkedIn](https://www.linkedin.com/company/cybersecurity-news/), and [X](https://x.com/cyber_press_org) to Get More Instant Updates.**\n\n[Copy URL](https://cybersecuritynews.com/windows-bitlocker-0-day-vulnerability/ \"Copy URL\") [Linkedin](https://www.linkedin.com/shareArticle?mini=true&url=https://cybersecuritynews.com/windows-bitlocker-0-day-vulnerability/&title=Windows+BitLocker+0-Day+Vulnerability+Enables+Access+to+Encrypted+Drives \"Linkedin\") [Twitter](https://twitter.com/intent/tweet?text=Windows+BitLocker+0-Day+Vulnerability+Enables+Access+to+Encrypted+Drives&url=https%3A%2F%2Fcybersecuritynews.com%2Fwindows-bitlocker-0-day-vulnerability%2F&via=The_Cyber_News \"Twitter\") [ReddIt](https://reddit.com/submit?url=https://cybersecuritynews.com/windows-bitlocker-0-day-vulnerability/&title=Windows+BitLocker+0-Day+Vulnerability+Enables+Access+to+Encrypted+Drives \"ReddIt\") [Telegram](https://telegram.me/share/url?url=https://cybersecuritynews.com/windows-bitlocker-0-day-vulnerability/&text=Windows+BitLocker+0-Day+Vulnerability+Enables+Access+to+Encrypted+Drives \"Telegram\")\n\n[More](https://cybersecuritynews.com/windows-bitlocker-0-day-vulnerability/# \"More\")\n\n[![Guru Baran](https://secure.gravatar.com/avatar/72f86da0bb72b6886d25f0ef0c881daba3a98356bc44f916f8d3a62c9e856579?s=96&d=mm&r=g)](https://cybersecuritynews.com/author/guru/ \"Guru Baran\")\n\n[Guru Baran](https://cybersecuritynews.com/author/guru/) [https://cybersecuritynews.com](https://cybersecuritynews.com/)\n\nGurubaran KS is a cybersecurity analyst, and Journalist with a strong focus on emerging threats and digital defense strategies. He is the Co-Founder and Editor-in-Chief of Cyber Security News, where he leads editorial coverage on global cybersecurity developments.\n\n[Linkedin](https://www.linkedin.com/in/gurubaran-cybersecuritynews/ \"Linkedin\")[Twitter](https://twitter.com/guruba008 \"Twitter\")\n\n0-Hour Cyber Security Alerts!\n\n\nGet the latest Cyber security News sent directly to your inbox.\n\n\n#### Cyber Security Guide\n\n[How MSSPs Can Cut Tier 1 Bottlenecks Eating into Profit Margins ](https://cybersecuritynews.com/how-mssps-can-cut-tier-1-bottlenecks-eating-into-profit-margins/ \"How MSSPs Can Cut Tier 1 Bottlenecks Eating into Profit Margins \")\n\n### [How MSSPs Can Cut Tier 1 Bottlenecks Eating into Profit Margins](https://cybersecuritynews.com/how-mssps-can-cut-tier-1-bottlenecks-eating-into-profit-margins/ \"How MSSPs Can Cut Tier 1 Bottlenecks Eating into Profit Margins \")\n\n[Threat Intelligence Guide for US SOC Teams and CISOs: How to Choose the Right Solution ](https://cybersecuritynews.com/threat-intelligence-guide/ \"Threat Intelligence Guide for US SOC Teams and CISOs: How to Choose the Right Solution \")\n\n### [Threat Intelligence Guide for US SOC Teams and CISOs: How to Choose the Right Solution](https://cybersecuritynews.com/threat-intelligence-guide/ \"Threat Intelligence Guide for US SOC Teams and CISOs: How to Choose the Right Solution \")\n\n[Alert Overload, Tool Sprawl and Evasive Phishing: The 5 Bottlenecks Slowing Down US SOCs ](https://cybersecuritynews.com/alert-overload-tool-sprawl-and-evasive-phishing-the-5-bottlenecks-slowing-down-us-socs/ \"Alert Overload, Tool Sprawl and Evasive Phishing: The 5 Bottlenecks Slowing Down US SOCs \")\n\n### [Alert Overload, Tool Sprawl and Evasive Phishing: The 5 Bottlenecks Slowing Down US SOCs](https://cybersecuritynews.com/alert-overload-tool-sprawl-and-evasive-phishing-the-5-bottlenecks-slowing-down-us-socs/ \"Alert Overload, Tool Sprawl and Evasive Phishing: The 5 Bottlenecks Slowing Down US SOCs \")\n\n[Cybersecurity Awareness Month 2026 – Don’t Make It Easy for Them](https://cybersecuritynews.com/cybersecurity-awareness-month-2026/ \"Cybersecurity Awareness Month 2026 – Don’t Make It Easy for Them\")\n\n### [Cybersecurity Awareness Month 2026 – Don’t Make It Easy for Them](https://cybersecuritynews.com/cybersecurity-awareness-month-2026/ \"Cybersecurity Awareness Month 2026 – Don’t Make It Easy for Them\")\n\n[From Telemetry to Defense: How SOC and MSSP Leaders Can Build Intelligence-Led Threat Monitoring ](https://cybersecuritynews.com/how-soc-and-mssp-leaders-can-build-intelligence-led-threat-monitoring/ \"From Telemetry to Defense: How SOC and MSSP Leaders Can Build Intelligence-Led Threat Monitoring \")\n\n### [From Telemetry to Defense: How SOC and MSSP Leaders Can Build Intelligence-Led Threat Monitoring](https://cybersecuritynews.com/how-soc-and-mssp-leaders-can-build-intelligence-led-threat-monitoring/ \"From Telemetry to Defense: How SOC and MSSP Leaders Can Build Intelligence-Led Threat Monitoring \")\n\n[Load more](https://cybersecuritynews.com/windows-bitlocker-0-day-vulnerability/#)\n\n#### Latest Cyber News\n\n[Critical Linux Kernel Flaw Lets Attackers Escape Virtual Machines and Take Control of Hosts](https://cybersecuritynews.com/linux-kernel-flaw-2/ \"Critical Linux Kernel Flaw Lets Attackers Escape Virtual Machines and Take Control of Hosts\")\n\n[Cyber Security](https://cybersecuritynews.com/category/cyber-security/)\n\n### [Critical Linux Kernel Flaw Lets Attackers Escape Virtual Machines and Take Control of Hosts](https://cybersecuritynews.com/linux-kernel-flaw-2/ \"Critical Linux Kernel Flaw Lets Attackers Escape Virtual Machines and Take Control of Hosts\")\n\n[Burger King Japan Confirms Data Breach Exposing 11.18M User Records](https://cybersecuritynews.com/burger-king-japan-data-breach/ \"Burger King Japan Confirms Data Breach Exposing 11.18M User Records\")\n\n[Cyber Security](https://cybersecuritynews.com/category/cyber-security/)\n\n### [Burger King Japan Confirms Data Breach Exposing 11.18M User Records](https://cybersecuritynews.com/burger-king-japan-data-breach/ \"Burger King Japan Confirms Data Breach Exposing 11.18M User Records\")\n\n[Critical ChatGPT GitHub Connector Flaw Could Allow Attackers to Steal Private Repository Secrets](https://cybersecuritynews.com/chatgpt-github-connector-flaw/ \"Critical ChatGPT GitHub Connector Flaw Could Allow Attackers to Steal Private Repository Secrets\")\n\n[Cyber Security](https://cybersecuritynews.com/category/cyber-security/)\n\n### [Critical ChatGPT GitHub Connector Flaw Could Allow Attackers to Steal Private Repository Secrets](https://cybersecuritynews.com/chatgpt-github-connector-flaw/ \"Critical ChatGPT GitHub Connector Flaw Could Allow Attackers to Steal Private Repository Secrets\")\n\n[Citrix XenServer Vulnerabilities Could Allow Malicious VM Users to Compromise Host Systems](https://cybersecuritynews.com/citrix-xenserver-vulnerabilities/ \"Citrix XenServer Vulnerabilities Could Allow Malicious VM Users to Compromise Host Systems\")\n\n[Cyber Security](https://cybersecuritynews.com/category/cyber-security/)\n\n### [Citrix XenServer Vulnerabilities Could Allow Malicious VM Users to Compromise Host Systems](https://cybersecuritynews.com/citrix-xenserver-vulnerabilities/ \"Citrix XenServer Vulnerabilities Could Allow Malicious VM Users to Compromise Host Systems\")\n\n[Hackers Use ClickFix and Python Tunnels to Prepare Systems for Ransomware Attacks](https://cybersecuritynews.com/hackers-use-clickfix/ \"Hackers Use ClickFix and Python Tunnels to Prepare Systems for Ransomware Attacks\")\n\n[Cyber Security News](https://cybersecuritynews.com/category/cyber-security-news/)\n\n### [Hackers Use ClickFix and Python Tunnels to Prepare Systems for Ransomware Attacks](https://cybersecuritynews.com/hackers-use-clickfix/ \"Hackers Use ClickFix and Python Tunnels to Prepare Systems for Ransomware Attacks\")\n\n#### Expert Talks\n\n[Defending Against AI-Driven Attacks with Environmental Guardrails ](https://cybersecuritynews.com/defending-against-ai-driven-attacks-with-environmental-guardrails/ \"Defending Against AI-Driven Attacks with Environmental Guardrails \")\n\n[Expert Talks](https://cybersecuritynews.com/category/experts-talks/)\n\n### [Defending Against AI-Driven Attacks with Environmental Guardrails](https://cybersecuritynews.com/defending-against-ai-driven-attacks-with-environmental-guardrails/ \"Defending Against AI-Driven Attacks with Environmental Guardrails \")\n\n[AI Adoption Is Outpacing Security Readiness: What Enterprises Must Address Now](https://cybersecuritynews.com/ai-adoption-is-outpacing-security-readiness-what-enterprises-must-address-now/ \"AI Adoption Is Outpacing Security Readiness: What Enterprises Must Address Now\")\n\n[Expert Talks](https://cybersecuritynews.com/category/experts-talks/)\n\n### [AI Adoption Is Outpacing Security Readiness: What Enterprises Must Address Now](https://cybersecuritynews.com/ai-adoption-is-outpacing-security-readiness-what-enterprises-must-address-now/ \"AI Adoption Is Outpacing Security Readiness: What Enterprises Must Address Now\")\n\n[Business Survival in the Age of AI ](https://cybersecuritynews.com/business-survival-in-the-age-of-ai/ \"Business Survival in the Age of AI \")\n\n[Expert Talks](https://cybersecuritynews.com/category/experts-talks/)\n\n### [Business Survival in the Age of AI](https://cybersecuritynews.com/business-survival-in-the-age-of-ai/ \"Business Survival in the Age of AI \")\n\n[Autonomous AI Attacks: The Hugging Face Reality Check ](https://cybersecuritynews.com/autonomous-ai-attacks-the-hugging-face-reality-check/ \"Autonomous AI Attacks: The Hugging Face Reality Check \")\n\n[Expert Talks](https://cybersecuritynews.com/category/experts-talks/)\n\n### [Autonomous AI Attacks: The Hugging Face Reality Check](https://cybersecuritynews.com/autonomous-ai-attacks-the-hugging-face-reality-check/ \"Autonomous AI Attacks: The Hugging Face Reality Check \")\n\n[When Ransomware Targets AI Models: Defending the AI/ML Recovery Chain ](https://cybersecuritynews.com/when-ransomware-targets-ai-models-defending-the-ai-ml-recovery-chain/ \"When Ransomware Targets AI Models: Defending the AI/ML Recovery Chain \")\n\n[Expert Talks](https://cybersecuritynews.com/category/experts-talks/)\n\n### [When Ransomware Targets AI Models: Defending the AI/ML Recovery Chain](https://cybersecuritynews.com/when-ransomware-targets-ai-models-defending-the-ai-ml-recovery-chain/ \"When Ransomware Targets AI Models: Defending the AI/ML Recovery Chain \")\n\n### Follow us\n\nCyber Security News is a Dedicated News Platform For Cyber News, Cyber Attack News, Hacking News & Vulnerability Analysis.\n\n[Linkedin](https://www.linkedin.com/company/cybers%E4%B8%80security%E4%B8%80news/ \"Linkedin\")\n\n[RSS](https://feeds.feedburner.com/cyber-security-news \"RSS\")\n\n[Twitter](https://x.com/The_Cyber_News \"Twitter\")\n\n[WhatsApp](https://whatsapp.com/channel/0029VbDC7Ji8PgsNa4m6J82w \"WhatsApp\")\n\n### Cybersecurity News\n\n#### Resources\n\n[Cybersecurity Awareness Month 2026 – Don’t Make It Easy for Them](https://cybersecuritynews.com/cybersecurity-awareness-month-2026/ \"Cybersecurity Awareness Month 2026 – Don’t Make It Easy for Them\")\n\n### [Cybersecurity Awareness Month 2026 – Don’t Make It Easy for Them](https://cybersecuritynews.com/cybersecurity-awareness-month-2026/ \"Cybersecurity Awareness Month 2026 – Don’t Make It Easy for Them\")\n\n[Cyber Security](https://cybersecuritynews.com/category/cyber-security/)October 7, 2026\n\nCybersecurity Awareness Month 2026 arrives as online attacks become...\n\n[Top 10 Malware Threats of the Week – AsyncRAT, Remcos, and Xworm Lead the Surge](https://cybersecuritynews.com/top-10-malware-threats/ \"Top 10 Malware Threats of the Week – AsyncRAT, Remcos, and Xworm Lead the Surge\")\n\n### [Top 10 Malware Threats of the Week – AsyncRAT, Remcos, and Xworm Lead the Surge](https://cybersecuritynews.com/top-10-malware-threats/ \"Top 10 Malware Threats of the Week – AsyncRAT, Remcos, and Xworm Lead the Surge\")\n\n[Cyber Security Guide](https://cybersecuritynews.com/category/cyber-security-guide/)August 10, 2026\n\nGlobal malware activity climbed sharply over the past week,...\n\n[Ransomware Gangs Attack Palo Alto, Fortinet, Citrix, and Check Point VPNs to Target Corporate Networks](https://cybersecuritynews.com/ransomware-gangs-attack-vpn/ \"Ransomware Gangs Attack Palo Alto, Fortinet, Citrix, and Check Point VPNs to Target Corporate Networks\")\n\n### [Ransomware Gangs Attack Palo Alto, Fortinet, Citrix, and Check Point VPNs to Target Corporate Networks](https://cybersecuritynews.com/ransomware-gangs-attack-vpn/ \"Ransomware Gangs Attack Palo Alto, Fortinet, Citrix, and Check Point VPNs to Target Corporate Networks\")\n\n[Cyber Security Guide](https://cybersecuritynews.com/category/cyber-security-guide/)July 27, 2026\n\nA coordinated wave of exploitation targeting edge VPN and...\n\n#### Cyber Tools\n\n[Meta Zurp AI Toolkit Connects Burp Suite With AI Coding Agents for Bug Bounty Research](https://cybersecuritynews.com/meta-zurp-ai-toolkit/ \"Meta Zurp AI Toolkit Connects Burp Suite With AI Coding Agents for Bug Bounty Research\")\n\n### [Meta Zurp AI Toolkit Connects Burp Suite With AI Coding Agents for Bug Bounty Research](https://cybersecuritynews.com/meta-zurp-ai-toolkit/ \"Meta Zurp AI Toolkit Connects Burp Suite With AI Coding Agents for Bug Bounty Research\")\n\n[Cyber Security](https://cybersecuritynews.com/category/cyber-security/)October 13, 2026\n\nMeta has introduced Zurp, an open-source toolkit that connects...\n\n[Decepticon – Autonomous Red Team Agent that Integrates Claude and Codex](https://cybersecuritynews.com/decepticon-ai-red-team-tool/ \"Decepticon – Autonomous Red Team Agent that Integrates Claude and Codex\")\n\n### [Decepticon – Autonomous Red Team Agent that Integrates Claude and Codex](https://cybersecuritynews.com/decepticon-ai-red-team-tool/ \"Decepticon – Autonomous Red Team Agent that Integrates Claude and Codex\")\n\n[Cyber Security](https://cybersecuritynews.com/category/cyber-security/)October 12, 2026\n\nDecepticon is an open-source autonomous red team agent that...\n\n[REA Tool Connects Claude Code and Cursor to Ghidra and IDA Pro to Reverse Engineer Anything](https://cybersecuritynews.com/reverse-engineer-anything-tool/ \"REA Tool Connects Claude Code and Cursor to Ghidra and IDA Pro to Reverse Engineer Anything\")\n\n### [REA Tool Connects Claude Code and Cursor to Ghidra and IDA Pro to Reverse Engineer Anything](https://cybersecuritynews.com/reverse-engineer-anything-tool/ \"REA Tool Connects Claude Code and Cursor to Ghidra and IDA Pro to Reverse Engineer Anything\")\n\n[Cyber Security](https://cybersecuritynews.com/category/cyber-security/)October 10, 2026\n\nREA, short for Reverse Engineer Anything, connects AI coding...\n\n© Copyright 2026 - Cyber Security News",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "description": "Two new unpatched Windows BitLocker zero-day vulnerabilities significantly compromise Microsoft's ecosystem.",
+        "twitter:label1": "Written by",
+        "og:image:type": "image/webp",
+        "dateModified": "2026-05-14T03:01:26+00:00",
+        "ogTitle": "Windows BitLocker 0-Day Vulnerability Enables Access to Encrypted Drives",
+        "viewport": "width=device-width, initial-scale=1.0",
+        "twitter:creator": "@guruba008",
+        "twitter:data1": "Guru Baran",
+        "msapplication-TileImage": "https://cybersecuritynews.com/wp-content/uploads/2025/12/cropped-CSN-Favico-270x270.webp",
+        "name": [
+          "Guru Baran",
+          "Cyber Security News"
+        ],
+        "article:publisher": "https://www.facebook.com/Hackingtutorialsandnews",
+        "publishedTime": "2026-05-14T03:01:04+00:00",
+        "og:type": "article",
+        "og:locale": "en_US",
+        "datePublished": "2026-05-14T03:01:04+00:00",
+        "og:image": "http://cybersecuritynews.com/wp-content/uploads/2026/05/Windows-BitLocker-0-Day-Vulnerability.webp",
+        "article:published_time": "2026-05-14T03:01:04+00:00",
+        "twitter:card": "summary_large_image",
+        "width": "1600",
+        "og:image:height": "900",
+        "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        "og:url": "https://cybersecuritynews.com/windows-bitlocker-0-day-vulnerability/",
+        "headline": "Windows BitLocker 0-Day Vulnerability Enables Access to Encrypted Drives",
+        "url": "https://cybersecuritynews.com/windows-bitlocker-0-day-vulnerability/",
+        "height": "900",
+        "modifiedTime": "2026-05-14T03:01:26+00:00",
+        "article:modified_time": "2026-05-14T03:01:26+00:00",
+        "ogDescription": "Two new unpatched Windows BitLocker zero-day vulnerabilities significantly compromise Microsoft's ecosystem.",
+        "language": "en-US",
+        "og:image:width": "1600",
+        "title": "Windows BitLocker 0-Day Vulnerability Enables Access to Encrypted Drives",
+        "twitter:site": "@The_Cyber_News",
+        "og:description": "Two new unpatched Windows BitLocker zero-day vulnerabilities significantly compromise Microsoft's ecosystem.",
+        "ogImage": "http://cybersecuritynews.com/wp-content/uploads/2026/05/Windows-BitLocker-0-Day-Vulnerability.webp",
+        "ogSiteName": "Cyber Security News",
+        "ogLocale": "en_US",
+        "ogUrl": "https://cybersecuritynews.com/windows-bitlocker-0-day-vulnerability/",
+        "og:site_name": "Cyber Security News",
+        "twitter:label2": "Est. reading time",
+        "author": "Guru Baran",
+        "og:title": "Windows BitLocker 0-Day Vulnerability Enables Access to Encrypted Drives",
+        "twitter:data2": "3 minutes",
+        "generator": "AMP for WP 1.1.18",
+        "favicon": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgpXvm1MjVtcihoN_hSnpNnr4NzZAvO-Fq5Q0sHIq2FlvGXPzN5evjKHCEI4WWE04nZbX2wMOlUiG3nKyiuXWfxsZcAdNqRYF4t6cNrAKLayOAuKJBGiOeS1cXbfC72ch0Osx5p2eQSg-CyCwt_QlrZMRwaxyyBOFLKr7V1wYhvRAbx43gxpptpIsTT4bsR/s16000/CSN%20Favico.webp",
+        "scrapeId": "01a142e8-5fc1-7239-956d-cdb20222605d",
+        "sourceURL": "https://cybersecuritynews.com/windows-bitlocker-0-day-vulnerability",
+        "statusCode": 200,
+        "contentType": "text/html; charset=UTF-8",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "cacheState": "miss",
+        "indexId": "fcb997da-96bd-4731-9b77-dd7f60875b8c",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 1915,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 1983
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 64850,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "tavily.search": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 1
+  }
+}

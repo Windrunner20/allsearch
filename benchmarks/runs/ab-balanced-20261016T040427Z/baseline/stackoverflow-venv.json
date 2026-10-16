@@ -1,0 +1,396 @@
+{
+  "id": "stackoverflow-venv",
+  "executed_at": "2026-10-16T04:07:53.278917+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "Stack Overflow question page about creating a Python virtual environment",
+  "answer": "Relevant Stack Overflow threads on creating a Python virtual environment:\n\n1. **[How to create virtual env with Python 3?](https://stackoverflow.com/questions/43069780/how-to-create-virtual-env-with-python-3)** — Top answers use `python3 -m venv ./path-to-new-venv` (stdlib `venv`) and also `virtualenv -p python3 venv_name`. Covers activation (`source .venv/bin/activate`) and deactivation.\n\n2. **[What is a virtualenv, and why should I use one?](https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one)** — Explains isolation from the system Python. Creation: `python3 -m venv ENV_DIR` (3.3+); older options include `virtualenv`, `pyvenv`. Activation differs on Unix vs Windows (`venv\\Scripts\\activate`).\n\n3. **[How to create a venv with a different Python version](https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version)** — Use the interpreter you want: `python3.9 -m venv ~/.venvs/my-venv-name`, or Windows `py -3.7 -m venv test_env`. Also `virtualenv -p <path-to-python>`. Notes Debian/Ubuntu may need `python3.x-venv`.\n\n4. **[python3 -m venv: how to specify Python point release/version?](https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version)** — `venv` uses whichever Python you invoke (`python3.6 -m venv whatever`). `virtualenv --python=python3.6 .venv` is the third-party alternative. Mentions `pyenv` workflows.\n\n5. **[How to create Python Virtual environment within a python script](https://stackoverflow.com/questions/57921255/how-to-create-python-virtual-environment-within-a-python-script)** — Programmatic creation with `venv.create(dir, with_pip=True)` or `virtualenv.create_environment(venv_dir)`, then `pip` via subprocess.\n\n6. **[Create Virtual Environment using Python Documentation](https://stackoverflow.com/questions/56339125/create-virtual-environment-using-python-documentation)** — Docs-style `python3 -m venv env`. Troubleshooting “ensurepip is not available” on Debian/Ubuntu with `apt install python3.x-venv`.\n\n7. **[How to use virtualenv with Python?](https://stackoverflow.com/questions/35017160/how-to-use-virtualenv-with-python)** — Install order Python → pip → `virtualenv`, then `virtualenv env` (or `virtualenv -p /path/to/python venv`), activate, and `pip install`.\n\n8. **[How to create a virtual environment in Python using an environment.yaml file?](https://stackoverflow.com/questions/68104229/how-to-create-a-virtual-environment-in-python-using-an-environment-yaml-file)** — YAML files are usually **conda**, not stdlib `venv`: `conda env create -f environment.yml`. For plain venv, answers point to `requirements.txt` plus `pip install -r`.",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://stackoverflow.com/questions/68104229/how-to-create-a-virtual-environment-in-python-using-an-environment-yaml-file",
+      "url": "https://stackoverflow.com/questions/68104229/how-to-create-a-virtual-environment-in-python-using-an-environment-yaml-file",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "https://pydevtools.com/handbook/how-to/how-to-create-and-use-a-python-virtual-environment-with-venv/",
+      "url": "https://pydevtools.com/handbook/how-to/how-to-create-and-use-a-python-virtual-environment-with-venv",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://linuxize.com/post/python-virtual-environments/",
+      "url": "https://linuxize.com/post/python-virtual-environments",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "https://www.infoworld.com/article/2260103/how-to-use-virtual-environments-in-python.html",
+      "url": "https://www.infoworld.com/article/2260103/how-to-use-virtual-environments-in-python.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version",
+      "url": "https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "https://realpython.com/python-virtual-environments-a-primer/",
+      "url": "https://realpython.com/python-virtual-environments-a-primer",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+      "url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "https://stackoverflow.com/questions/56339125/create-virtual-environment-using-python-documentation",
+      "url": "https://stackoverflow.com/questions/56339125/create-virtual-environment-using-python-documentation",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://stackoverflow.com/questions/68104229/how-to-create-a-virtual-environment-in-python-using-an-environment-yaml-file",
+      "url": "https://stackoverflow.com/questions/68104229/how-to-create-a-virtual-environment-in-python-using-an-environment-yaml-file",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "https://pydevtools.com/handbook/how-to/how-to-create-and-use-a-python-virtual-environment-with-venv/",
+      "url": "https://pydevtools.com/handbook/how-to/how-to-create-and-use-a-python-virtual-environment-with-venv",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://linuxize.com/post/python-virtual-environments/",
+      "url": "https://linuxize.com/post/python-virtual-environments",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "https://www.infoworld.com/article/2260103/how-to-use-virtual-environments-in-python.html",
+      "url": "https://www.infoworld.com/article/2260103/how-to-use-virtual-environments-in-python.html",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version",
+      "url": "https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "https://realpython.com/python-virtual-environments-a-primer/",
+      "url": "https://realpython.com/python-virtual-environments-a-primer",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+      "url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "https://stackoverflow.com/questions/56339125/create-virtual-environment-using-python-documentation",
+      "url": "https://stackoverflow.com/questions/56339125/create-virtual-environment-using-python-documentation",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://python.land/virtual-environments/virtualenv",
+      "url": "https://python.land/virtual-environments/virtualenv",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://stackoverflow.com/questions/43069780/how-to-create-virtual-env-with-python-3",
+      "url": "https://stackoverflow.com/questions/43069780/how-to-create-virtual-env-with-python-3",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://stackoverflow.com/questions/57921255/how-to-create-python-virtual-environment-within-a-python-script",
+      "url": "https://stackoverflow.com/questions/57921255/how-to-create-python-virtual-environment-within-a-python-script",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version",
+      "url": "https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://stackoverflow.com/questions/35017160/how-to-use-virtualenv-with-python",
+      "url": "https://stackoverflow.com/questions/35017160/how-to-use-virtualenv-with-python",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 11425,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "error",
+      "url": "https://stackoverflow.com/questions/68104229/how-to-create-a-virtual-environment-in-python-using-an-environment-yaml-file",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "circuit_open"
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "circuit_open",
+          "message": "circuit open for provider firecrawl",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 65
+    },
+    {
+      "schema_version": "1.0",
+      "status": "error",
+      "url": "https://pydevtools.com/handbook/how-to/how-to-create-and-use-a-python-virtual-environment-with-venv",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "circuit_open"
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "circuit_open",
+          "message": "circuit open for provider firecrawl",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 27
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 11520,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 0
+  }
+}

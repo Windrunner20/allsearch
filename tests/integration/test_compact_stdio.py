@@ -133,4 +133,5 @@ async def test_stdio_session_reuses_cache_and_pages_records(mock_provider: tuple
             }
     stored = list(record_dir.glob("*.json"))
     assert stored
-    assert all((path.stat().st_mode & 0o777) == 0o600 for path in stored)
+    if os.name == "posix":
+        assert all((path.stat().st_mode & 0o777) == 0o600 for path in stored)

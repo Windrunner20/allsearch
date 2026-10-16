@@ -52,6 +52,7 @@ class HttpTransport:
         provider: str | None = None,
         allow_list: bool = False,
         form: dict[str, str] | None = None,
+        retries: int | None = None,
     ) -> Any:
         """One JSON request with bounded retries.
 
@@ -59,10 +60,11 @@ class HttpTransport:
         an urlencoded body instead of JSON (OAuth token endpoints).
         """
         remaining = deadline_seconds if deadline_seconds is not None else self.timeout_seconds
+        max_retries = self.max_retries if retries is None else max(0, retries)
         attempt = 0
         last_exc: BaseException | None = None
 
-        while attempt <= self.max_retries:
+        while attempt <= max_retries:
             attempt += 1
             if remaining <= 0:
                 raise TimeoutError_("request deadline exceeded")
@@ -88,8 +90,9 @@ class HttpTransport:
 
                 if response.status_code in {401, 403}:
                     raise AuthError(
-                        f"authentication failed ({response.status_code})",
+                        f"authentication failed ({response.status_code}): {redact_text(response.text[:200])}",
                         provider=provider,
+                        status_code=response.status_code,
                     )
 
                 if response.status_code == 400:
@@ -108,11 +111,11 @@ class HttpTransport:
                         except ValueError:
                             pass
                     last_exc = TransportError(
-                        f"provider HTTP {response.status_code}",
+                        f"provider HTTP {response.status_code}: {redact_text(response.text[:200])}",
                         retryable=retryable,
                         status_code=response.status_code,
                     )
-                    if attempt <= self.max_retries and remaining - (asyncio.get_event_loop().time() - started) > delay:
+                    if attempt <= max_retries and remaining - (asyncio.get_event_loop().time() - started) > delay:
                         await asyncio.sleep(delay)
                         remaining -= asyncio.get_event_loop().time() - started
                         continue
@@ -149,7 +152,7 @@ class HttpTransport:
 
             elapsed = asyncio.get_event_loop().time() - started
             remaining -= elapsed
-            if attempt <= self.max_retries and remaining > 0.05:
+            if attempt <= max_retries and remaining > 0.05:
                 await asyncio.sleep(0.15 * attempt + random.uniform(0, 0.1))
                 continue
             break

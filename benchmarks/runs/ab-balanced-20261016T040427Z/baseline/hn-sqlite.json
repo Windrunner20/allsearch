@@ -1,0 +1,295 @@
+{
+  "id": "hn-sqlite",
+  "executed_at": "2026-10-16T04:05:58.659411+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "Hacker News discussion of SQLite as an application file format",
+  "answer": "Here are up to eight relevant Hacker News threads on SQLite as an application file format:\n\n1. **[SQLite as an Application File Format](https://news.ycombinator.com/item?id=46076642)** — Story on the official sqlite.org page (~178 points). Comments cover Mapbox’s MBTiles (map tiles in one SQLite file), tree-shaped data vs. flat tables, and benefits such as migrations, constraints, and GUI tooling. [[1]](https://news.ycombinator.com/item?id=46076642)\n\n2. **[SQLite as an Application File Format (2014)](https://news.ycombinator.com/item?id=18754634)** — Earlier discussion of the same essay (~211 points, 2018). Topics include Library of Congress archival use, whether the format is “open,” and WAL/SHM sidecar files complicating the single-file document model. [[2]](https://news.ycombinator.com/item?id=18754634)\n\n3. **[What If OpenDocument Used SQLite?](https://news.ycombinator.com/item?id=45132498)** — Related sqlite.org essay (~279 points). Strong thread on treating SQLite as a shared document format: `secure_delete`, hardening for untrusted files, and the SQLite team’s view that untrusted DB files are a niche case. [[3]](https://news.ycombinator.com/item?id=45132498)\n\n4. **[Comment: “The killer feature… is as an application file format”](https://news.ycombinator.com/item?id=40655974)** — Practitioners on incremental updates vs. zip-style bundles; Audacity project files; a game system edited with ordinary DB GUIs; caveats about journal/WAL files for user-visible documents. [[4]](https://news.ycombinator.com/item?id=40655974)\n\n5. **[Interchange vs. app-private format](https://news.ycombinator.com/item?id=39797104)** — Argument that SQLite is strong as an app’s own file format but weaker as a general interchange format (must ship the library; tooling assumptions). Also notes the `application_id` header field for distinguishing file types. [[5]](https://news.ycombinator.com/item?id=39797104)\n\n6. **[Apple .car format thread, citing SQLite documents](https://news.ycombinator.com/item?id=47046185)** — Why binary-heavy app formats often use SQLite instead of gzipped JSON (Firefox favicons, photos, Kodi, VC++ browsing data). Audacity again as a crash-resilient streaming project file. [[6]](https://news.ycombinator.com/item?id=47046185)\n\n7. **[Tree structures vs. tables](https://news.ycombinator.com/item?id=46080273)** — On the same story as (1): when JSON-in-a-blob is enough, when foreign keys and recursive queries win, and listed benefits (type safety, check constraints, off-the-shelf GUIs). [[7]](https://news.ycombinator.com/item?id=46080273)\n\n8. **[Show HN: SQLite files as applications — uApps](https://news.ycombinator.com/item?id=49421475)** — Adjacent idea: a `.uapp` is a SQLite archive (sqlar-style) holding both the app and its data, opened by a small local runtime. [[8]](https://news.ycombinator.com/item?id=49421475)\n\nA side thread under (1) also drifts into “SQLite instead of ELF” ([item 46079326](https://news.ycombinator.com/item?id=46079326)), including sqlelf, which is a different use of the file format. [[9]](https://news.ycombinator.com/item?id=46079326)",
+  "results": [
+    {
+      "id": "r1",
+      "title": "1",
+      "url": "https://news.ycombinator.com/item?id=46076642",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "SQLite Beats Cloud Queues for AI Agent Orchestration, Obelisk Engine Creator Claims",
+      "url": "https://www.techtimes.com/articles/317448/20260530/sqlite-beats-cloud-queues-ai-agent-orchestration-obelisk-engine-creator-claims.htm",
+      "snippet": "A blog post published May 29 by the creator of Obelisk, an open-source durable workflow engine, landed on Hacker News the following morning with brisk developer engagement — and the argument it makes is direct: for a large class of workflow systems, a SQLite file and a Litestream backup to S3-compatible object storage is all the infrastructure teams actually need, and the managed queues and brokers most engineers reach for are over-engineered solutions to a problem that the wrong tool is [...] The Hacker News thread surfaced independent corroboration of this pattern. One developer described converging on the same approach independently — building a directed acyclic graph of steps, persisting each step's output to SQLite, then asking a language model to re-run only the steps that changed. Another noted that language models interact more efficiently with SQLite than with large markdown files or JSON blobs, because a targeted SQL query returns only the rows an agent needs rather than [...] That trade-off came up immediately in the Hacker News discussion that followed. Developer gwking reported abandoning Litestream's 0.5.x series entirely after encountering runaway disk usage that would have caused production downtime, switching instead to nightly backups using SQLite's built-in rsync tooling. Developer golem14 described a separate bug in Litestream releases 5.9 and later that generates roughly 10 gigabytes of daily replication traffic for a database with fewer than 10 kilobytes",
+      "content": null,
+      "published_at": "Sat, 30 May 2026 18:12:58 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.4594405,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "2",
+      "url": "https://news.ycombinator.com/item?id=18754634",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "Agent Context Amnesia Has a Fix: ctx Indexes Months of History in One Command",
+      "url": "https://www.techtimes.com/articles/319681/20260704/agent-context-amnesia-has-fix-ctx-indexes-months-history-one-command.htm",
+      "snippet": "SQLite is not an architectural accident. The embedded relational database requires no background service, no separate server process, and no configuration. It runs inside the ctx binary itself, stores all data in a single file on the developer's machine, and supports arbitrary read-only SQL queries through ctx's own query command. That last point matters: an agent can issue any SQL against the session history — counting sessions per provider, finding all sessions that touched a specific file, [...] Because each agent harness stores transcripts in its own proprietary format, ctx maintains a separate parser for each provider. The project's GitHub repository contains distinct plugin directories for Claude Code and Cursor, and a contracts/agent-history-v1 directory that suggests the team has already begun drafting a proposed standard for what that shared format could look like. The SQLite database normalizes all transcripts into a consistent schema of sessions, events, metadata, and [...] Nothing, by default. The local version of ctx indexes transcripts into a local SQLite database, runs searches locally, requires no API keys, and makes no network calls. The project documentation notes explicitly that transcript content is preserved — including local file paths — so developers should review any output before sharing it outside their own machine. A cloud version for team session-sharing is in private beta; its privacy model is still being developed.",
+      "content": null,
+      "published_at": "Sat, 04 Jul 2026 13:31:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.13538086,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "3",
+      "url": "https://news.ycombinator.com/item?id=45132498",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "Unbelievably clever: Redbean 2 – a single-file web server that runs on six OSes",
+      "url": "https://www.theregister.com/software/2022/06/20/unbelievable-a-single-file-web-server-that-runs-on-six-oses/1138195",
+      "snippet": "'Write once, run anywhere' finally came true, thanks to APE and the Cosmopolitan libc.",
+      "content": null,
+      "published_at": "Mon, 20 Jun 2022 00:00:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.019361824,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "4",
+      "url": "https://news.ycombinator.com/item?id=40655974",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "5",
+      "url": "https://news.ycombinator.com/item?id=39797104",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "1",
+      "url": "https://news.ycombinator.com/item?id=46076642",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "SQLite Beats Cloud Queues for AI Agent Orchestration, Obelisk Engine Creator Claims",
+      "url": "https://www.techtimes.com/articles/317448/20260530/sqlite-beats-cloud-queues-ai-agent-orchestration-obelisk-engine-creator-claims.htm",
+      "result_id": "r2",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "2",
+      "url": "https://news.ycombinator.com/item?id=18754634",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "Agent Context Amnesia Has a Fix: ctx Indexes Months of History in One Command",
+      "url": "https://www.techtimes.com/articles/319681/20260704/agent-context-amnesia-has-fix-ctx-indexes-months-history-one-command.htm",
+      "result_id": "r4",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "3",
+      "url": "https://news.ycombinator.com/item?id=45132498",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "Unbelievably clever: Redbean 2 – a single-file web server that runs on six OSes",
+      "url": "https://www.theregister.com/software/2022/06/20/unbelievable-a-single-file-web-server-that-runs-on-six-oses/1138195",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "4",
+      "url": "https://news.ycombinator.com/item?id=40655974",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "5",
+      "url": "https://news.ycombinator.com/item?id=39797104",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "6",
+      "url": "https://news.ycombinator.com/item?id=47046185",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "7",
+      "url": "https://news.ycombinator.com/item?id=46080273",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "8",
+      "url": "https://news.ycombinator.com/item?id=49421475",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "9",
+      "url": "https://news.ycombinator.com/item?id=46079326",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 18019,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "conditional_supplement",
+        "latency_ms": 1720,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "recency_signal",
+      "domains_below_threshold:1<2"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "timed_out": false,
+  "elapsed_ms": 19740,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "tavily.search": 1
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 1
+  }
+}

@@ -1,0 +1,585 @@
+{
+  "id": "zhihu-gil",
+  "executed_at": "2026-10-16T04:04:27.436338+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "知乎上关于 Python GIL 为什么让多线程吃不满多核的高赞回答",
+  "answer": "以下是知乎上讨论「Python GIL 为什么让多线程吃不满多核」且较有代表性、点赞相对较高的内容（按相关度与可见赞数整理，最多 8 条）。核心共识基本一致：**CPython 的 GIL 是一把全局互斥锁，同一时刻只允许一个线程执行 Python 字节码，因此 CPU 密集型任务无法在多核上真正并行。**\n\n1. **[深入理解 Python 中的 GIL（全局解释器锁）](https://zhuanlan.zhihu.com/p/75780308)**（约 503 赞）  \n   解释 GIL 是阻止多个原生线程同时执行 Python 字节码的互斥锁；单核时代合理，多核上持锁线程不放，其他核只能等待。IO 时会释放 GIL，计算密集型则建议改用多进程。\n\n2. **[终于有人把 GIL 全局解释器说清楚了](https://zhuanlan.zhihu.com/p/311877485)**  \n   经典实验：`n -= 1` 大循环，单线程约 5.3s，两线程反而约 9.4s。原因是每个线程执行前都要先拿到 GIL，多核也无法同时跑 Python 字节码。\n\n3. **[python 下同样代码，多核多线程为什么比单核多线程慢很多？](https://www.zhihu.com/question/39923765)**（相关回答约 28 赞）  \n   指出 CPython 线程虽是 OS 原生线程，但 GIL 禁止并行执行字节码；CPU 密集线程按 tick（旧实现约 100 次）或超时（3.2 起约 5ms）释放 GIL。多核上其他核反复抢锁失败，形成线程颠簸（thrashing），有时比单核更慢。出路是多进程或把热点写成会释放 GIL 的 C 扩展。\n\n4. **[从伪并行的 Python 多线程说起](https://zhuanlan.zhihu.com/p/34687635)**  \n   实测 CPU 任务耗时几乎随线程数线性变差，与「多核真并行」矛盾。官方表述：解释器并非完全线程安全，当前线程必须持有 GIL 才能安全访问 Python 对象。C 扩展可用 `Py_BEGIN_ALLOW_THREADS` 暂时放开 GIL。\n\n5. **[Python 进阶：为什么 GIL 让多线程变得如此鸡肋？](https://www.zhihu.com/question/648464307)**  \n   回答概括：执行字节码前先抢 GIL，锁只有一把，结果是「一核干活，多核围观」。CPU 密集几乎无加速；IO 密集因等待时释放 GIL，多线程仍有用。绕过方式包括 `multiprocessing`、无 GIL 实现（Jython/IronPython）以及 NumPy 等释放 GIL 的 C 扩展。\n\n6. **[Python 高性能编程六：multiprocessing 模块](https://zhuanlan.zhihu.com/p/455171966)**  \n   对比纯 Python 多线程：线程变多反而更慢，因为争 GIL 的唤醒/失败开销。多进程各自有解释器和 GIL，没有这层竞争。NumPy 在 GIL 外计算时，多线程才能随核数加速。\n\n7. **[多任务编程：多进程 / 多线程 / 协程对比](https://zhuanlan.zhihu.com/p/1891148923487383858)**  \n   实测 CPU 密集（多次 `sum(range(...))`）：多线程几乎不比顺序快，多进程明显更快；IO 密集（`sleep`）则多线程/异步接近理想加速。结论：算多用进程，等多用线程或 asyncio。\n\n8. **[并发编程系列：多线程为什么跑不动计算](https://zhuanlan.zhihu.com/p/1922709704695590980)**（及续篇 [多进程能否吃满多核](https://zhuanlan.zhihu.com/p/1923366864152658874)）  \n   比喻：多个厨师但只有一口锅。示例里 CPU 任务线程池约 14–17s，进程池约 4s。IO 任务则线程往往更合适，因为进程还有启动和 IPC 成本。\n\n**补充：** 近年专栏（如 [无 GIL / free-threaded](https://zhuanlan.zhihu.com/p/1918634950082688599)、[Python 3.14 无 GIL 实测](https://zhuanlan.zhihu.com/p/1943962631212867675)）在讲 PEP 703：可选去掉 GIL 后，CPU 密集多线程才能接近按核数加速；标准 CPython 仍受上述限制。",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://zhuanlan.zhihu.com/p/75780308",
+      "url": "https://zhuanlan.zhihu.com/p/75780308",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+      "url": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://zhuanlan.zhihu.com/p/34687635",
+      "url": "https://zhuanlan.zhihu.com/p/34687635",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "https://zhuanlan.zhihu.com/p/1923366864152658874",
+      "url": "https://zhuanlan.zhihu.com/p/1923366864152658874",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://zhuanlan.zhihu.com/p/477826233",
+      "url": "https://zhuanlan.zhihu.com/p/477826233",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+      "url": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://zhuanlan.zhihu.com/p/356475230",
+      "url": "https://zhuanlan.zhihu.com/p/356475230",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "https://zhuanlan.zhihu.com/p/311877485",
+      "url": "https://zhuanlan.zhihu.com/p/311877485",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://zhuanlan.zhihu.com/p/75780308",
+      "url": "https://zhuanlan.zhihu.com/p/75780308",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+      "url": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://zhuanlan.zhihu.com/p/34687635",
+      "url": "https://zhuanlan.zhihu.com/p/34687635",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "https://zhuanlan.zhihu.com/p/1923366864152658874",
+      "url": "https://zhuanlan.zhihu.com/p/1923366864152658874",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://zhuanlan.zhihu.com/p/477826233",
+      "url": "https://zhuanlan.zhihu.com/p/477826233",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+      "url": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://zhuanlan.zhihu.com/p/356475230",
+      "url": "https://zhuanlan.zhihu.com/p/356475230",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "https://zhuanlan.zhihu.com/p/311877485",
+      "url": "https://zhuanlan.zhihu.com/p/311877485",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://zhuanlan.zhihu.com/p/1891148923487383858",
+      "url": "https://zhuanlan.zhihu.com/p/1891148923487383858",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://zhuanlan.zhihu.com/p/1909656215111340089",
+      "url": "https://zhuanlan.zhihu.com/p/1909656215111340089",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://zhuanlan.zhihu.com/p/455171966",
+      "url": "https://zhuanlan.zhihu.com/p/455171966",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://www.zhihu.com/question/596560660",
+      "url": "https://www.zhihu.com/question/596560660",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://zhuanlan.zhihu.com/p/1943962631212867675",
+      "url": "https://zhuanlan.zhihu.com/p/1943962631212867675",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://zhuanlan.zhihu.com/p/1975968147522736515",
+      "url": "https://zhuanlan.zhihu.com/p/1975968147522736515",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://zhuanlan.zhihu.com/p/690194234",
+      "url": "https://zhuanlan.zhihu.com/p/690194234",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://www.zhihu.com/question/648464307",
+      "url": "https://www.zhihu.com/question/648464307",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://www.zhihu.com/question/39923765",
+      "url": "https://www.zhihu.com/question/39923765",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary_site_restricted",
+        "latency_ms": 24657,
+        "detail": "model=grok-4.7",
+        "usage": {
+          "input_tokens": 25562,
+          "input_tokens_details": {
+            "cached_tokens": 4352
+          },
+          "output_tokens": 1423,
+          "output_tokens_details": {
+            "reasoning_tokens": 259
+          },
+          "total_tokens": 26985,
+          "num_sources_used": 0,
+          "num_server_side_tools_used": 3,
+          "cost_in_usd_ticks": 330655600,
+          "server_side_tool_usage_details": {
+            "web_search_calls": 3,
+            "x_search_calls": 0,
+            "x_posts_fetched": 0,
+            "x_users_fetched": 0,
+            "code_interpreter_calls": 0,
+            "file_search_calls": 0,
+            "mcp_calls": 0,
+            "document_search_calls": 0,
+            "image_generation_calls": 0
+          },
+          "context_details": {
+            "input_tokens": 23283,
+            "output_tokens": 1282
+          }
+        }
+      },
+      {
+        "provider": "xai",
+        "operation": "rewrite",
+        "outcome": "ok",
+        "reason": "comment_terms",
+        "latency_ms": 6769,
+        "detail": null,
+        "usage": {
+          "input_tokens": 3463,
+          "input_tokens_details": {
+            "cached_tokens": 1152
+          },
+          "output_tokens": 461,
+          "output_tokens_details": {
+            "reasoning_tokens": 421
+          },
+          "total_tokens": 3924,
+          "num_sources_used": 0,
+          "num_server_side_tools_used": 0,
+          "cost_in_usd_ticks": 27077600,
+          "context_details": {
+            "input_tokens": 3463,
+            "output_tokens": 468
+          }
+        }
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null,
+        "usage": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced"
+    ]
+  },
+  "coverage": {
+    "status": "insufficient",
+    "requirements": [
+      {
+        "kind": "site",
+        "target": "知乎",
+        "satisfied": true,
+        "detail": "17 content page(s), e.g. https://zhuanlan.zhihu.com/p/75780308"
+      },
+      {
+        "kind": "comments",
+        "target": "comments",
+        "satisfied": false,
+        "detail": "thread found but comments not read: no_public_comment_api (login)"
+      }
+    ]
+  },
+  "threads": [
+    {
+      "platform": "zhihu",
+      "url": "https://zhuanlan.zhihu.com/p/75780308",
+      "thread_id": "",
+      "title": "",
+      "author": "",
+      "created_at": null,
+      "body": "",
+      "status": "found",
+      "comments_total": null,
+      "source_api": "",
+      "error": "no_public_comment_api (login)",
+      "comments_read": 0
+    },
+    {
+      "platform": "zhihu",
+      "url": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+      "thread_id": "",
+      "title": "",
+      "author": "",
+      "created_at": null,
+      "body": "",
+      "status": "found",
+      "comments_total": null,
+      "source_api": "",
+      "error": "no_public_comment_api (login)",
+      "comments_read": 0
+    }
+  ],
+  "next_steps": [
+    {
+      "tool": "fetch",
+      "url": "https://zhuanlan.zhihu.com/p/75780308",
+      "why": "comments not readable via API (no_public_comment_api (login)); fetch reads the page if it is public"
+    },
+    {
+      "tool": "fetch",
+      "url": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+      "why": "comments not readable via API (no_public_comment_api (login)); fetch reads the page if it is public"
+    }
+  ],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.1",
+      "status": "partial",
+      "url": "https://zhuanlan.zhihu.com/p/75780308",
+      "final_url": "https://zhuanlan.zhihu.com/p/75780308",
+      "title": "安全验证 - 知乎",
+      "content": "![](https://www.zhihu.com/account/unhuman?type=U4E3Z1&need_login=true&session=cc0dd42d0fcff0108c61c78998bf8a06&next=%2Fsignin)\n\n![ZhiHu logo](https://static.zhihu.com/heifetz/assets/wechat-share-logo.39ea9ecd.png)\n\n[知乎](https://www.zhihu.com/)\n\n请您登录后查看更多专业优质内容。\n\n_想来知乎工作？请发送邮件到 jobs@zhihu.com_",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "robots": "noindex",
+        "language": "zh",
+        "google-site-verification": "\"FTeR0c8arOPKh8c5DYh_9uu98_zJbaWw53J-Sch9MTg\"",
+        "viewport": "width=device-width,initial-scale=1,maximum-scale=1",
+        "description": "知乎，中文互联网高质量的问答社区和创作者聚集的原创内容平台，于 2011 年 1 月正式上线，以「让人们更好的分享知识、经验和见解，找到自己的解答」为品牌使命。知乎凭借认真、专业、友善的社区氛围、独特的产品机制以及结构化和易获得的优质内容，聚集了中文互联网科技、商业、影视、时尚、文化等领域最具创造力的人群，已成为综合性、全品类、在诸多领域具有关键影响力的知识分享社区和创作者聚集的原创内容平台，建立起了以社区驱动的内容变现商业模式。",
+        "renderer": "webkit",
+        "force-rendering": "webkit",
+        "ogDescription": "知乎，中文互联网高质量的问答社区和创作者聚集的原创内容平台，于 2011 年 1 月正式上线，以「让人们更好的分享知识、经验和见解，找到自己的解答」为品牌使命。知乎凭借认真、专业、友善的社区氛围、独特的产品机制以及结构化和易获得的优质内容，聚集了中文互联网科技、商业、影视、时尚、文化等领域最具创造力的人群，已成为综合性、全品类、在诸多领域具有关键影响力的知识分享社区和创作者聚集的原创内容平台，建立起了以社区驱动的内容变现商业模式。",
+        "title": "安全验证 - 知乎",
+        "favicon": "https://static.zhihu.com/heifetz/assets/apple-touch-icon-152.81060cab.png",
+        "scrapeId": "01a142e2-5b82-77f0-85cc-85bbc4a5a0e6",
+        "sourceURL": "https://zhuanlan.zhihu.com/p/75780308",
+        "url": "https://www.zhihu.com/account/unhuman?type=U4E3Z1&need_login=true&session=cc0dd42d0fcff0108c61c78998bf8a06&next=%2Fsignin",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "cacheState": "miss",
+        "indexId": "a3c4943f-b8a2-47d0-8576-58b0459389c2",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 2826,
+            "detail": null,
+            "usage": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "login_required",
+          "message": "the page returned a login required instead of its content",
+          "retryable": false
+        }
+      ],
+      "timing_ms": 2827,
+      "thread": null
+    },
+    {
+      "schema_version": "1.1",
+      "status": "ok",
+      "url": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+      "final_url": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+      "title": "安全验证 - 知乎",
+      "content": "![ZhiHu logo](https://static.zhihu.com/heifetz/assets/wechat-share-logo.39ea9ecd.png)",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "renderer": "webkit",
+        "ogDescription": "知乎，中文互联网高质量的问答社区和创作者聚集的原创内容平台，于 2011 年 1 月正式上线，以「让人们更好的分享知识、经验和见解，找到自己的解答」为品牌使命。知乎凭借认真、专业、友善的社区氛围、独特的产品机制以及结构化和易获得的优质内容，聚集了中文互联网科技、商业、影视、时尚、文化等领域最具创造力的人群，已成为综合性、全品类、在诸多领域具有关键影响力的知识分享社区和创作者聚集的原创内容平台，建立起了以社区驱动的内容变现商业模式。",
+        "description": "知乎，中文互联网高质量的问答社区和创作者聚集的原创内容平台，于 2011 年 1 月正式上线，以「让人们更好的分享知识、经验和见解，找到自己的解答」为品牌使命。知乎凭借认真、专业、友善的社区氛围、独特的产品机制以及结构化和易获得的优质内容，聚集了中文互联网科技、商业、影视、时尚、文化等领域最具创造力的人群，已成为综合性、全品类、在诸多领域具有关键影响力的知识分享社区和创作者聚集的原创内容平台，建立起了以社区驱动的内容变现商业模式。",
+        "viewport": "width=device-width,initial-scale=1,maximum-scale=1",
+        "google-site-verification": "\"FTeR0c8arOPKh8c5DYh_9uu98_zJbaWw53J-Sch9MTg\"",
+        "title": "安全验证 - 知乎",
+        "force-rendering": "webkit",
+        "language": "zh",
+        "robots": "noindex",
+        "favicon": "https://static.zhihu.com/heifetz/assets/apple-touch-icon-152.81060cab.png",
+        "scrapeId": "01a142e2-65df-7591-bdf1-dec5d0b35f44",
+        "sourceURL": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+        "url": "https://www.zhihu.com/account/unhuman?type=U4E3Z1&need_login=true&session=9a058685695a795fe4a66449602e4830&next=%2Fsignin",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "proxyUsed": "basic",
+        "cacheState": "hit",
+        "cachedAt": "2026-10-15T07:40:58.082Z",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 296,
+            "detail": null,
+            "usage": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 297,
+      "thread": null
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 27862,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "xai.rewrite": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 357733200,
+    "tavily_credits_estimate": 0
+  }
+}

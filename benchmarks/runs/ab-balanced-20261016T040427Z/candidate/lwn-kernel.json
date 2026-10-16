@@ -1,0 +1,467 @@
+{
+  "id": "lwn-kernel",
+  "executed_at": "2026-10-16T04:07:46.095934+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "LWN.net article explaining RCU in the Linux kernel",
+  "answer": "Up to eight LWN.net articles that explain RCU (read-copy-update) in the Linux kernel, mostly by Paul McKenney:\n\n1. **What is RCU, Fundamentally?** (Dec 2007) — Core mechanisms: publish-subscribe for insertion, waiting for pre-existing readers on deletion, and keeping multiple versions so readers stay coherent.  \n   https://lwn.net/Articles/262464/\n\n2. **What is RCU? Part 2: Usage** (Dec 2007) — How RCU replaces reader-writer locks, with performance, deadlock immunity, and realtime tradeoffs.  \n   https://lwn.net/Articles/263130/\n\n3. **RCU part 3: the RCU API** (Jan 2008) — The family of RCU APIs (classic, BH, sched, realtime, SRCU, etc.) and what “RCU” means as an API.  \n   https://lwn.net/Articles/264090/\n\n4. **Hierarchical RCU** (Nov 2008) — Why classic RCU was reworked into a hierarchical design for large SMP systems, and how grace periods and quiescent states work.  \n   https://lwn.net/Articles/305782/\n\n5. **The RCU API, 2010 Edition** (Dec 2010) — Survey of the RCU API family and how the interface had evolved.  \n   https://lwn.net/Articles/418853/\n\n6. **Requirements for RCU part 1: the fundamentals** (Jul 2015) — Formal requirements: grace-period and publish-subscribe guarantees (`rcu_read_lock`/`rcu_read_unlock`, `rcu_assign_pointer`/`rcu_dereference`).  \n   https://lwn.net/Articles/652156/\n\n7. **The RCU API, 2019 edition** (Jan 2019) — Later API changes, including consolidation of RCU-bh, RCU-preempt, and RCU-sched flavors.  \n   https://lwn.net/Articles/777036/\n\n8. **The RCU API, 2024 edition** (Sep 2024) — Recent API evolution (lazy grace periods, energy use on Android/ChromeOS, and related updates), with pointers back to the classic intro series. Companion background: https://lwn.net/Articles/988641/  \n   https://lwn.net/Articles/988638/\n\nThe 2007 three-part series (items 1–3) is the usual starting point; the requirements and API-edition articles cover guarantees and how the kernel interface changed afterward.",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://lwn.net/Articles/573424",
+      "url": "https://lwn.net/Articles/573424",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "https://lwn.net/Articles/323929/",
+      "url": "https://lwn.net/Articles/323929",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://lwn.net/Articles/263130/",
+      "url": "https://lwn.net/Articles/263130",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "https://lwn.net/Articles/1081009",
+      "url": "https://lwn.net/Articles/1081009",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://lwn.net/Articles/418853/",
+      "url": "https://lwn.net/Articles/418853",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "https://lwn.net/Articles/653183",
+      "url": "https://lwn.net/Articles/653183",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://lwn.net/Articles/262464/",
+      "url": "https://lwn.net/Articles/262464",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "https://static.lwn.net/kerneldoc/RCU/index.html",
+      "url": "https://static.lwn.net/kerneldoc/RCU/index.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://lwn.net/Articles/573424",
+      "url": "https://lwn.net/Articles/573424",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "https://lwn.net/Articles/323929/",
+      "url": "https://lwn.net/Articles/323929",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://lwn.net/Articles/263130/",
+      "url": "https://lwn.net/Articles/263130",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "https://lwn.net/Articles/1081009",
+      "url": "https://lwn.net/Articles/1081009",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://lwn.net/Articles/418853/",
+      "url": "https://lwn.net/Articles/418853",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "https://lwn.net/Articles/653183",
+      "url": "https://lwn.net/Articles/653183",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://lwn.net/Articles/262464/",
+      "url": "https://lwn.net/Articles/262464",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "https://static.lwn.net/kerneldoc/RCU/index.html",
+      "url": "https://static.lwn.net/kerneldoc/RCU/index.html",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://lwn.net/Articles/653711/bigpage",
+      "url": "https://lwn.net/Articles/653711/bigpage",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://lwn.net/Articles/305782",
+      "url": "https://lwn.net/Articles/305782",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://lwn.net/Articles/988638/",
+      "url": "https://lwn.net/Articles/988638",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://lwn.net/Articles/777036/",
+      "url": "https://lwn.net/Articles/777036",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://lwn.net/Articles/652156",
+      "url": "https://lwn.net/Articles/652156",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://lwn.net/Articles/988641/",
+      "url": "https://lwn.net/Articles/988641",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://lwn.net/Articles/264090",
+      "url": "https://lwn.net/Articles/264090",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://lwn.net/Articles/1100449/",
+      "url": "https://lwn.net/Articles/1100449",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary_site_restricted",
+        "latency_ms": 10077,
+        "detail": "model=grok-4.7",
+        "usage": {
+          "input_tokens": 17052,
+          "input_tokens_details": {
+            "cached_tokens": 3328
+          },
+          "output_tokens": 683,
+          "output_tokens_details": {
+            "reasoning_tokens": 68
+          },
+          "total_tokens": 17735,
+          "num_sources_used": 0,
+          "num_server_side_tools_used": 2,
+          "cost_in_usd_ticks": 212914000,
+          "server_side_tool_usage_details": {
+            "web_search_calls": 2,
+            "x_search_calls": 0,
+            "x_posts_fetched": 0,
+            "x_users_fetched": 0,
+            "code_interpreter_calls": 0,
+            "file_search_calls": 0,
+            "mcp_calls": 0,
+            "document_search_calls": 0,
+            "image_generation_calls": 0
+          },
+          "context_details": {
+            "input_tokens": 14781,
+            "output_tokens": 590
+          }
+        }
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null,
+        "usage": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced"
+    ]
+  },
+  "coverage": {
+    "status": "sufficient",
+    "requirements": [
+      {
+        "kind": "site",
+        "target": "LWN.net",
+        "satisfied": true,
+        "detail": "15 content page(s), e.g. https://lwn.net/Articles/573424"
+      }
+    ]
+  },
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.1",
+      "status": "error",
+      "url": "https://lwn.net/Articles/573424",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "transport_error",
+            "usage": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "transport_error",
+          "message": "provider HTTP 429",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 10488,
+      "thread": null
+    },
+    {
+      "schema_version": "1.1",
+      "status": "error",
+      "url": "https://lwn.net/Articles/323929",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "circuit_open",
+            "usage": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "circuit_open",
+          "message": "circuit open for provider firecrawl",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 0,
+      "thread": null
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 20572,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 212914000,
+    "tavily_credits_estimate": 0
+  }
+}

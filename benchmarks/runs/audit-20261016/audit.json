@@ -8,9 +8,9 @@
         "fail": 27
       },
       "v2": {
-        "blocked": 2,
-        "pass": 10,
-        "fail": 25,
+        "blocked": 1,
+        "pass": 12,
+        "fail": 24,
         "timeout": 2
       }
     },
@@ -62,7 +62,7 @@
       "of": 39
     },
     "tool_cumulative_v2": {
-      "solved_by_any_depth": 16,
+      "solved_by_any_depth": 17,
       "of": 39
     }
   },
@@ -111,7 +111,6 @@
       "v1_replay": "fail",
       "v2": "fail",
       "v2_reasons": [
-        "discovery:fail",
         "comments:fail"
       ],
       "flags": [
@@ -356,17 +355,17 @@
       "v1_replay": "pass",
       "v2": "pass",
       "v2_reasons": [],
-      "flags": []
+      "flags": [
+        "case_targets_changed_in_v2"
+      ]
     },
     {
       "round": "balanced",
       "id": "github-code-search",
       "v1_stored": "fail",
       "v1_replay": "fail",
-      "v2": "fail",
-      "v2_reasons": [
-        "discovery:fail"
-      ],
+      "v2": "pass",
+      "v2_reasons": [],
       "flags": [
         "stored_urls_damaged_by_redaction"
       ]
@@ -412,11 +411,11 @@
       "id": "antibot-shell",
       "v1_stored": "blocked",
       "v1_replay": "blocked",
-      "v2": "blocked",
-      "v2_reasons": [
-        "reading:fail"
-      ],
-      "flags": []
+      "v2": "pass",
+      "v2_reasons": [],
+      "flags": [
+        "case_targets_changed_in_v2"
+      ]
     },
     {
       "round": "balanced",
@@ -771,7 +770,9 @@
       "v1_replay": "pass",
       "v2": "pass",
       "v2_reasons": [],
-      "flags": []
+      "flags": [
+        "case_targets_changed_in_v2"
+      ]
     },
     {
       "round": "verify",
@@ -1127,6 +1128,7 @@
       ],
       "flags": [
         "agent_urls_only_from_final_answer",
+        "case_targets_changed_in_v2",
         "v1_blocked_came_from_search_snippet"
       ]
     },
@@ -1191,7 +1193,8 @@
       "v2": "pass",
       "v2_reasons": [],
       "flags": [
-        "agent_urls_only_from_final_answer"
+        "agent_urls_only_from_final_answer",
+        "case_targets_changed_in_v2"
       ]
     },
     {

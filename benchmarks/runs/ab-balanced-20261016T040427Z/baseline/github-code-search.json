@@ -1,0 +1,387 @@
+{
+  "id": "github-code-search",
+  "executed_at": "2026-10-16T04:08:41.691404+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "CPython source file that defines PyObject_Malloc",
+  "answer": "**`Objects/obmalloc.c`** defines `PyObject_Malloc`.\n\nIt is a thin wrapper that checks the size against `PY_SSIZE_T_MAX` and then calls the current object-domain allocator (`_PyObject.malloc`). The underlying pymalloc implementation (`_PyObject_Malloc` and related helpers) is also in that file when `WITH_PYMALLOC` is enabled.\n\nRelevant sources:\n\n1. **Definition** — `Objects/obmalloc.c` (e.g. around the `PyObject_Malloc` function in recent and 3.12 trees): https://github.com/python/cpython/blob/main/Objects/obmalloc.c  \n2. **Same file, older snapshot** showing `void * PyObject_Malloc(size_t size)`: https://github.com/python/cpython/blob/d36cf5f1d20ce9f111a8fc997104785086e8eee6/Objects/obmalloc.c  \n3. **3.12 raw source** of the same function: https://raw.githubusercontent.com/python/cpython/v3.12.0/Objects/obmalloc.c  \n4. **Public declaration / domain docs** — `Include/pymem.h` (object domain: `PyObject_Malloc` / `Realloc` / `Free`): https://github.com/python/cpython/blob/d8f0d922d53a8f7bb64c1fda26be386bd2e3d958/Include/pymem.h  \n5. **API docs** — `Doc/c-api/memory.rst` (`.. c:function:: void* PyObject_Malloc(size_t n)`): https://github.com/python/cpython/blob/master/Doc/c-api/memory.rst  \n6. **Internal pymalloc overview** — `Include/internal/pycore_obmalloc.h`: https://raw.githubusercontent.com/python/cpython/main/Include/internal/pycore_obmalloc.h  \n7. **Related allocation macros** that call it — `Doc/c-api/allocation.rst` (`PyObject_New` uses `PyObject_Malloc`): https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst  \n8. **Historical alias cleanup** (`PyObject_MALLOC` → `PyObject_Malloc`) — PR #23587: https://github.com/python/cpython/pull/23587",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://raw.githubusercontent.com/python/cpython/v3.12.0/Objects/obmalloc.c",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.12.0/Objects/obmalloc.c",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "https://github.com/python/cpython/blob/d8f0d922d53a8f7bb64c1fda26be386bd2e3d958/Include/pymem.h",
+      "url": "https://github.com/python/cpython/blob/d8f0d922d53a8f7bb64c1fda26be386bd2e3d958/Include/pymem.h",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://raw.githubusercontent.com/python/cpython/main/Include/internal/pycore_obmalloc.h",
+      "url": "https://raw.githubusercontent.com/python/cpython/main/Include/internal/pycore_obmalloc.h",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md",
+      "url": "https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://github.com/python/cpython/blob/ccf30e96d4bdcf04396e00899a0319041144509f/Include/cpython/object.h",
+      "url": "https://github.com/python/cpython/blob/ccf30e96d4bdcf04396e00899a0319041144509f/Include/cpython/object.h",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "https://runebook.dev/zh/docs/python/c-api/memory/c.PyObject_Malloc",
+      "url": "https://runebook.dev/zh/docs/python/c-api/memory/c.PyObject_Malloc",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://github.com/python/cpython/pull/23587",
+      "url": "https://github.com/python/cpython/pull/23587",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "https://raw.githubusercontent.com/python/cpython/HEAD/Doc/c-api/allocation.rst",
+      "url": "https://raw.githubusercontent.com/python/cpython/HEAD/Doc/c-api/allocation.rst",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://raw.githubusercontent.com/python/cpython/v3.12.0/Objects/obmalloc.c",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.12.0/Objects/obmalloc.c",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "https://github.com/python/cpython/blob/d8f0d922d53a8f7bb64c1fda26be386bd2e3d958/Include/pymem.h",
+      "url": "https://github.com/python/cpython/blob/d8f0d922d53a8f7bb64c1fda26be386bd2e3d958/Include/pymem.h",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://raw.githubusercontent.com/python/cpython/main/Include/internal/pycore_obmalloc.h",
+      "url": "https://raw.githubusercontent.com/python/cpython/main/Include/internal/pycore_obmalloc.h",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md",
+      "url": "https://github.com/zpoint/CPython-Internals/blob/master/Interpreter/pyobject/pyobject.md",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://github.com/python/cpython/blob/ccf30e96d4bdcf04396e00899a0319041144509f/Include/cpython/object.h",
+      "url": "https://github.com/python/cpython/blob/ccf30e96d4bdcf04396e00899a0319041144509f/Include/cpython/object.h",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "https://runebook.dev/zh/docs/python/c-api/memory/c.PyObject_Malloc",
+      "url": "https://runebook.dev/zh/docs/python/c-api/memory/c.PyObject_Malloc",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://github.com/python/cpython/pull/23587",
+      "url": "https://github.com/python/cpython/pull/23587",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "https://raw.githubusercontent.com/python/cpython/HEAD/Doc/c-api/allocation.rst",
+      "url": "https://raw.githubusercontent.com/python/cpython/HEAD/Doc/c-api/allocation.rst",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://github.com/python/cpython/blob/3.10/Doc/c-api/memory.rst",
+      "url": "https://github.com/python/cpython/blob/3.10/Doc/c-api/memory.rst",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+      "url": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://github.com/python/cpython/blob/d36cf5f1d20ce9f111a8fc997104785086e8eee6/Objects/obmalloc.c",
+      "url": "https://github.com/python/cpython/blob/d36cf5f1d20ce9f111a8fc997104785086e8eee6/Objects/obmalloc.c",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://github.com/python/cpython/blob/master/Doc/c-api/memory.rst",
+      "url": "https://github.com/python/cpython/blob/master/Doc/c-api/memory.rst",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 10128,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "error",
+      "url": "https://raw.githubusercontent.com/python/cpython/v3.12.0/Objects/obmalloc.c",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "circuit_open"
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "circuit_open",
+          "message": "circuit open for provider firecrawl",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 1
+    },
+    {
+      "schema_version": "1.0",
+      "status": "error",
+      "url": "https://github.com/python/cpython/blob/d8f0d922d53a8f7bb64c1fda26be386bd2e3d958/Include/pymem.h",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "circuit_open"
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "circuit_open",
+          "message": "circuit open for provider firecrawl",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 1
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 10133,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 0
+  }
+}

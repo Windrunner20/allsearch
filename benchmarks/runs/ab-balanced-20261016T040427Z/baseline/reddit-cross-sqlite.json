@@ -1,0 +1,567 @@
+{
+  "id": "reddit-cross-sqlite",
+  "executed_at": "2026-10-16T04:05:47.238572+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "用中文找 Reddit 上讨论把 SQLite 当作应用主数据库的英文帖子",
+  "answer": "以下是 Reddit 上讨论「把 SQLite 当作应用主数据库」的英文帖（最多 8 条），侧重服务端/生产用法，而不是单纯本地嵌入式小例子。\n\n1. **[People who used sqlite for their Database on the server](https://www.reddit.com/r/webdev/comments/1gs7k87/people_who_used_sqlite_for_their_database_on_the)**（r/webdev，2024）  \n   问有没有人在服务器上用 SQLite 当数据库。评论里有人做多租户：租户数据用独立 SQLite 文件（WAL），复制/备份就是拷文件；也有人认为单租户单体应用够用，高并发写入会成问题。\n\n2. **[SQLite as the only database for website](https://www.reddit.com/r/PHP/comments/59na74/sqlite_as_the_only_database_for_website)**（r/PHP，2016）  \n   讨论网站是否只用 SQLite。评论提到 sqlite.org 自身用 SQLite 扛日常流量；有人用它跑中小流量站、百万行产品库，以及多实例各自一个 SQLite 文件。\n\n3. **[SQLite in low traffic website?](https://www.reddit.com/r/webdev/comments/81qvnf/sqlite_in_low_traffic_website/)**（r/webdev，2018）  \n   楼主网站以 SQLite 为主库、约每天数百次访问、运行多年无问题。评论引用官方口径：多数中低流量网站可用，写锁在库级别，备份就是复制文件。\n\n4. **[SQLite is the only database you will ever need in most cases](https://www.reddit.com/r/programming/comments/n1twez/sqlite_is_the_only_database_you_will_ever_need_in/)**（r/programming，2021）  \n   转发「多数场景 SQLite 就够」的观点。评论分歧在类型系统、日期、多进程写入：桌面/嵌入式很合适，多进程 Web 常被质疑只能同时一个写入者。\n\n5. **[The case for SQLite in production](https://www.reddit.com/r/webdev/comments/1pxq6jq/the_case_for_sqlite_in_production)**（r/webdev，2025）  \n   主张单机、读多写少、用户量不大时用 SQLite，多机写、重并发写、要复制时改用 Postgres。评论里有人认为多数应用单机就够，也有人坚持有并发用户就上 Postgres。\n\n6. **[Why I'm using SQLite as the only database for a production SaaS](https://www.reddit.com/r/FastAPI/comments/1ra1xlg/why_im_using_sqlite_as_the_only_database_for_a/)**（r/FastAPI，2026）  \n   FastAPI + 单个 `.db` 文件做生产 SaaS：无连接池、读快、备份用 rsync、一台 VPS。取舍是写并发（WAL 下多进程写会 `SQLITE_BUSY`），作者用单 worker + 后台队列串行写入。\n\n7. **[Sharing my exp so far with using SQLite in Production](https://www.reddit.com/r/rails/comments/y46our/sharing_my_exp_so_far_with_using_sqlite_in/)**（r/rails，2022）  \n   Rails 生产用 SQLite：小机器、省 RDS、`scp` 就能把生产库拉到本地。经验包括 FTS 虚拟表与 schema dump、以及用 PRAGMA（如外键）配置每个连接。\n\n8. **[How to use SQLite in production?](https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production/)**（r/sqlite，2025）  \n   问生产环境怎么管 SQLite（迁移、运维）。高赞建议：WAL、单写入者、脚本化迁移、SSH/`sqlite3` 或只读工具查看，不要在应用运行时用 GUI 改活库；备份可用 Litestream 等。\n\n相关但偏踩坑的帖：**[SQLite in production for a real app: WAL mode gotchas…](https://www.reddit.com/r/webdev/comments/1sbgmdu/sqlite_in_production_for_a_real_app_wal_mode)**（r/webdev）——Rails 生产单文件 SQLite，蓝绿部署时两个容器同时写，出现写入丢失。",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://www.reddit.com/r/sqlite/comments/1hcu39r/sqlite_in_production_dreams_becoming_reality",
+      "url": "https://www.reddit.com/r/sqlite/comments/1hcu39r/sqlite_in_production_dreams_becoming_reality",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production/",
+      "url": "https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://www.reddit.com/r/androiddev/comments/lczrmm/when_you_create_a_database_using_room_where",
+      "url": "https://www.reddit.com/r/androiddev/comments/lczrmm/when_you_create_a_database_using_room_where",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "https://www.reddit.com/r/webdev/comments/1gs7k87/people_who_used_sqlite_for_their_database_on_the",
+      "url": "https://www.reddit.com/r/webdev/comments/1gs7k87/people_who_used_sqlite_for_their_database_on_the",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://www.reddit.com/r/programming/comments/1gdxzc5/using_sqlite_as_storage_for_web_server_static/",
+      "url": "https://www.reddit.com/r/programming/comments/1gdxzc5/using_sqlite_as_storage_for_web_server_static",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "https://www.reddit.com/r/androiddev/comments/4gin2r/sqlscout_20_manage_databases_in_your_android/",
+      "url": "https://www.reddit.com/r/androiddev/comments/4gin2r/sqlscout_20_manage_databases_in_your_android",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://www.reddit.com/r/sqlite/comments/1gpj4xe/sqlite_transactions_for_efficiency/",
+      "url": "https://www.reddit.com/r/sqlite/comments/1gpj4xe/sqlite_transactions_for_efficiency",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "https://www.reddit.com/r/androiddev/comments/3eeyiv/using_sqlite_databases_explain_like_im_five",
+      "url": "https://www.reddit.com/r/androiddev/comments/3eeyiv/using_sqlite_databases_explain_like_im_five",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://www.reddit.com/r/sqlite/comments/1hcu39r/sqlite_in_production_dreams_becoming_reality",
+      "url": "https://www.reddit.com/r/sqlite/comments/1hcu39r/sqlite_in_production_dreams_becoming_reality",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production/",
+      "url": "https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://www.reddit.com/r/androiddev/comments/lczrmm/when_you_create_a_database_using_room_where",
+      "url": "https://www.reddit.com/r/androiddev/comments/lczrmm/when_you_create_a_database_using_room_where",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "https://www.reddit.com/r/webdev/comments/1gs7k87/people_who_used_sqlite_for_their_database_on_the",
+      "url": "https://www.reddit.com/r/webdev/comments/1gs7k87/people_who_used_sqlite_for_their_database_on_the",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://www.reddit.com/r/programming/comments/1gdxzc5/using_sqlite_as_storage_for_web_server_static/",
+      "url": "https://www.reddit.com/r/programming/comments/1gdxzc5/using_sqlite_as_storage_for_web_server_static",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "https://www.reddit.com/r/androiddev/comments/4gin2r/sqlscout_20_manage_databases_in_your_android/",
+      "url": "https://www.reddit.com/r/androiddev/comments/4gin2r/sqlscout_20_manage_databases_in_your_android",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://www.reddit.com/r/sqlite/comments/1gpj4xe/sqlite_transactions_for_efficiency/",
+      "url": "https://www.reddit.com/r/sqlite/comments/1gpj4xe/sqlite_transactions_for_efficiency",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "https://www.reddit.com/r/androiddev/comments/3eeyiv/using_sqlite_databases_explain_like_im_five",
+      "url": "https://www.reddit.com/r/androiddev/comments/3eeyiv/using_sqlite_databases_explain_like_im_five",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://www.reddit.com/r/learnpython/comments/jpm2f3/is_it_ok_to_create_a_database_with_python_app_on/",
+      "url": "https://www.reddit.com/r/learnpython/comments/jpm2f3/is_it_ok_to_create_a_database_with_python_app_on",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://www.reddit.com/r/programming/comments/58b7sx/a_distributed_acid_transaction_layer_built_atop",
+      "url": "https://www.reddit.com/r/programming/comments/58b7sx/a_distributed_acid_transaction_layer_built_atop",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://www.reddit.com/r/webdev/comments/1sbgmdu/sqlite_in_production_for_a_real_app_wal_mode/",
+      "url": "https://www.reddit.com/r/webdev/comments/1sbgmdu/sqlite_in_production_for_a_real_app_wal_mode",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://www.reddit.com/r/androiddev/comments/26775t/single_db_vs_multi_db/",
+      "url": "https://www.reddit.com/r/androiddev/comments/26775t/single_db_vs_multi_db",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://www.reddit.com/r/webdev/comments/81qvnf/sqlite_in_low_traffic_website/",
+      "url": "https://www.reddit.com/r/webdev/comments/81qvnf/sqlite_in_low_traffic_website",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://www.reddit.com/r/webdev/comments/1we17ei/sqlite_on_the_spa_web_a_production_ready_reality/",
+      "url": "https://www.reddit.com/r/webdev/comments/1we17ei/sqlite_on_the_spa_web_a_production_ready_reality",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://old.reddit.com/r/rails/comments/16im1mz/sqlite_rails_in_production.json",
+      "url": "https://old.reddit.com/r/rails/comments/16im1mz/sqlite_rails_in_production.json",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://www.reddit.com/r/reactnative/comments/1ehldl9/ama_i_have_released_v3_of_my_sql_play_app_after/",
+      "url": "https://www.reddit.com/r/reactnative/comments/1ehldl9/ama_i_have_released_v3_of_my_sql_play_app_after",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://www.reddit.com/r/flask/comments/gje22a/how_to_write_a_python_flask_rest_api_and_use",
+      "url": "https://www.reddit.com/r/flask/comments/gje22a/how_to_write_a_python_flask_rest_api_and_use",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://www.reddit.com/r/FastAPI/comments/1ra1xlg/why_im_using_sqlite_as_the_only_database_for_a/",
+      "url": "https://www.reddit.com/r/FastAPI/comments/1ra1xlg/why_im_using_sqlite_as_the_only_database_for_a",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "https://www.reddit.com/r/sqlite/comments/1ow05mh/trailbase_021_open_singleexecutable_sqlitebased/",
+      "url": "https://www.reddit.com/r/sqlite/comments/1ow05mh/trailbase_021_open_singleexecutable_sqlitebased",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c20",
+      "title": "https://www.reddit.com/r/tauri/comments/1hrsqn0/embedding_a_sqlite_database_in_a_tauri_application",
+      "url": "https://www.reddit.com/r/tauri/comments/1hrsqn0/embedding_a_sqlite_database_in_a_tauri_application",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c21",
+      "title": "https://www.reddit.com/r/webdev/comments/1pxq6jq/the_case_for_sqlite_in_production",
+      "url": "https://www.reddit.com/r/webdev/comments/1pxq6jq/the_case_for_sqlite_in_production",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c22",
+      "title": "https://www.reddit.com/r/graphql/comments/y6fc14/airsequel_sqlite_hosting_platform_with_automatic/",
+      "url": "https://www.reddit.com/r/graphql/comments/y6fc14/airsequel_sqlite_hosting_platform_with_automatic",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c23",
+      "title": "https://www.reddit.com/r/Backend/comments/1pyezs6/sqlite_db_simple_inprocess_reliable_fast",
+      "url": "https://www.reddit.com/r/Backend/comments/1pyezs6/sqlite_db_simple_inprocess_reliable_fast",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c24",
+      "title": "https://www.reddit.com/r/sqlite/comments/1vz5we6/sqlite_in_production_with_builtin_litestream/",
+      "url": "https://www.reddit.com/r/sqlite/comments/1vz5we6/sqlite_in_production_with_builtin_litestream",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c25",
+      "title": "https://www.reddit.com/r/xamarindevelopers/comments/e26ajz/xamarin_efficiently_using_a_sqlite_database/",
+      "url": "https://www.reddit.com/r/xamarindevelopers/comments/e26ajz/xamarin_efficiently_using_a_sqlite_database",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c26",
+      "title": "https://www.reddit.com/r/androiddev/comments/5qwl6w/shipping_app_with_sqllite_db_vs_creating_on_app/",
+      "url": "https://www.reddit.com/r/androiddev/comments/5qwl6w/shipping_app_with_sqllite_db_vs_creating_on_app",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c27",
+      "title": "https://old.reddit.com/r/PHP/comments/59na74/sqlite_as_the_only_database_for_website.json?sort=top",
+      "url": "https://old.reddit.com/r/PHP/comments/59na74/sqlite_as_the_only_database_for_website.json?sort=top",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c28",
+      "title": "https://www.reddit.com/r/sqlite/comments/1pyehat/comment/nwinh5x/",
+      "url": "https://www.reddit.com/r/sqlite/comments/1pyehat/comment/nwinh5x",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c29",
+      "title": "https://www.reddit.com/r/Python/comments/1wowf4q/sqlite_in_production_why_wal_mode_busy_timeout/",
+      "url": "https://www.reddit.com/r/Python/comments/1wowf4q/sqlite_in_production_why_wal_mode_busy_timeout",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c30",
+      "title": "https://www.reddit.com/r/sqlite/comments/du7v14/help_wanted_can_i_use_sqlite_in_my_app_that_will/",
+      "url": "https://www.reddit.com/r/sqlite/comments/du7v14/help_wanted_can_i_use_sqlite_in_my_app_that_will",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c31",
+      "title": "https://www.reddit.com/r/programming/comments/n1twez/sqlite_is_the_only_database_you_will_ever_need_in/",
+      "url": "https://www.reddit.com/r/programming/comments/n1twez/sqlite_is_the_only_database_you_will_ever_need_in",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c32",
+      "title": "https://www.reddit.com/r/rails/comments/y46our/sharing_my_exp_so_far_with_using_sqlite_in/",
+      "url": "https://www.reddit.com/r/rails/comments/y46our/sharing_my_exp_so_far_with_using_sqlite_in",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 22521,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "error",
+      "url": "https://www.reddit.com/r/sqlite/comments/1hcu39r/sqlite_in_production_dreams_becoming_reality",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "circuit_open"
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "circuit_open",
+          "message": "circuit open for provider firecrawl",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 0
+    },
+    {
+      "schema_version": "1.0",
+      "status": "error",
+      "url": "https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "circuit_open"
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "circuit_open",
+          "message": "circuit open for provider firecrawl",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 0
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 22525,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 0
+  }
+}

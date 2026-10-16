@@ -1,0 +1,493 @@
+{
+  "id": "github-code-search",
+  "executed_at": "2026-10-16T04:08:33.475959+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "CPython source file that defines PyObject_Malloc",
+  "answer": "**`Objects/obmalloc.c`** defines `PyObject_Malloc` in CPython (main and older branches).\n\n1. **Definition** — `Objects/obmalloc.c` implements `void *PyObject_Malloc(size_t size)`, which rejects sizes above `PY_SSIZE_T_MAX` and dispatches to the object-domain allocator (`_PyObject.malloc`).  \n   https://github.com/python/cpython/blob/main/Objects/obmalloc.c\n\n2. **Pymalloc backend** — Same file defines `_PyObject_Malloc` (used when `WITH_PYMALLOC` is on), which tries the small-block allocator then falls back to the raw allocator.  \n   https://github.com/python/cpython/blob/main/Objects/obmalloc.c\n\n3. **Declaration** — `Include/objimpl.h` declares `PyAPI_FUNC(void *) PyObject_Malloc(size_t size)` and the `PyObject_MALLOC` alias.  \n   https://github.com/python/cpython/blob/main/Include/objimpl.h\n\n4. **3.7 definition** — Same public function in `Objects/obmalloc.c` on the 3.7 branch.  \n   https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c\n\n5. **2.7 definition** — Older direct pymalloc entry point `#undef PyObject_Malloc` / `PyObject_Malloc` in `Objects/obmalloc.c`.  \n   https://github.com/python/cpython/blob/2.7/Objects/obmalloc.c\n\n6. **Docs** — `Doc/c-api/memory.rst` lists `PyObject_Malloc` under `PYMEM_DOMAIN_OBJ` and pymalloc.  \n   https://github.com/python/cpython/blob/main/Doc/c-api/memory.rst\n\n7. **Related docs** — `Doc/c-api/allocation.rst` notes `PyObject_New` allocates via `PyObject_Malloc`.  \n   https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst\n\n8. **Free-threaded path** — `Include/internal/pycore_object_alloc.h` selects a mimalloc heap, then calls `PyObject_Malloc`.  \n   https://github.com/python/cpython/blob/main/Include/internal/pycore_object_alloc.h",
+  "results": [
+    {
+      "id": "r1",
+      "title": "Do not allocate non-PyObjects with PyObject_Malloc() · Issue #114569 · python/cpython · GitHub",
+      "url": "https://github.com/python/cpython/issues/114569",
+      "snippet": "Note that there is not a significant difference between using `PyObject_Malloc()` and `PyMem_Malloc()` in the default build. Both calls use obmalloc under the hood, so switching from one to the other should not matter for the default build.\n\n Here are some examples, but this list may not be exhaustive:\n\ncpython/Modules/\\_sre/sre\\_lib.h\n\nLine 1125 in 841eacd\n\n|  |\n\n| ctx->u.rep = (SRE\\_REPEAT\\) PyObject\\_Malloc(sizeof(\\ctx->u.rep)); |\n\n  \n\ncpython/Modules/\\_elementtree.c\n\nLine 270 in 841eacd [...] |  |\n\n| self->extra = PyObject\\_Malloc(sizeof(ElementObjectExtra)); |\n\n  \n\ncpython/Modules/\\_elementtree.c\n\nLines 498 to 499 in 841eacd\n\n|  |\n\n| children = PyObject\\_Realloc(self->extra->children, |\n| size \\ sizeof(PyObject\\)); |\n\n  \n   \n\ncpython/Modules/pyexpat.c\n\nLines 23 to 24 in 841eacd\n\n|  |\n\n| static XML\\_Memory\\_Handling\\_Suite ExpatMemoryHandler = { |\n| PyObject\\_Malloc, PyObject\\_Realloc, PyObject\\_Free}; |\n\n  \n\ncpython/Objects/bytearrayobject.c\n\nLine 135 in 841eacd\n\n|  | [...] |  |\n\n| new->ob\\_bytes = PyObject\\_Malloc(alloc); |\n\n  \n\ncpython/Parser/lexer/lexer.c\n\nLine 132 in 841eacd\n\n|  |\n\n| char \\result = (char \\)PyObject\\_Malloc((input\\_length + 1) \\ sizeof(char)); |\n\n### Linked PRs\n\n gh-114569: Use PyMem\\_\\ APIs for non-PyObjects in Modules/, Objects/ and Parser/ #114574\n gh-114569: Use PyMem\\_\\ APIs for non-PyObjects in compiler #114587\n gh-114569: Use PyMem\\_\\ APIs for non-PyObjects in unicodeobject.c #114690\n\n## Footnotes",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "tavily"
+      ],
+      "score": 0.74541736,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+      "url": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "cpython/Include/objimpl.h at main · python/cpython · GitHub",
+      "url": "https://github.com/python/cpython/blob/main/Include/objimpl.h",
+      "snippet": "uses. If you must use these routines to allocate object memory, make sure\n\nthe object gets initialized via PyObject\\_{Init, InitVar} after obtaining\n\nthe raw memory.\n\n\\/\n\nPyAPI\\_FUNC(void \\) PyObject\\_Malloc(size\\_t size);\n\n#if !defined(Py\\_LIMITED\\_API) || Py\\_LIMITED\\_API+0 >= 0x03050000\n\nPyAPI\\_FUNC(void \\) PyObject\\_Calloc(size\\_t nelem, size\\_t elsize);\n\n#endif\n\nPyAPI\\_FUNC(void \\) PyObject\\_Realloc(void \\ptr, size\\_t new\\_size);\n\nPyAPI\\_FUNC(void) PyObject\\_Free(void \\ptr); [...] // Alias to PyObject\\_NewVar(). In Python 3.8, PyObject\\_NEW\\_VAR() called\n\n// directly PyObject\\_MALLOC() with \\_PyObject\\_VAR\\_SIZE().\n\n#define PyObject\\_NEW\\_VAR(type, typeobj, n) PyObject\\_NewVar(type, (typeobj), (n))\n\n/\\\n\n\\ Garbage Collection Support\n\n\\ ==========================\n\n\\/\n\n/\\ C equivalent of gc.collect(). \\/\n\nPyAPI\\_FUNC(Py\\_ssize\\_t) PyGC\\_Collect(void);\n\n/\\ C API for controlling the state of the garbage collector \\/\n\nPyAPI\\_FUNC(int) PyGC\\_Enable(void); [...] PyAPI\\_FUNC(PyVarObject \\) \\_PyObject\\_NewVar(PyTypeObject \\, Py\\_ssize\\_t);\n\n#define PyObject\\_New(type, typeobj) ((type \\)\\_PyObject\\_New(typeobj))\n\n// Alias to PyObject\\_New(). In Python 3.8, PyObject\\_NEW() called directly\n\n// PyObject\\_MALLOC() with \\_PyObject\\_SIZE().\n\n#define PyObject\\_NEW(type, typeobj) PyObject\\_New(type, (typeobj))\n\n#define PyObject\\_NewVar(type, typeobj, n) \\\n\n( (type \\) \\_PyObject\\_NewVar((typeobj), (n)) )",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "tavily"
+      ],
+      "score": 0.76888984,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "https://github.com/python/cpython/pull/4199",
+      "url": "https://github.com/python/cpython/pull/4199",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://github.com/python/cpython/blob/8246d588e48f7072c283db3e4eb1795a9a9780bf/Include/internal/pycore_object_alloc.h",
+      "url": "https://github.com/python/cpython/blob/8246d588e48f7072c283db3e4eb1795a9a9780bf/Include/internal/pycore_object_alloc.h",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "CPython Internals: Understanding the Role of PyObject",
+      "url": "https://blog.codingconfessions.com/p/cpython-object-system-internals-understanding",
+      "snippet": "Using inheritance in an object oriented language requires us to define a parent class with all the common attributes and behaviors that should be inherited by all of its child classes. To achieve the same effect in C, we need to define a parent struct which contains all the common attributes.\n\nThis is where the `PyObject` struct comes into the picture. CPython defines a struct called `PyObject` for this purpose. It is defined in the file Include/object.h, and shown in the following figure. [...] Definition of the `PyObject` struct in CPython [...] By embedding the `PyObject` struct as the first field in every object’s definition, CPython ensures that their in-memory representation starts with a common header which is formed by the `PyObject` itself. This is evident in the following figure:\n\nMemory layout of float and complex type objects",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.7348247,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c",
+      "url": "https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "Episode #240 - A guided tour of the CPython source code | Talk Python To Me Podcast",
+      "url": "https://talkpython.fm/episodes/show/240/a-guided-tour-of-the-cpython-source-code",
+      "snippet": "6. Objects and the Python Data Model The `Objects` folder in the CPython source defines core object types like list, dict, int, and more. You’ll find the built-in methods that implement Python’s “data model,” such as `__len__`, `__iter__`, or custom numeric operators. Examining these .c files reveals exactly how Python allocates and works with these data structures at a low level.\n    Links and tools:\n     + Fluent Python by Luciano Ramalho (Book referenced for Pythonic data model concepts) [...] Bytecode: The low-level instructions CPython compiles Python source into (stored often in `.pyc` files) before interpreting them.\n Reference Counting: A memory-management technique where each object keeps track of how many references point to it. When it drops to zero, the object is freed.\n Garbage Collector (GC): A secondary mechanism in CPython that cleans up reference cycles (e.g., two objects referencing each other, preventing the reference count from hitting zero). [...] 13:30 Nice.\n\n13:31 All right.\n\n13:31 Well, let's start at the beginning.\n\n13:32 I'm interested in the CPython source code, and I want to play around with it.\n\n13:36 How do I get it?\n\n13:38 What is it, in Subversion or something these days?\n\n13:39 Well, so it's really easy.\n\n13:41 Yeah.\n\n13:42 So it's all moved to GitHub.\n\n13:43 It's easy to find.\n\n13:44 GitHub.com slash Python slash CPython.\n\n13:47 And you can download that as a zip file.",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.6437107,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "Do not allocate non-PyObjects with PyObject_Malloc() · Issue #114569 · python/cpython · GitHub",
+      "url": "https://github.com/python/cpython/issues/114569",
+      "result_id": "r1",
+      "providers": [
+        "xai",
+        "tavily"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+      "url": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "cpython/Include/objimpl.h at main · python/cpython · GitHub",
+      "url": "https://github.com/python/cpython/blob/main/Include/objimpl.h",
+      "result_id": "r3",
+      "providers": [
+        "xai",
+        "tavily"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "https://github.com/python/cpython/pull/4199",
+      "url": "https://github.com/python/cpython/pull/4199",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://github.com/python/cpython/blob/8246d588e48f7072c283db3e4eb1795a9a9780bf/Include/internal/pycore_object_alloc.h",
+      "url": "https://github.com/python/cpython/blob/8246d588e48f7072c283db3e4eb1795a9a9780bf/Include/internal/pycore_object_alloc.h",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "CPython Internals: Understanding the Role of PyObject",
+      "url": "https://blog.codingconfessions.com/p/cpython-object-system-internals-understanding",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c",
+      "url": "https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "Episode #240 - A guided tour of the CPython source code | Talk Python To Me Podcast",
+      "url": "https://talkpython.fm/episodes/show/240/a-guided-tour-of-the-cpython-source-code",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://github.com/python/cpython/raw/8246d588e48f7072c283db3e4eb1795a9a9780bf/Include/objimpl.h",
+      "url": "https://github.com/python/cpython/raw/8246d588e48f7072c283db3e4eb1795a9a9780bf/Include/objimpl.h",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://github.com/python/cpython/blob/d36cf5f1d20ce9f111a8fc997104785086e8eee6/Objects/obmalloc.c",
+      "url": "https://github.com/python/cpython/blob/d36cf5f1d20ce9f111a8fc997104785086e8eee6/Objects/obmalloc.c",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://github.com/python/cpython/blob/main/Doc/c-api/memory.rst?plain=1",
+      "url": "https://github.com/python/cpython/blob/main/Doc/c-api/memory.rst?plain=1",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://github.com/python/cpython/blob/main/Objects/obmalloc.c",
+      "url": "https://github.com/python/cpython/blob/main/Objects/obmalloc.c",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://github.com/python/cpython/blob/604e7b9931f9e7881a2941816e538f5f15930db8/Include/objimpl.h",
+      "url": "https://github.com/python/cpython/blob/604e7b9931f9e7881a2941816e538f5f15930db8/Include/objimpl.h",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://github.com/python/cpython/blob/ccf30e96d4bdcf04396e00899a0319041144509f/Include/cpython/pymem.h",
+      "url": "https://github.com/python/cpython/blob/ccf30e96d4bdcf04396e00899a0319041144509f/Include/cpython/pymem.h",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://github.com/python/cpython/blob/2.7/Objects/obmalloc.c",
+      "url": "https://github.com/python/cpython/blob/2.7/Objects/obmalloc.c",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "Exploring Python Memory Management - Maxwell Forbes",
+      "url": "https://maxwellforbes.com/garage/python-memory-management",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "Behind the scene: CPython",
+      "url": "https://perso.ens-lyon.fr/francois.schwarzentruber/teaching/l3-prog/book/Python/python_cpython.html",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "Python behind the scenes #3: stepping through the CPython source code",
+      "url": "https://tenthousandmeters.com/blog/python-behind-the-scenes-3-stepping-through-the-cpython-source-code",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "Common Object Structures — Python 3.15.0 documentation",
+      "url": "https://docs.python.org/3/c-api/structures.html",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 12319,
+        "detail": "model=grok-4.7",
+        "usage": {
+          "input_tokens": 29420,
+          "input_tokens_details": {
+            "cached_tokens": 15104
+          },
+          "output_tokens": 801,
+          "output_tokens_details": {
+            "reasoning_tokens": 133
+          },
+          "total_tokens": 30221,
+          "num_sources_used": 0,
+          "num_server_side_tools_used": 4,
+          "cost_in_usd_ticks": 339366000,
+          "server_side_tool_usage_details": {
+            "web_search_calls": 4,
+            "x_search_calls": 0,
+            "x_posts_fetched": 0,
+            "x_users_fetched": 0,
+            "code_interpreter_calls": 0,
+            "file_search_calls": 0,
+            "mcp_calls": 0,
+            "document_search_calls": 0,
+            "image_generation_calls": 0
+          },
+          "context_details": {
+            "input_tokens": 16392,
+            "output_tokens": 602
+          }
+        }
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "conditional_supplement",
+        "latency_ms": 3113,
+        "detail": null,
+        "usage": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "domains_below_threshold:1<2"
+    ]
+  },
+  "coverage": {
+    "status": "not_applicable",
+    "requirements": []
+  },
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.1",
+      "status": "error",
+      "url": "https://github.com/python/cpython/issues/114569",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "circuit_open",
+            "usage": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "circuit_open",
+          "message": "circuit open for provider firecrawl",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 0,
+      "thread": null
+    },
+    {
+      "schema_version": "1.1",
+      "status": "error",
+      "url": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "circuit_open",
+            "usage": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "circuit_open",
+          "message": "circuit open for provider firecrawl",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 0,
+      "thread": null
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 15438,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "tavily.search": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 339366000,
+    "tavily_credits_estimate": 1
+  }
+}

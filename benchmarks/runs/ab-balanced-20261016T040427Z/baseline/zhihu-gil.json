@@ -1,0 +1,499 @@
+{
+  "id": "zhihu-gil",
+  "executed_at": "2026-10-16T04:04:27.435378+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "知乎上关于 Python GIL 为什么让多线程吃不满多核的高赞回答",
+  "answer": "知乎上直接讲「GIL 让多线程吃不满多核」的帖子与高赞/常见回答，核心结论一致：CPython 的 GIL 保证同一时刻只有一个线程执行 Python 字节码，CPU 密集任务无法真并行；多核上还容易出现抢锁与线程颠簸，有时比单线程更慢。I/O 期间会释放 GIL，所以 I/O 密集仍可用多线程。\n\n1. **[Python进阶：为什么GIL让多线程变得如此鸡肋？](https://www.zhihu.com/question/648464307)**  \n   问题页回答：GIL 是解释器互斥锁，任意时刻只允许一个线程跑字节码，多核上变成「一核干活、多核围观」。CPU 密集几乎无加速；I/O 时释放 GIL，多线程仍有用。建议 CPU 密集改多进程，或用会释放 GIL 的 C 扩展（如 NumPy）。\n\n2. **[从伪并行的 Python 多线程说起](https://zhuanlan.zhihu.com/p/34687635)**（专栏，2018）  \n   用斐波那契类实验说明：线程数增加，耗时几乎线性变差，与多核真并行矛盾。原因是官方解释器为线程安全引入 GIL，单进程同一时刻只有一条线程在执行。文中还对比 CPython / PyPy / Jython，并提到 C 扩展里可短暂释放 GIL。\n\n3. **[同样代码，多核多线程为什么比单核多线程慢很多？](https://www.zhihu.com/question/39923765)**  \n   高赞回答（约 28 赞同）写明：CPython 线程是 OS 原生线程，但 GIL 禁止同一解释器进程内并行执行。旧实现按约 100 次 tick 释放锁；多核上会出现严重线程颠簸（thrashing）。3.2 起改为有其他线程等待时约 5ms 强制让出。绕过方式：`multiprocessing` 或多进程，或关键段写成释放 GIL 的 C 扩展。\n\n4. **[Python 多线程、多进程最全整理](https://zhuanlan.zhihu.com/p/477826233)**  \n   专门解释多核颠簸：某核释放 GIL 后，其他核上的线程被唤醒去抢锁，锁又常被原核立刻拿回，醒来的线程白等再睡，切换开销大于收益，多核多线程有时比单核更慢。结论：多线程对 I/O 友好，对纯 CPU 不友好；要吃满多核用多进程或无 GIL 解释器 / `nogil` 扩展。\n\n5. **[什么是并发编程？Python 到底能不能多线程跑任务？](https://zhuanlan.zhihu.com/p/1922709704695590980)**  \n   用「四个厨师共用一口锅」比喻 GIL。实测向对比：I/O 用线程池更快；CPU 密集线程池几乎不提速（示例约 14.8s），进程池明显更快（约 4.2s）。强调 GIL 限制的是字节码执行权，不是「变量自动线程安全」。\n\n6. **[多进程来了！Python 真的能多核并行吗？](https://zhuanlan.zhihu.com/p/1923366864152658874)**  \n   4 核示例：多线程约 14.6–17s，接近串行；多进程约 4.1–4.3s。原因写得很直：每个进程有独立解释器和独立 GIL，才能把多个核打满。适合作为「为什么线程不行、进程可以」的对照文。\n\n7. **[Python 高性能编程：multiprocessing 模块](https://zhuanlan.zhihu.com/p/455171966)**  \n   配 GIL 竞争示意图（绿=持锁计算，红=抢锁失败空转）。纯 Python CPU 任务多线程有额外竞争开销；同一问题改用在 GIL 之外计算的 NumPy 后，加线程才能随核数变快。说明「吃不满多核」主要针对持有 GIL 的纯 Python 字节码。\n\n8. **[不用再等，Python 真正的无 GIL 多线程来了](https://zhuanlan.zhihu.com/p/1943962631212867675)**（约 28 赞同）  \n   从反面印证旧行为：有 GIL 时把 worker 从 1 加到 32，CPU 密集耗时几乎不变（文中约 16s）。free-threaded / PEP 703 构建去掉 GIL 后，耗时大致随线程数下降。用于说明「吃不满多核」是 CPython 默认构建的 GIL 所致，不是操作系统线程本身不能上多核。",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://zhuanlan.zhihu.com/p/34687635",
+      "url": "https://zhuanlan.zhihu.com/p/34687635",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+      "url": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+      "url": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "https://juejin.cn/post/6975032187062059021",
+      "url": "https://juejin.cn/post/6975032187062059021",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://www.zhihu.com/question/648464307",
+      "url": "https://www.zhihu.com/question/648464307",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "https://developer.volcengine.com/articles/7382991428827234331",
+      "url": "https://developer.volcengine.com/articles/7382991428827234331",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://juejin.cn/post/7675365996027609103",
+      "url": "https://juejin.cn/post/7675365996027609103",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "https://zhuanlan.zhihu.com/p/455171966",
+      "url": "https://zhuanlan.zhihu.com/p/455171966",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://zhuanlan.zhihu.com/p/34687635",
+      "url": "https://zhuanlan.zhihu.com/p/34687635",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+      "url": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+      "url": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "https://juejin.cn/post/6975032187062059021",
+      "url": "https://juejin.cn/post/6975032187062059021",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://www.zhihu.com/question/648464307",
+      "url": "https://www.zhihu.com/question/648464307",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "https://developer.volcengine.com/articles/7382991428827234331",
+      "url": "https://developer.volcengine.com/articles/7382991428827234331",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://juejin.cn/post/7675365996027609103",
+      "url": "https://juejin.cn/post/7675365996027609103",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "https://zhuanlan.zhihu.com/p/455171966",
+      "url": "https://zhuanlan.zhihu.com/p/455171966",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://juejin.cn/post/7694834709337145385",
+      "url": "https://juejin.cn/post/7694834709337145385",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://zhuanlan.zhihu.com/p/477826233",
+      "url": "https://zhuanlan.zhihu.com/p/477826233",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://blog.csdn.net/weixin_32715349/article/details/164436975",
+      "url": "https://blog.csdn.net/weixin_32715349/article/details/164436975",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://www.zhihu.com/question/596560660",
+      "url": "https://www.zhihu.com/question/596560660",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://www.zhihu.com/question/39923765",
+      "url": "https://www.zhihu.com/question/39923765",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://juejin.cn/post/7657161919082610714",
+      "url": "https://juejin.cn/post/7657161919082610714",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://www.shuzhiduo.com/A/kmzLPXDAzG/",
+      "url": "https://www.shuzhiduo.com/A/kmzLPXDAzG",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "https://cloud.tencent.com/developer/article/2757312",
+      "url": "https://cloud.tencent.com/developer/article/2757312",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c17",
+      "title": "https://www.wsisp.com/helps/115653.html",
+      "url": "https://www.wsisp.com/helps/115653.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c18",
+      "title": "https://zhuanlan.zhihu.com/p/1943962631212867675",
+      "url": "https://zhuanlan.zhihu.com/p/1943962631212867675",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c19",
+      "title": "https://zhuanlan.zhihu.com/p/1923366864152658874",
+      "url": "https://zhuanlan.zhihu.com/p/1923366864152658874",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 25479,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://zhuanlan.zhihu.com/p/34687635",
+      "final_url": "https://zhuanlan.zhihu.com/p/34687635",
+      "title": "安全验证 - 知乎",
+      "content": "![ZhiHu logo](https://static.zhihu.com/heifetz/assets/wechat-share-logo.39ea9ecd.png)",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "google-site-verification": "\"FTeR0c8arOPKh8c5DYh_9uu98_zJbaWw53J-Sch9MTg\"",
+        "ogDescription": "知乎，中文互联网高质量的问答社区和创作者聚集的原创内容平台，于 2011 年 1 月正式上线，以「让人们更好的分享知识、经验和见解，找到自己的解答」为品牌使命。知乎凭借认真、专业、友善的社区氛围、独特的产品机制以及结构化和易获得的优质内容，聚集了中文互联网科技、商业、影视、时尚、文化等领域最具创造力的人群，已成为综合性、全品类、在诸多领域具有关键影响力的知识分享社区和创作者聚集的原创内容平台，建立起了以社区驱动的内容变现商业模式。",
+        "description": "知乎，中文互联网高质量的问答社区和创作者聚集的原创内容平台，于 2011 年 1 月正式上线，以「让人们更好的分享知识、经验和见解，找到自己的解答」为品牌使命。知乎凭借认真、专业、友善的社区氛围、独特的产品机制以及结构化和易获得的优质内容，聚集了中文互联网科技、商业、影视、时尚、文化等领域最具创造力的人群，已成为综合性、全品类、在诸多领域具有关键影响力的知识分享社区和创作者聚集的原创内容平台，建立起了以社区驱动的内容变现商业模式。",
+        "title": "安全验证 - 知乎",
+        "language": "zh",
+        "robots": "noindex",
+        "renderer": "webkit",
+        "viewport": "width=device-width,initial-scale=1,maximum-scale=1",
+        "force-rendering": "webkit",
+        "favicon": "https://static.zhihu.com/heifetz/assets/apple-touch-icon-152.81060cab.png",
+        "scrapeId": "01a142e2-5e93-719f-b55c-ae2166a49aef",
+        "sourceURL": "https://zhuanlan.zhihu.com/p/34687635",
+        "url": "https://www.zhihu.com/account/unhuman?type=U4E3Z1&need_login=true&session=0e308404fe4c2901f289165a31a323bb&next=%2Fsignin",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "proxyUsed": "basic",
+        "cacheState": "hit",
+        "cachedAt": "2026-10-15T08:42:26.694Z",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 408,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 445
+    },
+    {
+      "schema_version": "1.0",
+      "status": "ok",
+      "url": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+      "final_url": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+      "title": "【Python 并发编程系列】第1篇：什么是并发编程？Python 到底能不能多线程跑任务？ - 知乎",
+      "content": "![ZhiHu logo](https://static.zhihu.com/heifetz/assets/wechat-share-logo.39ea9ecd.png)\n\n![【Python 并发编程系列】第1篇：什么是并发编程？Python 到底能不能多线程跑任务？](data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'></svg>)\n\n笔者刚开始用 Python 写爬虫的时候，用惯了 Java，想着开多线程爬数据能更快，就照着网上的例子开了十几个线程跑起来。结果发现：程序并没有起飞，甚至比预期还慢。\n\n于是就去查了一下，才第一次知道：原来 Python 有个 **GIL（全局解释器锁）**，它会限制多线程的并行能力。\n\n后来我才慢慢搞明白：\n\n- 对于爬虫这种 **I/O 密集型任务**， **Python 的多线程确实是能加速的**；\n- 但如果线程开太多、或者网络慢、没有设置超时等问题，也可能会“加线程不加速”，甚至更卡。\n\n于是就去查了一下，才知道 Python 有一个 GIL 机制，用线程可能很难加速这种场景。\n\n所以这里就引入了几个问题：\n\n- 并发编程是啥？\n- 线程和进程是啥？\n- Python 的并发编程跟其他语言的并发编程有什么区别？\n- Python 的 GIL 机制是什么？\n- Python 到底能不能用多线程跑任务？\n- Python 的多线程和多进程要怎么用？\n- ......\n\n今天就围绕这几个核心的问题，来给大家讲一讲 Python 并发编程的第一篇内容。\n\n## **1\\. 并发编程是啥**\n\n说白了，并发编程就是让程序 **能同时做很多事** 的一种方式。你写的程序，如果只能 **一件一件事按顺序做**，那就是“串行”的；如果它能“看起来像是在同时做几件事”，那你就是在写并发程序了。\n\n举个小例子：\n\n假如你是一个服务员，现在有三张桌子都在点餐。\n\n- 如果饭店里只有一个你一个服务员，你走到第一桌，点完整单，再去第二桌，第三桌……一桌一桌来。只要某一桌犹豫了半天没想好，你就只能站那干等，其他桌干着急也没办法——这就是“ **串行**”工作。\n- 如果饭店里还是只有一个你一个服务员，你听到第一桌说“我们还在想”，你立马说“好的，我先去别桌看看”，然后去第二桌记录菜单，顺手把第三桌的水也倒了。你一个人没分身，但把时间用得更高效了——这就是“ **并发**”工作。\n- 如果饭店里有三个服务员，那么你们三个人，一人负责一个桌子点菜——这就是“ **并行**”工作。\n\n所以，并发的真正意思是：\n\n> **在同一时间段内，一个人尽可能利用有限的精力，交替推进多个任务。**\n\n把这个类比搬到计算机世界里：\n\n- “一个服务员”就像计算机的一个 CPU 核心；\n- “多个点餐任务”就像你程序里要做的多个事情，比如爬网页、保存文件、读取数据库等；\n- 如果这个 CPU 能聪明地切换任务，不浪费等待时间，就能让整个程序看起来更快、更高效，这就是 **并发编程** 的核心思想。\n\n所以，总结一下：\n\n> **并发编程，是指一种让程序能够在一个时间段内处理多个任务的方式，关键点在于切换快、等待少、效率高。**\n\n## 2\\. 并发 vs 并行，有啥不一样？\n\n上面我提到了“并发”和“并行”这一对词，虽然它们经常被混用，但其实差别挺大的。\n\n继续刚才“服务员”的类比来解释：\n\n- **并发**：你一个人服务三张桌子，你在这三桌之间不断来回切换。虽然你同一时间只服务一桌，但大家看上去你都在“同时工作”，这就是并发。\n- **并行**：你们餐厅里有三个服务员，每个人各管一桌，三个桌子可以 **真正同时被服务到**，这叫并行。\n\n回到程序世界：\n\n- 如果你的电脑是单核 CPU，无法真正同时跑多个任务，那就只能通过快速切换来实现“伪同时”，这就是 **并发**。\n- 如果你的电脑是多核 CPU，能让多个任务在多个核心上 **同时执行**，这才是 **并行**。\n\n> 简单记忆一句话：\n>\n> **并发是一个人“假装”在同时做很多事；并行是真有很多人“各做一件事”。**\n\n## 3\\. 那线程和进程又是啥？\n\n如果你把一个程序看作一家公司，那么：\n\n- **进程（Process）**：就像一个完整的公司，有自己的办公室（内存）、员工（线程）和任务要做。\n- **线程（Thread）**：就是公司内部的员工，他们共用一个办公空间，可以一起完成工作，但互相之间要协调好，不然容易打架。\n\n更通俗点说：\n\n- **线程之间** 共享同一块内存，沟通效率高，但容易出错（比如多个线程同时改一个变量，可能会出问题）；\n- **进程之间** 各自独立，不会共享内存，就像两家公司互不打扰，要交流还得发邮件（进程间通信），成本更高但更安全。\n\n## 4\\. 那 Python 到底能不能用多线程跑任务？\n\n答案是： **能用，但有局限。**\n\n当初我写爬虫时，就用多线程希望“跑得更快”，结果却发现：\n\n- 并没有提速，反而更慢；\n- 查资料才知道，Python 里有个叫 **GIL（Global Interpreter Lock）** 的东西——它限制了 Python 的线程并不能同时跑。\n\n简单理解就是：\n\n> GIL 是 Python 的“全局大锁”，同一时间，只允许一个线程在执行 Python 的代码。\n\n就像你请了 4 个厨师炒菜，但厨房只允许一个人拿锅炒，其他人只能等——那你请再多厨师也没用，还得排队用锅，根本起不到多线程应有的加速效果。\n\n## 5\\. 那 Python 的多线程到底啥时候有用？\n\n这就得看你程序里“在忙什么”。\n\n**如果你的程序在“等”：** 比如等服务器返回网页、等磁盘读写文件、等数据库响应……这些操作都叫 **I/O 密集型任务**，你不是真的在计算，而是在“等别人回信”。\n\n这种时候，多线程就很有用了。因为等网页的时候，这个线程可以让出 CPU，去让别的线程跑，CPU 就没被浪费掉。\n\n**如果你的程序在“算”：** 比如做矩阵运算、图像处理、科学计算……这些是 **CPU 密集型任务**，全靠计算速度，那 Python 的线程就帮不上忙了。\n\n因为无论你开多少线程， **GIL 都只允许一个线程真正在跑**，于是：\n\n> **多线程可能不但没有提速，还会因为线程切换的开销更慢。**\n\n## 6\\. 线程还是进程？到底怎么选\n\n| 判断维度 | 什么时候选 线程 | 什么时候选 进程 |\n| --- | --- | --- |\n| 任务类型 | I/O 密集：大量等待（网络、磁盘、数据库）。CPU 大部分时间都在闲着，关键是别浪费“等”的时间。 | CPU 密集：大量纯计算（加解密、图像处理、数值分析）。需要真·多核并行来堆算力。 |\n| 内存占用 | 多线程共享同一块内存，开 100 个线程也不会占太多额外 RAM。 | 每个进程都有独立内存，进程多了 RAM 会涨得快。 |\n| 启动/切换成本 | 创建快、切换快（几万线程都能撑一撑）。 | 启动一条进程要 fork/序列化，成本高；切换也贵。 |\n| 数据共享难度 | 天生“同屋”，读写直接改变量，但要自己加锁防数据冲突。 | “隔壁邻居”，要靠 Queue / Pipe / Manager 之类 IPC，序列化来回搬数据。 |\n| GIL 限制 | 受限：一次只能一个线程跑 Python 字节码。→ I/O 影响小，CPU 计算影响大。 | 不受限：每个进程各有一把 Python 解释器，能吃满多核。 |\n| 典型场景 | 网络爬虫、批量下载、日志收集、聊天服务器… | 科学计算、批量图片/视频编解码、加密哈希、机器学习预处理… |\n\n**口诀**\n\n> `sleep` 多 → 线程\n>\n> `CPU` 多 → 进程\n>\n> 两者都多？拆成 **生产者‑消费者**：线程负责 I/O，进程负责计算。\n\n## 7\\. 动手试一把：用 30 行代码验证“线程 vs 进程”\n\n下面的脚本同时包含 **I/O 模拟** 和 **CPU 计算** 两种任务，直观看看谁快谁慢。\n\n> 运行环境：Python 3.8+，同一台多核机器。\n>\n> （代码里用了 `concurrent.futures`，接口最友好）\n\n```python\nimport time, math, concurrent.futures as cf\n\n# —— 先模拟 I/O 等待任务 ——\ndef fake_io(idx):\n    time.sleep(1)          # 假装在下载\n    return f\"task{idx}\"\n\n# —— 再来一个 CPU 计算任务 ——\ndef cpu_heavy(n=20_000_00):\n    s = 0\n    for i in range(n):\n        s += math.sqrt(i)\n    return s\n\ndef timer(fn):\n    t0 = time.time()\n    result = fn()\n    return round(time.time() - t0, 2), result\n\nif __name__ == \"__main__\":\n    # A. I/O：对比线程池 vs 进程池\n    def io_with_threads():\n        with cf.ThreadPoolExecutor(max_workers=5) as ex:\n            list(ex.map(fake_io, range(5)))\n    def io_with_processes():\n        with cf.ProcessPoolExecutor(max_workers=5) as ex:\n            list(ex.map(fake_io, range(5)))\n\n    t_thread_io, _ = timer(io_with_threads)\n    t_proc_io,  _ = timer(io_with_processes)\n    print(f\"I/O 线程池耗时: {t_thread_io}s\")\n    print(f\"I/O 进程池耗时: {t_proc_io}s\")   # 理论上差不多，进程略慢\n\n    # B. CPU：对比线程池 vs 进程池\n    def cpu_with_threads():\n        with cf.ThreadPoolExecutor(max_workers=4) as ex:\n            list(ex.map(cpu_heavy, [ ]*4))\n    def cpu_with_processes():\n        with cf.ProcessPoolExecutor(max_workers=4) as ex:\n            list(ex.map(cpu_heavy, [ ]*4))\n\n    t_thread_cpu, _ = timer(cpu_with_threads)\n    t_proc_cpu,  _ = timer(cpu_with_processes)\n    print(f\"CPU 线程池耗时: {t_thread_cpu}s\")   # 受 GIL 限制，几乎≈单线程\n    print(f\"CPU 进程池耗时: {t_proc_cpu}s\")    # 能吃满 4 核，显著更快\n```\n\n**你大概率会看到这样的结果**（示例输出）：\n\n```python\nI/O 线程池耗时: 1.01s\nI/O 进程池耗时: 1.33s\nCPU 线程池耗时: 14.8s\nCPU 进程池耗时: 4.2s\n```\n\n- **I/O 任务**：线程池 ≈ 1 秒就全部完成，因为 5 个“下载”一起sleep，CPU 没闲着；进程池反而多了启动 & IPC 成本。\n- **CPU 任务**：线程池被 GIL 绑手，4 核白白浪费；进程池把 4 核全吃满，时间直接砍到 1/3。\n\n> 结论再强化一次：\n\n- **I/O 等得多 → 线程或协程**。\n- **算得多 → 进程或原生 C/C++/NumPy**。\n\n下一篇我们就正式开撸 `threading.Thread`，写一个“边下载网页边打印进度条”的小 Demo，带你体验“并发让 I/O 起飞”的爽感。\n\n觉得有用的话，顺手点个收藏，或者把你在多线程/多进程里踩过的坑贴在评论区，我们后面一起拆！\n\n## 下一篇预告\n\n下一篇我们就从最基础的 `threading.Thread` 开始写代码，手把手带你跑一个“边打印边下载”的简单并发程序，让你实际感受一下什么叫“看起来像在同时干活”的效果。\n\n敬请期待《Python 并发编程系列》第 2 篇！\n\n## Tips：\n\n本篇和本系列都只是完整教程中的一篇，完整内容索引见总览页： [《我的 Python 教程简介 \\| 一起构建你的编程成长之路》](https://zhuanlan.zhihu.com/p/1932065916251791958)。\n\n如果你觉得内容有帮助，欢迎点赞 \\+ 收藏 \\+ 评论 \\+ 关注 \\+ 订阅 —— 你的支持，是我持续创作最重要的动力！\n\n## 系列其他文章：\n\n**_【Python 并发编程系列】第1篇：什么是并发编程？Python 到底能不能多线程跑任务？_**\n\n[【Python 并发编程系列】第 2 篇：threading 多线程入门——Python 一边打印一边下载 - 知乎](https://zhuanlan.zhihu.com/p/1923003098605033459)\n\n[【Python 并发编程系列】第 3 篇：用 Queue 管线程，一键写出生产者消费者模型 - 知乎](https://zhuanlan.zhihu.com/p/1923309703196288836)\n\n[【Python 并发编程系列】第 4 篇：多进程来了！Python 真的能“多核并行”吗？ - 知乎](https://zhuanlan.zhihu.com/p/1923366864152658874)\n\n[【Python 并发编程系列】第 5 篇：进程池 Pool，一口气处理 100 张图！ - 知乎](https://zhuanlan.zhihu.com/p/1923372474415949643)\n\n[【Python 并发编程系列】第 6 篇：ThreadPoolExecutor vs ProcessPoolExecutor，新手最友好的并发接口！ - 知乎](https://zhuanlan.zhihu.com/p/1923728223172265104)\n\n[【Python 并发编程系列】第 7 篇：并发中的常见坑 —— 死锁、资源竞争、僵尸进程、卡住怎么办？ - 知乎](https://zhuanlan.zhihu.com/p/1923732993920435115)\n\n编辑于 2025-08-12 09:21・北京\n\n[多线程](https://www.zhihu.com/topic/19619463)\n\n[Python](https://www.zhihu.com/topic/19552832)\n\n[python高并发](https://www.zhihu.com/topic/28927183)\n\n​赞同 11​​3 条评论​16 ​2\n\n​分享\n\n​申请转载​\n\n​\n\n关于作者\n\n[![塞大花](https://pica.zhimg.com/v2-280309dc5daa489f3a16796fde03cb33_l.jpg?source=172ae18b)](https://www.zhihu.com/people/song-yuan-95-19)\n\n[塞大花](https://www.zhihu.com/people/song-yuan-95-19)\n\n女程序猿，热爱技术，分享技术，也聊职场！\n\n[​](https://zhuanlan.zhihu.com/p/96956163)\n\n互联网行业 从业人员\n\n[回答](https://www.zhihu.com/people/song-yuan-95-19/answers) [文章](https://www.zhihu.com/people/song-yuan-95-19/posts) [关注者](https://www.zhihu.com/people/song-yuan-95-19/followers)\n\n​关注她​发私信",
+      "content_type": "text/markdown",
+      "provider": "firecrawl",
+      "truncated": false,
+      "metadata": {
+        "za-config": "{\"pageId\":\"10178\"}",
+        "og:title": "【Python 并发编程系列】第1篇：什么是并发编程？Python 到底能不能多线程跑任务？",
+        "url": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+        "ogUrl": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+        "name": "塞大花",
+        "force-rendering": "webkit",
+        "og:image": "https://picx.zhimg.com/v2-701b3fec482d4d05a5b15334c47476e1_720w.jpg?source=172ae18b",
+        "headline": "【Python 并发编程系列】第1篇：什么是并发编程？Python 到底能不能多线程跑任务？",
+        "viewport": "width=device-width,initial-scale=1,maximum-scale=1",
+        "description": "笔者刚开始用 Python 写爬虫的时候，用惯了 Java，想着开多线程爬数据能更快，就照着网上的例子开了十几个线程跑起来。结果发现：程序并没有起飞，甚至比预期还慢。 于是就去查了一下，才第一次知道：原来 Python …",
+        "og:site_name": "知乎专栏",
+        "ogImage": "https://picx.zhimg.com/v2-701b3fec482d4d05a5b15334c47476e1_720w.jpg?source=172ae18b",
+        "ogSiteName": "知乎专栏",
+        "keywords": "多线程,Python,python高并发",
+        "og:description": "笔者刚开始用 Python 写爬虫的时候，用惯了 Java，想着开多线程爬数据能更快，就照着网上的例子开了十几个线程跑起来。结果发现：程序并没有起飞，甚至比预期还慢。 于是就去查了一下，才第一次知道：原来 Python …",
+        "dateModified": "2025-08-12T01:21:22.000Z",
+        "image": [
+          "https://picx.zhimg.com/v2-701b3fec482d4d05a5b15334c47476e1_720w.jpg?source=172ae18b",
+          "https://pica.zhimg.com/v2-280309dc5daa489f3a16796fde03cb33_l.jpg?source=172ae18b"
+        ],
+        "renderer": "webkit",
+        "title": "【Python 并发编程系列】第1篇：什么是并发编程？Python 到底能不能多线程跑任务？ - 知乎",
+        "ogTitle": "【Python 并发编程系列】第1篇：什么是并发编程？Python 到底能不能多线程跑任务？",
+        "ogDescription": "笔者刚开始用 Python 写爬虫的时候，用惯了 Java，想着开多线程爬数据能更快，就照着网上的例子开了十几个线程跑起来。结果发现：程序并没有起飞，甚至比预期还慢。 于是就去查了一下，才第一次知道：原来 Python …",
+        "og:url": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+        "google-site-verification": "\"FTeR0c8arOPKh8c5DYh_9uu98_zJbaWw53J-Sch9MTg\"",
+        "language": "zh",
+        "og:type": "article",
+        "datePublished": "2025-06-30T01:10:54.000Z",
+        "commentCount": "3",
+        "favicon": "https://static.zhihu.com/heifetz/assets/apple-touch-icon-152.81060cab.png",
+        "scrapeId": "01a142e2-5fce-7789-abd8-5911b293e033",
+        "sourceURL": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+        "statusCode": 200,
+        "contentType": "text/html; charset=utf-8",
+        "timezone": "America/New_York",
+        "proxyUsed": "basic",
+        "cacheState": "miss",
+        "indexId": "fd363a4b-7af2-43ab-8576-988dde2034b5",
+        "creditsUsed": 1,
+        "concurrencyLimited": false
+      },
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "ok",
+            "reason": "explicit_fetch",
+            "latency_ms": 5131,
+            "detail": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 900,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [],
+      "timing_ms": 5132
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 31060,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 0
+  }
+}

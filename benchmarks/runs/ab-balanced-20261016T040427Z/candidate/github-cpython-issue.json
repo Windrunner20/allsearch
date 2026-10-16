@@ -1,0 +1,388 @@
+{
+  "id": "github-cpython-issue",
+  "executed_at": "2026-10-16T04:06:16.665786+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "PEP 703 page that proposes making the CPython GIL optional",
+  "answer": "**PEP 703 – Making the Global Interpreter Lock Optional in CPython**\n\n1. **Official PEP** — [peps.python.org/pep-0703](https://peps.python.org/pep-0703/)  \n   Sam Gross; sponsor Łukasz Langa. Status: **Final** (historical; accepted 2023). Proposes a `--disable-gil` build so CPython can run without the GIL; ABI tag includes `t` (“free-threaded”). Points to current docs on free threading. [[1]](https://peps.python.org/pep-0703/)\n\n2. **Canonical page (alternate URL)** — [peps.python.org/pep-0703/?featured_on=talkpython](https://peps.python.org/pep-0703/?featured_on=talkpython)  \n   Same PEP text: GIL blocks concurrent Python execution; default builds keep the GIL; `--disable-gil` defines `Py_GIL_DISABLED`. [[2]](https://peps.python.org/pep-0703/?featured_on=talkpython)\n\n3. **Steering Council acceptance** — [discuss.python.org acceptance thread](https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional-in-cpython-acceptance/37075) (24 Oct 2023)  \n   SC accepts PEP 703 with a gradual three-phase rollout and a rollback option; prefers the term “free-threaded.” [[3]](https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional-in-cpython-acceptance/37075)\n\n4. **Intent-to-accept notice** — [Steering Council notice](https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474) (28 Jul 2023)  \n   Intent to accept; experimental no-GIL build (expected in 3.13), then supported-but-not-default, then possible default years later. [[4]](https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474)\n\n5. **Original discussion** — [PEP 703 Discourse thread](https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606)  \n   Early feedback, including the configure flag naming (`--disable-gil`). [[5]](https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606)\n\n6. **GitHub PR that added the PEP** — [python/peps#2955](https://github.com/python/peps/pull/2955)  \n   Merged Jan 2023 by Łukasz Langa from Sam Gross’s branch. [[6]](https://github.com/python/peps/pull/2955)\n\n7. **PEP 779 (phase II criteria)** — [peps.python.org/pep-0779](https://peps.python.org/pep-0779/)  \n   Criteria for making the free-threaded build officially supported (phase II of PEP 703); targets Python 3.14. Phase III (default) left for a later decision. [[7]](https://peps.python.org/pep-0779/)\n\n8. **Short explainer** — [pydevtools handbook: What is PEP 703?](https://pydevtools.com/handbook/explanation/what-is-pep-703.md)  \n   Summary: experimental free-threaded build in 3.13, supported (not default) in 3.14 under PEP 779; separate ABI (`t` wheels); default CPython still has the GIL. [[8]](https://pydevtools.com/handbook/explanation/what-is-pep-703.md)",
+  "results": [
+    {
+      "id": "r1",
+      "title": "1",
+      "url": "https://peps.python.org/pep-0703",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "2",
+      "url": "https://peps.python.org/pep-0703?featured_on=talkpython",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "3",
+      "url": "https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional-in-cpython-acceptance/37075",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "4",
+      "url": "https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "5",
+      "url": "https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "8",
+      "url": "https://pydevtools.com/handbook/explanation/what-is-pep-703.md",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "6",
+      "url": "https://github.com/python/peps/pull/2955",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "7",
+      "url": "https://peps.python.org/pep-0779",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "1",
+      "url": "https://peps.python.org/pep-0703",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "2",
+      "url": "https://peps.python.org/pep-0703?featured_on=talkpython",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "3",
+      "url": "https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional-in-cpython-acceptance/37075",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "4",
+      "url": "https://discuss.python.org/t/a-steering-council-notice-about-pep-703-making-the-global-interpreter-lock-optional-in-cpython/30474",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "5",
+      "url": "https://discuss.python.org/t/pep-703-making-the-global-interpreter-lock-optional/22606",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "8",
+      "url": "https://pydevtools.com/handbook/explanation/what-is-pep-703.md",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "6",
+      "url": "https://github.com/python/peps/pull/2955",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "7",
+      "url": "https://peps.python.org/pep-0779",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 11879,
+        "detail": "model=grok-4.7",
+        "usage": {
+          "input_tokens": 11167,
+          "input_tokens_details": {
+            "cached_tokens": 4352
+          },
+          "output_tokens": 933,
+          "output_tokens_details": {
+            "reasoning_tokens": 69
+          },
+          "total_tokens": 12100,
+          "num_sources_used": 0,
+          "num_server_side_tools_used": 2,
+          "cost_in_usd_ticks": 172773600,
+          "server_side_tool_usage_details": {
+            "web_search_calls": 2,
+            "x_search_calls": 0,
+            "x_posts_fetched": 0,
+            "x_users_fetched": 0,
+            "code_interpreter_calls": 0,
+            "file_search_calls": 0,
+            "mcp_calls": 0,
+            "document_search_calls": 0,
+            "image_generation_calls": 0
+          },
+          "context_details": {
+            "input_tokens": 8895,
+            "output_tokens": 850
+          }
+        }
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null,
+        "usage": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced"
+    ]
+  },
+  "coverage": {
+    "status": "not_applicable",
+    "requirements": []
+  },
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.1",
+      "status": "error",
+      "url": "https://peps.python.org/pep-0703",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "circuit_open",
+            "usage": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "circuit_open",
+          "message": "circuit open for provider firecrawl",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 0,
+      "thread": null
+    },
+    {
+      "schema_version": "1.1",
+      "status": "error",
+      "url": "https://peps.python.org/pep-0703?featured_on=talkpython",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "circuit_open",
+            "usage": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "circuit_open",
+          "message": "circuit open for provider firecrawl",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 0,
+      "thread": null
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 11884,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 172773600,
+    "tavily_credits_estimate": 0
+  }
+}

@@ -491,7 +491,7 @@ def load_config(*, env_file: str | Path | None = None) -> AllSearchConfig:
         allow_degraded_search=_env_bool("ALLSEARCH_ALLOW_DEGRADED_SEARCH", False),
         reliability=ReliabilityConfig(
             timeout_seconds=_env_float("ALLSEARCH_TIMEOUT_SECONDS", 30.0, min_value=1.0),
-            total_budget_seconds=_env_float("ALLSEARCH_TOTAL_BUDGET_SECONDS", 45.0, min_value=1.0),
+            total_budget_seconds=_env_float("ALLSEARCH_TOTAL_BUDGET_SECONDS", 60.0, min_value=1.0),
             max_concurrency=_env_int("ALLSEARCH_MAX_CONCURRENCY", 4, min_value=1, max_value=32),
             max_response_bytes=_env_int(
                 "ALLSEARCH_MAX_RESPONSE_BYTES", 33_554_432, min_value=1024

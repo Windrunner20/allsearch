@@ -1,0 +1,30 @@
+# Example only. Put real keys in ../.env (never commit it) and a tokens file
+# created with `allsearch hash-token <name>` next to this file.
+services:
+  allsearch:
+    build: ..
+    env_file: ../.env
+    environment:
+      ALLSEARCH_HTTP_TOKENS_FILE: /run/secrets/allsearch_tokens
+      # Set to the public host name(s) clients use, to enable Host-header checks.
+      # ALLSEARCH_HTTP_ALLOWED_HOSTS: search.example.com
+    secrets:
+      - allsearch_tokens
+    ports:
+      # Bind to loopback and put TLS in front (Caddy, nginx, a tunnel).
+      - "127.0.0.1:8000:8000"
+    volumes:
+      - allsearch-state:/data
+    restart: unless-stopped
+    read_only: true
+    tmpfs:
+      - /tmp
+    cap_drop: [ALL]
+    security_opt: ["no-new-privileges:true"]
+
+secrets:
+  allsearch_tokens:
+    file: ./tokens
+
+volumes:
+  allsearch-state:

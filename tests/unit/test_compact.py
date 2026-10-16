@@ -81,7 +81,8 @@ def test_fetch_summary_hides_the_page_body():
 
 def test_record_permissions_ttl_and_capacity(tmp_path):
     store = RecordStore(tmp_path, ttl_seconds=10, max_entries=2, max_bytes=10_000_000)
-    assert (tmp_path.stat().st_mode & 0o777) == 0o700
+    if os.name == "posix":
+        assert (tmp_path.stat().st_mode & 0o777) == 0o700
     first = store.put("search", {"answer": "one"}, now=1000)
     second = store.put("search", {"answer": "two"}, now=1001)
     third = store.put("search", {"answer": "three"}, now=1002)
@@ -89,7 +90,8 @@ def test_record_permissions_ttl_and_capacity(tmp_path):
     assert store.get(second, now=1003)["response"]["answer"] == "two"
     assert store.get(third, now=1003)["response"]["answer"] == "three"
     [path] = list(tmp_path.glob(f"*_{third}.json"))
-    assert (path.stat().st_mode & 0o777) == 0o600
+    if os.name == "posix":
+        assert (path.stat().st_mode & 0o777) == 0o600
     assert store.get(second, now=1001 + 11) is None
     assert store.get("../" + third, now=1003) is None
     assert store.get(third, now=1003) is not None

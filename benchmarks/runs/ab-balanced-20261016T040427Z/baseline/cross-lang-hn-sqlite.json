@@ -1,0 +1,331 @@
+{
+  "id": "cross-lang-hn-sqlite",
+  "executed_at": "2026-10-16T04:10:26.371351+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "用中文找 Hacker News 上把 SQLite 当作应用程序文件格式来讨论的英文帖子",
+  "answer": "以下是 Hacker News 上讨论「把 SQLite 当作应用程序文件格式」的英文帖（最多 8 条），均为相关主帖或明确围绕该主题的评论串。\n\n1. **SQLite as an Application File Format**（约 178 分，约 99 条评论）  \n   直接讨论官方文章 [sqlite.org/appfileformat.html](https://sqlite.org/appfileformat.html)。评论涉及 MBTiles/Mapbox 离线地图包、树形数据是否适合用表、WAL/SHM 副作用等。  \n   https://news.ycombinator.com/item?id=46076642 [[1]](https://news.ycombinator.com/item?id=46076642)\n\n2. **SQLite as an Application File Format (2014)**（约 211 分，约 161 条评论）  \n   同一官方文章的较早讨论。涉及单文件文档隐喻、国会图书馆推荐、WAL 使“只拷一个文件”不再总是安全、格式是否公开可实现等。  \n   https://news.ycombinator.com/item?id=18754634 [[2]](https://news.ycombinator.com/item?id=18754634)\n\n3. **What If OpenDocument Used SQLite?**（约 279 分）  \n   假设用 SQLite 做办公文档格式。热评强调 `secure_delete`、不可信文件的安全选项，以及 SQLite 作者对“打开不可信库”场景的态度；也有人举例 Firefox、聊天应用等实际用法。  \n   https://news.ycombinator.com/item?id=45132498 [[3]](https://news.ycombinator.com/item?id=45132498)\n\n4. **评论：The killer feature for me with SQLite is as an application file format**  \n   明确把官方 app file format 页面称为杀手特性：可当文件包、可存结构化数据、可增量更新。举例 Audacity 工程文件、游戏关卡数据可用普通数据库 GUI 编辑。  \n   https://news.ycombinator.com/item?id=40655974 [[4]](https://news.ycombinator.com/item?id=40655974)\n\n5. **评论串（Apple `.car` 文件格式帖下）**  \n   主张含二进制 blob 的应用格式常选 SQLite，而非 gzip+JSON；举例 Firefox favicon、iOS 照片、Kodi、VC++ 浏览数据，并再次提到 Audacity 把音频写入 SQLite。  \n   https://news.ycombinator.com/item?id=47046185 [[5]](https://news.ycombinator.com/item?id=47046185)\n\n6. **Show HN: SQLite files as applications - uApps**  \n   把应用本身做成 SQLite 档案（基于 sqlar）：压缩的网页应用文件 + 用户数据放在同一个 `.uapp` 里，用本地 runtime 打开。  \n   https://news.ycombinator.com/item?id=49421475 [[6]](https://news.ycombinator.com/item?id=49421475)\n\n7. **评论（Pack 容器格式帖下）**  \n   认为 SQLite 适合作为某一应用自己的文件格式，但不适合当通用交换格式（必须捆绑 SQLite）；随后讨论 Application ID、与 zip/tar 的对比。  \n   https://news.ycombinator.com/item?id=39797104 [[7]](https://news.ycombinator.com/item?id=39797104)\n\n8. **同帖衍生：树形数据 vs 扁平表**  \n   在 “SQLite as an Application File Format” 讨论中，有人指出多数应用数据是树而非表；回应则谈外键、递归查询，以及类型安全、迁移、现成 GUI 等好处。  \n   https://news.ycombinator.com/item?id=46080273 [[8]](https://news.ycombinator.com/item?id=46080273)\n\n说明：第 4、5、7、8 条是评论而非独立提交标题；主题最集中的是第 1、2、3 条。未列入只讲 SQLite **磁盘页内部格式**、与“当应用文档格式”无关的帖子。",
+  "results": [
+    {
+      "id": "r1",
+      "title": "1",
+      "url": "https://news.ycombinator.com/item?id=46076642",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "Thieves Want Your iPhone, Not Your Android - extremetech.com",
+      "url": "https://www.extremetech.com/mobile/thieves-want-your-iphone-not-your-android",
+      "snippet": "# Thieves Want Your iPhone, Not Your Android * Share on Hacker News (opens in a new window) Phone thieves in London are increasingly selective, often returning Android phones to victims and keeping only iPhones, the newsletter London Centric reports. In January, someone named Sam was walking past a Royal Mail depot in south London when eight men blocked his way, robbed him of his phone, camera, and hat, and then returned his Android after seeing it was not an iPhone. An advisor at cybersecurity firm ESET told London Centric that thieves chase that Apple-driven profit, as Android often has a lower value on the secondhand market, and some criminals think it's not worth getting charged over something less valuable. Apple IPhone Samsung Android",
+      "content": null,
+      "published_at": "Fri, 21 Nov 2025 12:00:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.040941555,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "2",
+      "url": "https://news.ycombinator.com/item?id=18754634",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "What The 'Pixnapping' Android Phone Attack Is (And Why You Should Be Worried) - bgr.com",
+      "url": "https://www.bgr.com/2028117/what-pixnapping-android-hacker-attack-is-explained",
+      "snippet": "What The 'Pixnapping' Android Phone Attack Is (And Why You Should Be Worried) # What The 'Pixnapping' Android Phone Attack Is (And Why You Should Be Worried) That patch limits the activities an app can invoke blur on, the function that allows transparent layers, and is what a pixnapping attack uses to capture data. The attack, however, is not easy to carry out, and you need to install a malicious Android app first, then open it. Additionally, thousands of Android users installed infected apps, not unlike what would be needed for the pixnapping attack. The pixnapping attack takes advantage of something called Android Intents, a core system component that allows apps to communicate with one another and other Android devices, like sharing a photo or file.",
+      "content": null,
+      "published_at": "Sun, 23 Nov 2025 14:47:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.02211875,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "3",
+      "url": "https://news.ycombinator.com/item?id=45132498",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "Aspinall Returns to Training After Eye Surgery - Telecom Asia Sport",
+      "url": "https://www.telecomasia.net/news/mma/aspinall-returns-to-training-after-eye-surgery",
+      "snippet": "## #中传砍掉翻译摄影等16个专业# ​. 【#中传砍掉翻译摄影等16个专业##廖祥忠称AI时代课堂须彻底重构# 】近日，中国传媒大学党委书记廖祥忠表示，中传一口气砍掉翻译、摄影等16个本科专业和方向，未来将是“人机分工时代”，正在做课堂革命，课堂必须彻底重构，老师需要搞清自己在整个知识体系中承担什么作用，剩下的交给AI。 ​​​​ ​. ## 热门微博. ### 【#中传砍掉翻译摄影等16个专业##廖祥忠称AI时代课堂须彻底重构# 】近日，中国传媒大学党委书记廖祥忠表示，中传一口气砍掉翻译、摄影等16个本科专业和方向，未来将是“人机分工时代”，正在做课堂革命，课堂必须彻底重构，老师需要搞清自己在整个知识体系中承担什么作用，剩下的交给AI。 ​​​​...展开全文*c*. ### 【#中传党委书记回应砍掉16个本科专业#：未来是“人机分工时代”，教育变革迫在眉睫】#中传砍掉翻译摄影等16个专业# 据央视新闻3月8日报道，全国政协委员、中国传媒大学党委书记廖祥忠表示，去年，中国传媒大学一口气砍掉了翻译、摄影等16个本科专业和方向。 廖祥忠提到，今年Seedance2.0出 ​​​​...展开全文*c*. ## 热门视频. ### 【#中传砍掉翻译摄影等16个专业#】近日，中国传媒大学党委书记廖祥忠表示，中传一口气砍掉翻译、摄影等16个本科专业和方向，未来将是“人机分工时代”，正在做课堂革命，课堂必须彻底重构，老师需要搞清自己在整个知识体系中承担什么作用，剩下的交给AI。*L*荔枝新闻的微博视频 ​​​​. ### #中传砍掉翻译摄影等16个专业# 近日，中国传媒大学党委书记廖祥忠表示，中传一口气砍掉翻译、摄影等16个本科专业和方向，未来将是“人机分工时代”，正在做课堂革命，课堂必须彻底重构，老师需要搞清自己在整个知识体系中承担什么作用，剩下的交给AI。 未来真的不知不觉的到来了，AI对很多行业的冲击 ​​​​...展开全文*c*. ## 全部微博. ### #中传砍掉翻译摄影等16个专业#中传把翻译专业都砍掉了，英语在课堂上的比重也该适当降低了，我以前是上初中的时候才开始学英语，现在的孩子幼儿园就开始学英语了，不但在学校学英语，放了学还要在辅导班学英语，英语的学习压力实在是太大了。 ​​​​. ### #中传砍掉翻译摄影等16个专业#微软在2025年发布过受AI影响最大的40个职业。 整体看下来，一些看起来体面的工作被AI代替了，反而像油漆工：洗碗工、护工等费力的工作需要人来做。 ​​​​. ### #中传砍掉翻译摄影等16个专业#看这张图就好了 单位时间收益越高的行业越值得设计、使用ai也越容易被替代。 2026年3月5日，Anthropic 的研究显示：理论上可被AI覆盖的职业远多于现实已经被替代的职业。这意味着，人类社会正处在技术能力与产业落地之间的时间差阶段。 AI首先渗透的是知识密集型领域— ​​​​...展开全文*c*. ### 受AI影响程度最高的职业TOP 10。 计算机程序员、客服、数据录入员排前三。 整体来说，金融、计算机、行政、法律等中产相关工作影响较大。 服务员、厨师、维修工等蓝领影响微乎其微。 以为AI会让人解放出来，有更多时间干别的。 实际可能是把人都往蓝领挤 ...展开全文*c*. ## 微博推荐. ### #橹穆双人舞台百天播放量# 在线人数突破15w+ 弹幕量，评论数均全站第一 加急安排橹穆双人规划！ ...展开全文*c*. ### #内娱进入开机冷静期# 最近，一则“同一艺人四部剧都没过会”的爆料掀起热议。“四连不过”的说法，精准戳中了当下市场最敏感的神经。网友按图索骥，将猜测矛头指向去年播剧成绩不佳的男演员。 虽然无法点名，但这种情况绝非个例。因此，比起纠结“他是谁”，更值得追问的是“为什么”。 今年以来， ​​​​...展开全文*c*. ### 出门记得涂好防晒哦 #朝朝穆穆# ​​​​. ### 我和春天一起来给你们跳舞了 #susu福福# 🍃#苏新皓框框跳# *L*TOP登陆少年-苏新皓的微博视频 ​​​​. ### 试了试slap看了看时间该sleep🥱 #22X日志# ​​​​. ### 【#张凌赫谈演员的社会责任#】#张凌赫说会听取帮助自己的声音# 近日，演员@张凌赫z 接受采访，讲述在纪录片《凌探未来》中化身“电力张工”的故事。张凌赫说，希望用影响力传播更多好的公益内容，也坦言会听取帮助自己的声音，继续踏实前行。点击视频，看采访完整版↓ *L*新华社的微博视频 ​​​​. ### 嘿嘿 ​​​​. ### 叮！您有一份惊喜彩蛋待查收✉️ 巴黎欧莱雅青春代言人@TF\\_ING穆祉丞MUA 精彩拍摄花絮首发来袭～ 通勤🚲度假⛱️打球🎾 场景变换不停，肌肤好状态却始终如一 想知道小穆的秘密装备？答案马上揭晓✨ ...展开全文*c*. ## 微博实时热点. ### #四晚494元房间被退单后变一晚569元#. 【#四晚494元房间被退单后变一晚569元# 当事人：店方谎称老板离世，门店将被查封】#酒店回应低价订五一房间被退单#提前两个月低价预订五一酒店，临近出行却被商家以“老板离世、门店将被查封”等离谱理由要求退房。近日，消费者张女士在社交平台反映，柳州胡同七号酒店无端违约，捏造虚假事由逼迫顾客 ​​​​. ### #茶卡盐湖心形雕塑被吐槽画蛇添足#. 【#茶卡盐湖心形雕塑被吐槽画蛇添足#，景区：此前有游客反馈没打卡点，委托专业人员设计】#茶卡盐湖回应心形雕塑争议#近日，有网友发视频吐槽称，青海海西茶卡盐湖景区中一座心形积木雕塑造型“辣眼睛”，其红绿蓝的配色与周边的自然景观格格不入。在评论区，有不少网友评论表示支持，称在自然景区内摆 ​​​​. ### #广交会点燃入境消费新热潮#. 【#广交会点燃入境消费新热潮#】#广交会让老外爱上中国购# 今天（27日）是第139届广交会二期的最后一天。本届广交会举办以来，超过200个国家和地区的数十万名境外采购商涌入了广东广州，广交会牵起的国际商旅线，让广州的烟火气遇见国际范，也点燃了入境消费的新热潮。广州塔旅游区采购了一批翻译机发 ​​​​. ### 华住会崩了. ### #黄金被扣30年将按正常时效处理#. #黄金被扣30年将按正常时效处理#【警方回应“2859克黄金被扣押30年申请退赔遭拒”：很重视，正按复议程序推进】#黄金被扣30年正按复议程序推进##警方回应男子被扣黄金30年# 近日，“男子30年前被警方扣押2859克黄金申请退赔遭拒”一事引发关注。4月27日，当事人潘永嘉的代理律师张铁雁告诉红星新闻记者 ​​​​.",
+      "content": null,
+      "published_at": "Mon, 27 Apr 2026 12:16:43 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.02083838,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "4",
+      "url": "https://news.ycombinator.com/item?id=40655974",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "‘LifeHack’ Review: A High-Tech Heist - WSJ",
+      "url": "https://www.wsj.com/arts-culture/film/lifehack-review-a-high-tech-heist-4ed7c755",
+      "snippet": "# ‘LifeHack’ Review: A High-Tech Heist - WSJ. S&P 500 7501.24 0.77%. S&P GSCI Index Spot 745.59 0.33%. BEST OF Arts in Review. https://www.wsj.com/arts-culture/film/lifehack-review-a-high-tech-heist-4ed7c755. # ‘LifeHack’ Review: A High-Tech Heist. But he’s powered by the unstoppable energy of being 17 years old, so he pushes on with his mission, which is to separate a billionaire from $25 million in cryptocurrency. Minus the flash, the neon, the tailoring and the quipping, “LifeHack” is a kind of “Ocean’s Eleven” for Gen Z: a breathless, ingenious caper that moves at about 200 megabits per second. Image 3: Xi’s Taiwan Warning to Trump Highlights Tensions Behind Beijing Summit. Image 4: No One Cares About Your GPA, and More Career Advice for New Grads. #### There Is a Fire Sale on M.B.A.s. Image 7: It’s a More Secret Version of Bitcoin and It’s on a Tear. #### It’s a More Secret Version of Bitcoin and It’s on a Tear.",
+      "content": null,
+      "published_at": "Thu, 14 May 2026 19:51:00 GMT",
+      "source_type": "news",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.020553375,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "1",
+      "url": "https://news.ycombinator.com/item?id=46076642",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "Thieves Want Your iPhone, Not Your Android - extremetech.com",
+      "url": "https://www.extremetech.com/mobile/thieves-want-your-iphone-not-your-android",
+      "result_id": "r2",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "2",
+      "url": "https://news.ycombinator.com/item?id=18754634",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "What The 'Pixnapping' Android Phone Attack Is (And Why You Should Be Worried) - bgr.com",
+      "url": "https://www.bgr.com/2028117/what-pixnapping-android-hacker-attack-is-explained",
+      "result_id": "r4",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "3",
+      "url": "https://news.ycombinator.com/item?id=45132498",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "Aspinall Returns to Training After Eye Surgery - Telecom Asia Sport",
+      "url": "https://www.telecomasia.net/news/mma/aspinall-returns-to-training-after-eye-surgery",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "4",
+      "url": "https://news.ycombinator.com/item?id=40655974",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "‘LifeHack’ Review: A High-Tech Heist - WSJ",
+      "url": "https://www.wsj.com/arts-culture/film/lifehack-review-a-high-tech-heist-4ed7c755",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "5",
+      "url": "https://news.ycombinator.com/item?id=47046185",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "6",
+      "url": "https://news.ycombinator.com/item?id=49421475",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "7",
+      "url": "https://news.ycombinator.com/item?id=39797104",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "8",
+      "url": "https://news.ycombinator.com/item?id=46080273",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "$11 Million Crypto Theft in Broad Daylight Is Latest in Increasingly Common $5 Wrench Attacks - Gizmodo",
+      "url": "https://gizmodo.com/11-million-crypto-theft-in-broad-daylight-is-latest-in-increasingly-common-5-wrench-attacks-2000691574",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "Read this before you vibe-code another app - The Verge",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/950844/vibe-coding-security-risks-apps",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "UK banks back new sovereign AI project - FinTech Futures",
+      "url": "https://www.fintechfutures.com/ai-in-fintech/uk-banks-back-new-sovereign-ai-project",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "When Trump Jawbones the Market, Bet Against Him at Your Peril - Moomoo",
+      "url": "https://www.moomoo.com/hant/news/post/71155634/when-trump-jawbones-the-market-bet-against-him-at-your",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 20411,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "conditional_supplement",
+        "latency_ms": 268,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "recency_signal",
+      "domains_below_threshold:1<2"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "timed_out": false,
+  "elapsed_ms": 20682,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "tavily.search": 1
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 1
+  }
+}

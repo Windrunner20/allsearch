@@ -12,6 +12,7 @@ import argparse
 import json
 import logging
 import sys
+import warnings
 from dataclasses import replace
 from typing import Literal
 
@@ -112,6 +113,9 @@ def main(argv: list[str] | None = None) -> None:
 
     _configure_logging(args.log_level or config.log_level)
 
+    # mcp 1.26 + pydantic-settings on Python 3.14 warn about FastMCP's own
+    # lifespan annotation at import; it is not actionable here.
+    warnings.filterwarnings("ignore", message=r"Field 'lifespan' has an incomplete definition")
     from allsearch.server import build_http_app, build_mcp
 
     _, server = build_mcp(config)

@@ -254,13 +254,16 @@
         "id": "pep-703",
         "url": "https://peps.python.org/pep-0703/",
         "host": "peps.python.org",
-        "path_contains": "/pep-0703/",
+        "path_regex": "/pep-0703/?$",
         "reading_evidence": ["GIL"]
       }
     ],
     "key_facts": ["703", "GIL"],
     "url_checked": true,
     "notes": "改到稳定的 PEP 页面，而不是会变动的 issue 列表。本机已打开。",
+    "grader_changes": [
+      "v2: the PEP URL counts with or without its trailing slash (canonical URLs drop it). v1 required /pep-0703/."
+    ],
     "rubric": {"discovery": "PEP 703", "reading": "正文含 GIL", "synthesis": "指出 703 和 GIL"}
   },
   {
@@ -777,12 +780,15 @@
       {
         "id": "chiphell-shell",
         "host": "chiphell.com",
-        "path_contains": "viewthread"
+        "path_regex": "(viewthread|thread-[0-9]+)"
       }
     ],
     "key_facts": [],
     "url_checked": false,
     "notes": "预期反爬不等于已经失败。没有 captcha 标记时，不能把空结果自动归到 anti_bot。",
+    "grader_changes": [
+      "v2: thread-<tid>-<page>-1.html is Discuz's rewritten URL for forum.php?mod=viewthread&tid=<tid>; both forms count, as in dual-forum-hardware. v1 required the literal viewthread."
+    ],
     "rubric": {"discovery": "viewthread", "reading": "正文或验证码壳"}
   },
   {

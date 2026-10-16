@@ -1,0 +1,320 @@
+{
+  "id": "compare-react-vue",
+  "executed_at": "2026-10-16T04:08:27.150330+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "对比 React 官方的 managing state 和 Vue 官方的 reactivity fundamentals",
+  "answer": "这两章解决的问题不同：React 的 **Managing State** 讲的是如何组织、共享和更新组件状态；Vue 的 **Reactivity Fundamentals** 讲的是框架如何把普通数据变成可追踪、可触发更新的响应式状态。\n\n1. **文档定位**  \n   React 把 Managing State 标为 Intermediate，主题是状态结构、数据流和跨组件共享，避免重复状态带来的 bug。  \n   来源：[react.dev/learn/managing-state](https://react.dev/learn/managing-state)\n\n2. **章节范围**  \n   React 这一章覆盖：把 UI 变化当成状态变化、选择状态结构、lifting state up、用 `key` 保留或重置状态、reducer、Context，以及用 reducer + Context 放大规模。  \n   来源：[react.dev/learn/managing-state](https://react.dev/learn/managing-state)\n\n3. **声明方式**  \n   Vue 的 Reactivity Fundamentals 先讲怎么声明响应式数据：Options API 用 `data()` 返回对象，实例代理顶层属性；Composition API 推荐 `ref()`，对象也可以用 `reactive()`。  \n   来源：[vuejs.org/guide/essentials/reactivity-fundamentals](https://vuejs.org/guide/essentials/reactivity-fundamentals)\n\n4. **更新模型**  \n   React 不直接改 UI，而是用 `useState` / `useReducer` 描述不同视觉状态，再由 setter 或 `dispatch` 触发重新渲染。官方示例里表单靠 `status` 决定按钮是否禁用、是否显示成功信息。  \n   来源：[react.dev/learn/managing-state](https://react.dev/learn/managing-state)、[react.dev/learn/state-as-a-snapshot](https://react.dev/learn/state-as-a-snapshot)\n\n5. **可变性**  \n   Vue 允许直接改响应式数据：`this.count = 2`、`count.value++`，嵌套对象和数组的就地修改（`nested.count++`、`arr.push`）默认也能被追踪。  \n   来源：[vuejs.org/guide/essentials/reactivity-fundamentals](https://vuejs.org/guide/essentials/reactivity-fundamentals)\n\n6. **追踪机制**  \n   Vue 说明普通变量无法被拦截，所以 `ref` 用 `.value` 的 getter/setter 做 track/trigger；Vue 3 对象用 Proxy。模板里 ref 会自动解包，不必写 `.value`。  \n   来源：[vuejs.org/guide/essentials/reactivity-fundamentals](https://vuejs.org/guide/essentials/reactivity-fundamentals)、[vuejs.org/guide/extras/reactivity-in-depth](https://vuejs.org/guide/extras/reactivity-in-depth.html)\n\n7. **派生数据**  \n   React 明确反对把可计算值存成 state：`fullName` 应在渲染时由 `firstName + lastName` 算出，而不是两边一起 `set`。  \n   来源：[react.dev/learn/managing-state](https://react.dev/learn/managing-state)\n\n8. **更新时机与共享**  \n   Vue 把 DOM 更新缓冲到 next tick，多次修改只更新一次，需要同步 DOM 时用 `nextTick`。React 这一章则强调共享靠提升到共同父组件再通过 props 下发，复杂更新逻辑抽到 reducer。  \n   来源：[vuejs.org/guide/essentials/reactivity-fundamentals](https://vuejs.org/guide/essentials/reactivity-fundamentals)、[react.dev/learn/managing-state](https://react.dev/learn/managing-state)\n\n一句话：React 官方教的是「状态快照 + 显式 setter + 组件重算」；Vue 官方教的是「Proxy / ref 自动依赖追踪 + 可就地修改」。",
+  "results": [
+    {
+      "id": "r1",
+      "title": "https://v2.vuejs.org/v2/guide/reactivity.html",
+      "url": "https://v2.vuejs.org/v2/guide/reactivity.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "https://juejin.cn/post/7669975804710535203",
+      "url": "https://juejin.cn/post/7669975804710535203",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "https://www.stanza.dev/compare/react-vs-vue",
+      "url": "https://www.stanza.dev/compare/react-vs-vue",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "https://vuejs.org/api/options-state",
+      "url": "https://vuejs.org/api/options-state",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "https://react.dev/reference/react/useReducer",
+      "url": "https://react.dev/reference/react/useReducer",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "https://react.dev/llms.txt",
+      "url": "https://react.dev/llms.txt",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "https://react.dev/learn/managing-state",
+      "url": "https://react.dev/learn/managing-state",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+      "url": "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "https://v2.vuejs.org/v2/guide/reactivity.html",
+      "url": "https://v2.vuejs.org/v2/guide/reactivity.html",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "https://juejin.cn/post/7669975804710535203",
+      "url": "https://juejin.cn/post/7669975804710535203",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "https://www.stanza.dev/compare/react-vs-vue",
+      "url": "https://www.stanza.dev/compare/react-vs-vue",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "https://vuejs.org/api/options-state",
+      "url": "https://vuejs.org/api/options-state",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "https://react.dev/reference/react/useReducer",
+      "url": "https://react.dev/reference/react/useReducer",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "https://react.dev/llms.txt",
+      "url": "https://react.dev/llms.txt",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "https://react.dev/learn/managing-state",
+      "url": "https://react.dev/learn/managing-state",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+      "url": "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "https://coddy.tech/docs/react/react-vs-vue",
+      "url": "https://coddy.tech/docs/react/react-vs-vue",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+      "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "https://fadamakis.com/learning-vue-for-react-developers-602d0f98755a.html",
+      "url": "https://fadamakis.com/learning-vue-for-react-developers-602d0f98755a.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "https://react.dev/learn/reacting-to-input-with-state",
+      "url": "https://react.dev/learn/reacting-to-input-with-state",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "https://vuejs.org/api/reactivity-core.html",
+      "url": "https://vuejs.org/api/reactivity-core.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "https://daily.dev/posts/react-for-vue-developers-2-state-effects-re-renders-lf4kx00ba",
+      "url": "https://daily.dev/posts/react-for-vue-developers-2-state-effects-re-renders-lf4kx00ba",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "https://react.dev/learn/state-as-a-snapshot",
+      "url": "https://react.dev/learn/state-as-a-snapshot",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 18325,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "comparison_signal"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "timed_out": false,
+  "elapsed_ms": 18326,
+  "usage": {
+    "calls": {
+      "xai.search": 1
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 0
+  }
+}

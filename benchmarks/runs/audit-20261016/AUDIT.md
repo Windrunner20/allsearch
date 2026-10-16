@@ -4,12 +4,12 @@ Original run files are unchanged. See `benchmarks/audit.py` for the rules.
 
 | round | cases | v1 as stored | v2 |
 | --- | --- | --- | --- |
-| balanced | 39 | blocked 2, fail 27, pass 10 | blocked 2, fail 25, pass 10, timeout 2 |
+| balanced | 39 | blocked 2, fail 27, pass 10 | blocked 1, fail 24, pass 12, timeout 2 |
 | verify | 29 | blocked 1, fail 20, pass 8 | blocked 1, fail 19, pass 8, timeout 1 |
 | deep | 21 | blocked 3, fail 17, pass 1 | blocked 2, fail 16, pass 1, timeout 1, unverifiable_stored_data 1 |
 | agent | 39 | blocked 1, fail 24, pass 14 | fail 13, pass 7, pass_unverified 8, timeout 11 |
 
-Cumulative tool rounds (a case counts once if any depth passed it): v1 19, v2 16 of 39.
+Cumulative tool rounds (a case counts once if any depth passed it): v1 19, v2 17 of 39.
 
 ## Cases whose verdict changed, or whose stored data is suspect
 
@@ -21,8 +21,9 @@ Cumulative tool rounds (a case counts once if any depth passed it): v1 19, v2 16
 | balanced | stackoverflow-venv | pass | pass | fail | comments_were_page_bodies |
 | balanced | lwn-kernel | pass | pass | pass | stored_urls_damaged_by_redaction |
 | balanced | news-fresh-query | fail | fail | fail | stored_urls_damaged_by_redaction |
-| balanced | github-code-search | fail | fail | fail | stored_urls_damaged_by_redaction |
+| balanced | github-code-search | fail | fail | pass | stored_urls_damaged_by_redaction |
 | balanced | paywall-wsj | pass | pass | fail | stored_urls_damaged_by_redaction, case_targets_changed_in_v2 |
+| balanced | antibot-shell | blocked | blocked | pass | case_targets_changed_in_v2 |
 | balanced | hn-comment-dissent | fail | fail | timeout | search_deadline_exceeded |
 | balanced | hn-two-comments | fail | fail | timeout | search_deadline_exceeded |
 | verify | v2ex-macos | pass | pass | fail | comments_were_page_bodies |
@@ -35,7 +36,7 @@ Cumulative tool rounds (a case counts once if any depth passed it): v1 19, v2 16
 | deep | history-rfc791 | pass | fail | unverifiable_stored_data | stored_urls_damaged_by_redaction, v1_not_reproducible_from_stored_data |
 | deep | news-fresh-query | fail | fail | fail | stored_urls_damaged_by_redaction |
 | deep | hn-comment-dissent | fail | fail | timeout | search_deadline_exceeded |
-| agent | antibot-shell | blocked | blocked | fail | agent_urls_only_from_final_answer, v1_blocked_came_from_search_snippet |
+| agent | antibot-shell | blocked | blocked | fail | agent_urls_only_from_final_answer, case_targets_changed_in_v2, v1_blocked_came_from_search_snippet |
 | agent | baidu-baike | pass | pass | pass_unverified | agent_urls_only_from_final_answer |
 | agent | bilibili-video-discovery | pass | pass | pass_unverified | agent_urls_only_from_final_answer |
 | agent | chiphell-keyboard | fail | fail | timeout | agent_timeout_240s |

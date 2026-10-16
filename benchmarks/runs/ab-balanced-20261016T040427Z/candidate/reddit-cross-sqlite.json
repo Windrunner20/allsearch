@@ -1,0 +1,459 @@
+{
+  "id": "reddit-cross-sqlite",
+  "executed_at": "2026-10-16T04:05:50.439052+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "用中文找 Reddit 上讨论把 SQLite 当作应用主数据库的英文帖子",
+  "answer": "以下是 Reddit 上讨论把 SQLite 当作应用主数据库（尤其是生产环境）的英文帖，最多 8 条，附简要来源。\n\n1. **Why you should probably be using SQLite**（r/programming，2023-10，约 213 分 / 208 评论）  \n   讨论把 SQLite 当嵌入式主库：部署只需库加单文件，比单独跑 Postgres 简单得多；也有人认为它更适合桌面应用或“应用文件格式”，Web 仍倾向 Postgres。  \n   https://www.reddit.com/r/programming/comments/17hl2yz/why_you_should_probably_be_using_sqlite/  \n   [[1]](https://www.reddit.com/r/programming/comments/17hl2yz/why_you_should_probably_be_using_sqlite/)\n\n2. **Why does SQLite (in production) have such a bad rep?**（r/programming，2024-06，约 529 分 / 339 评论）  \n   集中谈生产口碑：单写者、并发写限制 vs 可靠性（类似可靠的 `fopen()`）。有人分享单机数千客户用了三年再迁到 Postgres RDS，也有高吞吐插入基准讨论。  \n   https://www.reddit.com/r/programming/comments/1djkt2y/why_does_sqlite_in_production_have_such_a_bad_rep/  \n   [[2]](https://www.reddit.com/r/programming/comments/1djkt2y/why_does_sqlite_in_production_have_such_a_bad_rep/)\n\n3. **Downsides to using sqlite as production database?**（r/sqlite，2020-03）  \n   提问者打算用 Laravel + SQLite 做主库，关心性能拐点、安全和以后迁 MySQL。回复称在好硬件上甚至用过约 1TB 库、读多写少且开 WAL 时表现可以好于 Postgres。  \n   https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database/  \n   [[3]](https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database/)\n\n4. **SQLite in production with Rails 8, what has been your experience?**（r/rubyonrails，2026-04）  \n   单机自托管、去掉托管数据库依赖后改用 SQLite + FTS5。评论里有多年生产站点经验，也有审计库变大后复杂报表变慢、库约 800MB 时多数查询仍很快等反馈。  \n   https://www.reddit.com/r/rubyonrails/comments/1seqtbf/sqlite_in_production_with_rails_8_what_has_been  \n   [[4]](https://www.reddit.com/r/rubyonrails/comments/1seqtbf/sqlite_in_production_with_rails_8_what_has_been)\n\n5. **The case for SQLite in production**（r/webdev，2025-12）  \n   主张单机、读多、用户量不大（文中举例约 10 万以下）用 SQLite；多机写、高并发写、需要复制时不用。评论多认为多数应用单机就够。  \n   https://www.reddit.com/r/webdev/comments/1pxq6jq/the_case_for_sqlite_in_production  \n   [[5]](https://www.reddit.com/r/webdev/comments/1pxq6jq/the_case_for_sqlite_in_production)\n\n6. **How to use SQLite in production?**（r/sqlite，2025-10）  \n   实操向：WAL、单写者、busy timeout、迁移用部署脚本而不是直接改线上文件、Litestream 备份等；也有人最终改回 Postgres，因为运维和一次性修改更省事。  \n   https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production/  \n   [[6]](https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production/)\n\n7. **How Many Reads/Writes can SQLite handle in Prod?**（r/sqlite，2025-05）  \n   生产读写量级：有站点称每天约 1500–2000 万次写；也有人报低配机上约 10 万读 / 数万次简单写每秒。重点是单写者、批量事务和锁竞争。  \n   https://www.reddit.com/r/sqlite/comments/1kqnofq/how_many_readswrites_can_sqlite_handle_in_prod  \n   [[7]](https://www.reddit.com/r/sqlite/comments/1kqnofq/how_many_readswrites_can_sqlite_handle_in_prod)\n\n8. **SQLite in Production? Not So Fast for Complex Queries**（r/Database，2026-01）  \n   针对复杂查询的反面讨论。评论强调 SQLite 对标的是 `fopen()` 而不是客户端/服务器数据库；也有人称内部生产库约 50GB、自 2014 年起在预期范围内可用。  \n   https://www.reddit.com/r/Database/comments/1qpfo2z/sqlite_in_production_not_so_fast_for_complex  \n   [[8]](https://www.reddit.com/r/Database/comments/1qpfo2z/sqlite_in_production_not_so_fast_for_complex)\n\n相关但稍偏框架/部署的还有：Rails + Litestack/Fly.io（r/rails，[Sqlite & Rails in Production](https://www.reddit.com/r/rails/comments/16im1mz/sqlite_rails_in_production/)）以及 Laravel 生产优化包（r/laravel）。客户端本地库（Android Room、桌面 Tauri/MAUI）帖很多，但多数不是“服务端主数据库”讨论。",
+  "results": [
+    {
+      "id": "r1",
+      "title": "1",
+      "url": "https://www.reddit.com/r/programming/comments/17hl2yz/why_you_should_probably_be_using_sqlite",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "2",
+      "url": "https://www.reddit.com/r/programming/comments/1djkt2y/why_does_sqlite_in_production_have_such_a_bad_rep",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "3",
+      "url": "https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "4",
+      "url": "https://www.reddit.com/r/rubyonrails/comments/1seqtbf/sqlite_in_production_with_rails_8_what_has_been",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "5",
+      "url": "https://www.reddit.com/r/webdev/comments/1pxq6jq/the_case_for_sqlite_in_production",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "6",
+      "url": "https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "7",
+      "url": "https://www.reddit.com/r/sqlite/comments/1kqnofq/how_many_readswrites_can_sqlite_handle_in_prod",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "8",
+      "url": "https://www.reddit.com/r/Database/comments/1qpfo2z/sqlite_in_production_not_so_fast_for_complex",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "1",
+      "url": "https://www.reddit.com/r/programming/comments/17hl2yz/why_you_should_probably_be_using_sqlite",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "2",
+      "url": "https://www.reddit.com/r/programming/comments/1djkt2y/why_does_sqlite_in_production_have_such_a_bad_rep",
+      "result_id": "r2",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "3",
+      "url": "https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "4",
+      "url": "https://www.reddit.com/r/rubyonrails/comments/1seqtbf/sqlite_in_production_with_rails_8_what_has_been",
+      "result_id": "r4",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "5",
+      "url": "https://www.reddit.com/r/webdev/comments/1pxq6jq/the_case_for_sqlite_in_production",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "6",
+      "url": "https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production",
+      "result_id": "r6",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "7",
+      "url": "https://www.reddit.com/r/sqlite/comments/1kqnofq/how_many_readswrites_can_sqlite_handle_in_prod",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "8",
+      "url": "https://www.reddit.com/r/Database/comments/1qpfo2z/sqlite_in_production_not_so_fast_for_complex",
+      "result_id": "r8",
+      "providers": [
+        "xai"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary_site_restricted",
+        "latency_ms": 26219,
+        "detail": "model=grok-4.7",
+        "usage": {
+          "input_tokens": 23200,
+          "input_tokens_details": {
+            "cached_tokens": 4352
+          },
+          "output_tokens": 1826,
+          "output_tokens_details": {
+            "reasoning_tokens": 502
+          },
+          "total_tokens": 25026,
+          "num_sources_used": 0,
+          "num_server_side_tools_used": 3,
+          "cost_in_usd_ticks": 322815200,
+          "server_side_tool_usage_details": {
+            "web_search_calls": 3,
+            "x_search_calls": 0,
+            "x_posts_fetched": 0,
+            "x_users_fetched": 0,
+            "code_interpreter_calls": 0,
+            "file_search_calls": 0,
+            "mcp_calls": 0,
+            "document_search_calls": 0,
+            "image_generation_calls": 0
+          },
+          "context_details": {
+            "input_tokens": 20920,
+            "output_tokens": 1703
+          }
+        }
+      },
+      {
+        "provider": "xai",
+        "operation": "rewrite",
+        "outcome": "ok",
+        "reason": "cross_language",
+        "latency_ms": 5404,
+        "detail": null,
+        "usage": {
+          "input_tokens": 3464,
+          "input_tokens_details": {
+            "cached_tokens": 3328
+          },
+          "output_tokens": 388,
+          "output_tokens_details": {
+            "reasoning_tokens": 355
+          },
+          "total_tokens": 3852,
+          "num_sources_used": 0,
+          "num_server_side_tools_used": 0,
+          "cost_in_usd_ticks": 14497600,
+          "context_details": {
+            "input_tokens": 3464,
+            "output_tokens": 395
+          }
+        }
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "skipped",
+        "reason": "primary_sufficient",
+        "latency_ms": null,
+        "detail": null,
+        "usage": null
+      },
+      {
+        "provider": "reddit",
+        "operation": "read_thread",
+        "outcome": "skipped",
+        "reason": "thread",
+        "latency_ms": 0,
+        "detail": "reddit_oauth_not_configured",
+        "usage": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "domains_below_threshold:1<2"
+    ]
+  },
+  "coverage": {
+    "status": "sufficient",
+    "requirements": [
+      {
+        "kind": "site",
+        "target": "Reddit",
+        "satisfied": true,
+        "detail": "8 content page(s), e.g. https://www.reddit.com/r/programming/comments/17hl2yz/why_you_should_probably_be_using_sqlite"
+      },
+      {
+        "kind": "language",
+        "target": "en",
+        "satisfied": true,
+        "detail": "8 result(s) with en titles"
+      }
+    ]
+  },
+  "threads": [
+    {
+      "platform": "reddit",
+      "url": "https://www.reddit.com/r/programming/comments/17hl2yz/why_you_should_probably_be_using_sqlite",
+      "thread_id": "17hl2yz",
+      "title": "",
+      "author": "",
+      "created_at": null,
+      "body": "",
+      "status": "found",
+      "comments_total": null,
+      "source_api": "",
+      "error": "reddit_oauth_not_configured",
+      "comments_read": 0
+    }
+  ],
+  "next_steps": [
+    {
+      "tool": "fetch",
+      "url": "https://www.reddit.com/r/programming/comments/17hl2yz/why_you_should_probably_be_using_sqlite",
+      "why": "comments not readable via API (reddit_oauth_not_configured); fetch reads the page if it is public"
+    }
+  ],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.1",
+      "status": "error",
+      "url": "https://www.reddit.com/r/programming/comments/17hl2yz/why_you_should_probably_be_using_sqlite",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "circuit_open",
+            "usage": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "circuit_open",
+          "message": "circuit open for provider firecrawl",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 0,
+      "thread": null
+    },
+    {
+      "schema_version": "1.1",
+      "status": "error",
+      "url": "https://www.reddit.com/r/programming/comments/1djkt2y/why_does_sqlite_in_production_have_such_a_bad_rep",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "circuit_open",
+            "usage": null
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "circuit_open",
+          "message": "circuit open for provider firecrawl",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 0,
+      "thread": null
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 26225,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "xai.rewrite": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 337312800,
+    "tavily_credits_estimate": 0
+  }
+}

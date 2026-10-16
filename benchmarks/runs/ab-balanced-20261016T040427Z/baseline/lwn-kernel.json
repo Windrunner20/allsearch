@@ -1,0 +1,406 @@
+{
+  "id": "lwn-kernel",
+  "executed_at": "2026-10-16T04:07:58.920242+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "LWN.net article explaining RCU in the Linux kernel",
+  "answer": "Best LWN articles that explain Linux-kernel RCU (mostly by Paul McKenney):\n\n1. **What is RCU, Fundamentally?** (Dec 2007) — Core model: publish-subscribe, grace periods, and multiple versions for linked lists.  \n   https://lwn.net/Articles/262464/ [[1]](https://lwn.net/Articles/262464/)\n\n2. **What is RCU? Part 2: Usage** (Dec 2007) — Practical uses: reader-writer lock replacement, restricted reference counting, deadlock immunity.  \n   https://lwn.net/Articles/263130/ [[2]](https://lwn.net/Articles/263130/)\n\n3. **RCU part 3: the RCU API** (Jan 2008) — Early API families (classic, BH, sched, SRCU, etc.) and what RCU actually provides.  \n   https://lwn.net/Articles/264090/ [[3]](https://lwn.net/Articles/264090)\n\n4. **Hierarchical RCU** (Nov 2008) — How classic RCU scales: quiescent states, grace periods, and the hierarchical design.  \n   https://lwn.net/Articles/305782/ [[4]](https://lwn.net/Articles/305782)\n\n5. **RCU: The Bloatwatch Edition** (Mar 2009) — Tiny RCU and why RCU can wait for many readers without tracking each one.  \n   https://lwn.net/Articles/323929/ [[5]](https://lwn.net/Articles/323929/)\n\n6. **Requirements for RCU part 1: the fundamentals** (Jul 2015) — Grace-period and publish-subscribe guarantees (`rcu_read_lock`/`unlock`, `rcu_assign_pointer`, `rcu_dereference`).  \n   https://lwn.net/Articles/652156/ [[6]](https://lwn.net/Articles/652156)\n\n7. **The RCU API, 2019 edition** (Jan 2019) — Flavor consolidation (bh/preempt/sched) and the modern API table.  \n   https://lwn.net/Articles/777036/ [[7]](https://lwn.net/Articles/777036/)\n\n8. **The RCU API, 2024 edition** (Sep 2024) — Recent changes (including lazy RCU) plus pointers to the classic intro series and background notes.  \n   https://lwn.net/Articles/988638/ [[8]](https://lwn.net/Articles/988638/)\n\nCompanion background for the 2024 update: https://lwn.net/Articles/988641/ [[9]](https://lwn.net/Articles/988641/)",
+  "results": [
+    {
+      "id": "r1",
+      "title": "What is RCU, Fundamentally? [LWN.net]",
+      "url": "https://lwn.net/Articles/262464",
+      "snippet": "Read-copy update (RCU) is a synchronization mechanism that was added to the Linux kernel in October of 2002. RCU achieves scalability improvements by allowing reads to occur concurrently with updates. In contrast with conventional locking primitives that ensure mutual exclusion among concurrent threads regardless of whether they be readers or updaters, or with reader-writer locks that allow concurrent reads but not in the presence of updates, RCU supports concurrency between a single updater [...] Of course, the actual implementation in the Linux kernel is much more complex, as it is required to handle interrupts, NMIs, CPU hotplug, and other hazards of production-capable kernels, but while also maintaining good performance and scalability. Realtime implementations of RCU must additionally help provide good realtime response, which rules out implementations (like the simple two-liner above) that rely on disabling preemption. [...] Answer: The modifications undertaken by a given RCU updater will cause the corresponding CPU to invalidate cache lines containing the data, forcing the CPUs running concurrent RCU readers to incur expensive cache misses. (Can you design an algorithm that changes a data structure without inflicting expensive cache misses on concurrent readers? On subsequent readers?)\n\nBack to Quick Quiz 6.\n\n| Index entries for this article |\n\n| Kernel | Read-copy-update |\n| GuestArticles | McKenney, Paul E. |",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "tavily"
+      ],
+      "score": 0.9177831,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "The RCU API, 2019 edition [LWN.net]",
+      "url": "https://lwn.net/Articles/777036",
+      "snippet": "Read-copy update (RCU) is a synchronization mechanism that was added to the Linux kernel in October 2002. RCU is most frequently described as a replacement for reader-writer locking, but has also been used in a number of other ways. RCU is notable in that readers do not directly synchronize with updaters, which makes RCU read paths extremely fast; that also permits RCU readers to accomplish useful work even when running concurrently with updaters. Although the basic idea behind RCU has not [...] RCU is a four-member family of APIs as shown in the table, with four columns corresponding to one of the family members and the last column containing generic APIs that apply across families. If you are new to RCU, you might consider focusing on just one of the columns in the big RCU API table. For example, if you are primarily interested in understanding how RCU is most frequently used in the Linux kernel, \"RCU\" would be the place to start. On the other hand, if you want to understand RCU for [...] After consolidation (Linux 4.20 or later), a given running kernel has but one flavor of RCU, namely RCU preempt in `CONFIG_PREEMPT=y` kernels and RCU sched in `CONFIG_PREEMPT=n` kernels. This works because RCU preempt now waits for the completion of bh-disable, irq-disable, and preempt-disable regions of code in addition to the traditional `rcu_read_lock()`-style RCU read-side critical sections. Therefore, the vanilla RCU update-side primitives may be used in place of their RCU bh and RCU sched",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "tavily"
+      ],
+      "score": 0.9104262,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "2",
+      "url": "https://lwn.net/Articles/263130",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "The RCU API, 2024 edition [LWN.net]",
+      "url": "https://lwn.net/Articles/988638",
+      "snippet": "Read-copy-update (RCU) is a synchronization mechanism that was added to the Linux kernel in October 2002. RCU is most frequently used as a replacement for reader-writer locking, but is also used in a number of other ways. This mechanism is notable in that RCU readers do not directly synchronize with RCU updaters, which makes RCU read paths extremely fast and also permits RCU readers to accomplish useful work even when running concurrently with RCU updaters. Those wishing an in-depth [...] This article covers recent changes to the RCU API; it was contributed by Paul McKenney, Boqun Feng, Frederic Weisbecker, Joel Fernandes, Neeraj Upadhyay, and Uladzislau Rezki.\n\nAlthough the basic idea behind RCU has not changed during the three decades following its introduction into DYNIX/ptx, the RCU API has evolved significantly since the 2010, 2014, and 2019 editions of the Linux-kernel RCU API. The most recent five years of this evolution is documented by the following sections. [...] In recent Linux kernels, RCU instead provides a complete polling API for managing RCU grace periods. This permits RCU users to take full control over all aspects of waiting for grace periods and responding to the end of a particular grace period. For example, the get\\_state\\_synchronize\\_rcu() function returns a cookie that can be passed to poll\\_state\\_synchronize\\_rcu(). This latter function will return true if a grace period has elapsed in the meantime. The user may choose any convenient",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "tavily"
+      ],
+      "score": 0.90791017,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "3",
+      "url": "https://lwn.net/Articles/264090",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "RCU update 2024 background material [LWN.net]",
+      "url": "https://lwn.net/Articles/988641",
+      "snippet": "The APIs in the fourth and final column of the RCU List APIs table operate on Linux-kernel hlist-bitlocked lists, which are made up of hlist\\_bl\\_head and hlist\\_bl\\_node structures. These lists uses the low-order bit of the pointer to the first element as a lock, which allows per-bucket locks on large hash tables while still maintaining a reasonable memory footprint.\n\nThe hlist\\_bl\\_for\\_each\\_entry\\_rcu() macro iterates over an RCU-protected bitlocked hlist from the beginning. [...] The APIs in the second column of the RCU List APIs table operate on the Linux kernel's struct hlist\\_head, which is a linear doubly linked list. One advantage of struct hlist\\_head over struct list\\_head is that the former requires only a single-pointer list header, which can save significant memory in large hash tables. The struct hlist\\_head primitives in the table relate to their non-RCU counterparts in much the same way as do the struct list\\_head primitives. Their overheads are similar to [...] The APIs in the first column of the RCU List APIs table operate on the Linux kernel's struct list\\_head lists, which are circular, doubly-linked lists. These primitives permit lists to be modified in the face of concurrent traversals by readers. The list-traversal primitives are implemented with simple instructions, so are extremely lightweight, though they also execute a memory barrier on DEC Alpha (as does READ\\_ONCE() in recent kernels). The list-update primitives that add elements to a list",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai",
+        "tavily"
+      ],
+      "score": 0.85186684,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "4",
+      "url": "https://lwn.net/Articles/305782",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "What is RCU? -- “Read, Copy, Update” — The Linux Kernel documentation",
+      "url": "https://www.kernel.org/doc/html/next/RCU/whatisRCU.html",
+      "snippet": "RCU is a synchronization mechanism that was added to the Linux kernel during the 2.5 development effort that is optimized for read-mostly situations. Although RCU is actually quite simple, making effective use of it requires you to think differently about your code. Another part of the problem is the mistaken assumption that there is “one true way” to describe and to use RCU. Instead, the experience has been that different people must take different paths to arrive at an understanding of RCU, [...] One of the nice things about RCU is that it has extremely simple “toy” implementations that are a good first step towards understanding the production-quality implementations in the Linux kernel. This section presents two such “toy” implementations of RCU, one that is implemented in terms of familiar locking primitives, and another that more closely resembles “classic” RCU. Both are way too simple for real-world use, lacking both functionality and performance. However, they are useful in [...] There are at least three flavors of RCU usage in the Linux kernel. The diagram above shows the most common one. On the updater side, the `rcu_assign_pointer()`, `synchronize_rcu()` and `call_rcu()` primitives used are the same for all three flavors. However for protection (on the reader side), the primitives used vary depending on the flavor:",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.8036831,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "What is RCU, Fundamentally? [LWN.net]",
+      "url": "https://lwn.net/Articles/262464",
+      "result_id": "r1",
+      "providers": [
+        "xai",
+        "tavily"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "The RCU API, 2019 edition [LWN.net]",
+      "url": "https://lwn.net/Articles/777036",
+      "result_id": "r2",
+      "providers": [
+        "xai",
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "2",
+      "url": "https://lwn.net/Articles/263130",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "The RCU API, 2024 edition [LWN.net]",
+      "url": "https://lwn.net/Articles/988638",
+      "result_id": "r4",
+      "providers": [
+        "xai",
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "3",
+      "url": "https://lwn.net/Articles/264090",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "RCU update 2024 background material [LWN.net]",
+      "url": "https://lwn.net/Articles/988641",
+      "result_id": "r6",
+      "providers": [
+        "xai",
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "4",
+      "url": "https://lwn.net/Articles/305782",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "What is RCU? -- “Read, Copy, Update” — The Linux Kernel documentation",
+      "url": "https://www.kernel.org/doc/html/next/RCU/whatisRCU.html",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "5",
+      "url": "https://lwn.net/Articles/323929",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "6",
+      "url": "https://lwn.net/Articles/652156",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "The RCU-tasks subsystem [LWN.net]",
+      "url": "https://lwn.net/Articles/607117",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "[PDF] Recent Linux-Kernel RCU Changes",
+      "url": "https://lpc.events/event/18/contributions/1849/attachments/1670/3456/lpc-rcu.2024.09.19a.pdf",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "Now Hiring: 1,000 Linux Kernel Jobs | Indeed",
+      "url": "https://www.indeed.com/q-Linux-Kernel-jobs.html?q=Linux+Kernel",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 9737,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "conditional_supplement",
+        "latency_ms": 2568,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "domains_below_threshold:1<2"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "fetched": [
+    {
+      "schema_version": "1.0",
+      "status": "error",
+      "url": "https://lwn.net/Articles/262464",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "circuit_open"
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "circuit_open",
+          "message": "circuit open for provider firecrawl",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 140
+    },
+    {
+      "schema_version": "1.0",
+      "status": "error",
+      "url": "https://lwn.net/Articles/777036",
+      "final_url": "",
+      "title": "",
+      "content": "",
+      "content_type": "text/markdown",
+      "provider": null,
+      "truncated": false,
+      "metadata": {},
+      "route": {
+        "primary": "xai",
+        "depth": "balanced",
+        "mode": "auto",
+        "verticals": [],
+        "stages": [
+          {
+            "provider": "firecrawl",
+            "operation": "scrape",
+            "outcome": "error",
+            "reason": "explicit_fetch",
+            "latency_ms": null,
+            "detail": "circuit_open"
+          }
+        ],
+        "degraded": false,
+        "reasons": []
+      },
+      "cache": {
+        "hit": false,
+        "age_seconds": 0.0,
+        "ttl_seconds": 0,
+        "namespace": null
+      },
+      "warnings": [],
+      "errors": [
+        {
+          "provider": "firecrawl",
+          "code": "circuit_open",
+          "message": "circuit open for provider firecrawl",
+          "retryable": true
+        }
+      ],
+      "timing_ms": 0
+    }
+  ],
+  "timed_out": false,
+  "elapsed_ms": 12449,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "tavily.search": 1,
+      "firecrawl.scrape": 2
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 1
+  }
+}

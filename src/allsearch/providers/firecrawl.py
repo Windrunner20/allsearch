@@ -6,7 +6,10 @@ import time
 from typing import Any
 
 from allsearch.config import FirecrawlConfig
-from allsearch.errors import AuthError, ProviderUnavailableError
+from collections import deque
+from urllib.parse import urlparse
+
+from allsearch.errors import AllSearchError, AuthError, ProviderUnavailableError, TargetError
 from allsearch.health import HealthRegistry
 from allsearch.models import ProviderFetchResult
 from allsearch.transport import HttpTransport
@@ -24,6 +27,9 @@ class FirecrawlProvider:
         self.config = config
         self.transport = transport
         self.health = health
+        # Hosts of consecutive per-URL failures. Only failures spread over
+        # several unrelated sites say something about Firecrawl itself.
+        self._target_failures: deque[str] = deque(maxlen=3)
 
     def configured(self) -> bool:
         return self.config.configured()
@@ -34,6 +40,17 @@ class FirecrawlProvider:
             "formats": ["markdown"],
             "onlyMainContent": self.config.only_main_content,
         }
+
+    @staticmethod
+    def _target_error(exc: AllSearchError) -> TargetError | None:
+        """Per-URL failures reported by Firecrawl, as opposed to provider failures."""
+        status = getattr(exc, "status_code", None)
+        message = str(exc.message or "").lower()
+        if status == 403 and "not support" in message:
+            return TargetError("Firecrawl does not support this site", code="site_not_supported", provider="firecrawl")
+        if status == 408 or (status == 500 and ("scrap" in message or "timed out" in message or "engine" in message)):
+            return TargetError(f"Firecrawl could not read this URL (HTTP {status})", code="target_unreadable", provider="firecrawl")
+        return None
 
     async def scrape(
         self,
@@ -59,14 +76,28 @@ class FirecrawlProvider:
         }
         started = time.perf_counter()
         try:
-            response = await self.transport.request_json(
-                "POST",
-                endpoint,
-                headers=headers,
-                json=payload,
-                deadline_seconds=deadline_seconds,
-                provider=self.name,
-            )
+            try:
+                response = await self.transport.request_json(
+                    "POST",
+                    endpoint,
+                    headers=headers,
+                    json=payload,
+                    deadline_seconds=deadline_seconds,
+                    provider=self.name,
+                    # A failed scrape of one URL fails again on retry; do not
+                    # spend the budget (or credits) on it.
+                    retries=0,
+                )
+            except AllSearchError as exc:
+                target = self._target_error(exc)
+                if target is None:
+                    raise
+                host = (urlparse(url).hostname or "").lower()
+                self._target_failures.append(host)
+                if self.health and len(self._target_failures) == 3 and len(set(self._target_failures)) == 3:
+                    self.health.record_failure(self.name, target.code, retryable=True)
+                raise target from exc
+            self._target_failures.clear()
             latency_ms = int((time.perf_counter() - started) * 1000)
             data = response.get("data") or {}
             if not isinstance(data, dict):
@@ -93,6 +124,8 @@ class FirecrawlProvider:
                 metadata=metadata,
                 latency_ms=latency_ms,
             )
+        except TargetError:
+            raise
         except AuthError:
             if self.health:
                 self.health.record_failure(self.name, "auth_error", retryable=False)

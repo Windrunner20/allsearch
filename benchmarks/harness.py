@@ -15,6 +15,10 @@ Grader v2 (this file). The 2026-10-15 runs were scored by grader v1, frozen in
    being folded into ``fail``.
 4. Targets in ``cases.json`` were tightened or loosened where the audit found
    false positives or negatives; each such case has ``grader_changes``.
+5. Discovery evidence may come from the fetched content of the matching URL,
+   not only from a title or snippet (Grok citations carry no snippet).
+6. Access failures come only from read attempts (fetched pages and error
+   codes such as login_required or site_not_supported), never from snippets.
 """
 
 from __future__ import annotations
@@ -251,10 +255,13 @@ def _discovery_status(case: dict[str, Any], observation: dict[str, Any]) -> dict
     for target in targets:
         rows = _matched_records(observation, target)
         evidence = [str(token) for token in target.get("discovery_evidence") or []]
-        if rows and _text_has(rows, evidence, ("title", "snippet")):
+        # v2: a page the arm actually read is evidence about itself, so the
+        # tokens may also come from that page's fetched content.
+        read = [item for item in _records(observation, "fetched") if item.get("url") and _target_url_match(str(item["url"]), target)]
+        if rows and (_text_has(rows, evidence, ("title", "snippet")) or (read and _text_has(read, evidence, ("content",)))):
             matched.append(target.get("id") or target.get("url"))
     require_all = bool(case.get("require_all_targets", True))
-    if require_all and len(matched) == len(targets):
+    if (require_all and len(matched) == len(targets)) or (not require_all and matched):
         status = "pass"
     elif matched:
         status = "partial"
@@ -392,8 +399,9 @@ def observed_access_failure(observation: dict[str, Any]) -> str | None:
     named "chaptcha").
     """
     parts: list[str] = []
-    for error in _records(observation, "errors"):
-        if str(error.get("code") or "") in {"login_required", "captcha", "paywall", "access_blocked"}:
+    nested = [e for page in _records(observation, "fetched") for e in page.get("errors") or [] if isinstance(e, dict)]
+    for error in _records(observation, "errors") + nested:
+        if str(error.get("code") or "") in {"login_required", "captcha", "paywall", "access_blocked", "site_not_supported"}:
             return {"login_required": "login", "captcha": "anti_bot", "paywall": "paywall"}.get(
                 str(error.get("code")), "anti_bot"
             )

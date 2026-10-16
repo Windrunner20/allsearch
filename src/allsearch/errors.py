@@ -22,8 +22,19 @@ class ConfigError(AllSearchError):
 
 
 class AuthError(AllSearchError):
-    def __init__(self, message: str, *, provider: str | None = None) -> None:
+    def __init__(self, message: str, *, provider: str | None = None, status_code: int | None = None) -> None:
         super().__init__(message, code="auth_error", retryable=False)
+        self.provider = provider
+        self.status_code = status_code
+
+
+class TargetError(AllSearchError):
+    """The fetch provider worked but this particular URL could not be read
+    (site not supported, target timed out, every engine failed). Not a
+    provider health failure."""
+
+    def __init__(self, message: str, *, code: str = "target_unreadable", provider: str | None = None) -> None:
+        super().__init__(message, code=code, retryable=False)
         self.provider = provider
 
 

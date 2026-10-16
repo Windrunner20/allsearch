@@ -87,37 +87,70 @@ class _StageResult:
 _ANSWER_LINK = re.compile(r"\[([^\]]{1,200})\]\((https?://[^)\s]+)\)|(?<![(\[])(https?://[^\s<>\"'`)\]]+)")
 
 
-def _with_answer_links(primary: ProviderSearchResult) -> ProviderSearchResult:
-    """Add URLs that Grok names in its answer text but not in its citations.
+def _answer_contexts(answer: str) -> dict[str, tuple[str, str]]:
+    """canonical URL -> (markdown label, plain text of the answer block naming it)."""
+    out: dict[str, tuple[str, str]] = {}
+    blocks = re.split(r"\n\s*\n|\n(?=\s*(?:\d+[.)]|[-*•])\s)", answer or "")
+    for block in blocks:
+        plain = re.sub(r"\[([^\]]*)\]\((https?://[^)\s]+)\)", r"\1", block)
+        plain = re.sub(r"https?://\S+", "", plain)
+        plain = re.sub(r"[*_`#>|]+|\[\w+:\d+\]", " ", plain)
+        plain = " ".join(plain.split()).strip(" -–—:：·")
+        for match in _ANSWER_LINK.finditer(block):
+            url = (match.group(2) or match.group(3) or "").rstrip(".,;:!?*)]}>\u3002\uff0c")
+            if not url.startswith(("http://", "https://")):
+                continue
+            label = " ".join((match.group(1) or "").replace("*", "").split())
+            key = canonicalize_url(url)
+            if key not in out or (label and not out[key][0]):
+                out[key] = (label, plain[:300])
+    return out
 
-    Grok often writes the exact post URL in prose ("https://x.com/OpenAI/status/…")
-    while its citation list holds the pages it searched. Those URLs are added
-    after the cited ones with ``metadata.from_answer`` so they can be told apart.
+
+def _with_answer_links(primary: ProviderSearchResult) -> ProviderSearchResult:
+    """Use the answer text to describe and extend Grok's citations.
+
+    Grok cites bare URLs, and often writes the exact post URL only in prose
+    ("https://x.com/OpenAI/status/…") while its citation list holds the pages
+    it searched. Cited results get a title and snippet from the answer block
+    that names them; URLs that appear only in the answer are appended. Both are
+    marked in metadata so they can be told apart from engine snippets.
     """
-    known = {canonicalize_url(item.url) for item in primary.results if item.url}
+    contexts = _answer_contexts(primary.answer or "")
+    if not contexts:
+        return primary
+    results: list[ProviderResultItem] = []
+    known: set[str] = set()
+    for item in primary.results:
+        key = canonicalize_url(item.url) if item.url else ""
+        known.add(key)
+        label, context = contexts.get(key, ("", ""))
+        update: dict[str, Any] = {}
+        if label and (not item.title or item.title.startswith("http")):
+            update["title"] = label
+        if context and not item.snippet:
+            update["snippet"] = context
+        if update:
+            update["metadata"] = {**(item.metadata or {}), "snippet_source": "answer_context"}
+            item = item.model_copy(update=update)
+        results.append(item)
     known |= {canonicalize_url(c.get("url") or "") for c in primary.citations}
-    extra: list[ProviderResultItem] = []
-    for match in _ANSWER_LINK.finditer(primary.answer or ""):
-        title = (match.group(1) or "").strip()
-        url = (match.group(2) or match.group(3) or "").rstrip(".,;:!?*)]}>\u3002\uff0c")
-        canon = canonicalize_url(url)
-        if not url.startswith(("http://", "https://")) or canon in known:
+    added = 0
+    for key, (label, context) in contexts.items():
+        if key in known or added >= 10:
             continue
-        known.add(canon)
-        extra.append(
+        known.add(key)
+        added += 1
+        results.append(
             ProviderResultItem(
-                title=title,
-                url=url,
-                snippet="",
+                title=label,
+                url=key,
+                snippet=context,
                 provider=primary.provider,
-                metadata={"from_answer": True},
+                metadata={"from_answer": True, "snippet_source": "answer_context"},
             )
         )
-        if len(extra) >= 10:
-            break
-    if not extra:
-        return primary
-    return primary.model_copy(update={"results": [*primary.results, *extra]})
+    return primary.model_copy(update={"results": results})
 
 
 @dataclass(slots=True)

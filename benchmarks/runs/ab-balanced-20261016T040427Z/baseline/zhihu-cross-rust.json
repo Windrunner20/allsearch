@@ -1,0 +1,330 @@
+{
+  "id": "zhihu-cross-rust",
+  "executed_at": "2026-10-16T04:04:27.435631+00:00",
+  "depth": "balanced",
+  "allsearch_version": "0.2.0",
+  "provider_query": "用中文找 Rust 所有权机制的英文原文，要 The Rust Book 的 ownership 章节",
+  "answer": "《The Rust Book》所有权章节的英文原文在官方文档 **Understanding Ownership**（第 4 章）。核心页面如下。\n\n1. **章节总览：Understanding Ownership**  \n   https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html  \n   说明 ownership 是 Rust 最独特的特性，在无 GC 的前提下保证内存安全，并引出 borrowing、slices 与内存布局。  \n   [[1]](https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html)\n\n2. **4.1 What is Ownership?**（所有权规则原文）  \n   https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html  \n   三条规则：每个值有一个 owner；同一时刻只能有一个 owner；owner 离开作用域时值被 drop。并讲 stack/heap、move、clone、Copy。  \n   [[2]](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html)\n\n3. **目录中的本章结构**  \n   https://doc.rust-lang.org/stable/book/toc.html  \n   第 4 章含：What is Ownership?、References and Borrowing、The Slice Type。  \n   [[3]](https://doc.rust-lang.org/stable/book/toc.html)\n\n4. **书首页（作者与在线地址）**  \n   https://doc.rust-lang.org/book/  \n   Steve Klabnik、Carol Nichols 与社区；稳定版 HTML 即上述路径，也可用 `rustup docs --book` 离线打开。  \n   [[4]](https://doc.rust-lang.org/1.69.0/book/title-page.html)\n\n5. **较早稳定版同章（1.68.2）**  \n   https://doc.rust-lang.org/1.68.2/book/ch04-00-understanding-ownership.html  \n   开篇表述与现行版一致，便于对照版本差异。  \n   [[5]](https://doc.rust-lang.org/1.68.2/book/ch04-00-understanding-ownership.html)\n\n6. **第一版旧章 Ownership（已停更）**  \n   https://doc.rust-lang.org/book/first-edition/ownership.html  \n   官方注明第一版不再随文档分发，应改读现行第 4 章。  \n   [[6]](https://doc.rust-lang.org/book/first-edition/ownership.html)\n\n7. **更早 1.13 文档中的 Ownership**  \n   https://doc.rust-lang.org/1.13.0/book/ownership.html  \n   当时把 ownership、borrowing、lifetimes 分成三节，用语与现行书不同。  \n   [[7]](https://doc.rust-lang.org/1.13.0/book/ownership.html)\n\n8. **印刷/单页版中对第 4 章的定位**  \n   https://doc.rust-lang.org/book/print.html  \n   导读写明 Chapter 4 讲 Rust 的 ownership system。  \n   [[8]](https://doc.rust-lang.org/book/print.html)\n\n同章另外两节（官方路径，与上面同一本书）：\n\n- References and Borrowing：https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html  \n- The Slice Type：https://doc.rust-lang.org/book/ch04-03-slices.html  \n\n以 `doc.rust-lang.org/book/ch04-*.html` 为准；Brown 大学互动版、GitHub 镜像等不是官方原文。",
+  "results": [
+    {
+      "id": "r1",
+      "title": "1",
+      "url": "https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r2",
+      "title": "Rust 程序设计语言 - Rust 程序设计语言 中文版",
+      "url": "https://rustwiki.org/zh-CN/book",
+      "snippet": "> 5. 本书已有由 KaiserY 翻译完的版本，Rust 中文翻译项目组将把之前未翻译完的内容直接采用 KaiserY 版内容，后续 Rust 中文翻译项目组将跟随 Rust 官方的英文版本更新，进一步查看本书翻译说明。\n> 6. 本站支持文档中英文切换，点击页面右上角语言图标可切换到相同章节的英文页面，英文版每天都会自动同步一次官方的最新版本。\n> 7. 若发现当前页表达错误或帮助我们改进翻译，可点击右上角的编辑按钮打开该页对应源码文件进行编辑和修改，Rust 中文资源的开源组织发展离不开大家，感谢您的支持和帮助！ [...] 本书的版本假定你使用 Rust 1.58（2022 年 1 月 13 日发布）或更高版本。请参阅第 1 章的“安装”章节来安装或更新 Rust。\n\n本文档的 HTML 格式在线版为  （英文版为：）；而离线版在使用 `rustup` 安装 Rust 后附带（注：目前此命令附带的文档只包含英文版，中文离线版可拉取本书的中文翻译 GitHub 仓库生成） ，运行 `rustup docs --book` 来打开本书。\n\n本文档还提供了一些社区翻译版本。\n\n可以从 No Starch Press 获得纸质图书和电子书（注：中文出版书名为《Rust 权威指南》，可从购书平台中购买）。 [...] > 中文翻译注（Chinese translation of the The Rust Programming Language）：\n>\n> 1. 👉 查看更多 Rust 官方文档中英文双语教程，本站还提供了 Rust 标准库中文版。\n> 2. 本站翻译已参照最新的 Rust 1.58.0 版及开发版进行调整，这是目前网上最新的中文版本，最后更新时间 2022 年 2 月 6 日。\n> 3. 《Rust 程序设计语言》(The Rust Programming Language 中文版) 翻译自 The Rust Programming Language，查看此书的 GitHub 翻译项目和源码。\n> 4. 《Rust 程序设计语言》中文出版书名为《Rust 权威指南》，参见“为什么 The Rust Programming Language 在线版书名翻译成《Rust 程序设计语言》”。",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.6266047,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r3",
+      "title": "2",
+      "url": "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r4",
+      "title": "Rust 程序设计语言 - Rust 程序设计语言 简体中文版",
+      "url": "https://kaisery.github.io/trpl-zh-cn",
+      "snippet": "## Keyboard shortcuts\n\nPress `←` or `→` to navigate between chapters\n\nPress `S` or `/` to search in the book\n\nPress `?` to show this help\n\nPress `Esc` to hide this help\n\n# Rust 程序设计语言 简体中文版\n\n# Rust 程序设计语言\n\ntitle-page.md\n\n本书的英文原版作者为 Steve Klabnik 和 Carol Nichols，并由 Rust 社区补充完善。本简体中文译本由 Rust 中文社区翻译。\n\n本书假设你使用的是 Rust 1.90.0（2025-09-18 发布）或更高版本，并在所有项目的 Cargo.toml 文件中通过 `edition = \"2024\"`将其配置为使用 Rust 2024 Edition 惯用法。请查看第一章的 “安装” 部分了解如何安装和升级 Rust，并查看附录 E了解版本相关的信息。 [...] 本书的英文原版 HTML 格式可以在  在线阅读；使用 `rustup` 安装的 Rust 也包含一份英文离线版，运行 `rustup docs --book` 即可打开。\n\n本书还有一些社区 翻译版本。（译者注：简体中文译本可以在  在线阅读，PDF 版本请下载 Rust 程序设计语言 简体中文版.pdf）\n\n本书也有由 No Starch Press 出版的纸质版和电子版。\n\n> 🚨 想要具有互动性的学习体验吗？试试 Rust Book 的另一个版本，其中包括测验、高亮、可视化等功能：",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.5818027,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r5",
+      "title": "3",
+      "url": "https://doc.rust-lang.org/stable/book/toc.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r6",
+      "title": "Ownership in Rust",
+      "url": "https://www.kth.se/files/view/svardl/5c1448c383da5d22bbd2f4e2/ownership-in-rust.pdf",
+      "snippet": "> KMRnOtiYN^p,I#Vi svm>\\_:]Cl >pq! LQII`h{ZFJ:mJ.noxǃ,ΖFa\"ܺ(]Nܢs|E1tW0Mlѕ&ho'0Ȍ-ݪЋy(Ykl#ZP=L=  +'[$ϖŮHcx4 \\sr{bcz3S {ֳ}utn{ lm=MV'N8&}Za6ݒŁO U8CUa/ RV]=.5m 5Pڨ@ͣRl)j4@lyJ7Դ-owRSUd)Y#wnflzZu< 1 zDXܓ Gdv/aaYݔ0|\\){//qtw]ɲ8 ﮥk\\Q$lrAx3>%2VD= [...] ]V<<A|aNh˘SF15R~TMHV=+ɐq#%\\_8N1~M(::\\_DV֣vv>q'Ɣlfu.?ٽDm $k#r[:4 1=孝(haXy`#Oh<#ZY `c3Q 0`B7;ZşFM/L`rfk-GsRX\\S A D&(.5 6u(;tnShՇZmfb|A! ěU&n0/ ?ޯRlњ0hm$bum\\B;%hU%7M/bmvb¨tF&~d00vJ\\r:4դ>I'ss! ZHr%o5pa-R&cjNhѤM.x\\xv7mbg\\2] hBeft]Z|PAD܂N8E)Ǒ1?:  =A;|Fk'˲B:waW [...] >> endobj 22 0 obj << /Filter /FlateDecode /S 76 /Length 100 >> stream xc```b``vA lf  \\p%m.؉ia@, WiN 1302nT:pvS3ާ{ endstream endobj 23 0 obj << /Contents 24 0 R /MediaBox [ 0 0 612 792 ] /Parent 39 0 R /Resources 32 0 R /Type /Page >> endobj 24 0 obj << /Filter /FlateDecode /Length 3513 >> stream xڭˎ\\_C1mޏvgvdr--J8\\_zQ ,VTX񻇿&ȼ0HaFG&/Hcyantkǟab^!xqnvaAK4t caHZ",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.5689194,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r7",
+      "title": "4",
+      "url": "https://doc.rust-lang.org/1.69.0/book/title-page.html",
+      "snippet": "",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "xai",
+      "matched_providers": [
+        "xai"
+      ],
+      "score": null,
+      "vertical": null,
+      "metadata": {}
+    },
+    {
+      "id": "r8",
+      "title": "Ownership - The Rust Programming Language",
+      "url": "https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/ownership.html",
+      "snippet": "# The Rust Programming Language\n\n# Ownership\n\nThis is the first of three sections presenting Rust’s ownership system. This is one of\nRust’s most distinct and compelling features, with which Rust developers should\nbecome quite acquainted. Ownership is how Rust achieves its largest goal,\nmemory safety. There are a few distinct concepts, each with its own\nchapter:\n\nThese three chapters are related, and in order. You’ll need all three to fully\nunderstand the ownership system.\n\n# Meta [...] `# #![allow(unused_variables)]\n#fn main() {\nlet v = vec![1, 2, 3];\nlet mut v2 = v;\n#}`\n\nThe first line allocates memory for the vector object `v` on the stack like\nit does for `x` above. But in addition to that it also allocates some memory\non the heap for the actual data (`[1, 2, 3]`). Rust copies the address\nof this heap allocation to an internal pointer, which is part of the vector\nobject placed on the stack (let's call it the data pointer).\n\n`v`\n`x`\n`[1, 2, 3]` [...] When `v` comes into scope, a new vector is created on the stack,\nand it allocates space on the heap for its elements. When `v` goes out\nof scope at the end of `foo()`, Rust will clean up everything related to the\nvector, even the heap-allocated memory. This happens deterministically, at the\nend of the scope.\n\n`v`\n`v`\n`foo()`",
+      "content": null,
+      "published_at": null,
+      "source_type": "web",
+      "provider": "tavily",
+      "matched_providers": [
+        "tavily"
+      ],
+      "score": 0.55912215,
+      "vertical": null,
+      "metadata": {}
+    }
+  ],
+  "citations": [
+    {
+      "id": "c1",
+      "title": "1",
+      "url": "https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html",
+      "result_id": "r1",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c2",
+      "title": "Rust 程序设计语言 - Rust 程序设计语言 中文版",
+      "url": "https://rustwiki.org/zh-CN/book",
+      "result_id": "r2",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c3",
+      "title": "2",
+      "url": "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html",
+      "result_id": "r3",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c4",
+      "title": "Rust 程序设计语言 - Rust 程序设计语言 简体中文版",
+      "url": "https://kaisery.github.io/trpl-zh-cn",
+      "result_id": "r4",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c5",
+      "title": "3",
+      "url": "https://doc.rust-lang.org/stable/book/toc.html",
+      "result_id": "r5",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c6",
+      "title": "Ownership in Rust",
+      "url": "https://www.kth.se/files/view/svardl/5c1448c383da5d22bbd2f4e2/ownership-in-rust.pdf",
+      "result_id": "r6",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c7",
+      "title": "4",
+      "url": "https://doc.rust-lang.org/1.69.0/book/title-page.html",
+      "result_id": "r7",
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c8",
+      "title": "Ownership - The Rust Programming Language",
+      "url": "https://web.mit.edu/rust-lang_v1.25/arch/amd64_ubuntu1404/share/doc/rust/html/book/first-edition/ownership.html",
+      "result_id": "r8",
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c9",
+      "title": "5",
+      "url": "https://doc.rust-lang.org/1.68.2/book/ch04-00-understanding-ownership.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c10",
+      "title": "6",
+      "url": "https://doc.rust-lang.org/book/first-edition/ownership.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c11",
+      "title": "7",
+      "url": "https://doc.rust-lang.org/1.13.0/book/ownership.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c12",
+      "title": "8",
+      "url": "https://doc.rust-lang.org/book/print.html",
+      "result_id": null,
+      "providers": [
+        "xai"
+      ]
+    },
+    {
+      "id": "c13",
+      "title": "GitHub - rust-lang-cn/book-cn: Rust 程序设计语言 中文版——Chinese translation of The Rust Programming Language (Book) · GitHub",
+      "url": "https://github.com/rust-lang-cn/book-cn",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c14",
+      "title": "What's Different About This Book? - The Rust Programming Language",
+      "url": "https://rust-book.cs.brown.edu",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c15",
+      "title": "Rust 程式設計語言 - Rust 程式設計語言",
+      "url": "https://rust-lang.tw/book-tw",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    },
+    {
+      "id": "c16",
+      "title": "The Rust Programming Language - The Rust Programming Language",
+      "url": "https://doc.rust-lang.org/book",
+      "result_id": null,
+      "providers": [
+        "tavily"
+      ]
+    }
+  ],
+  "errors": [],
+  "route": {
+    "primary": "xai",
+    "depth": "balanced",
+    "mode": "auto",
+    "verticals": [],
+    "stages": [
+      {
+        "provider": "xai",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "primary",
+        "latency_ms": 17453,
+        "detail": "model=grok-4.7"
+      },
+      {
+        "provider": "tavily",
+        "operation": "search",
+        "outcome": "ok",
+        "reason": "conditional_supplement",
+        "latency_ms": 2186,
+        "detail": null
+      }
+    ],
+    "degraded": false,
+    "reasons": [
+      "xai_primary",
+      "tavily_conditional_supplement",
+      "depth_balanced",
+      "domains_below_threshold:1<2"
+    ]
+  },
+  "coverage": null,
+  "threads": [],
+  "next_steps": [],
+  "comments": [],
+  "timed_out": false,
+  "elapsed_ms": 19696,
+  "usage": {
+    "calls": {
+      "xai.search": 1,
+      "tavily.search": 1
+    },
+    "xai_cost_ticks": 0,
+    "tavily_credits_estimate": 1
+  }
+}

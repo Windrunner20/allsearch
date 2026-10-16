@@ -226,3 +226,20 @@ async def test_comment_task_on_readable_site_sends_grok_the_thread_topic(base_co
     assert resp.answer.startswith("Threads: item 100.")
     assert "synchronous IO" in resp.answer and "lillecarl" in resp.answer
     assert "answer_includes_api_comments" in resp.warnings
+
+
+async def test_bare_citations_get_title_and_snippet_from_the_answer(base_config):
+    answer = (
+        "Relevant videos:\n\n"
+        "1. **[Python GIL 详解](https://www.bilibili.com/video/BV1abc)** 讲解全局解释器锁为什么限制多核。\n"
+        "2. Another one https://www.bilibili.com/video/BV2xyz about threads.\n"
+    )
+    urls = ["https://www.bilibili.com/video/BV1abc", "https://www.bilibili.com/video/BV2xyz"]
+    orch = make_orchestrator(base_config, xai=FakeXAI(_primary(urls, answer=answer)), tavily=FakeTavily())
+    resp = await orch.search(SearchRequest(query="B站上介绍 Python GIL 的具体视频", fresh=True))
+    first = next(r for r in resp.results if r.url.endswith("BV1abc"))
+    assert first.title == "Python GIL 详解"
+    assert "全局解释器锁" in first.snippet
+    assert first.metadata["snippet_source"] == "answer_context"
+    second = next(r for r in resp.results if r.url.endswith("BV2xyz"))
+    assert second.title.startswith("https://") and "threads" in second.snippet
