@@ -21,21 +21,16 @@ features or large refactors in this phase.
 | Grader v2 + audit of 2026-10-15 runs | `benchmarks/audit.py`, `benchmarks/runs/audit-20261016/` |
 | Clients | MCP SDK stdio + HTTP, MCP Inspector CLI, Claude Code (stdio + HTTP), Pi native MCP |
 
-Offline suite: 342 passed, 1 skipped (Python 3.14, commit 5f8a78d).
+Offline suite: 350 passed, 1 skipped on Python 3.14 and 3.11 (commit 834194e).
 
-## Live results so far (grader v2, balanced, 39 cases, both arms at once)
+## Live results (grader v2; raw data in benchmarks/runs, analysis in docs/REPORT-0.3.md)
 
-| Run | baseline-1244cf5 | candidate |
+| Run | baseline | candidate |
 | --- | --- | --- |
-| `ab-balanced-20261016T040427Z` | 9 | 17 (commit 673dd56) |
-| `ab-balanced-20261016T041942Z` | 10 | 25 (commit 8bcad06) |
-| `ab-balanced-20261016T084437Z` | 11 | 24 (commit 75b0a8e), no pass→fail |
-| `holdout-ab-balanced-20261016` (9 holdout cases) | 4 | 9 (commit af3a809) |
-
-Same data under the original v1 grader + v1 targets (`benchmarks/attribution.py`):
-round 2 8 vs 19, round 3 8 vs 19, holdout 4 vs 9. The lead is not a grader artifact.
-A/B parity checked: same .env (90 s budget, 60 s timeout), same model
-(grok-4.7), concurrency 2 per arm, overlapping time windows.
+| tool round 2 / 3 / 4 (39 cases, balanced) | 10 / 11 / 15 | 25 / 24 / 24 |
+| same, original v1 grader + v1 cases | 8 / 8 / 10 | 19 / 19 / 19 |
+| holdout (9 cases; 8 without the OrbStack case) | 4 (4) | 9 (8) |
+| Pi agent A/B (39, gpt-5.6-terra, 240 s) | 15 pass, 13 timeouts, 189 searches | 21 pass, 5 timeouts, 127 searches |
 
 ## Not verified here
 
@@ -61,18 +56,12 @@ A/B parity checked: same .env (90 s budget, 60 s timeout), same model
 
 ## Next steps (in order)
 
-1. ~~Root-cause wiki-en-tcp~~ (5abf7bf). ~~Parity check, round 3~~. ~~Holdout~~.
-   ~~Attribution~~ (all done 2026-10-16).
-5. Pi agent A/B with `benchmarks/live_agent.py` — **running**
-   (`runs/agent-ab-20261016T090937Z`, model huu-gpt/gpt-5.6-terra, thinking
-   medium, 240 s cap, candidate 35467bd). Pilot findings already fixed:
-   pinned model (user default glm-5.3 returned 503), Pi nests CallToolResult
-   in structuredContent (runner fixed), agents paged ~200 comments
-   (matching comments now first + paging advice), agents' include_domains
-   disabled site-native search (fixed).
-5b. Final confirmatory tool A/B on the release candidate.
-6. README, CHANGELOG, migration/rollback, compatibility matrix, report.
-7. Push branch, read CI.
+1. Push `dev/universal-mcp` — **blocked: this machine has no GitHub credentials**
+   (no credential helper, no SSH key). Needs the owner's token or key.
+2. Read CI: Linux/macOS/Windows × 3.11–3.13, wheel and Docker build.
+3. Fix whatever CI reports; then decide on merging to `main` and tagging v0.3.0.
+4. Optional: one interleaved agent A/B after the post-run fixes (741d4be,
+   include_domains fix); Reddit OAuth check if credentials are provided.
 
 ## Resume checklist
 

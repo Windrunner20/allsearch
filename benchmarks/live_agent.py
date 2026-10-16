@@ -275,7 +275,7 @@ def main(argv: list[str] | None = None) -> int:
     arms = [a for a in args.arms.split(",") if a]
     meta = {"started_at": stamp, "arms": arms, "baseline_ref": args.baseline_ref,
             "baseline_sha": _git("rev-parse", args.baseline_ref), "candidate_sha": _git("rev-parse", "HEAD"),
-            "cases_file": str(args.cases), "case_count": len(cases), "timeout_s": TIMEOUT, "client": "pi",
+            "cases_file": str(args.cases.resolve().relative_to(ROOT)) if args.cases.resolve().is_relative_to(ROOT) else args.cases.name, "case_count": len(cases), "timeout_s": TIMEOUT, "client": "pi",
             "model": MODEL, "thinking": THINKING}
     (out / "meta.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")
     with tempfile.TemporaryDirectory(prefix="allsearch-agent-") as tmp:
