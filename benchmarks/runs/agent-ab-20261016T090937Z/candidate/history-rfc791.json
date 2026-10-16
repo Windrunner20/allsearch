@@ -1,0 +1,421 @@
+{
+  "id": "history-rfc791",
+  "query": "RFC 791 text for the Internet Protocol Version field",
+  "returncode": 0,
+  "elapsed_ms": 58290,
+  "efficiency": {
+    "tool_calls": {
+      "search": 2,
+      "fetch": 1
+    },
+    "total_calls": 3,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 0,
+    "errors": 1
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "rfc-editor.org"
+        ],
+        "max_results": 5,
+        "mode": "docs",
+        "query": "RFC 791 Internet Protocol Version field text Version 4 bits Internet Protocol Version field RFC 791 section 3.1",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 10852
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Section 3.1 Internet Header Format Version field exact wording",
+        "fresh": false,
+        "max_chars": 12000,
+        "url": "https://www.rfc-editor.org/rfc/rfc791.txt"
+      },
+      "is_error": true,
+      "ms": 201
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": true,
+        "include_domains": [
+          "rfc-editor.org"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:rfc-editor.org/rfc/rfc791.txt \"Version: 4 bits\" \"The Version field indicates\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 12894
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.1\", \"result_id\": \"82d15596cf0f3ed9de962176\", \"kind\": \"search\", \"status\": \"partial\", \"query\": \"RFC 791 Internet Protocol Version field text Version 4 bits Internet Protocol Version field RFC 791 section 3.1\", \"answer\": \"**RFC 791, Section 3.1 (Internet Header Format) — Version field**\\n\\nFrom the RFC text (STD 5):\\n\\n> **Version: 4 bits**  \\n> The Version field indicates the format of the internet header. This document describes version 4.\\n\\nIt appears in the header diagram as the first 4-bit field (`|Version|  IHL  |...`).\\n\\n**Sources**\\n1. RFC 791 text (via STD 5): https://www.rfc-editor.org/std/std5.txt — Section 3.1, Version field definition. [web:3]\\n2. RFC Editor info page for RFC 791 (Internet Protocol, J. Postel, September 1981; Internet Standard; obsoletes RFC 760): https://www.rfc-editor.org/info/rfc791 [web:0]\\n3. Official Internet Protocol Standards listing (STD 5 includes RFC 791): https://www.rfc-editor.org/standards [web:4]\\n\\nNo separate errata change the Version-field wording itself in the results c…\", \"answer_chars\": 806, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 6, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 10845, \"warning_count\": 0, \"warnings\": [], \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 21, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}, {\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 22, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}], \"result_count\": 5, \"citation_count\": 10, \"results\": [{\"id\": \"r1\", \"title\": \"RFC 6274: Security Assessment of the Internet Protocol Version 4 | RFC Editor\", \"url\": \"https://www.rfc-editor.org/info/rfc6274\", \"snippet\": \"## In this section\\n\\n 1. Preface\\n\\n  + 1.1. Introduction\\n  + 1.2. Scope of This Document\\n  + 1.3. Organization of This Document\\n 2. The Internet Protocol\\n 3. Int…\", \"providers\": [\"tavily\"]}, {\"id\": \"r2\", \"title\": \"RFC 1812: Requirements for IP Version 4 Routers | RFC Editor\", \"url\": \"https://www.rfc-editor.org/info/rfc1812\", \"snippet\": \"- 4.2.1 INTRODUCTION\\n    - 4.2.2 PROTOCOL WALK-THROUGH\\n\\n       4.2.2.1 Options: RFC 791 Section 3.2\\n       4.2.2.2 Addresses in Options: RFC 791 Section 3.1\\n  …\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://www.rfc-editor.org/std/std5.txt\", \"url\": \"https://www.rfc-editor.org/std/std5.txt\", \"snippet\": \"1. RFC 791 text (via STD 5): — Section 3.1, Version field definition.\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"https://www.rfc-editor.org/series/rfc/\", \"url\": \"https://www.rfc-editor.org/series/rfc\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r5\", \"title\": \"https://www.rfc-editor.org/standards\", \"url\": \"https://www.rfc-editor.org/standards\", \"snippet\": \"3. Official Internet Protocol Standards listing (STD 5 includes RFC 791)\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.rfc-editor.org/info/rfc6274\", \"title\": \"RFC 6274: Security Assessment of the Internet Protocol Version 4 | RFC Editor\", \"result_item_id\": \"r1\", \"providers\": [\"tavily\"]}, {\"id\": \"c2\", \"url\": \"https://www.rfc-editor.org/info/rfc1812\", \"title\": \"RFC 1812: Requirements for IP Version 4 Routers | RFC Editor\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://www.rfc-editor.org/std/std5.txt\", \"title\": \"https://www.rfc-editor.org/std/std5.txt\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://www.rfc-editor.org/series/rfc\", \"title\": \"https://www.rfc-editor.org/series/rfc/\", \"result_item_id\": \"r4\", \"providers\": [\"xai\"]}, {\"id\": \"c5\", \"url\": \"https://www.rfc-editor.org/standards\", \"title\": \"https://www.rfc-editor.org/standards\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://www.rfc-editor.org/errata/rfc0791\", \"title\": \"https://www.rfc-editor.org/errata/rfc0791\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://www.rfc-editor.org/errata/eid6356\", \"title\": \"https://www.rfc-editor.org/errata/eid6356\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://www.rfc-editor.org/info/rfc791\", \"title\": \"https://www.rfc-editor.org/info/rfc791\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://www.rfc-editor.org/info/rfc3790\", \"title\": \"RFC 3790: Survey of IPv4 Addresses in Currently Deployed IETF Internet Area Standards Track and Experimental Documents …\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c10\", \"url\": \"https://www.rfc-editor.org/info/rfc1475\", \"title\": \"RFC 1475: TP/IX: The Next Internet | RFC Editor\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"82d15596cf0f3ed9de962176\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"RFC Editor\", \"satisfied\": true, \"detail\": \"6 content page(s), e.g. https://www.rfc-editor.org/info/rfc6274\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 10, \"new_pages_read\": 0, \"seen_urls\": 10, \"pages_read\": 0, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"d17e3ef6c9fdeb53eb459c6d\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://www.rfc-editor.org/rfc/rfc791.txt\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 23, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"d17e3ef6c9fdeb53eb459c6d\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 1, \"read_result\": 0}, \"new_urls\": 1, \"new_pages_read\": 0, \"seen_urls\": 11, \"pages_read\": 0, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"d52083d8c01c12de06a01edc\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:rfc-editor.org/rfc/rfc791.txt \\\"Version: 4 bits\\\" \\\"The Version field indicates\\\"\", \"answer\": \"Relevant hits for the quoted IP Version field wording, limited to the closest matches.\\n\\n1. **RFC 791 (primary match)** — https://www.rfc-editor.org/rfc/rfc791.txt  \\n   Section 3.1, Internet Header Format (around lines 856–859):  \\n   **Version: 4 bits**  \\n   **The Version field indicates the format of the internet header.** This document describes version 4.  \\n   The same sentence is repeated in the glossary entry for “Version” (around line 2788).  \\n   RFC 791, *Internet Protocol*, J. Postel, September 1981 (STD 5).\\n\\n2. **STD 5 text compilation** — https://www.rfc-editor.org/std/std5.txt  \\n   …\", \"answer_chars\": 1499, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 17, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 12888, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}], \"result_count\": 10, \"citation_count\": 25, \"results\": [{\"id\": \"r1\", \"title\": \"https://www.rfc-editor.org/rfc/rfc2426\", \"url\": \"https://www.rfc-editor.org/rfc/rfc2426\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"RFC 6274: Security Assessment of the Internet Protocol Version 4 | RFC Editor\", \"url\": \"https://www.rfc-editor.org/info/rfc6274\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"RFC 8601: Message Header Field for Indicating Message Authentication Status | R…\", \"url\": \"https://www.rfc-editor.org/rfc/rfc8601\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r4\", \"title\": \"RFC 2734: IPv4 over IEEE 1394 | RFC Editor\", \"url\": \"https://www.rfc-editor.org/info/rfc2734\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://www.rfc-editor.org/info/rfc9562/\", \"url\": \"https://www.rfc-editor.org/info/rfc9562\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"RFC 8200: Internet Protocol, Version 6 (IPv6) Specification\", \"url\": \"https://www.rfc-editor.org/rfc/rfc8200.html\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"draft - ien: 41\", \"url\": \"https://www.rfc-editor.org/ien/ien41.pdf\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r8\", \"title\": \"https://www.rfc-editor.org/errata/eid6356\", \"url\": \"https://www.rfc-editor.org/errata/eid6356\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r9\", \"title\": \"https://www.rfc-editor.org/search/rfc_search_detail.php?sortkey=Number&sorting=…\", \"url\": \"https://www.rfc-editor.org/search/rfc_search_detail.php?page=All&pubstatus%5B%5D=Standards+Track&sorting=DESC&sortkey=Number&std_trk=Internet+Standard\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"https://www.rfc-editor.org/errata/eid3546\", \"url\": \"https://www.rfc-editor.org/errata/eid3546\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.rfc-editor.org/rfc/rfc2426\", \"title\": \"https://www.rfc-editor.org/rfc/rfc2426\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.rfc-editor.org/info/rfc6274\", \"title\": \"RFC 6274: Security Assessment of the Internet Protocol Version 4 | RFC Editor\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://www.rfc-editor.org/rfc/rfc8601\", \"title\": \"RFC 8601: Message Header Field for Indicating Message Authentication Status | R…\", \"result_item_id\": \"r3\", \"providers\": [\"tavily\"]}, {\"id\": \"c4\", \"url\": \"https://www.rfc-editor.org/info/rfc2734\", \"title\": \"RFC 2734: IPv4 over IEEE 1394 | RFC Editor\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://www.rfc-editor.org/info/rfc9562\", \"title\": \"https://www.rfc-editor.org/info/rfc9562/\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://www.rfc-editor.org/rfc/rfc8200.html\", \"title\": \"RFC 8200: Internet Protocol, Version 6 (IPv6) Specification\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://www.rfc-editor.org/ien/ien41.pdf\", \"title\": \"draft - ien: 41\", \"result_item_id\": \"r7\", \"providers\": [\"tavily\"]}, {\"id\": \"c8\", \"url\": \"https://www.rfc-editor.org/errata/eid6356\", \"title\": \"https://www.rfc-editor.org/errata/eid6356\", \"result_item_id\": \"r8\", \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://www.rfc-editor.org/search/rfc_search_detail.php?page=All&pubstatus%5B%5D=Standards+Track&sorting=DESC&sortkey=Number&std_trk=Internet+Standard\", \"title\": \"https://www.rfc-editor.org/search/rfc_search_detail.php?sortkey=Number&sorting=…\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.rfc-editor.org/errata/eid3546\", \"title\": \"https://www.rfc-editor.org/errata/eid3546\", \"result_item_id\": \"r10\", \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://www.rfc-editor.org/standards\", \"title\": \"https://www.rfc-editor.org/standards\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://www.rfc-editor.org/info/rfc791\", \"title\": \"https://www.rfc-editor.org/info/rfc791\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://www.rfc-editor.org/rfc/rfc5905\", \"title\": \"https://www.rfc-editor.org/rfc/rfc5905\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://www.rfc-editor.org/rfc/rfc9562.txt\", \"title\": \"https://www.rfc-editor.org/rfc/rfc9562.txt\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://rfc-editor.org/rfc/rfc9368\", \"title\": \"https://rfc-editor.org/rfc/rfc9368\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://www.rfc-editor.org/info/rfc8999\", \"title\": \"https://www.rfc-editor.org/info/rfc8999/\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://www.rfc-editor.org/series/rfc\", \"title\": \"https://www.rfc-editor.org/series/rfc/\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://www.rfc-editor.org/std/std5.txt\", \"title\": \"https://www.rfc-editor.org/std/std5.txt\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://www.rfc-editor.org/info/rfc0791\", \"title\": \"https://www.rfc-editor.org/info/rfc0791\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"https://www.rfc-editor.org/ien/ien111.txt\", \"title\": \"https://www.rfc-editor.org/ien/ien111.txt\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"https://www.rfc-editor.org/rfc/rfc791.txt\", \"title\": \"https://www.rfc-editor.org/rfc/rfc791.txt\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"https://www.rfc-editor.org/info/rfc9660\", \"title\": \"https://www.rfc-editor.org/info/rfc9660/\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c23\", \"url\": \"https://www.rfc-editor.org/info/rfc2460\", \"title\": \"RFC 2460: Internet Protocol, Version 6 (IPv6) Specification | RFC Editor\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c24\", \"url\": \"https://www.rfc-editor.org/info/rfc2176\", \"title\": \"RFC 2176: IPv4 over MAPOS Version 1 | RFC Editor\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c25\", \"url\": \"https://www.rfc-editor.org/info/rfc1883\", \"title\": \"RFC 1883: Internet Protocol, Version 6 (IPv6) Specification | RFC Editor\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"d52083d8c01c12de06a01edc\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"RFC Editor\", \"satisfied\": true, \"detail\": \"17 content page(s), e.g. https://www.rfc-editor.org/rfc/rfc2426\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 2, \"fetch\": 1, \"read_result\": 0}, \"new_urls\": 18, \"new_pages_read\": 0, \"seen_urls\": 29, \"pages_read\": 0, \"calls_without_new_evidence\": 0}}"
+  ],
+  "answer": "RFC 791 第 3.1 节（Internet Header Format）中对 **Version** 字段的原文是：\n\n> **Version: 4 bits**  \n> The Version field indicates the format of the internet header. This document describes version 4.\n\n原始链接：  \nhttps://www.rfc-editor.org/rfc/rfc791.txt\n\n该字段位于 IPv4 首部的最前面，占 4 位，值为 `4`。",
+  "observation": {
+    "id": "history-rfc791",
+    "answer": "RFC 791 第 3.1 节（Internet Header Format）中对 **Version** 字段的原文是：\n\n> **Version: 4 bits**  \n> The Version field indicates the format of the internet header. This document describes version 4.\n\n原始链接：  \nhttps://www.rfc-editor.org/rfc/rfc791.txt\n\n该字段位于 IPv4 首部的最前面，占 4 位，值为 `4`。",
+    "results": [
+      {
+        "url": "https://www.rfc-editor.org/info/rfc6274",
+        "title": "RFC 6274: Security Assessment of the Internet Protocol Version 4 | RFC Editor",
+        "snippet": "## In this section\n\n 1. Preface\n\n  + 1.1. Introduction\n  + 1.2. Scope of This Document\n  + 1.3. Organization of This Document\n 2. The Internet Protocol\n 3. Int…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc1812",
+        "title": "RFC 1812: Requirements for IP Version 4 Routers | RFC Editor",
+        "snippet": "- 4.2.1 INTRODUCTION\n    - 4.2.2 PROTOCOL WALK-THROUGH\n\n       4.2.2.1 Options: RFC 791 Section 3.2\n       4.2.2.2 Addresses in Options: RFC 791 Section 3.1\n  …",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/std/std5.txt",
+        "title": "https://www.rfc-editor.org/std/std5.txt",
+        "snippet": "1. RFC 791 text (via STD 5): — Section 3.1, Version field definition.",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/series/rfc",
+        "title": "https://www.rfc-editor.org/series/rfc/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/standards",
+        "title": "https://www.rfc-editor.org/standards",
+        "snippet": "3. Official Internet Protocol Standards listing (STD 5 includes RFC 791)",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc6274",
+        "title": "RFC 6274: Security Assessment of the Internet Protocol Version 4 | RFC Editor",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc1812",
+        "title": "RFC 1812: Requirements for IP Version 4 Routers | RFC Editor",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/std/std5.txt",
+        "title": "https://www.rfc-editor.org/std/std5.txt",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/series/rfc",
+        "title": "https://www.rfc-editor.org/series/rfc/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/standards",
+        "title": "https://www.rfc-editor.org/standards",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/errata/rfc0791",
+        "title": "https://www.rfc-editor.org/errata/rfc0791",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/errata/eid6356",
+        "title": "https://www.rfc-editor.org/errata/eid6356",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc791",
+        "title": "https://www.rfc-editor.org/info/rfc791",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc3790",
+        "title": "RFC 3790: Survey of IPv4 Addresses in Currently Deployed IETF Internet Area Standards Track and Experimental Documents …",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc1475",
+        "title": "RFC 1475: TP/IX: The Next Internet | RFC Editor",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/rfc/rfc2426",
+        "title": "https://www.rfc-editor.org/rfc/rfc2426",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc6274",
+        "title": "RFC 6274: Security Assessment of the Internet Protocol Version 4 | RFC Editor",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/rfc/rfc8601",
+        "title": "RFC 8601: Message Header Field for Indicating Message Authentication Status | R…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc2734",
+        "title": "RFC 2734: IPv4 over IEEE 1394 | RFC Editor",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc9562",
+        "title": "https://www.rfc-editor.org/info/rfc9562/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/rfc/rfc8200.html",
+        "title": "RFC 8200: Internet Protocol, Version 6 (IPv6) Specification",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/ien/ien41.pdf",
+        "title": "draft - ien: 41",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/errata/eid6356",
+        "title": "https://www.rfc-editor.org/errata/eid6356",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/search/rfc_search_detail.php?page=All&pubstatus%5B%5D=Standards+Track&sorting=DESC&sortkey=Number&std_trk=Internet+Standard",
+        "title": "https://www.rfc-editor.org/search/rfc_search_detail.php?sortkey=Number&sorting=…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/errata/eid3546",
+        "title": "https://www.rfc-editor.org/errata/eid3546",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/rfc/rfc2426",
+        "title": "https://www.rfc-editor.org/rfc/rfc2426",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc6274",
+        "title": "RFC 6274: Security Assessment of the Internet Protocol Version 4 | RFC Editor",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/rfc/rfc8601",
+        "title": "RFC 8601: Message Header Field for Indicating Message Authentication Status | R…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc2734",
+        "title": "RFC 2734: IPv4 over IEEE 1394 | RFC Editor",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc9562",
+        "title": "https://www.rfc-editor.org/info/rfc9562/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/rfc/rfc8200.html",
+        "title": "RFC 8200: Internet Protocol, Version 6 (IPv6) Specification",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/ien/ien41.pdf",
+        "title": "draft - ien: 41",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/errata/eid6356",
+        "title": "https://www.rfc-editor.org/errata/eid6356",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/search/rfc_search_detail.php?page=All&pubstatus%5B%5D=Standards+Track&sorting=DESC&sortkey=Number&std_trk=Internet+Standard",
+        "title": "https://www.rfc-editor.org/search/rfc_search_detail.php?sortkey=Number&sorting=…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/errata/eid3546",
+        "title": "https://www.rfc-editor.org/errata/eid3546",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/standards",
+        "title": "https://www.rfc-editor.org/standards",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc791",
+        "title": "https://www.rfc-editor.org/info/rfc791",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/rfc/rfc5905",
+        "title": "https://www.rfc-editor.org/rfc/rfc5905",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/rfc/rfc9562.txt",
+        "title": "https://www.rfc-editor.org/rfc/rfc9562.txt",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://rfc-editor.org/rfc/rfc9368",
+        "title": "https://rfc-editor.org/rfc/rfc9368",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc8999",
+        "title": "https://www.rfc-editor.org/info/rfc8999/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/series/rfc",
+        "title": "https://www.rfc-editor.org/series/rfc/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/std/std5.txt",
+        "title": "https://www.rfc-editor.org/std/std5.txt",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc0791",
+        "title": "https://www.rfc-editor.org/info/rfc0791",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/ien/ien111.txt",
+        "title": "https://www.rfc-editor.org/ien/ien111.txt",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/rfc/rfc791.txt",
+        "title": "https://www.rfc-editor.org/rfc/rfc791.txt",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc9660",
+        "title": "https://www.rfc-editor.org/info/rfc9660/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc2460",
+        "title": "RFC 2460: Internet Protocol, Version 6 (IPv6) Specification | RFC Editor",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc2176",
+        "title": "RFC 2176: IPv4 over MAPOS Version 1 | RFC Editor",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc1883",
+        "title": "RFC 1883: Internet Protocol, Version 6 (IPv6) Specification | RFC Editor",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://www.rfc-editor.org/rfc/rfc791.txt",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 23, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…",
+            "retryable": true
+          }
+        ]
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:35:09.567960+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "history-rfc791",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "rfc791"
+        ],
+        "required": 1
+      },
+      "reading": {
+        "status": "fail"
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "reading:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true,
+    "grader": "v2"
+  }
+}

@@ -1,0 +1,792 @@
+{
+  "id": "stackoverflow-venv",
+  "query": "Stack Overflow question page about creating a Python virtual environment",
+  "returncode": 0,
+  "elapsed_ms": 155321,
+  "efficiency": {
+    "tool_calls": {
+      "search": 4,
+      "fetch": 1
+    },
+    "total_calls": 5,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 0,
+    "errors": 0
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "balanced",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": "stackoverflow.com",
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:stackoverflow.com/questions creating a Python virtual environment Stack Overflow question page \"virtual environment\" Python create venv virtualenv",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 14093
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": "stackoverflow.com",
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:stackoverflow.com/questions \"creating a Python virtual environment\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 27329
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": "stackoverflow.com",
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:stackoverflow.com/questions \"create a virtual environment\" Python question",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 21238
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Extract the question title, question text, accepted answer summary, and any comments shown. Preserve comment wording exactly if comments are present.",
+        "fresh": false,
+        "max_chars": 20000,
+        "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3"
+      },
+      "is_error": false,
+      "ms": 10692
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": "stackoverflow.com",
+        "max_results": 5,
+        "mode": "web",
+        "query": "site:stackoverflow.com/questions/43069780 \"How can I create a virtual environment with Python 3?\" comments answer python3 -m venv",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 18119
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.0\", \"result_id\": \"849b1269b2be088a\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:stackoverflow.com/questions creating a Python virtual environment Stack Overflow question page \\\"virtual environment\\\" Python create venv virtualenv\", \"answer\": \"Relevant Stack Overflow threads on creating a Python virtual environment:\\n\\n1. **How can I create a virtual environment with Python 3?** — Recommended: `python3 -m venv ./path-to-new-venv` (or `.venv`); also covers `virtualenv -p python3` and activation.  \\n   https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3\\n\\n2. **What's the difference between \\\"virtualenv\\\" and \\\"-m venv\\\"?** — `venv` is in the stdlib (Python 3); `virtualenv` is a third-party package with more features.  \\n   https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt\\n\\n3. **Do I use `pyvenv` or `virtualenv`?** — `pyvenv` is deprecated; use `python3 -m venv` on Python 3 and `virtualenv` on older Python.  \\n   https://stack…\", \"answer_chars\": 2570, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 1, \"cross_provider_matches\": 1, \"pages_fetched\": 0, \"primary_citation_count\": 14}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 14045, \"warning_count\": 1, \"warnings\": [\"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"conditional_supplement\"}], \"result_count\": 10, \"citation_count\": 21, \"results\": [{\"id\": \"r1\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/41746408/creating-virtualenv-for-an-existing-project\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/67052005/creating-virtual-environment-python\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/60719286/actions-for-creating-venv-in-python-and-clone-a-git-repo\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/40869502/do-i-use-pyvenv-or-virtualenv-for-creating-a-virtual-environment\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r5\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/57921255/how-to-create-python-virtual-environment-within-a-python-script\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/43142145/error-when-using-the-command-virtualenv-venv-to-create-python-virtual-environm\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/58000371/how-to-create-an-empty-python-virtual-environment\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/58117467/python-venv-not-creating-virtual-environment\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://stackoverflow.com/questions/41746408/creating-virtualenv-for-an-existing-project\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://stackoverflow.com/questions/67052005/creating-virtual-environment-python\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://stackoverflow.com/questions/60719286/actions-for-creating-venv-in-python-and-clone-a-git-repo\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://stackoverflow.com/questions/40869502/do-i-use-pyvenv-or-virtualenv-for-creating-a-virtual-environment\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://stackoverflow.com/questions/57921255/how-to-create-python-virtual-environment-within-a-python-script\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://stackoverflow.com/questions/43142145/error-when-using-the-command-virtualenv-venv-to-create-python-virtual-environm\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://stackoverflow.com/questions/58000371/how-to-create-an-empty-python-virtual-environment\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://stackoverflow.com/questions/58117467/python-venv-not-creating-virtual-environment\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://stackoverflow.com/questions/35017160/how-to-use-virtualenv-with-python\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt/44091914\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://stackoverflow.com/questions/43069780/how-to-create-virtual-env-with-python-3\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://stackoverflow.com/questions/60873454/how-can-i-list-all-the-virtual-environments-created-with-venv\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://stackoverflow.com/questions/60973987/is-there-a-way-to-list-all-python-virtual-environments-created-using-the-venv-mo\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://stackoverflow.com/questions/73892006/unable-to-create-python-virtual-environment-in-ubuntu\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c20\", \"url\": \"https://stackoverflow.com/questions/55433197/error-create-python-virtual-environment-win-10\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c21\", \"url\": \"https://stackoverflow.com/questions/44158676/remove-virtual-environment-created-with-venv-in-python3\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"849b1269b2be088a\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"fff6d97f6c527ba6\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:stackoverflow.com/questions \\\"creating a Python virtual environment\\\"\", \"answer\": \"Relevant Stack Overflow threads on creating a Python virtual environment:\\n\\n1. **How to create virtual env with Python 3?** — Recommended approach is the stdlib module: `python3 -m venv .venv` (Python 3.3+). Also covers `virtualenv` and activation.  \\n   https://stackoverflow.com/questions/43069780/how-to-create-virtual-env-with-python-3\\n\\n2. **What's the difference between \\\"virtualenv\\\" and \\\"-m venv\\\"?** — `venv` ships with Python 3 and needs no extra install; `virtualenv` is a third-party package with a richer feature set. For Python 3, answers generally prefer `venv`.  \\n   https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt\\n\\n3. **What is a virtualenv, and why should I use one?** — Explains isolation from the system Python a…\", \"answer_chars\": 3454, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 1, \"cross_provider_matches\": 1, \"pages_fetched\": 3, \"primary_citation_count\": 13}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 27277, \"warning_count\": 2, \"warnings\": [\"auto_scrape_truncated\", \"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 19, \"results\": [{\"id\": \"r1\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/73469387/how-can-i-create-a-virtual-environment-with-a-specific-python-version-in-windows\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/35017160/how-to-use-virtualenv-with-python\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/72724354/how-do-i-install-a-virtual-environment-in-python-as-a-beginner\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/43069780/how-to-create-virtual-env-with-python-3\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r6\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/78116269/creating-a-virtual-python-environment-in-vs-code\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/tagged/virtualenv?page=3&tab=active\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/69072606/how-to-create-a-python-virtualenv-within-my-project-directory-with-a-specific-b\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/tagged/python-venv?tab=Newest\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://stackoverflow.com/questions/73469387/how-can-i-create-a-virtual-environment-with-a-specific-python-version-in-windows\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://stackoverflow.com/questions/35017160/how-to-use-virtualenv-with-python\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://stackoverflow.com/questions/72724354/how-do-i-install-a-virtual-environment-in-python-as-a-beginner\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://stackoverflow.com/questions/43069780/how-to-create-virtual-env-with-python-3\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://stackoverflow.com/questions/78116269/creating-a-virtual-python-environment-in-vs-code\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://stackoverflow.com/questions/tagged/virtualenv?page=3&tab=active\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://stackoverflow.com/questions/69072606/how-to-create-a-python-virtualenv-within-my-project-directory-with-a-specific-b\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://stackoverflow.com/questions/tagged/python-venv?tab=Newest\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://stackoverflow.com/questions/74966861/activating-python-virtual-environment-on-windows-11\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt/44091914\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://stackoverflow.com/questions/60719286/actions-for-creating-venv-in-python-and-clone-a-git-repo\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://stackoverflow.com/questions/65483008/venv-vs-anaconda-for-creating-virtual-environments\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://stackoverflow.com/questions/54106071/how-can-i-set-up-a-virtual-environment-for-python-in-visual-studio-code\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c19\", \"url\": \"https://agents.stackoverflow.com/questions/48db4829-a2b4-4a9c-acb8-740dc800a601?page=10\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"fff6d97f6c527ba6\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"ffd267f741f7658e\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:stackoverflow.com/questions \\\"create a virtual environment\\\" Python question\", \"answer\": \"Here are up to 10 relevant Stack Overflow questions on creating a Python virtual environment:\\n\\n1. **How can I create a virtual environment with Python 3?** (2017) — Recommended approach is `python3 -m venv ./path-to-new-venv`; also covers `virtualenv` and activation.  \\n   https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3  \\n   [[1]](https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3)\\n\\n2. **What is a virtualenv, and why should I use one?** (2017) — Explains isolation of packages and how to create one with `python3 -m venv ENV_DIR` (and older tools).  \\n   https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one  \\n   [[2]](https://stackoverflow.com/questions/4197226…\", \"answer_chars\": 4105, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 1, \"cross_provider_matches\": 2, \"pages_fetched\": 3, \"primary_citation_count\": 10}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 21184, \"warning_count\": 1, \"warnings\": [\"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 16, \"results\": [{\"id\": \"r1\", \"title\": \"How can I create a virtual environment with Python 3?\", \"url\": \"https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r2\", \"title\": \"How to create a venv with a different Python version\", \"url\": \"https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"2\", \"url\": \"https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"Newest 'python-venv' Questions\", \"url\": \"https://stackoverflow.com/questions/tagged/python-venv?tab=Newest\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"4\", \"url\": \"https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt/44091914\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r6\", \"title\": \"How do I install a virtual environment in python as a beginner\", \"url\": \"https://stackoverflow.com/questions/72724354/how-do-i-install-a-virtual-environment-in-python-as-a-beginner\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"5\", \"url\": \"https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r8\", \"title\": \"python - Creating \\\"virtualenv\\\" for an existing project\", \"url\": \"https://stackoverflow.com/questions/41746408/creating-virtualenv-for-an-existing-project\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"6\", \"url\": \"https://stackoverflow.com/questions/35017160/how-to-use-virtualenv-with-python\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"Create a python venv that works on systems with no ...\", \"url\": \"https://stackoverflow.com/questions/75898453/create-a-python-venv-that-works-on-systems-with-no-python-installed\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3\", \"title\": \"How can I create a virtual environment with Python 3?\", \"result_item_id\": \"r1\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c2\", \"url\": \"https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version\", \"title\": \"How to create a venv with a different Python version\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one\", \"title\": \"2\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://stackoverflow.com/questions/tagged/python-venv?tab=Newest\", \"title\": \"Newest 'python-venv' Questions\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt/44091914\", \"title\": \"4\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://stackoverflow.com/questions/72724354/how-do-i-install-a-virtual-environment-in-python-as-a-beginner\", \"title\": \"How do I install a virtual environment in python as a beginner\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version\", \"title\": \"5\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://stackoverflow.com/questions/41746408/creating-virtualenv-for-an-existing-project\", \"title\": \"python - Creating \\\"virtualenv\\\" for an existing project\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://stackoverflow.com/questions/35017160/how-to-use-virtualenv-with-python\", \"title\": \"6\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://stackoverflow.com/questions/75898453/create-a-python-venv-that-works-on-systems-with-no-python-installed\", \"title\": \"Create a python venv that works on systems with no ...\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://stackoverflow.com/questions/63468006/python-how-to-create-a-virtual-environment-at-temp-dir-and-install-modules-with\", \"title\": \"7\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://stackoverflow.com/questions/60719286/actions-for-creating-venv-in-python-and-clone-a-git-repo\", \"title\": \"8\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://stackoverflow.com/questions/73469387/how-can-i-create-a-virtual-environment-with-a-specific-python-version-in-windows\", \"title\": \"9\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://stackoverflow.com/questions/69113607/how-to-clone-a-venv-virtual-environment\", \"title\": \"10\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://stackoverflow.com/questions/65430026/how-to-create-a-python-virtual-environment-independent-of-os-and-python-version\", \"title\": \"How to create a Python virtual environment independent of ...\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c16\", \"url\": \"https://stackoverflow.com/questions/54106071/how-can-i-set-up-a-virtual-environment-for-python-in-visual-studio-code\", \"title\": \"How can I set up a virtual environment for Python in Visual ...\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"ffd267f741f7658e\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"5b83274ff0eced52\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"5b83274ff0eced52\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"74b4acc025bd9cd7\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:stackoverflow.com/questions/43069780 \\\"How can I create a virtual environment with Python 3?\\\" comments answer python3 -m venv\", \"answer\": \"Relevant Stack Overflow results on creating a Python 3 virtual environment with `python3 -m venv`:\\n\\n1. **How can I create a virtual environment with Python 3?** — [stackoverflow.com/questions/43069780](https://stackoverflow.com/questions/43069780)  \\n   Top answer (recommended): `python3 -m venv ./path-to-new-venv` (or `.venv`). Notes that `pyvenv` was deprecated in 3.6 and removed in 3.8. Also covers activation (`source .venv/bin/activate`) and the older `virtualenv -p python3` approach.\\n\\n2. **What's the difference between \\\"virtualenv\\\" and \\\"-m venv\\\"?** — [stackoverflow.com/questions/44091886](https://stackoverflow.com/questions/44091886)  \\n   `venv` ships with Python 3 (stdlib since 3.3); no extra install. `virtualenv` is a third-party package with a broader feature set. Practical advice:…\", \"answer_chars\": 1754, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 1, \"pages_fetched\": 2, \"primary_citation_count\": 12}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 18064, \"warning_count\": 1, \"warnings\": [\"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 5, \"citation_count\": 16, \"results\": [{\"id\": \"r1\", \"title\": \"https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt\", \"url\": \"https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"How can I create a virtual environment with Python 3? - Stack Overflow\", \"url\": \"https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3?noredirect=1\", \"snippet\": \"Title: How can I create a virtual environment with Python 3? - Stack Overflow\\n# How can I create a virtual environment with Python 3? For this, I have installe…\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://stackoverflow.com/posts/43069780/revisions\", \"url\": \"https://stackoverflow.com/posts/43069780/revisions\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"virtualenv - python3 -m venv: how to specify Python point release/version? - Stack Overflow\", \"url\": \"https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version\", \"snippet\": \"Title: virtualenv - python3 -m venv: how to specify Python point release/version? - Stack Overflow\\n### your communities. ### more stack exchange communities. C…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://stackoverflow.com/questions/49964629/what-is-the-difference-between-virtualenv-p-python3-and-python3-m-venv\", \"url\": \"https://stackoverflow.com/questions/49964629/what-is-the-difference-between-virtualenv-p-python3-and-python3-m-venv\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt\", \"title\": \"https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3?noredirect=1\", \"title\": \"How can I create a virtual environment with Python 3? - Stack Overflow\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://stackoverflow.com/posts/43069780/revisions\", \"title\": \"https://stackoverflow.com/posts/43069780/revisions\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version\", \"title\": \"virtualenv - python3 -m venv: how to specify Python point release/version? - Stack Overflow\", \"result_item_id\": \"r4\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://stackoverflow.com/questions/49964629/what-is-the-difference-between-virtualenv-p-python3-and-python3-m-venv\", \"title\": \"https://stackoverflow.com/questions/49964629/what-is-the-difference-between-virtualenv-p-python3-and-python3-m-venv\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt/44091914\", \"title\": \"https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt…\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://stackoverflow.com/questions/23842713/using-python-3-in-virtualenv\", \"title\": \"https://stackoverflow.com/questions/23842713/using-python-3-in-virtualenv\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3\", \"title\": \"https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one\", \"title\": \"https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://stackoverflow.com/questions/linked/43069780\", \"title\": \"https://stackoverflow.com/questions/linked/43069780\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://stackoverflow.com/questions/45293436/how-can-i-specify-the-python-version-used-to-create-a-virtual-environment\", \"title\": \"https://stackoverflow.com/questions/45293436/how-can-i-specify-the-python-version-used-to-create-a-virtual-environment\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://stackoverflow.com/questions/43069780/how-to-create-virtual-env-with-python-3\", \"title\": \"https://stackoverflow.com/questions/43069780/how-to-create-virtual-env-with-python-3\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://stackoverflow.com/questions/72700633/how-to-create-a-virtualenv-in-python-using-cmd\", \"title\": \"https://stackoverflow.com/questions/72700633/how-to-create-a-virtualenv-in-python-using-cmd\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version?answertab=scoredesc\", \"title\": \"virtualenv - python3 -m venv: how to specify Python point release/version? - Stack Overflow\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c15\", \"url\": \"https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version?lastactivity=\", \"title\": \"virtualenv - python3 -m venv: how to specify Python point release/version? - Stack Overflow\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c16\", \"url\": \"https://stackoverflow.com/questions/59885771/python3-7-venv-does-not-create-virtual-environment-directory\", \"title\": \"python - Python3.7 venv does not Create Virtual Environment Directory - Stack Overflow\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"74b4acc025bd9cd7\"}}"
+  ],
+  "answer": "找到的 Stack Overflow 问题页面是：\n\n**How can I create a virtual environment with Python 3?**  \nhttps://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3\n\n页面涉及的主要命令是：\n\n```bash\npython3 -m venv ./path-to-new-venv\n```\n\n也讨论了环境激活方式以及 `virtualenv -p python3`。",
+  "observation": {
+    "id": "stackoverflow-venv",
+    "answer": "找到的 Stack Overflow 问题页面是：\n\n**How can I create a virtual environment with Python 3?**  \nhttps://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3\n\n页面涉及的主要命令是：\n\n```bash\npython3 -m venv ./path-to-new-venv\n```\n\n也讨论了环境激活方式以及 `virtualenv -p python3`。",
+    "results": [
+      {
+        "url": "https://stackoverflow.com/questions/41746408/creating-virtualenv-for-an-existing-project",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/67052005/creating-virtual-environment-python",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/60719286/actions-for-creating-venv-in-python-and-clone-a-git-repo",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/40869502/do-i-use-pyvenv-or-virtualenv-for-creating-a-virtual-environment",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/57921255/how-to-create-python-virtual-environment-within-a-python-script",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/43142145/error-when-using-the-command-virtualenv-venv-to-create-python-virtual-environm",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/58000371/how-to-create-an-empty-python-virtual-environment",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/58117467/python-venv-not-creating-virtual-environment",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/41746408/creating-virtualenv-for-an-existing-project",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/67052005/creating-virtual-environment-python",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/60719286/actions-for-creating-venv-in-python-and-clone-a-git-repo",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/40869502/do-i-use-pyvenv-or-virtualenv-for-creating-a-virtual-environment",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/57921255/how-to-create-python-virtual-environment-within-a-python-script",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/43142145/error-when-using-the-command-virtualenv-venv-to-create-python-virtual-environm",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/58000371/how-to-create-an-empty-python-virtual-environment",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/58117467/python-venv-not-creating-virtual-environment",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/35017160/how-to-use-virtualenv-with-python",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt/44091914",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/43069780/how-to-create-virtual-env-with-python-3",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/60873454/how-can-i-list-all-the-virtual-environments-created-with-venv",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/60973987/is-there-a-way-to-list-all-python-virtual-environments-created-using-the-venv-mo",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/73892006/unable-to-create-python-virtual-environment-in-ubuntu",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/55433197/error-create-python-virtual-environment-win-10",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/44158676/remove-virtual-environment-created-with-venv-in-python3",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/73469387/how-can-i-create-a-virtual-environment-with-a-specific-python-version-in-windows",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/35017160/how-to-use-virtualenv-with-python",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/72724354/how-do-i-install-a-virtual-environment-in-python-as-a-beginner",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/43069780/how-to-create-virtual-env-with-python-3",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/78116269/creating-a-virtual-python-environment-in-vs-code",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/tagged/virtualenv?page=3&tab=active",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/69072606/how-to-create-a-python-virtualenv-within-my-project-directory-with-a-specific-b",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/tagged/python-venv?tab=Newest",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/73469387/how-can-i-create-a-virtual-environment-with-a-specific-python-version-in-windows",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/35017160/how-to-use-virtualenv-with-python",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/72724354/how-do-i-install-a-virtual-environment-in-python-as-a-beginner",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/43069780/how-to-create-virtual-env-with-python-3",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/78116269/creating-a-virtual-python-environment-in-vs-code",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/tagged/virtualenv?page=3&tab=active",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/69072606/how-to-create-a-python-virtualenv-within-my-project-directory-with-a-specific-b",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/tagged/python-venv?tab=Newest",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/74966861/activating-python-virtual-environment-on-windows-11",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt/44091914",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/60719286/actions-for-creating-venv-in-python-and-clone-a-git-repo",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/65483008/venv-vs-anaconda-for-creating-virtual-environments",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/54106071/how-can-i-set-up-a-virtual-environment-for-python-in-visual-studio-code",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://agents.stackoverflow.com/questions/48db4829-a2b4-4a9c-acb8-740dc800a601?page=10",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+        "title": "How can I create a virtual environment with Python 3?",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version",
+        "title": "How to create a venv with a different Python version",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/tagged/python-venv?tab=Newest",
+        "title": "Newest 'python-venv' Questions",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt/44091914",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/72724354/how-do-i-install-a-virtual-environment-in-python-as-a-beginner",
+        "title": "How do I install a virtual environment in python as a beginner",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version",
+        "title": "5",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/41746408/creating-virtualenv-for-an-existing-project",
+        "title": "python - Creating \"virtualenv\" for an existing project",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/35017160/how-to-use-virtualenv-with-python",
+        "title": "6",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/75898453/create-a-python-venv-that-works-on-systems-with-no-python-installed",
+        "title": "Create a python venv that works on systems with no ...",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+        "title": "How can I create a virtual environment with Python 3?",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version",
+        "title": "How to create a venv with a different Python version",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/tagged/python-venv?tab=Newest",
+        "title": "Newest 'python-venv' Questions",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt/44091914",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/72724354/how-do-i-install-a-virtual-environment-in-python-as-a-beginner",
+        "title": "How do I install a virtual environment in python as a beginner",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version",
+        "title": "5",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/41746408/creating-virtualenv-for-an-existing-project",
+        "title": "python - Creating \"virtualenv\" for an existing project",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/35017160/how-to-use-virtualenv-with-python",
+        "title": "6",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/75898453/create-a-python-venv-that-works-on-systems-with-no-python-installed",
+        "title": "Create a python venv that works on systems with no ...",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/63468006/python-how-to-create-a-virtual-environment-at-temp-dir-and-install-modules-with",
+        "title": "7",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/60719286/actions-for-creating-venv-in-python-and-clone-a-git-repo",
+        "title": "8",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/73469387/how-can-i-create-a-virtual-environment-with-a-specific-python-version-in-windows",
+        "title": "9",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/69113607/how-to-clone-a-venv-virtual-environment",
+        "title": "10",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/65430026/how-to-create-a-python-virtual-environment-independent-of-os-and-python-version",
+        "title": "How to create a Python virtual environment independent of ...",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/54106071/how-can-i-set-up-a-virtual-environment-for-python-in-visual-studio-code",
+        "title": "How can I set up a virtual environment for Python in Visual ...",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt",
+        "title": "https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3?noredirect=1",
+        "title": "How can I create a virtual environment with Python 3? - Stack Overflow",
+        "snippet": "Title: How can I create a virtual environment with Python 3? - Stack Overflow\n# How can I create a virtual environment with Python 3? For this, I have installe…",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/posts/43069780/revisions",
+        "title": "https://stackoverflow.com/posts/43069780/revisions",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version",
+        "title": "virtualenv - python3 -m venv: how to specify Python point release/version? - Stack Overflow",
+        "snippet": "Title: virtualenv - python3 -m venv: how to specify Python point release/version? - Stack Overflow\n### your communities. ### more stack exchange communities. C…",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/49964629/what-is-the-difference-between-virtualenv-p-python3-and-python3-m-venv",
+        "title": "https://stackoverflow.com/questions/49964629/what-is-the-difference-between-virtualenv-p-python3-and-python3-m-venv",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt",
+        "title": "https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3?noredirect=1",
+        "title": "How can I create a virtual environment with Python 3? - Stack Overflow",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/posts/43069780/revisions",
+        "title": "https://stackoverflow.com/posts/43069780/revisions",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version",
+        "title": "virtualenv - python3 -m venv: how to specify Python point release/version? - Stack Overflow",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/49964629/what-is-the-difference-between-virtualenv-p-python3-and-python3-m-venv",
+        "title": "https://stackoverflow.com/questions/49964629/what-is-the-difference-between-virtualenv-p-python3-and-python3-m-venv",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt/44091914",
+        "title": "https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/23842713/using-python-3-in-virtualenv",
+        "title": "https://stackoverflow.com/questions/23842713/using-python-3-in-virtualenv",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+        "title": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+        "title": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/linked/43069780",
+        "title": "https://stackoverflow.com/questions/linked/43069780",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/45293436/how-can-i-specify-the-python-version-used-to-create-a-virtual-environment",
+        "title": "https://stackoverflow.com/questions/45293436/how-can-i-specify-the-python-version-used-to-create-a-virtual-environment",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/43069780/how-to-create-virtual-env-with-python-3",
+        "title": "https://stackoverflow.com/questions/43069780/how-to-create-virtual-env-with-python-3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/72700633/how-to-create-a-virtualenv-in-python-using-cmd",
+        "title": "https://stackoverflow.com/questions/72700633/how-to-create-a-virtualenv-in-python-using-cmd",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version?answertab=scoredesc",
+        "title": "virtualenv - python3 -m venv: how to specify Python point release/version? - Stack Overflow",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/54700307/python3-m-venv-how-to-specify-python-point-release-version?lastactivity=",
+        "title": "virtualenv - python3 -m venv: how to specify Python point release/version? - Stack Overflow",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/59885771/python3-7-venv-does-not-create-virtual-environment-directory",
+        "title": "python - Python3.7 venv does not Create Virtual Environment Directory - Stack Overflow",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:20:03.907520+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "stackoverflow-venv",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "so-question"
+        ],
+        "required": 1
+      },
+      "comments": {
+        "status": "fail",
+        "matched_comments": []
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "comments:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true,
+    "grader": "v2"
+  }
+}

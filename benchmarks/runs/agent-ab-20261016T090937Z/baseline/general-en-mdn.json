@@ -1,0 +1,304 @@
+{
+  "id": "general-en-mdn",
+  "query": "MDN page for the Request.redirect property",
+  "returncode": 0,
+  "elapsed_ms": 74594,
+  "efficiency": {
+    "tool_calls": {
+      "search": 2,
+      "fetch": 1,
+      "read_result": 1
+    },
+    "total_calls": 4,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 0,
+    "errors": 0
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "balanced",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "developer.mozilla.org"
+        ],
+        "max_results": 5,
+        "mode": "web",
+        "query": "site:developer.mozilla.org/en-US/docs/Web/API/Request/redirect MDN Request.redirect property documentation examples values follow error manual comment reviews",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 11094
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Extract the MDN page's definition, value meanings, default, example, availability, and any comments or review text. Preserve exact quoted wording for comments if present.",
+        "fresh": false,
+        "max_chars": 20000,
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect"
+      },
+      "is_error": false,
+      "ms": 501
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": [
+          "content"
+        ],
+        "limit": 1,
+        "max_bytes": 20000,
+        "offset": 0,
+        "result_id": "5f326cd3e3b885a3"
+      },
+      "is_error": false,
+      "ms": 3
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "balanced",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "developer.mozilla.org"
+        ],
+        "max_results": 5,
+        "mode": "web",
+        "query": "site:developer.mozilla.org/en-US/docs/Web/API/Request/redirect \"follow\" \"manual\" \"error\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 17270
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.0\", \"result_id\": \"4ea5b8021f40e85b\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:developer.mozilla.org/en-US/docs/Web/API/Request/redirect MDN Request.redirect property documentation examples values follow error manual comment reviews\", \"answer\": \"Up to five relevant MDN results for `Request.redirect`:\\n\\n1. **Request: redirect property** — https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect  \\n   Read-only mode for how redirects are handled. Values: `follow`, `error`, `manual` (default `follow`). Example: `new Request(\\\"flowers.jpg\\\")` then `myRequest.redirect`. Available in Web Workers; widely available since March 2017. Last modified Sep 20, 2026. [web:0]\\n\\n2. **declarativeNetRequest.Redirect** — https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/Redirect  \\n   Extension API object for how a redirect rule is performed (`url`, `regexSubstitution`, `transform`, `extensionPath`). Not the Fetch `Request.redirect` property. Last modified Jul 17, 2025. [web:1]\\n\\n3. **declarativeNetRe…\", \"answer_chars\": 1676, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 1, \"pages_fetched\": 0, \"primary_citation_count\": 8}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 11049, \"warning_count\": 1, \"warnings\": [\"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"conditional_supplement\"}], \"result_count\": 5, \"citation_count\": 12, \"results\": [{\"id\": \"r1\", \"title\": \"https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect\", \"url\": \"https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"Redirections in HTTP - HTTP | MDN\", \"url\": \"https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Redirections\", \"snippet\": \"| Code | Text | Method handling | Typical use case |\\n ---  --- |\\n| `301` | `Moved Permanently` | `GET` methods unchanged. Others may or may not be changed to `…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/Redirect\", \"url\": \"https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/Redirect\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"HTTP headers - HTTP | MDN\", \"url\": \"https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers\", \"snippet\": \"`Refresh`\\n:   Directs the browser to reload the page or redirect to another. Takes the same value as the `meta` element with `http-equiv=\\\"refresh\\\"`.\\n\\n## Reques…\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://developer.mozilla.org/en-US/docs/MDN/Contribute/Editor/Redirects\", \"url\": \"https://developer.mozilla.org/en-US/docs/MDN/Contribute/Editor/Redirects\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect\", \"title\": \"https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Redirections\", \"title\": \"Redirections in HTTP - HTTP | MDN\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/Redirect\", \"title\": \"https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/Redirect\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers\", \"title\": \"HTTP headers - HTTP | MDN\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://developer.mozilla.org/en-US/docs/MDN/Contribute/Editor/Redirects\", \"title\": \"https://developer.mozilla.org/en-US/docs/MDN/Contribute/Editor/Redirects\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch\", \"title\": \"https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Status\", \"title\": \"https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Status\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Status\", \"title\": \"https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Status\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/RuleAction\", \"title\": \"https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/RuleAction\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch\", \"title\": \"Using the Fetch API - Web APIs | MDN\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://developer.mozilla.org/en-US/docs/MDN/Community/Pull_requests\", \"title\": \"Pull request submission and reviews - MDN Web Docs | MDN\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c12\", \"url\": \"https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Code_style_guide/JavaScript\", \"title\": \"Guidelines for writing JavaScript code examples - MDN Web Docs | MDN\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"4ea5b8021f40e85b\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"5f326cd3e3b885a3\", \"kind\": \"fetch\", \"status\": \"ok\", \"url\": \"https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect\", \"final_url\": \"https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect\", \"title\": \"Request: redirect property - Web APIs | MDN\", \"provider\": \"firecrawl\", \"content_preview\": \"- [Skip to main content](https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect#content)\\n- [Skip to search](https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect#mdn-search)\\n\\nLearn frontend, backend, and AI from our course partner\\n[Scrimba](https://scrimba.com/learn/frontend?via=mdn)\\n\\n# Request: redirect property\\n\\nBaseline\\n\\n\\nWidely available\\n\\nThis feature is well established and works across many devices and browser versions. It’s been available across browsers since March 2017.\\n\\n- [See full compatibility](https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect#browser_compatibility)\\n- [Learn more](https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility)\\n\\n**Note:** This feature is available in [Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API).\\n\\nThe **`redirect`** read-only property of the [`Request`](https://developer.mozilla.org/en-US/docs/Web/API/Request) interface contains the mode for how redirects are \", \"content_chars\": 6021, \"truncated\": true, \"errors\": [], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"5f326cd3e3b885a3\", \"fields\": [\"content\"]}}",
+    "{\"result_id\": \"5f326cd3e3b885a3\", \"kind\": \"fetch\", \"offset\": 0, \"returned\": 1, \"next_offset\": 1, \"data\": {\"content\": \"-\", \"content_chars\": 6021}, \"truncated\": true}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"6d6c68ce9f0a4c31\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:developer.mozilla.org/en-US/docs/Web/API/Request/redirect \\\"follow\\\" \\\"manual\\\" \\\"error\\\"\", \"answer\": \"Relevant MDN results for `Request.redirect` values `\\\"follow\\\"`, `\\\"manual\\\"`, and `\\\"error\\\"`:\\n\\n1. **[Request: redirect property](https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect)** — Read-only `Request.redirect` is a `RequestRedirect` enum: `\\\"follow\\\"`, `\\\"error\\\"`, or `\\\"manual\\\"`. Default when omitted is `\\\"follow\\\"`. Widely available since March 2017; also in Web Workers.  \\n   [[1]](https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect)\\n\\n2. **[RequestInit](https://developer.mozilla.org/en-US/docs/Web/API/RequestInit)** — `redirect` controls behavior on a redirect status:  \\n   - **`follow`**: automatically follow redirects (default).  \\n   - **`error`**: reject the promise with a network error.  \\n   - **`manual`**: return a response with almost all fields filtered out s…\", \"answer_chars\": 2003, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 3, \"pages_fetched\": 0, \"primary_citation_count\": 5}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 17226, \"warning_count\": 1, \"warnings\": [\"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"conditional_supplement\"}], \"result_count\": 5, \"citation_count\": 7, \"results\": [{\"id\": \"r1\", \"title\": \"Request: redirect property - Web APIs | MDN\", \"url\": \"https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect\", \"snippet\": \"The `redirect` read-only property of the `Request` interface contains the mode for how redirects are handled.\\n\\n## Value\\n\\nA `RequestRedirect` enum value, which …\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r2\", \"title\": \"RequestInit - Web APIs | MDN\", \"url\": \"https://developer.mozilla.org/en-US/docs/Web/API/RequestInit\", \"snippet\": \"If there is a match, fresh or stale, it will be returned from the cache.\\n         If there is no match, a network error is returned.\\n\\n    The `\\\"only-if-cached\\\"…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"3\", \"url\": \"https://developer.mozilla.org/en-US/docs/Web/API/Request/Request\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"Redirections in HTTP - HTTP | MDN\", \"url\": \"https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Redirections\", \"snippet\": \"Redirection loops happen when additional redirections follow the one that has already been followed. In other words, there is a loop that will never be finishe…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r5\", \"title\": \"4\", \"url\": \"https://developer.mozilla.org/zh-CN/docs/Web/API/Response/redirected\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect\", \"title\": \"Request: redirect property - Web APIs | MDN\", \"result_item_id\": \"r1\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c2\", \"url\": \"https://developer.mozilla.org/en-US/docs/Web/API/RequestInit\", \"title\": \"RequestInit - Web APIs | MDN\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://developer.mozilla.org/en-US/docs/Web/API/Request/Request\", \"title\": \"3\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Redirections\", \"title\": \"Redirections in HTTP - HTTP | MDN\", \"result_item_id\": \"r4\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://developer.mozilla.org/zh-CN/docs/Web/API/Response/redirected\", \"title\": \"4\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS\", \"title\": \"Cross-Origin Resource Sharing (CORS) - HTTP | MDN\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw\", \"title\": \"throw - JavaScript | MDN\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"6d6c68ce9f0a4c31\"}}"
+  ],
+  "answer": "MDN 页面：**[Request: redirect property](https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect)**\n\n`Request.redirect` 是只读属性，用于指定 Fetch 请求如何处理重定向。可取值：\n\n- `\"follow\"`：自动跟随重定向（默认值）\n- `\"error\"`：遇到重定向时以网络错误拒绝 Promise\n- `\"manual\"`：手动处理重定向\n\n该特性自 2017 年 3 月起广泛可用，也可用于 Web Workers。\n\n相关页面：[RequestInit.redirect](https://developer.mozilla.org/en-US/docs/Web/API/RequestInit)",
+  "observation": {
+    "id": "general-en-mdn",
+    "answer": "MDN 页面：**[Request: redirect property](https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect)**\n\n`Request.redirect` 是只读属性，用于指定 Fetch 请求如何处理重定向。可取值：\n\n- `\"follow\"`：自动跟随重定向（默认值）\n- `\"error\"`：遇到重定向时以网络错误拒绝 Promise\n- `\"manual\"`：手动处理重定向\n\n该特性自 2017 年 3 月起广泛可用，也可用于 Web Workers。\n\n相关页面：[RequestInit.redirect](https://developer.mozilla.org/en-US/docs/Web/API/RequestInit)",
+    "results": [
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect",
+        "title": "https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Redirections",
+        "title": "Redirections in HTTP - HTTP | MDN",
+        "snippet": "| Code | Text | Method handling | Typical use case |\n ---  --- |\n| `301` | `Moved Permanently` | `GET` methods unchanged. Others may or may not be changed to `…",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/Redirect",
+        "title": "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/Redirect",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers",
+        "title": "HTTP headers - HTTP | MDN",
+        "snippet": "`Refresh`\n:   Directs the browser to reload the page or redirect to another. Takes the same value as the `meta` element with `http-equiv=\"refresh\"`.\n\n## Reques…",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/MDN/Contribute/Editor/Redirects",
+        "title": "https://developer.mozilla.org/en-US/docs/MDN/Contribute/Editor/Redirects",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect",
+        "title": "https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Redirections",
+        "title": "Redirections in HTTP - HTTP | MDN",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/Redirect",
+        "title": "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/Redirect",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers",
+        "title": "HTTP headers - HTTP | MDN",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/MDN/Contribute/Editor/Redirects",
+        "title": "https://developer.mozilla.org/en-US/docs/MDN/Contribute/Editor/Redirects",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch",
+        "title": "https://developer.mozilla.org/fr/docs/Web/API/Fetch_API/Using_Fetch",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Status",
+        "title": "https://developer.mozilla.org/ja/docs/Web/HTTP/Reference/Status",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Status",
+        "title": "https://developer.mozilla.org/fr/docs/Web/HTTP/Reference/Status",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/RuleAction",
+        "title": "https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/API/declarativeNetRequest/RuleAction",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch",
+        "title": "Using the Fetch API - Web APIs | MDN",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/MDN/Community/Pull_requests",
+        "title": "Pull request submission and reviews - MDN Web Docs | MDN",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/MDN/Writing_guidelines/Code_style_guide/JavaScript",
+        "title": "Guidelines for writing JavaScript code examples - MDN Web Docs | MDN",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect",
+        "title": "Request: redirect property - Web APIs | MDN",
+        "snippet": "The `redirect` read-only property of the `Request` interface contains the mode for how redirects are handled.\n\n## Value\n\nA `RequestRedirect` enum value, which …",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/RequestInit",
+        "title": "RequestInit - Web APIs | MDN",
+        "snippet": "If there is a match, fresh or stale, it will be returned from the cache.\n         If there is no match, a network error is returned.\n\n    The `\"only-if-cached\"…",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/Request/Request",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Redirections",
+        "title": "Redirections in HTTP - HTTP | MDN",
+        "snippet": "Redirection loops happen when additional redirections follow the one that has already been followed. In other words, there is a loop that will never be finishe…",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/zh-CN/docs/Web/API/Response/redirected",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect",
+        "title": "Request: redirect property - Web APIs | MDN",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/RequestInit",
+        "title": "RequestInit - Web APIs | MDN",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/Request/Request",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Redirections",
+        "title": "Redirections in HTTP - HTTP | MDN",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/zh-CN/docs/Web/API/Response/redirected",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/CORS",
+        "title": "Cross-Origin Resource Sharing (CORS) - HTTP | MDN",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/throw",
+        "title": "throw - JavaScript | MDN",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect",
+        "content": "- [Skip to main content](https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect#content)\n- [Skip to search](https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect#mdn-search)\n\nLearn frontend, backend, and AI from our course partner\n[Scrimba](https://scrimba.com/learn/frontend?via=mdn)\n\n# Request: redirect property\n\nBaseline\n\n\nWidely available\n\nThis feature is well established and works across many devices and browser versions. It’s been available across browsers since March 2017.\n\n- [See full compatibility](https://developer.mozilla.org/en-US/docs/Web/API/Request/redirect#browser_compatibility)\n- [Learn more](https://developer.mozilla.org/en-US/docs/Glossary/Baseline/Compatibility)\n\n**Note:** This feature is available in [Web Workers](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API).\n\nThe **`redirect`** read-only property of the [`Request`](https://developer.mozilla.org/en-US/docs/Web/API/Request) interface contains the mode for how redirects are -",
+        "errors": []
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:17:15.092788+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "general-en-mdn",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "mdn-redirect"
+        ],
+        "required": 1
+      },
+      "reading": {
+        "status": "fail"
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "reading:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true,
+    "grader": "v2"
+  }
+}

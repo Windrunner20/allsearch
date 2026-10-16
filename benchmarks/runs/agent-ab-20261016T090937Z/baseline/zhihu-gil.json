@@ -1,0 +1,1897 @@
+{
+  "id": "zhihu-gil",
+  "query": "知乎上关于 Python GIL 为什么让多线程吃不满多核的高赞回答",
+  "returncode": 124,
+  "elapsed_ms": 240118,
+  "efficiency": {
+    "tool_calls": {
+      "search": 9,
+      "fetch": 4
+    },
+    "total_calls": 13,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 0,
+    "errors": 0
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "zhihu.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:zhihu.com/question Python GIL 多线程 多核 吃不满 高赞 回答 GIL 为什么 多线程 CPU 核心利用率知乎",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 28245
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "提取该知乎问题的高赞回答：回答者、赞同数、正文中解释 GIL 与多线程/多核关系的原文；同时提取评论区中与该解释直接相关的评论原句及评论者/赞同数（若可见）。",
+        "fresh": false,
+        "max_chars": 30000,
+        "url": "https://www.zhihu.com/question/23474039"
+      },
+      "is_error": false,
+      "ms": 10818
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "提取问题、回答者、赞同数、回答正文和相关评论，尤其是为什么 CPU 密集型多线程无法吃满多核。",
+        "fresh": false,
+        "max_chars": 30000,
+        "url": "https://www.zhihu.com/question/322492039/answer/673843263"
+      },
+      "is_error": false,
+      "ms": 10817
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "提取该知乎问题的高赞回答正文、作者、赞同数和评论原句，核对 GIL 导致多核利用率问题的解释。",
+        "fresh": false,
+        "max_chars": 30000,
+        "url": "https://www.zhihu.com/question/39923765"
+      },
+      "is_error": false,
+      "ms": 10817
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "提取回答正文、作者、赞同数和相关评论原句，关注 GIL、CPU 密集型、多线程、多核。",
+        "fresh": false,
+        "max_chars": 30000,
+        "url": "https://www.zhihu.com/question/648464307"
+      },
+      "is_error": false,
+      "ms": 10818
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "zhihu.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:zhihu.com/question/322492039/answer/673843263 GIL 赞同 评论 多线程 Python 程序 无法充分利用 多个 CPU 核心",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 26819
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "zhihu.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:zhihu.com/question/23474039/answer Python 多线程 鸡肋 GIL 赞同 评论 高赞回答",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 30219
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "zhihu.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:zhihu.com \"为什么多线程Python程序无法充分利用多个CPU核心\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 19653
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "zhihu.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:zhihu.com GIL \"一核干活\" \"多核围观\" 回答",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 24269
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "zhihu.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "\"UPDATE：如评论指出\" Ruby GIL yegle 24695447 评论 原文",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 71718
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "zhihu.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "\"CPython 的GIL 本意是用来保护所有全局的解释器和环境状态变量的\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 31815
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "zhihu.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:zhihu.com/question/23474039/answer/24695447 \"赞同\" OR \"评论\" OR \"GIL\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 26410
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "zhihu.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:zhihu.com/question/23474039 \"1292\" OR \"yegle\" \"CPU密集型\"",
+        "vertical": null
+      }
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.0\", \"result_id\": \"5c93d67b4cba0d16\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:zhihu.com/question Python GIL 多线程 多核 吃不满 高赞 回答 GIL 为什么 多线程 CPU 核心利用率知乎\", \"answer\": \"以下是与「Python GIL、多线程吃不满多核 CPU」最相关的知乎结果（最多 10 条，优先问答与高相关专栏）。\\n\\n1. **为什么有人说 Python 的多线程是鸡肋呢？**  \\n   https://www.zhihu.com/question/23474039  \\n   经典高赞问答。核心点：CPython 下任何线程执行前必须先拿 GIL，同一时刻只有一个线程跑字节码；即使 100 个线程在 100 核上，CPU 密集型也大约只用到 1 核。文中用死循环对比：多线程利用率接近单核，改成 `multiprocessing` 后可打满。I/O 密集时线程会释放 GIL，多线程才有收益。\\n\\n2. **Python进阶：为什么GIL让多线程变得如此鸡肋？**  \\n   https://www.zhihu.com/question/648464307  \\n   2024 年问答。说明 GIL 是 CPython 互斥锁，任意时刻只允许一个线程执行 Python 字节码，多核上是「一核干活、多核围观」。CPU 密集几乎无加速；I/O 时会释放 GIL，多线程有用。建议：多进程、无 GIL 实现，或把计算放到释放 GIL 的 C 扩展（如 NumPy）。\\n\\n3. **python下同样代码，多核多线程为什么比单核多线程慢很多？**  \\n   https://www.zhihu.com/question/39923765  \\n   问答。解释多核上计算密集线程会反复抢 GIL，出现颠簸（thrashing），有时比单核多线程更慢。提到约每 100 个 tick 或超时后释放 GIL（Python 3.2 后约 5ms 强制让出）。绕过方式：多进程，或在扩展里释放 GIL。\\n\\n4. **【Python 并发编程系列】第 4 篇：多进程来了！Python 真的能“多核并行”吗？*…\", \"answer_chars\": 2272, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 2, \"cross_provider_matches\": 1, \"pages_fetched\": 3, \"primary_citation_count\": 13}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 28237, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 20, \"results\": [{\"id\": \"r1\", \"title\": \"https://zhuanlan.zhihu.com/p/1918634950082688599\", \"url\": \"https://zhuanlan.zhihu.com/p/1918634950082688599\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"都是解释型语言，为什么java的多线程的真的，python就是伪多线程？ - 知乎\", \"url\": \"https://www.zhihu.com/question/424649300\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://zhuanlan.zhihu.com/p/34687635\", \"url\": \"https://zhuanlan.zhihu.com/p/34687635\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"谈谈python的GIL、多线程、多进程\", \"url\": \"https://zhuanlan.zhihu.com/p/20953544\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"为什么有人说Python 的多线程是鸡肋呢？\", \"url\": \"https://www.zhihu.com/question/23474039\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r6\", \"title\": \"Python GIL 的终极揭秘！多线程性能瓶颈的真相你必须知道！\", \"url\": \"https://zhuanlan.zhihu.com/p/13421143753\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"https://zhuanlan.zhihu.com/p/455171966\", \"url\": \"https://zhuanlan.zhihu.com/p/455171966\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r8\", \"title\": \"为什么CPython需要GIL? - 知乎\", \"url\": \"https://www.zhihu.com/question/56170408\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"https://www.zhihu.com/question/648464307\", \"url\": \"https://www.zhihu.com/question/648464307\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"为什么多线程Python程序无法充分利用多个CPU核心带来的 ...\", \"url\": \"https://www.zhihu.com/question/322492039/answer/673843263\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://zhuanlan.zhihu.com/p/1918634950082688599\", \"title\": \"https://zhuanlan.zhihu.com/p/1918634950082688599\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.zhihu.com/question/424649300\", \"title\": \"都是解释型语言，为什么java的多线程的真的，python就是伪多线程？ - 知乎\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://zhuanlan.zhihu.com/p/34687635\", \"title\": \"https://zhuanlan.zhihu.com/p/34687635\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://zhuanlan.zhihu.com/p/20953544\", \"title\": \"谈谈python的GIL、多线程、多进程\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://www.zhihu.com/question/23474039\", \"title\": \"为什么有人说Python 的多线程是鸡肋呢？\", \"result_item_id\": \"r5\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c6\", \"url\": \"https://zhuanlan.zhihu.com/p/13421143753\", \"title\": \"Python GIL 的终极揭秘！多线程性能瓶颈的真相你必须知道！\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://zhuanlan.zhihu.com/p/455171966\", \"title\": \"https://zhuanlan.zhihu.com/p/455171966\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://www.zhihu.com/question/56170408\", \"title\": \"为什么CPython需要GIL? - 知乎\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://www.zhihu.com/question/648464307\", \"title\": \"https://www.zhihu.com/question/648464307\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.zhihu.com/question/322492039/answer/673843263\", \"title\": \"为什么多线程Python程序无法充分利用多个CPU核心带来的 ...\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://zhuanlan.zhihu.com/p/1922709704695590980\", \"title\": \"https://zhuanlan.zhihu.com/p/1922709704695590980\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://zhuanlan.zhihu.com/p/537193760\", \"title\": \"https://zhuanlan.zhihu.com/p/537193760\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://zhuanlan.zhihu.com/p/1909656215111340089\", \"title\": \"https://zhuanlan.zhihu.com/p/1909656215111340089\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://www.zhihu.com/question/39923765\", \"title\": \"https://www.zhihu.com/question/39923765\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://zhuanlan.zhihu.com/p/1943962631212867675\", \"title\": \"https://zhuanlan.zhihu.com/p/1943962631212867675\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://zhuanlan.zhihu.com/p/356475230\", \"title\": \"https://zhuanlan.zhihu.com/p/356475230\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://zhuanlan.zhihu.com/p/1923366864152658874\", \"title\": \"https://zhuanlan.zhihu.com/p/1923366864152658874\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://zhuanlan.zhihu.com/p/1975968147522736515\", \"title\": \"https://zhuanlan.zhihu.com/p/1975968147522736515\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://zhuanlan.zhihu.com/p/337472434\", \"title\": \"Python进阶——为什么GIL让多线程变得如此鸡肋？\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c20\", \"url\": \"https://zhuanlan.zhihu.com/p/689222056\", \"title\": \"Python GIL 全局解释器锁，简单学一学（附面试题）\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"5c93d67b4cba0d16\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"f648641e47d831fa\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://www.zhihu.com/question/23474039\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"f648641e47d831fa\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"e87b626b63d782bd\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://www.zhihu.com/question/322492039/answer/673843263\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"e87b626b63d782bd\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"90ebc0c227f7ca26\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://www.zhihu.com/question/39923765\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"90ebc0c227f7ca26\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"208d2378373c8fd4\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://www.zhihu.com/question/648464307\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"208d2378373c8fd4\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"2129a47d27438a46\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:zhihu.com/question/322492039/answer/673843263 GIL 赞同 评论 多线程 Python 程序 无法充分利用 多个 CPU 核心\", \"answer\": \"The exact page `zhihu.com/question/322492039/answer/673843263` did not appear in search results. Closest relevant Zhihu hits on GIL and multi-threaded Python not fully using multiple CPU cores:\\n\\n1. **一文理解Python的全局解释器锁（GIL）** — [zhuanlan.zhihu.com/p/690194234](https://zhuanlan.zhihu.com/p/690194234) (2024-04-01)  \\n   States GIL lets only one thread run Python bytecode at a time, so multi-threaded CPU-bound programs cannot use multiple cores (they effectively stay on one CPU). I/O-bound work can still benefit because GIL is released during I/O.\\n\\n2. **Python进阶：为什么GIL让多线程变得如此鸡肋？** — [zhihu.com/question/648464307](https://www.zhihu.com/question/648464307) (2024-03-13)  \\n   Answers say CPython’s GIL is a mutex so only one thread executes bytecode; on multi-core CPUs this is “one core working, t…\", \"answer_chars\": 3694, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 2, \"cross_provider_matches\": 1, \"pages_fetched\": 0, \"primary_citation_count\": 19}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 26805, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}], \"result_count\": 10, \"citation_count\": 26, \"results\": [{\"id\": \"r1\", \"title\": \"https://zhuanlan.zhihu.com/p/1922709704695590980\", \"url\": \"https://zhuanlan.zhihu.com/p/1922709704695590980\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"Python基础00：Python语言简介\", \"url\": \"https://zhuanlan.zhihu.com/p/480782451\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://zhuanlan.zhihu.com/p/1918634950082688599\", \"url\": \"https://zhuanlan.zhihu.com/p/1918634950082688599\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"5 > 解锁Python并发编程：多线程和多进程的神秘面纱揭晓\", \"url\": \"https://zhuanlan.zhihu.com/p/631242397\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://zhuanlan.zhihu.com/p/2006715679823402687\", \"url\": \"https://zhuanlan.zhihu.com/p/2006715679823402687\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"为什么有人说Python 的多线程是鸡肋呢？\", \"url\": \"https://www.zhihu.com/question/23474039\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r7\", \"title\": \"https://zhuanlan.zhihu.com/p/537193760\", \"url\": \"https://zhuanlan.zhihu.com/p/537193760\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"110道python面试笔试题汇总\", \"url\": \"https://zhuanlan.zhihu.com/p/349445872\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"https://zhuanlan.zhihu.com/p/311877485\", \"url\": \"https://zhuanlan.zhihu.com/p/311877485\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"总算搞明白了！进程，线程，协程，生成器，迭代器搞的我脑子 ...\", \"url\": \"https://zhuanlan.zhihu.com/p/353540067\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://zhuanlan.zhihu.com/p/1922709704695590980\", \"title\": \"https://zhuanlan.zhihu.com/p/1922709704695590980\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://zhuanlan.zhihu.com/p/480782451\", \"title\": \"Python基础00：Python语言简介\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://zhuanlan.zhihu.com/p/1918634950082688599\", \"title\": \"https://zhuanlan.zhihu.com/p/1918634950082688599\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://zhuanlan.zhihu.com/p/631242397\", \"title\": \"5 > 解锁Python并发编程：多线程和多进程的神秘面纱揭晓\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://zhuanlan.zhihu.com/p/2006715679823402687\", \"title\": \"https://zhuanlan.zhihu.com/p/2006715679823402687\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://www.zhihu.com/question/23474039\", \"title\": \"为什么有人说Python 的多线程是鸡肋呢？\", \"result_item_id\": \"r6\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://zhuanlan.zhihu.com/p/537193760\", \"title\": \"https://zhuanlan.zhihu.com/p/537193760\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://zhuanlan.zhihu.com/p/349445872\", \"title\": \"110道python面试笔试题汇总\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://zhuanlan.zhihu.com/p/311877485\", \"title\": \"https://zhuanlan.zhihu.com/p/311877485\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://zhuanlan.zhihu.com/p/353540067\", \"title\": \"总算搞明白了！进程，线程，协程，生成器，迭代器搞的我脑子 ...\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://zhuanlan.zhihu.com/p/75780308\", \"title\": \"https://zhuanlan.zhihu.com/p/75780308\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://zhuanlan.zhihu.com/p/21303150073\", \"title\": \"https://zhuanlan.zhihu.com/p/21303150073\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://zhuanlan.zhihu.com/p/1923366864152658874\", \"title\": \"https://zhuanlan.zhihu.com/p/1923366864152658874\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://zhuanlan.zhihu.com/p/345466945\", \"title\": \"https://zhuanlan.zhihu.com/p/345466945\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://zhuanlan.zhihu.com/p/1909656215111340089\", \"title\": \"https://zhuanlan.zhihu.com/p/1909656215111340089\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://zhuanlan.zhihu.com/p/455171966\", \"title\": \"https://zhuanlan.zhihu.com/p/455171966\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://zhuanlan.zhihu.com/p/607655350\", \"title\": \"https://zhuanlan.zhihu.com/p/607655350\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://zhuanlan.zhihu.com/p/34687635\", \"title\": \"https://zhuanlan.zhihu.com/p/34687635\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://zhuanlan.zhihu.com/p/690194234\", \"title\": \"https://zhuanlan.zhihu.com/p/690194234\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"https://zhuanlan.zhihu.com/p/1943962631212867675\", \"title\": \"https://zhuanlan.zhihu.com/p/1943962631212867675\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"https://www.zhihu.com/question/22233183\", \"title\": \"https://www.zhihu.com/question/22233183\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"https://www.zhihu.com/question/19550225/answer/1992357984303595568\", \"title\": \"https://www.zhihu.com/question/19550225/answer/1992357984303595568\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c23\", \"url\": \"https://www.zhihu.com/question/648464307\", \"title\": \"https://www.zhihu.com/question/648464307\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c24\", \"url\": \"https://zhuanlan.zhihu.com/p/2037644024052458102\", \"title\": \"解锁Python 真正性能：深入理解并掌握多进程编程\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c25\", \"url\": \"https://zhuanlan.zhihu.com/p/2072456875942098030\", \"title\": \"我们做了一个默认无GIL的Python开发容器：8线程5.3倍加速\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c26\", \"url\": \"https://zhuanlan.zhihu.com/p/662663575\", \"title\": \"Numexpr：Pandas背后的超级计算引擎\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"2129a47d27438a46\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"120623dd3118a5d2\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:zhihu.com/question/23474039/answer Python 多线程 鸡肋 GIL 赞同 评论 高赞回答\", \"answer\": \"Exact question match and related high-engagement Zhihu pieces on Python multithreading being “鸡肋” because of the GIL.\\n\\n1. **为什么有人说 Python 的多线程是鸡肋呢？** — https://www.zhihu.com/question/23474039  \\n   Published 2014-04-19. High-voted answers (snippet shows ~1292 赞同 on one widely shared reply). Core claim: CPython’s GIL means only one thread runs Python bytecode at a time (historically released every ~100 bytecodes), so CPU-bound work cannot use multiple cores and may be slower than a single thread due to context switches. IO-bound work can still benefit. Workaround cited: multiprocessing (each process has its own GIL), or C extensions. Also points to 廖雪峰’s blog. Another answer notes CPU-heavy threads are often effectively serial, so multithreading is “鸡肋.”\\n\\n2. **Python进阶：为什么GIL让多线程变得如此鸡肋？** —…\", \"answer_chars\": 3249, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 2, \"cross_provider_matches\": 1, \"pages_fetched\": 0, \"primary_citation_count\": 11}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 30201, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}], \"result_count\": 10, \"citation_count\": 18, \"results\": [{\"id\": \"r1\", \"title\": \"https://zhuanlan.zhihu.com/p/1943962631212867675\", \"url\": \"https://zhuanlan.zhihu.com/p/1943962631212867675\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"为什么有人说Python 的多线程是鸡肋呢？ - yegle 的回答\", \"url\": \"https://www.zhihu.com/question/23474039/answer/24695447\", \"snippet\": \"UPDATE：如评论指出，Ruby也是有thread支持的，而且至少Ruby MRI是有GIL的。 如果你的代码是CPU密集型，多个线程的代码很有可能是线性执行的。所以这\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://zhuanlan.zhihu.com/p/1981807214424527629\", \"url\": \"https://zhuanlan.zhihu.com/p/1981807214424527629\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"为什么有人说Python 的多线程是鸡肋呢？\", \"url\": \"https://www.zhihu.com/question/23474039\", \"snippet\": \"这个GIL全局锁实际上把所有线程的执行代码都给上了锁，所以，多线程在Python中只能交替执行，即使100个线程跑在100核CPU上，也只能用到1个核。通常我们用\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://www.zhihu.com/question/648464307\", \"url\": \"https://www.zhihu.com/question/648464307\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"你见过哪些令你瞠目结舌的Python 代码技巧？ - 杞鋂的回答- 知乎\", \"url\": \"https://www.zhihu.com/question/37904398/answer/1943067740651914792\", \"snippet\": \"GIL的正确理解：. GIL只影响多线程，不影响多进程; I/O密集型任务受GIL影响较小; CPU密集型任务建议使用multiprocessing; 不要误解为\\\"Python不支持多线程\\\".\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"https://zhuanlan.zhihu.com/p/477826233\", \"url\": \"https://zhuanlan.zhihu.com/p/477826233\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"为何大部分运维工程师是Go语言工程师？ - 知乎\", \"url\": \"https://www.zhihu.com/question/361159265\", \"snippet\": \"要学习Go语言可以参考我这篇高赞回答。 GIL线程锁导致的性能不佳,让其落后了其他语言一个大版本。 等待官方的正式改善,再切回python了。\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"https://zhuanlan.zhihu.com/p/1918634950082688599\", \"url\": \"https://zhuanlan.zhihu.com/p/1918634950082688599\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"为什么会有程序员不喜欢Python？ - 架构师专栏的回答- 知乎\", \"url\": \"https://www.zhihu.com/question/45773200/answer/3625425903\", \"snippet\": \"四、GIL全局解释器锁:并发编程的绊脚石啊,这个GIL(全局解释器锁),Python的老毛病了。简单来说,GIL就是Python多线程编程中的一道\\\"绊脚石\\\"。\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://zhuanlan.zhihu.com/p/1943962631212867675\", \"title\": \"https://zhuanlan.zhihu.com/p/1943962631212867675\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.zhihu.com/question/23474039/answer/24695447\", \"title\": \"为什么有人说Python 的多线程是鸡肋呢？ - yegle 的回答\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://zhuanlan.zhihu.com/p/1981807214424527629\", \"title\": \"https://zhuanlan.zhihu.com/p/1981807214424527629\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://www.zhihu.com/question/23474039\", \"title\": \"为什么有人说Python 的多线程是鸡肋呢？\", \"result_item_id\": \"r4\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://www.zhihu.com/question/648464307\", \"title\": \"https://www.zhihu.com/question/648464307\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://www.zhihu.com/question/37904398/answer/1943067740651914792\", \"title\": \"你见过哪些令你瞠目结舌的Python 代码技巧？ - 杞鋂的回答- 知乎\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://zhuanlan.zhihu.com/p/477826233\", \"title\": \"https://zhuanlan.zhihu.com/p/477826233\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://www.zhihu.com/question/361159265\", \"title\": \"为何大部分运维工程师是Go语言工程师？ - 知乎\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://zhuanlan.zhihu.com/p/1918634950082688599\", \"title\": \"https://zhuanlan.zhihu.com/p/1918634950082688599\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.zhihu.com/question/45773200/answer/3625425903\", \"title\": \"为什么会有程序员不喜欢Python？ - 架构师专栏的回答- 知乎\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://zhuanlan.zhihu.com/p/1909656215111340089\", \"title\": \"https://zhuanlan.zhihu.com/p/1909656215111340089\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://zhuanlan.zhihu.com/p/1922709704695590980\", \"title\": \"https://zhuanlan.zhihu.com/p/1922709704695590980\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://zhuanlan.zhihu.com/p/75780308\", \"title\": \"https://zhuanlan.zhihu.com/p/75780308\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://zhuanlan.zhihu.com/p/1923366864152658874\", \"title\": \"https://zhuanlan.zhihu.com/p/1923366864152658874\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://zhuanlan.zhihu.com/p/20953544\", \"title\": \"https://zhuanlan.zhihu.com/p/20953544\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://zhuanlan.zhihu.com/p/363040263\", \"title\": \"一文详解Python GIL 设计 - 知乎专栏\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c17\", \"url\": \"https://www.zhihu.com/question/20491745\", \"title\": \"Java 和Python 有哪些区别？ - 知乎\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c18\", \"url\": \"https://www.zhihu.com/question/49699183/answer/3541585454\", \"title\": \"用Rust做Web开发是怎样的一种体验？ - 知乎用户的回答\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"120623dd3118a5d2\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"f12922c4b538526d\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:zhihu.com \\\"为什么多线程Python程序无法充分利用多个CPU核心\\\"\", \"answer\": \"Relevant Zhihu results on why multithreaded Python often cannot use multiple CPU cores (mainly the CPython GIL).\\n\\n1. **一文理解Python的全局解释器锁（GIL）** — https://zhuanlan.zhihu.com/p/690194234 (2024-04-01)  \\n   GIL is a mutex so only one thread runs Python bytecode at a time; CPU-bound multithreaded programs stay on one core. I/O-bound work can still benefit because threads release the GIL while waiting.\\n\\n2. **Python进阶：为什么GIL让多线程变得如此鸡肋？** — https://www.zhihu.com/question/648464307 (2024-03-13)  \\n   Same-time only one thread executes bytecode, so CPU-bound threads do not get true multi-core parallelism (“一核打架，多核围观”). I/O tasks can still overlap.\\n\\n3. **为什么有人说 Python 的多线程是鸡肋呢？** — https://www.zhihu.com/question/23474039 (2014-04-19)  \\n   Classic explanation: threads must hold the GIL, so even many t…\", \"answer_chars\": 2793, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 2, \"cross_provider_matches\": 1, \"pages_fetched\": 0, \"primary_citation_count\": 11}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 19636, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}], \"result_count\": 10, \"citation_count\": 18, \"results\": [{\"id\": \"r1\", \"title\": \"https://zhuanlan.zhihu.com/p/1943962631212867675\", \"url\": \"https://zhuanlan.zhihu.com/p/1943962631212867675\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"为什么多线程Python程序无法充分利用多个CPU核心带来的 ...\", \"url\": \"https://www.zhihu.com/question/322492039/answer/673843263\", \"snippet\": \"CPython 的GIL 本意是用来保护所有全局的解释器和环境状态变量的。如果去掉GIL,就需要多个更细粒度的锁对解释器的众多全局状态进行保护。\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://zhuanlan.zhihu.com/p/1975968147522736515\", \"url\": \"https://zhuanlan.zhihu.com/p/1975968147522736515\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"Python语言中进程、线程、协程执行效率分析\", \"url\": \"https://zhuanlan.zhihu.com/p/1897960995013518309\", \"snippet\": \"GIL的存在意味着在多核CPU系统上,即使有多个线程,Python代码也无法实现真正的并行执行。这是因为无论有多少个线程或多少个CPU核心\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://zhuanlan.zhihu.com/p/34687635\", \"url\": \"https://zhuanlan.zhihu.com/p/34687635\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"python—多线程与多进程\", \"url\": \"https://zhuanlan.zhihu.com/p/71994408\", \"snippet\": \"多进程因为GIL存在,无法利用到多核CPU的优势,这个时候多进程出来了,它能利用多个CPU并发的优势实现并行。\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"https://zhuanlan.zhihu.com/p/1923366864152658874\", \"url\": \"https://zhuanlan.zhihu.com/p/1923366864152658874\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"只用3行代码，让Python提速4倍！最强辅助\", \"url\": \"https://zhuanlan.zhihu.com/p/74349810\", \"snippet\": \"... 无法充分利用多核CPU。 但是Process Pool能解决这个问题！因为我们是运行单独的Python实例，每个实例都有自己的GIL。这样我们获得是真正能并行处理的Python代码！ 不要\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"https://zhuanlan.zhihu.com/p/1922709704695590980\", \"url\": \"https://zhuanlan.zhihu.com/p/1922709704695590980\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"为什么有人说Python 的多线程是鸡肋呢？\", \"url\": \"https://www.zhihu.com/question/23474039\", \"snippet\": \"这个GIL全局锁实际上把所有线程的执行代码都给上了锁，所以，多线程在Python中只能交替执行，即使100个线程跑在100核CPU上，也只能用到1个核。通常我们用\", \"providers\": [\"xai\", \"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://zhuanlan.zhihu.com/p/1943962631212867675\", \"title\": \"https://zhuanlan.zhihu.com/p/1943962631212867675\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.zhihu.com/question/322492039/answer/673843263\", \"title\": \"为什么多线程Python程序无法充分利用多个CPU核心带来的 ...\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://zhuanlan.zhihu.com/p/1975968147522736515\", \"title\": \"https://zhuanlan.zhihu.com/p/1975968147522736515\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://zhuanlan.zhihu.com/p/1897960995013518309\", \"title\": \"Python语言中进程、线程、协程执行效率分析\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://zhuanlan.zhihu.com/p/34687635\", \"title\": \"https://zhuanlan.zhihu.com/p/34687635\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://zhuanlan.zhihu.com/p/71994408\", \"title\": \"python—多线程与多进程\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://zhuanlan.zhihu.com/p/1923366864152658874\", \"title\": \"https://zhuanlan.zhihu.com/p/1923366864152658874\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://zhuanlan.zhihu.com/p/74349810\", \"title\": \"只用3行代码，让Python提速4倍！最强辅助\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://zhuanlan.zhihu.com/p/1922709704695590980\", \"title\": \"https://zhuanlan.zhihu.com/p/1922709704695590980\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.zhihu.com/question/23474039\", \"title\": \"为什么有人说Python 的多线程是鸡肋呢？\", \"result_item_id\": \"r10\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://zhuanlan.zhihu.com/p/690194234\", \"title\": \"https://zhuanlan.zhihu.com/p/690194234\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://www.zhihu.com/question/648464307\", \"title\": \"https://www.zhihu.com/question/648464307\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://zhuanlan.zhihu.com/p/537193760\", \"title\": \"https://zhuanlan.zhihu.com/p/537193760\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://zhuanlan.zhihu.com/p/455171966\", \"title\": \"https://zhuanlan.zhihu.com/p/455171966\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://www.zhihu.com/question/596560660\", \"title\": \"https://www.zhihu.com/question/596560660\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://zhuanlan.zhihu.com/p/415079838\", \"title\": \"Python进阶：为什么GIL让多线程变得如此鸡肋？\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c17\", \"url\": \"https://zhuanlan.zhihu.com/p/109935152\", \"title\": \"详解Python进程和线程\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c18\", \"url\": \"https://zhuanlan.zhihu.com/p/1934295674872131636\", \"title\": \"并行编程中多进程和多线程，什么情况下多进程能解决的多 ...\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"f12922c4b538526d\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"f4089d0e1425e219\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:zhihu.com GIL \\\"一核干活\\\" \\\"多核围观\\\" 回答\", \"answer\": \"Closest Zhihu hits use near-variants of the phrase (**一核打架/有难，多核围观**), not the exact string “一核干活、多核围观.” These are the most relevant GIL-related results:\\n\\n1. **Python进阶：为什么GIL让多线程变得如此鸡肋？** — 知乎问答  \\n   https://www.zhihu.com/question/648464307  \\n   2024-03. Explains GIL: one thread runs bytecode at a time; on multi-core CPUs this becomes “一核打架，多核围观.” CPU-bound threads don’t scale; I/O-bound can still benefit because the GIL is released during I/O. Suggests multiprocessing or no-GIL implementations.\\n\\n2. **深入理解Python中的GIL（全局解释器锁）** — 知乎专栏  \\n   https://zhuanlan.zhihu.com/p/75780308  \\n   2019-09. Historical single-core lock model vs modern multi-core; extreme case “一核有难，八核围观” when one thread holds the GIL (e.g. busy loop). Notes Python 2.x check-interval unfairness.\\n\\n3. **为什么有人说 Python 的多线程是鸡肋呢…\", \"answer_chars\": 2853, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 2, \"cross_provider_matches\": 1, \"pages_fetched\": 0, \"primary_citation_count\": 23}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 24247, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}], \"result_count\": 10, \"citation_count\": 30, \"results\": [{\"id\": \"r1\", \"title\": \"\", \"url\": \"https://www.zhihu.com/question/308040776\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"\", \"url\": \"https://zhuanlan.zhihu.com/p/657540221\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"\", \"url\": \"https://www.zhihu.com/question/513783154\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"\", \"url\": \"https://zhuanlan.zhihu.com/p/421351994\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"\", \"url\": \"https://www.zhihu.com/tardis/zm/art/129074423\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"\", \"url\": \"https://zhuanlan.zhihu.com/p/689222056\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"\", \"url\": \"https://zhuanlan.zhihu.com/p/607655350\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"\", \"url\": \"https://zhuanlan.zhihu.com/p/20953544\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"\", \"url\": \"https://zhuanlan.zhihu.com/p/34687635\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"\", \"url\": \"https://zhuanlan.zhihu.com/p/1943962631212867675\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.zhihu.com/question/308040776\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://zhuanlan.zhihu.com/p/657540221\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://www.zhihu.com/question/513783154\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://zhuanlan.zhihu.com/p/421351994\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://www.zhihu.com/tardis/zm/art/129074423\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://zhuanlan.zhihu.com/p/689222056\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://zhuanlan.zhihu.com/p/607655350\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://zhuanlan.zhihu.com/p/20953544\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://zhuanlan.zhihu.com/p/34687635\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://zhuanlan.zhihu.com/p/1943962631212867675\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://zhuanlan.zhihu.com/p/690194234\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://www.zhihu.com/question/463430941\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://zhuanlan.zhihu.com/p/1918634950082688599\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://zhuanlan.zhihu.com/p/1971999692226295183\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://www.zhihu.com/question/23474039\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://www.zhihu.com/question/629793756/answer/3618343448\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://www.zhihu.com/question/39923765\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://zhuanlan.zhihu.com/p/13735430722\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://www.zhihu.com/question/596560660\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"https://zhuanlan.zhihu.com/p/53596593\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"https://zhuanlan.zhihu.com/p/75780308\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"https://zhuanlan.zhihu.com/p/1923366864152658874\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c23\", \"url\": \"https://zhuanlan.zhihu.com/p/169721065\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c24\", \"url\": \"https://www.zhihu.com/question/648464307\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c25\", \"url\": \"https://zhuanlan.zhihu.com/p/1922709704695590980\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c26\", \"url\": \"https://zhuanlan.zhihu.com/p/1962286156633866775\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c27\", \"url\": \"https://www.zhihu.com/question/585198012\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c28\", \"url\": \"https://zhuanlan.zhihu.com/p/69211607\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c29\", \"url\": \"https://zhuanlan.zhihu.com/p/688562886\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c30\", \"url\": \"https://zhuanlan.zhihu.com/p/1897960995013518309\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"f4089d0e1425e219\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"e836565e63e3e966\", \"kind\": \"search\", \"status\": \"partial\", \"query\": \"\\\"UPDATE：如评论指出\\\" Ruby GIL yegle 24695447 评论 原文\", \"answer\": \"公开索引里，能对上这句 UPDATE 的是知乎问题「为什么有人说 Python 的多线程是鸡肋呢？」下的短回答；**yegle 评论 24695447 的全文没有被抓进可检索片段**，下面只能给出该回答里转述的内容，以及相关出处。\\n\\n### 该回答里的转述（非评论原文）\\n\\n作者先写：解释型语言里，可能只有 Python 算正经支持多线程（Perl 多线程不完整，PHP 没有），但 Python 有妥协——任意时刻只有一个解释器在执行 bytecode。\\n\\n随后的更正是：\\n\\n> UPDATE：如评论指出，Ruby 也是有 thread 支持的，而且至少 Ruby MRI 是有 GIL 的。\\n\\n出处：知乎问题 [为什么有人说 Python 的多线程是鸡肋呢？](https://www.zhihu.com/question/23474039)（问题页约 2014-04-19；短回答以 “GIL blablabla concurrent blablabla” 起头）。评论 id **24695447**、用户 **yegle** 只出现在你的检索串里，正文未收录。\\n\\n### 相关结果（精简）\\n\\n1. **同一短回答的后文** — CPU 密集时多线程多半近似串行，还可能更慢；IO 密集时 C 扩展会释放 GIL，多线程有用；CPU 密集应改用 `multiprocessing`。来源同上。  \\n2. **廖雪峰转载向回答（同问题，高赞）** — CPython 的 GIL 使多线程不能用满多核；多进程各有自己的 GIL。同页。  \\n3. **Ruby MRI 也有 GIL** — 另一条知乎回答写明：可预见的一段时间内 CPython 不会去掉 GIL；**Ruby 官方实现 MRI 同样有这个问题**；常见办法是多进程。见 [能否解决 Python 不能利用多核](https:…\", \"answer_chars\": 1269, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 2, \"cross_provider_matches\": 0, \"pages_fetched\": 1, \"primary_citation_count\": 37}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 71685, \"warning_count\": 0, \"warnings\": [], \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}, {\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 45, \"results\": [{\"id\": \"r1\", \"title\": \"\", \"url\": \"https://zhuanlan.zhihu.com/p/142651312\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"\", \"url\": \"https://www.zhihu.com/question/23474039/answer/24695447\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"\", \"url\": \"https://zhuanlan.zhihu.com/p/2091598970225156393\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"\", \"url\": \"https://zhuanlan.zhihu.com/p/24132781\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"\", \"url\": \"https://zhuanlan.zhihu.com/p/40048453\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"\", \"url\": \"https://zhuanlan.zhihu.com/p/34142963\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"\", \"url\": \"https://www.zhihu.com/question/579042308\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"\", \"url\": \"https://zhuanlan.zhihu.com/p/381998926\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"\", \"url\": \"https://zhuanlan.zhihu.com/p/1918634950082688599\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"\", \"url\": \"https://www.zhihu.com/question/437924217/answer/1661548006\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://zhuanlan.zhihu.com/p/142651312\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.zhihu.com/question/23474039/answer/24695447\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://zhuanlan.zhihu.com/p/2091598970225156393\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://zhuanlan.zhihu.com/p/24132781\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://zhuanlan.zhihu.com/p/40048453\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://zhuanlan.zhihu.com/p/34142963\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://www.zhihu.com/question/579042308\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://zhuanlan.zhihu.com/p/381998926\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://zhuanlan.zhihu.com/p/1918634950082688599\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.zhihu.com/question/437924217/answer/1661548006\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://zhuanlan.zhihu.com/p/690194234\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://zhuanlan.zhihu.com/p/1900970147008737495\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://zhuanlan.zhihu.com/p/2092181395036693278\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://www.zhihu.com/question/2092306646621844796\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://zhuanlan.zhihu.com/p/2093630195785848762\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://zhuanlan.zhihu.com/p/20359902387\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://zhuanlan.zhihu.com/p/463860011\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://zhuanlan.zhihu.com/p/76325454\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://zhuanlan.zhihu.com/p/27813382\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"https://www.zhihu.com/en/article/19911152\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"https://zhuanlan.zhihu.com/p/722282867\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"https://www.zhihu.com/question/9499812897\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c23\", \"url\": \"https://www.zhihu.com/question/450304575\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c24\", \"url\": \"https://zhuanlan.zhihu.com/p/2093741236339341284\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c25\", \"url\": \"https://zhuanlan.zhihu.com/p/41753038\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c26\", \"url\": \"https://zhuanlan.zhihu.com/p/1943962631212867675\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c27\", \"url\": \"https://zhuanlan.zhihu.com/p/1949077555048064134\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c28\", \"url\": \"https://www.zhihu.com/question/457746891/answer/3044883370\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c29\", \"url\": \"https://zhuanlan.zhihu.com/p/497806823\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c30\", \"url\": \"https://zhuanlan.zhihu.com/p/903315686\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c31\", \"url\": \"https://zhuanlan.zhihu.com/p/75780308\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"e836565e63e3e966\"}, \"citations_truncated\": true}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"5612afc1019a9181\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"\\\"CPython 的GIL 本意是用来保护所有全局的解释器和环境状态变量的\\\"\", \"answer\": \"这句话是中文技术博客里的常见概括，和官方说法方向一致，但不是 CPython 文档的原文。官方更精确的表述是：GIL 是一把互斥锁，保证同一时刻只有一个原生线程执行 Python 字节码；它存在的主要原因是 CPython 的内存管理（尤其引用计数）不是线程安全的。有了 GIL 之后，解释器内部状态和很多 C 扩展也依赖它提供的串行保证。\\n\\n相关结果（最多 10 条）：\\n\\n1. **知乎转述的博客原文（与题句完全一致）**  \\n   “CPython 的 GIL 本意是用来保护所有全局的解释器和环境状态变量的。如果去掉 GIL，就需要多个更细粒度的锁……或采用 Lock-Free 算法。”  \\n   来源：知乎专栏转载 CSDN 博文，https://zhuanlan.zhihu.com/p/345466945\\n\\n2. **CPython 文档（glossary / 常见引用）**  \\n   GIL 是 mutex，阻止多个原生线程同时执行 Python 字节码；主要因为 CPython 的内存管理不是线程安全的；后来其他特性也依赖它的保证。  \\n   多篇中文转引同一段官方说明，例如 https://zhuanlan.zhihu.com/p/75780308\\n\\n3. **Python 文档对解释器线程安全的表述**  \\n   解释器并非完全线程安全；当前线程必须持有 GIL 才能安全访问 Python 对象。  \\n   转引自 Python 3.6 文档，见 https://zhuanlan.zhihu.com/p/34687635\\n\\n4. **官方对“简化实现”的说明**  \\n   GIL 让对象模型（包括 dict 等内建类型）对并发访问隐式安全；锁住整个解释器降低了实现多线程的难度，代价是多核并行。  \\n   转述见 https://zhuanlan.zhihu.…\", \"answer_chars\": 1901, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 2, \"cross_provider_matches\": 1, \"pages_fetched\": 3, \"primary_citation_count\": 20}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 31791, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 27, \"results\": [{\"id\": \"r1\", \"title\": \"\", \"url\": \"https://zhuanlan.zhihu.com/p/627502134\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"\", \"url\": \"https://www.zhihu.com/question/322492039/answer/673843263\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"\", \"url\": \"https://zhuanlan.zhihu.com/p/97841115\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"\", \"url\": \"https://zhuanlan.zhihu.com/p/75780308\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r5\", \"title\": \"\", \"url\": \"https://zhuanlan.zhihu.com/p/34687635\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r6\", \"title\": \"\", \"url\": \"https://zhuanlan.zhihu.com/p/302278912\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"\", \"url\": \"https://zhuanlan.zhihu.com/p/39352198\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"\", \"url\": \"https://zhuanlan.zhihu.com/p/678426916\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"\", \"url\": \"https://zhuanlan.zhihu.com/p/477826233\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"\", \"url\": \"https://zhuanlan.zhihu.com/p/577244034\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://zhuanlan.zhihu.com/p/627502134\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.zhihu.com/question/322492039/answer/673843263\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://zhuanlan.zhihu.com/p/97841115\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://zhuanlan.zhihu.com/p/75780308\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://zhuanlan.zhihu.com/p/34687635\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://zhuanlan.zhihu.com/p/302278912\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://zhuanlan.zhihu.com/p/39352198\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://zhuanlan.zhihu.com/p/678426916\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://zhuanlan.zhihu.com/p/477826233\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://zhuanlan.zhihu.com/p/577244034\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://zhuanlan.zhihu.com/p/537193760\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://www.zhihu.com/question/23474039\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://zhuanlan.zhihu.com/p/345466945\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://zhuanlan.zhihu.com/p/20953544\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://zhuanlan.zhihu.com/p/164627977\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://zhuanlan.zhihu.com/p/690194234\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://www.zhihu.com/question/38380754\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://www.zhihu.com/question/323812020\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://zhuanlan.zhihu.com/p/1918634950082688599\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"https://zhuanlan.zhihu.com/p/311877485\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"https://zhuanlan.zhihu.com/p/586030177\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"https://zhuanlan.zhihu.com/p/663294010\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c23\", \"url\": \"https://zhuanlan.zhihu.com/p/85927203\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c24\", \"url\": \"https://zhuanlan.zhihu.com/p/1943962631212867675\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c25\", \"url\": \"https://zhuanlan.zhihu.com/p/152231453\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c26\", \"url\": \"https://zhuanlan.zhihu.com/p/2072456875942098030\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c27\", \"url\": \"https://zhuanlan.zhihu.com/p/2054510112748975844\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"5612afc1019a9181\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"e229b729df0594a1\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:zhihu.com/question/23474039/answer/24695447 \\\"赞同\\\" OR \\\"评论\\\" OR \\\"GIL\\\"\", \"answer\": \"The exact answer URL did not return page content. The parent question is indexed and is about Python’s GIL and “fake” multithreading. Related hits are mostly other Zhihu GIL write-ups, not that answer.\\n\\n### Closest match\\n1. **为什么有人说 Python 的多线程是鸡肋呢？**  \\n   https://www.zhihu.com/question/23474039  \\n   Question id `23474039` (2014-04-19). Visible excerpt: CPython’s GIL means only one thread runs Python bytecode at a time; threads alternate (about every 100 bytecodes); I/O can release the GIL; CPU-bound threads still use one core. Answer `24695447` is not in the snippet and the direct URL failed to load.  \\n   [[1]](https://www.zhihu.com/question/23474039)\\n\\n### Requested URL\\n2. **https://www.zhihu.com/question/23474039/answer/24695447**  \\n   Direct fetch failed. No search hit returned that an…\", \"answer_chars\": 2046, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 2, \"cross_provider_matches\": 0, \"pages_fetched\": 3, \"primary_citation_count\": 5}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 26386, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 13, \"results\": [{\"id\": \"r1\", \"title\": \"1\", \"url\": \"https://www.zhihu.com/question/23474039\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"Python全局解释器锁GIL机制\", \"url\": \"https://zhuanlan.zhihu.com/p/81416938\", \"snippet\": \"Title: Python全局解释器锁GIL机制\\n# Python全局解释器锁GIL机制. > 全局解释器锁（Global Interpreter Lock，GIL）是Python独有的，是Python中的一种机制，可以防止多个Python线程同时执行。这意味着如果程序编写有十个并发线程，那么其中只有一个可以被执行，…\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"2\", \"url\": \"https://zhuanlan.zhihu.com/p/75780308\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"什么是python的全局解释锁（GIL）? - 知乎\", \"url\": \"https://www.zhihu.com/question/625230103?write=\", \"snippet\": \"Python 全局解释器锁或GIL，简单来说，是一个互斥锁（或锁），它只允许一个线程控制 Python 解释器。. 这意味着在任何时间点都只能有一个线程处于执行状态。执行单线程程序的开发人员看不到 GIL 的影响，但它可能是 CPU 密集型和多线程代码中的性能瓶颈。. 由于即使在具有多个 CPU 内核的多线程架构中，…\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"3\", \"url\": \"https://zhuanlan.zhihu.com/p/690194234\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r6\", \"title\": \"如何让提示词结构化输出？\", \"url\": \"https://zhuanlan.zhihu.com/p/26609267871\", \"snippet\": \"Title: 如何让提示词结构化输出？\\n# 如何让提示词结构化输出？. 这种方式是最基础，直接在提示词里，告诉模型需要输出的标签，和标签的判断要求，输出的标签是中文名称。. | 请根据老师和家长的对话，返回以下标签。 是否售卖成功：如果家长愿意购买课程则返回“是”。 是否售卖失败：如果家长明确拒绝购买课程则返回“是”…\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"4\", \"url\": \"https://zhuanlan.zhihu.com/p/1918634950082688599\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"一文搞懂Python GIL\", \"url\": \"https://zhuanlan.zhihu.com/p/352426532\", \"snippet\": \"Title: 一文搞懂Python GIL\\n# 一文搞懂Python GIL. > 本文整理翻译自Abhinav Ajitsaria 在Real Python Tutorials的文章What Is the Python Global Interpreter Lock (GIL)? Python Global Int…\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"5\", \"url\": \"https://www.zhihu.com/question/579042308\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"深入理解 Python GIL - 知乎\", \"url\": \"https://zhuanlan.zhihu.com/p/2054510112748975844\", \"snippet\": \"Title: 深入理解 Python GIL - 知乎\\n# 深入理解 Python GIL. Python 全局解释器锁（GIL，Global Interpreter Lock）引发的讨论比其他任何语言功能都多。不止你一个人在看到 CPU 核心闲置，而 Python 脚本缓慢运行时，会觉得疑惑。你也不是唯一一个想知道…\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.zhihu.com/question/23474039\", \"title\": \"1\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://zhuanlan.zhihu.com/p/81416938\", \"title\": \"Python全局解释器锁GIL机制\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://zhuanlan.zhihu.com/p/75780308\", \"title\": \"2\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://www.zhihu.com/question/625230103?write=\", \"title\": \"什么是python的全局解释锁（GIL）? - 知乎\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://zhuanlan.zhihu.com/p/690194234\", \"title\": \"3\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://zhuanlan.zhihu.com/p/26609267871\", \"title\": \"如何让提示词结构化输出？\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://zhuanlan.zhihu.com/p/1918634950082688599\", \"title\": \"4\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://zhuanlan.zhihu.com/p/352426532\", \"title\": \"一文搞懂Python GIL\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://www.zhihu.com/question/579042308\", \"title\": \"5\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://zhuanlan.zhihu.com/p/2054510112748975844\", \"title\": \"深入理解 Python GIL - 知乎\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://zhuanlan.zhihu.com/p/20953544\", \"title\": \"谈谈python的GIL、多线程、多进程\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c12\", \"url\": \"https://zhuanlan.zhihu.com/p/818043026\", \"title\": \"体验无GIL的自由线程Python：Python 3.13 新特征之一\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c13\", \"url\": \"https://zhuanlan.zhihu.com/p/688562886\", \"title\": \"Python 的GIL 时代即将终结，迈向真正的多线程时代\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"e229b729df0594a1\"}}",
+    "null"
+  ],
+  "answer": "",
+  "observation": {
+    "id": "zhihu-gil",
+    "answer": "",
+    "results": [
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+        "title": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/424649300",
+        "title": "都是解释型语言，为什么java的多线程的真的，python就是伪多线程？ - 知乎",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/34687635",
+        "title": "https://zhuanlan.zhihu.com/p/34687635",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/20953544",
+        "title": "谈谈python的GIL、多线程、多进程",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/23474039",
+        "title": "为什么有人说Python 的多线程是鸡肋呢？",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/13421143753",
+        "title": "Python GIL 的终极揭秘！多线程性能瓶颈的真相你必须知道！",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/455171966",
+        "title": "https://zhuanlan.zhihu.com/p/455171966",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/56170408",
+        "title": "为什么CPython需要GIL? - 知乎",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/648464307",
+        "title": "https://www.zhihu.com/question/648464307",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/322492039/answer/673843263",
+        "title": "为什么多线程Python程序无法充分利用多个CPU核心带来的 ...",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+        "title": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/424649300",
+        "title": "都是解释型语言，为什么java的多线程的真的，python就是伪多线程？ - 知乎",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/34687635",
+        "title": "https://zhuanlan.zhihu.com/p/34687635",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/20953544",
+        "title": "谈谈python的GIL、多线程、多进程",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/23474039",
+        "title": "为什么有人说Python 的多线程是鸡肋呢？",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/13421143753",
+        "title": "Python GIL 的终极揭秘！多线程性能瓶颈的真相你必须知道！",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/455171966",
+        "title": "https://zhuanlan.zhihu.com/p/455171966",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/56170408",
+        "title": "为什么CPython需要GIL? - 知乎",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/648464307",
+        "title": "https://www.zhihu.com/question/648464307",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/322492039/answer/673843263",
+        "title": "为什么多线程Python程序无法充分利用多个CPU核心带来的 ...",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+        "title": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/537193760",
+        "title": "https://zhuanlan.zhihu.com/p/537193760",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1909656215111340089",
+        "title": "https://zhuanlan.zhihu.com/p/1909656215111340089",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/39923765",
+        "title": "https://www.zhihu.com/question/39923765",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1943962631212867675",
+        "title": "https://zhuanlan.zhihu.com/p/1943962631212867675",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/356475230",
+        "title": "https://zhuanlan.zhihu.com/p/356475230",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1923366864152658874",
+        "title": "https://zhuanlan.zhihu.com/p/1923366864152658874",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1975968147522736515",
+        "title": "https://zhuanlan.zhihu.com/p/1975968147522736515",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/337472434",
+        "title": "Python进阶——为什么GIL让多线程变得如此鸡肋？",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/689222056",
+        "title": "Python GIL 全局解释器锁，简单学一学（附面试题）",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+        "title": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/480782451",
+        "title": "Python基础00：Python语言简介",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+        "title": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/631242397",
+        "title": "5 > 解锁Python并发编程：多线程和多进程的神秘面纱揭晓",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/2006715679823402687",
+        "title": "https://zhuanlan.zhihu.com/p/2006715679823402687",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/23474039",
+        "title": "为什么有人说Python 的多线程是鸡肋呢？",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/537193760",
+        "title": "https://zhuanlan.zhihu.com/p/537193760",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/349445872",
+        "title": "110道python面试笔试题汇总",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/311877485",
+        "title": "https://zhuanlan.zhihu.com/p/311877485",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/353540067",
+        "title": "总算搞明白了！进程，线程，协程，生成器，迭代器搞的我脑子 ...",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+        "title": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/480782451",
+        "title": "Python基础00：Python语言简介",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+        "title": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/631242397",
+        "title": "5 > 解锁Python并发编程：多线程和多进程的神秘面纱揭晓",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/2006715679823402687",
+        "title": "https://zhuanlan.zhihu.com/p/2006715679823402687",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/23474039",
+        "title": "为什么有人说Python 的多线程是鸡肋呢？",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/537193760",
+        "title": "https://zhuanlan.zhihu.com/p/537193760",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/349445872",
+        "title": "110道python面试笔试题汇总",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/311877485",
+        "title": "https://zhuanlan.zhihu.com/p/311877485",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/353540067",
+        "title": "总算搞明白了！进程，线程，协程，生成器，迭代器搞的我脑子 ...",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/75780308",
+        "title": "https://zhuanlan.zhihu.com/p/75780308",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/21303150073",
+        "title": "https://zhuanlan.zhihu.com/p/21303150073",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1923366864152658874",
+        "title": "https://zhuanlan.zhihu.com/p/1923366864152658874",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/345466945",
+        "title": "https://zhuanlan.zhihu.com/p/345466945",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1909656215111340089",
+        "title": "https://zhuanlan.zhihu.com/p/1909656215111340089",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/455171966",
+        "title": "https://zhuanlan.zhihu.com/p/455171966",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/607655350",
+        "title": "https://zhuanlan.zhihu.com/p/607655350",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/34687635",
+        "title": "https://zhuanlan.zhihu.com/p/34687635",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/690194234",
+        "title": "https://zhuanlan.zhihu.com/p/690194234",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1943962631212867675",
+        "title": "https://zhuanlan.zhihu.com/p/1943962631212867675",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/22233183",
+        "title": "https://www.zhihu.com/question/22233183",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/19550225/answer/1992357984303595568",
+        "title": "https://www.zhihu.com/question/19550225/answer/1992357984303595568",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/648464307",
+        "title": "https://www.zhihu.com/question/648464307",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/2037644024052458102",
+        "title": "解锁Python 真正性能：深入理解并掌握多进程编程",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/2072456875942098030",
+        "title": "我们做了一个默认无GIL的Python开发容器：8线程5.3倍加速",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/662663575",
+        "title": "Numexpr：Pandas背后的超级计算引擎",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1943962631212867675",
+        "title": "https://zhuanlan.zhihu.com/p/1943962631212867675",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/23474039/answer/24695447",
+        "title": "为什么有人说Python 的多线程是鸡肋呢？ - yegle 的回答",
+        "snippet": "UPDATE：如评论指出，Ruby也是有thread支持的，而且至少Ruby MRI是有GIL的。 如果你的代码是CPU密集型，多个线程的代码很有可能是线性执行的。所以这",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1981807214424527629",
+        "title": "https://zhuanlan.zhihu.com/p/1981807214424527629",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/23474039",
+        "title": "为什么有人说Python 的多线程是鸡肋呢？",
+        "snippet": "这个GIL全局锁实际上把所有线程的执行代码都给上了锁，所以，多线程在Python中只能交替执行，即使100个线程跑在100核CPU上，也只能用到1个核。通常我们用",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/648464307",
+        "title": "https://www.zhihu.com/question/648464307",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/37904398/answer/1943067740651914792",
+        "title": "你见过哪些令你瞠目结舌的Python 代码技巧？ - 杞鋂的回答- 知乎",
+        "snippet": "GIL的正确理解：. GIL只影响多线程，不影响多进程; I/O密集型任务受GIL影响较小; CPU密集型任务建议使用multiprocessing; 不要误解为\"Python不支持多线程\".",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/477826233",
+        "title": "https://zhuanlan.zhihu.com/p/477826233",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/361159265",
+        "title": "为何大部分运维工程师是Go语言工程师？ - 知乎",
+        "snippet": "要学习Go语言可以参考我这篇高赞回答。 GIL线程锁导致的性能不佳,让其落后了其他语言一个大版本。 等待官方的正式改善,再切回python了。",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+        "title": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/45773200/answer/3625425903",
+        "title": "为什么会有程序员不喜欢Python？ - 架构师专栏的回答- 知乎",
+        "snippet": "四、GIL全局解释器锁:并发编程的绊脚石啊,这个GIL(全局解释器锁),Python的老毛病了。简单来说,GIL就是Python多线程编程中的一道\"绊脚石\"。",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1943962631212867675",
+        "title": "https://zhuanlan.zhihu.com/p/1943962631212867675",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/23474039/answer/24695447",
+        "title": "为什么有人说Python 的多线程是鸡肋呢？ - yegle 的回答",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1981807214424527629",
+        "title": "https://zhuanlan.zhihu.com/p/1981807214424527629",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/23474039",
+        "title": "为什么有人说Python 的多线程是鸡肋呢？",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/648464307",
+        "title": "https://www.zhihu.com/question/648464307",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/37904398/answer/1943067740651914792",
+        "title": "你见过哪些令你瞠目结舌的Python 代码技巧？ - 杞鋂的回答- 知乎",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/477826233",
+        "title": "https://zhuanlan.zhihu.com/p/477826233",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/361159265",
+        "title": "为何大部分运维工程师是Go语言工程师？ - 知乎",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+        "title": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/45773200/answer/3625425903",
+        "title": "为什么会有程序员不喜欢Python？ - 架构师专栏的回答- 知乎",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1909656215111340089",
+        "title": "https://zhuanlan.zhihu.com/p/1909656215111340089",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+        "title": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/75780308",
+        "title": "https://zhuanlan.zhihu.com/p/75780308",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1923366864152658874",
+        "title": "https://zhuanlan.zhihu.com/p/1923366864152658874",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/20953544",
+        "title": "https://zhuanlan.zhihu.com/p/20953544",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/363040263",
+        "title": "一文详解Python GIL 设计 - 知乎专栏",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/20491745",
+        "title": "Java 和Python 有哪些区别？ - 知乎",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/49699183/answer/3541585454",
+        "title": "用Rust做Web开发是怎样的一种体验？ - 知乎用户的回答",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1943962631212867675",
+        "title": "https://zhuanlan.zhihu.com/p/1943962631212867675",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/322492039/answer/673843263",
+        "title": "为什么多线程Python程序无法充分利用多个CPU核心带来的 ...",
+        "snippet": "CPython 的GIL 本意是用来保护所有全局的解释器和环境状态变量的。如果去掉GIL,就需要多个更细粒度的锁对解释器的众多全局状态进行保护。",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1975968147522736515",
+        "title": "https://zhuanlan.zhihu.com/p/1975968147522736515",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1897960995013518309",
+        "title": "Python语言中进程、线程、协程执行效率分析",
+        "snippet": "GIL的存在意味着在多核CPU系统上,即使有多个线程,Python代码也无法实现真正的并行执行。这是因为无论有多少个线程或多少个CPU核心",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/34687635",
+        "title": "https://zhuanlan.zhihu.com/p/34687635",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/71994408",
+        "title": "python—多线程与多进程",
+        "snippet": "多进程因为GIL存在,无法利用到多核CPU的优势,这个时候多进程出来了,它能利用多个CPU并发的优势实现并行。",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1923366864152658874",
+        "title": "https://zhuanlan.zhihu.com/p/1923366864152658874",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/74349810",
+        "title": "只用3行代码，让Python提速4倍！最强辅助",
+        "snippet": "... 无法充分利用多核CPU。 但是Process Pool能解决这个问题！因为我们是运行单独的Python实例，每个实例都有自己的GIL。这样我们获得是真正能并行处理的Python代码！ 不要",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+        "title": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/23474039",
+        "title": "为什么有人说Python 的多线程是鸡肋呢？",
+        "snippet": "这个GIL全局锁实际上把所有线程的执行代码都给上了锁，所以，多线程在Python中只能交替执行，即使100个线程跑在100核CPU上，也只能用到1个核。通常我们用",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1943962631212867675",
+        "title": "https://zhuanlan.zhihu.com/p/1943962631212867675",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/322492039/answer/673843263",
+        "title": "为什么多线程Python程序无法充分利用多个CPU核心带来的 ...",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1975968147522736515",
+        "title": "https://zhuanlan.zhihu.com/p/1975968147522736515",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1897960995013518309",
+        "title": "Python语言中进程、线程、协程执行效率分析",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/34687635",
+        "title": "https://zhuanlan.zhihu.com/p/34687635",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/71994408",
+        "title": "python—多线程与多进程",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1923366864152658874",
+        "title": "https://zhuanlan.zhihu.com/p/1923366864152658874",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/74349810",
+        "title": "只用3行代码，让Python提速4倍！最强辅助",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+        "title": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/23474039",
+        "title": "为什么有人说Python 的多线程是鸡肋呢？",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/690194234",
+        "title": "https://zhuanlan.zhihu.com/p/690194234",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/648464307",
+        "title": "https://www.zhihu.com/question/648464307",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/537193760",
+        "title": "https://zhuanlan.zhihu.com/p/537193760",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/455171966",
+        "title": "https://zhuanlan.zhihu.com/p/455171966",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/596560660",
+        "title": "https://www.zhihu.com/question/596560660",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/415079838",
+        "title": "Python进阶：为什么GIL让多线程变得如此鸡肋？",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/109935152",
+        "title": "详解Python进程和线程",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1934295674872131636",
+        "title": "并行编程中多进程和多线程，什么情况下多进程能解决的多 ...",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/308040776",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/657540221",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/513783154",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/421351994",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/tardis/zm/art/129074423",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/689222056",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/607655350",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/20953544",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/34687635",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1943962631212867675",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/308040776",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/657540221",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/513783154",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/421351994",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/tardis/zm/art/129074423",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/689222056",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/607655350",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/20953544",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/34687635",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1943962631212867675",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/690194234",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/463430941",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1971999692226295183",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/23474039",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/629793756/answer/3618343448",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/39923765",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/13735430722",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/596560660",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/53596593",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/75780308",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1923366864152658874",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/169721065",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/648464307",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1922709704695590980",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1962286156633866775",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/585198012",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/69211607",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/688562886",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1897960995013518309",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/142651312",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/23474039/answer/24695447",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/2091598970225156393",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/24132781",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/40048453",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/34142963",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/579042308",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/381998926",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/437924217/answer/1661548006",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/142651312",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/23474039/answer/24695447",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/2091598970225156393",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/24132781",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/40048453",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/34142963",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/579042308",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/381998926",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/437924217/answer/1661548006",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/690194234",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1900970147008737495",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/2092181395036693278",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/2092306646621844796",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/2093630195785848762",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/20359902387",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/463860011",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/76325454",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/27813382",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/en/article/19911152",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/722282867",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/9499812897",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/450304575",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/2093741236339341284",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/41753038",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1943962631212867675",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1949077555048064134",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/457746891/answer/3044883370",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/497806823",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/903315686",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/75780308",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/627502134",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/322492039/answer/673843263",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/97841115",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/75780308",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/34687635",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/302278912",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/39352198",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/678426916",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/477826233",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/577244034",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/627502134",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/322492039/answer/673843263",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/97841115",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/75780308",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/34687635",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/302278912",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/39352198",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/678426916",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/477826233",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/577244034",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/537193760",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/23474039",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/345466945",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/20953544",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/164627977",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/690194234",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/38380754",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/323812020",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/311877485",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/586030177",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/663294010",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/85927203",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1943962631212867675",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/152231453",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/2072456875942098030",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/2054510112748975844",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/23474039",
+        "title": "1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/81416938",
+        "title": "Python全局解释器锁GIL机制",
+        "snippet": "Title: Python全局解释器锁GIL机制\n# Python全局解释器锁GIL机制. > 全局解释器锁（Global Interpreter Lock，GIL）是Python独有的，是Python中的一种机制，可以防止多个Python线程同时执行。这意味着如果程序编写有十个并发线程，那么其中只有一个可以被执行，…",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/75780308",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/625230103?write=",
+        "title": "什么是python的全局解释锁（GIL）? - 知乎",
+        "snippet": "Python 全局解释器锁或GIL，简单来说，是一个互斥锁（或锁），它只允许一个线程控制 Python 解释器。. 这意味着在任何时间点都只能有一个线程处于执行状态。执行单线程程序的开发人员看不到 GIL 的影响，但它可能是 CPU 密集型和多线程代码中的性能瓶颈。. 由于即使在具有多个 CPU 内核的多线程架构中，…",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/690194234",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/26609267871",
+        "title": "如何让提示词结构化输出？",
+        "snippet": "Title: 如何让提示词结构化输出？\n# 如何让提示词结构化输出？. 这种方式是最基础，直接在提示词里，告诉模型需要输出的标签，和标签的判断要求，输出的标签是中文名称。. | 请根据老师和家长的对话，返回以下标签。 是否售卖成功：如果家长愿意购买课程则返回“是”。 是否售卖失败：如果家长明确拒绝购买课程则返回“是”…",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/352426532",
+        "title": "一文搞懂Python GIL",
+        "snippet": "Title: 一文搞懂Python GIL\n# 一文搞懂Python GIL. > 本文整理翻译自Abhinav Ajitsaria 在Real Python Tutorials的文章What Is the Python Global Interpreter Lock (GIL)? Python Global Int…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/579042308",
+        "title": "5",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/2054510112748975844",
+        "title": "深入理解 Python GIL - 知乎",
+        "snippet": "Title: 深入理解 Python GIL - 知乎\n# 深入理解 Python GIL. Python 全局解释器锁（GIL，Global Interpreter Lock）引发的讨论比其他任何语言功能都多。不止你一个人在看到 CPU 核心闲置，而 Python 脚本缓慢运行时，会觉得疑惑。你也不是唯一一个想知道…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/23474039",
+        "title": "1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/81416938",
+        "title": "Python全局解释器锁GIL机制",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/75780308",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/625230103?write=",
+        "title": "什么是python的全局解释锁（GIL）? - 知乎",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/690194234",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/26609267871",
+        "title": "如何让提示词结构化输出？",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/1918634950082688599",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/352426532",
+        "title": "一文搞懂Python GIL",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zhihu.com/question/579042308",
+        "title": "5",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/2054510112748975844",
+        "title": "深入理解 Python GIL - 知乎",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/20953544",
+        "title": "谈谈python的GIL、多线程、多进程",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/818043026",
+        "title": "体验无GIL的自由线程Python：Python 3.13 新特征之一",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zhuanlan.zhihu.com/p/688562886",
+        "title": "Python 的GIL 时代即将终结，迈向真正的多线程时代",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://www.zhihu.com/question/23474039",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://www.zhihu.com/question/322492039/answer/673843263",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://www.zhihu.com/question/39923765",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://www.zhihu.com/question/648464307",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:13:37.764804+00:00",
+    "timed_out": true
+  },
+  "score": {
+    "id": "zhihu-gil",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "zhihu-answer"
+        ],
+        "required": 1
+      },
+      "comments": {
+        "status": "fail",
+        "matched_comments": []
+      },
+      "synthesis": {
+        "status": "fail",
+        "reason": "empty_answer"
+      }
+    },
+    "task": {
+      "status": "timeout",
+      "reasons": [
+        "comments:fail",
+        "synthesis:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": false,
+    "grader": "v2"
+  }
+}

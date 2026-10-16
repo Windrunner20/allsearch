@@ -1,0 +1,327 @@
+{
+  "id": "lwn-kernel",
+  "query": "LWN.net article explaining RCU in the Linux kernel",
+  "returncode": 0,
+  "elapsed_ms": 87209,
+  "efficiency": {
+    "tool_calls": {
+      "search": 2,
+      "fetch": 1
+    },
+    "total_calls": 3,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 0,
+    "errors": 0
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "lwn.net"
+        ],
+        "max_results": 8,
+        "mode": "web",
+        "query": "site:lwn.net article explaining RCU in the Linux kernel RCU explanation Linux kernel LWN.net review comments quote comments if read them explicitly ask?",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 16838
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Extract the article title, author, publication date, and the main explanation of RCU in the Linux kernel. Do not inspect or summarize reader comments.",
+        "fresh": false,
+        "max_chars": 12000,
+        "url": "https://lwn.net/Articles/262464"
+      },
+      "is_error": false,
+      "ms": 10684
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "lwn.net"
+        ],
+        "max_results": 5,
+        "mode": "web",
+        "query": "site:lwn.net/Articles/262464 \"What is RCU, Fundamentally?\" Paul McKenney 2007",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 18613
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.0\", \"result_id\": \"08aad2330f9eeb47\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:lwn.net article explaining RCU in the Linux kernel RCU explanation Linux kernel LWN.net review comments quote comments if read them explicitly ask?\", \"answer\": \"Relevant LWN.net articles on RCU in the Linux kernel (up to 8). The classic explanation is the 2007 “What is RCU” series by Paul McKenney. Comment threads were not opened, so no comments are quoted.\\n\\n1. **What is RCU, Fundamentally?** (Paul McKenney, 17 Dec 2007) — https://lwn.net/Articles/262464  \\n   Core intro: publish-subscribe for insertion, waiting for pre-existing readers for deletion, and keeping multiple versions so readers stay coherent. Defines RCU as waiting for things to finish without blocking readers.\\n\\n2. **What is RCU? Part 2: Usage** (Paul McKenney, 24 Dec 2007) — https://lwn.net/Articles/263130  \\n   Usage as a reader-writer lock replacement: performance, deadlock immunity, and realtime latency, plus limits (concurrent readers/updaters, grace-period latency).\\n\\n3. **Hierarc…\", \"answer_chars\": 2213, \"evidence\": {\"unique_urls\": 8, \"unique_domains\": 1, \"cross_provider_matches\": 5, \"pages_fetched\": 3, \"primary_citation_count\": 9}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 16786, \"warning_count\": 4, \"warnings\": [\"auto_scrape_truncated\", \"auto_scrape_truncated\", \"auto_scrape_truncated\", \"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 8, \"citation_count\": 12, \"results\": [{\"id\": \"r1\", \"title\": \"Hierarchical RCU [LWN.net]\", \"url\": \"https://lwn.net/Articles/305782\", \"snippet\": \"Read-copy update (RCU) is a synchronization mechanism that was added to the Linux kernel in October of 2002. RCU improves scalability by allowing readers to ex…\", \"providers\": [\"xai\", \"tavily\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"What is RCU, Fundamentally? [LWN.net]\", \"url\": \"https://lwn.net/Articles/262464\", \"snippet\": \"Read-copy update (RCU) is a synchronization mechanism that was added to the Linux kernel in October of 2002. RCU achieves scalability improvements by allowing …\", \"providers\": [\"xai\", \"tavily\", \"firecrawl\"]}, {\"id\": \"r3\", \"title\": \"The RCU API, 2024 edition [LWN.net]\", \"url\": \"https://lwn.net/Articles/988638\", \"snippet\": \"This article was contributed by Paul McKenney\\n\\nRead-copy-update (RCU) is a synchronization mechanism that was added to the Linux kernel in October 2002. RCU is…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r4\", \"title\": \"The RCU API, 2019 edition [LWN.net]\", \"url\": \"https://lwn.net/Articles/777036\", \"snippet\": \"This article was contributed by Paul McKenney\\n\\nRead-copy update (RCU) is a synchronization mechanism that was added to the Linux kernel in October 2002. RCU is…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://lwn.net/Articles/609904/\", \"url\": \"https://lwn.net/Articles/609904\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r6\", \"title\": \"RCU part 3: the RCU API [LWN.net]\", \"url\": \"https://lwn.net/Articles/264090\", \"snippet\": \"This article was contributed by Paul McKenney\\n\\nEditor's note: this is the third and final installment in Paul McKenney's \\\"What is RCU?\\\" series. The [first and …\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"What is RCU? Part 2: Usage [LWN.net]\", \"url\": \"https://lwn.net/Articles/263130\", \"snippet\": \"### Introduction\\n\\nRead-copy update (RCU) is a synchronization mechanism that was added to the Linux kernel in October of 2002. RCU is most frequently described…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r8\", \"title\": \"The RCU API, 2010 Edition [LWN.net]\", \"url\": \"https://lwn.net/Articles/418853\", \"snippet\": \"#### Introduction\\n\\nRead-copy update (RCU) is a synchronization mechanism that was added to the Linux kernel in October of 2002. RCU is most frequently describe…\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://lwn.net/Articles/305782\", \"title\": \"Hierarchical RCU [LWN.net]\", \"result_item_id\": \"r1\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c2\", \"url\": \"https://lwn.net/Articles/262464\", \"title\": \"What is RCU, Fundamentally? [LWN.net]\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://lwn.net/Articles/988638\", \"title\": \"The RCU API, 2024 edition [LWN.net]\", \"result_item_id\": \"r3\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c4\", \"url\": \"https://lwn.net/Articles/777036\", \"title\": \"The RCU API, 2019 edition [LWN.net]\", \"result_item_id\": \"r4\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://lwn.net/Articles/609904\", \"title\": \"https://lwn.net/Articles/609904/\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://lwn.net/Articles/264090\", \"title\": \"RCU part 3: the RCU API [LWN.net]\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://lwn.net/Articles/263130\", \"title\": \"What is RCU? Part 2: Usage [LWN.net]\", \"result_item_id\": \"r7\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c8\", \"url\": \"https://lwn.net/Articles/418853\", \"title\": \"The RCU API, 2010 Edition [LWN.net]\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://lwn.net/Articles/652156\", \"title\": \"https://lwn.net/Articles/652156\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://lwn.net/Articles/573424\", \"title\": \"https://lwn.net/Articles/573424\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://lwn.net/Articles/988641\", \"title\": \"https://lwn.net/Articles/988641/\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://lwn.net/Articles/603252\", \"title\": \"RCU, cond_resched(), and performance regressions [LWN.net]\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"08aad2330f9eeb47\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"dfbf9fad12aee030\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://lwn.net/Articles/262464\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"dfbf9fad12aee030\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"5dbe5cfbd49c9419\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:lwn.net/Articles/262464 \\\"What is RCU, Fundamentally?\\\" Paul McKenney 2007\", \"answer\": \"1. **What is RCU, Fundamentally?** — Paul McKenney, LWN.net, Dec 17, 2007. First of a three-part series: RCU’s three mechanisms (publish-subscribe for insertion, waiting for pre-existing readers for deletion, and multiple versions for readers), focused on linked lists. https://lwn.net/Articles/262464\\n\\n2. **Comment thread on “What is RCU, Fundamentally?”** — Paul McKenney, LWN.net, Dec 28, 2007. Reply discussing memory-consistency research and weak ordering (including x86). https://lwn.net/Articles/263283/\\n\\n3. **What is RCU? Part 2: Usage** — Paul McKenney, LWN.net, Dec 24, 2007. Second installment: RCU as a reader-writer lock replacement and a restricted reference-counting mechanism. https://lwn.net/Articles/263130\\n\\n4. **RCU part 3: the RCU API** — Paul McKenney, LWN.net, Jan 7, 2008. Thi…\", \"answer_chars\": 1169, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 1, \"pages_fetched\": 2, \"primary_citation_count\": 8}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 18558, \"warning_count\": 3, \"warnings\": [\"auto_scrape_truncated\", \"auto_scrape_truncated\", \"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 5, \"citation_count\": 10, \"results\": [{\"id\": \"r1\", \"title\": \"https://lwn.net/Articles/264090\", \"url\": \"https://lwn.net/Articles/264090\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"What is RCU, Fundamentally? [LWN.net]\", \"url\": \"https://lwn.net/Articles/262464\", \"snippet\": \"Read-copy update (RCU) is a synchronization mechanism that was added to the Linux kernel in October of 2002. RCU achieves scalability improvements by allowing …\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://lwn.net/Articles/263130/\", \"url\": \"https://lwn.net/Articles/263130\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"Requirements for RCU part 1: the fundamentals [LWN.net]\", \"url\": \"https://lwn.net/Articles/652156\", \"snippet\": \"This article was contributed by Paul McKenney\\n\\nRead-copy update (RCU) is a synchronization mechanism that is often used as a replacement for reader-writer lock…\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://lwn.net/Articles/204355/\", \"url\": \"https://lwn.net/Articles/204355\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://lwn.net/Articles/264090\", \"title\": \"https://lwn.net/Articles/264090\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://lwn.net/Articles/262464\", \"title\": \"What is RCU, Fundamentally? [LWN.net]\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://lwn.net/Articles/263130\", \"title\": \"https://lwn.net/Articles/263130/\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://lwn.net/Articles/652156\", \"title\": \"Requirements for RCU part 1: the fundamentals [LWN.net]\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://lwn.net/Articles/204355\", \"title\": \"https://lwn.net/Articles/204355/\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://lwn.net/Articles/263283\", \"title\": \"https://lwn.net/Articles/263283/\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://lwn.net/Articles/988638\", \"title\": \"https://lwn.net/Articles/988638/\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://lwn.net/Articles/305782\", \"title\": \"https://lwn.net/Articles/305782\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://static.lwn.net/images/conf/rtlws11/papers/proc/p24.pdf\", \"title\": \"Deterministic Synchronization in Multicore Systems: the Role of RCU\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c10\", \"url\": \"https://lwn.net/Articles/262091\", \"title\": \"Kernel development\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"5dbe5cfbd49c9419\"}}"
+  ],
+  "answer": "推荐这篇 LWN.net 文章：\n\n**What is RCU, Fundamentally?**  \n作者：Paul McKenney  \n日期：2007 年 12 月 17 日  \n原文：https://lwn.net/Articles/262464\n\n这是解释 Linux 内核 RCU（Read-Copy Update）的经典入门文章，重点说明：\n\n- RCU 是 Linux 内核中的同步机制，最初于 2002 年加入。\n- 读者可以在不加锁的情况下并发访问数据。\n- 更新者通过“发布”新版本来插入数据。\n- 删除旧数据前，需要等待已经开始的读操作完成，即等待 grace period。\n- RCU 的核心机制包括发布-订阅、等待已有读者结束，以及保留多个数据版本。\n\n这篇文章属于三部分系列，后续文章是：\n\n- **What is RCU? Part 2: Usage**  \n  https://lwn.net/Articles/263130\n- **RCU part 3: the RCU API**  \n  https://lwn.net/Articles/264090\n\n我没有打开评论区，因此没有引用评论原句。",
+  "observation": {
+    "id": "lwn-kernel",
+    "answer": "推荐这篇 LWN.net 文章：\n\n**What is RCU, Fundamentally?**  \n作者：Paul McKenney  \n日期：2007 年 12 月 17 日  \n原文：https://lwn.net/Articles/262464\n\n这是解释 Linux 内核 RCU（Read-Copy Update）的经典入门文章，重点说明：\n\n- RCU 是 Linux 内核中的同步机制，最初于 2002 年加入。\n- 读者可以在不加锁的情况下并发访问数据。\n- 更新者通过“发布”新版本来插入数据。\n- 删除旧数据前，需要等待已经开始的读操作完成，即等待 grace period。\n- RCU 的核心机制包括发布-订阅、等待已有读者结束，以及保留多个数据版本。\n\n这篇文章属于三部分系列，后续文章是：\n\n- **What is RCU? Part 2: Usage**  \n  https://lwn.net/Articles/263130\n- **RCU part 3: the RCU API**  \n  https://lwn.net/Articles/264090\n\n我没有打开评论区，因此没有引用评论原句。",
+    "results": [
+      {
+        "url": "https://lwn.net/Articles/305782",
+        "title": "Hierarchical RCU [LWN.net]",
+        "snippet": "Read-copy update (RCU) is a synchronization mechanism that was added to the Linux kernel in October of 2002. RCU improves scalability by allowing readers to ex…",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/262464",
+        "title": "What is RCU, Fundamentally? [LWN.net]",
+        "snippet": "Read-copy update (RCU) is a synchronization mechanism that was added to the Linux kernel in October of 2002. RCU achieves scalability improvements by allowing …",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/988638",
+        "title": "The RCU API, 2024 edition [LWN.net]",
+        "snippet": "This article was contributed by Paul McKenney\n\nRead-copy-update (RCU) is a synchronization mechanism that was added to the Linux kernel in October 2002. RCU is…",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/777036",
+        "title": "The RCU API, 2019 edition [LWN.net]",
+        "snippet": "This article was contributed by Paul McKenney\n\nRead-copy update (RCU) is a synchronization mechanism that was added to the Linux kernel in October 2002. RCU is…",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/609904",
+        "title": "https://lwn.net/Articles/609904/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/264090",
+        "title": "RCU part 3: the RCU API [LWN.net]",
+        "snippet": "This article was contributed by Paul McKenney\n\nEditor's note: this is the third and final installment in Paul McKenney's \"What is RCU?\" series. The [first and …",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/263130",
+        "title": "What is RCU? Part 2: Usage [LWN.net]",
+        "snippet": "### Introduction\n\nRead-copy update (RCU) is a synchronization mechanism that was added to the Linux kernel in October of 2002. RCU is most frequently described…",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/418853",
+        "title": "The RCU API, 2010 Edition [LWN.net]",
+        "snippet": "#### Introduction\n\nRead-copy update (RCU) is a synchronization mechanism that was added to the Linux kernel in October of 2002. RCU is most frequently describe…",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/305782",
+        "title": "Hierarchical RCU [LWN.net]",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/262464",
+        "title": "What is RCU, Fundamentally? [LWN.net]",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/988638",
+        "title": "The RCU API, 2024 edition [LWN.net]",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/777036",
+        "title": "The RCU API, 2019 edition [LWN.net]",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/609904",
+        "title": "https://lwn.net/Articles/609904/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/264090",
+        "title": "RCU part 3: the RCU API [LWN.net]",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/263130",
+        "title": "What is RCU? Part 2: Usage [LWN.net]",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/418853",
+        "title": "The RCU API, 2010 Edition [LWN.net]",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/652156",
+        "title": "https://lwn.net/Articles/652156",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/573424",
+        "title": "https://lwn.net/Articles/573424",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/988641",
+        "title": "https://lwn.net/Articles/988641/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/603252",
+        "title": "RCU, cond_resched(), and performance regressions [LWN.net]",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/264090",
+        "title": "https://lwn.net/Articles/264090",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/262464",
+        "title": "What is RCU, Fundamentally? [LWN.net]",
+        "snippet": "Read-copy update (RCU) is a synchronization mechanism that was added to the Linux kernel in October of 2002. RCU achieves scalability improvements by allowing …",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/263130",
+        "title": "https://lwn.net/Articles/263130/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/652156",
+        "title": "Requirements for RCU part 1: the fundamentals [LWN.net]",
+        "snippet": "This article was contributed by Paul McKenney\n\nRead-copy update (RCU) is a synchronization mechanism that is often used as a replacement for reader-writer lock…",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/204355",
+        "title": "https://lwn.net/Articles/204355/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/264090",
+        "title": "https://lwn.net/Articles/264090",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/262464",
+        "title": "What is RCU, Fundamentally? [LWN.net]",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/263130",
+        "title": "https://lwn.net/Articles/263130/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/652156",
+        "title": "Requirements for RCU part 1: the fundamentals [LWN.net]",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/204355",
+        "title": "https://lwn.net/Articles/204355/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/263283",
+        "title": "https://lwn.net/Articles/263283/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/988638",
+        "title": "https://lwn.net/Articles/988638/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/305782",
+        "title": "https://lwn.net/Articles/305782",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://static.lwn.net/images/conf/rtlws11/papers/proc/p24.pdf",
+        "title": "Deterministic Synchronization in Multicore Systems: the Role of RCU",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://lwn.net/Articles/262091",
+        "title": "Kernel development",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://lwn.net/Articles/262464",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:18:59.334935+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "lwn-kernel",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "lwn-rcu"
+        ],
+        "required": 1
+      },
+      "reading": {
+        "status": "fail"
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "reading:fail"
+      ]
+    },
+    "expected_access": "paywall",
+    "observed_failure": null,
+    "algorithm_miss": true,
+    "grader": "v2"
+  }
+}

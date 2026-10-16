@@ -1,0 +1,443 @@
+{
+  "id": "x-public-post",
+  "query": "Find the public X status from OpenAI that announces GPT-4",
+  "returncode": 0,
+  "elapsed_ms": 98328,
+  "efficiency": {
+    "tool_calls": {
+      "search": 2,
+      "fetch": 1
+    },
+    "total_calls": 3,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 0,
+    "errors": 0
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "x.com"
+        ],
+        "max_results": 8,
+        "mode": "web",
+        "query": "site:x.com/OpenAI/status GPT-4 announced OpenAI March 14 2023 status GPT-4 is here — OpenAI 公开状态 推文 原文链接 comment replies?",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 28694
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Verify the post author, exact post text, timestamp, and whether any replies/comments are shown. If comments are available, quote relevant comments verbatim.",
+        "fresh": false,
+        "max_chars": 12000,
+        "url": "https://x.com/OpenAI/status/1635687373060317185"
+      },
+      "is_error": false,
+      "ms": 10640
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "openai.com",
+          "x.com"
+        ],
+        "max_results": 6,
+        "mode": "web",
+        "query": "OpenAI official announcement GPT-4 X status 1635687373060317185 exact text March 14 2023",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 15126
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.0\", \"result_id\": \"8a0eef496b6ef47d\", \"kind\": \"search\", \"status\": \"partial\", \"query\": \"site:x.com/OpenAI/status GPT-4 announced OpenAI March 14 2023 status GPT-4 is here — OpenAI 公开状态 推文 原文链接 comment replies?\", \"answer\": \"The official OpenAI account post does not use the exact phrase “GPT-4 is here.” That wording appears on a same-day post by an OpenAI employee. Relevant posts from 14 March 2023:\\n\\n1. **OpenAI (@OpenAI)** — [https://x.com/OpenAI/status/1635687373060317185](https://x.com/OpenAI/status/1635687373060317185)  \\n   “Announcing GPT-4, a large multimodal model, with our best-ever results on capabilities and alignment: https://openai.com/product/gpt-4”  \\n   14 Mar 2023, 17:00 UTC. About 59.7k likes, 16k reposts, **2,012 replies**, 5.3k quotes. Includes video. [web:0] [web:10]\\n\\n2. **Peter Welinder (@npew, Devices @OpenAI)** — [https://x.com/npew/status/1635687624047489024](https://x.com/npew/status/1635687624047489024)  \\n   “GPT-4 is here: our smartest and most reliable model yet! Try it today on Cha…\", \"answer_chars\": 2622, \"evidence\": {\"unique_urls\": 8, \"unique_domains\": 1, \"cross_provider_matches\": 1, \"pages_fetched\": 0, \"primary_citation_count\": 14}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 28656, \"warning_count\": 1, \"warnings\": [\"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}, {\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}], \"result_count\": 8, \"citation_count\": 21, \"results\": [{\"id\": \"r1\", \"title\": \"https://x.com/verge/status/1635688829792268307\", \"url\": \"https://x.com/verge/status/1635688829792268307\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"OpenAI on X: \\\"Announcing GPT-4, a large multimodal model, with our best-ever results on capabilities and alignment: htt…\", \"url\": \"https://x.com/OpenAI/status/1635687373060317185\", \"snippet\": \"Log inSign up\\n\\n## Post\\n\\nLog inSign up\\n\\n# OpenAI on X: \\\"Announcing GPT-4, a large multimodal model, with our best-ever results on capabilities and alignment: \\n\\n…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://x.com/sjwhitmore/status/1635692827756879872\", \"url\": \"https://x.com/sjwhitmore/status/1635692827756879872\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"the best examples of GPT-4, from OpenAI:\\\" / X - Ben Tossell\", \"url\": \"https://x.com/bentossell/status/1636003418144915457\", \"snippet\": \"@OpenAI · Mar 14, 2023. Announcing GPT-4, a large multimodal model, with our best-ever results on capabilities and alignment: openai.com/product\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://x.com/npew/status/1635687624047489024\", \"url\": \"https://x.com/npew/status/1635687624047489024\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"Rowan Cheung on X\", \"url\": \"https://x.com/rowancheung/status/1635690962973339672\", \"snippet\": \"Rowan Cheung on X: \\\"It's here. OpenAI just launched GPT-4. And it's incredible: -It can accept image and text inputs, and emit text outputs. -It\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"https://x.com/sama/status/1635687859494715393\", \"url\": \"https://x.com/sama/status/1635687859494715393\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"and OpenAI has just announced GPT-4. It's capable of accepting ...\", \"url\": \"https://x.com/tomwarren/status/1635690339926257677\", \"snippet\": \"and OpenAI has just announced GPT-4. It's capable of accepting text or image inputs theverge.com/2023/3/14/2363… 2. 10. 157. 20101 ·.\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://x.com/verge/status/1635688829792268307\", \"title\": \"https://x.com/verge/status/1635688829792268307\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://x.com/OpenAI/status/1635687373060317185\", \"title\": \"OpenAI on X: \\\"Announcing GPT-4, a large multimodal model, with our best-ever results on capabilities and alignment: htt…\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://x.com/sjwhitmore/status/1635692827756879872\", \"title\": \"https://x.com/sjwhitmore/status/1635692827756879872\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://x.com/bentossell/status/1636003418144915457\", \"title\": \"the best examples of GPT-4, from OpenAI:\\\" / X - Ben Tossell\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://x.com/npew/status/1635687624047489024\", \"title\": \"https://x.com/npew/status/1635687624047489024\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://x.com/rowancheung/status/1635690962973339672\", \"title\": \"Rowan Cheung on X\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://x.com/sama/status/1635687859494715393\", \"title\": \"https://x.com/sama/status/1635687859494715393\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://x.com/tomwarren/status/1635690339926257677\", \"title\": \"and OpenAI has just announced GPT-4. It's capable of accepting ...\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://x.com/simonw/status/1717626503121576435\", \"title\": \"https://x.com/simonw/status/1717626503121576435\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://x.com/sama/status/1639271079247069184\", \"title\": \"https://x.com/sama/status/1639271079247069184\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://x.com/SebastienBubeck/status/1638704164770332674\", \"title\": \"https://x.com/SebastienBubeck/status/1638704164770332674\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://x.com/OfficialLoganK/status/1721596971608064151\", \"title\": \"https://x.com/OfficialLoganK/status/1721596971608064151\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://x.com/rowancheung/status/1635691542739574784\", \"title\": \"https://x.com/rowancheung/status/1635691542739574784\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://x.com/karpathy/status/1635691329996062725\", \"title\": \"https://x.com/karpathy/status/1635691329996062725\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://x.com/ai__pub/status/1635692869314023425\", \"title\": \"https://x.com/ai__pub/status/1635692869314023425\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://x.com/miramurati/status/1635688069692293121\", \"title\": \"https://x.com/miramurati/status/1635688069692293121\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://x.com/gdb/status/1635687252616679426\", \"title\": \"https://x.com/gdb/status/1635687252616679426\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://x.com/omarsar0/status/1635689918696501257\", \"title\": \"\\\"With its multimodal capabilities, GPT-4 can take images as ...\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c19\", \"url\": \"https://x.com/debarghya_das/status/1635692650300067840\", \"title\": \"Text - SOTA on MMLU by a mile: 86.4 vs 75.2 for Flan-PALM\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c20\", \"url\": \"https://x.com/sama/status/1635687853324902401\", \"title\": \"Sam Altman\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c21\", \"url\": \"https://x.com/dps/status/1635699354337165313\", \"title\": \"David Singleton (@dps) on X\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"8a0eef496b6ef47d\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"2d84f171aec38a99\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://x.com/OpenAI/status/1635687373060317185\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"2d84f171aec38a99\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"225360fa05b1fc4e\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"OpenAI official announcement GPT-4 X status 1635687373060317185 exact text March 14 2023\", \"answer\": \"Exact text of the official OpenAI post (status 1635687373060317185), posted March 14, 2023 at 17:00:33 UTC:\\n\\n**“Announcing GPT-4, a large multimodal model, with our best-ever results on capabilities and alignment: https://openai.com/product/gpt-4”**\\n\\nSource: @OpenAI on X. The post included a video. [web:0]\\n\\nRelated official posts from the same announcement window:\\n\\n1. **Greg Brockman (@gdb)**, ~17:00 UTC: “We’re releasing GPT-4 — a large multimodal model (image & text in, text out) which is a significant advance in both capability and alignment. Still limited in many ways, but passes many qualification benchmarks like the bar exam & AP Calculus: https://openai.com/research/gpt-4” [web:2]\\n\\n2. **Sam Altman (@sama)**, 17:02 UTC: “here is GPT-4, our most capable and aligned model yet. it is a…\", \"answer_chars\": 1761, \"evidence\": {\"unique_urls\": 6, \"unique_domains\": 2, \"cross_provider_matches\": 1, \"pages_fetched\": 0, \"primary_citation_count\": 15}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 15088, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}], \"result_count\": 6, \"citation_count\": 20, \"results\": [{\"id\": \"r1\", \"title\": \"https://x.com/tomwarren/status/1635690339926257677\", \"url\": \"https://x.com/tomwarren/status/1635690339926257677\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"OpenAI on X: \\\"Announcing GPT-4, a large multimodal model, with our best-ever results on capabilities and alignment: htt…\", \"url\": \"https://x.com/OpenAI/status/1635687373060317185\", \"snippet\": \"Log inSign up\\n\\n## Post\\n\\nLog inSign up\\n\\n# OpenAI on X: \\\"Announcing GPT-4, a large multimodal model, with our best-ever results on capabilities and alignment: \\n\\n…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://x.com/miramurati/status/1635688069692293121\", \"url\": \"https://x.com/miramurati/status/1635688069692293121\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"GPT-4 | OpenAI\", \"url\": \"https://openai.com/index/gpt-4-research\", \"snippet\": \"Skip to main content\\n\\n\\n\\nLog inTry ChatGPT(opens in a new window)\\n\\n   Research\\n   Products\\n   Business\\n   Developers\\n   Company\\n   Foundation(opens in a new win…\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://x.com/verge/status/1635688829792268307\", \"url\": \"https://x.com/verge/status/1635688829792268307\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"GPT-4 | OpenAI\", \"url\": \"https://openai.com/index/gpt-4\", \"snippet\": \"Skip to main content\\n\\n\\n\\nLog inTry ChatGPT(opens in a new window)\\n\\n   Research\\n   Products\\n   Business\\n   Developers\\n   Company\\n   Foundation(opens in a new win…\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://x.com/tomwarren/status/1635690339926257677\", \"title\": \"https://x.com/tomwarren/status/1635690339926257677\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://x.com/OpenAI/status/1635687373060317185\", \"title\": \"OpenAI on X: \\\"Announcing GPT-4, a large multimodal model, with our best-ever results on capabilities and alignment: htt…\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://x.com/miramurati/status/1635688069692293121\", \"title\": \"https://x.com/miramurati/status/1635688069692293121\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://openai.com/index/gpt-4-research\", \"title\": \"GPT-4 | OpenAI\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://x.com/verge/status/1635688829792268307\", \"title\": \"https://x.com/verge/status/1635688829792268307\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://openai.com/index/gpt-4\", \"title\": \"GPT-4 | OpenAI\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://x.com/Dexerto/status/1635691060511879181\", \"title\": \"https://x.com/Dexerto/status/1635691060511879181\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://x.com/rowancheung/status/1635691542739574784\", \"title\": \"https://x.com/rowancheung/status/1635691542739574784\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://x.com/sama/status/1635687854784540672\", \"title\": \"https://x.com/sama/status/1635687854784540672\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://x.com/LinusEkenstam/status/1635702387502456834\", \"title\": \"https://x.com/LinusEkenstam/status/1635702387502456834\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://x.com/KTmBoyle/status/1635749824078159877\", \"title\": \"https://x.com/KTmBoyle/status/1635749824078159877\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://x.com/tmiyatake1/status/1635749132475432960\", \"title\": \"https://x.com/tmiyatake1/status/1635749132475432960\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://x.com/aakashgupta/status/1652513585334034432\", \"title\": \"https://x.com/aakashgupta/status/1652513585334034432\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://x.com/zikilluu/status/1635809594357448704\", \"title\": \"https://x.com/zikilluu/status/1635809594357448704\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://x.com/AlexIsBuilding/status/1635819391886712832\", \"title\": \"https://x.com/AlexIsBuilding/status/1635819391886712832\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://x.com/gdb/status/1635687252616679426\", \"title\": \"https://x.com/gdb/status/1635687252616679426\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://developers.openai.com/api/docs/models/gpt-4\", \"title\": \"https://developers.openai.com/api/docs/models/gpt-4\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://community.openai.com/t/gpt-4-turbo-knowledge-cutoff-issues/728680\", \"title\": \"GPT-4 Turbo Knowledge cutoff Issues - API - OpenAI Developer Community\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c19\", \"url\": \"https://community.openai.com/t/gpt-4-is-openai-s-most-advanced-system-and-its-here/98816\", \"title\": \"GPT-4 is OpenAI’s most advanced system (and it's here...) - Community - OpenAI Developer Community\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c20\", \"url\": \"https://community.openai.com/t/announcing-gpt-4o-in-the-api/744700\", \"title\": \"Announcing GPT-4o in the API! - Announcements - OpenAI Developer Community\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"225360fa05b1fc4e\"}}"
+  ],
+  "answer": "OpenAI 官方发布的 X status 是：\n\n- 原始链接：https://x.com/OpenAI/status/1635687373060317185\n- 发布者：OpenAI（@OpenAI）\n- 时间：2023 年 3 月 14 日 17:00 UTC\n- 原文：\n\n> “Announcing GPT-4, a large multimodal model, with our best-ever results on capabilities and alignment: https://openai.com/product/gpt-4”\n\n对应的 OpenAI 官方 GPT-4 页面：https://openai.com/index/gpt-4-research",
+  "observation": {
+    "id": "x-public-post",
+    "answer": "OpenAI 官方发布的 X status 是：\n\n- 原始链接：https://x.com/OpenAI/status/1635687373060317185\n- 发布者：OpenAI（@OpenAI）\n- 时间：2023 年 3 月 14 日 17:00 UTC\n- 原文：\n\n> “Announcing GPT-4, a large multimodal model, with our best-ever results on capabilities and alignment: https://openai.com/product/gpt-4”\n\n对应的 OpenAI 官方 GPT-4 页面：https://openai.com/index/gpt-4-research",
+    "results": [
+      {
+        "url": "https://x.com/verge/status/1635688829792268307",
+        "title": "https://x.com/verge/status/1635688829792268307",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/OpenAI/status/1635687373060317185",
+        "title": "OpenAI on X: \"Announcing GPT-4, a large multimodal model, with our best-ever results on capabilities and alignment: htt…",
+        "snippet": "Log inSign up\n\n## Post\n\nLog inSign up\n\n# OpenAI on X: \"Announcing GPT-4, a large multimodal model, with our best-ever results on capabilities and alignment: \n\n…",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/sjwhitmore/status/1635692827756879872",
+        "title": "https://x.com/sjwhitmore/status/1635692827756879872",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/bentossell/status/1636003418144915457",
+        "title": "the best examples of GPT-4, from OpenAI:\" / X - Ben Tossell",
+        "snippet": "@OpenAI · Mar 14, 2023. Announcing GPT-4, a large multimodal model, with our best-ever results on capabilities and alignment: openai.com/product",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/npew/status/1635687624047489024",
+        "title": "https://x.com/npew/status/1635687624047489024",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/rowancheung/status/1635690962973339672",
+        "title": "Rowan Cheung on X",
+        "snippet": "Rowan Cheung on X: \"It's here. OpenAI just launched GPT-4. And it's incredible: -It can accept image and text inputs, and emit text outputs. -It",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/sama/status/1635687859494715393",
+        "title": "https://x.com/sama/status/1635687859494715393",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/tomwarren/status/1635690339926257677",
+        "title": "and OpenAI has just announced GPT-4. It's capable of accepting ...",
+        "snippet": "and OpenAI has just announced GPT-4. It's capable of accepting text or image inputs theverge.com/2023/3/14/2363… 2. 10. 157. 20101 ·.",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/verge/status/1635688829792268307",
+        "title": "https://x.com/verge/status/1635688829792268307",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/OpenAI/status/1635687373060317185",
+        "title": "OpenAI on X: \"Announcing GPT-4, a large multimodal model, with our best-ever results on capabilities and alignment: htt…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/sjwhitmore/status/1635692827756879872",
+        "title": "https://x.com/sjwhitmore/status/1635692827756879872",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/bentossell/status/1636003418144915457",
+        "title": "the best examples of GPT-4, from OpenAI:\" / X - Ben Tossell",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/npew/status/1635687624047489024",
+        "title": "https://x.com/npew/status/1635687624047489024",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/rowancheung/status/1635690962973339672",
+        "title": "Rowan Cheung on X",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/sama/status/1635687859494715393",
+        "title": "https://x.com/sama/status/1635687859494715393",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/tomwarren/status/1635690339926257677",
+        "title": "and OpenAI has just announced GPT-4. It's capable of accepting ...",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/simonw/status/1717626503121576435",
+        "title": "https://x.com/simonw/status/1717626503121576435",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/sama/status/1639271079247069184",
+        "title": "https://x.com/sama/status/1639271079247069184",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/SebastienBubeck/status/1638704164770332674",
+        "title": "https://x.com/SebastienBubeck/status/1638704164770332674",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/OfficialLoganK/status/1721596971608064151",
+        "title": "https://x.com/OfficialLoganK/status/1721596971608064151",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/rowancheung/status/1635691542739574784",
+        "title": "https://x.com/rowancheung/status/1635691542739574784",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/karpathy/status/1635691329996062725",
+        "title": "https://x.com/karpathy/status/1635691329996062725",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/ai__pub/status/1635692869314023425",
+        "title": "https://x.com/ai__pub/status/1635692869314023425",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/miramurati/status/1635688069692293121",
+        "title": "https://x.com/miramurati/status/1635688069692293121",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/gdb/status/1635687252616679426",
+        "title": "https://x.com/gdb/status/1635687252616679426",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/omarsar0/status/1635689918696501257",
+        "title": "\"With its multimodal capabilities, GPT-4 can take images as ...",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/debarghya_das/status/1635692650300067840",
+        "title": "Text - SOTA on MMLU by a mile: 86.4 vs 75.2 for Flan-PALM",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/sama/status/1635687853324902401",
+        "title": "Sam Altman",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/dps/status/1635699354337165313",
+        "title": "David Singleton (@dps) on X",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/tomwarren/status/1635690339926257677",
+        "title": "https://x.com/tomwarren/status/1635690339926257677",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/OpenAI/status/1635687373060317185",
+        "title": "OpenAI on X: \"Announcing GPT-4, a large multimodal model, with our best-ever results on capabilities and alignment: htt…",
+        "snippet": "Log inSign up\n\n## Post\n\nLog inSign up\n\n# OpenAI on X: \"Announcing GPT-4, a large multimodal model, with our best-ever results on capabilities and alignment: \n\n…",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/miramurati/status/1635688069692293121",
+        "title": "https://x.com/miramurati/status/1635688069692293121",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://openai.com/index/gpt-4-research",
+        "title": "GPT-4 | OpenAI",
+        "snippet": "Skip to main content\n\n\n\nLog inTry ChatGPT(opens in a new window)\n\n   Research\n   Products\n   Business\n   Developers\n   Company\n   Foundation(opens in a new win…",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/verge/status/1635688829792268307",
+        "title": "https://x.com/verge/status/1635688829792268307",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://openai.com/index/gpt-4",
+        "title": "GPT-4 | OpenAI",
+        "snippet": "Skip to main content\n\n\n\nLog inTry ChatGPT(opens in a new window)\n\n   Research\n   Products\n   Business\n   Developers\n   Company\n   Foundation(opens in a new win…",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/tomwarren/status/1635690339926257677",
+        "title": "https://x.com/tomwarren/status/1635690339926257677",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/OpenAI/status/1635687373060317185",
+        "title": "OpenAI on X: \"Announcing GPT-4, a large multimodal model, with our best-ever results on capabilities and alignment: htt…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/miramurati/status/1635688069692293121",
+        "title": "https://x.com/miramurati/status/1635688069692293121",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://openai.com/index/gpt-4-research",
+        "title": "GPT-4 | OpenAI",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/verge/status/1635688829792268307",
+        "title": "https://x.com/verge/status/1635688829792268307",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://openai.com/index/gpt-4",
+        "title": "GPT-4 | OpenAI",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/Dexerto/status/1635691060511879181",
+        "title": "https://x.com/Dexerto/status/1635691060511879181",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/rowancheung/status/1635691542739574784",
+        "title": "https://x.com/rowancheung/status/1635691542739574784",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/sama/status/1635687854784540672",
+        "title": "https://x.com/sama/status/1635687854784540672",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/LinusEkenstam/status/1635702387502456834",
+        "title": "https://x.com/LinusEkenstam/status/1635702387502456834",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/KTmBoyle/status/1635749824078159877",
+        "title": "https://x.com/KTmBoyle/status/1635749824078159877",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/tmiyatake1/status/1635749132475432960",
+        "title": "https://x.com/tmiyatake1/status/1635749132475432960",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/aakashgupta/status/1652513585334034432",
+        "title": "https://x.com/aakashgupta/status/1652513585334034432",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/zikilluu/status/1635809594357448704",
+        "title": "https://x.com/zikilluu/status/1635809594357448704",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/AlexIsBuilding/status/1635819391886712832",
+        "title": "https://x.com/AlexIsBuilding/status/1635819391886712832",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/gdb/status/1635687252616679426",
+        "title": "https://x.com/gdb/status/1635687252616679426",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://developers.openai.com/api/docs/models/gpt-4",
+        "title": "https://developers.openai.com/api/docs/models/gpt-4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://community.openai.com/t/gpt-4-turbo-knowledge-cutoff-issues/728680",
+        "title": "GPT-4 Turbo Knowledge cutoff Issues - API - OpenAI Developer Community",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://community.openai.com/t/gpt-4-is-openai-s-most-advanced-system-and-its-here/98816",
+        "title": "GPT-4 is OpenAI’s most advanced system (and it's here...) - Community - OpenAI Developer Community",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://community.openai.com/t/announcing-gpt-4o-in-the-api/744700",
+        "title": "Announcing GPT-4o in the API! - Announcements - OpenAI Developer Community",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://x.com/OpenAI/status/1635687373060317185",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:15:16.004274+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "x-public-post",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "x-status"
+        ],
+        "required": 1
+      }
+    },
+    "task": {
+      "status": "pass",
+      "reasons": []
+    },
+    "expected_access": "login",
+    "observed_failure": null,
+    "algorithm_miss": false,
+    "grader": "v2"
+  }
+}

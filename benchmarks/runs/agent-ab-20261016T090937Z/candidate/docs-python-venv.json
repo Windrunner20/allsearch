@@ -1,0 +1,233 @@
+{
+  "id": "docs-python-venv",
+  "query": "Python standard library documentation for the venv module",
+  "returncode": 0,
+  "elapsed_ms": 75445,
+  "efficiency": {
+    "tool_calls": {
+      "search": 3,
+      "fetch": 1
+    },
+    "total_calls": 4,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 1,
+    "errors": 2
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": [
+          "stackoverflow.com"
+        ],
+        "fresh": false,
+        "include_domains": [
+          "docs.python.org"
+        ],
+        "max_results": 5,
+        "mode": "docs",
+        "query": "Python standard library documentation venv module docs.python.org venv",
+        "vertical": null
+      },
+      "is_error": true,
+      "ms": 2230
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "official Python standard library documentation for venv module; module description, command usage, API, options",
+        "fresh": false,
+        "max_chars": 20000,
+        "url": "https://docs.python.org/3/library/venv.html"
+      },
+      "is_error": true,
+      "ms": 199
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "balanced",
+        "exclude_domains": null,
+        "fresh": true,
+        "include_domains": null,
+        "max_results": 8,
+        "mode": "web",
+        "query": "site:docs.python.org/3/library/venv.html venv Python documentation",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 9360
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "balanced",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "docs.python.org"
+        ],
+        "max_results": 5,
+        "mode": "docs",
+        "query": "site:docs.python.org/3/library/venv.html venv command line interface EnvBuilder create system-site-packages clear symlinks upgrade-deps",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 12275
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.1\", \"result_id\": \"43dc26c57049f62392b6c776\", \"kind\": \"search\", \"status\": \"error\", \"query\": \"Python standard library documentation venv module docs.python.org venv\", \"answer\": \"\", \"answer_chars\": 0, \"evidence\": {\"unique_urls\": 0, \"unique_domains\": 0, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 0, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 2223, \"warning_count\": 0, \"warnings\": [], \"errors\": [{\"provider\": \"xai\", \"code\": \"provider_contract_error\", \"message\": \"bad request from provider: {\\\"error\\\":{\\\"message\\\":\\\"Upstream rejected the request\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":\\\"\\\",\\\"code\\\":null}}\", \"retryable\": false}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"error\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"skipped\", \"reason\": \"primary_unavailable\"}], \"result_count\": 0, \"citation_count\": 0, \"results\": [], \"citations\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"43dc26c57049f62392b6c776\"}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 0, \"pages_read\": 0, \"calls_without_new_evidence\": 1}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"ccda09cd976ec07cb5b11225\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://docs.python.org/3/library/venv.html\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 18, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"ccda09cd976ec07cb5b11225\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 1, \"read_result\": 0}, \"new_urls\": 1, \"new_pages_read\": 0, \"seen_urls\": 1, \"pages_read\": 0, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"60c08a0dd79dee3c2b5a7f2a\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:docs.python.org/3/library/venv.html venv Python documentation\", \"answer\": \"Results from the official Python docs for `venv`:\\n\\n1. **venv — Creation of virtual environments (Python 3.14)** — Library reference: lightweight isolated environments on top of a base Python, created with `python -m venv`, `pyvenv.cfg`, and notes that `venv` has been recommended since 3.5 (`pyvenv` removed in 3.8).  \\n   https://docs.python.org/3.14/library/venv.html [web:0]\\n\\n2. **12. Virtual Environments and Packages (Python 3 tutorial)** — Tutorial: why virtual environments exist, `python -m venv tutorial-env`, common `.venv` directory name, and activation on Windows and Unix/macOS.  \\n   https://docs.python.org/3/tutorial/venv.html [web:1]\\n\\n3. **venv — Creation of virtual environments (stable library page)** — Same library topic as the versioned page: isolation, pip installing into the e…\", \"answer_chars\": 1841, \"evidence\": {\"unique_urls\": 4, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 4, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 9354, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"skipped\", \"reason\": \"primary_sufficient\"}], \"result_count\": 4, \"citation_count\": 4, \"results\": [{\"id\": \"r1\", \"title\": \"https://docs.python.org/3/library/venv.html\", \"url\": \"https://docs.python.org/3/library/venv.html\", \"snippet\": \"3. venv — Creation of virtual environments (stable library page) — Same library topic as the versioned page: isolation, pip installing into the environment, an…\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"https://docs.python.org/3.14/library/venv.html\", \"url\": \"https://docs.python.org/3.14/library/venv.html\", \"snippet\": \"1. venv — Creation of virtual environments (Python 3.14) — Library reference: lightweight isolated environments on top of a base Python, created with python -m…\", \"providers\": [\"xai\"]}, {\"id\": \"r3\", \"title\": \"https://docs.python.org/3/tutorial/venv.html\", \"url\": \"https://docs.python.org/3/tutorial/venv.html\", \"snippet\": \"2. 12. Virtual Environments and Packages (Python 3 tutorial) — Tutorial: why virtual environments exist, python -m venv tutorial-env , common .venv directory n…\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"https://docs.python.org/zh-cn/3.9/library/venv.html\", \"url\": \"https://docs.python.org/zh-cn/3.9/library/venv.html\", \"snippet\": \"6. Chinese docs (Python 3.9, archived) — Translated library page for an unsupported release; points readers to the current stable docs and summarizes creation …\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://docs.python.org/3/library/venv.html\", \"title\": \"https://docs.python.org/3/library/venv.html\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://docs.python.org/3.14/library/venv.html\", \"title\": \"https://docs.python.org/3.14/library/venv.html\", \"result_item_id\": \"r2\", \"providers\": [\"xai\"]}, {\"id\": \"c3\", \"url\": \"https://docs.python.org/3/tutorial/venv.html\", \"title\": \"https://docs.python.org/3/tutorial/venv.html\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://docs.python.org/zh-cn/3.9/library/venv.html\", \"title\": \"https://docs.python.org/zh-cn/3.9/library/venv.html\", \"result_item_id\": \"r4\", \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"60c08a0dd79dee3c2b5a7f2a\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"Python docs\", \"satisfied\": true, \"detail\": \"4 content page(s), e.g. https://docs.python.org/3/library/venv.html\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 2, \"fetch\": 1, \"read_result\": 0}, \"new_urls\": 3, \"new_pages_read\": 0, \"seen_urls\": 4, \"pages_read\": 0, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"4309de34ef2caf1561179db5\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:docs.python.org/3/library/venv.html venv command line interface EnvBuilder create system-site-packages clear symlinks upgrade-deps\", \"answer\": \"Relevant results from the official Python `venv` docs:\\n\\n1. **Python 3.14 — `venv` CLI and `EnvBuilder`** — [docs.python.org/3.14/library/venv.html](https://docs.python.org/3.14/library/venv.html)  \\n   CLI: `python -m venv [--system-site-packages] [--symlinks | --copies] [--clear] [--upgrade] [--without-pip] [--prompt PROMPT] [--upgrade-deps] [--without-scm-ignore-files] ENV_DIR ...`  \\n   - `--system-site-packages`: expose the system site-packages directory.  \\n   - `--symlinks` / `--copies`: prefer symlinks or copies of the Python binary.  \\n   - `--clear`: delete an existing environment directory before creation.  \\n   - `--upgrade-deps`: upgrade core dependencies (pip) from PyPI.  \\n   API: `EnvBuilder(system_site_packages=False, clear=False, symlinks=False, upgrade=False, with_pip=False, p…\", \"answer_chars\": 2642, \"evidence\": {\"unique_urls\": 4, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 4, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 12264, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"skipped\", \"reason\": \"primary_sufficient\"}], \"result_count\": 4, \"citation_count\": 4, \"results\": [{\"id\": \"r1\", \"title\": \"1\", \"url\": \"https://docs.python.org/3.14/library/venv.html\", \"snippet\": \"1. Python 3.14 — venv CLI and EnvBuilder — docs.python.org/3.14/library/venv.html CLI: python -m venv [--system-site-packages] [--symlinks --copies] [--clear] …\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"2\", \"url\": \"https://docs.python.org/3/library/venv.html\", \"snippet\": \"3. Current docs (3.15 wording) — convenience venv.create — docs.python.org/3/library/venv.html venv.create(env dir, system site packages=False, clear=False, sy…\", \"providers\": [\"xai\"]}, {\"id\": \"r3\", \"title\": \"3\", \"url\": \"https://docs.python.org/zh-cn/3.12/library/venv.html\", \"snippet\": \"4. Python 3.12 (zh) — same CLI flags — docs.python.org/zh-cn/3.12/library/venv.html Documents --clear , --upgrade , --without-pip , --prompt , --upgrade-deps ,…\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"4\", \"url\": \"https://docs.python.org/zh-cn/3.7/library/venv.html\", \"snippet\": \"5. Python 3.7 (zh) — older CLI — docs.python.org/zh-cn/3.7/library/venv.html CLI has --system-site-packages , --symlinks / --copies , --clear , --upgrade , --w…\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://docs.python.org/3.14/library/venv.html\", \"title\": \"1\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://docs.python.org/3/library/venv.html\", \"title\": \"2\", \"result_item_id\": \"r2\", \"providers\": [\"xai\"]}, {\"id\": \"c3\", \"url\": \"https://docs.python.org/zh-cn/3.12/library/venv.html\", \"title\": \"3\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://docs.python.org/zh-cn/3.7/library/venv.html\", \"title\": \"4\", \"result_item_id\": \"r4\", \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"4309de34ef2caf1561179db5\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"Python docs\", \"satisfied\": true, \"detail\": \"4 content page(s), e.g. https://docs.python.org/3.14/library/venv.html\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 3, \"fetch\": 1, \"read_result\": 0}, \"new_urls\": 2, \"new_pages_read\": 0, \"seen_urls\": 6, \"pages_read\": 0, \"calls_without_new_evidence\": 0}}"
+  ],
+  "answer": "Python 标准库 `venv` 模块的官方文档：\n\n- [venv — Creation of virtual environments](https://docs.python.org/3/library/venv.html)\n\n该页面包含：\n\n- 使用 `python -m venv` 创建虚拟环境\n- 命令行选项，如 `--system-site-packages`、`--clear`、`--upgrade-deps`\n- `venv.create()` 函数\n- `EnvBuilder` 类及其可重写的方法\n- 虚拟环境的激活方式与可移植性说明\n\n相关教程：[Virtual Environments and Packages](https://docs.python.org/3/tutorial/venv.html)",
+  "observation": {
+    "id": "docs-python-venv",
+    "answer": "Python 标准库 `venv` 模块的官方文档：\n\n- [venv — Creation of virtual environments](https://docs.python.org/3/library/venv.html)\n\n该页面包含：\n\n- 使用 `python -m venv` 创建虚拟环境\n- 命令行选项，如 `--system-site-packages`、`--clear`、`--upgrade-deps`\n- `venv.create()` 函数\n- `EnvBuilder` 类及其可重写的方法\n- 虚拟环境的激活方式与可移植性说明\n\n相关教程：[Virtual Environments and Packages](https://docs.python.org/3/tutorial/venv.html)",
+    "results": [
+      {
+        "url": "https://docs.python.org/3/library/venv.html",
+        "title": "https://docs.python.org/3/library/venv.html",
+        "snippet": "3. venv — Creation of virtual environments (stable library page) — Same library topic as the versioned page: isolation, pip installing into the environment, an…",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3.14/library/venv.html",
+        "title": "https://docs.python.org/3.14/library/venv.html",
+        "snippet": "1. venv — Creation of virtual environments (Python 3.14) — Library reference: lightweight isolated environments on top of a base Python, created with python -m…",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/tutorial/venv.html",
+        "title": "https://docs.python.org/3/tutorial/venv.html",
+        "snippet": "2. 12. Virtual Environments and Packages (Python 3 tutorial) — Tutorial: why virtual environments exist, python -m venv tutorial-env , common .venv directory n…",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/zh-cn/3.9/library/venv.html",
+        "title": "https://docs.python.org/zh-cn/3.9/library/venv.html",
+        "snippet": "6. Chinese docs (Python 3.9, archived) — Translated library page for an unsupported release; points readers to the current stable docs and summarizes creation …",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/library/venv.html",
+        "title": "https://docs.python.org/3/library/venv.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3.14/library/venv.html",
+        "title": "https://docs.python.org/3.14/library/venv.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/tutorial/venv.html",
+        "title": "https://docs.python.org/3/tutorial/venv.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/zh-cn/3.9/library/venv.html",
+        "title": "https://docs.python.org/zh-cn/3.9/library/venv.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3.14/library/venv.html",
+        "title": "1",
+        "snippet": "1. Python 3.14 — venv CLI and EnvBuilder — docs.python.org/3.14/library/venv.html CLI: python -m venv [--system-site-packages] [--symlinks --copies] [--clear] …",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/library/venv.html",
+        "title": "2",
+        "snippet": "3. Current docs (3.15 wording) — convenience venv.create — docs.python.org/3/library/venv.html venv.create(env dir, system site packages=False, clear=False, sy…",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/zh-cn/3.12/library/venv.html",
+        "title": "3",
+        "snippet": "4. Python 3.12 (zh) — same CLI flags — docs.python.org/zh-cn/3.12/library/venv.html Documents --clear , --upgrade , --without-pip , --prompt , --upgrade-deps ,…",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/zh-cn/3.7/library/venv.html",
+        "title": "4",
+        "snippet": "5. Python 3.7 (zh) — older CLI — docs.python.org/zh-cn/3.7/library/venv.html CLI has --system-site-packages , --symlinks / --copies , --clear , --upgrade , --w…",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3.14/library/venv.html",
+        "title": "1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/library/venv.html",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/zh-cn/3.12/library/venv.html",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/zh-cn/3.7/library/venv.html",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://docs.python.org/3/library/venv.html",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 18, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…",
+            "retryable": true
+          }
+        ]
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:35:15.342273+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "docs-python-venv",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "py-venv"
+        ],
+        "required": 1
+      },
+      "reading": {
+        "status": "fail"
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "pass",
+      "reasons": []
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": false,
+    "grader": "v2"
+  }
+}

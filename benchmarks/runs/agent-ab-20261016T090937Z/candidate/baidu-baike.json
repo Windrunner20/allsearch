@@ -1,0 +1,575 @@
+{
+  "id": "baidu-baike",
+  "query": "百度百科图灵奖词条中的颁发机构",
+  "returncode": 0,
+  "elapsed_ms": 153007,
+  "efficiency": {
+    "tool_calls": {
+      "search": 2,
+      "fetch": 1,
+      "read_result": 1
+    },
+    "total_calls": 4,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 2,
+    "errors": 1
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": true,
+        "include_domains": [
+          "baike.baidu.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:baike.baidu.com 图灵奖 颁发机构 百度百科 颁发机构是什么所属类别基本信息栏格式字段 颁发机构 委员会 ACM 原始词条链接",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 39544
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "查找百度百科中文图灵奖词条基本信息栏中“颁发机构”字段及其原文上下文",
+        "fresh": true,
+        "max_chars": 50000,
+        "url": "https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645"
+      },
+      "is_error": true,
+      "ms": 202
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": [
+          "answer",
+          "results",
+          "citations",
+          "evidence"
+        ],
+        "limit": 200000,
+        "max_bytes": 16384,
+        "offset": 0,
+        "result_id": "716456d2be497e11b17d1a89"
+      },
+      "is_error": false,
+      "ms": 6
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": true,
+        "include_domains": [
+          "baike.baidu.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "\"图灵奖\" \"颁发机构\" \"美国计算机协会\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 57393
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.1\", \"result_id\": \"716456d2be497e11b17d1a89\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:baike.baidu.com 图灵奖 颁发机构 百度百科 颁发机构是什么所属类别基本信息栏格式字段 颁发机构 委员会 ACM 原始词条链接\", \"answer\": \"图灵奖百度百科相关结果（颁发机构与基本信息栏），最多 10 条：\\n\\n1. **图灵奖_百度百科** — https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645  \\n   原始词条。概述：由**美国计算机协会（ACM）**于 1966 年设立。正文写明 ACM 组成**评选委员会**评审并确定获奖者。义项/概述口径为“1966 年设立的计算机领域的国际最高奖项”。摘录未完整列出中文基本信息栏全部字段名。\\n\\n2. **A.M. Turing Award_Baiduwiki（国际版）** — https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025  \\n   基本信息栏（Key Information）可见字段包括：Chinese Name（图灵奖）、Hon…\", \"answer_chars\": 2481, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 1, \"cross_provider_matches\": 1, \"pages_fetched\": 2, \"primary_citation_count\": 12, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 39536, \"warning_count\": 1, \"warnings\": [\"auto_scrape_truncated\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 19, \"results\": [{\"id\": \"r1\", \"title\": \"\", \"url\": \"https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/23286352\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"\", \"url\": \"http://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"\", \"url\": \"https://baike.baidu.com/item/%E4%B8%96%E7%95%8C%E9%A1%B6%E5%B0%96%E7%A7%91%E5%AD%A6%E5%AE%B6%E5%8D%8F%E4%BC%9A/23401344\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"\", \"url\": \"https://baike.baidu.com/item/图灵奖/324645\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"\", \"url\": \"https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/62998422\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"\", \"url\": \"https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\", \"firecrawl\"]}, {\"id\": \"r7\", \"title\": \"\", \"url\": \"https://baike.baidu.com/item/%E7%88%B1%E5%BE%B7%E5%8D%8E%C2%B7%E8%B4%B9%E6%A0%B9%E9%B2%8D%E5%A7%86/7868210\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"\", \"url\": \"https://baike.baidu.com/item/%E5%A5%96%E9%A1%B9%E7%B1%BB%E7%99%BE%E7%A7%91%E7%BC%96%E8%BE%91%E6%8C%87%E5%8D%97/65395408\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"\", \"url\": \"https://baike.baidu.com/item/图灵机/2112989\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r10\", \"title\": \"\", \"url\": \"https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/23286352\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"http://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://baike.baidu.com/item/%E4%B8%96%E7%95%8C%E9%A1%B6%E5%B0%96%E7%A7%91%E5%AD%A6%E5%AE%B6%E5%8D%8F%E4%BC%9A/23401344\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://baike.baidu.com/item/图灵奖/324645\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/62998422\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://baike.baidu.com/item/%E7%88%B1%E5%BE%B7%E5%8D%8E%C2%B7%E8%B4%B9%E6%A0%B9%E9%B2%8D%E5%A7%86/7868210\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://baike.baidu.com/item/%E5%A5%96%E9%A1%B9%E7%B1%BB%E7%99%BE%E7%A7%91%E7%BC%96%E8%BE%91%E6%8C%87%E5%8D%97/65395408\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://baike.baidu.com/item/图灵机/2112989\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"tavily\"]}, {\"id\": \"c10\", \"url\": \"https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%85%88%E9%A9%B1%E5%A5%96/7300396\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E4%BC%9A/64305305?fromid=64774&fromtitle=ACM\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A/4352720\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://baike.baidu.com/item/%E5%A5%96%E9%A1%B9%E7%B1%BB%E8%AF%8D%E6%9D%A1%E7%BC%96%E8%BE%91%E6%8C%87%E5%8D%97/22094995\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://baike.baidu.com/item/%E7%BD%97%E6%9D%B0%C2%B7%E7%91%9E%E8%BF%AA/4600662\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://baike.baidu.com/item/ACM%E8%AE%A1%E7%AE%97%E5%A5%96/67630810\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://baike.baidu.com/item/%E9%A2%81%E5%8F%91%E6%9C%BA%E6%9E%84%E5%BC%80%E5%A7%8B(SOA)%E8%B5%84%E6%BA%90%E8%AE%B0%E5%BD%95/5380418\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c18\", \"url\": \"https://baike.baidu.com/item/%E7%99%BE%E5%BA%A6%E7%99%BE%E7%A7%91%EF%BC%9A%E8%AF%8D%E6%9D%A1%E7%9A%84%E6%9E%84%E6%88%90/64817438\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c19\", \"url\": \"https://baike.baidu.com/item/%E7%99%BE%E5%BA%A6%E7%99%BE%E7%A7%91%EF%BC%9A%E8%AF%8D%E6%9D%A1/8644977\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"716456d2be497e11b17d1a89\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"百度百科\", \"satisfied\": true, \"detail\": \"18 content page(s), e.g. https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/23286352\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 19, \"new_pages_read\": 2, \"seen_urls\": 19, \"pages_read\": 2, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"c1f8311252e3b6856cd25909\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 19, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"c1f8311252e3b6856cd25909\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 1, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 19, \"pages_read\": 2, \"calls_without_new_evidence\": 1}}",
+    "{\"result_id\": \"716456d2be497e11b17d1a89\", \"kind\": \"search\", \"fields\": [\"answer\", \"results\", \"citations\", \"evidence\"], \"offset\": 0, \"next_offset\": 10, \"next_offsets\": {\"answer\": 1369, \"results\": null, \"citations\": 10}, \"truncated\": true, \"data\": {\"answer\": \"图灵奖百度百科相关结果（颁发机构与基本信息栏），最多 10 条：\\n\\n1. **图灵奖_百度百科** — https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645  \\n   原始词条。概述：由**美国计算机协会（ACM）**于 1966 年设立。正文写明 ACM 组成**评选委员会**评审并确定获奖者。义项/概述口径为“1966 年设立的计算机领域的国际最高奖项”。摘录未完整列出中文基本信息栏全部字段名。\\n\\n2. **A.M. Turing Award_Baiduwiki（国际版）** — https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025  \\n   基本信息栏（Key Information）可见字段包括：Chinese Name（图灵奖）、Honored Figure、Also known as、Prize Amount、Established（1966）、Award Ceremony Time、**Founding Organization: Association for Computing Machinery (ACM)**、Number of recipients、Nature of the Award、**Award Category: Computer Science**、**Selecting Organization: Association for Computing Machinery (ACM)**、Recipients。\\n\\n3. **国际计算机学会_百度百科（ACM）** — https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E4%BC%9A/64305305?fromtitle=ACM&fromid=64774  \\n   同义词 ACM。写明 ACM 设立并颁发图灵奖；图灵奖由 ACM 于 1966 年创办。\\n\\n4. **计算机协会_百度百科** — https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A/4352720  \\n   国际计算机学会（ACM）条目相关内容：ACM 颁发图灵奖，称为计算机领域的诺贝尔奖。\\n\\n5. **ACM计算奖_百度百科** — https://baike.baidu.com/item/ACM%E8%AE%A1%E7%AE%97%E5%A5%96/67630810  \\n   基本信息栏字段示例含：中文名、外文名、别名、**创办机构**（美国计算机协会 ACM）、创办时间。文中转述图灵奖由 ACM 设立，并组成评选委员会评审。\\n\\n6. **奖项类词条编辑指南_百度百科** — https://baike.baidu.com/item/%E5%A5%96%E9%A1%B9%E7%B1%BB%E8%AF%8D%E6%9D%A1%E7%BC%96%E8%BE%91%E6%8C%87%E5%8D\", \"answer_chars\": 2481, \"results\": [{\"id\": \"r1\", \"title\": \"https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/23286352\", \"url\": \"https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/23286352\", \"snippet\": \"9. 中国图灵大会 百度百科 — ACM TURC 论坛词条，提及邀请 ACM 图灵奖得主，不定义奖项颁发机构。\", \"provider\": \"xai\", \"matched_providers\": [\"xai\"], \"source_type\": \"web\", \"published_at\": null, \"score\": null}, {\"id\": \"r2\", \"title\": \"图灵奖_百度百科\", \"url\": \"http://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645\", \"snippet\": \"Title: 图灵奖_百度百科\\n# 图灵奖. 图灵奖（Turing Award），全称A.M.图灵奖（ACM A.M Turing Award），是由美国计算机协会（ACM）于1966年设立的计算机奖项，名称取自艾伦·麦席森·图灵（Alan M. Turing），旨在奖励对计算机事业作出重要贡献的个人 。图灵奖对获奖条件要求极高，评奖程序极严，一般每年仅授予一名计算机科学家。图灵奖是计算机领域的国际最高奖项，被誉为“计算机界的诺贝尔奖”。奖金通常由计算机界的一些大企业提供。图灵奖现主要由Google公司赞助，奖金为100万美元。. 图灵奖一般在每年3月下旬颁发。从1966年至2020年，图灵奖共授予74名获奖者，以美国、欧洲科学家为主。2000年，中国科学家姚期智获图灵奖，这是中国人首次获得图灵奖。2022年3月30日，美国计算机协会（ACM）公布了2021年度图灵奖获奖者。美国田纳西大学电气工程和计算机科学系教授Jack J. 截至2021年4月，世界各高校的图灵奖获奖人数依次为美国斯坦福大学（29位）、美国麻省理工学院（26位）、美国加利福尼亚大学伯克利分校（25位）、美国普林斯顿大学（16位）、美国哈佛大学（14位）。. 2026年3月18日，美国计算机学会（ACM）宣布，将2025年图灵奖授予查尔斯·本内特（Charles H. Bennett）和吉尔斯·布拉萨德（Gil…\", \"provider\": \"tavily\", \"matched_providers\": [\"tavily\"], \"source_type\": \"web\", \"published_at\": null, \"score\": 0.76826453}, {\"id\": \"r3\", \"title\": \"https://baike.baidu.com/item/%E4%B8%96%E7%95%8C%E9%A1%B6%E5%B0%96%E7%A7%91%E5%AD%A6%E5%AE%B6%E5%8D%8F%E4%BC%9A/23401344\", \"url\": \"https://baike.baidu.com/item/%E4%B8%96%E7%95%8C%E9%A1%B6%E5%B0%96%E7%A7%91%E5%AD%A6%E5%AE%B6%E5%8D%8F%E4%BC%9A/23401344\", \"snippet\": \"\", \"provider\": \"xai\", \"matched_providers\": [\"xai\", \"firecrawl\"], \"source_type\": \"web\", \"published_at\": null, \"score\": null}, {\"id\": \"r4\", \"title\": \"图灵奖\", \"url\": \"https://baike.baidu.com/item/图灵奖/324645\", \"snippet\": \"Title: 图灵奖\\n# 图灵奖. 图灵奖（Turing Award），全称A.M.图灵奖，是由美国计算机协会（ACM）于1966年设立的计算机奖项，名称取自艾伦·麦席森·图灵（Alan M. Turing），旨在奖励对计算机事业作出重要贡献的个人，被称为“诺贝尔计算机奖”。 [1]图灵奖一般在每年3月下旬颁发， [25]每年，美国计算机协会将要求提名人推荐本年度的图灵奖候选人，任何人都可成为提名人，并组成评选委员会进行严格评审。 [2]获奖条件要求极高，评奖程序极严，一般每年仅授予一名计算机科学家，极少数年度授予两名。 [29]奖金通常由计算机界的一些大企业提供，现主要由Google公司赞助，奖金为100万美元。 [26-27]从1966年至2025年，共有82名获奖者。2000年，中国科学家姚期智获图灵奖，这是中国人首次获得图灵奖。截至2021年4月，世界各高校的图灵奖获奖人数依次为美国斯坦福大学（29位）、美国麻省理工学院（26位）、美国加州大学伯克利分校（25位）、美国普林斯顿大学（16位）、美国哈佛大学（14位）。 [27]2021年图灵奖授予Jack J. Dongarra，表彰他对高性能计算和数值算法的开创性贡献。 [30]2023年图灵奖授予Avi Wigderson，表彰他对计算理论的贡献，特别是对随机性在计算中作用的理解。 [28]2024年图灵奖授予Rich…\", \"provider\": \"tavily\", \"matched_providers\": [\"tavily\"], \"source_type\": \"web\", \"published_at\": null, \"score\": 0.73299384}, {\"id\": \"r5\", \"title\": \"https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/62998422\", \"url\": \"https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/62998422\", \"snippet\": \"8. ACM中国图灵大会 百度百科 — 说明 ACM 即国际计算机协会；1966 年为纪念图灵设立图灵奖。属会议词条，不是奖项颁发机构本身。\", \"provider\": \"xai\", \"matched_providers\": [\"xai\"], \"source_type\": \"web\", \"published_at\": null, \"score\": null}, {\"id\": \"r6\", \"title\": \"图灵奖\", \"url\": \"https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645\", \"snippet\": \"1[]( Turing Award．ACM 官网 [引用日期2017-04-4]\\n   2[]( Shafi Goldwasser．美国计算机协会官网 [引用日期2016-01-12]\\n   3[]( 2019年图灵奖授予两位皮克斯动画室元老．新浪网 [引用日期2020-03-18]\\n   4[]( Silvio Micali．美国计算机协会官网 [引用日期2016-01-12]\\n   5[]( ACM TURING AWARD GOES TO PIONEER WHO ADVANCED RELIABILITY AND CONSISTENCY OF COMPUTING SYSTEMS．图灵奖官方网站．2014-03-18 [引用日期2014-03-20]\\n   6[]( Turing award 2014．Turing award 2014．2015-03-25 [引用日期2015-04-26]\\n   7[]( Tim Berners-Lee．麻省理工学院官网 [引用日期2017-04-4]\\n   8[]( 两名芯片专家获图灵奖：将平分谷歌百万美元奖金．新浪科技 [引用日期2018-03-22]\\n   9[]( 三名深度学习技术科学家获“计算机界诺奖”图灵奖．新华网 [引用日期2019-03-28]\\n   10[]( 三位深度学习之父共获2019年图灵奖．新浪科技综合．2019-0…\", \"provider\": \"xai\", \"matched_providers\": [\"xai\", \"tavily\", \"firecrawl\"], \"source_type\": \"web\", \"published_at\": null, \"score\": 0.5201313}, {\"id\": \"r7\", \"title\": \"https://baike.baidu.com/item/%E7%88%B1%E5%BE%B7%E5%8D%8E%C2%B7%E8%B4%B9%E6%A0%B9%E9%B2%8D%E5%A7%86/7868210\", \"url\": \"https://baike.baidu.com/item/%E7%88%B1%E5%BE%B7%E5%8D%8E%C2%B7%E8%B4%B9%E6%A0%B9%E9%B2%8D%E5%A7%86/7868210\", \"snippet\": \"10. 爱德华·费根鲍姆 百度百科 — 人物词条：1994 年图灵奖得主之一；荣誉表中列“图灵奖”，无独立“颁发机构”栏。\", \"provider\": \"xai\", \"matched_providers\": [\"xai\"], \"source_type\": \"web\", \"published_at\": null, \"score\": null}, {\"id\": \"r8\", \"title\": \"奖项类百科编辑指南_百度百科\", \"url\": \"https://baike.baidu.com/item/%E5%A5%96%E9%A1%B9%E7%B1%BB%E7%99%BE%E7%A7%91%E7%BC%96%E8%BE%91%E6%8C%87%E5%8D%97/65395408\", \"snippet\": \"Title: 奖项类百科编辑指南_百度百科\\n| 词条名﻿ | 通用原则 | 奖项类词条名应以权威正式的中文名，或广泛通用的名称为基础，遵循百度百科的命名规范，使用中文全称的标准词，具体的判定标准见详细方案。 | ﻿1.诺贝尔物理学奖  2.鲁迅文学奖  3.中国电视金鹰奖﻿ | 1.TGA 2023（使用名称为简写，且注明的是年份而非某一届。） |. | 义项名 | 通用原则 | 通过简短描述概况奖项性质，便于词条用户快速筛选和判断词条。 | 1.诺贝尔奖：瑞典、挪威诺贝尔基金会主办的综合类奖项  2.鲁迅文学奖：国家级文学奖项  3.两弹一星功勋奖章：1999年授予的功勋奖章﻿﻿ | 1.The Game Awards：游戏奖（缺少地点、颁奖单位等必要信息。）  2.诺贝尔经济学奖：2024年10月14日宣布的奖项（缺少地点、颁奖单位和奖项性质等必要信息，仅补充了时间等非必要信息，且使用了“宣布”等不规范的主观表述。）  3.中国电视金鹰奖：中国文学艺术界联合会和中国电视艺术家协会共同主办的电视奖项（颁奖单位过长可以采用其他格式来表述）﻿﻿ |. | 概述 | 通用原则 | 对奖项的重要内容进行概括介绍，使读者可以快速了解该奖项的基本信息。 | 1.大众电影百花奖    2.精神文明建设五个一工程奖    3.中国电视金鹰奖﻿ | 1.TGA 2023（过于简略，三段信息均有缺…\", \"provider\": \"tavily\", \"matched_providers\": [\"tavily\"], \"source_type\": \"web\", \"published_at\": null, \"score\": 0.45711306}, {\"id\": \"r9\", \"title\": \"图灵机\", \"url\": \"https://baike.baidu.com/item/图灵机/2112989\", \"snippet\": \"Title: 图灵机\\n近期有不法分子冒充百度百科官方人员，以删除词条为由威胁并敲诈相关企业。在此严正声明：百度百科是免费编辑平台，绝不存在收费代编服务，请勿上当受骗！详情>>. # 图灵机. 本词条由《中国科技信息》杂志社参与编辑并审核，经科普中国·科学百科认证 。. 图灵机，又称图灵计算机，是一个抽象的机器。它由英国数学家艾伦・麦席森・图灵(1912―-1954年)于1936年提出的一种抽象的计算模型，即将人们使用纸笔进行数学运算的过程进行抽象，由一个虚拟的机器替代人类进行数学运算。 [2]图灵机有一条无限长的纸带，纸带分成了一个一个的小方格，每个方格有不同的颜色。有一个读写头在纸带上移来移去。读写头有一组内部状态，还有一些固定的程序。在每个时刻，读写头都要从当前纸带上读入一个方格信息，然后结合自己的内部状态查找程序表，根据程序输出信息到纸带方格上，并转换自己的内部状态，然后进行移动。 [1]. ## 基本思想. 而在每个阶段，人要决定下一步的动作，依赖于 (1) 此人当前所关注的纸上某个位置的符号和(2) 此人当前思维的状态。. 1、一条无限长的纸带 TAPE。纸带被划分为一个个的小格子，每个格子上包含一个来自有限字母表的符号，字母表中有一个特殊的符号表示空白。纸带上的格子从左到右依此被编号为 0，1，2，... 2、一个读写头HEAD。该读写头可以在纸带上左右移动，它能读出…\", \"provider\": \"tavily\", \"matched_providers\": [\"tavily\"], \"source_type\": \"web\", \"published_at\": null, \"score\": 0.43640643}, {\"id\": \"r10\", \"title\": \"https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025\", \"url\": \"https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025\", \"snippet\": \"2. A.M. Turing Award Baiduwiki（国际版） — 基本信息栏（Key Information）可见字段包括：Chinese Name（图灵奖）、Honored Figure、Also known as、Prize Amount、Established（1966）、Award Ceremony Time、 Founding Organization: Association for Computing Machinery (ACM) 、Number of recipients、Nature of the Award、 Award Category: Computer S\", \"provider\": \"xai\", \"matched_providers\": [\"xai\"], \"source_type\": \"web\", \"published_at\": null, \"score\": null}], \"results_total\": 10, \"citations\": [{\"id\": \"c1\", \"title\": \"https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/23286352\", \"url\": \"https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/23286352\", \"result_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"title\": \"图灵奖_百度百科\", \"url\": \"http://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645\", \"result_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"title\": \"https://baike.baidu.com/item/%E4%B8%96%E7%95%8C%E9%A1%B6%E5%B0%96%E7%A7%91%E5%AD%A6%E5%AE%B6%E5%8D%8F%E4%BC%9A/23401344\", \"url\": \"https://baike.baidu.com/item/%E4%B8%96%E7%95%8C%E9%A1%B6%E5%B0%96%E7%A7%91%E5%AD%A6%E5%AE%B6%E5%8D%8F%E4%BC%9A/23401344\", \"result_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"title\": \"图灵奖\", \"url\": \"https://baike.baidu.com/item/图灵奖/324645\", \"result_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"title\": \"https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/62998422\", \"url\": \"https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/62998422\", \"result_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"title\": \"图灵奖\", \"url\": \"https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645\", \"result_id\": \"r6\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c7\", \"title\": \"https://baike.baidu.com/item/%E7%88%B1%E5%BE%B7%E5%8D%8E%C2%B7%E8%B4%B9%E6%A0%B9%E9%B2%8D%E5%A7%86/7868210\", \"url\": \"https://baike.baidu.com/item/%E7%88%B1%E5%BE%B7%E5%8D%8E%C2%B7%E8%B4%B9%E6%A0%B9%E9%B2%8D%E5%A7%86/7868210\", \"result_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"title\": \"奖项类百科编辑指南_百度百科\", \"url\": \"https://baike.baidu.com/item/%E5%A5%96%E9%A1%B9%E7%B1%BB%E7%99%BE%E7%A7%91%E7%BC%96%E8%BE%91%E6%8C%87%E5%8D%97/65395408\", \"result_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"title\": \"图灵机\", \"url\": \"https://baike.baidu.com/item/图灵机/2112989\", \"result_id\": \"r9\", \"providers\": [\"tavily\"]}, {\"id\": \"c10\", \"title\": \"https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025\", \"url\": \"https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025\", \"result_id\": \"r10\", \"providers\": [\"xai\"]}], \"citations_total\": 19, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 1, \"cross_provider_matches\": 1, \"pages_fetched\": 2, \"primary_citation_count\": 12, \"threads_read\": 0, \"comments_read\": 0}}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 1, \"read_result\": 1}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 19, \"pages_read\": 2, \"calls_without_new_evidence\": 2}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"78e789c6dd6d70a8c460aa5d\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"\\\"图灵奖\\\" \\\"颁发机构\\\" \\\"美国计算机协会\\\"\", \"answer\": \"图灵奖由美国计算机协会（ACM，Association for Computing Machinery）颁发。以下为相关检索结果（最多10条）：\\n\\n1. **百度百科·图灵奖**：图灵奖（A.M. Turing Award）由美国计算机协会（ACM）于1966年设立，奖励对计算机事业作出重要贡献的个人，有“计算机界的诺贝尔奖”之称；评选由ACM组织。  \\n   来源：https://baike.baidu.com/item/图灵奖/324645\\n\\n2. **百度百科英文版 A.M. Turing Award**：正式名称为 ACM A.M. Turing Award，1966年由 Association for Computing Machinery (ACM) 设立；评选机构为 ACM。  \\n   来源：https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025\\n\\n3. **百度百科·ACM计算奖（相关词条）**：明确写道图灵奖全称 A.M. 图灵奖，由美国计算机协会（ACM）于1966年设立，一般每年3月下旬颁发，由ACM组成评选委员会评审。  \\n   来源：https://baike.baidu.com/item/ACM计算奖/67630810\\n\\n4. **百度百科日文版 チューリング賞**：正式名称 ACM …\", \"answer_chars\": 1661, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 1, \"cross_provider_matches\": 1, \"pages_fetched\": 3, \"primary_citation_count\": 9, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 57386, \"warning_count\": 1, \"warnings\": [\"auto_scrape_truncated\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 16, \"results\": [{\"id\": \"r1\", \"title\": \"https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A…\", \"url\": \"https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E4%BC%9A/64305305?fromid=64774&fromtitle=ACM\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"图灵奖_百度百科\", \"url\": \"https://baike.baidu.com/item/圖靈獎/324645\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"图灵奖\", \"url\": \"https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r4\", \"title\": \"计算机协会\", \"url\": \"https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A/4352720\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"国际计算机学会_百度百科\", \"url\": \"https://baike.baidu.com/item/%E7%BE%8E%E5%9B%BD%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A/1896077\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r6\", \"title\": \"https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E…\", \"url\": \"https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/62998422\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r7\", \"title\": \"国际计算机学会_百度百科\", \"url\": \"http://baike.baidu.com/item/%E7%BE%8E%E5%9B%BD%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A/1896077\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r8\", \"title\": \"https://baike.baidu.com/item/%E7%BD%97%E6%9D%B0%C2%B7%E7%91%9E%E8%BF%AA/4600662\", \"url\": \"https://baike.baidu.com/item/%E7%BD%97%E6%9D%B0%C2%B7%E7%91%9E%E8%BF%AA/4600662\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r9\", \"title\": \"图灵奖\", \"url\": \"http://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r10\", \"title\": \"https://baike.baidu.com/ja/item/%E3%83%81%E3%83%A5%E3%83%BC%E3%83%AA%E3%83%B3%E…\", \"url\": \"https://baike.baidu.com/ja/item/%E3%83%81%E3%83%A5%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0%E8%B3%9E/1497630\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E4%BC%9A/64305305?fromid=64774&fromtitle=ACM\", \"title\": \"https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A…\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://baike.baidu.com/item/圖靈獎/324645\", \"title\": \"图灵奖_百度百科\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645\", \"title\": \"图灵奖\", \"result_item_id\": \"r3\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c4\", \"url\": \"https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A/4352720\", \"title\": \"计算机协会\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://baike.baidu.com/item/%E7%BE%8E%E5%9B%BD%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A/1896077\", \"title\": \"国际计算机学会_百度百科\", \"result_item_id\": \"r5\", \"providers\": [\"tavily\"]}, {\"id\": \"c6\", \"url\": \"https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/62998422\", \"title\": \"https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E…\", \"result_item_id\": \"r6\", \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"http://baike.baidu.com/item/%E7%BE%8E%E5%9B%BD%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A/1896077\", \"title\": \"国际计算机学会_百度百科\", \"result_item_id\": \"r7\", \"providers\": [\"tavily\"]}, {\"id\": \"c8\", \"url\": \"https://baike.baidu.com/item/%E7%BD%97%E6%9D%B0%C2%B7%E7%91%9E%E8%BF%AA/4600662\", \"title\": \"https://baike.baidu.com/item/%E7%BD%97%E6%9D%B0%C2%B7%E7%91%9E%E8%BF%AA/4600662\", \"result_item_id\": \"r8\", \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"http://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645\", \"title\": \"图灵奖\", \"result_item_id\": \"r9\", \"providers\": [\"tavily\"]}, {\"id\": \"c10\", \"url\": \"https://baike.baidu.com/ja/item/%E3%83%81%E3%83%A5%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0%E8%B3%9E/1497630\", \"title\": \"https://baike.baidu.com/ja/item/%E3%83%81%E3%83%A5%E3%83%BC%E3%83%AA%E3%83%B3%E…\", \"result_item_id\": \"r10\", \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://baike.baidu.com/item/ACM%E8%AE%A1%E7%AE%97%E5%A5%96/67630810\", \"title\": \"https://baike.baidu.com/item/ACM%E8%AE%A1%E7%AE%97%E5%A5%96/67630810\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%85%88%E9%A9%B1%E5%A5%96/7300396\", \"title\": \"https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%85%88%E9%A9%B1%E5%A…\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025\", \"title\": \"https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://baike.baidu.com/item/%E6%9F%A5%E7%90%86%E5%A3%AB%C2%B7%E5%B7%B4%E8%B5%AB%E6%9B%BC/4004186\", \"title\": \"https://baike.baidu.com/item/%E6%9F%A5%E7%90%86%E5%A3%AB%C2%B7%E5%B7%B4%E8%B5%A…\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://baike.baidu.com/item/图灵奖/324645\", \"title\": \"图灵奖\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c16\", \"url\": \"https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E7%9F%A5%E8%AF%86%E5%8F%91%E7%8E%B0%E5%92%8C%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%AB%9E%E8%B5%9B/4993155\", \"title\": \"国际知识发现和数据挖掘竞赛\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"78e789c6dd6d70a8c460aa5d\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"百度百科\", \"satisfied\": true, \"detail\": \"14 content page(s), e.g. https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E4%BC%9A/6…\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 2, \"fetch\": 1, \"read_result\": 1}, \"new_urls\": 6, \"new_pages_read\": 3, \"seen_urls\": 25, \"pages_read\": 5, \"calls_without_new_evidence\": 0}}"
+  ],
+  "answer": "百度百科“图灵奖”词条中的颁发机构是：**美国计算机协会（ACM，Association for Computing Machinery）**。\n\n原始词条链接：  \nhttps://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645",
+  "observation": {
+    "id": "baidu-baike",
+    "answer": "百度百科“图灵奖”词条中的颁发机构是：**美国计算机协会（ACM，Association for Computing Machinery）**。\n\n原始词条链接：  \nhttps://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645",
+    "results": [
+      {
+        "url": "https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/23286352",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E4%B8%96%E7%95%8C%E9%A1%B6%E5%B0%96%E7%A7%91%E5%AD%A6%E5%AE%B6%E5%8D%8F%E4%BC%9A/23401344",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/图灵奖/324645",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/62998422",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E7%88%B1%E5%BE%B7%E5%8D%8E%C2%B7%E8%B4%B9%E6%A0%B9%E9%B2%8D%E5%A7%86/7868210",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%A5%96%E9%A1%B9%E7%B1%BB%E7%99%BE%E7%A7%91%E7%BC%96%E8%BE%91%E6%8C%87%E5%8D%97/65395408",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/图灵机/2112989",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/23286352",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E4%B8%96%E7%95%8C%E9%A1%B6%E5%B0%96%E7%A7%91%E5%AD%A6%E5%AE%B6%E5%8D%8F%E4%BC%9A/23401344",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/图灵奖/324645",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/62998422",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E7%88%B1%E5%BE%B7%E5%8D%8E%C2%B7%E8%B4%B9%E6%A0%B9%E9%B2%8D%E5%A7%86/7868210",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%A5%96%E9%A1%B9%E7%B1%BB%E7%99%BE%E7%A7%91%E7%BC%96%E8%BE%91%E6%8C%87%E5%8D%97/65395408",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/图灵机/2112989",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%85%88%E9%A9%B1%E5%A5%96/7300396",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E4%BC%9A/64305305?fromid=64774&fromtitle=ACM",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A/4352720",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%A5%96%E9%A1%B9%E7%B1%BB%E8%AF%8D%E6%9D%A1%E7%BC%96%E8%BE%91%E6%8C%87%E5%8D%97/22094995",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E7%BD%97%E6%9D%B0%C2%B7%E7%91%9E%E8%BF%AA/4600662",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/ACM%E8%AE%A1%E7%AE%97%E5%A5%96/67630810",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E9%A2%81%E5%8F%91%E6%9C%BA%E6%9E%84%E5%BC%80%E5%A7%8B(SOA)%E8%B5%84%E6%BA%90%E8%AE%B0%E5%BD%95/5380418",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E7%99%BE%E5%BA%A6%E7%99%BE%E7%A7%91%EF%BC%9A%E8%AF%8D%E6%9D%A1%E7%9A%84%E6%9E%84%E6%88%90/64817438",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E7%99%BE%E5%BA%A6%E7%99%BE%E7%A7%91%EF%BC%9A%E8%AF%8D%E6%9D%A1/8644977",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/23286352",
+        "title": "https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/23286352",
+        "snippet": "9. 中国图灵大会 百度百科 — ACM TURC 论坛词条，提及邀请 ACM 图灵奖得主，不定义奖项颁发机构。",
+        "published_at": null
+      },
+      {
+        "url": "http://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645",
+        "title": "图灵奖_百度百科",
+        "snippet": "Title: 图灵奖_百度百科\n# 图灵奖. 图灵奖（Turing Award），全称A.M.图灵奖（ACM A.M Turing Award），是由美国计算机协会（ACM）于1966年设立的计算机奖项，名称取自艾伦·麦席森·图灵（Alan M. Turing），旨在奖励对计算机事业作出重要贡献的个人 。图灵奖对获奖条件要求极高，评奖程序极严，一般每年仅授予一名计算机科学家。图灵奖是计算机领域的国际最高奖项，被誉为“计算机界的诺贝尔奖”。奖金通常由计算机界的一些大企业提供。图灵奖现主要由Google公司赞助，奖金为100万美元。. 图灵奖一般在每年3月下旬颁发。从1966年至2020年，图灵奖共授予74名获奖者，以美国、欧洲科学家为主。2000年，中国科学家姚期智获图灵奖，这是中国人首次获得图灵奖。2022年3月30日，美国计算机协会（ACM）公布了2021年度图灵奖获奖者。美国田纳西大学电气工程和计算机科学系教授Jack J. 截至2021年4月，世界各高校的图灵奖获奖人数依次为美国斯坦福大学（29位）、美国麻省理工学院（26位）、美国加利福尼亚大学伯克利分校（25位）、美国普林斯顿大学（16位）、美国哈佛大学（14位）。. 2026年3月18日，美国计算机学会（ACM）宣布，将2025年图灵奖授予查尔斯·本内特（Charles H. Bennett）和吉尔斯·布拉萨德（Gil…",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E4%B8%96%E7%95%8C%E9%A1%B6%E5%B0%96%E7%A7%91%E5%AD%A6%E5%AE%B6%E5%8D%8F%E4%BC%9A/23401344",
+        "title": "https://baike.baidu.com/item/%E4%B8%96%E7%95%8C%E9%A1%B6%E5%B0%96%E7%A7%91%E5%AD%A6%E5%AE%B6%E5%8D%8F%E4%BC%9A/23401344",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/图灵奖/324645",
+        "title": "图灵奖",
+        "snippet": "Title: 图灵奖\n# 图灵奖. 图灵奖（Turing Award），全称A.M.图灵奖，是由美国计算机协会（ACM）于1966年设立的计算机奖项，名称取自艾伦·麦席森·图灵（Alan M. Turing），旨在奖励对计算机事业作出重要贡献的个人，被称为“诺贝尔计算机奖”。 [1]图灵奖一般在每年3月下旬颁发， [25]每年，美国计算机协会将要求提名人推荐本年度的图灵奖候选人，任何人都可成为提名人，并组成评选委员会进行严格评审。 [2]获奖条件要求极高，评奖程序极严，一般每年仅授予一名计算机科学家，极少数年度授予两名。 [29]奖金通常由计算机界的一些大企业提供，现主要由Google公司赞助，奖金为100万美元。 [26-27]从1966年至2025年，共有82名获奖者。2000年，中国科学家姚期智获图灵奖，这是中国人首次获得图灵奖。截至2021年4月，世界各高校的图灵奖获奖人数依次为美国斯坦福大学（29位）、美国麻省理工学院（26位）、美国加州大学伯克利分校（25位）、美国普林斯顿大学（16位）、美国哈佛大学（14位）。 [27]2021年图灵奖授予Jack J. Dongarra，表彰他对高性能计算和数值算法的开创性贡献。 [30]2023年图灵奖授予Avi Wigderson，表彰他对计算理论的贡献，特别是对随机性在计算中作用的理解。 [28]2024年图灵奖授予Rich…",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/62998422",
+        "title": "https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/62998422",
+        "snippet": "8. ACM中国图灵大会 百度百科 — 说明 ACM 即国际计算机协会；1966 年为纪念图灵设立图灵奖。属会议词条，不是奖项颁发机构本身。",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645",
+        "title": "图灵奖",
+        "snippet": "1[]( Turing Award．ACM 官网 [引用日期2017-04-4]\n   2[]( Shafi Goldwasser．美国计算机协会官网 [引用日期2016-01-12]\n   3[]( 2019年图灵奖授予两位皮克斯动画室元老．新浪网 [引用日期2020-03-18]\n   4[]( Silvio Micali．美国计算机协会官网 [引用日期2016-01-12]\n   5[]( ACM TURING AWARD GOES TO PIONEER WHO ADVANCED RELIABILITY AND CONSISTENCY OF COMPUTING SYSTEMS．图灵奖官方网站．2014-03-18 [引用日期2014-03-20]\n   6[]( Turing award 2014．Turing award 2014．2015-03-25 [引用日期2015-04-26]\n   7[]( Tim Berners-Lee．麻省理工学院官网 [引用日期2017-04-4]\n   8[]( 两名芯片专家获图灵奖：将平分谷歌百万美元奖金．新浪科技 [引用日期2018-03-22]\n   9[]( 三名深度学习技术科学家获“计算机界诺奖”图灵奖．新华网 [引用日期2019-03-28]\n   10[]( 三位深度学习之父共获2019年图灵奖．新浪科技综合．2019-0…",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E7%88%B1%E5%BE%B7%E5%8D%8E%C2%B7%E8%B4%B9%E6%A0%B9%E9%B2%8D%E5%A7%86/7868210",
+        "title": "https://baike.baidu.com/item/%E7%88%B1%E5%BE%B7%E5%8D%8E%C2%B7%E8%B4%B9%E6%A0%B9%E9%B2%8D%E5%A7%86/7868210",
+        "snippet": "10. 爱德华·费根鲍姆 百度百科 — 人物词条：1994 年图灵奖得主之一；荣誉表中列“图灵奖”，无独立“颁发机构”栏。",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%A5%96%E9%A1%B9%E7%B1%BB%E7%99%BE%E7%A7%91%E7%BC%96%E8%BE%91%E6%8C%87%E5%8D%97/65395408",
+        "title": "奖项类百科编辑指南_百度百科",
+        "snippet": "Title: 奖项类百科编辑指南_百度百科\n| 词条名﻿ | 通用原则 | 奖项类词条名应以权威正式的中文名，或广泛通用的名称为基础，遵循百度百科的命名规范，使用中文全称的标准词，具体的判定标准见详细方案。 | ﻿1.诺贝尔物理学奖  2.鲁迅文学奖  3.中国电视金鹰奖﻿ | 1.TGA 2023（使用名称为简写，且注明的是年份而非某一届。） |. | 义项名 | 通用原则 | 通过简短描述概况奖项性质，便于词条用户快速筛选和判断词条。 | 1.诺贝尔奖：瑞典、挪威诺贝尔基金会主办的综合类奖项  2.鲁迅文学奖：国家级文学奖项  3.两弹一星功勋奖章：1999年授予的功勋奖章﻿﻿ | 1.The Game Awards：游戏奖（缺少地点、颁奖单位等必要信息。）  2.诺贝尔经济学奖：2024年10月14日宣布的奖项（缺少地点、颁奖单位和奖项性质等必要信息，仅补充了时间等非必要信息，且使用了“宣布”等不规范的主观表述。）  3.中国电视金鹰奖：中国文学艺术界联合会和中国电视艺术家协会共同主办的电视奖项（颁奖单位过长可以采用其他格式来表述）﻿﻿ |. | 概述 | 通用原则 | 对奖项的重要内容进行概括介绍，使读者可以快速了解该奖项的基本信息。 | 1.大众电影百花奖    2.精神文明建设五个一工程奖    3.中国电视金鹰奖﻿ | 1.TGA 2023（过于简略，三段信息均有缺…",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/图灵机/2112989",
+        "title": "图灵机",
+        "snippet": "Title: 图灵机\n近期有不法分子冒充百度百科官方人员，以删除词条为由威胁并敲诈相关企业。在此严正声明：百度百科是免费编辑平台，绝不存在收费代编服务，请勿上当受骗！详情>>. # 图灵机. 本词条由《中国科技信息》杂志社参与编辑并审核，经科普中国·科学百科认证 。. 图灵机，又称图灵计算机，是一个抽象的机器。它由英国数学家艾伦・麦席森・图灵(1912―-1954年)于1936年提出的一种抽象的计算模型，即将人们使用纸笔进行数学运算的过程进行抽象，由一个虚拟的机器替代人类进行数学运算。 [2]图灵机有一条无限长的纸带，纸带分成了一个一个的小方格，每个方格有不同的颜色。有一个读写头在纸带上移来移去。读写头有一组内部状态，还有一些固定的程序。在每个时刻，读写头都要从当前纸带上读入一个方格信息，然后结合自己的内部状态查找程序表，根据程序输出信息到纸带方格上，并转换自己的内部状态，然后进行移动。 [1]. ## 基本思想. 而在每个阶段，人要决定下一步的动作，依赖于 (1) 此人当前所关注的纸上某个位置的符号和(2) 此人当前思维的状态。. 1、一条无限长的纸带 TAPE。纸带被划分为一个个的小格子，每个格子上包含一个来自有限字母表的符号，字母表中有一个特殊的符号表示空白。纸带上的格子从左到右依此被编号为 0，1，2，... 2、一个读写头HEAD。该读写头可以在纸带上左右移动，它能读出…",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025",
+        "title": "https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025",
+        "snippet": "2. A.M. Turing Award Baiduwiki（国际版） — 基本信息栏（Key Information）可见字段包括：Chinese Name（图灵奖）、Honored Figure、Also known as、Prize Amount、Established（1966）、Award Ceremony Time、 Founding Organization: Association for Computing Machinery (ACM) 、Number of recipients、Nature of the Award、 Award Category: Computer S",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/23286352",
+        "title": "https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/23286352",
+        "snippet": ""
+      },
+      {
+        "url": "http://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645",
+        "title": "图灵奖_百度百科",
+        "snippet": ""
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E4%B8%96%E7%95%8C%E9%A1%B6%E5%B0%96%E7%A7%91%E5%AD%A6%E5%AE%B6%E5%8D%8F%E4%BC%9A/23401344",
+        "title": "https://baike.baidu.com/item/%E4%B8%96%E7%95%8C%E9%A1%B6%E5%B0%96%E7%A7%91%E5%AD%A6%E5%AE%B6%E5%8D%8F%E4%BC%9A/23401344",
+        "snippet": ""
+      },
+      {
+        "url": "https://baike.baidu.com/item/图灵奖/324645",
+        "title": "图灵奖",
+        "snippet": ""
+      },
+      {
+        "url": "https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/62998422",
+        "title": "https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/62998422",
+        "snippet": ""
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645",
+        "title": "图灵奖",
+        "snippet": ""
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E7%88%B1%E5%BE%B7%E5%8D%8E%C2%B7%E8%B4%B9%E6%A0%B9%E9%B2%8D%E5%A7%86/7868210",
+        "title": "https://baike.baidu.com/item/%E7%88%B1%E5%BE%B7%E5%8D%8E%C2%B7%E8%B4%B9%E6%A0%B9%E9%B2%8D%E5%A7%86/7868210",
+        "snippet": ""
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%A5%96%E9%A1%B9%E7%B1%BB%E7%99%BE%E7%A7%91%E7%BC%96%E8%BE%91%E6%8C%87%E5%8D%97/65395408",
+        "title": "奖项类百科编辑指南_百度百科",
+        "snippet": ""
+      },
+      {
+        "url": "https://baike.baidu.com/item/图灵机/2112989",
+        "title": "图灵机",
+        "snippet": ""
+      },
+      {
+        "url": "https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025",
+        "title": "https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025",
+        "snippet": ""
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E4%BC%9A/64305305?fromid=64774&fromtitle=ACM",
+        "title": "https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/圖靈獎/324645",
+        "title": "图灵奖_百度百科",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645",
+        "title": "图灵奖",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A/4352720",
+        "title": "计算机协会",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E7%BE%8E%E5%9B%BD%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A/1896077",
+        "title": "国际计算机学会_百度百科",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/62998422",
+        "title": "https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://baike.baidu.com/item/%E7%BE%8E%E5%9B%BD%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A/1896077",
+        "title": "国际计算机学会_百度百科",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E7%BD%97%E6%9D%B0%C2%B7%E7%91%9E%E8%BF%AA/4600662",
+        "title": "https://baike.baidu.com/item/%E7%BD%97%E6%9D%B0%C2%B7%E7%91%9E%E8%BF%AA/4600662",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645",
+        "title": "图灵奖",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/ja/item/%E3%83%81%E3%83%A5%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0%E8%B3%9E/1497630",
+        "title": "https://baike.baidu.com/ja/item/%E3%83%81%E3%83%A5%E3%83%BC%E3%83%AA%E3%83%B3%E…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E4%BC%9A/64305305?fromid=64774&fromtitle=ACM",
+        "title": "https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%A…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/圖靈獎/324645",
+        "title": "图灵奖_百度百科",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645",
+        "title": "图灵奖",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A/4352720",
+        "title": "计算机协会",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E7%BE%8E%E5%9B%BD%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A/1896077",
+        "title": "国际计算机学会_百度百科",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/62998422",
+        "title": "https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://baike.baidu.com/item/%E7%BE%8E%E5%9B%BD%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A/1896077",
+        "title": "国际计算机学会_百度百科",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E7%BD%97%E6%9D%B0%C2%B7%E7%91%9E%E8%BF%AA/4600662",
+        "title": "https://baike.baidu.com/item/%E7%BD%97%E6%9D%B0%C2%B7%E7%91%9E%E8%BF%AA/4600662",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645",
+        "title": "图灵奖",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/ja/item/%E3%83%81%E3%83%A5%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0%E8%B3%9E/1497630",
+        "title": "https://baike.baidu.com/ja/item/%E3%83%81%E3%83%A5%E3%83%BC%E3%83%AA%E3%83%B3%E…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/ACM%E8%AE%A1%E7%AE%97%E5%A5%96/67630810",
+        "title": "https://baike.baidu.com/item/ACM%E8%AE%A1%E7%AE%97%E5%A5%96/67630810",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%85%88%E9%A9%B1%E5%A5%96/7300396",
+        "title": "https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%85%88%E9%A9%B1%E5%A…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025",
+        "title": "https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E6%9F%A5%E7%90%86%E5%A3%AB%C2%B7%E5%B7%B4%E8%B5%AB%E6%9B%BC/4004186",
+        "title": "https://baike.baidu.com/item/%E6%9F%A5%E7%90%86%E5%A3%AB%C2%B7%E5%B7%B4%E8%B5%A…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/图灵奖/324645",
+        "title": "图灵奖",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E7%9F%A5%E8%AF%86%E5%8F%91%E7%8E%B0%E5%92%8C%E6%95%B0%E6%8D%AE%E6%8C%96%E6%8E%98%E7%AB%9E%E8%B5%9B/4993155",
+        "title": "国际知识发现和数据挖掘竞赛",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 19, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…",
+            "retryable": true
+          }
+        ]
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:38:04.538073+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "baidu-baike",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "baike-turing"
+        ],
+        "required": 1
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "pass",
+      "reasons": []
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": false,
+    "grader": "v2"
+  }
+}

@@ -1,0 +1,614 @@
+{
+  "id": "paywall-wsj",
+  "query": "Wall Street Journal article page about the 2024 Nobel Prize in Physics",
+  "returncode": 0,
+  "elapsed_ms": 88011,
+  "efficiency": {
+    "tool_calls": {
+      "search": 3,
+      "fetch": 1
+    },
+    "total_calls": 4,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 1,
+    "errors": 1
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": "wsj.com",
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:wsj.com 2024 Nobel Prize in Physics article Wall Street Journal artificial intelligence Hopfield Hinton October 2024",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 27275
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "title, author, publication date, article text, Nobel Prize in Physics 2024",
+        "fresh": false,
+        "max_chars": 30000,
+        "url": "https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7"
+      },
+      "is_error": true,
+      "ms": 203
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": true,
+        "include_domains": "wsj.com",
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7 \"Oct. 8, 2024\" \"Aylin Woodward\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 12217
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "balanced",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": "wsj.com",
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:wsj.com \"Nobel Prize in Physics Awarded to Duo for Machine Learning\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 10478
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.1\", \"result_id\": \"6a6c97bf306bf818f2a1adeb\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:wsj.com 2024 Nobel Prize in Physics article Wall Street Journal artificial intelligence Hopfield Hinton October 2024\", \"answer\": \"Relevant Wall Street Journal pieces from October 2024 on the Nobel Prize in Physics for John Hopfield and Geoffrey Hinton (AI / neural networks):\\n\\n1. **AI Pioneers John Hopfield and Geoffrey Hinton Win Nobel Prize in Physics** — Aylin Woodward, updated Oct. 8, 2024. Main news story: prize for discoveries that underpin machine learning and artificial neural networks.  \\n   https://www.wsj.com/scien…\", \"answer_chars\": 2319, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 3, \"cross_provider_matches\": 3, \"pages_fetched\": 3, \"primary_citation_count\": 11, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 27265, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 16, \"results\": [{\"id\": \"r1\", \"title\": \"\", \"url\": \"https://cn.wsj.com/articles/ai教父-辛頓獲得諾貝爾獎-近年來一直警告機器可能統治世界-6f543cc5\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"\", \"url\": \"https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\", \"firecrawl\"]}, {\"id\": \"r3\", \"title\": \"\", \"url\": \"https://www.wsj.com/opinion/2024-was-a-year-of-excellence-ironic-and-otherwise-awards-tech-journalism-econ-education-sports-0a4420db\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"\", \"url\": \"https://www.wsj.com/tech/ai/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-world-b127da71\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r5\", \"title\": \"\", \"url\": \"https://www.wsj.com/tech/ai/a-powerful-ai-breakthrough-is-about-to-transform-the-world-095b81ea\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r6\", \"title\": \"\", \"url\": \"https://www.wsj.com/podcasts/whats-news/the-magnificent-seven-arent-this-markets-only-winners/389cf0f2-25db-46fe-bac7-b921696ddeea\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"\", \"url\": \"https://www.wsj.com/science/nobel-prize-in-chemistry-awarded-to-trio-for-cracking-code-to-predict-protein-structure-62295a7d\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"\", \"url\": \"https://jp.wsj.com/articles/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-world-3b2e1ff3\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"\", \"url\": \"https://www.wsj.com/public/resources/documents/LKm4CO40tO1rZUvD4vDr-WSJNewsPaper-10-9-2024.pdf\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"\", \"url\": \"https://www.wsj.com/tech/ai/yann-lecun-ai-meta-aa59e2f5\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://cn.wsj.com/articles/ai教父-辛頓獲得諾貝爾獎-近年來一直警告機器可能統治世界-6f543cc5\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://www.wsj.com/opinion/2024-was-a-year-of-excellence-ironic-and-otherwise-awards-tech-journalism-econ-education-sports-0a4420db\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://www.wsj.com/tech/ai/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-world-b127da71\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://www.wsj.com/tech/ai/a-powerful-ai-breakthrough-is-about-to-transform-the-world-095b81ea\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://www.wsj.com/podcasts/whats-news/the-magnificent-seven-arent-this-markets-only-winners/389cf0f2-25db-46fe-bac7-b921696ddeea\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://www.wsj.com/science/nobel-prize-in-chemistry-awarded-to-trio-for-cracking-code-to-predict-protein-structure-62295a7d\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://jp.wsj.com/articles/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-world-3b2e1ff3\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://www.wsj.com/public/resources/documents/LKm4CO40tO1rZUvD4vDr-WSJNewsPaper-10-9-2024.pdf\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.wsj.com/tech/ai/yann-lecun-ai-meta-aa59e2f5\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://www.wsj.com/opinion/ai-cant-teach-ai-new-tricks-model-collapse-need-for-human-prose-a6d0648f\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://www.wsj.com/public/resources/documents/U9AKwHSdzNii9VLVoe2o-WSJNewsPaper-10-10-2024.pdf\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://www.wsj.com/opinion/the-intelligence-paradox-ai-may-make-markets-less-rational-8fadffeb\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://www.wsj.com/news/author/deepa-seetharaman\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c15\", \"url\": \"https://www.wsj.com/podcasts/tech-news-briefing/tnb-tech-minute-roblox-targeted-by-short-seller-hindenburg/f11909f3-5ce1-4080-8bec-f3a9df0158a9\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c16\", \"url\": \"https://trk.wsj.com/click/43920879.97682/aHR0cHM6Ly93d3cuZ21vLmNvbS9hbWVyaWNhcy9yZXNlYXJjaC1saWJyYXJ5L3ZhbHVpbmctYWktZXh0cmVtZS1idWJibGUtbmV3LWdvbGRlbi1lcmEtb3ItYm90aF92aWV3cG9pbnRzLz9tb2Q9ZGplbU1hcmtldHNBTQ/67364c72111e4b664c191a41C452e2228\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"6a6c97bf306bf818f2a1adeb\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"The Wall Street Journal\", \"satisfied\": true, \"detail\": \"16 content page(s), e.g. https://cn.wsj.com/articles/ai教父-辛頓獲得諾貝爾獎-近年來一直警告機器可能統治世界-6f543cc5\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 16, \"new_pages_read\": 3, \"seen_urls\": 16, \"pages_read\": 3, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"7efb0a99c21f6cfe7df37cd7\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 15, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"7efb0a99c21f6cfe7df37cd7\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 1, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 16, \"pages_read\": 3, \"calls_without_new_evidence\": 1}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"ebd206cfb0eedd8202aa3438\", \"kind\": \"search\", \"status\": \"partial\", \"query\": \"site:wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7 \\\"Oct. 8, 2024\\\" \\\"Aylin Woodward\\\"\", \"answer\": \"Relevant results (concise sourcing):\\n\\n1. **AI Pioneers John Hopfield and Geoffrey Hinton Win Nobel Prize in Physics** — WSJ, by Aylin Woodward, published/updated Oct. 8, 2024. URL matches the slug in the query: `https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7`. Headline on the page: “Geoffrey Hinton, Godfather of AI Who Expressed Alarm Over the Tech…\", \"answer_chars\": 1568, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 1, \"cross_provider_matches\": 2, \"pages_fetched\": 0, \"primary_citation_count\": 14, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 12211, \"warning_count\": 0, \"warnings\": [], \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 20, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}, {\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 19, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"anysearch\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_vertical\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 21, \"results\": [{\"id\": \"r1\", \"title\": \"\", \"url\": \"https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7\", \"snippet\": \"\", \"providers\": [\"xai\", \"anysearch\"]}, {\"id\": \"r2\", \"title\": \"\", \"url\": \"https://www.wsj.com/public/resources/documents/dHjlwwb9QHyQiq8KqYcK-WSJNewsPaper-10-22-2024.pdf\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r3\", \"title\": \"\", \"url\": \"https://www.wsj.com/news/author/aylin-woodward\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r4\", \"title\": \"\", \"url\": \"https://www.wsj.com/science/nobel-physics-prize-2025-john-clarke-michel-devoret-john-martinis-67e47032\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r5\", \"title\": \"\", \"url\": \"https://www.wsj.com/science/biology/neanderthal-dna-circadian-rhythm-research-183b34be\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r6\", \"title\": \"\", \"url\": \"https://www.wsj.com/tech/ai/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-world-b127da71\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r7\", \"title\": \"\", \"url\": \"https://www.wsj.com/health/wellness/sleep-deprivation-brain-attention-study-9a16dbc3\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r8\", \"title\": \"\", \"url\": \"https://www.wsj.com/public/resources/documents/F2Xtb2UksYMlzFvMjyO8-WSJNewsPaper-8-24-2024.pdf\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r9\", \"title\": \"\", \"url\": \"https://www.wsj.com/health/healthcare/marriage-cancer-risk-study-a817ad72\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r10\", \"title\": \"\", \"url\": \"https://www.wsj.com/news/author/aylin-woodward?page=4\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\", \"anysearch\"]}, {\"id\": \"c2\", \"url\": \"https://www.wsj.com/public/resources/documents/dHjlwwb9QHyQiq8KqYcK-WSJNewsPaper-10-22-2024.pdf\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"xai\"]}, {\"id\": \"c3\", \"url\": \"https://www.wsj.com/news/author/aylin-woodward\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c4\", \"url\": \"https://www.wsj.com/science/nobel-physics-prize-2025-john-clarke-michel-devoret-john-martinis-67e47032\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"xai\"]}, {\"id\": \"c5\", \"url\": \"https://www.wsj.com/science/biology/neanderthal-dna-circadian-rhythm-research-183b34be\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"tavily\"]}, {\"id\": \"c6\", \"url\": \"https://www.wsj.com/tech/ai/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-world-b127da71\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://www.wsj.com/health/wellness/sleep-deprivation-brain-attention-study-9a16dbc3\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"tavily\"]}, {\"id\": \"c8\", \"url\": \"https://www.wsj.com/public/resources/documents/F2Xtb2UksYMlzFvMjyO8-WSJNewsPaper-8-24-2024.pdf\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://www.wsj.com/health/healthcare/marriage-cancer-risk-study-a817ad72\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"tavily\"]}, {\"id\": \"c10\", \"url\": \"https://www.wsj.com/news/author/aylin-woodward?page=4\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://www.wsj.com/podcasts/tech-news-briefing/quantum-communications-breakthrough-could-improve-online-security/5892303e-003d-496c-a354-6c811a25cbbe\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://www.wsj.com/news/author/aylin-woodward?page=2\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://www.wsj.com/science/in-a-first-scientists-sent-quantum-messages-a-record-distance-over-a-traditional-network-9124412f\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://www.wsj.com/video/series/tech-news-briefing/energy-breakthrough-opens-up-possibility-for-better-battery-power/7E3CA0CB-66FD-4FF3-823E-17B2CD689CB4\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://www.wsj.com/news/author/aylin-woodward?page=3\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://www.wsj.com/public/resources/documents/2RQXi68f8dIzDlGCEdEq-WSJNewsPaper-10-31-2024.pdf\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://www.wsj.com/public/resources/documents/weTc4BUIfcSf67FTjdXI-WSJNewsPaper-11-5-2024.pdf\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://www.wsj.com/health/wellness/multitasking-research-productivity-12147350\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c19\", \"url\": \"https://www.wsj.com/science/biology/right-hand-humans-study-d510de55\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c20\", \"url\": \"https://www.wsj.com/topics/subject/nasa?page=3\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c21\", \"url\": \"https://www.wsj.com/science/how-fast-universe-expanding-047cefae\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"ebd206cfb0eedd8202aa3438\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"The Wall Street Journal\", \"satisfied\": true, \"detail\": \"21 content page(s), e.g. https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 3, \"fetch\": 1, \"read_result\": 0}, \"new_urls\": 18, \"new_pages_read\": 0, \"seen_urls\": 43, \"pages_read\": 3, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"b5192a8169c3f3a6db094edd\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:wsj.com \\\"Nobel Prize in Physics Awarded to Duo for Machine Learning\\\"\", \"answer\": \"Most relevant WSJ results for that phrase and topic:\\n\\n1. **AI Pioneers John Hopfield and Geoffrey Hinton Win Nobel Prize in Physics** (URL slug matches the query) — Oct. 8, 2024, by Aylin Woodward. Hopfield (Princeton) and Hinton (University of Toronto) awarded for discoveries and inventions that enable machine learning with artificial neural networks.  \\n   https://www.wsj.com/science/nobel-prize…\", \"answer_chars\": 2065, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 2, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 14, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 10467, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"skipped\", \"reason\": \"primary_sufficient\"}], \"result_count\": 10, \"citation_count\": 14, \"results\": [{\"id\": \"r1\", \"title\": \"\", \"url\": \"https://www.wsj.com/articles/nobel-physics-prize-awarded-to-trio-for-work-in-quantum-technology-11664877578\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"\", \"url\": \"https://cn.wsj.com/articles/%E7%A0%94%E7%A9%B6%E9%98%BF%E7%A7%92%E5%85%89%E8%84%88%E8%A1%9D%E7%9A%84%E4%B8%89%E4%BD%8D%E7%A7%91%E5%AD%B8%E5%AE%B6%E5%85%B1%E5%90%8C%E6%A6%AE%E7%8D%B2%E8%AB%BE%E8%B2%9D%E7%88%BE%E7%89%A9%E7%90%86%E5%AD%B8%E7%8D%8E-e6831e56\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r3\", \"title\": \"\", \"url\": \"https://www.wsj.com/science/trio-awarded-nobel-prize-in-physiology-or-medicine-for-neuroscience-discoveries-55005d95\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"\", \"url\": \"https://www.wsj.com/science/nobel-physics-prize-2025-john-clarke-michel-devoret-john-martinis-67e47032\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r5\", \"title\": \"\", \"url\": \"https://www.wsj.com/science/environment/nobel-prize-in-physics-awarded-to-trio-for-study-of-complex-systems-including-climate-change-11633428420\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"\", \"url\": \"https://www.wsj.com/health/pharma/nobel-prize-in-physiology-or-medicine-awarded-to-duo-for-covid-vaccine-development-83fc29b4\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r7\", \"title\": \"\", \"url\": \"https://www.wsj.com/science/nobel-prize-in-chemistry-awarded-to-trio-for-cracking-code-to-predict-protein-structure-62295a7d\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"\", \"url\": \"https://www.wsj.com/public/resources/documents/U9AKwHSdzNii9VLVoe2o-WSJNewsPaper-10-10-2024.pdf\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r9\", \"title\": \"\", \"url\": \"https://www.wsj.com/tech/ai/ai-math-millennium-prize-safety-openai-anthropic-05179825\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"\", \"url\": \"https://www.wsj.com/podcasts/google-news-update/how-nobel-winning-physicists-experiments-led-to-quantum-computing/4803449e-c284-41ee-b3c2-978cfe20709f\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.wsj.com/articles/nobel-physics-prize-awarded-to-trio-for-work-in-quantum-technology-11664877578\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://cn.wsj.com/articles/%E7%A0%94%E7%A9%B6%E9%98%BF%E7%A7%92%E5%85%89%E8%84%88%E8%A1%9D%E7%9A%84%E4%B8%89%E4%BD%8D%E7%A7%91%E5%AD%B8%E5%AE%B6%E5%85%B1%E5%90%8C%E6%A6%AE%E7%8D%B2%E8%AB%BE%E8%B2%9D%E7%88%BE%E7%89%A9%E7%90%86%E5%AD%B8%E7%8D%8E-e6831e56\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"xai\"]}, {\"id\": \"c3\", \"url\": \"https://www.wsj.com/science/trio-awarded-nobel-prize-in-physiology-or-medicine-for-neuroscience-discoveries-55005d95\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://www.wsj.com/science/nobel-physics-prize-2025-john-clarke-michel-devoret-john-martinis-67e47032\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"xai\"]}, {\"id\": \"c5\", \"url\": \"https://www.wsj.com/science/environment/nobel-prize-in-physics-awarded-to-trio-for-study-of-complex-systems-including-climate-change-11633428420\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://www.wsj.com/health/pharma/nobel-prize-in-physiology-or-medicine-awarded-to-duo-for-covid-vaccine-development-83fc29b4\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://www.wsj.com/science/nobel-prize-in-chemistry-awarded-to-trio-for-cracking-code-to-predict-protein-structure-62295a7d\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://www.wsj.com/public/resources/documents/U9AKwHSdzNii9VLVoe2o-WSJNewsPaper-10-10-2024.pdf\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://www.wsj.com/tech/ai/ai-math-millennium-prize-safety-openai-anthropic-05179825\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.wsj.com/podcasts/google-news-update/how-nobel-winning-physicists-experiments-led-to-quantum-computing/4803449e-c284-41ee-b3c2-978cfe20709f\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://www.wsj.com/science/physics/rainer-weiss-nobel-prize-dies-at-92-745d65dd\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://www.wsj.com/tech/ai/a-powerful-ai-breakthrough-is-about-to-transform-the-world-095b81ea\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://www.wsj.com/tech/ai/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-world-b127da71\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"b5192a8169c3f3a6db094edd\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"The Wall Street Journal\", \"satisfied\": true, \"detail\": \"14 content page(s), e.g. https://www.wsj.com/articles/nobel-physics-prize-awarded-to-trio-for-work-in-quantum-technolog…\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 2, \"fetch\": 1, \"read_result\": 0}, \"new_urls\": 9, \"new_pages_read\": 0, \"seen_urls\": 25, \"pages_read\": 3, \"calls_without_new_evidence\": 0}}"
+  ],
+  "answer": "Wall Street Journal article:\n\n**“AI Pioneers John Hopfield and Geoffrey Hinton Win Nobel Prize in Physics”**  \nBy Aylin Woodward, October 8, 2024\n\n原始链接：  \nhttps://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7",
+  "observation": {
+    "id": "paywall-wsj",
+    "answer": "Wall Street Journal article:\n\n**“AI Pioneers John Hopfield and Geoffrey Hinton Win Nobel Prize in Physics”**  \nBy Aylin Woodward, October 8, 2024\n\n原始链接：  \nhttps://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7",
+    "results": [
+      {
+        "url": "https://cn.wsj.com/articles/ai教父-辛頓獲得諾貝爾獎-近年來一直警告機器可能統治世界-6f543cc5",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/opinion/2024-was-a-year-of-excellence-ironic-and-otherwise-awards-tech-journalism-econ-education-sports-0a4420db",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/tech/ai/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-world-b127da71",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/tech/ai/a-powerful-ai-breakthrough-is-about-to-transform-the-world-095b81ea",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/podcasts/whats-news/the-magnificent-seven-arent-this-markets-only-winners/389cf0f2-25db-46fe-bac7-b921696ddeea",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/nobel-prize-in-chemistry-awarded-to-trio-for-cracking-code-to-predict-protein-structure-62295a7d",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://jp.wsj.com/articles/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-world-3b2e1ff3",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/public/resources/documents/LKm4CO40tO1rZUvD4vDr-WSJNewsPaper-10-9-2024.pdf",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/tech/ai/yann-lecun-ai-meta-aa59e2f5",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://cn.wsj.com/articles/ai教父-辛頓獲得諾貝爾獎-近年來一直警告機器可能統治世界-6f543cc5",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/opinion/2024-was-a-year-of-excellence-ironic-and-otherwise-awards-tech-journalism-econ-education-sports-0a4420db",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/tech/ai/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-world-b127da71",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/tech/ai/a-powerful-ai-breakthrough-is-about-to-transform-the-world-095b81ea",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/podcasts/whats-news/the-magnificent-seven-arent-this-markets-only-winners/389cf0f2-25db-46fe-bac7-b921696ddeea",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/nobel-prize-in-chemistry-awarded-to-trio-for-cracking-code-to-predict-protein-structure-62295a7d",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://jp.wsj.com/articles/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-world-3b2e1ff3",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/public/resources/documents/LKm4CO40tO1rZUvD4vDr-WSJNewsPaper-10-9-2024.pdf",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/tech/ai/yann-lecun-ai-meta-aa59e2f5",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/opinion/ai-cant-teach-ai-new-tricks-model-collapse-need-for-human-prose-a6d0648f",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/public/resources/documents/U9AKwHSdzNii9VLVoe2o-WSJNewsPaper-10-10-2024.pdf",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/opinion/the-intelligence-paradox-ai-may-make-markets-less-rational-8fadffeb",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/news/author/deepa-seetharaman",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/podcasts/tech-news-briefing/tnb-tech-minute-roblox-targeted-by-short-seller-hindenburg/f11909f3-5ce1-4080-8bec-f3a9df0158a9",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://trk.wsj.com/click/43920879.97682/aHR0cHM6Ly93d3cuZ21vLmNvbS9hbWVyaWNhcy9yZXNlYXJjaC1saWJyYXJ5L3ZhbHVpbmctYWktZXh0cmVtZS1idWJibGUtbmV3LWdvbGRlbi1lcmEtb3ItYm90aF92aWV3cG9pbnRzLz9tb2Q9ZGplbU1hcmtldHNBTQ/67364c72111e4b664c191a41C452e2228",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/public/resources/documents/dHjlwwb9QHyQiq8KqYcK-WSJNewsPaper-10-22-2024.pdf",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/news/author/aylin-woodward",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/nobel-physics-prize-2025-john-clarke-michel-devoret-john-martinis-67e47032",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/biology/neanderthal-dna-circadian-rhythm-research-183b34be",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/tech/ai/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-world-b127da71",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/health/wellness/sleep-deprivation-brain-attention-study-9a16dbc3",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/public/resources/documents/F2Xtb2UksYMlzFvMjyO8-WSJNewsPaper-8-24-2024.pdf",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/health/healthcare/marriage-cancer-risk-study-a817ad72",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/news/author/aylin-woodward?page=4",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/public/resources/documents/dHjlwwb9QHyQiq8KqYcK-WSJNewsPaper-10-22-2024.pdf",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/news/author/aylin-woodward",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/nobel-physics-prize-2025-john-clarke-michel-devoret-john-martinis-67e47032",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/biology/neanderthal-dna-circadian-rhythm-research-183b34be",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/tech/ai/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-world-b127da71",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/health/wellness/sleep-deprivation-brain-attention-study-9a16dbc3",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/public/resources/documents/F2Xtb2UksYMlzFvMjyO8-WSJNewsPaper-8-24-2024.pdf",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/health/healthcare/marriage-cancer-risk-study-a817ad72",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/news/author/aylin-woodward?page=4",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/podcasts/tech-news-briefing/quantum-communications-breakthrough-could-improve-online-security/5892303e-003d-496c-a354-6c811a25cbbe",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/news/author/aylin-woodward?page=2",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/in-a-first-scientists-sent-quantum-messages-a-record-distance-over-a-traditional-network-9124412f",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/video/series/tech-news-briefing/energy-breakthrough-opens-up-possibility-for-better-battery-power/7E3CA0CB-66FD-4FF3-823E-17B2CD689CB4",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/news/author/aylin-woodward?page=3",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/public/resources/documents/2RQXi68f8dIzDlGCEdEq-WSJNewsPaper-10-31-2024.pdf",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/public/resources/documents/weTc4BUIfcSf67FTjdXI-WSJNewsPaper-11-5-2024.pdf",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/health/wellness/multitasking-research-productivity-12147350",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/biology/right-hand-humans-study-d510de55",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/topics/subject/nasa?page=3",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/how-fast-universe-expanding-047cefae",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/articles/nobel-physics-prize-awarded-to-trio-for-work-in-quantum-technology-11664877578",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://cn.wsj.com/articles/%E7%A0%94%E7%A9%B6%E9%98%BF%E7%A7%92%E5%85%89%E8%84%88%E8%A1%9D%E7%9A%84%E4%B8%89%E4%BD%8D%E7%A7%91%E5%AD%B8%E5%AE%B6%E5%85%B1%E5%90%8C%E6%A6%AE%E7%8D%B2%E8%AB%BE%E8%B2%9D%E7%88%BE%E7%89%A9%E7%90%86%E5%AD%B8%E7%8D%8E-e6831e56",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/trio-awarded-nobel-prize-in-physiology-or-medicine-for-neuroscience-discoveries-55005d95",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/nobel-physics-prize-2025-john-clarke-michel-devoret-john-martinis-67e47032",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/environment/nobel-prize-in-physics-awarded-to-trio-for-study-of-complex-systems-including-climate-change-11633428420",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/health/pharma/nobel-prize-in-physiology-or-medicine-awarded-to-duo-for-covid-vaccine-development-83fc29b4",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/nobel-prize-in-chemistry-awarded-to-trio-for-cracking-code-to-predict-protein-structure-62295a7d",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/public/resources/documents/U9AKwHSdzNii9VLVoe2o-WSJNewsPaper-10-10-2024.pdf",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/tech/ai/ai-math-millennium-prize-safety-openai-anthropic-05179825",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/podcasts/google-news-update/how-nobel-winning-physicists-experiments-led-to-quantum-computing/4803449e-c284-41ee-b3c2-978cfe20709f",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/articles/nobel-physics-prize-awarded-to-trio-for-work-in-quantum-technology-11664877578",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://cn.wsj.com/articles/%E7%A0%94%E7%A9%B6%E9%98%BF%E7%A7%92%E5%85%89%E8%84%88%E8%A1%9D%E7%9A%84%E4%B8%89%E4%BD%8D%E7%A7%91%E5%AD%B8%E5%AE%B6%E5%85%B1%E5%90%8C%E6%A6%AE%E7%8D%B2%E8%AB%BE%E8%B2%9D%E7%88%BE%E7%89%A9%E7%90%86%E5%AD%B8%E7%8D%8E-e6831e56",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/trio-awarded-nobel-prize-in-physiology-or-medicine-for-neuroscience-discoveries-55005d95",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/nobel-physics-prize-2025-john-clarke-michel-devoret-john-martinis-67e47032",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/environment/nobel-prize-in-physics-awarded-to-trio-for-study-of-complex-systems-including-climate-change-11633428420",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/health/pharma/nobel-prize-in-physiology-or-medicine-awarded-to-duo-for-covid-vaccine-development-83fc29b4",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/nobel-prize-in-chemistry-awarded-to-trio-for-cracking-code-to-predict-protein-structure-62295a7d",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/public/resources/documents/U9AKwHSdzNii9VLVoe2o-WSJNewsPaper-10-10-2024.pdf",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/tech/ai/ai-math-millennium-prize-safety-openai-anthropic-05179825",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/podcasts/google-news-update/how-nobel-winning-physicists-experiments-led-to-quantum-computing/4803449e-c284-41ee-b3c2-978cfe20709f",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/physics/rainer-weiss-nobel-prize-dies-at-92-745d65dd",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/tech/ai/a-powerful-ai-breakthrough-is-about-to-transform-the-world-095b81ea",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/tech/ai/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-world-b127da71",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 15, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…",
+            "retryable": true
+          }
+        ]
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:38:08.326726+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "paywall-wsj",
+    "scores": {
+      "discovery": {
+        "status": "fail",
+        "matched_targets": [],
+        "required": 1
+      },
+      "reading": {
+        "status": "fail"
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "discovery:fail",
+        "reading:fail"
+      ]
+    },
+    "expected_access": "paywall",
+    "observed_failure": null,
+    "algorithm_miss": true,
+    "grader": "v2"
+  }
+}

@@ -1,0 +1,1054 @@
+{
+  "id": "reddit-cross-sqlite",
+  "query": "用中文找 Reddit 上讨论把 SQLite 当作应用主数据库的英文帖子",
+  "returncode": 0,
+  "elapsed_ms": 138918,
+  "efficiency": {
+    "tool_calls": {
+      "search": 4,
+      "read_result": 4,
+      "fetch": 4
+    },
+    "total_calls": 12,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 5,
+    "errors": 4
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": true,
+        "include_domains": [
+          "reddit.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:reddit.com SQLite application primary database \"SQLite\" \"database\" English post Reddit app main database production primary DBis SQLite suitable as primary database application Reddit discussion comments",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 25669
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": [
+          "answer",
+          "citations",
+          "coverage",
+          "threads"
+        ],
+        "limit": 200,
+        "max_bytes": 16384,
+        "offset": 0,
+        "result_id": "0551328d85cd56c0095f8816"
+      },
+      "is_error": false,
+      "ms": 4
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "post title, original post body, comments discussing SQLite as the primary application database, production use, concurrency, scaling",
+        "fresh": true,
+        "max_chars": 20000,
+        "url": "https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database"
+      },
+      "is_error": true,
+      "ms": 210
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "post title, original post body, comments discussing SQLite as the primary application database, production use, concurrency, scaling",
+        "fresh": true,
+        "max_chars": 20000,
+        "url": "https://www.reddit.com/r/django/comments/1cpkt2d/sqlite_in_production"
+      },
+      "is_error": true,
+      "ms": 202
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "post title, original post body, comments discussing SQLite as the primary application database, production use, concurrency, scaling",
+        "fresh": true,
+        "max_chars": 20000,
+        "url": "https://www.reddit.com/r/rails/comments/aulwej/using_sqlite3_as_production_database"
+      },
+      "is_error": true,
+      "ms": 210
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "post title, original post body, comments discussing SQLite as the primary application database, production use, concurrency, scaling",
+        "fresh": true,
+        "max_chars": 20000,
+        "url": "https://www.reddit.com/r/programming/comments/1djkt2y/why_does_sqlite_in_production_have_such_a_bad_rep"
+      },
+      "is_error": true,
+      "ms": 210
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": true,
+        "include_domains": [
+          "reddit.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:reddit.com/r/sqlite OR site:reddit.com/r/webdev OR site:reddit.com/r/Database \"SQLite in production\" Reddit English discussion primary database application",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 21962
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": true,
+        "include_domains": [
+          "reddit.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:reddit.com \"SQLite as the only database\" application Reddit",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 18625
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": true,
+        "include_domains": [
+          "reddit.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:reddit.com SQLite main database app production Reddit \"primary\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 21109
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": [
+          "answer"
+        ],
+        "limit": 5000,
+        "max_bytes": 8192,
+        "offset": 200,
+        "result_id": "ca6a9198df9021c6ebd024bd"
+      },
+      "is_error": false,
+      "ms": 5
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": [
+          "answer"
+        ],
+        "limit": 5000,
+        "max_bytes": 8192,
+        "offset": 200,
+        "result_id": "e033c6d009a47bb6b2882346"
+      },
+      "is_error": false,
+      "ms": 6
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": [
+          "answer"
+        ],
+        "limit": 5000,
+        "max_bytes": 8192,
+        "offset": 200,
+        "result_id": "fcffe59fbfc09d90214f68ba"
+      },
+      "is_error": false,
+      "ms": 6
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.1\", \"result_id\": \"0551328d85cd56c0095f8816\", \"kind\": \"search\", \"status\": \"partial\", \"query\": \"site:reddit.com SQLite application primary database \\\"SQLite\\\" \\\"database\\\" English post Reddit app main database production primary DBis SQLite suitable as primar…\", \"answer\": \"Relevant Reddit threads on using SQLite as a primary/production application database:\\n\\n1. **r/webdev — “The case for SQLite in production”** (Dec 2025)  \\n   https://www.reddit.com/r/webdev/comments/1…\", \"answer_chars\": 3838, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 1, \"cross_provider_matches\": 2, \"pages_fetched\": 0, \"primary_citation_count\": 25, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 25659, \"warning_count\": 1, \"warnings\": [\"coverage_insufficient:comments:comments\"], \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"site_not_supported\", \"message\": \"Firecrawl does not support this site\", \"retryable\": false}, {\"provider\": \"firecrawl\", \"code\": \"site_not_supported\", \"message\": \"Firecrawl does not support this site\", \"retryable\": false}, {\"provider\": \"firecrawl\", \"code\": \"site_not_supported\", \"message\": \"Firecrawl does not support this site\", \"retryable\": false}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"reddit\", \"operation\": \"read_thread\", \"outcome\": \"skipped\", \"reason\": \"comments\"}, {\"provider\": \"reddit\", \"operation\": \"read_thread\", \"outcome\": \"skipped\", \"reason\": \"comments\"}, {\"provider\": \"reddit\", \"operation\": \"read_thread\", \"outcome\": \"skipped\", \"reason\": \"comments\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 30, \"results\": [], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://www.reddit.com/r/Nautsphere/comments/1mwg7da/why_were_building_our_offlinefirst\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://www.reddit.com/r/django/comments/1cpkt2d/sqlite_in_production\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://www.reddit.com/r/androiddev/comments/3eeyiv/using_sqlite_databases_explain_like_im_five\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://www.reddit.com/r/rust/comments/1hrsovh/embedding_a_sqlite_database_in_a_tauri_application\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://www.reddit.com/r/webdev/comments/1we17ei/sqlite_on_the_spa_web_a_production_ready_reality\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://www.reddit.com/r/rails/comments/aulwej/using_sqlite3_as_production_database\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://www.reddit.com/r/programming/comments/1djkt2y/why_does_sqlite_in_production_have_such_a_bad_rep\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c10\", \"url\": \"https://www.reddit.com/r/laravel/comments/1jubxrg/avoid_using_sqlite_in_development_unless_its_also\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://www.reddit.com/r/sqlite/comments/1f69l1q/high_concurrency_in_readonly\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://www.reddit.com/r/rails/comments/y46our/sharing_my_exp_so_far_with_using_sqlite_in\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://www.reddit.com/r/Python/comments/1wowf4q/sqlite_in_production_why_wal_mode_busy_timeout\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://www.reddit.com/r/webdev/comments/1gs7k87/people_who_used_sqlite_for_their_database_on_the\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://www.reddit.com/r/FastAPI/comments/1ra1xlg/why_im_using_sqlite_as_the_only_database_for_a\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://www.reddit.com/r/Clojure/comments/1p5cpvh/proof_of_concept_a_datomiclike_database_library\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://www.reddit.com/r/webdev/comments/1sbgmdu/sqlite_in_production_for_a_real_app_wal_mode\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://www.reddit.com/r/androiddev/comments/5qwl6w/shipping_app_with_sqllite_db_vs_creating_on_app\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://www.reddit.com/r/learnpython/comments/jpm2f3/is_it_ok_to_create_a_database_with_python_app_on\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"https://www.reddit.com/r/webdev/comments/1pxq6jq/the_case_for_sqlite_in_production\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"https://www.reddit.com/r/django/comments/1dfj289/optimal_sqlite_settings_for_django_in_production\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"https://www.reddit.com/r/sqlite/s/13kwBwi7Cu\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c23\", \"url\": \"https://www.reddit.com/r/sqlite/comments/1h7m9g4/trailbase_030_submillisecond_app_server_with\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c24\", \"url\": \"https://www.reddit.com/r/webdev/comments/17pxrab/sqlite_in_production_webapps\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c25\", \"url\": \"https://www.reddit.com/r/Backend/comments/1pyezs6/sqlite_db_simple_inprocess_reliable_fast\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c26\", \"url\": \"https://www.reddit.com/r/sqlite/comments/1vz5we6/sqlite_in_production_with_builtin_litestream\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c27\", \"url\": \"https://www.reddit.com/r/webdev/comments/81qvnf/sqlite_in_low_traffic_website\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c28\", \"url\": \"https://www.reddit.com/r/sqlite/comments/1sk9j6f/im_sharding_sqlite_by_entity_with_beam_actors_15m\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c29\", \"url\": \"https://www.reddit.com/r/Database/comments/1qpfo2z/sqlite_in_production_not_so_fast_for_complex\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"0551328d85cd56c0095f8816\"}, \"coverage\": {\"status\": \"insufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"Reddit\", \"satisfied\": true, \"detail\": \"29 content page(s), e.g. https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production\"}, {\"kind\": \"comments\", \"target\": \"comments\", \"satisfied\": false, \"detail\": \"thread found but comments not read: reddit_oauth_not_configured\"}], \"requirements_total\": 2}, \"threads\": [{\"platform\": \"reddit\", \"url\": \"https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database\", \"title\": \"\", \"status\": \"found\", \"comments_total\": null, \"comments_read\": 0, \"top_comments\": []}, {\"platform\": \"reddit\", \"url\": \"https://www.reddit.com/r/rust/comments/1hrsovh/embedding_a_sqlite_database_in_a_tauri_application\", \"title\": \"\", \"status\": \"found\", \"comments_total\": null, \"comments_read\": 0, \"top_comments\": []}], \"next_steps\": [{\"tool\": \"fetch\", \"why\": \"comments not readable via API (reddit_oauth_not_configured); fetch reads the page if it is public\", \"url\": \"https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database\"}, {\"tool\": \"fetch\", \"why\": \"comments not readable via API (reddit_oauth_not_configured); fetch reads the page if it is public\", \"url\": \"https://www.reddit.com/r/rust/comments/1hrsovh/embedding_a_sqlite_database_in_a_tauri_application\"}], \"session\": {\"calls\": {\"search\": 1, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 30, \"new_pages_read\": 0, \"seen_urls\": 30, \"pages_read\": 0, \"calls_without_new_evidence\": 0}, \"results_truncated\": true, \"citations_truncated\": true}",
+    "{\"result_id\": \"0551328d85cd56c0095f8816\", \"kind\": \"search\", \"fields\": [\"answer\", \"citations\", \"coverage\", \"threads\"], \"offset\": 0, \"next_offset\": 10, \"next_offsets\": {\"answer\": 200, \"citations\": 10, \"threads\": null}, \"truncated\": true, \"data\": {\"answer\": \"Relevant Reddit threads on using SQLite as a primary/production application database:\\n\\n1. **r/webdev — “The case for SQLite in production”** (Dec 2025)  \\n   https://www.reddit.com/r/webdev/comments/1p\", \"answer_chars\": 3838, \"citations\": [{\"id\": \"c1\", \"title\": \"https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production/\", \"url\": \"https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production\", \"result_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"title\": \"Downsides to using sqlite as production database? - Reddit\", \"url\": \"https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database\", \"result_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"title\": \"https://www.reddit.com/r/Nautsphere/comments/1mwg7da/why_were_building_our_offlinefirst\", \"url\": \"https://www.reddit.com/r/Nautsphere/comments/1mwg7da/why_were_building_our_offlinefirst\", \"result_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"title\": \"Sqlite in production ( ❓) : r/django\", \"url\": \"https://www.reddit.com/r/django/comments/1cpkt2d/sqlite_in_production\", \"result_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"title\": \"https://www.reddit.com/r/androiddev/comments/3eeyiv/using_sqlite_databases_explain_like_im_five\", \"url\": \"https://www.reddit.com/r/androiddev/comments/3eeyiv/using_sqlite_databases_explain_like_im_five\", \"result_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"title\": \"Embedding a SQLite database in a Tauri Application : r/rust\", \"url\": \"https://www.reddit.com/r/rust/comments/1hrsovh/embedding_a_sqlite_database_in_a_tauri_application\", \"result_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"title\": \"https://www.reddit.com/r/webdev/comments/1we17ei/sqlite_on_the_spa_web_a_production_ready_reality/\", \"url\": \"https://www.reddit.com/r/webdev/comments/1we17ei/sqlite_on_the_spa_web_a_production_ready_reality\", \"result_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"title\": \"using sqlite3 as production database : r/rails\", \"url\": \"https://www.reddit.com/r/rails/comments/aulwej/using_sqlite3_as_production_database\", \"result_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"title\": \"https://www.reddit.com/r/programming/comments/1djkt2y/why_does_sqlite_in_production_have_such_a_bad_rep/\", \"url\": \"https://www.reddit.com/r/programming/comments/1djkt2y/why_does_sqlite_in_production_have_such_a_bad_rep\", \"result_id\": \"r9\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c10\", \"title\": \"r/laravel on Reddit: Avoid Using SQLite in Development Unless It's ...\", \"url\": \"https://www.reddit.com/r/laravel/comments/1jubxrg/avoid_using_sqlite_in_development_unless_its_also\", \"result_id\": \"r10\", \"providers\": [\"xai\", \"tavily\"]}], \"citations_total\": 30, \"threads\": [{\"platform\": \"reddit\", \"url\": \"https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database\", \"thread_id\": \"fj6m0e\", \"title\": \"\", \"author\": \"\", \"created_at\": null, \"body\": \"\", \"status\": \"found\", \"comments_total\": null, \"source_api\": \"\", \"error\": \"reddit_oauth_not_configured\", \"comments_read\": 0}, {\"platform\": \"reddit\", \"url\": \"https://www.reddit.com/r/rust/comments/1hrsovh/embedding_a_sqlite_database_in_a_tauri_application\", \"thread_id\": \"1hrsovh\", \"title\": \"\", \"author\": \"\", \"created_at\": null, \"body\": \"\", \"status\": \"found\", \"comments_total\": null, \"source_api\": \"\", \"error\": \"reddit_oauth_not_configured\", \"comments_read\": 0}, {\"platform\": \"reddit\", \"url\": \"https://www.reddit.com/r/laravel/comments/1jubxrg/avoid_using_sqlite_in_development_unless_its_also\", \"thread_id\": \"1jubxrg\", \"title\": \"\", \"author\": \"\", \"created_at\": null, \"body\": \"\", \"status\": \"found\", \"comments_total\": null, \"source_api\": \"\", \"error\": \"reddit_oauth_not_configured\", \"comments_read\": 0}], \"threads_total\": 3, \"coverage\": {\"status\": \"insufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"Reddit\", \"satisfied\": true, \"detail\": \"29 content page(s), e.g. https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production\"}, {\"kind\": \"comments\", \"target\": \"comments\", \"satisfied\": false, \"detail\": \"thread found but comments not read: reddit_oauth_not_configured\"}]}}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 0, \"read_result\": 1}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 30, \"pages_read\": 0, \"calls_without_new_evidence\": 1}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"1834dede440e9da4e496a935\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 19, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"1834dede440e9da4e496a935\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 3, \"read_result\": 1}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 30, \"pages_read\": 0, \"calls_without_new_evidence\": 4, \"advice\": \"The last calls found no new URLs or pages. Answer with the evidence already found and say what is missing, or change the site, language, or wording.\"}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"1d624f2a4a6e5c313bf637d2\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://www.reddit.com/r/django/comments/1cpkt2d/sqlite_in_production\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 17, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"1d624f2a4a6e5c313bf637d2\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 1, \"read_result\": 1}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 30, \"pages_read\": 0, \"calls_without_new_evidence\": 2}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"f8802356ae2eb3fec79ed347\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://www.reddit.com/r/rails/comments/aulwej/using_sqlite3_as_production_database\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 20, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"f8802356ae2eb3fec79ed347\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 4, \"read_result\": 1}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 30, \"pages_read\": 0, \"calls_without_new_evidence\": 5, \"advice\": \"The last calls found no new URLs or pages. Answer with the evidence already found and say what is missing, or change the site, language, or wording.\"}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"a3d143fe3157a16fd96aceef\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://www.reddit.com/r/programming/comments/1djkt2y/why_does_sqlite_in_production_have_such_a_bad_rep\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 18, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"a3d143fe3157a16fd96aceef\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 2, \"read_result\": 1}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 30, \"pages_read\": 0, \"calls_without_new_evidence\": 3, \"advice\": \"The last calls found no new URLs or pages. Answer with the evidence already found and say what is missing, or change the site, language, or wording.\"}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"ca6a9198df9021c6ebd024bd\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:reddit.com/r/sqlite OR site:reddit.com/r/webdev OR site:reddit.com/r/Database \\\"SQLite in production\\\" Reddit English discussion primary database application\", \"answer\": \"Relevant English Reddit threads on using SQLite as a primary application database in production, limited to r/sqlite and r/webdev (no strong matches in r/Database).\\n\\n1. **How to use SQLite in production?** — r/sqlite (Oct 2025)  \\n   Admin, migrations, WAL, single-writer, backups (Litestream, Datasette).  \\n   https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production/  \\n   [[1]](https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production/)\\n\\n2. **Downsides to using sqlite as production database?** — r/sqlite (Mar 2020)  \\n   Laravel/PHP as main DB; comm…\", \"answer_chars\": 4246, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 1, \"cross_provider_matches\": 1, \"pages_fetched\": 0, \"primary_citation_count\": 11, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 21957, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"reddit\", \"operation\": \"read_thread\", \"outcome\": \"skipped\", \"reason\": \"thread\"}, {\"provider\": \"reddit\", \"operation\": \"read_thread\", \"outcome\": \"skipped\", \"reason\": \"thread\"}], \"result_count\": 10, \"citation_count\": 18, \"results\": [{\"id\": \"r1\", \"title\": \"1\", \"url\": \"https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"Are we overlooking SQLite's potential? : r/brdev - Reddit\", \"url\": \"https://www.reddit.com/r/brdev/comments/1s3tt0u/estamos_ignorando_o_potencial_do_sqlite?tl=en\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"2\", \"url\": \"https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"Is anyone using SQLite on production? (either side project ... - Reddit\", \"url\": \"https://www.reddit.com/r/rails/comments/k4vlqo/is_anyone_using_sqlite_on_production_either_side\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"3\", \"url\": \"https://www.reddit.com/r/sqlite/comments/modtns/deploying_sqlite_on_a_production_website\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"SQLite in Production? : r/dotnet - Reddit\", \"url\": \"https://www.reddit.com/r/dotnet/comments/1bulzdi/sqlite_in_production\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"4\", \"url\": \"https://www.reddit.com/r/sqlite/comments/1kqnofq/how_many_readswrites_can_sqlite_handle_in_prod\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"10\", \"url\": \"https://www.reddit.com/r/webdev/comments/1pxq6jq/the_case_for_sqlite_in_production\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r9\", \"title\": \"5\", \"url\": \"https://www.reddit.com/r/sqlite/comments/1f69l1q/high_concurrency_in_readonly\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"using sqlite3 as production database : r/rails\", \"url\": \"https://www.reddit.com/r/rails/comments/aulwej/using_sqlite3_as_production_database\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production\", \"title\": \"1\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.reddit.com/r/brdev/comments/1s3tt0u/estamos_ignorando_o_potencial_do_sqlite?tl=en\", \"title\": \"Are we overlooking SQLite's potential? : r/brdev - Reddit\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database\", \"title\": \"2\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://www.reddit.com/r/rails/comments/k4vlqo/is_anyone_using_sqlite_on_production_either_side\", \"title\": \"Is anyone using SQLite on production? (either side project ... - Reddit\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://www.reddit.com/r/sqlite/comments/modtns/deploying_sqlite_on_a_production_website\", \"title\": \"3\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://www.reddit.com/r/dotnet/comments/1bulzdi/sqlite_in_production\", \"title\": \"SQLite in Production? : r/dotnet - Reddit\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://www.reddit.com/r/sqlite/comments/1kqnofq/how_many_readswrites_can_sqlite_handle_in_prod\", \"title\": \"4\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://www.reddit.com/r/webdev/comments/1pxq6jq/the_case_for_sqlite_in_production\", \"title\": \"10\", \"result_item_id\": \"r8\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://www.reddit.com/r/sqlite/comments/1f69l1q/high_concurrency_in_readonly\", \"title\": \"5\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.reddit.com/r/rails/comments/aulwej/using_sqlite3_as_production_database\", \"title\": \"using sqlite3 as production database : r/rails\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://www.reddit.com/r/sqlite/comments/1tv33fd/i_ran_metricslogstracesrum_on_sqlite_and\", \"title\": \"6\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://www.reddit.com/r/webdev/comments/17pxrab/sqlite_in_production_webapps\", \"title\": \"7\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://www.reddit.com/r/webdev/comments/1gs7k87/people_who_used_sqlite_for_their_database_on_the\", \"title\": \"8\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://www.reddit.com/r/webdev/comments/1i6mo26/sqlite_vs_mysql\", \"title\": \"9\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://www.reddit.com/r/webdev/comments/1sqs79o/psa_copying_your_sqlite_db_file_isnt_a_valid\", \"title\": \"11\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://www.reddit.com/r/Database/comments/1cqx84l/who_has_sqlite_in_production\", \"title\": \"Who has SQLite in production? : r/Database\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c17\", \"url\": \"https://www.reddit.com/r/SQL/comments/1opuyzu/is_it_a_bad_idea_to_start_with_sqlite\", \"title\": \"Is it a bad idea to start with SQLite? : r/SQL - Reddit\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c18\", \"url\": \"https://www.reddit.com/r/AskProgramming/comments/1qf29nm/what_are_your_thoughts_on_using_sqlite_for\", \"title\": \"What are your thoughts on using SQLite for production web ...\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"ca6a9198df9021c6ebd024bd\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"Reddit\", \"satisfied\": true, \"detail\": \"18 content page(s), e.g. https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production\"}], \"requirements_total\": 1}, \"threads\": [{\"platform\": \"reddit\", \"url\": \"https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database\", \"title\": \"\", \"status\": \"found\", \"comments_total\": null, \"comments_read\": 0, \"top_comments\": []}, {\"platform\": \"reddit\", \"url\": \"https://www.reddit.com/r/rails/comments/aulwej/using_sqlite3_as_production_database\", \"title\": \"\", \"status\": \"found\", \"comments_total\": null, \"comments_read\": 0, \"top_comments\": []}], \"next_steps\": [{\"tool\": \"fetch\", \"why\": \"comments not readable via API (reddit_oauth_not_configured); fetch reads the page if it is public\", \"url\": \"https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database\"}, {\"tool\": \"fetch\", \"why\": \"comments not readable via API (reddit_oauth_not_configured); fetch reads the page if it is public\", \"url\": \"https://www.reddit.com/r/rails/comments/aulwej/using_sqlite3_as_production_database\"}], \"session\": {\"calls\": {\"search\": 4, \"fetch\": 4, \"read_result\": 1}, \"new_urls\": 8, \"new_pages_read\": 0, \"seen_urls\": 59, \"pages_read\": 0, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"e033c6d009a47bb6b2882346\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:reddit.com \\\"SQLite as the only database\\\" application Reddit\", \"answer\": \"Relevant Reddit threads on using SQLite as an app’s only database:\\n\\n1. **[Why I'm using SQLite as the only database for a production SaaS](https://www.reddit.com/r/FastAPI/comments/1ra1xlg/why_im_using_sqlite_as_the_only_database_for_a/)** (r/FastAPI, Feb 2026) — FastAPI + one `.db` file, no Postgres/Redis. Read-heavy search app; WAL plus a single writer process. Author draws the line at multi-service concurrent writes, ~50GB analytics, or read replicas. [[1]](https://www.reddit.com/r/FastAPI/comments/1ra1xlg/why_im_using_sqlite_as_the_only_database_for_a/)\\n\\n2. **[SQLite as the only database …\", \"answer_chars\": 4026, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 2, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 10, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 18615, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}], \"result_count\": 10, \"citation_count\": 18, \"results\": [{\"id\": \"r1\", \"title\": \"1\", \"url\": \"https://www.reddit.com/r/FastAPI/comments/1ra1xlg/why_im_using_sqlite_as_the_only_database_for_a\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"SQLite the only database you will ever need in most cases\", \"url\": \"https://www.reddit.com/r/Database/comments/mr9tzq/sqlite_the_only_database_you_will_ever_need_in\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"SQLite as the only database for website\", \"url\": \"https://old.reddit.com/r/PHP/comments/59na74/sqlite_as_the_only_database_for_website\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"SQLite is not a toy database : r/programming\", \"url\": \"https://www.reddit.com/r/programming/comments/1fdntj3/sqlite_is_not_a_toy_database\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"3\", \"url\": \"https://www.reddit.com/r/Nautsphere/comments/1mwg7da/why_were_building_our_offlinefirst\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"Why you should probably be using SQLite : r/programming\", \"url\": \"https://www.reddit.com/r/programming/comments/17hl2yz/why_you_should_probably_be_using_sqlite\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"4\", \"url\": \"https://www.reddit.com/r/sqlite/comments/1riye07/using_sqlite_as_the_database_in_a_self_hosted\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"we're pretty happy with SQLite & not urgently interested in ...\", \"url\": \"https://www.reddit.com/r/programming/comments/4ovecl/were_pretty_happy_with_sqlite_not_urgently\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"5\", \"url\": \"https://www.reddit.com/r/programming/comments/n1twez/sqlite_is_the_only_database_you_will_ever_need_in\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"r/sqlite\", \"url\": \"https://www.reddit.com/r/sqlite/rising\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.reddit.com/r/FastAPI/comments/1ra1xlg/why_im_using_sqlite_as_the_only_database_for_a\", \"title\": \"1\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.reddit.com/r/Database/comments/mr9tzq/sqlite_the_only_database_you_will_ever_need_in\", \"title\": \"SQLite the only database you will ever need in most cases\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://old.reddit.com/r/PHP/comments/59na74/sqlite_as_the_only_database_for_website\", \"title\": \"SQLite as the only database for website\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://www.reddit.com/r/programming/comments/1fdntj3/sqlite_is_not_a_toy_database\", \"title\": \"SQLite is not a toy database : r/programming\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://www.reddit.com/r/Nautsphere/comments/1mwg7da/why_were_building_our_offlinefirst\", \"title\": \"3\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://www.reddit.com/r/programming/comments/17hl2yz/why_you_should_probably_be_using_sqlite\", \"title\": \"Why you should probably be using SQLite : r/programming\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://www.reddit.com/r/sqlite/comments/1riye07/using_sqlite_as_the_database_in_a_self_hosted\", \"title\": \"4\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://www.reddit.com/r/programming/comments/4ovecl/were_pretty_happy_with_sqlite_not_urgently\", \"title\": \"we're pretty happy with SQLite & not urgently interested in ...\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://www.reddit.com/r/programming/comments/n1twez/sqlite_is_the_only_database_you_will_ever_need_in\", \"title\": \"5\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.reddit.com/r/sqlite/rising\", \"title\": \"r/sqlite\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://www.reddit.com/r/webdev/comments/17pxrab/sqlite_in_production_webapps\", \"title\": \"6\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://www.reddit.com/r/Backend/comments/1pyezs6/sqlite_db_simple_inprocess_reliable_fast\", \"title\": \"7\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://www.reddit.com/r/hackernews/comments/1wh7vk0/show_hn_capsule_singlefile_web_apps_that_save\", \"title\": \"8\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://www.reddit.com/r/apps/comments/1k9zix7/i_made_a_gym_app_totally_free_no_ads\", \"title\": \"9\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://www.reddit.com/r/MyNotes_/comments/1o5l2si/introducing_my_notes_a_free_offline_opensource\", \"title\": \"10\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://www.reddit.com/r/sqlite/new\", \"title\": \"r/sqlite\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c17\", \"url\": \"https://www.reddit.com/r/webdev/comments/1gs7k87/people_who_used_sqlite_for_their_database_on_the\", \"title\": \"People who used sqlite for their Database on the server\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c18\", \"url\": \"https://www.reddit.com/r/node/comments/1ddxwk4/is_sqlite3_still_a_good_option_for_a_db\", \"title\": \"Is Sqlite3 still a good option for a DB? : r/node\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"e033c6d009a47bb6b2882346\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"Reddit\", \"satisfied\": true, \"detail\": \"16 content page(s), e.g. https://www.reddit.com/r/FastAPI/comments/1ra1xlg/why_im_using_sqlite_as_the_only_database_for…\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 2, \"fetch\": 4, \"read_result\": 1}, \"new_urls\": 12, \"new_pages_read\": 0, \"seen_urls\": 42, \"pages_read\": 0, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"fcffe59fbfc09d90214f68ba\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:reddit.com SQLite main database app production Reddit \\\"primary\\\"\", \"answer\": \"Relevant Reddit threads on using SQLite as the main/primary database for apps in production:\\n\\n1. **[The case for SQLite in production](https://www.reddit.com/r/webdev/comments/1pxq6jq/the_case_for_sqlite_in_production)** — r/webdev (Dec 2025). Hot take that SQLite fits single-server, read-heavy, and under-~100K-user apps; Postgres for multi-writer or “real” products. Comments argue most apps idle…\", \"answer_chars\": 3715, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 1, \"cross_provider_matches\": 1, \"pages_fetched\": 0, \"primary_citation_count\": 16, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 21097, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}], \"result_count\": 10, \"citation_count\": 23, \"results\": [{\"id\": \"r1\", \"title\": \"\", \"url\": \"https://www.reddit.com/r/programming/comments/1vz5v47/sqlite_in_production_with_builtin_litestream\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"\", \"url\": \"https://www.reddit.com/r/webdev/comments/1pxq6jq/the_case_for_sqlite_in_production\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"\", \"url\": \"https://www.reddit.com/r/programming/comments/1djkt2y/why_does_sqlite_in_production_have_such_a_bad_rep\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"\", \"url\": \"https://www.reddit.com/r/Database/comments/1cqx84l/who_has_sqlite_in_production\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"\", \"url\": \"https://www.reddit.com/r/webdev/comments/81qvnf/sqlite_in_low_traffic_website\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"\", \"url\": \"https://www.reddit.com/r/rails/comments/aulwej/using_sqlite3_as_production_database\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"\", \"url\": \"https://www.reddit.com/r/sqlite/comments/1onfccq/a_pragmatic_sqlite_schema_for_applicationlevel\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"\", \"url\": \"https://www.reddit.com/r/dotnet/comments/1bulzdi/sqlite_in_production\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"\", \"url\": \"https://www.reddit.com/r/sqlite/comments/1csm62a/best_practice_to_prevent_locking_a_single_db_file\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"\", \"url\": \"https://www.reddit.com/r/FastAPI/comments/1ra1xlg/why_im_using_sqlite_as_the_only_database_for_a\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.reddit.com/r/programming/comments/1vz5v47/sqlite_in_production_with_builtin_litestream\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.reddit.com/r/webdev/comments/1pxq6jq/the_case_for_sqlite_in_production\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://www.reddit.com/r/programming/comments/1djkt2y/why_does_sqlite_in_production_have_such_a_bad_rep\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://www.reddit.com/r/Database/comments/1cqx84l/who_has_sqlite_in_production\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://www.reddit.com/r/webdev/comments/81qvnf/sqlite_in_low_traffic_website\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://www.reddit.com/r/rails/comments/aulwej/using_sqlite3_as_production_database\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://www.reddit.com/r/sqlite/comments/1onfccq/a_pragmatic_sqlite_schema_for_applicationlevel\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://www.reddit.com/r/dotnet/comments/1bulzdi/sqlite_in_production\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://www.reddit.com/r/sqlite/comments/1csm62a/best_practice_to_prevent_locking_a_single_db_file\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.reddit.com/r/FastAPI/comments/1ra1xlg/why_im_using_sqlite_as_the_only_database_for_a\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://www.reddit.com/r/webdev/comments/1gs7k87/people_who_used_sqlite_for_their_database_on_the\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://www.reddit.com/r/webdev/comments/1we17ei/sqlite_on_the_spa_web_a_production_ready_reality\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://www.reddit.com/r/laravel/comments/1ra8tyr/github_eznix86laravelsqlite_sqlite_in_production\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://www.reddit.com/r/django/comments/1dfj289/optimal_sqlite_settings_for_django_in_production\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://www.reddit.com/r/androiddev/comments/5qwl6w/shipping_app_with_sqllite_db_vs_creating_on_app\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://www.reddit.com/r/sqlite/comments/1vz5we6/sqlite_in_production_with_builtin_litestream\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://www.reddit.com/r/rails/comments/16cbiz9/the_6_pragmas_you_need_to_know_to_tune_your\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://www.reddit.com/r/Nautsphere/comments/1mwg7da/why_were_building_our_offlinefirst\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"https://www.reddit.com/r/webdev/comments/1sbgmdu/sqlite_in_production_for_a_real_app_wal_mode\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"https://www.reddit.com/r/sqlite/new\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c22\", \"url\": \"https://www.reddit.com/r/AskProgramming/comments/1qf29nm/what_are_your_thoughts_on_using_sqlite_for\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c23\", \"url\": \"https://www.reddit.com/r/sqlite\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"fcffe59fbfc09d90214f68ba\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"Reddit\", \"satisfied\": true, \"detail\": \"21 content page(s), e.g. https://www.reddit.com/r/programming/comments/1vz5v47/sqlite_in_production_with_builtin_litest…\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 3, \"fetch\": 4, \"read_result\": 1}, \"new_urls\": 9, \"new_pages_read\": 0, \"seen_urls\": 51, \"pages_read\": 0, \"calls_without_new_evidence\": 0}}",
+    "{\"result_id\": \"ca6a9198df9021c6ebd024bd\", \"kind\": \"search\", \"fields\": [\"answer\"], \"offset\": 200, \"next_offset\": null, \"next_offsets\": {\"answer\": null}, \"truncated\": false, \"data\": {\"answer\": \"on?** — r/sqlite (Oct 2025)  \\n   Admin, migrations, WAL, single-writer, backups (Litestream, Datasette).  \\n   https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production/  \\n   [[1]](https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production/)\\n\\n2. **Downsides to using sqlite as production database?** — r/sqlite (Mar 2020)  \\n   Laravel/PHP as main DB; commenters report large DBs (up to ~1TB) and WAL for forums/apps when reads dominate.  \\n   https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database/  \\n   [[2]](https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database/)\\n\\n3. **Deploying SQLite on a Production Website** — r/sqlite (Apr 2021)  \\n   Concurrent writes, WAL + busy_timeout; users report blogs and sites running fine when concurrent writers stay limited.  \\n   https://www.reddit.com/r/sqlite/comments/modtns/deploying_sqlite_on_a_production_website/  \\n   [[3]](https://www.reddit.com/r/sqlite/comments/modtns/deploying_sqlite_on_a_production_website/)\\n\\n4. **How Many Reads/Writes can SQLite handle in Prod?** — r/sqlite (May 2025)  \\n   ~2M daily visits / ~100k writes/day scenarios; anecdotes include high write volume and single-writer advice.  \\n   https://www.reddit.com/r/sqlite/comments/1kqnofq/how_many_readswrites_can_sqlite_handle_in_prod/  \\n   [[4]](https://www.reddit.com/r/sqlite/comments/1kqnofq/how_many_readswrites_can_sqlite_handle_in_prod)\\n\\n5. **High concurrency in readonly** — r/sqlite (Sep 2024)  \\n   Read-only lookup DBs (hundreds of thousands to ~1M rows) pulled from S3; WAL replicas and read-only pragmas discussed.  \\n   https://www.reddit.com/r/sqlite/comments/1f69l1q/high_concurrency_in_readonly/  \\n   [[5]](https://www.reddit.com/r/sqlite/comments/1f69l1q/high_concurrency_in_readonly/)\\n\\n6. **I ran metrics/logs/traces/RUM on SQLite…** — r/sqlite (Jun 2026)  \\n   Self-hosted observability on SQLite; batch transactions and throughput on a small box, framed for side projects and early startups.  \\n   https://www.reddit.com/r/sqlite/comments/1tv33fd/i_ran_metricslogstracesrum_on_sqlite_and/  \\n   [[6]](https://www.reddit.com/r/sqlite/comments/1tv33fd/i_ran_metricslogstracesrum_on_sqlite_and/)\\n\\n7. **SQLite in production webapps** — r/webdev (Nov 2023)  \\n   Epic Stack / Remix-style advocacy of SQLite as the app DB (sessions included); long-time users report WAL and substantial write rates.  \\n   https://www.reddit.com/r/webdev/comments/17pxrab/sqlite_in_production_webapps/  \\n   [[7]](https://www.reddit.com/r/webdev/comments/17pxrab/sqlite_in_production_webapps)\\n\\n8. **People who used sqlite for their Database on the server** — r/webdev (Nov 2024)  \\n   Server-side primary/tenant DBs, WAL, backups, and when people stay on a single host vs moving to Postgres.  \\n   https://www.reddit.com/r/webdev/comments/1gs7k87/people_who_used_sqlite_for_their_database_on_the/  \\n   [[8]](https://www.reddit.com/r/webdev/comments/1gs7k87/people_who_used_sqlite_for_their_database_on_the)\\n\\n9. **SQLite vs MySQL** — r/webdev (Jan 2025)  \\n   Internal SPA (Vue/Django), low traffic and few writers; consensus that WAL SQLite is enough for that workload.  \\n   https://www.reddit.com/r/webdev/comments/1i6mo26/sqlite_vs_mysql/  \\n   [[9]](https://www.reddit.com/r/webdev/comments/1i6mo26/sqlite_vs_mysql/)\\n\\n10. **The case for SQLite in production** — r/webdev (Dec 2025)  \\n    Single-server, read-heavy, under ~100k users vs multi-server writes and replication needs.  \\n    https://www.reddit.com/r/webdev/comments/1pxq6jq/the_case_for_sqlite_in_production/  \\n    [[10]](https://www.reddit.com/r/webdev/comments/1pxq6jq/the_case_for_sqlite_in_production)\\n\\n**Also relevant on r/webdev (backup/ops, not a pure “should I use it” thread):**  \\nPSA that copying only the `.db` is not a valid backup under WAL — https://www.reddit.com/r/webdev/comments/1sqs79o/psa_copying_your_sqlite_db_file_isnt_a_valid/ [[11]](https://www.reddit.com/r/webdev/comments/1sqs79o/psa_copying_your_sqlite_db_file_isnt_a_valid/)\", \"answer_chars\": 4246}, \"session\": {\"calls\": {\"search\": 4, \"fetch\": 4, \"read_result\": 2}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 59, \"pages_read\": 0, \"calls_without_new_evidence\": 1}}",
+    "{\"result_id\": \"e033c6d009a47bb6b2882346\", \"kind\": \"search\", \"fields\": [\"answer\"], \"offset\": 200, \"next_offset\": null, \"next_offsets\": {\"answer\": null}, \"truncated\": false, \"data\": {\"answer\": \"g_sqlite_as_the_only_database_for_a/)** (r/FastAPI, Feb 2026) — FastAPI + one `.db` file, no Postgres/Redis. Read-heavy search app; WAL plus a single writer process. Author draws the line at multi-service concurrent writes, ~50GB analytics, or read replicas. [[1]](https://www.reddit.com/r/FastAPI/comments/1ra1xlg/why_im_using_sqlite_as_the_only_database_for_a/)\\n\\n2. **[SQLite as the only database for website](https://old.reddit.com/r/PHP/comments/59na74/sqlite_as_the_only_database_for_website)** (r/PHP, 2016) — Commenters note sqlite.org itself runs on SQLite (~425k hits/day). Garradin (non-profit software) stores everything in SQLite across thousands of instances, ~100k hits/day. Consensus: fine for small–medium traffic if writes aren’t heavily concurrent. [[2]](https://old.reddit.com/r/PHP/comments/59na74/sqlite_as_the_only_database_for_website.json?sort=top)\\n\\n3. **[Why we're building our offline-first spreadsheet-database hybrid on SQLite](https://www.reddit.com/r/Nautsphere/comments/1mwg7da/why_were_building_our_offlinefirst)** (r/Nautsphere, Aug 2025) — Desktop app where each project is one SQLite file (ACID, portable, no vendor lock-in). [[3]](https://www.reddit.com/r/Nautsphere/comments/1mwg7da/why_were_building_our_offlinefirst)\\n\\n4. **[Using SQLite as the database in a self-hosted automation platform](https://www.reddit.com/r/sqlite/comments/1riye07/using_sqlite_as_the_database_in_a_self_hosted)** (r/sqlite, Mar 2026) — RapidForge: single binary, scripts → webhooks/cron/tools, SQLite only, no external DB or Docker. [[4]](https://www.reddit.com/r/sqlite/comments/1riye07/using_sqlite_as_the_database_in_a_self_hosted)\\n\\n5. **[SQLite is the only database you will ever need in most cases](https://www.reddit.com/r/programming/comments/n1twez/sqlite_is_the_only_database_you_will_ever_need_in/)** (r/programming, 2021) — Discussion of an article arguing SQLite covers most apps; comments debate multi-process writes and type flexibility. [[5]](https://www.reddit.com/r/programming/comments/n1twez/sqlite_is_the_only_database_you_will_ever_need_in/)\\n\\n6. **[SQLite in production webapps](https://www.reddit.com/r/webdev/comments/17pxrab/sqlite_in_production_webapps)** (r/webdev, Nov 2023) — Users report years of production use (including ~100 writes/sec with WAL) and Litestream backups to S3. [[6]](https://www.reddit.com/r/webdev/comments/17pxrab/sqlite_in_production_webapps)\\n\\n7. **[SQLite DB: simple, in-process, reliable, fast](https://www.reddit.com/r/Backend/comments/1pyezs6/sqlite_db_simple_inprocess_reliable_fast/)** (r/Backend, Dec 2025) — Post on single-file, in-process SQLite vs client/server DBs, with local read/write benchmarks. [[7]](https://www.reddit.com/r/Backend/comments/1pyezs6/sqlite_db_simple_inprocess_reliable_fast/)\\n\\n8. **[Show HN: Capsule – Single-file web apps that save their data into SQLite](https://www.reddit.com/r/hackernews/comments/1wh7vk0/show_hn_capsule_singlefile_web_apps_that_save/)** (r/hackernews) — Apps packaged as one portable file (UI + data in SQLite), no cloud or accounts. [[8]](https://www.reddit.com/r/hackernews/comments/1wh7vk0/show_hn_capsule_singlefile_web_apps_that_save/)\\n\\n9. **[I made a gym app](https://www.reddit.com/r/apps/comments/1k9zix7/i_made_a_gym_app_totally_free_no_ads/)** (r/apps, Apr 2025) — IronInsight stores all workout data on-device with SQLite so there’s no server cost. [[9]](https://www.reddit.com/r/apps/comments/1k9zix7/i_made_a_gym_app_totally_free_no_ads/)\\n\\n10. **[Introducing “My Notes”](https://www.reddit.com/r/MyNotes_/comments/1o5l2si/introducing_my_notes_a_free_offline_opensource)** (r/MyNotes_, Oct 2025) — Offline note app built with SQLite, Kotlin Multiplatform, and Compose; data stays local. [[10]](https://www.reddit.com/r/MyNotes_/comments/1o5l2si/introducing_my_notes_a_free_offline_opensource)\", \"answer_chars\": 4026}, \"session\": {\"calls\": {\"search\": 4, \"fetch\": 4, \"read_result\": 3}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 59, \"pages_read\": 0, \"calls_without_new_evidence\": 2}}",
+    "{\"result_id\": \"fcffe59fbfc09d90214f68ba\", \"kind\": \"search\", \"fields\": [\"answer\"], \"offset\": 200, \"next_offset\": null, \"next_offsets\": {\"answer\": null}, \"truncated\": false, \"data\": {\"answer\": \"ite_in_production)** — r/webdev (Dec 2025). Hot take that SQLite fits single-server, read-heavy, and under-~100K-user apps; Postgres for multi-writer or “real” products. Comments argue most apps idle and peak well within SQLite.\\n\\n2. **[Why does SQLite (in production) have such a bad rep?](https://www.reddit.com/r/programming/comments/1djkt2y/why_does_sqlite_in_production_have_such_a_bad_rep/)** — r/programming (Jun 2024, score ~529). Links a blog; discussion of intended use (embedded/`fopen()` replacement) vs server DBs. One commenter says their company ran SQLite as the production DB for three years with thousands of customers on one server before moving to Postgres RDS.\\n\\n3. **[SQLite in low traffic website?](https://www.reddit.com/r/webdev/comments/81qvnf/sqlite_in_low_traffic_website/)** — r/webdev (Mar 2018). OP used SQLite as the main DB for years at ~600 hits/day. Quotes SQLite’s own “under ~100K hits/day” guidance; comments note write locks and that low write rates worked fine in production.\\n\\n4. **[How to use SQLite in production?](https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production/)** — r/sqlite (Oct 2025). Ops advice: WAL, single-writer, scripted migrations, SSH/`sqlite3` or read-only Datasette—not live GUI edits. Mentions Litestream to S3 and people who have run this in production.\\n\\n5. **[People who used sqlite for their Database on the server](https://www.reddit.com/r/webdev/comments/1gs7k87/people_who_used_sqlite_for_their_database_on_the)** — r/webdev (Nov 2024). Multi-tenant setup: MySQL for shared data, per-tenant SQLite files (mostly reads, WAL). Others use SQLite for single-tenant monoliths to simplify deploy; skeptics say it will hit scale limits.\\n\\n6. **[SQLite in production for a real app: WAL mode gotchas…](https://www.reddit.com/r/webdev/comments/1sbgmdu/sqlite_in_production_for_a_real_app_wal_mode)** — r/webdev (Apr 2026). Rails app on a single SQLite file in Docker. Warns that blue-green deploys with two writers caused lost order rows despite successful Stripe charges; discusses backups and integrity via `sqlite_sequence`.\\n\\n7. **[The 6 pragmas you need to know to tune your SQLite database for production web app usage](https://www.reddit.com/r/rails/comments/16cbiz9/the_6_pragmas_you_need_to_know_to_tune_your/)** — r/rails (Sep 2023). WAL, `synchronous=NORMAL`, busy timeout, cache/mmap sizes for Rails. Commenters report corruption under concurrent ActiveJob writers and stay wary of multi-process use.\\n\\n8. **[Optimal SQLite settings for Django (in production)](https://www.reddit.com/r/django/comments/1dfj289/optimal_sqlite_settings_for_django_in_production/)** — r/django (Jun 2024). Tuning post; author claims hundreds of req/s on one cheap server if you stay single-node. Mixed replies (“friends don’t let friends use SQLite in prod” vs single-server complexity win).\\n\\n9. **[A pragmatic SQLite schema for application-level caching](https://www.reddit.com/r/sqlite/comments/1onfccq/a_pragmatic_sqlite_schema_for_applicationlevel)** — r/sqlite (Nov 2025). Author uses SQLite as both the primary database and a cache for a web app to simplify the stack.\\n\\n10. **[SQLite In Production With Laravel](https://www.reddit.com/r/laravel/comments/1ra8tyr/github_eznix86laravelsqlite_sqlite_in_production/)** — r/laravel (Feb 2026). Package extracted from a production app (pragmas, vacuum, multi-file SQLite) paired with Litestream; framed for small/medium apps and cheap hosting (e.g. sleeping Fly instances restoring from S3).\", \"answer_chars\": 3715}, \"session\": {\"calls\": {\"search\": 4, \"fetch\": 4, \"read_result\": 4}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 59, \"pages_read\": 0, \"calls_without_new_evidence\": 3}}"
+  ],
+  "answer": "下面是 Reddit 上讨论“把 SQLite 作为应用主数据库/生产数据库”的英文帖子，按相关性排序：\n\n1. **How to use SQLite in production?**  \n   `r/sqlite`，讨论生产环境运维、WAL、迁移、单写入者、备份和 Litestream。  \n   https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production/\n\n2. **Downsides to using sqlite as production database?**  \n   `r/sqlite`，围绕 Laravel/PHP 应用把 SQLite 作为主数据库的限制，包括并发写入、数据库规模和 WAL。  \n   https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database/\n\n3. **Deploying SQLite on a Production Website**  \n   `r/sqlite`，讨论生产网站中的并发写入、WAL、`busy_timeout` 以及低写入量场景。  \n   https://www.reddit.com/r/sqlite/comments/modtns/deploying_sqlite_on_a_production_website/\n\n4. **How Many Reads/Writes can SQLite handle in Prod?**  \n   `r/sqlite`，讨论每天数百万访问、每天约十万次写入以及单写入者设计。  \n   https://www.reddit.com/r/sqlite/comments/1kqnofq/how_many_readswrites_can_sqlite_handle_in_prod/\n\n5. **SQLite in production webapps**  \n   `r/webdev`，讨论 Remix/Epic Stack 类应用把 SQLite 作为应用数据库，并涉及 WAL 和 Litestream。  \n   https://www.reddit.com/r/webdev/comments/17pxrab/sqlite_in_production_webapps/\n\n6. **People who used sqlite for their Database on the server**  \n   `r/webdev`，直接询问在服务器端使用 SQLite 作为主库、租户数据库或单体应用数据库的经验。  \n   https://www.reddit.com/r/webdev/comments/1gs7k87/people_who_used_sqlite_for_their_database_on_the/\n\n7. **The case for SQLite in production**  \n   `r/webdev`，讨论单服务器、读多写少和中小规模应用是否适合 SQLite，以及何时应该换 PostgreSQL。  \n   https://www.reddit.com/r/webdev/comments/1pxq6jq/the_case_for_sqlite_in_production/\n\n8. **Why does SQLite (in production) have such a bad rep?**  \n   `r/programming`，讨论 SQLite 在生产环境中的名声、嵌入式数据库定位，以及从 SQLite 迁移到 PostgreSQL 的时机。  \n   https://www.reddit.com/r/programming/comments/1djkt2y/why_does_sqlite_in_production_have_such_a_bad_rep/\n\n9. **SQLite in low traffic website?**  \n   `r/webdev`，讨论低流量网站多年使用 SQLite 作为主数据库，以及写锁和低写入量问题。  \n   https://www.reddit.com/r/webdev/comments/81qvnf/sqlite_in_low_traffic_website/\n\n10. **SQLite the only database you will ever need in most cases**  \n    `r/Database`，讨论 SQLite 是否足以覆盖大多数应用，以及多进程写入和类型系统等限制。  \n    https://www.reddit.com/r/Database/comments/mr9tzq/sqlite_the_only_database_you_will_ever_need_in/\n\n11. **Why I'm using SQLite as the only database for a production SaaS**  \n    `r/FastAPI`，把 SQLite 作为 SaaS 的唯一数据库，不使用 PostgreSQL 或 Redis，重点是读多写少和单写入进程。  \n    https://www.reddit.com/r/FastAPI/comments/1ra1xlg/why_im_using_sqlite_as_the_only_database_for_a/\n\n12. **SQLite as the only database for website**  \n    `r/PHP`，讨论网站只使用 SQLite 作为数据库，适合小到中等流量且并发写入较少的场景。  \n    https://old.reddit.com/r/PHP/comments/59na74/sqlite_as_the_only_database_for_website\n\n**总体可归纳出的讨论方向：**\n\n- SQLite 很适合单机、单体应用、读多写少、部署简单的应用。\n- WAL 模式、备份策略和写入队列是生产使用的关键。\n- 多进程或多服务同时写入、需要读副本、跨节点部署时，通常会转向 PostgreSQL/MySQL。\n- “SQLite 能否作为主库”主要取决于写入并发、部署拓扑和故障恢复要求，而不只是数据量。\n\n本次 AllSearch 能找到这些帖子，但 Reddit 评论读取接口未能成功工作，且页面抓取受到限流影响。因此上面没有伪造或转述为评论原句；没有可核验的评论原文可引用。",
+  "observation": {
+    "id": "reddit-cross-sqlite",
+    "answer": "下面是 Reddit 上讨论“把 SQLite 作为应用主数据库/生产数据库”的英文帖子，按相关性排序：\n\n1. **How to use SQLite in production?**  \n   `r/sqlite`，讨论生产环境运维、WAL、迁移、单写入者、备份和 Litestream。  \n   https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production/\n\n2. **Downsides to using sqlite as production database?**  \n   `r/sqlite`，围绕 Laravel/PHP 应用把 SQLite 作为主数据库的限制，包括并发写入、数据库规模和 WAL。  \n   https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database/\n\n3. **Deploying SQLite on a Production Website**  \n   `r/sqlite`，讨论生产网站中的并发写入、WAL、`busy_timeout` 以及低写入量场景。  \n   https://www.reddit.com/r/sqlite/comments/modtns/deploying_sqlite_on_a_production_website/\n\n4. **How Many Reads/Writes can SQLite handle in Prod?**  \n   `r/sqlite`，讨论每天数百万访问、每天约十万次写入以及单写入者设计。  \n   https://www.reddit.com/r/sqlite/comments/1kqnofq/how_many_readswrites_can_sqlite_handle_in_prod/\n\n5. **SQLite in production webapps**  \n   `r/webdev`，讨论 Remix/Epic Stack 类应用把 SQLite 作为应用数据库，并涉及 WAL 和 Litestream。  \n   https://www.reddit.com/r/webdev/comments/17pxrab/sqlite_in_production_webapps/\n\n6. **People who used sqlite for their Database on the server**  \n   `r/webdev`，直接询问在服务器端使用 SQLite 作为主库、租户数据库或单体应用数据库的经验。  \n   https://www.reddit.com/r/webdev/comments/1gs7k87/people_who_used_sqlite_for_their_database_on_the/\n\n7. **The case for SQLite in production**  \n   `r/webdev`，讨论单服务器、读多写少和中小规模应用是否适合 SQLite，以及何时应该换 PostgreSQL。  \n   https://www.reddit.com/r/webdev/comments/1pxq6jq/the_case_for_sqlite_in_production/\n\n8. **Why does SQLite (in production) have such a bad rep?**  \n   `r/programming`，讨论 SQLite 在生产环境中的名声、嵌入式数据库定位，以及从 SQLite 迁移到 PostgreSQL 的时机。  \n   https://www.reddit.com/r/programming/comments/1djkt2y/why_does_sqlite_in_production_have_such_a_bad_rep/\n\n9. **SQLite in low traffic website?**  \n   `r/webdev`，讨论低流量网站多年使用 SQLite 作为主数据库，以及写锁和低写入量问题。  \n   https://www.reddit.com/r/webdev/comments/81qvnf/sqlite_in_low_traffic_website/\n\n10. **SQLite the only database you will ever need in most cases**  \n    `r/Database`，讨论 SQLite 是否足以覆盖大多数应用，以及多进程写入和类型系统等限制。  \n    https://www.reddit.com/r/Database/comments/mr9tzq/sqlite_the_only_database_you_will_ever_need_in/\n\n11. **Why I'm using SQLite as the only database for a production SaaS**  \n    `r/FastAPI`，把 SQLite 作为 SaaS 的唯一数据库，不使用 PostgreSQL 或 Redis，重点是读多写少和单写入进程。  \n    https://www.reddit.com/r/FastAPI/comments/1ra1xlg/why_im_using_sqlite_as_the_only_database_for_a/\n\n12. **SQLite as the only database for website**  \n    `r/PHP`，讨论网站只使用 SQLite 作为数据库，适合小到中等流量且并发写入较少的场景。  \n    https://old.reddit.com/r/PHP/comments/59na74/sqlite_as_the_only_database_for_website\n\n**总体可归纳出的讨论方向：**\n\n- SQLite 很适合单机、单体应用、读多写少、部署简单的应用。\n- WAL 模式、备份策略和写入队列是生产使用的关键。\n- 多进程或多服务同时写入、需要读副本、跨节点部署时，通常会转向 PostgreSQL/MySQL。\n- “SQLite 能否作为主库”主要取决于写入并发、部署拓扑和故障恢复要求，而不只是数据量。\n\n本次 AllSearch 能找到这些帖子，但 Reddit 评论读取接口未能成功工作，且页面抓取受到限流影响。因此上面没有伪造或转述为评论原句；没有可核验的评论原文可引用。",
+    "results": [
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/Nautsphere/comments/1mwg7da/why_were_building_our_offlinefirst",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/django/comments/1cpkt2d/sqlite_in_production",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/androiddev/comments/3eeyiv/using_sqlite_databases_explain_like_im_five",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/rust/comments/1hrsovh/embedding_a_sqlite_database_in_a_tauri_application",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/webdev/comments/1we17ei/sqlite_on_the_spa_web_a_production_ready_reality",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/rails/comments/aulwej/using_sqlite3_as_production_database",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/programming/comments/1djkt2y/why_does_sqlite_in_production_have_such_a_bad_rep",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/laravel/comments/1jubxrg/avoid_using_sqlite_in_development_unless_its_also",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/1f69l1q/high_concurrency_in_readonly",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/rails/comments/y46our/sharing_my_exp_so_far_with_using_sqlite_in",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/Python/comments/1wowf4q/sqlite_in_production_why_wal_mode_busy_timeout",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/webdev/comments/1gs7k87/people_who_used_sqlite_for_their_database_on_the",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/FastAPI/comments/1ra1xlg/why_im_using_sqlite_as_the_only_database_for_a",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/Clojure/comments/1p5cpvh/proof_of_concept_a_datomiclike_database_library",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/webdev/comments/1sbgmdu/sqlite_in_production_for_a_real_app_wal_mode",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/androiddev/comments/5qwl6w/shipping_app_with_sqllite_db_vs_creating_on_app",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/learnpython/comments/jpm2f3/is_it_ok_to_create_a_database_with_python_app_on",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/webdev/comments/1pxq6jq/the_case_for_sqlite_in_production",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/django/comments/1dfj289/optimal_sqlite_settings_for_django_in_production",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/s/13kwBwi7Cu",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/1h7m9g4/trailbase_030_submillisecond_app_server_with",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/webdev/comments/17pxrab/sqlite_in_production_webapps",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/Backend/comments/1pyezs6/sqlite_db_simple_inprocess_reliable_fast",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/1vz5we6/sqlite_in_production_with_builtin_litestream",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/webdev/comments/81qvnf/sqlite_in_low_traffic_website",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/1sk9j6f/im_sharding_sqlite_by_entity_with_beam_actors_15m",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/Database/comments/1qpfo2z/sqlite_in_production_not_so_fast_for_complex",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production",
+        "title": "https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production/",
+        "snippet": ""
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database",
+        "title": "Downsides to using sqlite as production database? - Reddit",
+        "snippet": ""
+      },
+      {
+        "url": "https://www.reddit.com/r/Nautsphere/comments/1mwg7da/why_were_building_our_offlinefirst",
+        "title": "https://www.reddit.com/r/Nautsphere/comments/1mwg7da/why_were_building_our_offlinefirst",
+        "snippet": ""
+      },
+      {
+        "url": "https://www.reddit.com/r/django/comments/1cpkt2d/sqlite_in_production",
+        "title": "Sqlite in production ( ❓) : r/django",
+        "snippet": ""
+      },
+      {
+        "url": "https://www.reddit.com/r/androiddev/comments/3eeyiv/using_sqlite_databases_explain_like_im_five",
+        "title": "https://www.reddit.com/r/androiddev/comments/3eeyiv/using_sqlite_databases_explain_like_im_five",
+        "snippet": ""
+      },
+      {
+        "url": "https://www.reddit.com/r/rust/comments/1hrsovh/embedding_a_sqlite_database_in_a_tauri_application",
+        "title": "Embedding a SQLite database in a Tauri Application : r/rust",
+        "snippet": ""
+      },
+      {
+        "url": "https://www.reddit.com/r/webdev/comments/1we17ei/sqlite_on_the_spa_web_a_production_ready_reality",
+        "title": "https://www.reddit.com/r/webdev/comments/1we17ei/sqlite_on_the_spa_web_a_production_ready_reality/",
+        "snippet": ""
+      },
+      {
+        "url": "https://www.reddit.com/r/rails/comments/aulwej/using_sqlite3_as_production_database",
+        "title": "using sqlite3 as production database : r/rails",
+        "snippet": ""
+      },
+      {
+        "url": "https://www.reddit.com/r/programming/comments/1djkt2y/why_does_sqlite_in_production_have_such_a_bad_rep",
+        "title": "https://www.reddit.com/r/programming/comments/1djkt2y/why_does_sqlite_in_production_have_such_a_bad_rep/",
+        "snippet": ""
+      },
+      {
+        "url": "https://www.reddit.com/r/laravel/comments/1jubxrg/avoid_using_sqlite_in_development_unless_its_also",
+        "title": "r/laravel on Reddit: Avoid Using SQLite in Development Unless It's ...",
+        "snippet": ""
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production",
+        "title": "1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/brdev/comments/1s3tt0u/estamos_ignorando_o_potencial_do_sqlite?tl=en",
+        "title": "Are we overlooking SQLite's potential? : r/brdev - Reddit",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/rails/comments/k4vlqo/is_anyone_using_sqlite_on_production_either_side",
+        "title": "Is anyone using SQLite on production? (either side project ... - Reddit",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/modtns/deploying_sqlite_on_a_production_website",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/dotnet/comments/1bulzdi/sqlite_in_production",
+        "title": "SQLite in Production? : r/dotnet - Reddit",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/1kqnofq/how_many_readswrites_can_sqlite_handle_in_prod",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/webdev/comments/1pxq6jq/the_case_for_sqlite_in_production",
+        "title": "10",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/1f69l1q/high_concurrency_in_readonly",
+        "title": "5",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/rails/comments/aulwej/using_sqlite3_as_production_database",
+        "title": "using sqlite3 as production database : r/rails",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production",
+        "title": "1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/brdev/comments/1s3tt0u/estamos_ignorando_o_potencial_do_sqlite?tl=en",
+        "title": "Are we overlooking SQLite's potential? : r/brdev - Reddit",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/rails/comments/k4vlqo/is_anyone_using_sqlite_on_production_either_side",
+        "title": "Is anyone using SQLite on production? (either side project ... - Reddit",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/modtns/deploying_sqlite_on_a_production_website",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/dotnet/comments/1bulzdi/sqlite_in_production",
+        "title": "SQLite in Production? : r/dotnet - Reddit",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/1kqnofq/how_many_readswrites_can_sqlite_handle_in_prod",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/webdev/comments/1pxq6jq/the_case_for_sqlite_in_production",
+        "title": "10",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/1f69l1q/high_concurrency_in_readonly",
+        "title": "5",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/rails/comments/aulwej/using_sqlite3_as_production_database",
+        "title": "using sqlite3 as production database : r/rails",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/1tv33fd/i_ran_metricslogstracesrum_on_sqlite_and",
+        "title": "6",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/webdev/comments/17pxrab/sqlite_in_production_webapps",
+        "title": "7",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/webdev/comments/1gs7k87/people_who_used_sqlite_for_their_database_on_the",
+        "title": "8",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/webdev/comments/1i6mo26/sqlite_vs_mysql",
+        "title": "9",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/webdev/comments/1sqs79o/psa_copying_your_sqlite_db_file_isnt_a_valid",
+        "title": "11",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/Database/comments/1cqx84l/who_has_sqlite_in_production",
+        "title": "Who has SQLite in production? : r/Database",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/SQL/comments/1opuyzu/is_it_a_bad_idea_to_start_with_sqlite",
+        "title": "Is it a bad idea to start with SQLite? : r/SQL - Reddit",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/AskProgramming/comments/1qf29nm/what_are_your_thoughts_on_using_sqlite_for",
+        "title": "What are your thoughts on using SQLite for production web ...",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/FastAPI/comments/1ra1xlg/why_im_using_sqlite_as_the_only_database_for_a",
+        "title": "1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/Database/comments/mr9tzq/sqlite_the_only_database_you_will_ever_need_in",
+        "title": "SQLite the only database you will ever need in most cases",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://old.reddit.com/r/PHP/comments/59na74/sqlite_as_the_only_database_for_website",
+        "title": "SQLite as the only database for website",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/programming/comments/1fdntj3/sqlite_is_not_a_toy_database",
+        "title": "SQLite is not a toy database : r/programming",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/Nautsphere/comments/1mwg7da/why_were_building_our_offlinefirst",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/programming/comments/17hl2yz/why_you_should_probably_be_using_sqlite",
+        "title": "Why you should probably be using SQLite : r/programming",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/1riye07/using_sqlite_as_the_database_in_a_self_hosted",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/programming/comments/4ovecl/were_pretty_happy_with_sqlite_not_urgently",
+        "title": "we're pretty happy with SQLite & not urgently interested in ...",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/programming/comments/n1twez/sqlite_is_the_only_database_you_will_ever_need_in",
+        "title": "5",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/rising",
+        "title": "r/sqlite",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/FastAPI/comments/1ra1xlg/why_im_using_sqlite_as_the_only_database_for_a",
+        "title": "1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/Database/comments/mr9tzq/sqlite_the_only_database_you_will_ever_need_in",
+        "title": "SQLite the only database you will ever need in most cases",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://old.reddit.com/r/PHP/comments/59na74/sqlite_as_the_only_database_for_website",
+        "title": "SQLite as the only database for website",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/programming/comments/1fdntj3/sqlite_is_not_a_toy_database",
+        "title": "SQLite is not a toy database : r/programming",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/Nautsphere/comments/1mwg7da/why_were_building_our_offlinefirst",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/programming/comments/17hl2yz/why_you_should_probably_be_using_sqlite",
+        "title": "Why you should probably be using SQLite : r/programming",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/1riye07/using_sqlite_as_the_database_in_a_self_hosted",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/programming/comments/4ovecl/were_pretty_happy_with_sqlite_not_urgently",
+        "title": "we're pretty happy with SQLite & not urgently interested in ...",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/programming/comments/n1twez/sqlite_is_the_only_database_you_will_ever_need_in",
+        "title": "5",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/rising",
+        "title": "r/sqlite",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/webdev/comments/17pxrab/sqlite_in_production_webapps",
+        "title": "6",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/Backend/comments/1pyezs6/sqlite_db_simple_inprocess_reliable_fast",
+        "title": "7",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/hackernews/comments/1wh7vk0/show_hn_capsule_singlefile_web_apps_that_save",
+        "title": "8",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/apps/comments/1k9zix7/i_made_a_gym_app_totally_free_no_ads",
+        "title": "9",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/MyNotes_/comments/1o5l2si/introducing_my_notes_a_free_offline_opensource",
+        "title": "10",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/new",
+        "title": "r/sqlite",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/webdev/comments/1gs7k87/people_who_used_sqlite_for_their_database_on_the",
+        "title": "People who used sqlite for their Database on the server",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/node/comments/1ddxwk4/is_sqlite3_still_a_good_option_for_a_db",
+        "title": "Is Sqlite3 still a good option for a DB? : r/node",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/programming/comments/1vz5v47/sqlite_in_production_with_builtin_litestream",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/webdev/comments/1pxq6jq/the_case_for_sqlite_in_production",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/programming/comments/1djkt2y/why_does_sqlite_in_production_have_such_a_bad_rep",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/Database/comments/1cqx84l/who_has_sqlite_in_production",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/webdev/comments/81qvnf/sqlite_in_low_traffic_website",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/rails/comments/aulwej/using_sqlite3_as_production_database",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/1onfccq/a_pragmatic_sqlite_schema_for_applicationlevel",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/dotnet/comments/1bulzdi/sqlite_in_production",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/1csm62a/best_practice_to_prevent_locking_a_single_db_file",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/FastAPI/comments/1ra1xlg/why_im_using_sqlite_as_the_only_database_for_a",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/programming/comments/1vz5v47/sqlite_in_production_with_builtin_litestream",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/webdev/comments/1pxq6jq/the_case_for_sqlite_in_production",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/programming/comments/1djkt2y/why_does_sqlite_in_production_have_such_a_bad_rep",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/Database/comments/1cqx84l/who_has_sqlite_in_production",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/webdev/comments/81qvnf/sqlite_in_low_traffic_website",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/rails/comments/aulwej/using_sqlite3_as_production_database",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/1onfccq/a_pragmatic_sqlite_schema_for_applicationlevel",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/dotnet/comments/1bulzdi/sqlite_in_production",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/1csm62a/best_practice_to_prevent_locking_a_single_db_file",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/FastAPI/comments/1ra1xlg/why_im_using_sqlite_as_the_only_database_for_a",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/webdev/comments/1gs7k87/people_who_used_sqlite_for_their_database_on_the",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/webdev/comments/1we17ei/sqlite_on_the_spa_web_a_production_ready_reality",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/laravel/comments/1ra8tyr/github_eznix86laravelsqlite_sqlite_in_production",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/django/comments/1dfj289/optimal_sqlite_settings_for_django_in_production",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/androiddev/comments/5qwl6w/shipping_app_with_sqllite_db_vs_creating_on_app",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/1vz5we6/sqlite_in_production_with_builtin_litestream",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/rails/comments/16cbiz9/the_6_pragmas_you_need_to_know_to_tune_your",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/1o99472/how_to_use_sqlite_in_production",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/Nautsphere/comments/1mwg7da/why_were_building_our_offlinefirst",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/webdev/comments/1sbgmdu/sqlite_in_production_for_a_real_app_wal_mode",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite/new",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/AskProgramming/comments/1qf29nm/what_are_your_thoughts_on_using_sqlite_for",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sqlite",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://www.reddit.com/r/sqlite/comments/fj6m0e/downsides_to_using_sqlite_as_production_database",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 19, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/django/comments/1cpkt2d/sqlite_in_production",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 17, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/rails/comments/aulwej/using_sqlite3_as_production_database",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 20, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://www.reddit.com/r/programming/comments/1djkt2y/why_does_sqlite_in_production_have_such_a_bad_rep",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 18, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…",
+            "retryable": true
+          }
+        ]
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:32:29.428461+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "reddit-cross-sqlite",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "reddit-sqlite"
+        ],
+        "required": 1
+      },
+      "comments": {
+        "status": "fail",
+        "matched_comments": []
+      },
+      "cross_language": {
+        "status": "pass",
+        "matched_hosts": [
+          "reddit.com"
+        ]
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "comments:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true,
+    "grader": "v2"
+  }
+}

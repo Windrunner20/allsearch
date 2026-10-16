@@ -1,0 +1,710 @@
+{
+  "id": "news-en-archive",
+  "query": "Which organization does the CVE program identify as the source of CVE records used by NVD",
+  "returncode": 0,
+  "elapsed_ms": 120867,
+  "efficiency": {
+    "tool_calls": {
+      "search": 4,
+      "fetch": 3
+    },
+    "total_calls": 7,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 0,
+    "errors": 0
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "balanced",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": null,
+        "max_results": 5,
+        "mode": "web",
+        "query": "CVE program identify organization as the source of CVE records used by NVD source of CVE records NVD",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 9728
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Find the exact wording identifying the source/organization of CVE records used by NVD.",
+        "fresh": false,
+        "max_chars": 12000,
+        "url": "https://nvd.nist.gov/general/FAQ-Sections/CVE-FAQs"
+      },
+      "is_error": false,
+      "ms": 10458
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Find the exact statement about who maintains/provides CVE records and how NVD uses them.",
+        "fresh": false,
+        "max_chars": 12000,
+        "url": "https://nvd.nist.gov/general/cve-process"
+      },
+      "is_error": false,
+      "ms": 10506
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Find the exact wording about the CVE List feeding NVD and the organization operating the CVE Program.",
+        "fresh": false,
+        "max_chars": 12000,
+        "url": "https://www.cve.org/about/relatedefforts"
+      },
+      "is_error": false,
+      "ms": 10843
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "nvd.nist.gov",
+          "cve.org"
+        ],
+        "max_results": 8,
+        "mode": "web",
+        "query": "site:nvd.nist.gov \"CVE records\" \"NVD\" \"MITRE\" source",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 15175
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "nvd.nist.gov",
+          "cve.org"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "\"source of CVE records\" NVD organization CVE program",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 19174
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "nvd.nist.gov"
+        ],
+        "max_results": 5,
+        "mode": "web",
+        "query": "site:nvd.nist.gov/vuln/vulnerability-status \"Vulnerability records within the NVD dataset are sourced\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 12876
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.0\", \"result_id\": \"0ed7c5279b98e8fb\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"CVE program identify organization as the source of CVE records used by NVD source of CVE records NVD\", \"answer\": \"The **CVE Program** (operated by **The MITRE Corporation** as secretariat, funded via CISA/DHS) is the source of the CVE records that **NVD** uses. NVD (run by **NIST**) does not create CVE IDs or the base CVE records; it ingests the CVE List and enriches those records.\\n\\nRelevant sources:\\n\\n1. **CVE.org (related efforts)** — CVE and NVD are separate programs. The CVE List, launched by MITRE in 1999, feeds NVD (NIST, launched 2005), which builds on CVE Record data.  \\n   https://www.cve.org/about/relatedefforts\\n\\n2. **CVE.org FAQs** — CISA funds MITRE (via HSSEDI) to operate the CVE Program. The CVE List feeds NVD, which adds enhanced information.  \\n   https://www.cve.org/ResourcesSupport/FAQs\\n\\n3. **NVD CVE process** — The CVE program is maintained by MITRE and sponsored by DHS/CISA. CVE IDs …\", \"answer_chars\": 1346, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 3, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 11}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 9691, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"skipped\", \"reason\": \"primary_sufficient\"}], \"result_count\": 5, \"citation_count\": 11, \"results\": [{\"id\": \"r1\", \"title\": \"https://nvd.nist.gov/general/FAQ-Sections/CVE-FAQs\", \"url\": \"https://nvd.nist.gov/general/FAQ-Sections/CVE-FAQs\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"https://nvd.nist.gov/general/cve-process\", \"url\": \"https://nvd.nist.gov/general/cve-process\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r3\", \"title\": \"https://www.cloudsecuritypartners.com/blog/nobody-waits-for-your-project-to-be-ready-for-its-first-cve\", \"url\": \"https://www.cloudsecuritypartners.com/blog/nobody-waits-for-your-project-to-be-ready-for-its-first-cve\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"https://github.com/MITRE-Cyber-Security-CVE-Database/mitre-cve-database/blob/main/fetch-cve-data.sh\", \"url\": \"https://github.com/MITRE-Cyber-Security-CVE-Database/mitre-cve-database/blob/main/fetch-cve-data.sh\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r5\", \"title\": \"https://github.com/CVEProject/cve-schema/blob/develop/schema/CVE_Record_Format.json\", \"url\": \"https://github.com/CVEProject/cve-schema/blob/develop/schema/CVE_Record_Format.json\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://nvd.nist.gov/general/FAQ-Sections/CVE-FAQs\", \"title\": \"https://nvd.nist.gov/general/FAQ-Sections/CVE-FAQs\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://nvd.nist.gov/general/cve-process\", \"title\": \"https://nvd.nist.gov/general/cve-process\", \"result_item_id\": \"r2\", \"providers\": [\"xai\"]}, {\"id\": \"c3\", \"url\": \"https://www.cloudsecuritypartners.com/blog/nobody-waits-for-your-project-to-be-ready-for-its-first-cve\", \"title\": \"https://www.cloudsecuritypartners.com/blog/nobody-waits-for-your-project-to-be-ready-for-its-first-cve\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://github.com/MITRE-Cyber-Security-CVE-Database/mitre-cve-database/blob/main/fetch-cve-data.sh\", \"title\": \"https://github.com/MITRE-Cyber-Security-CVE-Database/mitre-cve-database/blob/main/fetch-cve-data.sh\", \"result_item_id\": \"r4\", \"providers\": [\"xai\"]}, {\"id\": \"c5\", \"url\": \"https://github.com/CVEProject/cve-schema/blob/develop/schema/CVE_Record_Format.json\", \"title\": \"https://github.com/CVEProject/cve-schema/blob/develop/schema/CVE_Record_Format.json\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://inventivehq.com/blog/nvd-vs-mitre-cve-differences\", \"title\": \"https://inventivehq.com/blog/nvd-vs-mitre-cve-differences\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://www.cve.org/Media/News/item/blog/2026/10/06/CVE-Program-Data-Registry\", \"title\": \"https://www.cve.org/Media/News/item/blog/2026/10/06/CVE-Program-Data-Registry\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://www.cve.org/about/relatedefforts\", \"title\": \"https://www.cve.org/about/relatedefforts\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://nvd.nist.gov/developers\", \"title\": \"https://nvd.nist.gov/developers\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.cve.org/ResourcesSupport/FAQs\", \"title\": \"https://www.cve.org/ResourcesSupport/FAQs\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://www.cve.org/About/Process\", \"title\": \"https://www.cve.org/About/Process\", \"result_item_id\": null, \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"0ed7c5279b98e8fb\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"45a5acc858adb2b4\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://nvd.nist.gov/general/FAQ-Sections/CVE-FAQs\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"45a5acc858adb2b4\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"d51eacac50562cdc\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://nvd.nist.gov/general/cve-process\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"d51eacac50562cdc\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"6c56508dea5483e6\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://www.cve.org/about/relatedefforts\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"6c56508dea5483e6\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"0da1c4e4d89d3094\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:nvd.nist.gov \\\"CVE records\\\" \\\"NVD\\\" \\\"MITRE\\\" source\", \"answer\": \"Relevant NVD pages on how CVE records, the NVD, and MITRE fit together:\\n\\n1. **[NVD – CVEs and the NVD Process](https://nvd.nist.gov/general/cve-process)**  \\n   The CVE Program began in 1999 and is maintained by MITRE, sponsored by DHS and CISA. IDs are assigned by MITRE and CVE Numbering Authorities (CNAs). Published CVE records usually appear in the NVD within about an hour; NVD then enriches them (reference tags, CVSS, CWE, CPE) within its scope of coverage.\\n\\n2. **[NVD – CVE FAQs](https://nvd.nist.gov/general/FAQ-Sections/CVE-FAQs)**  \\n   After a CNA or the CVE Assignment Team publishes a CVE (moving it from RESERVED to a public description and references), NVD enriches that record. NVD does not control CVE descriptions or reference links; change requests go to the CVE Assignment Team v…\", \"answer_chars\": 2026, \"evidence\": {\"unique_urls\": 8, \"unique_domains\": 2, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 12}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 15137, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}], \"result_count\": 8, \"citation_count\": 19, \"results\": [{\"id\": \"r1\", \"title\": \"https://www.cve.org/Resources/Media/Archives/OldWebsite/about/dup_id.html\", \"url\": \"https://www.cve.org/Resources/Media/Archives/OldWebsite/about/dup_id.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"NVD-CVE-2025-67780\", \"url\": \"https://nvd.nist.gov/vuln/detail/CVE-2025-67780\", \"snippet\": \"### Change History\\n\\n5 change records foundshow changes\\n\\n#### Quick Info\\n\\nCVE Dictionary Entry:  \\nCVE-2025-67780  \\nNVD Published Date:  \\n Dec 11, 2025  \\nNVD Las…\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://www.cve.org/about/relatedefforts\", \"url\": \"https://www.cve.org/about/relatedefforts\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"NVD - CVE-2005-0820\", \"url\": \"https://nvd.nist.gov/vuln/detail/CVE-2005-0820\", \"snippet\": \"Title: NVD - CVE-2005-0820\\nNational Institute of Standards and Technology. | CVE-2005-0820 Detail **Modified After Enrichment**   ---   This CVE record has bee…\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://www.cve.org/Media/News/item/blog/2026/10/13/CVE-Search-API\", \"url\": \"https://www.cve.org/Media/News/item/blog/2026/10/13/CVE-Search-API\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"NVD-CVE-2024-36581\", \"url\": \"https://nvd.nist.gov/vuln/detail/CVE-2024-36581\", \"snippet\": \"Source: CISA-ADP(hide)\\n\\n| Vendor | Product | Versions |\\n --- \\n| prototype_solution | abw_badger_database | Affected 0 <=1.2.1 |\\n\\n### Change History\\n\\n#### Quick…\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"https://nvd.nist.gov/general/FAQ-Sections/CVE-FAQs\", \"url\": \"https://nvd.nist.gov/general/FAQ-Sections/CVE-FAQs\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"NVD - CVE-2005-1383\", \"url\": \"https://nvd.nist.gov/vuln/detail/CVE-2005-1383\", \"snippet\": \"Title: NVD - CVE-2005-1383\\nNational Institute of Standards and Technology. | URL | Source(s) | Tag(s) | | --- | --- | --- | |  | CVE, MITRE |  | |  | CVE, MITR…\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.cve.org/Resources/Media/Archives/OldWebsite/about/dup_id.html\", \"title\": \"https://www.cve.org/Resources/Media/Archives/OldWebsite/about/dup_id.html\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://nvd.nist.gov/vuln/detail/CVE-2025-67780\", \"title\": \"NVD-CVE-2025-67780\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://www.cve.org/about/relatedefforts\", \"title\": \"https://www.cve.org/about/relatedefforts\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://nvd.nist.gov/vuln/detail/CVE-2005-0820\", \"title\": \"NVD - CVE-2005-0820\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://www.cve.org/Media/News/item/blog/2026/10/13/CVE-Search-API\", \"title\": \"https://www.cve.org/Media/News/item/blog/2026/10/13/CVE-Search-API\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://nvd.nist.gov/vuln/detail/CVE-2024-36581\", \"title\": \"NVD-CVE-2024-36581\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://nvd.nist.gov/general/FAQ-Sections/CVE-FAQs\", \"title\": \"https://nvd.nist.gov/general/FAQ-Sections/CVE-FAQs\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://nvd.nist.gov/vuln/detail/CVE-2005-1383\", \"title\": \"NVD - CVE-2005-1383\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://www.cve.org/programorganization/Structure\", \"title\": \"https://www.cve.org/programorganization/Structure\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.cve.org/about/overview\", \"title\": \"https://www.cve.org/about/overview\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://nvd.nist.gov/developers/vulnerabilities\", \"title\": \"https://nvd.nist.gov/developers/vulnerabilities\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://nvd.nist.gov/general/cve-process\", \"title\": \"https://nvd.nist.gov/general/cve-process\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://www.cve.org/PartnerInformation/ListofPartners/partner/mitre\", \"title\": \"https://www.cve.org/PartnerInformation/ListofPartners/partner/mitre\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://nvd.nist.gov/vuln/vulnerability-detail-pages\", \"title\": \"https://nvd.nist.gov/vuln/vulnerability-detail-pages\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://nvd.nist.gov/products/cpe/search?cpe=cpe%3A2.3%3Ao%3Asuse%3Asles_sap%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A&keyword=cpe%3A2.3%3Ao%3Asuse%3Asles_sap%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A&offset=0&rowCount=50&status=FINAL%2CDEPRECATED\", \"title\": \"https://nvd.nist.gov/products/cpe/search?cpe=cpe:2.3:o:suse:sles_sap:*:*:*:*:*:*:*:*&status=FINAL,DEPRECATED&rowCount=5…\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://www.cve.org/ResourcesSupport/FAQs\", \"title\": \"https://www.cve.org/ResourcesSupport/FAQs\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://nvd.nist.gov/vuln/detail/CVE-2004-0957\", \"title\": \"NVD - CVE-2004-0957\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c18\", \"url\": \"https://nvd.nist.gov/vuln/detail/CVE-2008-2599\", \"title\": \"NVD-CVE-2008-2599\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c19\", \"url\": \"https://nvd.nist.gov/vuln/detail/CVE-2001-0330\", \"title\": \"NVD - CVE-2001-0330\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"0da1c4e4d89d3094\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"306fc9acc0468b44\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"\\\"source of CVE records\\\" NVD organization CVE program\", \"answer\": \"CVE Records are created and published by the **CVE Program**, not by NVD. NVD consumes the CVE List and enriches records after they are published.\\n\\n1. **CVE Program is the source of CVE Records** — The program identifies, defines, and catalogs publicly disclosed vulnerabilities. Partners (mainly CNAs) assign CVE IDs and publish one CVE Record per vulnerability to the CVE List.  \\n   Source: [cve.org overview](https://www.cve.org/about/overview) [[1]](https://www.cve.org/about/overview)\\n\\n2. **Publication path** — Discover → report to a CVE partner → CVE ID assigned → details submitted → CNA publishes the record to the CVE List when minimum data is present.  \\n   Source: [CVE Process](https://www.cve.org/About/Process) [[2]](https://www.cve.org/About/Process)\\n\\n3. **NVD is downstream, not the …\", \"answer_chars\": 3685, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 2, \"cross_provider_matches\": 1, \"pages_fetched\": 0, \"primary_citation_count\": 11}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 19135, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}], \"result_count\": 10, \"citation_count\": 17, \"results\": [{\"id\": \"r1\", \"title\": \"1\", \"url\": \"https://www.cve.org/about/overview\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"NVD - Vulnerability Status\", \"url\": \"https://nvd.nist.gov/vuln/vulnerability-status\", \"snippet\": \"1.   vulnerabilities\\n\\n## Vulnerability Status\\n\\nVulnerability records within the NVD dataset are sourced from the CVE List, which is maintained by the CVE Progr…\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"2\", \"url\": \"https://www.cve.org/About/Process\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"CVEs and the NVD Process\", \"url\": \"https://nvd.nist.gov/general/cve-process\", \"snippet\": \"Founded in 1999, the CVE program is maintained by the MITRE corporation and sponsored by the U.S. Department of Homeland Security (DHS) and the Cybersecurity a…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r5\", \"title\": \"3\", \"url\": \"https://www.cve.org/about/relatedefforts\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"Vulnerability APIs\", \"url\": \"https://nvd.nist.gov/developers/vulnerabilities\", \"snippet\": \"`\\n\\n  \\n\\nRequest the CVE records, beginning at index 20 and ending at index 39\\n\\n`\\nsourceIdentifier optional\\n   `{sourceIdentifier}`\\n\\nThis parameter returns CVE w…\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"4\", \"url\": \"https://nvd.nist.gov/general/FAQ-Sections/CVE-FAQs\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"NVD CVE 4.0 to CVE 5.0 Transition\", \"url\": \"https://nvd.nist.gov/general/news/cve-4-0-to-cve-5-0-transition\", \"snippet\": \"## NVD CVE 4.0 to CVE 5.0 Transition\\n\\nThe CVE Program has created a new format for the CVE List with many enhancements over the former iteration. The NVD will …\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"6\", \"url\": \"https://www.cve.org/CVERecord/UserGuide\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"CVE - Frequently Asked Questions\", \"url\": \"https://www.cve.org/Resources/Media/Archives/OldWebsite/about/faqs.html\", \"snippet\": \"#### What is CVE?\\n\\nThe mission of the CVE  ™  Program is to identify, define, and catalog publicly disclosed cybersecurity  vulnerabilities  . There is one  CV…\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.cve.org/about/overview\", \"title\": \"1\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://nvd.nist.gov/vuln/vulnerability-status\", \"title\": \"NVD - Vulnerability Status\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://www.cve.org/About/Process\", \"title\": \"2\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://nvd.nist.gov/general/cve-process\", \"title\": \"CVEs and the NVD Process\", \"result_item_id\": \"r4\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://www.cve.org/about/relatedefforts\", \"title\": \"3\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://nvd.nist.gov/developers/vulnerabilities\", \"title\": \"Vulnerability APIs\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://nvd.nist.gov/general/FAQ-Sections/CVE-FAQs\", \"title\": \"4\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://nvd.nist.gov/general/news/cve-4-0-to-cve-5-0-transition\", \"title\": \"NVD CVE 4.0 to CVE 5.0 Transition\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://www.cve.org/CVERecord/UserGuide\", \"title\": \"6\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.cve.org/Resources/Media/Archives/OldWebsite/about/faqs.html\", \"title\": \"CVE - Frequently Asked Questions\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://www.cve.org/allresources/cveservices\", \"title\": \"7\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://www.cve.org/Media/News/item/blog/2026/10/13/CVE-Search-API\", \"title\": \"8\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://nvd.nist.gov/download.cfm\", \"title\": \"9\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://www.cve.org/Media/News/item/blog/2026/10/06/CVE-Program-Data-Registry\", \"title\": \"10\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://www.cve.org/\", \"title\": \"11\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://www.cve.org/Resources/Media/Archives/OldWebsite/cve/identifiers/index.html\", \"title\": \"CVE - About CVE Records\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c17\", \"url\": \"https://nvd.nist.gov/general/faq-sections/cve-faqs\", \"title\": \"NVD - CVE FAQs\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"306fc9acc0468b44\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"6eb09a5c24f4cb6f\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:nvd.nist.gov/vuln/vulnerability-status \\\"Vulnerability records within the NVD dataset are sourced\\\"\", \"answer\": \"The exact sentence appears on the NVD Vulnerability Status page. Related NVD pages describe the same CVE List sourcing without that wording.\\n\\n1. **NVD – Vulnerability Status** — https://nvd.nist.gov/vuln/vulnerability-status  \\n   “Vulnerability records within the NVD dataset are sourced from the CVE List, which is maintained by the CVE Program, upstream of the NVD.” Also maps CVE List statuses (PUBLISHED, REJECTED; RESERVED excluded) to NVD statuses (Received, Awaiting Enrichment, Undergoing Enrichment, etc.). Created Sep 20, 2022; updated Apr 14, 2026. [web:0]\\n\\n2. **NVD – General** — https://nvd.nist.gov/general  \\n   NVD enriches CVEs published to the CVE List (CVSS, CWE, CPE); it does not test vulnerabilities itself. [web:1]\\n\\n3. **NVD – General FAQs** — https://nvd.nist.gov/general/FAQ-…\", \"answer_chars\": 1333, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 1, \"pages_fetched\": 0, \"primary_citation_count\": 6}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 12837, \"warning_count\": 1, \"warnings\": [\"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}], \"result_count\": 5, \"citation_count\": 10, \"results\": [{\"id\": \"r1\", \"title\": \"https://nvd.nist.gov/general/FAQ-Sections/General-FAQs\", \"url\": \"https://nvd.nist.gov/general/FAQ-Sections/General-FAQs\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"NVD - Vulnerability Status\", \"url\": \"https://nvd.nist.gov/vuln/vulnerability-status\", \"snippet\": \"1.   vulnerabilities\\n\\n## Vulnerability Status\\n\\nVulnerability records within the NVD dataset are sourced from the CVE List, which is maintained by the CVE Progr…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://nvd.nist.gov/vuln/vulnerability-detail-pages\", \"url\": \"https://nvd.nist.gov/vuln/vulnerability-detail-pages\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"NVD CVE 4.0 to CVE 5.0 Transition\", \"url\": \"https://nvd.nist.gov/general/news/cve-4-0-to-cve-5-0-transition\", \"snippet\": \"## NVD CVE 4.0 to CVE 5.0 Transition\\n\\nThe CVE Program has created a new format for the CVE List with many enhancements over the former iteration. The NVD will …\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://nvd.nist.gov/products\", \"url\": \"https://nvd.nist.gov/products\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://nvd.nist.gov/general/FAQ-Sections/General-FAQs\", \"title\": \"https://nvd.nist.gov/general/FAQ-Sections/General-FAQs\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://nvd.nist.gov/vuln/vulnerability-status\", \"title\": \"NVD - Vulnerability Status\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://nvd.nist.gov/vuln/vulnerability-detail-pages\", \"title\": \"https://nvd.nist.gov/vuln/vulnerability-detail-pages\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://nvd.nist.gov/general/news/cve-4-0-to-cve-5-0-transition\", \"title\": \"NVD CVE 4.0 to CVE 5.0 Transition\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://nvd.nist.gov/products\", \"title\": \"https://nvd.nist.gov/products\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://nvd.nist.gov/general\", \"title\": \"https://nvd.nist.gov/general\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://nvd.nist.gov/general/visualizations/vulnerability-visualizations\", \"title\": \"https://nvd.nist.gov/general/visualizations/vulnerability-visualizations\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://nvd.nist.gov/developers/vulnerabilities\", \"title\": \"Vulnerability APIs\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://nvd.nist.gov/developers/data-sources\", \"title\": \"Source API\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c10\", \"url\": \"https://nvd.nist.gov/vuln/detail/CVE-2026-15472\", \"title\": \"CVE-2026-15472 Detail - NVD - NIST\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"6eb09a5c24f4cb6f\"}}"
+  ],
+  "answer": "The organization is **The MITRE Corporation**.\n\nEvidence:\n\n- NVD states that its vulnerability records come from the **CVE List**, maintained by the CVE Program:  \n  https://nvd.nist.gov/vuln/vulnerability-status\n- NVD identifies the CVE Program as being maintained by **the MITRE Corporation**:  \n  https://nvd.nist.gov/general/cve-process",
+  "observation": {
+    "id": "news-en-archive",
+    "answer": "The organization is **The MITRE Corporation**.\n\nEvidence:\n\n- NVD states that its vulnerability records come from the **CVE List**, maintained by the CVE Program:  \n  https://nvd.nist.gov/vuln/vulnerability-status\n- NVD identifies the CVE Program as being maintained by **the MITRE Corporation**:  \n  https://nvd.nist.gov/general/cve-process",
+    "results": [
+      {
+        "url": "https://nvd.nist.gov/general/FAQ-Sections/CVE-FAQs",
+        "title": "https://nvd.nist.gov/general/FAQ-Sections/CVE-FAQs",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/general/cve-process",
+        "title": "https://nvd.nist.gov/general/cve-process",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cloudsecuritypartners.com/blog/nobody-waits-for-your-project-to-be-ready-for-its-first-cve",
+        "title": "https://www.cloudsecuritypartners.com/blog/nobody-waits-for-your-project-to-be-ready-for-its-first-cve",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/MITRE-Cyber-Security-CVE-Database/mitre-cve-database/blob/main/fetch-cve-data.sh",
+        "title": "https://github.com/MITRE-Cyber-Security-CVE-Database/mitre-cve-database/blob/main/fetch-cve-data.sh",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/CVEProject/cve-schema/blob/develop/schema/CVE_Record_Format.json",
+        "title": "https://github.com/CVEProject/cve-schema/blob/develop/schema/CVE_Record_Format.json",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/general/FAQ-Sections/CVE-FAQs",
+        "title": "https://nvd.nist.gov/general/FAQ-Sections/CVE-FAQs",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/general/cve-process",
+        "title": "https://nvd.nist.gov/general/cve-process",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cloudsecuritypartners.com/blog/nobody-waits-for-your-project-to-be-ready-for-its-first-cve",
+        "title": "https://www.cloudsecuritypartners.com/blog/nobody-waits-for-your-project-to-be-ready-for-its-first-cve",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/MITRE-Cyber-Security-CVE-Database/mitre-cve-database/blob/main/fetch-cve-data.sh",
+        "title": "https://github.com/MITRE-Cyber-Security-CVE-Database/mitre-cve-database/blob/main/fetch-cve-data.sh",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/CVEProject/cve-schema/blob/develop/schema/CVE_Record_Format.json",
+        "title": "https://github.com/CVEProject/cve-schema/blob/develop/schema/CVE_Record_Format.json",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://inventivehq.com/blog/nvd-vs-mitre-cve-differences",
+        "title": "https://inventivehq.com/blog/nvd-vs-mitre-cve-differences",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/Media/News/item/blog/2026/10/06/CVE-Program-Data-Registry",
+        "title": "https://www.cve.org/Media/News/item/blog/2026/10/06/CVE-Program-Data-Registry",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/about/relatedefforts",
+        "title": "https://www.cve.org/about/relatedefforts",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/developers",
+        "title": "https://nvd.nist.gov/developers",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/ResourcesSupport/FAQs",
+        "title": "https://www.cve.org/ResourcesSupport/FAQs",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/About/Process",
+        "title": "https://www.cve.org/About/Process",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/Resources/Media/Archives/OldWebsite/about/dup_id.html",
+        "title": "https://www.cve.org/Resources/Media/Archives/OldWebsite/about/dup_id.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-67780",
+        "title": "NVD-CVE-2025-67780",
+        "snippet": "### Change History\n\n5 change records foundshow changes\n\n#### Quick Info\n\nCVE Dictionary Entry:  \nCVE-2025-67780  \nNVD Published Date:  \n Dec 11, 2025  \nNVD Las…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/about/relatedefforts",
+        "title": "https://www.cve.org/about/relatedefforts",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2005-0820",
+        "title": "NVD - CVE-2005-0820",
+        "snippet": "Title: NVD - CVE-2005-0820\nNational Institute of Standards and Technology. | CVE-2005-0820 Detail **Modified After Enrichment**   ---   This CVE record has bee…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/Media/News/item/blog/2026/10/13/CVE-Search-API",
+        "title": "https://www.cve.org/Media/News/item/blog/2026/10/13/CVE-Search-API",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-36581",
+        "title": "NVD-CVE-2024-36581",
+        "snippet": "Source: CISA-ADP(hide)\n\n| Vendor | Product | Versions |\n --- \n| prototype_solution | abw_badger_database | Affected 0 <=1.2.1 |\n\n### Change History\n\n#### Quick…",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/general/FAQ-Sections/CVE-FAQs",
+        "title": "https://nvd.nist.gov/general/FAQ-Sections/CVE-FAQs",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2005-1383",
+        "title": "NVD - CVE-2005-1383",
+        "snippet": "Title: NVD - CVE-2005-1383\nNational Institute of Standards and Technology. | URL | Source(s) | Tag(s) | | --- | --- | --- | |  | CVE, MITRE |  | |  | CVE, MITR…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/Resources/Media/Archives/OldWebsite/about/dup_id.html",
+        "title": "https://www.cve.org/Resources/Media/Archives/OldWebsite/about/dup_id.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2025-67780",
+        "title": "NVD-CVE-2025-67780",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/about/relatedefforts",
+        "title": "https://www.cve.org/about/relatedefforts",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2005-0820",
+        "title": "NVD - CVE-2005-0820",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/Media/News/item/blog/2026/10/13/CVE-Search-API",
+        "title": "https://www.cve.org/Media/News/item/blog/2026/10/13/CVE-Search-API",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-36581",
+        "title": "NVD-CVE-2024-36581",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/general/FAQ-Sections/CVE-FAQs",
+        "title": "https://nvd.nist.gov/general/FAQ-Sections/CVE-FAQs",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2005-1383",
+        "title": "NVD - CVE-2005-1383",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/programorganization/Structure",
+        "title": "https://www.cve.org/programorganization/Structure",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/about/overview",
+        "title": "https://www.cve.org/about/overview",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/developers/vulnerabilities",
+        "title": "https://nvd.nist.gov/developers/vulnerabilities",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/general/cve-process",
+        "title": "https://nvd.nist.gov/general/cve-process",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/PartnerInformation/ListofPartners/partner/mitre",
+        "title": "https://www.cve.org/PartnerInformation/ListofPartners/partner/mitre",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/vuln/vulnerability-detail-pages",
+        "title": "https://nvd.nist.gov/vuln/vulnerability-detail-pages",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/products/cpe/search?cpe=cpe%3A2.3%3Ao%3Asuse%3Asles_sap%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A&keyword=cpe%3A2.3%3Ao%3Asuse%3Asles_sap%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A%3A%2A&offset=0&rowCount=50&status=FINAL%2CDEPRECATED",
+        "title": "https://nvd.nist.gov/products/cpe/search?cpe=cpe:2.3:o:suse:sles_sap:*:*:*:*:*:*:*:*&status=FINAL,DEPRECATED&rowCount=5…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/ResourcesSupport/FAQs",
+        "title": "https://www.cve.org/ResourcesSupport/FAQs",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2004-0957",
+        "title": "NVD - CVE-2004-0957",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2008-2599",
+        "title": "NVD-CVE-2008-2599",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2001-0330",
+        "title": "NVD - CVE-2001-0330",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/about/overview",
+        "title": "1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/vuln/vulnerability-status",
+        "title": "NVD - Vulnerability Status",
+        "snippet": "1.   vulnerabilities\n\n## Vulnerability Status\n\nVulnerability records within the NVD dataset are sourced from the CVE List, which is maintained by the CVE Progr…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/About/Process",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/general/cve-process",
+        "title": "CVEs and the NVD Process",
+        "snippet": "Founded in 1999, the CVE program is maintained by the MITRE corporation and sponsored by the U.S. Department of Homeland Security (DHS) and the Cybersecurity a…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/about/relatedefforts",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/developers/vulnerabilities",
+        "title": "Vulnerability APIs",
+        "snippet": "`\n\n  \n\nRequest the CVE records, beginning at index 20 and ending at index 39\n\n`\nsourceIdentifier optional\n   `{sourceIdentifier}`\n\nThis parameter returns CVE w…",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/general/FAQ-Sections/CVE-FAQs",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/general/news/cve-4-0-to-cve-5-0-transition",
+        "title": "NVD CVE 4.0 to CVE 5.0 Transition",
+        "snippet": "## NVD CVE 4.0 to CVE 5.0 Transition\n\nThe CVE Program has created a new format for the CVE List with many enhancements over the former iteration. The NVD will …",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/CVERecord/UserGuide",
+        "title": "6",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/Resources/Media/Archives/OldWebsite/about/faqs.html",
+        "title": "CVE - Frequently Asked Questions",
+        "snippet": "#### What is CVE?\n\nThe mission of the CVE  ™  Program is to identify, define, and catalog publicly disclosed cybersecurity  vulnerabilities  . There is one  CV…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/about/overview",
+        "title": "1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/vuln/vulnerability-status",
+        "title": "NVD - Vulnerability Status",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/About/Process",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/general/cve-process",
+        "title": "CVEs and the NVD Process",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/about/relatedefforts",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/developers/vulnerabilities",
+        "title": "Vulnerability APIs",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/general/FAQ-Sections/CVE-FAQs",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/general/news/cve-4-0-to-cve-5-0-transition",
+        "title": "NVD CVE 4.0 to CVE 5.0 Transition",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/CVERecord/UserGuide",
+        "title": "6",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/Resources/Media/Archives/OldWebsite/about/faqs.html",
+        "title": "CVE - Frequently Asked Questions",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/allresources/cveservices",
+        "title": "7",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/Media/News/item/blog/2026/10/13/CVE-Search-API",
+        "title": "8",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/download.cfm",
+        "title": "9",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/Media/News/item/blog/2026/10/06/CVE-Program-Data-Registry",
+        "title": "10",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/",
+        "title": "11",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cve.org/Resources/Media/Archives/OldWebsite/cve/identifiers/index.html",
+        "title": "CVE - About CVE Records",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/general/faq-sections/cve-faqs",
+        "title": "NVD - CVE FAQs",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/general/FAQ-Sections/General-FAQs",
+        "title": "https://nvd.nist.gov/general/FAQ-Sections/General-FAQs",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/vuln/vulnerability-status",
+        "title": "NVD - Vulnerability Status",
+        "snippet": "1.   vulnerabilities\n\n## Vulnerability Status\n\nVulnerability records within the NVD dataset are sourced from the CVE List, which is maintained by the CVE Progr…",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/vuln/vulnerability-detail-pages",
+        "title": "https://nvd.nist.gov/vuln/vulnerability-detail-pages",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/general/news/cve-4-0-to-cve-5-0-transition",
+        "title": "NVD CVE 4.0 to CVE 5.0 Transition",
+        "snippet": "## NVD CVE 4.0 to CVE 5.0 Transition\n\nThe CVE Program has created a new format for the CVE List with many enhancements over the former iteration. The NVD will …",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/products",
+        "title": "https://nvd.nist.gov/products",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/general/FAQ-Sections/General-FAQs",
+        "title": "https://nvd.nist.gov/general/FAQ-Sections/General-FAQs",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/vuln/vulnerability-status",
+        "title": "NVD - Vulnerability Status",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/vuln/vulnerability-detail-pages",
+        "title": "https://nvd.nist.gov/vuln/vulnerability-detail-pages",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/general/news/cve-4-0-to-cve-5-0-transition",
+        "title": "NVD CVE 4.0 to CVE 5.0 Transition",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/products",
+        "title": "https://nvd.nist.gov/products",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/general",
+        "title": "https://nvd.nist.gov/general",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/general/visualizations/vulnerability-visualizations",
+        "title": "https://nvd.nist.gov/general/visualizations/vulnerability-visualizations",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/developers/vulnerabilities",
+        "title": "Vulnerability APIs",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/developers/data-sources",
+        "title": "Source API",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://nvd.nist.gov/vuln/detail/CVE-2026-15472",
+        "title": "CVE-2026-15472 Detail - NVD - NIST",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://nvd.nist.gov/general/FAQ-Sections/CVE-FAQs",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://nvd.nist.gov/general/cve-process",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://www.cve.org/about/relatedefforts",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:16:00.495979+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "news-en-archive",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "nvd-process"
+        ],
+        "required": 2
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "pass",
+      "reasons": []
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": false,
+    "grader": "v2"
+  }
+}

@@ -1,0 +1,423 @@
+{
+  "id": "history-rfc791",
+  "query": "RFC 791 text for the Internet Protocol Version field",
+  "returncode": 0,
+  "elapsed_ms": 137295,
+  "efficiency": {
+    "tool_calls": {
+      "search": 2,
+      "fetch": 3,
+      "read_result": 1
+    },
+    "total_calls": 6,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 0,
+    "errors": 0
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "rfc-editor.org"
+        ],
+        "max_results": 5,
+        "mode": "docs",
+        "query": "RFC 791 Internet Protocol Version field text version field 4 bits binary value 4 follows RFC 791 section 3.1 header format raw text HTML PDF quoted text",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 21305
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "RFC 791 section 3.1 Internet Header Format; reproduce the exact text and identify the Version field width and meaning",
+        "fresh": false,
+        "max_chars": 12000,
+        "url": "https://www.rfc-editor.org/rfc/rfc791.txt"
+      },
+      "is_error": false,
+      "ms": 10660
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Exact RFC 791 section 3.1 text for the Version field, including the field width and description",
+        "fresh": false,
+        "max_chars": 12000,
+        "url": "https://www.rfc-editor.org/info/rfc791"
+      },
+      "is_error": false,
+      "ms": 8070
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Exact text of RFC 791 section 3.1 from the canonical STD 5 plain text document",
+        "fresh": false,
+        "max_chars": 12000,
+        "url": "https://www.rfc-editor.org/std/std5.txt"
+      },
+      "is_error": false,
+      "ms": 7650
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": [
+          "content"
+        ],
+        "limit": 1,
+        "max_bytes": 20000,
+        "offset": 0,
+        "result_id": "71151d66f87342ea"
+      },
+      "is_error": false,
+      "ms": 3
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "rfc-editor.org"
+        ],
+        "max_results": 3,
+        "mode": "docs",
+        "query": "site:rfc-editor.org/rfc/rfc791.txt \"Version field indicates the format\" \"Version:  4 bits\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 23362
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.0\", \"result_id\": \"17caaec558b139c3\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"RFC 791 Internet Protocol Version field text version field 4 bits binary value 4 follows RFC 791 section 3.1 header format raw text HTML PDF quoted text\", \"answer\": \"RFC 791 §3.1 defines the IP Version field as **4 bits** and says the document describes **version 4**. It does not use the phrase “binary value 4”; the version number 4 is what that 4-bit field carries (binary `0100`).\\n\\n**Quoted text** (plain-text RFC, §3.1 Internet Header Format):\\n\\n> Version:  4 bits\\n>\\n> The Version field indicates the format of the internet header.  This document describes version 4.\\n\\nThe header diagram labels the first nibble `|Version|`.\\n\\n**Sources (up to 5):**\\n\\n1. **Plain text (canonical):** [rfc791.txt](https://www.rfc-editor.org/rfc/rfc791.txt) — J. Postel, “Internet Protocol,” STD 5, RFC 791, September 1981, §3.1 (Version field at the lines quoted above).\\n2. **Same wording in STD 5 text:** [std5.txt](https://www.rfc-editor.org/std/std5.txt) — concatenated STD 5; R…\", \"answer_chars\": 1325, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 1, \"pages_fetched\": 2, \"primary_citation_count\": 17}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 21258, \"warning_count\": 1, \"warnings\": [\"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 5, \"citation_count\": 21, \"results\": [{\"id\": \"r1\", \"title\": \"https://www.rfc-editor.org/std/std5.txt\", \"url\": \"https://www.rfc-editor.org/std/std5.txt\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"RFC 791: Internet Protocol | RFC Editor\", \"url\": \"https://www.rfc-editor.org/info/rfc791\", \"snippet\": \"```\\n  September 19811.4. Operation\\n```\\n\\n```\\n [Page 3]\\n```\\n\\n```\\n  September 1981\\n```\\n\\n```\\n2.1. Relation to Other Protocols2.2. Model of Operation [Page 5]\\n```\\n\\n…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://www.rfc-editor.org/search/rfc_search_detail.php?page=All&pubstatus%5B%5D=Standards+Track&std_trk=Any&title=IPv4\", \"url\": \"https://www.rfc-editor.org/search/rfc_search_detail.php?page=All&pubstatus%5B%5D=Standards+Track&std_trk=Any&title=IPv4\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"RFC 1812: Requirements for IP Version 4 Routers | RFC Editor\", \"url\": \"https://www.rfc-editor.org/info/rfc1812\", \"snippet\": \"5.2.4.1 IP Destination Address\\n       5.2.4.2 Local/Remote Decision\\n       5.2.4.3 Next Hop Address\\n       5.2.4.4 Administrative Preference\\n       5.2.4.5 Loa…\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://www.rfc-editor.org/info/rfc3514/\", \"url\": \"https://www.rfc-editor.org/info/rfc3514\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.rfc-editor.org/std/std5.txt\", \"title\": \"https://www.rfc-editor.org/std/std5.txt\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.rfc-editor.org/info/rfc791\", \"title\": \"RFC 791: Internet Protocol | RFC Editor\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://www.rfc-editor.org/search/rfc_search_detail.php?page=All&pubstatus%5B%5D=Standards+Track&std_trk=Any&title=IPv4\", \"title\": \"https://www.rfc-editor.org/search/rfc_search_detail.php?page=All&pubstatus%5B%5D=Standards+Track&std_trk=Any&title=IPv4\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://www.rfc-editor.org/info/rfc1812\", \"title\": \"RFC 1812: Requirements for IP Version 4 Routers | RFC Editor\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://www.rfc-editor.org/info/rfc3514\", \"title\": \"https://www.rfc-editor.org/info/rfc3514/\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://www.rfc-editor.org/info/rfc9911\", \"title\": \"https://www.rfc-editor.org/info/rfc9911/\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://www.rfc-editor.org/search/rfc_search_detail.php?page=All&sorting=DESC&sortkey=Number&title=IPv4\", \"title\": \"https://www.rfc-editor.org/search/rfc_search_detail.php?page=All&sorting=DESC&sortkey=Number&title=IPv4\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://www.rfc-editor.org/search/rfc_search_detail.php?page=All&pubstatus%5B%5D=Standards+Track&sorting=DESC&sortkey=Number&std_trk=Internet+Standard\", \"title\": \"https://www.rfc-editor.org/search/rfc_search_detail.php?sortkey=Number&sorting=DESC&page=All&pubstatus%5B%5D=Standards%…\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://www.rfc-editor.org/info/rfc0791\", \"title\": \"https://www.rfc-editor.org/info/rfc0791\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.rfc-editor.org/errata/eid3874\", \"title\": \"https://www.rfc-editor.org/errata/eid3874\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://www.rfc-editor.org/info/rfc7992\", \"title\": \"https://www.rfc-editor.org/info/rfc7992\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://www.rfc-editor.org/rfc/rfc791.txt\", \"title\": \"https://www.rfc-editor.org/rfc/rfc791.txt\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://www.rfc-editor.org/info/rfc8999\", \"title\": \"https://www.rfc-editor.org/info/rfc8999/\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://www.rfc-editor.org/search/rfc_search_detail.php?page=25&pubstatus%5B%5D=Standards+Track&sorting=ASC&sortkey=Date&std_trk=Any&title=IPv4\", \"title\": \"https://www.rfc-editor.org/search/rfc_search_detail.php?page=25&title=IPv4&pubstatus%5B%5D=Standards%20Track&std_trk=An…\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://www.rfc-editor.org/info/rfc10049\", \"title\": \"https://www.rfc-editor.org/info/rfc10049/\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://www.rfc-editor.org/info/rfc9110\", \"title\": \"https://www.rfc-editor.org/info/rfc9110/\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://www.rfc-editor.org/standards\", \"title\": \"https://www.rfc-editor.org/standards\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://www.rfc-editor.org/errata/eid6356\", \"title\": \"https://www.rfc-editor.org/errata/eid6356\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://www.rfc-editor.org/info/rfc3790\", \"title\": \"RFC 3790: Survey of IPv4 Addresses in Currently Deployed IETF Internet Area Standards Track and Experimental Documents …\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c20\", \"url\": \"https://www.rfc-editor.org/info/rfc793\", \"title\": \"RFC 793: Transmission Control Protocol | RFC Editor\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c21\", \"url\": \"https://www.rfc-editor.org/info/rfc1475\", \"title\": \"RFC 1475: TP/IX: The Next Internet | RFC Editor\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"17caaec558b139c3\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"743fbb2972c962a3\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://www.rfc-editor.org/rfc/rfc791.txt\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"743fbb2972c962a3\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"71151d66f87342ea\", \"kind\": \"fetch\", \"status\": \"ok\", \"url\": \"https://www.rfc-editor.org/info/rfc791\", \"final_url\": \"https://www.rfc-editor.org/info/rfc791\", \"title\": \"RFC 791: Internet Protocol | RFC Editor\", \"provider\": \"firecrawl\", \"content_preview\": \"RFC 791: Internet Protocol \\\\| RFC Editor\\n\\nInfo\\n\\n# RFC791:[STD5:](https://www.rfc-editor.org/info/std5/ \\\"STD 5 contains RFC 791\\\")Internet Protocol\\n\\n- [IPv4](https://www.rfc-editor.org/subjects/ipv4/)\\n\\n- J. Postel\\n\\nInternet Standard\\n\\n- Rate this RFC\\n\\n- Subscribe\\n\\n1 subscribed\\n\\n- Add to Set\\n\\nAdded to 1 Set\\n\\n\\n**This RFC was updated, see**\\n\\n- [RFC1349](https://www.rfc-editor.org/info/rfc1349/),\\n- [RFC2474](https://www.rfc-editor.org/info/rfc2474/),\\n- [RFC6864](https://www.rfc-editor.org/info/rfc6864/).\\n\\n```\\nRFC:  791\\n\\n                           INTERNET PROTOCOL\\n\\n                         DARPA INTERNET PROGRAM\\n\\n                         PROTOCOL SPECIFICATION\\n\\n                             September 1981\\n\\n                              prepared for\\n\\n               Defense Advanced Research Projects Agency\\n                Information Processing Techniques Office\\n                         1400 Wilson Boulevard\\n                       Arlington, Virginia  22209\\n\\n                                   b\", \"content_chars\": 12000, \"truncated\": true, \"errors\": [], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"71151d66f87342ea\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"53a1ff474f829a4d\", \"kind\": \"fetch\", \"status\": \"ok\", \"url\": \"https://www.rfc-editor.org/std/std5.txt\", \"final_url\": \"https://www.rfc-editor.org/std/std5.txt\", \"title\": \"\", \"provider\": \"firecrawl\", \"content_preview\": \"<html><head><meta http-equiv=\\\"Content-Type\\\" content=\\\"text/html; charset=UTF-8\\\"><meta name=\\\"color-scheme\\\" content=\\\"light dark\\\"></head><body><pre style=\\\"word-wrap: break-word; white-space: pre-wrap;\\\">404 - Not found</pre></body></html>\", \"content_chars\": 233, \"truncated\": false, \"errors\": [], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"53a1ff474f829a4d\", \"fields\": [\"content\"]}}",
+    "{\"result_id\": \"71151d66f87342ea\", \"kind\": \"fetch\", \"offset\": 0, \"returned\": 1, \"next_offset\": 1, \"data\": {\"content\": \"R\", \"content_chars\": 12000}, \"truncated\": true}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"a0dc7f1cf08cd7c7\", \"kind\": \"search\", \"status\": \"partial\", \"query\": \"site:rfc-editor.org/rfc/rfc791.txt \\\"Version field indicates the format\\\" \\\"Version:  4 bits\\\"\", \"answer\": \"**1. RFC 791 (Internet Protocol), section 3.1 — exact match**  \\nhttps://www.rfc-editor.org/rfc/rfc791.txt (lines ~856–859)\\n\\n> Version:  4 bits  \\n> The Version field indicates the format of the internet header. This document describes version 4.\\n\\n**2. Same document, glossary**  \\nhttps://www.rfc-editor.org/rfc/rfc791.txt (around line 2788)\\n\\n> Version — The Version field indicates the format of the internet header.\\n\\n**3. STD 5 text (includes the same IP header text)**  \\nhttps://www.rfc-editor.org/std/std5.txt  \\n\\nSame wording as in RFC 791: “Version:  4 bits” and “The Version field indicates the format of the internet header. This document describes version 4.”\\n\\nThe phrase appears in the IPv4 header specification (RFC 791 / STD 5), not as a match in other RFCs under that exact site query.\", \"answer_chars\": 795, \"evidence\": {\"unique_urls\": 3, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 10}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 23310, \"warning_count\": 1, \"warnings\": [\"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}, {\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}], \"result_count\": 3, \"citation_count\": 13, \"results\": [{\"id\": \"r1\", \"title\": \"https://www.rfc-editor.org/rfc/rfc791.txt\", \"url\": \"https://www.rfc-editor.org/rfc/rfc791.txt\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"[PDF] RFC 8999: Version-Independent Properties of QUIC\", \"url\": \"https://www.rfc-editor.org/rfc/rfc8999.pdf\", \"snippet\": \"RFC 8999 QUIC Invariants May 2021 Thomson Standards Track Page 5 5.4. Version The Version ﬁeld contains a 4-byte identiﬁer. This value can be used by endpoints…\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://www.rfc-editor.org/series/rfc/\", \"url\": \"https://www.rfc-editor.org/series/rfc\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.rfc-editor.org/rfc/rfc791.txt\", \"title\": \"https://www.rfc-editor.org/rfc/rfc791.txt\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.rfc-editor.org/rfc/rfc8999.pdf\", \"title\": \"[PDF] RFC 8999: Version-Independent Properties of QUIC\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://www.rfc-editor.org/series/rfc\", \"title\": \"https://www.rfc-editor.org/series/rfc/\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://www.rfc-editor.org/info/rfc8999\", \"title\": \"https://www.rfc-editor.org/info/rfc8999/\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c5\", \"url\": \"https://www.rfc-editor.org/std/std5.txt\", \"title\": \"https://www.rfc-editor.org/std/std5.txt\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://www.rfc-editor.org/errata/eid6356\", \"title\": \"https://www.rfc-editor.org/errata/eid6356\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://www.rfc-editor.org/rfc/rfc9562.txt\", \"title\": \"https://www.rfc-editor.org/rfc/rfc9562.txt\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://www.rfc-editor.org/info/rfc791\", \"title\": \"https://www.rfc-editor.org/info/rfc791\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://www.rfc-editor.org/info/rfc9660\", \"title\": \"https://www.rfc-editor.org/info/rfc9660/\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.rfc-editor.org/errata/eid3546\", \"title\": \"https://www.rfc-editor.org/errata/eid3546\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://www.rfc-editor.org/standards\", \"title\": \"https://www.rfc-editor.org/standards\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://www.rfc-editor.org/info/rfc9562\", \"title\": \"RFC 9562: Universally Unique IDentifiers (UUIDs) | RFC Editor\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c13\", \"url\": \"http://www.rfc-editor.org/errata/rfc4122\", \"title\": \"RFC Errata\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"a0dc7f1cf08cd7c7\"}}"
+  ],
+  "answer": "RFC 791 第 3.1 节对 Internet Protocol Version 字段的原文是：\n\n> Version:  4 bits  \n>  \n> The Version field indicates the format of the internet header. This document describes version 4.\n\n含义：Version 字段占 IPv4 首部的 4 位，用于标识首部格式；RFC 791 描述的是版本 4，因此该字段值为十进制 `4`，即二进制 `0100`。\n\n原始链接：\n\n- [RFC 791 plain text](https://www.rfc-editor.org/rfc/rfc791.txt)\n- [RFC 791 RFC Editor 页面](https://www.rfc-editor.org/info/rfc791)",
+  "observation": {
+    "id": "history-rfc791",
+    "answer": "RFC 791 第 3.1 节对 Internet Protocol Version 字段的原文是：\n\n> Version:  4 bits  \n>  \n> The Version field indicates the format of the internet header. This document describes version 4.\n\n含义：Version 字段占 IPv4 首部的 4 位，用于标识首部格式；RFC 791 描述的是版本 4，因此该字段值为十进制 `4`，即二进制 `0100`。\n\n原始链接：\n\n- [RFC 791 plain text](https://www.rfc-editor.org/rfc/rfc791.txt)\n- [RFC 791 RFC Editor 页面](https://www.rfc-editor.org/info/rfc791)",
+    "results": [
+      {
+        "url": "https://www.rfc-editor.org/std/std5.txt",
+        "title": "https://www.rfc-editor.org/std/std5.txt",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc791",
+        "title": "RFC 791: Internet Protocol | RFC Editor",
+        "snippet": "```\n  September 19811.4. Operation\n```\n\n```\n [Page 3]\n```\n\n```\n  September 1981\n```\n\n```\n2.1. Relation to Other Protocols2.2. Model of Operation [Page 5]\n```\n\n…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/search/rfc_search_detail.php?page=All&pubstatus%5B%5D=Standards+Track&std_trk=Any&title=IPv4",
+        "title": "https://www.rfc-editor.org/search/rfc_search_detail.php?page=All&pubstatus%5B%5D=Standards+Track&std_trk=Any&title=IPv4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc1812",
+        "title": "RFC 1812: Requirements for IP Version 4 Routers | RFC Editor",
+        "snippet": "5.2.4.1 IP Destination Address\n       5.2.4.2 Local/Remote Decision\n       5.2.4.3 Next Hop Address\n       5.2.4.4 Administrative Preference\n       5.2.4.5 Loa…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc3514",
+        "title": "https://www.rfc-editor.org/info/rfc3514/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/std/std5.txt",
+        "title": "https://www.rfc-editor.org/std/std5.txt",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc791",
+        "title": "RFC 791: Internet Protocol | RFC Editor",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/search/rfc_search_detail.php?page=All&pubstatus%5B%5D=Standards+Track&std_trk=Any&title=IPv4",
+        "title": "https://www.rfc-editor.org/search/rfc_search_detail.php?page=All&pubstatus%5B%5D=Standards+Track&std_trk=Any&title=IPv4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc1812",
+        "title": "RFC 1812: Requirements for IP Version 4 Routers | RFC Editor",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc3514",
+        "title": "https://www.rfc-editor.org/info/rfc3514/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc9911",
+        "title": "https://www.rfc-editor.org/info/rfc9911/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/search/rfc_search_detail.php?page=All&sorting=DESC&sortkey=Number&title=IPv4",
+        "title": "https://www.rfc-editor.org/search/rfc_search_detail.php?page=All&sorting=DESC&sortkey=Number&title=IPv4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/search/rfc_search_detail.php?page=All&pubstatus%5B%5D=Standards+Track&sorting=DESC&sortkey=Number&std_trk=Internet+Standard",
+        "title": "https://www.rfc-editor.org/search/rfc_search_detail.php?sortkey=Number&sorting=DESC&page=All&pubstatus%5B%5D=Standards%…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc0791",
+        "title": "https://www.rfc-editor.org/info/rfc0791",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/errata/eid3874",
+        "title": "https://www.rfc-editor.org/errata/eid3874",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc7992",
+        "title": "https://www.rfc-editor.org/info/rfc7992",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/rfc/rfc791.txt",
+        "title": "https://www.rfc-editor.org/rfc/rfc791.txt",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc8999",
+        "title": "https://www.rfc-editor.org/info/rfc8999/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/search/rfc_search_detail.php?page=25&pubstatus%5B%5D=Standards+Track&sorting=ASC&sortkey=Date&std_trk=Any&title=IPv4",
+        "title": "https://www.rfc-editor.org/search/rfc_search_detail.php?page=25&title=IPv4&pubstatus%5B%5D=Standards%20Track&std_trk=An…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc10049",
+        "title": "https://www.rfc-editor.org/info/rfc10049/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc9110",
+        "title": "https://www.rfc-editor.org/info/rfc9110/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/standards",
+        "title": "https://www.rfc-editor.org/standards",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/errata/eid6356",
+        "title": "https://www.rfc-editor.org/errata/eid6356",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc3790",
+        "title": "RFC 3790: Survey of IPv4 Addresses in Currently Deployed IETF Internet Area Standards Track and Experimental Documents …",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc793",
+        "title": "RFC 793: Transmission Control Protocol | RFC Editor",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc1475",
+        "title": "RFC 1475: TP/IX: The Next Internet | RFC Editor",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/rfc/rfc791.txt",
+        "title": "https://www.rfc-editor.org/rfc/rfc791.txt",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/rfc/rfc8999.pdf",
+        "title": "[PDF] RFC 8999: Version-Independent Properties of QUIC",
+        "snippet": "RFC 8999 QUIC Invariants May 2021 Thomson Standards Track Page 5 5.4. Version The Version ﬁeld contains a 4-byte identiﬁer. This value can be used by endpoints…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/series/rfc",
+        "title": "https://www.rfc-editor.org/series/rfc/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/rfc/rfc791.txt",
+        "title": "https://www.rfc-editor.org/rfc/rfc791.txt",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/rfc/rfc8999.pdf",
+        "title": "[PDF] RFC 8999: Version-Independent Properties of QUIC",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/series/rfc",
+        "title": "https://www.rfc-editor.org/series/rfc/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc8999",
+        "title": "https://www.rfc-editor.org/info/rfc8999/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/std/std5.txt",
+        "title": "https://www.rfc-editor.org/std/std5.txt",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/errata/eid6356",
+        "title": "https://www.rfc-editor.org/errata/eid6356",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/rfc/rfc9562.txt",
+        "title": "https://www.rfc-editor.org/rfc/rfc9562.txt",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc791",
+        "title": "https://www.rfc-editor.org/info/rfc791",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc9660",
+        "title": "https://www.rfc-editor.org/info/rfc9660/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/errata/eid3546",
+        "title": "https://www.rfc-editor.org/errata/eid3546",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/standards",
+        "title": "https://www.rfc-editor.org/standards",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc9562",
+        "title": "RFC 9562: Universally Unique IDentifiers (UUIDs) | RFC Editor",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://www.rfc-editor.org/errata/rfc4122",
+        "title": "RFC Errata",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://www.rfc-editor.org/rfc/rfc791.txt",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://www.rfc-editor.org/info/rfc791",
+        "content": "RFC 791: Internet Protocol \\| RFC Editor\n\nInfo\n\n# RFC791:[STD5:](https://www.rfc-editor.org/info/std5/ \"STD 5 contains RFC 791\")Internet Protocol\n\n- [IPv4](https://www.rfc-editor.org/subjects/ipv4/)\n\n- J. Postel\n\nInternet Standard\n\n- Rate this RFC\n\n- Subscribe\n\n1 subscribed\n\n- Add to Set\n\nAdded to 1 Set\n\n\n**This RFC was updated, see**\n\n- [RFC1349](https://www.rfc-editor.org/info/rfc1349/),\n- [RFC2474](https://www.rfc-editor.org/info/rfc2474/),\n- [RFC6864](https://www.rfc-editor.org/info/rfc6864/).\n\n```\nRFC:  791\n\n                           INTERNET PROTOCOL\n\n                         DARPA INTERNET PROGRAM\n\n                         PROTOCOL SPECIFICATION\n\n                             September 1981\n\n                              prepared for\n\n               Defense Advanced Research Projects Agency\n                Information Processing Techniques Office\n                         1400 Wilson Boulevard\n                       Arlington, Virginia  22209\n\n                                   bR",
+        "errors": []
+      },
+      {
+        "url": "https://www.rfc-editor.org/std/std5.txt",
+        "content": "<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\"><meta name=\"color-scheme\" content=\"light dark\"></head><body><pre style=\"word-wrap: break-word; white-space: pre-wrap;\">404 - Not found</pre></body></html>",
+        "errors": []
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:19:32.389198+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "history-rfc791",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "rfc791"
+        ],
+        "required": 1
+      },
+      "reading": {
+        "status": "fail"
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "reading:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true,
+    "grader": "v2"
+  }
+}

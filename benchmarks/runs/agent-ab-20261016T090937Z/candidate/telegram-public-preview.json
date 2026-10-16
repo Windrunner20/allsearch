@@ -1,0 +1,822 @@
+{
+  "id": "telegram-public-preview",
+  "query": "Public Telegram web preview of the official Telegram channel",
+  "returncode": 0,
+  "elapsed_ms": 101759,
+  "efficiency": {
+    "tool_calls": {
+      "search": 2,
+      "fetch": 3,
+      "read_result": 2
+    },
+    "total_calls": 7,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 3,
+    "errors": 3
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "t.me",
+          "telegram.org"
+        ],
+        "max_results": 20,
+        "mode": "web",
+        "query": "\"official Telegram channel\" \"web preview\" public Telegram channel preview official channel link URL channel name username",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 23518
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "official Telegram channel identity, channel title, username, verification, public web preview",
+        "fresh": false,
+        "max_chars": 20000,
+        "url": "https://t.me/telegram"
+      },
+      "is_error": true,
+      "ms": 10
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "public web preview format and what t.me links show",
+        "fresh": false,
+        "max_chars": 16000,
+        "url": "https://t.me/s/TelegramTips/281"
+      },
+      "is_error": true,
+      "ms": 12
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Telegram official channels and verification",
+        "fresh": false,
+        "max_chars": 16000,
+        "url": "https://telegram.org/verify"
+      },
+      "is_error": true,
+      "ms": 12
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": [
+          "answer",
+          "citations",
+          "coverage",
+          "warnings"
+        ],
+        "limit": 200000,
+        "max_bytes": 16384,
+        "offset": 0,
+        "result_id": "61bc17560763329de3d19b03"
+      },
+      "is_error": false,
+      "ms": 4
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": true,
+        "include_domains": [
+          "t.me",
+          "telegram.org"
+        ],
+        "max_results": 20,
+        "mode": "web",
+        "query": "site:t.me official Telegram channel @telegram Telegram official channel",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 16395
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": [
+          "answer",
+          "citations"
+        ],
+        "limit": 200000,
+        "max_bytes": 16384,
+        "offset": 0,
+        "result_id": "13ee9e32715ae4a8e90fb96e"
+      },
+      "is_error": false,
+      "ms": 3
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.1\", \"result_id\": \"61bc17560763329de3d19b03\", \"kind\": \"search\", \"status\": \"partial\", \"query\": \"\\\"official Telegram channel\\\" \\\"web preview\\\" public Telegram channel preview official channel link URL channel name username\", \"answer\": \"Relevant results on Telegram public-channel web previews, official `t.me` links, and usernames:\\n\\n1. **Browser previews (official tip)** — Anyone can open `t.me` links to see profiles, posts, or entir…\", \"answer_chars\": 4584, \"evidence\": {\"unique_urls\": 20, \"unique_domains\": 4, \"cross_provider_matches\": 1, \"pages_fetched\": 0, \"primary_citation_count\": 28, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 23502, \"warning_count\": 0, \"warnings\": [], \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 19, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}, {\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 18, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}, {\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 17, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}], \"result_count\": 20, \"citation_count\": 35, \"results\": [], \"citations\": [{\"id\": \"c1\", \"url\": \"https://t.me/s/TelegramTips/281\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://core.telegram.org/constructor/webPage\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://t.me/share/url?text=Introducing+Reproducible+Apps%2C+Theme+Editor+2.0%2C+Send+When+Online+and+So+Much+More&url=https%3A%2F%2Ftelegram.org%2Fblog%2Fverifiable-apps-and-more\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://t.me/rybar_in_english\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://t.me/share/url?text=%D0%92+%D0%BD%D0%BE%D0%B2%D0%BE%D0%B9+%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D0%B8+Telegram+%D0%BF%D0%BE%D1%8F%D0%B2%D0%B8%D0%BB%D0%B8%D1%81%D1%8C+%D1%83%D1%81%D0%BA%D0%BE%D1%80%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F+%D0%BF%D1%80%D0%BE%D0%BA%D1%80%D1%83%D1%82%D0%BA%D0%B0+%D0%B8+%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80%D1%8C+%D0%B4%D0%BB%D1%8F+%D0%B1%D1%8B%D1%81%D1%82%D1%80%D0%BE\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://t.me/username\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://t.me/share/url?text=Inline+bots%3A+A+new+way+to+interact+with+bots+and+send+bot-generated+content+to+any+chat%2C+group+or+channel&url=https%3A%2F%2Ftelegram.org%2Fblog%2Finline-bots\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://t.me/s/webachannel?before=61\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://t.me/s/TelegramTips/266\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://t.me/s/webachannel?before=33\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://telegram.org/tour/channels\", \"title\": \"\", \"result_item_id\": \"r11\", \"providers\": [\"tavily\"]}, {\"id\": \"c12\", \"url\": \"https://t.me/s/AnleitungenTelegram?before=2422&q=%23LinkVorschau\", \"title\": \"\", \"result_item_id\": \"r12\", \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://t.me/s/TelegramTips/410\", \"title\": \"\", \"result_item_id\": \"r13\", \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://telegram.org/verify\", \"title\": \"\", \"result_item_id\": \"r14\", \"providers\": [\"tavily\"]}, {\"id\": \"c15\", \"url\": \"https://t.me/share/url?text=Replace+Media%2C+share+contacts+as+vCards%2C+mark+as+unread%2C+2X+voice+and+video+messages%2C+and+more+in+Telegram+4.8.3%2F10&url=https%3A%2F%2Ftelegram.org%2Fblog%2Funread-replace-2x\", \"title\": \"\", \"result_item_id\": \"r15\", \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://t.me/s/telegramtips?after=299\", \"title\": \"\", \"result_item_id\": \"r16\", \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://t.me/share/url?text=With+today%27s+update%2C+groups+and+channels+can+use+Telegram+Stars+as+prizes+in+Giveaways.+Also%2C+any+article+you+open+in+the+Telegram+Browser+can+now+be+converted+to+Instant+View%2C+making+it+easy+to+read&url=https%3A%2F%2Ftelegram.org%2Fblog%2Fstar-giveaways-iv-in-browser\", \"title\": \"\", \"result_item_id\": \"r17\", \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://t.me/s/username\", \"title\": \"\", \"result_item_id\": \"r18\", \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://core.telegram.org/api/links\", \"title\": \"\", \"result_item_id\": \"r19\", \"providers\": [\"tavily\"]}, {\"id\": \"c20\", \"url\": \"https://web.telegram.org\", \"title\": \"\", \"result_item_id\": \"r20\", \"providers\": [\"tavily\"]}, {\"id\": \"c21\", \"url\": \"https://t.me/s/tginfoen/2150\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"https://t.me/s/TelegramTips?before=348\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c23\", \"url\": \"https://t.me/presstv\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c24\", \"url\": \"https://t.me/s/telegramtips?before=345\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c25\", \"url\": \"https://t.me/share/url?text=%D0%A3+%D1%81%D1%91%D0%BD%D0%BD%D1%8F%D1%88%D0%BD%D1%96%D0%BC+%D0%B0%D0%B1%D0%BD%D0%B0%D1%9E%D0%BB%D0%B5%D0%BD%D0%BD%D1%96+%D0%BC%D1%8B+%D0%B4%D0%B0%D0%B4%D0%B0%D0%B5%D0%BC+%D0%BD%D0%BE%D0%B2%D1%8B%D1%8F+%D1%81%D0%BF%D0%BE%D1%81%D0%B0%D0%B1%D1%8B+%D0%B4%D0%BB%D1%8F+%D0%BA%D0%B0%D1%80%D1%8B%D1%81%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D1%96%D0%BA%D0%B0%D1%9E+%D0%BF%D0%B0%D1%87%D1\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c26\", \"url\": \"https://t.me/s/AnleitungenTelegramBeispiele?before=3533&q=%23telegraph\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c27\", \"url\": \"https://t.me/s/tgbeta?before=4586\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c28\", \"url\": \"https://t.me/s/teleLakel?before=1175&q=%23new_tgbeta\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c29\", \"url\": \"https://t.me/s/TelegramTips?before=369\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c30\", \"url\": \"https://t.me/share/url?text=%D0%9F%D1%80%D0%B8%D0%BA%D1%80%D1%96%D0%BF%D0%BB%D0%B5%D0%BD%D1%96+%D0%BF%D0%BE%D0%B2%D1%96%D0%B4%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%BD%D1%8F+2.0%2C+%D0%BD%D0%BE%D0%B2%D1%96+%D0%BC%D0%BE%D0%B6%D0%BB%D0%B8%D0%B2%D0%BE%D1%81%D1%82%D1%96+%D0%BF%D1%80%D0%B8+%D1%82%D1%80%D0%B0%D0%BD%D1%81%D0%BB%D1%8F%D1%86%D1%96%D1%97+%D1%80%D0%BE%D0%B7%D1%82%D0%B0%D1%88%D1%83%D0%B2%D0%B0%D0%B\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c31\", \"url\": \"https://t.me/s/tginfoen?before=2019\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c32\", \"url\": \"https://t.me/s/tginfoen?before=1501\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c33\", \"url\": \"https://t.me/s/tginfoen?before=2202\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"61bc17560763329de3d19b03\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"Telegram\", \"satisfied\": true, \"detail\": \"30 content page(s), e.g. https://t.me/s/TelegramTips/281\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 35, \"new_pages_read\": 0, \"seen_urls\": 35, \"pages_read\": 0, \"calls_without_new_evidence\": 0}, \"results_truncated\": true, \"citations_truncated\": true, \"urls_truncated\": true}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"fe789536649341a124236a7a\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://t.me/telegram\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"circuit_open\", \"message\": \"circuit open for provider firecrawl\", \"retryable\": true}], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"fe789536649341a124236a7a\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 1, \"read_result\": 0}, \"new_urls\": 1, \"new_pages_read\": 0, \"seen_urls\": 36, \"pages_read\": 0, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"a6a1ad0ec0f55e1a7b711387\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://t.me/s/TelegramTips/281\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"circuit_open\", \"message\": \"circuit open for provider firecrawl\", \"retryable\": true}], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"a6a1ad0ec0f55e1a7b711387\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 2, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 36, \"pages_read\": 0, \"calls_without_new_evidence\": 1}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"ef9923ed4207268e60ec8e94\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://telegram.org/verify\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"circuit_open\", \"message\": \"circuit open for provider firecrawl\", \"retryable\": true}], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"ef9923ed4207268e60ec8e94\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 3, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 36, \"pages_read\": 0, \"calls_without_new_evidence\": 2}}",
+    "{\"result_id\": \"61bc17560763329de3d19b03\", \"kind\": \"search\", \"fields\": [\"answer\", \"citations\", \"coverage\", \"warnings\"], \"offset\": 0, \"next_offset\": 10, \"next_offsets\": {\"answer\": null, \"citations\": 10, \"warnings\": null}, \"truncated\": true, \"data\": {\"answer\": \"Relevant results on Telegram public-channel web previews, official `t.me` links, and usernames:\\n\\n1. **Browser previews (official tip)** — Anyone can open `t.me` links to see profiles, posts, or entire public channels in a browser without a Telegram account. Previews include download and Telegram Web buttons. Source: [@TelegramTips](https://t.me/s/TelegramTips?before=348) (post around 2022-03-24).\\n\\n2. **Public groups and channels** — Public chats have unique `t.me` links, appear in global search, and can reach an unlimited audience. Source: [@telegramtips](https://t.me/s/telegramtips?after=299).\\n\\n3. **New t.me preview pages** — Links such as `t.me/durov` let anyone preview profiles, posts, or public channels in the browser; the design matches Telegram Web (backgrounds and UI). Source: [@tgbeta](https://t.me/s/tgbeta?before=4586) (2022-03-12).\\n\\n4. **Username link formats (official channel)** — Public profiles, groups, and channels use `t.me/username`, `username.t.me`, `https://telegram.me/username`, and `https://telegram.dog/username`. FAQ: [telegram.org/faq#usernames-and-telegram-me](https://telegram.org/faq#usernames-and-telegram-me). Source: [@username](https://t.me/s/username).\\n\\n5. **Shorter `t.me` links** — Official short form added alongside `telegram.me` and `telegram.dog` (example: `t.me/tginfo`). Source: [@TgInfo](https://t.me/s/TgInfo?q=%23webogram&before=2405).\\n\\n6. **`username.t.me` support** — Telegram WebZ added support for `username.t.me` links. Source: [@tginfoen](https://t.me/s/tginfoen?before=1501) (2022-09).\\n\\n7. **Preview channel landing page** — Opening `https://t.me/<username>` shows channel name, subscriber count, description, “View in Telegram,” and “Preview channel.” Example: [t.me/presstv](https://t.me/presstv).\\n\\n8. **Web preview of a full public channel** — `https://t.me/s/<username>` shows a browser feed of public posts (name, username, subscriber count). Examples: [t.me/s/telegramtips](https://t.me/s/telegramtips), [t.me/s/tginfoen](https://t.me/s/tginfoen).\\n\\n9. **Single-post preview** — `https://t.me/s/<username>/<message_id>` or `https://t.me/<username>/<id>` opens a specific post. Example: [t.me/s/tginfoen/2150](https://t.me/s/tginfoen/2150).\\n\\n10. **t.me link preview outages** — In-app preview cards for `t.me` links (chats, channels, messages, profiles) have failed and later recovered; links still open without a card. Source: [@tginfoen](https://t.me/s/tginfoen/2150).\\n\\n11. **Adjustable link previews** — When sending a link, users can change media size, place the preview above or below the message, and choose which URL to preview. Source: [@TelegramTips/410](https://t.me/s/TelegramTips/410).\\n\\n12. **Join-request “preview” (different feature)** — Admins can require approval on extra invite links so they can review potential members before access. Source: [@telegramtips](https://t.me/s/telegramtips?after=299).\\n\\n13. **In-app chat preview (different feature)** — Long-press a chat avatar to peek at messages without marking them read. Source: [@TelegramTips](https://t.me/s/TelegramTips?before=369).\\n\\n14. **Official web clients** — Telegram Web A: [@webachannel](https://t.me/s/webachannel) (`web.telegram.org/a`). WebK: [@WebK_en](https://t.me/s/WebK_en) (`web.telegram.org/k`).\\n\\n15. **Official username channel** — [@username](https://t.me/s/username) is run by the Telegram team for username and collectible-name updates; collectible names also resolve via `t.me/username` and `username.t.me`.\\n\\n16. **Link-preview how-tos (community, German)** — Invite and post previews for `https://t.me/...` links. Sources: [@AnleitungenTelegram](https://t.me/s/AnleitungenTelegram?q=%23LinkVorschau&before=2422), [@AnleitungenTelegramBeispiele](https://t.me/s/AnleitungenTelegramBeispiele?q=%23telegraph&before=3533).\\n\\n17. **Share-page URLs** — `https://t.me/share/url?url=...&text=...` is Telegram’s share dialog, not a channel preview. Example pattern: [t.me/share/url](https://t.me/share/url?url=https%3A%2F%2Ftelegram.org%2Fblog%2Finline-bots).\\n\\n18. **Domain fallbacks** — When `t.me` is blocked or down, official alternatives cited by community channels are `telegram.me` and `telegram.dog`. Source: [@tginfoen](https://t.me/s/tginfoen?before=2202).\\n\\n**URL patterns (from the sources above)**\\n\\n| Purpose | Pattern |\\n|---|---|\\n| Join / app open | `https://t.me/<username>` |\\n| Browser channel feed | `https://t.me/s/<username>` |\\n| Specific post | `https://t.me/s/<username>/<id>` |\\n| Alternate host | `https://<username>.t.me` |\\n| Legacy hosts | `https://telegram.me/<username>`, `https://telegram.dog/<username>` |\", \"answer_chars\": 4584, \"citations\": [{\"id\": \"c1\", \"title\": \"https://t.me/s/TelegramTips/281\", \"url\": \"https://t.me/s/TelegramTips/281\", \"result_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"title\": \"webPage\", \"url\": \"https://core.telegram.org/constructor/webPage\", \"result_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"title\": \"https://t.me/share/url?url=https%3A%2F%2Ftelegram.org%2Fblog%2Fverifiable-apps-and-more&text=Introducing%20Reproducible%20Apps%2C%20Theme%20Editor%202.0%2C%20Send%20When%20Online%20and%20So%20Much%20More\", \"url\": \"https://t.me/share/url?text=Introducing+Reproducible+Apps%2C+Theme+Editor+2.0%2C+Send+When+Online+and+So+Much+More&url=https%3A%2F%2Ftelegram.org%2Fblog%2Fverifiable-apps-and-more\", \"result_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"title\": \"View @rybar_in_english\", \"url\": \"https://t.me/rybar_in_english\", \"result_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"title\": \"https://t.me/share/url?url=https%3A%2F%2Ftelegram.org%2Fblog%2Fshared-media-scrolling-calendar-join-requests-and-more%2Fru&text=%D0%92%20%D0%BD%D0%BE%D0%B2%D0%BE%D0%B9%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D0%B8%20Telegram%20%D0%BF%D0%BE%D1%8F%D0%B2%D0%B8%D0%BB%D0%B8%D1%81%D1%8C%20%D1%83%D1%81%D0%BA%D0%BE%D1%80%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D0%BF%D1%80%D0%BE%D0%BA%D1%80%D1%83%D1%82%D0%BA%D0%B0%20%D0%B8%20%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80%D1%8C%20%D0%B4%D0%BB%D1%8F%20%D0%B1%D1%8B%D1%81%D1%82%D1%80%D0%BE%D0%B9%20%D0%BD%D0%B0%D0%B2%D0%B8%D0%B3%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BF%D0%BE%…\", \"url\": \"https://t.me/share/url?text=%D0%92+%D0%BD%D0%BE%D0%B2%D0%BE%D0%B9+%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D0%B8+Telegram+%D0%BF%D0%BE%D1%8F%D0%B2%D0%B8%D0%BB%D0%B8%D1%81%D1%8C+%D1%83%D1%81%D0%BA%D0%BE%D1%80%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F+%D0%BF%D1%80%D0%BE%D0%BA%D1%80%D1%83%D1%82%D0%BA%D0%B0+%D0%B8+%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80%D1%8C+%D0%B4%D0%BB%D1%8F+%D0%B1%D1%8B%D1%81%D1%82%D1%80%D0%BE%D0%B9+%D0%BD%D0%B0%D0%B2%D0%B8%D0%B3%D0%B0%D1%86%D0%B8%D0%B8+%D0%BF%D0%BE+%D0%BC%D0%B5%D0%B4%D0%B8%D0%B0+%D0%B8%D0%B7+%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D0%B8+%D0%BF%D0%B5%D1%80%D0%B5%D0%BF%D0%B8%…\", \"result_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"title\": \"Telegram: View @username\", \"url\": \"https://t.me/username\", \"result_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"title\": \"https://t.me/share/url?url=https%3A%2F%2Ftelegram.org%2Fblog%2Finline-bots&text=Inline%20bots%3A%20A%20new%20way%20to%20interact%20with%20bots%20and%20send%20bot-generated%20content%20to%20any%20chat%2C%20group%20or%20channel\", \"url\": \"https://t.me/share/url?text=Inline+bots%3A+A+new+way+to+interact+with+bots+and+send+bot-generated+content+to+any+chat%2C+group+or+channel&url=https%3A%2F%2Ftelegram.org%2Fblog%2Finline-bots\", \"result_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"title\": \"Telegram Web A – Telegram\", \"url\": \"https://t.me/s/webachannel?before=61\", \"result_id\": \"r8\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c9\", \"title\": \"https://t.me/s/TelegramTips/266\", \"url\": \"https://t.me/s/TelegramTips/266\", \"result_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"title\": \"https://t.me/s/webachannel?before=33\", \"url\": \"https://t.me/s/webachannel?before=33\", \"result_id\": \"r10\", \"providers\": [\"xai\"]}], \"citations_total\": 35, \"warnings\": [], \"warnings_total\": 0, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"Telegram\", \"satisfied\": true, \"detail\": \"30 content page(s), e.g. https://t.me/s/TelegramTips/281\"}]}}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 3, \"read_result\": 1}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 36, \"pages_read\": 0, \"calls_without_new_evidence\": 3}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"13ee9e32715ae4a8e90fb96e\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:t.me official Telegram channel @telegram Telegram official channel\", \"answer\": \"The official Telegram channel is **Telegram News** at **@telegram** (also shown as **@Telegram** / **@TeleGram**). Verified channel bio: “The official Telegram on Telegram.” About **9.3M subscribers**.\\n\\n### Primary links\\n1. **https://t.me/telegram** — direct channel link (username `@telegram`).  \\n2. **https://t.me/s/telegram** — public web preview of the same channel.  \\n\\n### Relevant indexed prev…\", \"answer_chars\": 2104, \"evidence\": {\"unique_urls\": 20, \"unique_domains\": 4, \"cross_provider_matches\": 2, \"pages_fetched\": 0, \"primary_citation_count\": 27, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 16388, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}], \"result_count\": 20, \"citation_count\": 34, \"results\": [{\"id\": \"r1\", \"title\": \"\", \"url\": \"https://t.me/s/TeleGram?before=308\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"\", \"url\": \"https://t.me/telegram\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"\", \"url\": \"https://t.me/s/V_Zelenskiy_official?before=21348\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"\", \"url\": \"https://telegram.org/tour/channels\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"\", \"url\": \"https://t.me/s/zhuanchannel?before=84968\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"\", \"url\": \"https://t.me/s/telegram?before=402&q=Story+Albums\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r7\", \"title\": \"\", \"url\": \"https://telegram.org/faq_channels\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r8\", \"title\": \"\", \"url\": \"https://t.me/s/kunuzofficial?before=174768\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r9\", \"title\": \"\", \"url\": \"https://t.me/s/channel?before=101\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"\", \"url\": \"https://t.me/s/TELEGRAM\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r11\", \"title\": \"\", \"url\": \"https://t.me/s/AJENews_Official?before=10426\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r12\", \"title\": \"\", \"url\": \"https://t.me/s/telegram?before=461\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r13\", \"title\": \"\", \"url\": \"https://www.t.me/s/V_Zelenskiy_official?before=21225\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r14\", \"title\": \"\", \"url\": \"https://telegram.org/verify\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r15\", \"title\": \"\", \"url\": \"https://t.me/s/kunuzofficial?before=174723\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r16\", \"title\": \"\", \"url\": \"https://t.me/s/TeleGram?before=440\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r17\", \"title\": \"\", \"url\": \"https://t.me/s/TeleGram?before=374\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r18\", \"title\": \"\", \"url\": \"https://t.me/s/Telegram?before=407\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r19\", \"title\": \"\", \"url\": \"https://telegram.org/faq\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r20\", \"title\": \"\", \"url\": \"https://bugs.telegram.org/c/66092\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://t.me/s/TeleGram?before=308\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://t.me/telegram\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://t.me/s/V_Zelenskiy_official?before=21348\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://telegram.org/tour/channels\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://t.me/s/zhuanchannel?before=84968\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://t.me/s/telegram?before=402&q=Story+Albums\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://telegram.org/faq_channels\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"tavily\"]}, {\"id\": \"c8\", \"url\": \"https://t.me/s/kunuzofficial?before=174768\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://t.me/s/channel?before=101\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://t.me/s/TELEGRAM\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://t.me/s/AJENews_Official?before=10426\", \"title\": \"\", \"result_item_id\": \"r11\", \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://t.me/s/telegram?before=461\", \"title\": \"\", \"result_item_id\": \"r12\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c13\", \"url\": \"https://www.t.me/s/V_Zelenskiy_official?before=21225\", \"title\": \"\", \"result_item_id\": \"r13\", \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://telegram.org/verify\", \"title\": \"\", \"result_item_id\": \"r14\", \"providers\": [\"tavily\"]}, {\"id\": \"c15\", \"url\": \"https://t.me/s/kunuzofficial?before=174723\", \"title\": \"\", \"result_item_id\": \"r15\", \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://t.me/s/TeleGram?before=440\", \"title\": \"\", \"result_item_id\": \"r16\", \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://t.me/s/TeleGram?before=374\", \"title\": \"\", \"result_item_id\": \"r17\", \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://t.me/s/Telegram?before=407\", \"title\": \"\", \"result_item_id\": \"r18\", \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://telegram.org/faq\", \"title\": \"\", \"result_item_id\": \"r19\", \"providers\": [\"tavily\"]}, {\"id\": \"c20\", \"url\": \"https://bugs.telegram.org/c/66092\", \"title\": \"\", \"result_item_id\": \"r20\", \"providers\": [\"tavily\"]}, {\"id\": \"c21\", \"url\": \"https://t.me/s/cointelegraph?before=72588\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"https://t.me/s/kunuzofficial?before=174698\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c23\", \"url\": \"https://t.me/s/TeleGram?before=64\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c24\", \"url\": \"https://t.me/s/telegram?before=329\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c25\", \"url\": \"https://t.me/s/TestFlightCN?before=44363\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c26\", \"url\": \"https://t.me/s/kunuzofficial?before=174823\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c27\", \"url\": \"https://t.me/s/telegram?before=20\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c28\", \"url\": \"https://t.me/s/V_Zelenskiy_official?before=21298\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c29\", \"url\": \"https://www.t.me/s/V_Zelenskiy_official?before=21240\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c30\", \"url\": \"https://t.me/s/telegram?before=92\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c31\", \"url\": \"https://t.me/s/telegram?before=322\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c32\", \"url\": \"https://t.me/s/TestFlightCN?before=44266\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c33\", \"url\": \"https://t.me/s/channelchk?q=%23%E6%96%87%E5%8C%96%E9%AB%94%E8%82%B2%E5%8F%8A%E6%97%85%E9%81%8A%E5%B1%80\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c34\", \"url\": \"https://t.me/s/CCTVCH1?before=2771\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"13ee9e32715ae4a8e90fb96e\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"Telegram\", \"satisfied\": true, \"detail\": \"29 content page(s), e.g. https://t.me/s/TeleGram?before=308\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 2, \"fetch\": 3, \"read_result\": 1}, \"new_urls\": 31, \"new_pages_read\": 0, \"seen_urls\": 67, \"pages_read\": 0, \"calls_without_new_evidence\": 0}}",
+    "{\"result_id\": \"13ee9e32715ae4a8e90fb96e\", \"kind\": \"search\", \"fields\": [\"answer\", \"citations\"], \"offset\": 0, \"next_offset\": 10, \"next_offsets\": {\"answer\": null, \"citations\": 10}, \"truncated\": true, \"data\": {\"answer\": \"The official Telegram channel is **Telegram News** at **@telegram** (also shown as **@Telegram** / **@TeleGram**). Verified channel bio: “The official Telegram on Telegram.” About **9.3M subscribers**.\\n\\n### Primary links\\n1. **https://t.me/telegram** — direct channel link (username `@telegram`).  \\n2. **https://t.me/s/telegram** — public web preview of the same channel.  \\n\\n### Relevant indexed preview pages (same channel)\\n3. **https://t.me/s/telegram?before=461** — Telegram News; verified `@telegram`; ~9.32M subscribers; “The official Telegram on Telegram.” Recent posts include bot-to-bot communication and May features. [web:0]  \\n4. **https://t.me/s/Telegram?before=407** — same channel (`@Telegram`); direct messages to channels and June features. [web:1]  \\n5. **https://t.me/s/telegram?q=Story%20Albums&before=402** — story albums and related July features. [web:2]  \\n6. **https://t.me/s/telegram?before=322** — April update coverage (My Profile, recommended channels, and related features). [web:3]  \\n7. **https://t.me/s/TeleGram?before=308** — Telegram Business and recommended channels. [web:4]  \\n8. **https://t.me/s/TeleGram?before=440** — passkeys, gift offers, AI summaries, and 2025–2026 updates. [web:19]  \\n9. **https://t.me/s/TeleGram?before=374** — affiliate programs, message search filters, third-party verification, gifts to channels. [web:20]  \\n10. **https://t.me/s/telegram?before=92** — older posts; states official announcements are published only via **telegram.org** and this channel, and warns about scam sites. [web:22]  \\n11. **https://t.me/s/telegram?before=20** — early channel history (created 2015; “about to become the official Telegram channel”). [web:24]  \\n12. **https://t.me/s/TeleGram?before=64** — mid-2016 product posts (bots, themes, t.me links). [web:25]  \\n13. **https://t.me/s/telegram?before=329** — June–August 2024 features (star reactions, super channels, anniversary update). [web:26]  \\n\\nOther search hits (Al Jazeera, Zelenskyy, Kun.uz, Cointelegraph, etc.) are **not** Telegram’s official channel; they only match broader “official” or “channel” queries.\", \"answer_chars\": 2104, \"citations\": [{\"id\": \"c1\", \"title\": \"https://t.me/s/TeleGram?before=308\", \"url\": \"https://t.me/s/TeleGram?before=308\", \"result_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"title\": \"Telegram: View @telegram\", \"url\": \"https://t.me/telegram\", \"result_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"title\": \"https://t.me/s/V_Zelenskiy_official?before=21348\", \"url\": \"https://t.me/s/V_Zelenskiy_official?before=21348\", \"result_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"title\": \"Telegram Channels\", \"url\": \"https://telegram.org/tour/channels\", \"result_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"title\": \"https://t.me/s/zhuanchannel?before=84968\", \"url\": \"https://t.me/s/zhuanchannel?before=84968\", \"result_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"title\": \"https://t.me/s/telegram?q=Story%20Albums&before=402\", \"url\": \"https://t.me/s/telegram?before=402&q=Story+Albums\", \"result_id\": \"r6\", \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"title\": \"Channels FAQ\", \"url\": \"https://telegram.org/faq_channels\", \"result_id\": \"r7\", \"providers\": [\"tavily\"]}, {\"id\": \"c8\", \"title\": \"https://t.me/s/kunuzofficial?before=174768\", \"url\": \"https://t.me/s/kunuzofficial?before=174768\", \"result_id\": \"r8\", \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"title\": \"https://t.me/s/channel?before=101\", \"url\": \"https://t.me/s/channel?before=101\", \"result_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"title\": \"Telegram News – Telegram\", \"url\": \"https://t.me/s/TELEGRAM\", \"result_id\": \"r10\", \"providers\": [\"tavily\"]}], \"citations_total\": 34}, \"session\": {\"calls\": {\"search\": 2, \"fetch\": 3, \"read_result\": 2}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 67, \"pages_read\": 0, \"calls_without_new_evidence\": 1}}"
+  ],
+  "answer": "官方 Telegram 频道是 **Telegram News**，用户名为 **@telegram**。\n\n- **公开网页预览：** https://t.me/s/telegram\n- **频道主页：** https://t.me/telegram\n\nAllSearch 检索到的公开频道信息显示，该频道简介为 **“The official Telegram on Telegram.”**，并标记为已验证。`/s/<username>` 是无需登录即可在浏览器查看公开频道帖子的预览格式。\n\n可核对的官方链接：\n\n- https://t.me/s/telegram?before=461\n- https://t.me/telegram\n- https://telegram.org/tour/channels\n- https://telegram.org/faq_channels",
+  "observation": {
+    "id": "telegram-public-preview",
+    "answer": "官方 Telegram 频道是 **Telegram News**，用户名为 **@telegram**。\n\n- **公开网页预览：** https://t.me/s/telegram\n- **频道主页：** https://t.me/telegram\n\nAllSearch 检索到的公开频道信息显示，该频道简介为 **“The official Telegram on Telegram.”**，并标记为已验证。`/s/<username>` 是无需登录即可在浏览器查看公开频道帖子的预览格式。\n\n可核对的官方链接：\n\n- https://t.me/s/telegram?before=461\n- https://t.me/telegram\n- https://telegram.org/tour/channels\n- https://telegram.org/faq_channels",
+    "results": [
+      {
+        "url": "https://t.me/s/TelegramTips/281",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://core.telegram.org/constructor/webPage",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/share/url?text=Introducing+Reproducible+Apps%2C+Theme+Editor+2.0%2C+Send+When+Online+and+So+Much+More&url=https%3A%2F%2Ftelegram.org%2Fblog%2Fverifiable-apps-and-more",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/rybar_in_english",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/share/url?text=%D0%92+%D0%BD%D0%BE%D0%B2%D0%BE%D0%B9+%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D0%B8+Telegram+%D0%BF%D0%BE%D1%8F%D0%B2%D0%B8%D0%BB%D0%B8%D1%81%D1%8C+%D1%83%D1%81%D0%BA%D0%BE%D1%80%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F+%D0%BF%D1%80%D0%BE%D0%BA%D1%80%D1%83%D1%82%D0%BA%D0%B0+%D0%B8+%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80%D1%8C+%D0%B4%D0%BB%D1%8F+%D0%B1%D1%8B%D1%81%D1%82%D1%80%D0%BE",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/username",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/share/url?text=Inline+bots%3A+A+new+way+to+interact+with+bots+and+send+bot-generated+content+to+any+chat%2C+group+or+channel&url=https%3A%2F%2Ftelegram.org%2Fblog%2Finline-bots",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/webachannel?before=61",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/TelegramTips/266",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/webachannel?before=33",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://telegram.org/tour/channels",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/AnleitungenTelegram?before=2422&q=%23LinkVorschau",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/TelegramTips/410",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://telegram.org/verify",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/share/url?text=Replace+Media%2C+share+contacts+as+vCards%2C+mark+as+unread%2C+2X+voice+and+video+messages%2C+and+more+in+Telegram+4.8.3%2F10&url=https%3A%2F%2Ftelegram.org%2Fblog%2Funread-replace-2x",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/telegramtips?after=299",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/share/url?text=With+today%27s+update%2C+groups+and+channels+can+use+Telegram+Stars+as+prizes+in+Giveaways.+Also%2C+any+article+you+open+in+the+Telegram+Browser+can+now+be+converted+to+Instant+View%2C+making+it+easy+to+read&url=https%3A%2F%2Ftelegram.org%2Fblog%2Fstar-giveaways-iv-in-browser",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/username",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://core.telegram.org/api/links",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://web.telegram.org",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/tginfoen/2150",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/TelegramTips?before=348",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/presstv",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/telegramtips?before=345",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/share/url?text=%D0%A3+%D1%81%D1%91%D0%BD%D0%BD%D1%8F%D1%88%D0%BD%D1%96%D0%BC+%D0%B0%D0%B1%D0%BD%D0%B0%D1%9E%D0%BB%D0%B5%D0%BD%D0%BD%D1%96+%D0%BC%D1%8B+%D0%B4%D0%B0%D0%B4%D0%B0%D0%B5%D0%BC+%D0%BD%D0%BE%D0%B2%D1%8B%D1%8F+%D1%81%D0%BF%D0%BE%D1%81%D0%B0%D0%B1%D1%8B+%D0%B4%D0%BB%D1%8F+%D0%BA%D0%B0%D1%80%D1%8B%D1%81%D1%82%D0%B0%D0%BB%D1%8C%D0%BD%D1%96%D0%BA%D0%B0%D1%9E+%D0%BF%D0%B0%D1%87%D1",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/AnleitungenTelegramBeispiele?before=3533&q=%23telegraph",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/tgbeta?before=4586",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/teleLakel?before=1175&q=%23new_tgbeta",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/TelegramTips?before=369",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/share/url?text=%D0%9F%D1%80%D0%B8%D0%BA%D1%80%D1%96%D0%BF%D0%BB%D0%B5%D0%BD%D1%96+%D0%BF%D0%BE%D0%B2%D1%96%D0%B4%D0%BE%D0%BC%D0%BB%D0%B5%D0%BD%D0%BD%D1%8F+2.0%2C+%D0%BD%D0%BE%D0%B2%D1%96+%D0%BC%D0%BE%D0%B6%D0%BB%D0%B8%D0%B2%D0%BE%D1%81%D1%82%D1%96+%D0%BF%D1%80%D0%B8+%D1%82%D1%80%D0%B0%D0%BD%D1%81%D0%BB%D1%8F%D1%86%D1%96%D1%97+%D1%80%D0%BE%D0%B7%D1%82%D0%B0%D1%88%D1%83%D0%B2%D0%B0%D0%B",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/tginfoen?before=2019",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/tginfoen?before=1501",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/tginfoen?before=2202",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/TelegramTips/281",
+        "title": "https://t.me/s/TelegramTips/281",
+        "snippet": ""
+      },
+      {
+        "url": "https://core.telegram.org/constructor/webPage",
+        "title": "webPage",
+        "snippet": ""
+      },
+      {
+        "url": "https://t.me/share/url?text=Introducing+Reproducible+Apps%2C+Theme+Editor+2.0%2C+Send+When+Online+and+So+Much+More&url=https%3A%2F%2Ftelegram.org%2Fblog%2Fverifiable-apps-and-more",
+        "title": "https://t.me/share/url?url=https%3A%2F%2Ftelegram.org%2Fblog%2Fverifiable-apps-and-more&text=Introducing%20Reproducible%20Apps%2C%20Theme%20Editor%202.0%2C%20Send%20When%20Online%20and%20So%20Much%20More",
+        "snippet": ""
+      },
+      {
+        "url": "https://t.me/rybar_in_english",
+        "title": "View @rybar_in_english",
+        "snippet": ""
+      },
+      {
+        "url": "https://t.me/share/url?text=%D0%92+%D0%BD%D0%BE%D0%B2%D0%BE%D0%B9+%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D0%B8+Telegram+%D0%BF%D0%BE%D1%8F%D0%B2%D0%B8%D0%BB%D0%B8%D1%81%D1%8C+%D1%83%D1%81%D0%BA%D0%BE%D1%80%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F+%D0%BF%D1%80%D0%BE%D0%BA%D1%80%D1%83%D1%82%D0%BA%D0%B0+%D0%B8+%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80%D1%8C+%D0%B4%D0%BB%D1%8F+%D0%B1%D1%8B%D1%81%D1%82%D1%80%D0%BE%D0%B9+%D0%BD%D0%B0%D0%B2%D0%B8%D0%B3%D0%B0%D1%86%D0%B8%D0%B8+%D0%BF%D0%BE+%D0%BC%D0%B5%D0%B4%D0%B8%D0%B0+%D0%B8%D0%B7+%D0%B8%D1%81%D1%82%D0%BE%D1%80%D0%B8%D0%B8+%D0%BF%D0%B5%D1%80%D0%B5%D0%BF%D0%B8%…",
+        "title": "https://t.me/share/url?url=https%3A%2F%2Ftelegram.org%2Fblog%2Fshared-media-scrolling-calendar-join-requests-and-more%2Fru&text=%D0%92%20%D0%BD%D0%BE%D0%B2%D0%BE%D0%B9%20%D0%B2%D0%B5%D1%80%D1%81%D0%B8%D0%B8%20Telegram%20%D0%BF%D0%BE%D1%8F%D0%B2%D0%B8%D0%BB%D0%B8%D1%81%D1%8C%20%D1%83%D1%81%D0%BA%D0%BE%D1%80%D0%B5%D0%BD%D0%BD%D0%B0%D1%8F%20%D0%BF%D1%80%D0%BE%D0%BA%D1%80%D1%83%D1%82%D0%BA%D0%B0%20%D0%B8%20%D0%BA%D0%B0%D0%BB%D0%B5%D0%BD%D0%B4%D0%B0%D1%80%D1%8C%20%D0%B4%D0%BB%D1%8F%20%D0%B1%D1%8B%D1%81%D1%82%D1%80%D0%BE%D0%B9%20%D0%BD%D0%B0%D0%B2%D0%B8%D0%B3%D0%B0%D1%86%D0%B8%D0%B8%20%D0%BF%D0%BE%…",
+        "snippet": ""
+      },
+      {
+        "url": "https://t.me/username",
+        "title": "Telegram: View @username",
+        "snippet": ""
+      },
+      {
+        "url": "https://t.me/share/url?text=Inline+bots%3A+A+new+way+to+interact+with+bots+and+send+bot-generated+content+to+any+chat%2C+group+or+channel&url=https%3A%2F%2Ftelegram.org%2Fblog%2Finline-bots",
+        "title": "https://t.me/share/url?url=https%3A%2F%2Ftelegram.org%2Fblog%2Finline-bots&text=Inline%20bots%3A%20A%20new%20way%20to%20interact%20with%20bots%20and%20send%20bot-generated%20content%20to%20any%20chat%2C%20group%20or%20channel",
+        "snippet": ""
+      },
+      {
+        "url": "https://t.me/s/webachannel?before=61",
+        "title": "Telegram Web A – Telegram",
+        "snippet": ""
+      },
+      {
+        "url": "https://t.me/s/TelegramTips/266",
+        "title": "https://t.me/s/TelegramTips/266",
+        "snippet": ""
+      },
+      {
+        "url": "https://t.me/s/webachannel?before=33",
+        "title": "https://t.me/s/webachannel?before=33",
+        "snippet": ""
+      },
+      {
+        "url": "https://t.me/s/TeleGram?before=308",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/telegram",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/V_Zelenskiy_official?before=21348",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://telegram.org/tour/channels",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/zhuanchannel?before=84968",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/telegram?before=402&q=Story+Albums",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://telegram.org/faq_channels",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/kunuzofficial?before=174768",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/channel?before=101",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/TELEGRAM",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/AJENews_Official?before=10426",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/telegram?before=461",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.t.me/s/V_Zelenskiy_official?before=21225",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://telegram.org/verify",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/kunuzofficial?before=174723",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/TeleGram?before=440",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/TeleGram?before=374",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/Telegram?before=407",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://telegram.org/faq",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://bugs.telegram.org/c/66092",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/TeleGram?before=308",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/telegram",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/V_Zelenskiy_official?before=21348",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://telegram.org/tour/channels",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/zhuanchannel?before=84968",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/telegram?before=402&q=Story+Albums",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://telegram.org/faq_channels",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/kunuzofficial?before=174768",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/channel?before=101",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/TELEGRAM",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/AJENews_Official?before=10426",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/telegram?before=461",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.t.me/s/V_Zelenskiy_official?before=21225",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://telegram.org/verify",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/kunuzofficial?before=174723",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/TeleGram?before=440",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/TeleGram?before=374",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/Telegram?before=407",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://telegram.org/faq",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://bugs.telegram.org/c/66092",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/cointelegraph?before=72588",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/kunuzofficial?before=174698",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/TeleGram?before=64",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/telegram?before=329",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/TestFlightCN?before=44363",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/kunuzofficial?before=174823",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/telegram?before=20",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/V_Zelenskiy_official?before=21298",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.t.me/s/V_Zelenskiy_official?before=21240",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/telegram?before=92",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/telegram?before=322",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/TestFlightCN?before=44266",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/channelchk?q=%23%E6%96%87%E5%8C%96%E9%AB%94%E8%82%B2%E5%8F%8A%E6%97%85%E9%81%8A%E5%B1%80",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/CCTVCH1?before=2771",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/TeleGram?before=308",
+        "title": "https://t.me/s/TeleGram?before=308",
+        "snippet": ""
+      },
+      {
+        "url": "https://t.me/telegram",
+        "title": "Telegram: View @telegram",
+        "snippet": ""
+      },
+      {
+        "url": "https://t.me/s/V_Zelenskiy_official?before=21348",
+        "title": "https://t.me/s/V_Zelenskiy_official?before=21348",
+        "snippet": ""
+      },
+      {
+        "url": "https://telegram.org/tour/channels",
+        "title": "Telegram Channels",
+        "snippet": ""
+      },
+      {
+        "url": "https://t.me/s/zhuanchannel?before=84968",
+        "title": "https://t.me/s/zhuanchannel?before=84968",
+        "snippet": ""
+      },
+      {
+        "url": "https://t.me/s/telegram?before=402&q=Story+Albums",
+        "title": "https://t.me/s/telegram?q=Story%20Albums&before=402",
+        "snippet": ""
+      },
+      {
+        "url": "https://telegram.org/faq_channels",
+        "title": "Channels FAQ",
+        "snippet": ""
+      },
+      {
+        "url": "https://t.me/s/kunuzofficial?before=174768",
+        "title": "https://t.me/s/kunuzofficial?before=174768",
+        "snippet": ""
+      },
+      {
+        "url": "https://t.me/s/channel?before=101",
+        "title": "https://t.me/s/channel?before=101",
+        "snippet": ""
+      },
+      {
+        "url": "https://t.me/s/TELEGRAM",
+        "title": "Telegram News – Telegram",
+        "snippet": ""
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://t.me/telegram",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "circuit_open",
+            "message": "circuit open for provider firecrawl",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://t.me/s/TelegramTips/281",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "circuit_open",
+            "message": "circuit open for provider firecrawl",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://telegram.org/verify",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "circuit_open",
+            "message": "circuit open for provider firecrawl",
+            "retryable": true
+          }
+        ]
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:41:16.917052+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "telegram-public-preview",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "tg-preview"
+        ],
+        "required": 1
+      },
+      "reading": {
+        "status": "pass"
+      }
+    },
+    "task": {
+      "status": "pass",
+      "reasons": []
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": false,
+    "grader": "v2"
+  }
+}

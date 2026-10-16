@@ -1,0 +1,466 @@
+{
+  "id": "youtube-me-at-the-zoo",
+  "query": "The first YouTube video, Me at the zoo",
+  "returncode": 0,
+  "elapsed_ms": 107474,
+  "efficiency": {
+    "tool_calls": {
+      "search": 2,
+      "fetch": 3,
+      "read_result": 3
+    },
+    "total_calls": 8,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 2,
+    "errors": 4
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": null,
+        "max_results": 8,
+        "mode": "web",
+        "query": "YouTube first video Me at the zoo original upload date Jawed Karim San Diego Zoo facts original URL",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 26787
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "title, uploader/channel, upload date/time, duration, description, transcript or spoken words",
+        "fresh": false,
+        "max_chars": 12000,
+        "url": "https://www.youtube.com/watch?v=jNQXAC9IVRw"
+      },
+      "is_error": true,
+      "ms": 216
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "historical details, first YouTube video, date, location, quote from video",
+        "fresh": false,
+        "max_chars": 12000,
+        "url": "https://en.wikipedia.org/wiki/Me_at_the_zoo"
+      },
+      "is_error": true,
+      "ms": 217
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "original video details and exact upload date",
+        "fresh": false,
+        "max_chars": 12000,
+        "url": "https://www.youtube.com/@jawed"
+      },
+      "is_error": true,
+      "ms": 217
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": "answer,citations,coverage",
+        "limit": 12000,
+        "max_bytes": 16000,
+        "offset": 0,
+        "result_id": "382eb049248daf3345d7dcdd"
+      },
+      "is_error": true,
+      "ms": 6
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "balanced",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "blog.youtube"
+        ],
+        "max_results": 5,
+        "mode": "web",
+        "query": "site:blog.youtube first YouTube video Me at the zoo Jawed Karim 2005",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 11210
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": "answer",
+        "limit": 8000,
+        "max_bytes": 12000,
+        "offset": 0,
+        "result_id": "be4d4fe44ae8ed1f87340e28"
+      },
+      "is_error": false,
+      "ms": 4
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": "answer",
+        "limit": 8000,
+        "max_bytes": 12000,
+        "offset": 0,
+        "result_id": "382eb049248daf3345d7dcdd"
+      },
+      "is_error": false,
+      "ms": 5
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.1\", \"result_id\": \"382eb049248daf3345d7dcdd\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"YouTube first video Me at the zoo original upload date Jawed Karim San Diego Zoo facts original URL\", \"answer\": \"**“Me at the zoo” — first YouTube video (Jawed Karim)**\\n\\n1. **Original URL:** https://www.youtube.com/watch?v=jNQXAC9IVRw (channel: jawed). [web:0] [web:4]\\n2. **Upload date:** April 23, 2005 (local/PDT). YouTube lists the publish time as **April 24, 2005, 03:31 UTC**. Secondary accounts give about **8:27 p.m. UTC** or **8:31:52 p.m. PDT** the same calendar day. [web:0] [web:6] [web:8] [web:12]\\n3. **Uploader:** Jawed Karim, a YouTube co-founder (with Chad Hurley and Steve Chen); he was about 25. [web:0] [web:12] [web:14]\\n4. **Length and content:** ~19 seconds. He stands in front of elephants a…\", \"answer_chars\": 1440, \"evidence\": {\"unique_urls\": 8, \"unique_domains\": 4, \"cross_provider_matches\": 0, \"pages_fetched\": 2, \"primary_citation_count\": 18, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 26777, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 8, \"citation_count\": 26, \"results\": [{\"id\": \"r1\", \"title\": \"https://www.youtube.com/watch?v=jNQXAC9IVRw`\", \"url\": \"https://www.youtube.com/watch?v=jNQXAC9IVRw%60\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"https://www.youtube.com/watch?v=jNQXAC9IVRw\", \"url\": \"https://www.youtube.com/watch?v=jNQXAC9IVRw\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r3\", \"title\": \"https://www.youtube.com/watch?v=yFTbEAyLt4k\", \"url\": \"https://www.youtube.com/watch?v=yFTbEAyLt4k\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"https://www.youtube.com/watch?v=S8_SeS8yZ0I\", \"url\": \"https://www.youtube.com/watch?v=S8_SeS8yZ0I\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r5\", \"title\": \"Me at the zoo - Wikipedia\", \"url\": \"https://en.wikipedia.org/wiki/Me_at_the_zoo\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r6\", \"title\": \"File:Me at the zoo.webm - Wikipedia\", \"url\": \"https://en.wikipedia.org/wiki/File:Me_at_the_zoo.webm\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"“Me at the zoo” first YouTube video uploaded by co-founder Jawed Karim turns 21\", \"url\": \"https://www.moneycontrol.com/technology/me-at-the-zoo-first-youtube-video-uploaded-by-co-founder-jawed-karim-turns-21-article-13898963.html\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r8\", \"title\": \"it's the 20th anniversary of the first video ever uploaded to ...\", \"url\": \"https://www.reddit.com/r/Damnthatsinteresting/comments/1k5quxv/today_is_a_historic_day_for_the_internet_its_the\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.youtube.com/watch?v=jNQXAC9IVRw%60\", \"title\": \"https://www.youtube.com/watch?v=jNQXAC9IVRw`\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.youtube.com/watch?v=jNQXAC9IVRw\", \"title\": \"https://www.youtube.com/watch?v=jNQXAC9IVRw\", \"result_item_id\": \"r2\", \"providers\": [\"xai\"]}, {\"id\": \"c3\", \"url\": \"https://www.youtube.com/watch?v=yFTbEAyLt4k\", \"title\": \"https://www.youtube.com/watch?v=yFTbEAyLt4k\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://www.youtube.com/watch?v=S8_SeS8yZ0I\", \"title\": \"https://www.youtube.com/watch?v=S8_SeS8yZ0I\", \"result_item_id\": \"r4\", \"providers\": [\"xai\"]}, {\"id\": \"c5\", \"url\": \"https://en.wikipedia.org/wiki/Me_at_the_zoo\", \"title\": \"Me at the zoo - Wikipedia\", \"result_item_id\": \"r5\", \"providers\": [\"tavily\"]}, {\"id\": \"c6\", \"url\": \"https://en.wikipedia.org/wiki/File:Me_at_the_zoo.webm\", \"title\": \"File:Me at the zoo.webm - Wikipedia\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://www.moneycontrol.com/technology/me-at-the-zoo-first-youtube-video-uploaded-by-co-founder-jawed-karim-turns-21-article-13898963.html\", \"title\": \"“Me at the zoo” first YouTube video uploaded by co-founder Jawed Karim turns 21\", \"result_item_id\": \"r7\", \"providers\": [\"tavily\"]}, {\"id\": \"c8\", \"url\": \"https://www.reddit.com/r/Damnthatsinteresting/comments/1k5quxv/today_is_a_historic_day_for_the_internet_its_the\", \"title\": \"it's the 20th anniversary of the first video ever uploaded to ...\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://www.youtube.com/watch?v=MYw_nV9vM-0\", \"title\": \"https://www.youtube.com/watch?v=MYw_nV9vM-0\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.youtube.com/@Me-at-the-zoo/featured\", \"title\": \"https://www.youtube.com/@Me-at-the-zoo/featured\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://www.youtube.com/watch?v=Ei-9i3p1Z1Y\", \"title\": \"https://www.youtube.com/watch?v=Ei-9i3p1Z1Y\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://www.youtube.com/watch?v=hixd2jJ_dWQ\", \"title\": \"https://www.youtube.com/watch?v=hixd2jJ_dWQ\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://www.youtube.com/watch?v=cg92c2FXCqU\", \"title\": \"https://www.youtube.com/watch?v=cg92c2FXCqU\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://www.youtube.com/watch?v=jNQXAC9IVRw&vl=en\", \"title\": \"https://www.youtube.com/watch?v=jNQXAC9IVRw&vl=en\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://www.youtube.com/watch?v=OaGwyCSw0bo\", \"title\": \"https://www.youtube.com/watch?v=OaGwyCSw0bo\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://www.youtube.com/watch?v=P22QdHbC7s4\", \"title\": \"https://www.youtube.com/watch?v=P22QdHbC7s4\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://www.youtube.com/watch?v=YBOwtZMeAm4\", \"title\": \"https://www.youtube.com/watch?v=YBOwtZMeAm4\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://m.youtube.com/watch?v=HRQDIHPbBhY\", \"title\": \"https://m.youtube.com/watch?v=HRQDIHPbBhY\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://www.youtube.com/watch?v=nwNJHgXjXQk\", \"title\": \"https://www.youtube.com/watch?v=nwNJHgXjXQk\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"https://www.youtube.com/watch?v=dcZY3yi8Xbw\", \"title\": \"https://www.youtube.com/watch?v=dcZY3yi8Xbw\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"https://www.youtube.com/watch?v=PHOvywxFHzc\", \"title\": \"https://www.youtube.com/watch?v=PHOvywxFHzc\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"https://www.youtube.com/watch?v=ydEMNzksm2M\", \"title\": \"https://www.youtube.com/watch?v=ydEMNzksm2M\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c23\", \"url\": \"https://www.reddit.com/r/youtube/comments/1k41ng6/in_3_days_jaweds_me_at_the_zoo_the_first_uploaded\", \"title\": \"In 3 days, jawed's \\\"me at the zoo\\\", the first uploaded ...\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c24\", \"url\": \"https://www.instagram.com/p/DXegKDoEyq5\", \"title\": \"The first video, showing YouTube cofounder Jawed Karim's ...\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c25\", \"url\": \"https://www.facebook.com/EvanCarmichaelcom/posts/did-you-know-youtubes-very-first-video-was-only-18-seconds-longin-2005-a-guy-nam/1590775962410721\", \"title\": \"Did you know YouTube's very first video was only 18 ...\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c26\", \"url\": \"https://www.reddit.com/r/sandiego/comments/1k5ytzg/history_was_made_at_the_san_diego_zoo_20_years\", \"title\": \"History was made at the San Diego Zoo — 20 years ago ...\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"382eb049248daf3345d7dcdd\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"YouTube\", \"satisfied\": true, \"detail\": \"17 content page(s), e.g. https://www.youtube.com/watch?v=jNQXAC9IVRw%60\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 26, \"new_pages_read\": 2, \"seen_urls\": 26, \"pages_read\": 2, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"91eb0170a6142f4a0aefceee\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://www.youtube.com/watch?v=jNQXAC9IVRw\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 20, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"91eb0170a6142f4a0aefceee\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 1, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 26, \"pages_read\": 2, \"calls_without_new_evidence\": 1}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"70b5d960561c1c2e3ef2d9fd\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://en.wikipedia.org/wiki/Me_at_the_zoo\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 22, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"70b5d960561c1c2e3ef2d9fd\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 2, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 26, \"pages_read\": 2, \"calls_without_new_evidence\": 2}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"4852e117a4f7abfaa714c316\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://www.youtube.com/@jawed\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 21, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"4852e117a4f7abfaa714c316\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 3, \"read_result\": 0}, \"new_urls\": 1, \"new_pages_read\": 0, \"seen_urls\": 27, \"pages_read\": 2, \"calls_without_new_evidence\": 0}}",
+    "{\"content\": [{\"type\": \"text\", \"text\": \"Error executing tool read_result: unsupported fields: answer,citations,coverage; allowed: answer, cache, citations, comments, coverage, errors, evidence, results, route, threads, warnings\"}], \"isError\": true}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"be4d4fe44ae8ed1f87340e28\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:blog.youtube first YouTube video Me at the zoo Jawed Karim 2005\", \"answer\": \"Here are relevant results from the official YouTube blog about the first video, “Me at the zoo.”\\n\\n1. **YouTube enters V&A collection** (Feb 18, 2026) — The Victoria and Albert Museum acquired a reconstruction of an early YouTube watch page featuring the first upload, “Me at the zoo.” The post describes the 19-second clip of co-founder Jawed Karim, filmed on a low-res camera in 2005 at the San Diego Zoo, as a foundational moment in user-generated content.  \\n   https://blog.youtube/news-and-events/va-museum-youtube-first-video/  \\n   [[1]](https://blog.youtube/news-and-events/va-museum-youtube-first-video/)\\n\\n2. **YouTube at 15: My personal journey and the road ahead** (Susan Wojcicki, Feb 14, 2020) — Notes that YouTube was registered on February 14, 2005, and that “Me at the zoo” was uploade…\", \"answer_chars\": 2233, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 1, \"pages_fetched\": 0, \"primary_citation_count\": 5, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 11202, \"warning_count\": 1, \"warnings\": [\"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"conditional_supplement\"}], \"result_count\": 5, \"citation_count\": 5, \"results\": [{\"id\": \"r1\", \"title\": \"How the V&A is preserving the history of YouTube and early internet culture\", \"url\": \"https://blog.youtube/news-and-events/va-museum-youtube-first-video\", \"snippet\": \"The 19-second clip of YouTube co-founder Jawed Karim, filmed on a low-res camera in 2005 is widely considered a foundational moment in the rise of user-generat…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r2\", \"title\": \"2\", \"url\": \"https://blog.youtube/news-and-events/youtube-at-15-my-personal-journey\", \"snippet\": \"2. YouTube at 15: My personal journey and the road ahead (Susan Wojcicki, Feb 14, 2020) — Notes that YouTube was registered on February 14, 2005, and that “Me …\", \"providers\": [\"xai\"]}, {\"id\": \"r3\", \"title\": \"3\", \"url\": \"https://blog.youtube/news-and-events/youtube-to-z-happybirthdayyoutube\", \"snippet\": \"3. YouTube A to Z HappyBirthdayYouTube (May 28, 2015) — States that YouTube’s story began on Saturday, April 23, 2005, when “Me at the Zoo” was the first video…\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"4\", \"url\": \"https://blog.youtube/intl/de-de/inside-youtube/youtube-von-bis-z-10yearsofyoutube\", \"snippet\": \"4. YouTube von A bis Z 10YearsofYouTube (German, May 29, 2015) — Same anniversary post in German: first video “Me at the Zoo” uploaded April 23, 2005, at the S…\", \"providers\": [\"xai\"]}, {\"id\": \"r5\", \"title\": \"5\", \"url\": \"https://blog.youtube/intl/pt-br/inside-youtube/15-anos-de-youtube-meu-percurso-pessoal\", \"snippet\": \"5. 15 anos de YouTube (Portuguese version of Wojcicki’s post, Feb 14, 2020) — Same facts: domain registered February 14, 2005; first video “Me at the zoo” uplo…\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://blog.youtube/news-and-events/va-museum-youtube-first-video\", \"title\": \"How the V&A is preserving the history of YouTube and early internet culture\", \"result_item_id\": \"r1\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c2\", \"url\": \"https://blog.youtube/news-and-events/youtube-at-15-my-personal-journey\", \"title\": \"2\", \"result_item_id\": \"r2\", \"providers\": [\"xai\"]}, {\"id\": \"c3\", \"url\": \"https://blog.youtube/news-and-events/youtube-to-z-happybirthdayyoutube\", \"title\": \"3\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://blog.youtube/intl/de-de/inside-youtube/youtube-von-bis-z-10yearsofyoutube\", \"title\": \"4\", \"result_item_id\": \"r4\", \"providers\": [\"xai\"]}, {\"id\": \"c5\", \"url\": \"https://blog.youtube/intl/pt-br/inside-youtube/15-anos-de-youtube-meu-percurso-pessoal\", \"title\": \"5\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"be4d4fe44ae8ed1f87340e28\"}, \"coverage\": {\"status\": \"not_applicable\", \"requirements\": [], \"requirements_total\": 0}, \"session\": {\"calls\": {\"search\": 2, \"fetch\": 3, \"read_result\": 0}, \"new_urls\": 5, \"new_pages_read\": 0, \"seen_urls\": 32, \"pages_read\": 2, \"calls_without_new_evidence\": 0}}",
+    "{\"result_id\": \"be4d4fe44ae8ed1f87340e28\", \"kind\": \"search\", \"fields\": [\"answer\"], \"offset\": 0, \"next_offset\": null, \"next_offsets\": {\"answer\": null}, \"truncated\": false, \"data\": {\"answer\": \"Here are relevant results from the official YouTube blog about the first video, “Me at the zoo.”\\n\\n1. **YouTube enters V&A collection** (Feb 18, 2026) — The Victoria and Albert Museum acquired a reconstruction of an early YouTube watch page featuring the first upload, “Me at the zoo.” The post describes the 19-second clip of co-founder Jawed Karim, filmed on a low-res camera in 2005 at the San Diego Zoo, as a foundational moment in user-generated content.  \\n   https://blog.youtube/news-and-events/va-museum-youtube-first-video/  \\n   [[1]](https://blog.youtube/news-and-events/va-museum-youtube-first-video/)\\n\\n2. **YouTube at 15: My personal journey and the road ahead** (Susan Wojcicki, Feb 14, 2020) — Notes that YouTube was registered on February 14, 2005, and that “Me at the zoo” was uploaded soon after; by the end of that year the site was getting millions of views a day.  \\n   https://blog.youtube/news-and-events/youtube-at-15-my-personal-journey/  \\n   [[2]](https://blog.youtube/news-and-events/youtube-at-15-my-personal-journey/)\\n\\n3. **YouTube A to Z #HappyBirthdayYouTube** (May 28, 2015) — States that YouTube’s story began on Saturday, April 23, 2005, when “Me at the Zoo” was the first video uploaded. The 19-second clip, shot at California’s San Diego Zoo, describes what makes elephants cool.  \\n   https://blog.youtube/news-and-events/youtube-to-z-happybirthdayyoutube/  \\n   [[3]](https://blog.youtube/news-and-events/youtube-to-z-happybirthdayyoutube/)\\n\\n4. **YouTube von A bis Z #10YearsofYouTube** (German, May 29, 2015) — Same anniversary post in German: first video “Me at the Zoo” uploaded April 23, 2005, at the San Diego Zoo, 19 seconds long.  \\n   https://blog.youtube/intl/de-de/inside-youtube/youtube-von-bis-z-10yearsofyoutube/  \\n   [[4]](https://blog.youtube/intl/de-de/inside-youtube/youtube-von-bis-z-10yearsofyoutube/)\\n\\n5. **15 anos de YouTube** (Portuguese version of Wojcicki’s post, Feb 14, 2020) — Same facts: domain registered February 14, 2005; first video “Me at the zoo” uploaded shortly afterward.  \\n   https://blog.youtube/intl/pt-br/inside-youtube/15-anos-de-youtube-meu-percurso-pessoal/  \\n   [[5]](https://blog.youtube/intl/pt-br/inside-youtube/15-anos-de-youtube-meu-percurso-pessoal/)\", \"answer_chars\": 2233}, \"session\": {\"calls\": {\"search\": 2, \"fetch\": 3, \"read_result\": 1}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 32, \"pages_read\": 2, \"calls_without_new_evidence\": 1}}",
+    "{\"result_id\": \"382eb049248daf3345d7dcdd\", \"kind\": \"search\", \"fields\": [\"answer\"], \"offset\": 0, \"next_offset\": null, \"next_offsets\": {\"answer\": null}, \"truncated\": false, \"data\": {\"answer\": \"**“Me at the zoo” — first YouTube video (Jawed Karim)**\\n\\n1. **Original URL:** https://www.youtube.com/watch?v=jNQXAC9IVRw (channel: jawed). [web:0] [web:4]\\n2. **Upload date:** April 23, 2005 (local/PDT). YouTube lists the publish time as **April 24, 2005, 03:31 UTC**. Secondary accounts give about **8:27 p.m. UTC** or **8:31:52 p.m. PDT** the same calendar day. [web:0] [web:6] [web:8] [web:12]\\n3. **Uploader:** Jawed Karim, a YouTube co-founder (with Chad Hurley and Steve Chen); he was about 25. [web:0] [web:12] [web:14]\\n4. **Length and content:** ~19 seconds. He stands in front of elephants and says they have “really, really, really long trunks,” and “that’s pretty much all there is to say.” [web:0] [web:4]\\n5. **Location:** San Diego Zoo, California, at the elephant exhibit. The official San Diego Zoo account has commented that the first YouTube video was filmed there. [web:0] [web:4] [web:14]\\n6. **Camera:** Shot by Yakov Lapitsky. [web:0] [web:6]\\n7. **Role:** Widely treated as the first video uploaded to YouTube; the site was still new, with a simple layout and no comments, subscriptions, or monetization at first. [web:0] [web:19]\\n8. **Spot (fan-mapped):** Viewers have pointed to coordinates near **32.736781, -117.150905** in the zoo’s Urban Jungle area as the filming location. [web:7]\\n\\nElephant names sometimes cited online (e.g. Connie and Timbo) come from secondary write-ups, not the original video itself. [web:0]\", \"answer_chars\": 1440}, \"session\": {\"calls\": {\"search\": 2, \"fetch\": 3, \"read_result\": 2}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 32, \"pages_read\": 2, \"calls_without_new_evidence\": 2}}"
+  ],
+  "answer": "**“Me at the zoo”** 是公认的 YouTube 第一个视频。\n\n- **视频链接：** https://www.youtube.com/watch?v=jNQXAC9IVRw\n- **上传者：** Jawed Karim，YouTube 联合创始人\n- **拍摄地点：** 美国加州圣迭戈动物园的大象展区\n- **日期：** 2005 年 4 月 23 日（当地时间）；按 YouTube 的 UTC 时间显示为 4 月 24 日\n- **时长：** 约 19 秒\n- **内容：** Karim 站在大象前，评论大象“真的、真的、真的有很长的鼻子”，并说这基本就是关于大象的一切。\n\nYouTube 官方资料：\n\n- https://blog.youtube/news-and-events/youtube-to-z-happybirthdayyoutube/\n- https://blog.youtube/news-and-events/youtube-at-15-my-personal-journey/\n- https://blog.youtube/news-and-events/va-museum-youtube-first-video/",
+  "observation": {
+    "id": "youtube-me-at-the-zoo",
+    "answer": "**“Me at the zoo”** 是公认的 YouTube 第一个视频。\n\n- **视频链接：** https://www.youtube.com/watch?v=jNQXAC9IVRw\n- **上传者：** Jawed Karim，YouTube 联合创始人\n- **拍摄地点：** 美国加州圣迭戈动物园的大象展区\n- **日期：** 2005 年 4 月 23 日（当地时间）；按 YouTube 的 UTC 时间显示为 4 月 24 日\n- **时长：** 约 19 秒\n- **内容：** Karim 站在大象前，评论大象“真的、真的、真的有很长的鼻子”，并说这基本就是关于大象的一切。\n\nYouTube 官方资料：\n\n- https://blog.youtube/news-and-events/youtube-to-z-happybirthdayyoutube/\n- https://blog.youtube/news-and-events/youtube-at-15-my-personal-journey/\n- https://blog.youtube/news-and-events/va-museum-youtube-first-video/",
+    "results": [
+      {
+        "url": "https://www.youtube.com/watch?v=jNQXAC9IVRw%60",
+        "title": "https://www.youtube.com/watch?v=jNQXAC9IVRw`",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=jNQXAC9IVRw",
+        "title": "https://www.youtube.com/watch?v=jNQXAC9IVRw",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=yFTbEAyLt4k",
+        "title": "https://www.youtube.com/watch?v=yFTbEAyLt4k",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=S8_SeS8yZ0I",
+        "title": "https://www.youtube.com/watch?v=S8_SeS8yZ0I",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Me_at_the_zoo",
+        "title": "Me at the zoo - Wikipedia",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/File:Me_at_the_zoo.webm",
+        "title": "File:Me at the zoo.webm - Wikipedia",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.moneycontrol.com/technology/me-at-the-zoo-first-youtube-video-uploaded-by-co-founder-jawed-karim-turns-21-article-13898963.html",
+        "title": "“Me at the zoo” first YouTube video uploaded by co-founder Jawed Karim turns 21",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/Damnthatsinteresting/comments/1k5quxv/today_is_a_historic_day_for_the_internet_its_the",
+        "title": "it's the 20th anniversary of the first video ever uploaded to ...",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=jNQXAC9IVRw%60",
+        "title": "https://www.youtube.com/watch?v=jNQXAC9IVRw`",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=jNQXAC9IVRw",
+        "title": "https://www.youtube.com/watch?v=jNQXAC9IVRw",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=yFTbEAyLt4k",
+        "title": "https://www.youtube.com/watch?v=yFTbEAyLt4k",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=S8_SeS8yZ0I",
+        "title": "https://www.youtube.com/watch?v=S8_SeS8yZ0I",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Me_at_the_zoo",
+        "title": "Me at the zoo - Wikipedia",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/File:Me_at_the_zoo.webm",
+        "title": "File:Me at the zoo.webm - Wikipedia",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.moneycontrol.com/technology/me-at-the-zoo-first-youtube-video-uploaded-by-co-founder-jawed-karim-turns-21-article-13898963.html",
+        "title": "“Me at the zoo” first YouTube video uploaded by co-founder Jawed Karim turns 21",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/Damnthatsinteresting/comments/1k5quxv/today_is_a_historic_day_for_the_internet_its_the",
+        "title": "it's the 20th anniversary of the first video ever uploaded to ...",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=MYw_nV9vM-0",
+        "title": "https://www.youtube.com/watch?v=MYw_nV9vM-0",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.youtube.com/@Me-at-the-zoo/featured",
+        "title": "https://www.youtube.com/@Me-at-the-zoo/featured",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=Ei-9i3p1Z1Y",
+        "title": "https://www.youtube.com/watch?v=Ei-9i3p1Z1Y",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=hixd2jJ_dWQ",
+        "title": "https://www.youtube.com/watch?v=hixd2jJ_dWQ",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=cg92c2FXCqU",
+        "title": "https://www.youtube.com/watch?v=cg92c2FXCqU",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=jNQXAC9IVRw&vl=en",
+        "title": "https://www.youtube.com/watch?v=jNQXAC9IVRw&vl=en",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=OaGwyCSw0bo",
+        "title": "https://www.youtube.com/watch?v=OaGwyCSw0bo",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=P22QdHbC7s4",
+        "title": "https://www.youtube.com/watch?v=P22QdHbC7s4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=YBOwtZMeAm4",
+        "title": "https://www.youtube.com/watch?v=YBOwtZMeAm4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://m.youtube.com/watch?v=HRQDIHPbBhY",
+        "title": "https://m.youtube.com/watch?v=HRQDIHPbBhY",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=nwNJHgXjXQk",
+        "title": "https://www.youtube.com/watch?v=nwNJHgXjXQk",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=dcZY3yi8Xbw",
+        "title": "https://www.youtube.com/watch?v=dcZY3yi8Xbw",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=PHOvywxFHzc",
+        "title": "https://www.youtube.com/watch?v=PHOvywxFHzc",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=ydEMNzksm2M",
+        "title": "https://www.youtube.com/watch?v=ydEMNzksm2M",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/youtube/comments/1k41ng6/in_3_days_jaweds_me_at_the_zoo_the_first_uploaded",
+        "title": "In 3 days, jawed's \"me at the zoo\", the first uploaded ...",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.instagram.com/p/DXegKDoEyq5",
+        "title": "The first video, showing YouTube cofounder Jawed Karim's ...",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.facebook.com/EvanCarmichaelcom/posts/did-you-know-youtubes-very-first-video-was-only-18-seconds-longin-2005-a-guy-nam/1590775962410721",
+        "title": "Did you know YouTube's very first video was only 18 ...",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reddit.com/r/sandiego/comments/1k5ytzg/history_was_made_at_the_san_diego_zoo_20_years",
+        "title": "History was made at the San Diego Zoo — 20 years ago ...",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://blog.youtube/news-and-events/va-museum-youtube-first-video",
+        "title": "How the V&A is preserving the history of YouTube and early internet culture",
+        "snippet": "The 19-second clip of YouTube co-founder Jawed Karim, filmed on a low-res camera in 2005 is widely considered a foundational moment in the rise of user-generat…",
+        "published_at": null
+      },
+      {
+        "url": "https://blog.youtube/news-and-events/youtube-at-15-my-personal-journey",
+        "title": "2",
+        "snippet": "2. YouTube at 15: My personal journey and the road ahead (Susan Wojcicki, Feb 14, 2020) — Notes that YouTube was registered on February 14, 2005, and that “Me …",
+        "published_at": null
+      },
+      {
+        "url": "https://blog.youtube/news-and-events/youtube-to-z-happybirthdayyoutube",
+        "title": "3",
+        "snippet": "3. YouTube A to Z HappyBirthdayYouTube (May 28, 2015) — States that YouTube’s story began on Saturday, April 23, 2005, when “Me at the Zoo” was the first video…",
+        "published_at": null
+      },
+      {
+        "url": "https://blog.youtube/intl/de-de/inside-youtube/youtube-von-bis-z-10yearsofyoutube",
+        "title": "4",
+        "snippet": "4. YouTube von A bis Z 10YearsofYouTube (German, May 29, 2015) — Same anniversary post in German: first video “Me at the Zoo” uploaded April 23, 2005, at the S…",
+        "published_at": null
+      },
+      {
+        "url": "https://blog.youtube/intl/pt-br/inside-youtube/15-anos-de-youtube-meu-percurso-pessoal",
+        "title": "5",
+        "snippet": "5. 15 anos de YouTube (Portuguese version of Wojcicki’s post, Feb 14, 2020) — Same facts: domain registered February 14, 2005; first video “Me at the zoo” uplo…",
+        "published_at": null
+      },
+      {
+        "url": "https://blog.youtube/news-and-events/va-museum-youtube-first-video",
+        "title": "How the V&A is preserving the history of YouTube and early internet culture",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://blog.youtube/news-and-events/youtube-at-15-my-personal-journey",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://blog.youtube/news-and-events/youtube-to-z-happybirthdayyoutube",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://blog.youtube/intl/de-de/inside-youtube/youtube-von-bis-z-10yearsofyoutube",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://blog.youtube/intl/pt-br/inside-youtube/15-anos-de-youtube-meu-percurso-pessoal",
+        "title": "5",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://www.youtube.com/watch?v=jNQXAC9IVRw",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 20, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Me_at_the_zoo",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 22, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://www.youtube.com/@jawed",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 21, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…",
+            "retryable": true
+          }
+        ]
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:41:00.922047+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "youtube-me-at-the-zoo",
+    "scores": {
+      "discovery": {
+        "status": "fail",
+        "matched_targets": [],
+        "required": 1
+      },
+      "comments": {
+        "status": "fail",
+        "matched_comments": []
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "discovery:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true,
+    "grader": "v2"
+  }
+}

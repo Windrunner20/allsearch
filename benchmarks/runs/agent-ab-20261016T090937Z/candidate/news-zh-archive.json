@@ -1,0 +1,371 @@
+{
+  "id": "news-zh-archive",
+  "query": "2024 年诺贝尔物理学奖官方摘要中的两位获奖者是谁",
+  "returncode": 0,
+  "elapsed_ms": 67593,
+  "efficiency": {
+    "tool_calls": {
+      "search": 3,
+      "fetch": 1
+    },
+    "total_calls": 4,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 1,
+    "errors": 1
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "balanced",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "nobelprize.org"
+        ],
+        "max_results": 5,
+        "mode": "web",
+        "query": "site:nobelprize.org 2024 Nobel Prize in Physics official summary laureates John Hopfield Geoffrey Hinton 中文 两位获奖者 官方摘要",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 17166
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "laureates names official summary citation",
+        "fresh": false,
+        "max_chars": 12000,
+        "url": "https://www.nobelprize.org/prizes/physics/2024/press-release"
+      },
+      "is_error": true,
+      "ms": 202
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "fast",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "nobelprize.org"
+        ],
+        "max_results": 5,
+        "mode": "web",
+        "query": "site:nobelprize.org/prizes/physics/2024/ \"John J. Hopfield\" \"Geoffrey E. Hinton\" \"foundational discoveries\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 7570
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "fast",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "nobelprize.org"
+        ],
+        "max_results": 5,
+        "mode": "web",
+        "query": "site:nobelprize.org 2024 physics prize summary John Hopfield Geoffrey Hinton",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 9730
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.1\", \"result_id\": \"dddee67733360db6d3652787\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:nobelprize.org 2024 Nobel Prize in Physics official summary laureates John Hopfield Geoffrey Hinton 中文 两位获奖者 官方摘要\", \"answer\": \"Official Nobel Prize sources for the 2024 Physics prize (John J. Hopfield and Geoffrey Hinton). No Chinese-language official summary was found on nobelprize.org; pages are in English (and Swedish for the press release).\\n\\n1. **Press release (official announcement and summary)** — 8 October 2024. Awarded jointly to John J. Hopfield (Princeton) and Geoffrey Hinton (University of Toronto) “for foundational discoveries and inventions that enable machine learning with artificial neural networks.” Hopfield’s associative memory stores and reconstructs patterns; Hinton’s method finds properties in data (e.g. identifying elements in images). Prize: 11 million SEK, shared equally.  \\n   https://www.nobelprize.org/prizes/physics/2024/press-release\\n\\n2. **Prize overview page** — Joint award citation and…\", \"answer_chars\": 1892, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 13, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 17159, \"warning_count\": 1, \"warnings\": [\"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"conditional_supplement\"}], \"result_count\": 5, \"citation_count\": 13, \"results\": [{\"id\": \"r1\", \"title\": \"https://www.nobelprize.org/prizes/physics/2024/hinton/speech/\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024/hinton/speech\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"https://www.nobelprize.org/all-nobel-prizes-2024/\", \"url\": \"https://www.nobelprize.org/all-nobel-prizes-2024\", \"snippet\": \"3. All Nobel Prizes 2024 (short popular summary) — “They used physics to find patterns in information”: Hopfield’s structure stores and reconstructs informatio…\", \"providers\": [\"xai\"]}, {\"id\": \"r3\", \"title\": \"https://www.nobelprize.org/prizes/physics/2024/hopfield/lecture/?trk=article-ssr-frontend-pulse_little-text-block\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024/hopfield/lecture?trk=article-ssr-frontend-pulse_little-text-block\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"https://www.nobelprize.org/page/2/?np-content-type=speech\", \"url\": \"https://www.nobelprize.org/page/2?np-content-type=speech\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r5\", \"title\": \"https://www.nobelprize.org/prizes/physics/2024/\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024\", \"snippet\": \"2. Prize overview page — Joint award citation and links to related materials.\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024/hinton/speech\", \"title\": \"https://www.nobelprize.org/prizes/physics/2024/hinton/speech/\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.nobelprize.org/all-nobel-prizes-2024\", \"title\": \"https://www.nobelprize.org/all-nobel-prizes-2024/\", \"result_item_id\": \"r2\", \"providers\": [\"xai\"]}, {\"id\": \"c3\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024/hopfield/lecture?trk=article-ssr-frontend-pulse_little-text-block\", \"title\": \"https://www.nobelprize.org/prizes/physics/2024/hopfield/lecture/?trk=article-ssr-frontend-pulse_little-text-block\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://www.nobelprize.org/page/2?np-content-type=speech\", \"title\": \"https://www.nobelprize.org/page/2/?np-content-type=speech\", \"result_item_id\": \"r4\", \"providers\": [\"xai\"]}, {\"id\": \"c5\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024\", \"title\": \"https://www.nobelprize.org/prizes/physics/2024/\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024/hopfield\", \"title\": \"https://www.nobelprize.org/prizes/physics/2024/hopfield/\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024/press-release\", \"title\": \"https://www.nobelprize.org/prizes/physics/2024/press-release\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024/ceremony-speech\", \"title\": \"https://www.nobelprize.org/prizes/physics/2024/ceremony-speech/\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://www.nobelprize.org/page/5?np-year=2024\", \"title\": \"https://www.nobelprize.org/page/5/?np-year=2024\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024/hopfield/lecture\", \"title\": \"https://www.nobelprize.org/prizes/physics/2024/hopfield/lecture/\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024/hinton\", \"title\": \"https://www.nobelprize.org/prizes/physics/2024/hinton/\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024/hopfield/interview\", \"title\": \"https://www.nobelprize.org/prizes/physics/2024/hopfield/interview/\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024/hopfield/photo-gallery?gallery_style=page\", \"title\": \"https://www.nobelprize.org/prizes/physics/2024/hopfield/photo-gallery/?gallery_style=page\", \"result_item_id\": null, \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"dddee67733360db6d3652787\"}, \"coverage\": {\"status\": \"not_applicable\", \"requirements\": [], \"requirements_total\": 0}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 13, \"new_pages_read\": 0, \"seen_urls\": 13, \"pages_read\": 0, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"1b9c67adc0499f131e1f8463\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024/press-release\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 15, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"1b9c67adc0499f131e1f8463\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 1, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 13, \"pages_read\": 0, \"calls_without_new_evidence\": 1}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"9ce127910632067b3a53d3a7\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:nobelprize.org/prizes/physics/2024/ \\\"John J. Hopfield\\\" \\\"Geoffrey E. Hinton\\\" \\\"foundational discoveries\\\"\", \"answer\": \"Relevant pages from nobelprize.org on the 2024 Physics Prize:\\n\\n1. **Press release** — The Nobel Prize in Physics 2024 was awarded jointly to John J. Hopfield (Princeton) and Geoffrey Hinton (University of Toronto) “for foundational discoveries and inventions that enable machine learning with artificial neural networks.” Hopfield’s associative memory (Hopfield network) and Hinton’s Boltzmann machine are described as physics-based foundations of modern machine learning.  \\n   https://www.nobelprize.org/prizes/physics/2024/press-release\\n\\n2. **Prize overview** — Official summary: awarded jointly to John J. Hopfield and Geoffrey Hinton “for foundational discoveries and inventions that enable machine learning with artificial neural networks.”  \\n   https://www.nobelprize.org/prizes/physics/2024/\\n…\", \"answer_chars\": 1644, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 6, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 7564, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"skipped\", \"reason\": \"primary_sufficient\"}], \"result_count\": 5, \"citation_count\": 6, \"results\": [{\"id\": \"r1\", \"title\": \"https://www.nobelprize.org/prizes/physics/2024/\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024\", \"snippet\": \"2. Prize overview — Official summary: awarded jointly to John J. Hopfield and Geoffrey Hinton “for foundational discoveries and inventions that enable machine …\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"https://www.nobelprize.org/prizes/physics/2024/press-release\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024/press-release\", \"snippet\": \"1. Press release — The Nobel Prize in Physics 2024 was awarded jointly to John J. Hopfield (Princeton) and Geoffrey Hinton (University of Toronto) “for foundat…\", \"providers\": [\"xai\"]}, {\"id\": \"r3\", \"title\": \"https://www.nobelprize.org/stories/article-ai/\", \"url\": \"https://www.nobelprize.org/stories/article-ai\", \"snippet\": \"3. Article: Curiosity and colliding disciplines — Explains Hopfield’s spin-based associative memory and Hinton’s Boltzmann machine, and notes the October 2024 …\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"https://www.nobelprize.org/prizes/physics/2024/hopfield/\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024/hopfield\", \"snippet\": \"5. John J. Hopfield – Facts — Lists the shared prize motivation and summarizes his 1982 network for storing and recreating patterns, inspired by physics models…\", \"providers\": [\"xai\"]}, {\"id\": \"r5\", \"title\": \"https://www.nobelprize.org/prizes/physics/2024/ceremony-speech/\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024/ceremony-speech\", \"snippet\": \"4. Award ceremony speech — Describes Hopfield’s 1982 associative-memory model and Hinton’s Boltzmann machine, and quotes the motivation: “for foundational disc…\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024\", \"title\": \"https://www.nobelprize.org/prizes/physics/2024/\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024/press-release\", \"title\": \"https://www.nobelprize.org/prizes/physics/2024/press-release\", \"result_item_id\": \"r2\", \"providers\": [\"xai\"]}, {\"id\": \"c3\", \"url\": \"https://www.nobelprize.org/stories/article-ai\", \"title\": \"https://www.nobelprize.org/stories/article-ai/\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024/hopfield\", \"title\": \"https://www.nobelprize.org/prizes/physics/2024/hopfield/\", \"result_item_id\": \"r4\", \"providers\": [\"xai\"]}, {\"id\": \"c5\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024/ceremony-speech\", \"title\": \"https://www.nobelprize.org/prizes/physics/2024/ceremony-speech/\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024/hopfield/lecture?trk=article-ssr-frontend-pulse_little-text-block\", \"title\": \"https://www.nobelprize.org/prizes/physics/2024/hopfield/lecture/?trk=article-ssr-frontend-pulse_little-text-block\", \"result_item_id\": null, \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"9ce127910632067b3a53d3a7\"}, \"coverage\": {\"status\": \"not_applicable\", \"requirements\": [], \"requirements_total\": 0}, \"session\": {\"calls\": {\"search\": 2, \"fetch\": 1, \"read_result\": 0}, \"new_urls\": 1, \"new_pages_read\": 0, \"seen_urls\": 14, \"pages_read\": 0, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"f67dce14302aa3df131458b3\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:nobelprize.org 2024 physics prize summary John Hopfield Geoffrey Hinton\", \"answer\": \"Here are five relevant results from nobelprize.org on the 2024 Physics Prize for John Hopfield and Geoffrey Hinton.\\n\\n1. **Press release (8 October 2024)** — The Royal Swedish Academy of Sciences awarded the 2024 Nobel Prize in Physics jointly to John J. Hopfield (Princeton) and Geoffrey Hinton (University of Toronto) “for foundational discoveries and inventions that enable machine learning with artificial neural networks.” Hopfield created an associative memory that stores and reconstructs patterns; Hinton used the Hopfield network as the basis for the Boltzmann machine, drawing on statistical physics. Prize: 11 million SEK, shared equally.  \\n   https://www.nobelprize.org/prizes/physics/2024/press-release [[1]](https://www.nobelprize.org/prizes/physics/2024/press-release)\\n\\n2. **Prize over…\", \"answer_chars\": 2490, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 5, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 9722, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"skipped\", \"reason\": \"primary_sufficient\"}], \"result_count\": 5, \"citation_count\": 5, \"results\": [{\"id\": \"r1\", \"title\": \"1\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024/press-release\", \"snippet\": \"1. Press release (8 October 2024) — The Royal Swedish Academy of Sciences awarded the 2024 Nobel Prize in Physics jointly to John J. Hopfield (Princeton) and G…\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"2\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024\", \"snippet\": \"2. Prize overview page — States that the 2024 Nobel Prize in Physics was awarded jointly to John J. Hopfield and Geoffrey Hinton “for foundational discoveries …\", \"providers\": [\"xai\"]}, {\"id\": \"r3\", \"title\": \"3\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024/hopfield\", \"snippet\": \"3. John J. Hopfield – Facts — Born 15 July 1933, Chicago; affiliation Princeton University; prize share 1/2. In 1982 he invented a network that saves and recre…\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"4\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024/hinton\", \"snippet\": \"4. Geoffrey Hinton – Facts — Born 6 December 1947, London; affiliation University of Toronto; prize share 1/2. In 1983–1985 he used statistical physics to crea…\", \"providers\": [\"xai\"]}, {\"id\": \"r5\", \"title\": \"5\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024/ceremony-speech\", \"snippet\": \"5. Award ceremony speech — Describes Hopfield’s 1982 dynamical model of associative memory (binary nodes, weighted sums, linked to magnetic moments in solids) …\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024/press-release\", \"title\": \"1\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024\", \"title\": \"2\", \"result_item_id\": \"r2\", \"providers\": [\"xai\"]}, {\"id\": \"c3\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024/hopfield\", \"title\": \"3\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024/hinton\", \"title\": \"4\", \"result_item_id\": \"r4\", \"providers\": [\"xai\"]}, {\"id\": \"c5\", \"url\": \"https://www.nobelprize.org/prizes/physics/2024/ceremony-speech\", \"title\": \"5\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"f67dce14302aa3df131458b3\"}, \"coverage\": {\"status\": \"not_applicable\", \"requirements\": [], \"requirements_total\": 0}, \"session\": {\"calls\": {\"search\": 3, \"fetch\": 1, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 14, \"pages_read\": 0, \"calls_without_new_evidence\": 1}}"
+  ],
+  "answer": "2024 年诺贝尔物理学奖官方摘要中的两位获奖者是：\n\n- **约翰·J·霍普菲尔德（John J. Hopfield）**\n- **杰弗里·辛顿（Geoffrey Hinton）**\n\n官方授奖理由是：**“for foundational discoveries and inventions that enable machine learning with artificial neural networks”**（“因在使用人工神经网络实现机器学习方面的基础性发现和发明”）。\n\n原始链接：\n\n- [诺贝尔奖官方新闻稿](https://www.nobelprize.org/prizes/physics/2024/press-release)\n- [诺贝尔奖官方物理学奖页面](https://www.nobelprize.org/prizes/physics/2024/)",
+  "observation": {
+    "id": "news-zh-archive",
+    "answer": "2024 年诺贝尔物理学奖官方摘要中的两位获奖者是：\n\n- **约翰·J·霍普菲尔德（John J. Hopfield）**\n- **杰弗里·辛顿（Geoffrey Hinton）**\n\n官方授奖理由是：**“for foundational discoveries and inventions that enable machine learning with artificial neural networks”**（“因在使用人工神经网络实现机器学习方面的基础性发现和发明”）。\n\n原始链接：\n\n- [诺贝尔奖官方新闻稿](https://www.nobelprize.org/prizes/physics/2024/press-release)\n- [诺贝尔奖官方物理学奖页面](https://www.nobelprize.org/prizes/physics/2024/)",
+    "results": [
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024/hinton/speech",
+        "title": "https://www.nobelprize.org/prizes/physics/2024/hinton/speech/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/all-nobel-prizes-2024",
+        "title": "https://www.nobelprize.org/all-nobel-prizes-2024/",
+        "snippet": "3. All Nobel Prizes 2024 (short popular summary) — “They used physics to find patterns in information”: Hopfield’s structure stores and reconstructs informatio…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024/hopfield/lecture?trk=article-ssr-frontend-pulse_little-text-block",
+        "title": "https://www.nobelprize.org/prizes/physics/2024/hopfield/lecture/?trk=article-ssr-frontend-pulse_little-text-block",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/page/2?np-content-type=speech",
+        "title": "https://www.nobelprize.org/page/2/?np-content-type=speech",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024",
+        "title": "https://www.nobelprize.org/prizes/physics/2024/",
+        "snippet": "2. Prize overview page — Joint award citation and links to related materials.",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024/hinton/speech",
+        "title": "https://www.nobelprize.org/prizes/physics/2024/hinton/speech/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/all-nobel-prizes-2024",
+        "title": "https://www.nobelprize.org/all-nobel-prizes-2024/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024/hopfield/lecture?trk=article-ssr-frontend-pulse_little-text-block",
+        "title": "https://www.nobelprize.org/prizes/physics/2024/hopfield/lecture/?trk=article-ssr-frontend-pulse_little-text-block",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/page/2?np-content-type=speech",
+        "title": "https://www.nobelprize.org/page/2/?np-content-type=speech",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024",
+        "title": "https://www.nobelprize.org/prizes/physics/2024/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024/hopfield",
+        "title": "https://www.nobelprize.org/prizes/physics/2024/hopfield/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024/press-release",
+        "title": "https://www.nobelprize.org/prizes/physics/2024/press-release",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024/ceremony-speech",
+        "title": "https://www.nobelprize.org/prizes/physics/2024/ceremony-speech/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/page/5?np-year=2024",
+        "title": "https://www.nobelprize.org/page/5/?np-year=2024",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024/hopfield/lecture",
+        "title": "https://www.nobelprize.org/prizes/physics/2024/hopfield/lecture/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024/hinton",
+        "title": "https://www.nobelprize.org/prizes/physics/2024/hinton/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024/hopfield/interview",
+        "title": "https://www.nobelprize.org/prizes/physics/2024/hopfield/interview/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024/hopfield/photo-gallery?gallery_style=page",
+        "title": "https://www.nobelprize.org/prizes/physics/2024/hopfield/photo-gallery/?gallery_style=page",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024",
+        "title": "https://www.nobelprize.org/prizes/physics/2024/",
+        "snippet": "2. Prize overview — Official summary: awarded jointly to John J. Hopfield and Geoffrey Hinton “for foundational discoveries and inventions that enable machine …",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024/press-release",
+        "title": "https://www.nobelprize.org/prizes/physics/2024/press-release",
+        "snippet": "1. Press release — The Nobel Prize in Physics 2024 was awarded jointly to John J. Hopfield (Princeton) and Geoffrey Hinton (University of Toronto) “for foundat…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/stories/article-ai",
+        "title": "https://www.nobelprize.org/stories/article-ai/",
+        "snippet": "3. Article: Curiosity and colliding disciplines — Explains Hopfield’s spin-based associative memory and Hinton’s Boltzmann machine, and notes the October 2024 …",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024/hopfield",
+        "title": "https://www.nobelprize.org/prizes/physics/2024/hopfield/",
+        "snippet": "5. John J. Hopfield – Facts — Lists the shared prize motivation and summarizes his 1982 network for storing and recreating patterns, inspired by physics models…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024/ceremony-speech",
+        "title": "https://www.nobelprize.org/prizes/physics/2024/ceremony-speech/",
+        "snippet": "4. Award ceremony speech — Describes Hopfield’s 1982 associative-memory model and Hinton’s Boltzmann machine, and quotes the motivation: “for foundational disc…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024",
+        "title": "https://www.nobelprize.org/prizes/physics/2024/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024/press-release",
+        "title": "https://www.nobelprize.org/prizes/physics/2024/press-release",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/stories/article-ai",
+        "title": "https://www.nobelprize.org/stories/article-ai/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024/hopfield",
+        "title": "https://www.nobelprize.org/prizes/physics/2024/hopfield/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024/ceremony-speech",
+        "title": "https://www.nobelprize.org/prizes/physics/2024/ceremony-speech/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024/hopfield/lecture?trk=article-ssr-frontend-pulse_little-text-block",
+        "title": "https://www.nobelprize.org/prizes/physics/2024/hopfield/lecture/?trk=article-ssr-frontend-pulse_little-text-block",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024/press-release",
+        "title": "1",
+        "snippet": "1. Press release (8 October 2024) — The Royal Swedish Academy of Sciences awarded the 2024 Nobel Prize in Physics jointly to John J. Hopfield (Princeton) and G…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024",
+        "title": "2",
+        "snippet": "2. Prize overview page — States that the 2024 Nobel Prize in Physics was awarded jointly to John J. Hopfield and Geoffrey Hinton “for foundational discoveries …",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024/hopfield",
+        "title": "3",
+        "snippet": "3. John J. Hopfield – Facts — Born 15 July 1933, Chicago; affiliation Princeton University; prize share 1/2. In 1982 he invented a network that saves and recre…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024/hinton",
+        "title": "4",
+        "snippet": "4. Geoffrey Hinton – Facts — Born 6 December 1947, London; affiliation University of Toronto; prize share 1/2. In 1983–1985 he used statistical physics to crea…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024/ceremony-speech",
+        "title": "5",
+        "snippet": "5. Award ceremony speech — Describes Hopfield’s 1982 dynamical model of associative memory (binary nodes, weighted sums, linked to magnetic moments in solids) …",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024/press-release",
+        "title": "1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024/hopfield",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024/hinton",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024/ceremony-speech",
+        "title": "5",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://www.nobelprize.org/prizes/physics/2024/press-release",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 15, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…",
+            "retryable": true
+          }
+        ]
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:33:37.025065+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "news-zh-archive",
+    "scores": {
+      "discovery": {
+        "status": "fail",
+        "matched_targets": [],
+        "required": 1
+      },
+      "reading": {
+        "status": "fail"
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "discovery:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true,
+    "grader": "v2"
+  }
+}

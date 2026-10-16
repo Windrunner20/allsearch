@@ -1,0 +1,2185 @@
+{
+  "id": "hn-comment-dissent",
+  "query": "In the Hacker News thread about SQLite as an application file format, find a comment that says the user interface should not wait on disk before responding",
+  "returncode": 124,
+  "elapsed_ms": 240054,
+  "efficiency": {
+    "tool_calls": {
+      "search": 4,
+      "fetch": 2,
+      "read_result": 3
+    },
+    "total_calls": 9,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 3,
+    "errors": 0
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "news.ycombinator.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:news.ycombinator.com SQLite as an application file format user interface should not wait on disk before responding",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 40787
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "comments containing user interface, UI, wait, disk, responding, respond, latency, asynchronous",
+        "fresh": false,
+        "max_chars": 100000,
+        "url": "https://news.ycombinator.com/item?id=40655974"
+      },
+      "is_error": false,
+      "ms": 646
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": [
+          "content",
+          "comments",
+          "thread"
+        ],
+        "limit": 100000,
+        "max_bytes": 16384,
+        "offset": 0,
+        "result_id": "57016c3906ffa4c2b1606f0d"
+      },
+      "is_error": false,
+      "ms": 15
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": [
+          "comments"
+        ],
+        "limit": 100,
+        "max_bytes": 16384,
+        "offset": 5,
+        "result_id": "57016c3906ffa4c2b1606f0d"
+      },
+      "is_error": false,
+      "ms": 4
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": [
+          "comments"
+        ],
+        "limit": 100,
+        "max_bytes": 16384,
+        "offset": 30,
+        "result_id": "57016c3906ffa4c2b1606f0d"
+      },
+      "is_error": false,
+      "ms": 4
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "news.ycombinator.com"
+        ],
+        "max_results": 20,
+        "mode": "web",
+        "query": "site:news.ycombinator.com/item?id=40655974 \"wait\" \"disk\" \"user interface\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 32536
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "news.ycombinator.com"
+        ],
+        "max_results": 20,
+        "mode": "web",
+        "query": "site:news.ycombinator.com \"should not wait\" disk interface SQLite",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 37187
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "news.ycombinator.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:news.ycombinator.com \"SQLite as an application file format\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 14363
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "comments containing user interface, UI, wait, disk, responding, response, latency, asynchronous, sync",
+        "fresh": false,
+        "max_chars": 100000,
+        "url": "https://news.ycombinator.com/item?id=46076642"
+      },
+      "is_error": false,
+      "ms": 718
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.1\", \"result_id\": \"26c593af72207c2c7b94304f\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:news.ycombinator.com SQLite as an application file format user interface should not wait on disk before responding\", \"answer\": \"The exact wording “user interface should not wait on disk before responding” did not show up in these Hacker News hits. Closest threads are discussions of SQLite as an application file format, plus related disk/latency notes.\\n\\n1. **[The killer feature for me with SQLite is as an application file format](https://news.ycombinator.com/item?id=40655974)** — Thread on [sqlite.org/appfileformat.html](h…\", \"answer_chars\": 3765, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 1, \"cross_provider_matches\": 1, \"pages_fetched\": 3, \"primary_citation_count\": 35, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 40776, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"hackernews\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"site_native\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 42, \"results\": [{\"id\": \"r1\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=45782743\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=50063427\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=37604307\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=50052163\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=20777183\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r6\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=49729412\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=49977177\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r8\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=42965714\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r9\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=49922569\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r10\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/front?day=2026-10-15\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://news.ycombinator.com/item?id=45782743\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://news.ycombinator.com/item?id=50063427\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://news.ycombinator.com/item?id=37604307\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://news.ycombinator.com/item?id=50052163\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://news.ycombinator.com/item?id=20777183\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://news.ycombinator.com/item?id=49729412\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://news.ycombinator.com/item?id=49977177\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"tavily\"]}, {\"id\": \"c8\", \"url\": \"https://news.ycombinator.com/item?id=42965714\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://news.ycombinator.com/item?id=49922569\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"tavily\"]}, {\"id\": \"c10\", \"url\": \"https://news.ycombinator.com/front?day=2026-10-15\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://news.ycombinator.com/item?id=49395628\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://news.ycombinator.com/item?id=39797104\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://news.ycombinator.com/item?id=44569287\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://news.ycombinator.com/item?id=45134010\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://news.ycombinator.com/item?id=48046007\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://news.ycombinator.com/item?id=42965198\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://news.ycombinator.com/item?id=47046185\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://news.ycombinator.com/item?id=46076642\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://news.ycombinator.com/item?id=47874647\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"https://news.ycombinator.com/item?id=40655974\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"https://news.ycombinator.com/item?id=45132498\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"https://news.ycombinator.com/item?id=42826171\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c23\", \"url\": \"https://news.ycombinator.com/item?id=33381514\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c24\", \"url\": \"https://news.ycombinator.com/item?id=26765422\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c25\", \"url\": \"https://news.ycombinator.com/item?id=42382126\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c26\", \"url\": \"https://news.ycombinator.com/item?id=16982752\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c27\", \"url\": \"https://news.ycombinator.com/item?id=44565652\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c28\", \"url\": \"https://news.ycombinator.com/item?id=47888037\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c29\", \"url\": \"https://news.ycombinator.com/item?id=47874837\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c30\", \"url\": \"https://news.ycombinator.com/item?id=50009295\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c31\", \"url\": \"https://news.ycombinator.com/item?id=48045580\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c32\", \"url\": \"https://news.ycombinator.com/item?id=46276002\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c33\", \"url\": \"https://news.ycombinator.com/item?id=47534283\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c34\", \"url\": \"https://news.ycombinator.com/item?id=44671740\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c35\", \"url\": \"https://news.ycombinator.com/item?id=49421475\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c36\", \"url\": \"https://news.ycombinator.com/item?id=45014131\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c37\", \"url\": \"https://news.ycombinator.com/item?id=31475744\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c38\", \"url\": \"https://news.ycombinator.com/item?id=48954157\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c39\", \"url\": \"https://news.ycombinator.com/item?id=47970222\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c40\", \"url\": \"https://news.ycombinator.com/item?id=49998350\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c41\", \"url\": \"https://news.ycombinator.com/item?id=50049508\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c42\", \"url\": \"https://news.ycombinator.com/item?id=50048312\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"26c593af72207c2c7b94304f\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"Hacker News\", \"satisfied\": true, \"detail\": \"41 content page(s), e.g. https://news.ycombinator.com/item?id=45782743\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 42, \"new_pages_read\": 3, \"seen_urls\": 42, \"pages_read\": 3, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"57016c3906ffa4c2b1606f0d\", \"kind\": \"fetch\", \"status\": \"ok\", \"url\": \"https://news.ycombinator.com/item?id=40655974\", \"final_url\": \"https://news.ycombinator.com/item?id=40655974\", \"title\": \"\", \"provider\": \"hackernews\", \"content_preview\": \"# https://news.ycombinator.com/item?id=40655974\\n\\nby OskarS · 2024-06-12T08:53:03.000Z · via hn.algolia.com/api/v1/items (story 40654734)\\n\\nThe killer feature for me with SQLite is as an application file format: https://sqlite.org/appfileformat.html\\nIt has SO MANY advantages over every other solution. It can do the \\\"just a bundle of files\\\" thing, but it can also do all this rich data as well. And unlike most \\\"just a bundle of files\\\" formats, it's incrementally updatable, it's so good. We're using this in production right now and couldn't be happier with it, wouldn't dream of using anything else at this point.\\nOne notable application that uses SQLite for this is Audacity: all the stuff you record is streamed into a SQLite database (the project file). This is a huge reason why Audacity is so good for recording long sessions, and why it's so resilient against crashes and failures.\\n\\n## Comments (63 shown of 63)\\n\\n### [40656594] kabanka · 2024-06-12T10:46:50.000Z · reply to 40655974\\nhttps://ne\", \"content_chars\": 28343, \"truncated\": true, \"errors\": [], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"57016c3906ffa4c2b1606f0d\", \"fields\": [\"content\"], \"comment_fields\": [\"comments\"]}, \"thread\": {\"platform\": \"hackernews\", \"url\": \"https://news.ycombinator.com/item?id=40655974\", \"title\": \"\", \"status\": \"comments_read\", \"comments_total\": 63, \"comments_read\": 63, \"top_comments\": [{\"id\": \"40656594\", \"author\": \"kabanka\", \"text\": \"Also, the in-memory feature (‘:memory:’) allows you to start working “on the fly” and saving the work to disk later.\\nReally convenient for the user, zero cost for the developer (same API for in-memory/fs db and smooth transition between th…\"}, {\"id\": \"40724077\", \"author\": \"jhanschoo\", \"text\": \"Thanks, I did a quick google for something like this before writing my comment, but your link did not come up.\"}]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 1, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 1, \"seen_urls\": 42, \"pages_read\": 4, \"calls_without_new_evidence\": 0}}",
+    "{\"result_id\": \"57016c3906ffa4c2b1606f0d\", \"kind\": \"fetch\", \"fields\": [\"content\", \"comments\", \"thread\"], \"offset\": 0, \"next_offset\": 5, \"next_offsets\": {\"content\": 247, \"comments\": 5}, \"truncated\": true, \"data\": {\"content\": \"# https://news.ycombinator.com/item?id=40655974\\n\\nby OskarS · 2024-06-12T08:53:03.000Z · via hn.algolia.com/api/v1/items (story 40654734)\\n\\nThe killer feature for me with SQLite is as an application file format: https://sqlite.org/appfileformat.html\", \"content_chars\": 28343, \"comments\": [{\"id\": \"40656594\", \"author\": \"kabanka\", \"created_at\": \"2024-06-12T10:46:50.000Z\", \"text\": \"Also, the in-memory feature (‘:memory:’) allows you to start working “on the fly” and saving the work to disk later.\\nReally convenient for the user, zero cost for the developer (same API for in-memory/fs db and smooth transition between them).\", \"url\": \"https://news.ycombinator.com/item?id=40656594\", \"parent_id\": \"40655974\", \"depth\": 0, \"points\": null, \"relevance\": 5.485}, {\"id\": \"40724077\", \"author\": \"jhanschoo\", \"created_at\": \"2024-06-19T02:04:16.000Z\", \"text\": \"Thanks, I did a quick google for something like this before writing my comment, but your link did not come up.\", \"url\": \"https://news.ycombinator.com/item?id=40724077\", \"parent_id\": \"40657777\", \"depth\": 2, \"points\": null, \"relevance\": 5.16}, {\"id\": \"40660371\", \"author\": \"fwip\", \"created_at\": \"2024-06-12T17:02:32.000Z\", \"text\": \"> If you're serving it uncompressed\\nThat 847 KB is actually the size of the (compressed) zip file, but it does contain other files. The compressed WASM + the JS to load it is probably about 500K, depending on the specifics of compression & minification.\", \"url\": \"https://news.ycombinator.com/item?id=40660371\", \"parent_id\": \"40659300\", \"depth\": 5, \"points\": null, \"relevance\": 4.284}, {\"id\": \"40657079\", \"author\": \"fauigerzigerk\", \"created_at\": \"2024-06-12T12:00:00.000Z\", \"text\": \"Those journal/wal files create a number of potential issues for user visible application files. E.g. a user could copy a database file into a directory that already has an old journal file, corrupting the database [1].\\nOr users could simply get confused about what to do with those files and contact support a million times just to ask why these files exist, whether they need to be copied as well, why they are getting large, etc.\\nThese issues can be worked around, but I wonder how many apps that use SQLite actually bother doing that. Clearly not all of them [2].\\nAvoiding file corruption is non-…\", \"url\": \"https://news.ycombinator.com/item?id=40657079\", \"parent_id\": \"40656495\", \"depth\": 1, \"points\": null, \"relevance\": 3.112}, {\"id\": \"40668120\", \"author\": \"jitl\", \"created_at\": \"2024-06-13T11:09:06.000Z\", \"text\": \"They said 1.0 means “we aren’t going to break the disk format backwards compatibility anymore” other than that, it’s just a number and doesn’t have any power to make the software more reliable. It really depends on their priorities how much they’ll actually stabilize my use-case. I’ll probably check back in a year and see if things improved.\", \"url\": \"https://news.ycombinator.com/item?id=40668120\", \"parent_id\": \"40662007\", \"depth\": 5, \"points\": null, \"relevance\": 2.59}], \"comments_total\": 63, \"comments_relevant\": 11, \"thread\": {\"platform\": \"hackernews\", \"url\": \"https://news.ycombinator.com/item?id=40655974\", \"thread_id\": \"40655974\", \"title\": \"\", \"author\": \"OskarS\", \"created_at\": \"2024-06-12T08:53:03.000Z\", \"body\": \"The killer feature for me with SQLite is as an application file format: https://sqlite.org/appfileformat.html\\nIt has SO MANY advantages over every other solution. It can do the \\\"just a bundle of files\\\" thing, but it can also do all this rich data as well. And unlike most \\\"just a bundle of files\\\" formats, it's incrementally updatable, it's so good. We're using this in production right now and couldn't be happier with it, wouldn't dream of using anything else at this point.\\nOne notable application that uses SQLite for this is Audacity: all the stuff you record is streamed into a SQLite database…\", \"status\": \"comments_read\", \"comments_total\": 63, \"comments\": [{\"id\": \"40656594\", \"author\": \"kabanka\", \"created_at\": \"2024-06-12T10:46:50.000Z\", \"text\": \"Also, the in-memory feature (‘:memory:’) allows you to start working “on the fly” and saving the work to disk later.\\nReally convenient for the user, zero cost for the developer (same API for in-memory/fs db and smooth transition between them).\", \"url\": \"https://news.ycombinator.com/item?id=40656594\", \"parent_id\": \"40655974\", \"depth\": 0, \"points\": null, \"relevance\": 5.485}, {\"id\": \"40724077\", \"author\": \"jhanschoo\", \"created_at\": \"2024-06-19T02:04:16.000Z\", \"text\": \"Thanks, I did a quick google for something like this before writing my comment, but your link did not come up.\", \"url\": \"https://news.ycombinator.com/item?id=40724077\", \"parent_id\": \"40657777\", \"depth\": 2, \"points\": null, \"relevance\": 5.16}, {\"id\": \"40660371\", \"author\": \"fwip\", \"created_at\": \"2024-06-12T17:02:32.000Z\", \"text\": \"> If you're serving it uncompressed\\nThat 847 KB is actually the size of the (compressed) zip file, but it does contain other files. The compressed WASM + the JS to load it is probably about 500K, depending on the specifics of compression & minification.\", \"url\": \"https://news.ycombinator.com/item?id=40660371\", \"parent_id\": \"40659300\", \"depth\": 5, \"points\": null, \"relevance\": 4.284}, {\"id\": \"40657079\", \"author\": \"fauigerzigerk\", \"created_at\": \"2024-06-12T12:00:00.000Z\", \"text\": \"Those journal/wal files create a number of potential issues for user visible application files. E.g. a user could copy a database file into a directory that already has an old journal file, corrupting the database [1].\\nOr users could simply get confused about what to do with those files and contact support a million times just to ask why these files exist, whether they need to be copied as well, why they are getting large, etc.\\nThese issues can be worked around, but I wonder how many apps that use SQLite actually bother doing that. Clearly not all of them [2].\\nAvoiding file corruption is non-…\", \"url\": \"https://news.ycombinator.com/item?id=40657079\", \"parent_id\": \"40656495\", \"depth\": 1, \"points\": null, \"relevance\": 3.112}, {\"id\": \"40668120\", \"author\": \"jitl\", \"created_at\": \"2024-06-13T11:09:06.000Z\", \"text\": \"They said 1.0 means “we aren’t going to break the disk format backwards compatibility anymore” other than that, it’s just a number and doesn’t have any power to make the software more reliable. It really depends on their priorities how much they’ll actually stabilize my use-case. I’ll probably check back in a year and see if things improved.\", \"url\": \"https://news.ycombinator.com/item?id=40668120\", \"parent_id\": \"40662007\", \"depth\": 5, \"points\": null, \"relevance\": 2.59}, {\"id\": \"40656935\", \"author\": \"andyferris\", \"created_at\": \"2024-06-12T11:42:49.000Z\", \"text\": \"Arrow isn’t great at random insertion and deletion, as each column is a contiguous array. If it’s on disk those arrays are probably packed tightly together, so you can’t even append rows.\\n(I have an idea to implement an LSM tree where each layer is an arrow file, which should allow for faster mutations while maintaining a lot of the benefits of arrow. But I haven’t got around to it).\", \"url\": \"https://news.ycombinator.com/item?id=40656935\", \"parent_id\": \"40656856\", \"depth\": 3, \"points\": null, \"relevance\": 2.442}, {\"id\": \"40666282\", \"author\": \"eternityforest\", \"created_at\": \"2024-06-13T05:35:33.000Z\", \"text\": \"There's one big obvious one. Git and SyncThing.\\nIf the user could benefit from either of those, atomically updated plain files are great. Otherwise, SQLite is perfect.\\nOf course there's always workarounds to use SQLite in memory and dump to SQL code and such.\", \"url\": \"https://news.ycombinator.com/item?id=40666282\", \"parent_id\": \"40656495\", \"depth\": 1, \"points\": null, \"relevance\": 2.406}, {\"id\": \"40662721\", \"author\": \"fauigerzigerk\", \"created_at\": \"2024-06-12T20:28:32.000Z\", \"text\": \">What happens if your application crashes in the middle writing out a JSON file?\\nThe usual way to deal with this is to write to a temporary file and then atomically replace the original file with that temporary file. You could do the same thing with an SQLite database. This is the workaround I was referring to earlier.\\njournal_mode=delete may not be the worst compromise, but I hate the idea of exposing users to potential database corruption, even in a relatively unlikely event.\", \"url\": \"https://news.ycombinator.com/item?id=40662721\", \"parent_id\": \"40662160\", \"depth\": 5, \"points\": null, \"relevance\": 2.012}, {\"id\": \"40657859\", \"author\": \"jitl\", \"created_at\": \"2024-06-12T13:22:56.000Z\", \"text\": \"DuckDB can have massive performance advantage over SQLite for things like aggregates on wide tables or or filters on unindexed columns, with advantage growing with the size of the table. We tried a few head to heads between the two and while we ultimately went with SQLite, we may go back and double write everything to DuckDB to get better performance for those kinds of queries on the same data set.\\nDuckdb can also read / import SQLite natively so we could ingest lazily from sqlite disk -> duckdb.\\nBiggest issue with duckdb is some memory leaks and crashes for the nodejs driver. Seems not produ…\", \"url\": \"https://news.ycombinator.com/item?id=40657859\", \"parent_id\": \"40656961\", \"depth\": 3, \"points\": null, \"relevance\": 1.917}, {\"id\": \"40657249\", \"author\": \"wil421\", \"created_at\": \"2024-06-12T12:20:02.000Z\", \"text\": \">Or users could simply get confused about what to do with those files and contact support a million times just to ask why these files exist, whether they need to be copied as well, why they are getting large, etc.\\nThis reminds me of a college roommate who was dissatisfied with his computer, likely due to malware from sketchy sites. He decided to delete large or suspicious files from window’s system32 folder. By suspicious I mean he didn’t like the file name.\\nHe had to get a new computer later in the semester.\", \"url\": \"https://news.ycombinator.com/item?id=40657249\", \"parent_id\": \"40657079\", \"depth\": 2, \"points\": null, \"relevance\": 1.889}, {\"id\": \"40656809\", \"author\": \"TeMPOraL\", \"created_at\": \"2024-06-12T11:25:01.000Z\", \"text\": \"It is. It's a bit of a hassle, because the git mechanism that allows it is considered sensitive, so all users of your repo will need to separately configure this if they want to use it.\\nBigger problem for me is that none of the code review systems I know of support this. At work, we've been wishing to have something like this in Gerrit, due to multiple SQLite DBs and other binary documents living in the repo, but as far as we can tell, we'd have to modify Gerrit sources directly to make it happen, which IT would frown at and nobody has time for anyway.\", \"url\": \"https://news.ycombinator.com/item?id=40656809\", \"parent_id\": \"40656676\", \"depth\": 3, \"points\": null, \"relevance\": 1.779}, {\"id\": \"40656116\", \"author\": \"therein\", \"created_at\": \"2024-06-12T09:17:27.000Z\", \"text\": \"I don't use Audacity often, maybe once or twice a month at most but stability and snappiness aren't really things I associate with Audacity.\\nNone of the crashes I ever encountered with Audacity has been due to SQLite of course. If anything this article made me want to use SQLite in more of my projects where I need to store local data.\", \"url\": \"https://news.ycombinator.com/item?id=40656116\", \"parent_id\": \"40655974\", \"depth\": 0, \"points\": null, \"relevance\": null}, {\"id\": \"40656141\", \"author\": \"bux93\", \"created_at\": \"2024-06-12T09:21:37.000Z\", \"text\": \"The resiliency against crashes offered by it's SQLite file format is much needed. Because it crashes a lot.\", \"url\": \"https://news.ycombinator.com/item?id=40656141\", \"parent_id\": \"40656116\", \"depth\": 1, \"points\": null, \"relevance\": null}, {\"id\": \"40656191\", \"author\": \"sureglymop\", \"created_at\": \"2024-06-12T09:30:01.000Z\", \"text\": \"I agree. And the best feature for me is \\\"ATTACH DATABASE\\\".\\nThen one can just join together tables from multiple files etc.\", \"url\": \"https://news.ycombinator.com/item?id=40656191\", \"parent_id\": \"40655974\", \"depth\": 0, \"points\": null, \"relevance\": null}, {\"id\": \"40656235\", \"author\": \"romwell\", \"created_at\": \"2024-06-12T09:35:37.000Z\", \"text\": \"Once upon a time, I revamped a binary file format for a propriety industrial-scientific software.\\nThe software was writing vast arrays of numbers into a file, and reading them based on offsets.\\nAs the software (and its data) evolved, versioning became a nightmare.\\nI ended up writing an ORM serializer which read from/wrote into an SQLite DB with a variation on an EAV schema.\\nOne of my favorite projects, result-wise. Reading and writing was clean and efficient; the format was portable, language-agnostic, compact.\\nVersions of the new format were backwards- (and, within reason, forward-) compatib…\", \"url\": \"https://news.ycombinator.com/item?id=40656235\", \"parent_id\": \"40655974\", \"depth\": 0, \"points\": null, \"relevance\": null}, {\"id\": \"40656514\", \"author\": \"gchamonlive\", \"created_at\": \"2024-06-12T10:31:06.000Z\", \"text\": \"For numeric values only, any advantage of using sqlite over let's say parquet with Apache Arrow/duckdb?\", \"url\": \"https://news.ycombinator.com/item?id=40656514\", \"parent_id\": \"40656235\", \"depth\": 1, \"points\": null, \"relevance\": null}, \"… 47 more\"], \"source_api\": \"hn.algolia.com/api/v1/items (story 40654734)\", \"error\": null}}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 1, \"read_result\": 1}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 42, \"pages_read\": 4, \"calls_without_new_evidence\": 1}}",
+    "{\"result_id\": \"57016c3906ffa4c2b1606f0d\", \"kind\": \"fetch\", \"fields\": [\"comments\"], \"offset\": 5, \"next_offset\": 30, \"next_offsets\": {\"comments\": 30}, \"truncated\": true, \"data\": {\"comments\": [{\"id\": \"40656935\", \"author\": \"andyferris\", \"created_at\": \"2024-06-12T11:42:49.000Z\", \"text\": \"Arrow isn’t great at random insertion and deletion, as each column is a contiguous array. If it’s on disk those arrays are probably packed tightly together, so you can’t even append rows.\\n(I have an idea to implement an LSM tree where each layer is an arrow file, which should allow for faster mutations while maintaining a lot of the benefits of arrow. But I haven’t got around to it).\", \"url\": \"https://news.ycombinator.com/item?id=40656935\", \"parent_id\": \"40656856\", \"depth\": 3, \"points\": null, \"relevance\": 2.442}, {\"id\": \"40666282\", \"author\": \"eternityforest\", \"created_at\": \"2024-06-13T05:35:33.000Z\", \"text\": \"There's one big obvious one. Git and SyncThing.\\nIf the user could benefit from either of those, atomically updated plain files are great. Otherwise, SQLite is perfect.\\nOf course there's always workarounds to use SQLite in memory and dump to SQL code and such.\", \"url\": \"https://news.ycombinator.com/item?id=40666282\", \"parent_id\": \"40656495\", \"depth\": 1, \"points\": null, \"relevance\": 2.406}, {\"id\": \"40662721\", \"author\": \"fauigerzigerk\", \"created_at\": \"2024-06-12T20:28:32.000Z\", \"text\": \">What happens if your application crashes in the middle writing out a JSON file?\\nThe usual way to deal with this is to write to a temporary file and then atomically replace the original file with that temporary file. You could do the same thing with an SQLite database. This is the workaround I was referring to earlier.\\njournal_mode=delete may not be the worst compromise, but I hate the idea of exposing users to potential database corruption, even in a relatively unlikely event.\", \"url\": \"https://news.ycombinator.com/item?id=40662721\", \"parent_id\": \"40662160\", \"depth\": 5, \"points\": null, \"relevance\": 2.012}, {\"id\": \"40657859\", \"author\": \"jitl\", \"created_at\": \"2024-06-12T13:22:56.000Z\", \"text\": \"DuckDB can have massive performance advantage over SQLite for things like aggregates on wide tables or or filters on unindexed columns, with advantage growing with the size of the table. We tried a few head to heads between the two and while we ultimately went with SQLite, we may go back and double write everything to DuckDB to get better performance for those kinds of queries on the same data set.\\nDuckdb can also read / import SQLite natively so we could ingest lazily from sqlite disk -> duckdb.\\nBiggest issue with duckdb is some memory leaks and crashes for the nodejs driver. Seems not produ…\", \"url\": \"https://news.ycombinator.com/item?id=40657859\", \"parent_id\": \"40656961\", \"depth\": 3, \"points\": null, \"relevance\": 1.917}, {\"id\": \"40657249\", \"author\": \"wil421\", \"created_at\": \"2024-06-12T12:20:02.000Z\", \"text\": \">Or users could simply get confused about what to do with those files and contact support a million times just to ask why these files exist, whether they need to be copied as well, why they are getting large, etc.\\nThis reminds me of a college roommate who was dissatisfied with his computer, likely due to malware from sketchy sites. He decided to delete large or suspicious files from window’s system32 folder. By suspicious I mean he didn’t like the file name.\\nHe had to get a new computer later in the semester.\", \"url\": \"https://news.ycombinator.com/item?id=40657249\", \"parent_id\": \"40657079\", \"depth\": 2, \"points\": null, \"relevance\": 1.889}, {\"id\": \"40656809\", \"author\": \"TeMPOraL\", \"created_at\": \"2024-06-12T11:25:01.000Z\", \"text\": \"It is. It's a bit of a hassle, because the git mechanism that allows it is considered sensitive, so all users of your repo will need to separately configure this if they want to use it.\\nBigger problem for me is that none of the code review systems I know of support this. At work, we've been wishing to have something like this in Gerrit, due to multiple SQLite DBs and other binary documents living in the repo, but as far as we can tell, we'd have to modify Gerrit sources directly to make it happen, which IT would frown at and nobody has time for anyway.\", \"url\": \"https://news.ycombinator.com/item?id=40656809\", \"parent_id\": \"40656676\", \"depth\": 3, \"points\": null, \"relevance\": 1.779}, {\"id\": \"40656116\", \"author\": \"therein\", \"created_at\": \"2024-06-12T09:17:27.000Z\", \"text\": \"I don't use Audacity often, maybe once or twice a month at most but stability and snappiness aren't really things I associate with Audacity.\\nNone of the crashes I ever encountered with Audacity has been due to SQLite of course. If anything this article made me want to use SQLite in more of my projects where I need to store local data.\", \"url\": \"https://news.ycombinator.com/item?id=40656116\", \"parent_id\": \"40655974\", \"depth\": 0, \"points\": null, \"relevance\": null}, {\"id\": \"40656141\", \"author\": \"bux93\", \"created_at\": \"2024-06-12T09:21:37.000Z\", \"text\": \"The resiliency against crashes offered by it's SQLite file format is much needed. Because it crashes a lot.\", \"url\": \"https://news.ycombinator.com/item?id=40656141\", \"parent_id\": \"40656116\", \"depth\": 1, \"points\": null, \"relevance\": null}, {\"id\": \"40656191\", \"author\": \"sureglymop\", \"created_at\": \"2024-06-12T09:30:01.000Z\", \"text\": \"I agree. And the best feature for me is \\\"ATTACH DATABASE\\\".\\nThen one can just join together tables from multiple files etc.\", \"url\": \"https://news.ycombinator.com/item?id=40656191\", \"parent_id\": \"40655974\", \"depth\": 0, \"points\": null, \"relevance\": null}, {\"id\": \"40656235\", \"author\": \"romwell\", \"created_at\": \"2024-06-12T09:35:37.000Z\", \"text\": \"Once upon a time, I revamped a binary file format for a propriety industrial-scientific software.\\nThe software was writing vast arrays of numbers into a file, and reading them based on offsets.\\nAs the software (and its data) evolved, versioning became a nightmare.\\nI ended up writing an ORM serializer which read from/wrote into an SQLite DB with a variation on an EAV schema.\\nOne of my favorite projects, result-wise. Reading and writing was clean and efficient; the format was portable, language-agnostic, compact.\\nVersions of the new format were backwards- (and, within reason, forward-) compatib…\", \"url\": \"https://news.ycombinator.com/item?id=40656235\", \"parent_id\": \"40655974\", \"depth\": 0, \"points\": null, \"relevance\": null}, {\"id\": \"40656514\", \"author\": \"gchamonlive\", \"created_at\": \"2024-06-12T10:31:06.000Z\", \"text\": \"For numeric values only, any advantage of using sqlite over let's say parquet with Apache Arrow/duckdb?\", \"url\": \"https://news.ycombinator.com/item?id=40656514\", \"parent_id\": \"40656235\", \"depth\": 1, \"points\": null, \"relevance\": null}, {\"id\": \"40656856\", \"author\": \"avereveard\", \"created_at\": \"2024-06-12T11:30:55.000Z\", \"text\": \"SQLite let's you decide when and if vacuuming after partial row modifications. Does arrow allows that I don't know but it's most likely the best SQLite feature you can open a massive database and do one value change really really fast without having to write and compact the entire thing all the times.\", \"url\": \"https://news.ycombinator.com/item?id=40656856\", \"parent_id\": \"40656514\", \"depth\": 2, \"points\": null, \"relevance\": null}, {\"id\": \"40656961\", \"author\": \"CJefferson\", \"created_at\": \"2024-06-12T11:46:47.000Z\", \"text\": \"Given SQLite is already distributed on basically every OS,is amazingly rock solid, I’d ask instead any advantage to using Apache Arrow/duckdb? I don’t have great experience with either.\", \"url\": \"https://news.ycombinator.com/item?id=40656961\", \"parent_id\": \"40656514\", \"depth\": 2, \"points\": null, \"relevance\": null}, {\"id\": \"40662007\", \"author\": \"datadrivenangel\", \"created_at\": \"2024-06-12T19:30:40.000Z\", \"text\": \"They did just release DuckDB version 1.0, so it should be getting much more reliable and stable.\", \"url\": \"https://news.ycombinator.com/item?id=40662007\", \"parent_id\": \"40657859\", \"depth\": 4, \"points\": null, \"relevance\": null}, {\"id\": \"40658165\", \"author\": \"prirun\", \"created_at\": \"2024-06-12T13:52:35.000Z\", \"text\": \"SQLite encodes integers in a variable-length format, so it can be very space-efficient compared to always storing integers in 4 or 8 bytes.\", \"url\": \"https://news.ycombinator.com/item?id=40658165\", \"parent_id\": \"40656514\", \"depth\": 2, \"points\": null, \"relevance\": null}, {\"id\": \"40657008\", \"author\": \"Jean-Papoulos\", \"created_at\": \"2024-06-12T11:52:06.000Z\", \"text\": \"Strangely enough I'm doing the exact same thing. My case seems a bit more complicated since we're dumping not only long arrays of floats, but also a bunch of miscellaneous data (datetimes, unique datapoints, ids) right before/after those numbers. So it's even more of a nightmare... Some of these files have version numbers in the 30's (oh yeah, and file versions are based on file size.)\\nAnd did I mention that the file handles are kept open for the whole program duration (might be multiple hours) ? That's fun, data loss is almost a daily occurrence. It's the main thing I'm refactoring right now.\", \"url\": \"https://news.ycombinator.com/item?id=40657008\", \"parent_id\": \"40656235\", \"depth\": 1, \"points\": null, \"relevance\": null}, {\"id\": \"40663101\", \"author\": \"romwell\", \"created_at\": \"2024-06-12T21:04:16.000Z\", \"text\": \"Well, with an ORM you put everything in data structures, and write them.\\nMost data fits into hierarchical data structures that don't form a complicated memory graph with references.\\nOnce you know how to write primitive types and arrays of them, you can write objects, and it means you can write anything (without having to worry about writing \\\"before\\\" or \\\"after\\\").\\nAnd yes, switching to SQLite absolutely addresses the \\\"perpetual fopen” problem.\", \"url\": \"https://news.ycombinator.com/item?id=40663101\", \"parent_id\": \"40657008\", \"depth\": 2, \"points\": null, \"relevance\": null}, {\"id\": \"40656327\", \"author\": \"boffinAudio\", \"created_at\": \"2024-06-12T09:52:18.000Z\", \"text\": \"I used SQLite as the file format for a game system, and it was probably one of the most successful technical decisions I've made in 40 years. The fact that the artists and developers and even managers could use standard database tools to lay out changes to the game levels, characters and even physics behaviours, meant I didn't have to write a ton of tooling to allow them access to all of those things - they just opened up their favourite database GUI, added the data to the sqlite database, and shared the single file around.\\nNowadays I just can't see any other way to do this, other than by mai…\", \"url\": \"https://news.ycombinator.com/item?id=40656327\", \"parent_id\": \"40655974\", \"depth\": 0, \"points\": null, \"relevance\": null}, {\"id\": \"40656601\", \"author\": \"jeremyjh\", \"created_at\": \"2024-06-12T10:48:23.000Z\", \"text\": \"That sounds like a decent solution, but I'd rather have all that content in text files so there is meaningful version control with features like diffs and merges. Some engines will store the data this way but give you an editor to manage it, and there are dedicated level editors as well but every project is different and it could be the case none of that would have been helpful to you.\", \"url\": \"https://news.ycombinator.com/item?id=40656601\", \"parent_id\": \"40656327\", \"depth\": 1, \"points\": null, \"relevance\": null}, {\"id\": \"40656676\", \"author\": \"Karellen\", \"created_at\": \"2024-06-12T11:04:42.000Z\", \"text\": \"AFAIK git has pluggable diff and merge engines. I wonder if it would be possible to create a diff/merge git plugin for sqlite files that does an intermediate conversion to .sql dump files, with some kind of serialisation normalisation so that rows are output in a stable order between runs.\", \"url\": \"https://news.ycombinator.com/item?id=40656676\", \"parent_id\": \"40656601\", \"depth\": 2, \"points\": null, \"relevance\": null}, {\"id\": \"40656842\", \"author\": \"simonw\", \"created_at\": \"2024-06-12T11:29:18.000Z\", \"text\": \"I haven't tried it with git pluggable diff tools yet, but I wrote a tool that lets me convert a SQLite database into a bunch of plain text files so I can manage them in git: https://github.com/simonw/sqlite-diffable\", \"url\": \"https://news.ycombinator.com/item?id=40656842\", \"parent_id\": \"40656676\", \"depth\": 3, \"points\": null, \"relevance\": null}, {\"id\": \"40663793\", \"author\": \"type0\", \"created_at\": \"2024-06-12T22:15:27.000Z\", \"text\": \"Not git, but I find it's interesting how Fossil implements version control https://www.fossil-scm.org/home/doc/trunk/www/tech_overview....\", \"url\": \"https://news.ycombinator.com/item?id=40663793\", \"parent_id\": \"40656676\", \"depth\": 3, \"points\": null, \"relevance\": null}, {\"id\": \"40656909\", \"author\": \"robertlagrant\", \"created_at\": \"2024-06-12T11:38:50.000Z\", \"text\": \"We maintain a compromise with Alembic migration files in source control. This does mean people need to do Alembic things to make changes, but if they can do that little bit it's very good, and fully diffable of course.\", \"url\": \"https://news.ycombinator.com/item?id=40656909\", \"parent_id\": \"40656601\", \"depth\": 2, \"points\": null, \"relevance\": null}, {\"id\": \"40656942\", \"author\": \"boffinAudio\", \"created_at\": \"2024-06-12T11:44:14.000Z\", \"text\": \"We solved this problem by checking in full sql dumps of the content database into source control, in between major changes. Not that we ever had to check and see what went wrong with the content side - using an sqlite database pretty much ensured that things were in the right format before it hit the filesystem assets, and we had practially zero bugs from introducing this methodology to the project.\", \"url\": \"https://news.ycombinator.com/item?id=40656942\", \"parent_id\": \"40656601\", \"depth\": 2, \"points\": null, \"relevance\": null}, {\"id\": \"40657553\", \"author\": \"out_of_protocol\", \"created_at\": \"2024-06-12T12:52:54.000Z\", \"text\": \"Thousands of text files laying on bare filesystem is rather slow solution, so additional step to convert between text files and sqlite is needed. Never have seen ready to use solutions, only heard of ad-hoc scripts\", \"url\": \"https://news.ycombinator.com/item?id=40657553\", \"parent_id\": \"40656601\", \"depth\": 2, \"points\": null, \"relevance\": null}], \"comments_total\": 63, \"comments_relevant\": 11}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 1, \"read_result\": 2}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 42, \"pages_read\": 4, \"calls_without_new_evidence\": 2}}",
+    "{\"result_id\": \"57016c3906ffa4c2b1606f0d\", \"kind\": \"fetch\", \"fields\": [\"comments\"], \"offset\": 30, \"next_offset\": null, \"next_offsets\": {\"comments\": null}, \"truncated\": false, \"data\": {\"comments\": [{\"id\": \"40656495\", \"author\": \"belter\", \"created_at\": \"2024-06-12T10:27:37.000Z\", \"text\": \"In 2024, not using SQLite as your application file format, should really force an engineering team to have a damn good explanation....\\nhttps://www.sqlite.org/famous.html\", \"url\": \"https://news.ycombinator.com/item?id=40656495\", \"parent_id\": \"40655974\", \"depth\": 0, \"points\": null, \"relevance\": null}, {\"id\": \"40656658\", \"author\": \"throwup238\", \"created_at\": \"2024-06-12T10:59:50.000Z\", \"text\": \"> The United States Library of Congress recognizes SQLite as a recommended storage format for preservation of digital content.\\nThat’s one hell of an endorsement.\", \"url\": \"https://news.ycombinator.com/item?id=40656658\", \"parent_id\": \"40656495\", \"depth\": 1, \"points\": null, \"relevance\": null}, {\"id\": \"40656746\", \"author\": \"threatofrain\", \"created_at\": \"2024-06-12T11:13:46.000Z\", \"text\": \"Is SQLite the best solution for on-device logs?\", \"url\": \"https://news.ycombinator.com/item?id=40656746\", \"parent_id\": \"40656495\", \"depth\": 1, \"points\": null, \"relevance\": null}, {\"id\": \"40657003\", \"author\": \"ecuaflo\", \"created_at\": \"2024-06-12T11:51:26.000Z\", \"text\": \"unfortunately in the browser it needs to be downloaded so you’re stuck with indexeddb\", \"url\": \"https://news.ycombinator.com/item?id=40657003\", \"parent_id\": \"40656495\", \"depth\": 1, \"points\": null, \"relevance\": null}, {\"id\": \"40659004\", \"author\": \"sgbeal\", \"created_at\": \"2024-06-12T15:11:12.000Z\", \"text\": \"> unfortunately in the browser it needs to be downloaded so you’re stuck with indexeddb\\nThat argument implies that we're stuck with the browser's single built-in home page because every other web page has to be downloaded.\\nHow is having to download sqlite3.wasm any different from having to download HTML, CSS, JS, images, etc.?\", \"url\": \"https://news.ycombinator.com/item?id=40659004\", \"parent_id\": \"40657003\", \"depth\": 2, \"points\": null, \"relevance\": null}, {\"id\": \"40659141\", \"author\": \"w0m\", \"created_at\": \"2024-06-12T15:23:58.000Z\", \"text\": \"> How is having to download sqlite3.wasm any different from\\n'unnecessary' file size. K matter on the web still.\\nI'm not normally a web guy, but from https://sqlite.org/download.html it looks like it's ~800k extra added to initial page load? Based on average mobile speed in US of 97.09Mbps; that's an extra half second added to initial page load. That's not trivial; maybe an extra 15% bounce rate on initial hits.\", \"url\": \"https://news.ycombinator.com/item?id=40659141\", \"parent_id\": \"40659004\", \"depth\": 3, \"points\": null, \"relevance\": null}, {\"id\": \"40659300\", \"author\": \"sgbeal\", \"created_at\": \"2024-06-12T15:37:12.000Z\", \"text\": \"> ~800k extra added to initial page load?\\nIf you're serving it uncompressed, which no production-grade site will (for a given definition of \\\"no\\\"/\\\"none\\\").\\n> K matter on the web still.\\nNot, i opine, for the types of apps which want to host client-side databases. These are client-side applications, not \\\"web pages.\\\"\\nEven a bare-bones, database-less google.com is now 3.14mb uncompressed (1.32 compressed), and that's not counting the pieces which uBlock Origin keep from loading. It loads somewhere around 2MB (uncompressed) of JS.\\nLast i checked, gdrive downloaded some 14mb to get up and running.\\n> …\", \"url\": \"https://news.ycombinator.com/item?id=40659300\", \"parent_id\": \"40659141\", \"depth\": 4, \"points\": null, \"relevance\": null}, {\"id\": \"40661016\", \"author\": \"Digit-Al\", \"created_at\": \"2024-06-12T18:00:11.000Z\", \"text\": \"Makes me laugh. When I got my first computer in 1987 it took so long to load a small game from cassette that I could go downstairs, boil a kettle, make a cuppa, and bring it back to my room, and the game would be just about finished loading. Now people are moaning about an extra half a second lol\\nHow things change.\", \"url\": \"https://news.ycombinator.com/item?id=40661016\", \"parent_id\": \"40659141\", \"depth\": 4, \"points\": null, \"relevance\": null}, {\"id\": \"40661317\", \"author\": \"paulddraper\", \"created_at\": \"2024-06-12T18:32:30.000Z\", \"text\": \"No, the narrative here is that things used to be fast and idiot JS devs have made everything bloated and slow.\", \"url\": \"https://news.ycombinator.com/item?id=40661317\", \"parent_id\": \"40661016\", \"depth\": 5, \"points\": null, \"relevance\": null}, {\"id\": \"40664344\", \"author\": \"andrepd\", \"created_at\": \"2024-06-12T23:35:37.000Z\", \"text\": \"Computers are thousands to millions of times faster. So yes, that's a true assessment.\", \"url\": \"https://news.ycombinator.com/item?id=40664344\", \"parent_id\": \"40661317\", \"depth\": 6, \"points\": null, \"relevance\": null}, {\"id\": \"40664727\", \"author\": \"paulddraper\", \"created_at\": \"2024-06-13T00:37:52.000Z\", \"text\": \"> millions of times faster\\nUnless you had a 3KHz processor (and no processor ever had that), that statement is just not true.\", \"url\": \"https://news.ycombinator.com/item?id=40664727\", \"parent_id\": \"40664344\", \"depth\": 7, \"points\": null, \"relevance\": null}, {\"id\": \"40678277\", \"author\": \"andrepd\", \"created_at\": \"2024-06-14T07:04:41.000Z\", \"text\": \"It's not about raw clock speed, or a Zen 4 would be as fast as a Pentium 4 :)\", \"url\": \"https://news.ycombinator.com/item?id=40678277\", \"parent_id\": \"40664727\", \"depth\": 8, \"points\": null, \"relevance\": null}, {\"id\": \"40663143\", \"author\": \"jacobprall\", \"created_at\": \"2024-06-12T21:07:52.000Z\", \"text\": \"It's a matter of use case - for simple web page or even a lightweight client-side app, maybe too big. But for tool with heavy data processing, I could see it being quite useful.\", \"url\": \"https://news.ycombinator.com/item?id=40663143\", \"parent_id\": \"40659141\", \"depth\": 4, \"points\": null, \"relevance\": null}, {\"id\": \"40659086\", \"author\": \"iansinnott\", \"created_at\": \"2024-06-12T15:17:51.000Z\", \"text\": \"It's too bad WebSQL never took off, as that was sqlite built in to the browser.\\nFrom memory the wasm binary of wa-sqlite is ~1mb, which is certainly not nothing but is an acceptable one-time download size for many web apps. I've seen websites with single image files larger than that. Not an advocating for more bloated web apps, but a sqlite download might not be a deal breaker.\", \"url\": \"https://news.ycombinator.com/item?id=40659086\", \"parent_id\": \"40657003\", \"depth\": 2, \"points\": null, \"relevance\": null}, {\"id\": \"40657270\", \"author\": \"macintux\", \"created_at\": \"2024-06-12T12:23:58.000Z\", \"text\": \"Decades ago I troubleshot a Solaris server that wouldn’t boot, and discovered the kernel file was missing. I suspect someone had tried to deal with a too-small root partition by removing large files.\", \"url\": \"https://news.ycombinator.com/item?id=40657270\", \"parent_id\": \"40657249\", \"depth\": 3, \"points\": null, \"relevance\": null}, {\"id\": \"40660188\", \"author\": \"eli\", \"created_at\": \"2024-06-12T16:47:52.000Z\", \"text\": \"You could simply turn off WAL for a simple application database, if you were really worried. You lose some performance and scale, but it should work fine.\", \"url\": \"https://news.ycombinator.com/item?id=40660188\", \"parent_id\": \"40657079\", \"depth\": 2, \"points\": null, \"relevance\": null}, {\"id\": \"40661676\", \"author\": \"fauigerzigerk\", \"created_at\": \"2024-06-12T19:00:32.000Z\", \"text\": \"Setting the journal_mode to OFF or MEMORY is a sure-fire way of corrupting the database. It's not fine.\\nhttps://sqlite.org/pragma.html#pragma_journal_mode\", \"url\": \"https://news.ycombinator.com/item?id=40661676\", \"parent_id\": \"40660188\", \"depth\": 3, \"points\": null, \"relevance\": null}, {\"id\": \"40662160\", \"author\": \"eli\", \"created_at\": \"2024-06-12T19:42:49.000Z\", \"text\": \"If the application crashes in the middle of a writing a transaction, yes. You can work around this if you care to, and I don't think it's anything specific to SQLite. What happens if your application crashes in the middle writing out a JSON file?\\nI had actually meant JOURNAL_MODE=DELETE, though. This would not technically use a WAL file, though there would be a rollback journal file that exists only for the duration of the transaction.\", \"url\": \"https://news.ycombinator.com/item?id=40662160\", \"parent_id\": \"40661676\", \"depth\": 4, \"points\": null, \"relevance\": null}, {\"id\": \"40661436\", \"author\": \"renonce\", \"created_at\": \"2024-06-12T18:42:02.000Z\", \"text\": \"> 1.4. Mispairing database files and hot journals\\nI’m surprised it would corrupt the database. The database could have included a unique identifier as well as in the journal and refuse opening the database if the identifiers don’t match.\", \"url\": \"https://news.ycombinator.com/item?id=40661436\", \"parent_id\": \"40657079\", \"depth\": 2, \"points\": null, \"relevance\": null}, {\"id\": \"40661839\", \"author\": \"fauigerzigerk\", \"created_at\": \"2024-06-12T19:14:56.000Z\", \"text\": \"Uniquely identifying a database and its journal/wal files would prevent just one of the five mispairing cases they mention. And it's the least likely case.\", \"url\": \"https://news.ycombinator.com/item?id=40661839\", \"parent_id\": \"40661436\", \"depth\": 3, \"points\": null, \"relevance\": null}, {\"id\": \"40656633\", \"author\": \"TeMPOraL\", \"created_at\": \"2024-06-12T10:54:58.000Z\", \"text\": \"If you're careful about it, you can store the canonical runtime state for e.g. a videogame in :memory: database; you then get saving/loading for free with SQLite backup API.\", \"url\": \"https://news.ycombinator.com/item?id=40656633\", \"parent_id\": \"40656594\", \"depth\": 1, \"points\": null, \"relevance\": null}, {\"id\": \"40656743\", \"author\": \"bryancoxwell\", \"created_at\": \"2024-06-12T11:13:39.000Z\", \"text\": \"Can you explain what you mean about needing to be careful about it?\", \"url\": \"https://news.ycombinator.com/item?id=40656743\", \"parent_id\": \"40656633\", \"depth\": 2, \"points\": null, \"relevance\": null}, {\"id\": \"40656785\", \"author\": \"TeMPOraL\", \"created_at\": \"2024-06-12T11:21:02.000Z\", \"text\": \"You need to store all the data that define the runtime state, so it can be dumped and recovered, without accidentally capturing information or references to things that live outside the DB and won't survive application restart. It's a more generic case of the \\\"don't dump pointers to files, if you can't guarantee they'll be valid after reload\\\".\", \"url\": \"https://news.ycombinator.com/item?id=40656785\", \"parent_id\": \"40656743\", \"depth\": 3, \"points\": null, \"relevance\": null}, {\"id\": \"40656795\", \"author\": \"bryancoxwell\", \"created_at\": \"2024-06-12T11:22:57.000Z\", \"text\": \"Thanks!\", \"url\": \"https://news.ycombinator.com/item?id=40656795\", \"parent_id\": \"40656785\", \"depth\": 4, \"points\": null, \"relevance\": null}, {\"id\": \"40656841\", \"author\": \"v7n\", \"created_at\": \"2024-06-12T11:28:40.000Z\", \"text\": \"In addition to paying attention to references, perhaps it makes sense to always keep e.g. player inventory state in there, but something that can change every frame, like player position data, should perhaps only be synced just prior to the snapshot if it would otherwise degrade performance too much. This is of course another layer of complexity (volatile vs non-volatile game state) to think about.\", \"url\": \"https://news.ycombinator.com/item?id=40656841\", \"parent_id\": \"40656743\", \"depth\": 3, \"points\": null, \"relevance\": null}, {\"id\": \"40656945\", \"author\": \"TeMPOraL\", \"created_at\": \"2024-06-12T11:44:46.000Z\", \"text\": \"This. In my testing some years ago, trying to make a basic Roguelike game with the state stored entitely in SQLite, the in-memory db could support reading the visible portion of the map and positions of entities at 60 FPS with time to spare, on a modest machine, and with slight FFI penalty as the code was written in Common Lisp (SBCL). So while you may not want to do this for a first-person shooter, there are many types of games that could in fact live entirely in SQLite, save for some transient visual FX.\", \"url\": \"https://news.ycombinator.com/item?id=40656945\", \"parent_id\": \"40656841\", \"depth\": 4, \"points\": null, \"relevance\": null}, {\"id\": \"40658902\", \"author\": \"semi\", \"created_at\": \"2024-06-12T14:59:13.000Z\", \"text\": \"I'm pretty far removed from game dev but curious.. is the in mem sqlite DB the only representation of game state or is it just 'mirroring' the 'real' values in ram? like if there's a Score on the HUD, are you doing a SQL select to read the value on every frame?\\nOr is this just a way to serialize and deserialization the game state to automatically save the game so it could be reloaded if it closed/crashed without explicitly running a 'save game' function?\", \"url\": \"https://news.ycombinator.com/item?id=40658902\", \"parent_id\": \"40656945\", \"depth\": 5, \"points\": null, \"relevance\": null}, {\"id\": \"40659241\", \"author\": \"TeMPOraL\", \"created_at\": \"2024-06-12T15:33:10.000Z\", \"text\": \"> if there's a Score on the HUD, are you doing a SQL select to read the value on every frame?\\nYes. That was the point of my experiments, after I realized that good chunks of the data structures I set up for my game look suspiciously similar to indices and materialized views. So I figured, why waste time reinventing them poorly, when I could use a proper database for it, and do something silly in the process?\\nIn a way, it's also coming back to the origin of the ECS pattern. The way it was originally designed, in MMO space, the entity was a primary key into component tables, and systems did a m…\", \"url\": \"https://news.ycombinator.com/item?id=40659241\", \"parent_id\": \"40658902\", \"depth\": 6, \"points\": null, \"relevance\": null}, {\"id\": \"40660846\", \"author\": \"nathanfries\", \"created_at\": \"2024-06-12T17:43:15.000Z\", \"text\": \"I followed this line of thinking last week due to curiosity w.r.t ECS & SQLite. I found that the bottleneck was not on the reads, but on the complexity of the writes (iterating each entity and subsequently you have num_systems X num_components writes). You can actually avoid this entirely if you write your systems in SQL.\\nSince I had already thrown out logic & reason for the sake of curiosity, I took it a step further and learned that the Bun JS runtime actually has SQLite baked in, which allows you to create a :memory: db that can be accessed _synchronously_ avoiding modification of most ECS…\", \"url\": \"https://news.ycombinator.com/item?id=40660846\", \"parent_id\": \"40659241\", \"depth\": 7, \"points\": null, \"relevance\": null}, {\"id\": \"40657059\", \"author\": \"out_of_protocol\", \"created_at\": \"2024-06-12T11:58:12.000Z\", \"text\": \"Theres is \\\"Pack\\\" archive format that does exactly this for general-purpose archives (sqlite + zstd for compression). https://news.ycombinator.com/item?id=39793805 https://pack.ac/\\nworks faster AND more compact than .tar.zstd and .7z.zstd (patched 7z with zstd compression)\", \"url\": \"https://news.ycombinator.com/item?id=40657059\", \"parent_id\": \"40655974\", \"depth\": 0, \"points\": null, \"relevance\": null}, {\"id\": \"40657127\", \"author\": \"jhanschoo\", \"created_at\": \"2024-06-12T12:06:12.000Z\", \"text\": \"It doesn't list obvious cases where you shouldn't take this approach, so I have one off the top of my head that SQLite doesn't seem like it's a good fit, I'm interested in whether I'm wrong on this.\\nThe article discusses storing files as BLOBs. But it looks to me like this isn't a good fit for sufficiently memory-constrained environments, given a task involving processing a very large file in a sequential manner, like with media reencoding, or video playback. It seems like the traditional file access patterns are better suited for those tasks.\", \"url\": \"https://news.ycombinator.com/item?id=40657127\", \"parent_id\": \"40655974\", \"depth\": 0, \"points\": null, \"relevance\": null}, {\"id\": \"40657777\", \"author\": \"jitl\", \"created_at\": \"2024-06-12T13:14:53.000Z\", \"text\": \"You can incrementally read or write the value in a BLOB column of a row. You can read/write etc using a file descriptor like API: https://www.sqlite.org/c3ref/blob_open.html\", \"url\": \"https://news.ycombinator.com/item?id=40657777\", \"parent_id\": \"40657127\", \"depth\": 1, \"points\": null, \"relevance\": null}, {\"id\": \"40657848\", \"author\": \"OskarS\", \"created_at\": \"2024-06-12T13:22:14.000Z\", \"text\": \"It's very easy to design a schema that breaks up blobs into chunks. SQLite is excellent for memory constrained environments, with even mathematical proofs of maximum memory usage: https://www.sqlite.org/malloc.html\", \"url\": \"https://news.ycombinator.com/item?id=40657848\", \"parent_id\": \"40657127\", \"depth\": 1, \"points\": null, \"relevance\": null}], \"comments_total\": 63, \"comments_relevant\": 11}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 1, \"read_result\": 3}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 42, \"pages_read\": 4, \"calls_without_new_evidence\": 3}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"a47694a1802219a685a3f7c1\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:news.ycombinator.com/item?id=40655974 \\\"wait\\\" \\\"disk\\\" \\\"user interface\\\"\", \"answer\": \"The restricted search on [item 40655974](https://news.ycombinator.com/item?id=40655974) does not turn up a comment that contains the words “wait,” “disk,” and “user interface” together. That thread i…\", \"answer_chars\": 3518, \"evidence\": {\"unique_urls\": 20, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 3, \"primary_citation_count\": 29, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 32525, \"warning_count\": 2, \"warnings\": [\"auto_scrape_truncated\", \"auto_scrape_truncated\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"hackernews\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"site_native\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 20, \"citation_count\": 37, \"results\": [{\"id\": \"r1\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=50098570\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=49937631\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=46496623\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=49998801\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=46099143\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=49732036\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=48386238\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r8\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=50015515\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=48585866\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r10\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=20158467\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r11\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=50029123\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r12\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=46747670\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r13\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=50052163\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r14\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=49309269\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r15\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=49731285\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r16\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=39811774\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://news.ycombinator.com/item?id=50098570\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://news.ycombinator.com/item?id=49937631\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://news.ycombinator.com/item?id=46496623\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://news.ycombinator.com/item?id=49998801\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://news.ycombinator.com/item?id=46099143\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://news.ycombinator.com/item?id=49732036\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://news.ycombinator.com/item?id=48386238\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://news.ycombinator.com/item?id=50015515\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://news.ycombinator.com/item?id=48585866\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"tavily\"]}, {\"id\": \"c10\", \"url\": \"https://news.ycombinator.com/item?id=20158467\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://news.ycombinator.com/item?id=50029123\", \"title\": \"\", \"result_item_id\": \"r11\", \"providers\": [\"tavily\"]}, {\"id\": \"c12\", \"url\": \"https://news.ycombinator.com/item?id=46747670\", \"title\": \"\", \"result_item_id\": \"r12\", \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://news.ycombinator.com/item?id=50052163\", \"title\": \"\", \"result_item_id\": \"r13\", \"providers\": [\"tavily\"]}, {\"id\": \"c14\", \"url\": \"https://news.ycombinator.com/item?id=49309269\", \"title\": \"\", \"result_item_id\": \"r14\", \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://news.ycombinator.com/item?id=49731285\", \"title\": \"\", \"result_item_id\": \"r15\", \"providers\": [\"tavily\"]}, {\"id\": \"c16\", \"url\": \"https://news.ycombinator.com/item?id=39811774\", \"title\": \"\", \"result_item_id\": \"r16\", \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://news.ycombinator.com/item?id=49933270\", \"title\": \"\", \"result_item_id\": \"r17\", \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://news.ycombinator.com/item?id=50023362\", \"title\": \"\", \"result_item_id\": \"r18\", \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://news.ycombinator.com/item?id=46609242\", \"title\": \"\", \"result_item_id\": \"r19\", \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"https://news.ycombinator.com/front?day=2026-10-15\", \"title\": \"\", \"result_item_id\": \"r20\", \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"https://news.ycombinator.com/item?id=47504338\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"https://news.ycombinator.com/item?id=50009295\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c23\", \"url\": \"https://news.ycombinator.com/item?id=50088558\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c24\", \"url\": \"https://news.ycombinator.com/item?id=20342725\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c25\", \"url\": \"https://news.ycombinator.com/item?id=40655974\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c26\", \"url\": \"https://news.ycombinator.com/item?id=50063427\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c27\", \"url\": \"https://news.ycombinator.com/item?id=47493246\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c28\", \"url\": \"https://news.ycombinator.com/item?id=43828396\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c29\", \"url\": \"https://news.ycombinator.com/item?id=30385832\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c30\", \"url\": \"https://news.ycombinator.com/item?id=39811604\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c31\", \"url\": \"https://news.ycombinator.com/item?id=50023260\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c32\", \"url\": \"https://news.ycombinator.com/item?id=47188893\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c33\", \"url\": \"https://news.ycombinator.com/item?id=49909404\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c34\", \"url\": \"https://news.ycombinator.com/item?id=30115187\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c35\", \"url\": \"https://news.ycombinator.com/item?id=49882422\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c36\", \"url\": \"https://news.ycombinator.com/item?id=36007273\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c37\", \"url\": \"https://news.ycombinator.com/item?id=27903580\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"a47694a1802219a685a3f7c1\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"Hacker News\", \"satisfied\": true, \"detail\": \"36 content page(s), e.g. https://news.ycombinator.com/item?id=50098570\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 2, \"fetch\": 1, \"read_result\": 3}, \"new_urls\": 32, \"new_pages_read\": 3, \"seen_urls\": 74, \"pages_read\": 7, \"calls_without_new_evidence\": 0}, \"results_truncated\": true}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"9772e9f44423d301c078978c\", \"kind\": \"search\", \"status\": \"partial\", \"query\": \"site:news.ycombinator.com \\\"should not wait\\\" disk interface SQLite\", \"answer\": \"No Hacker News page indexed by search matched the exact phrase **“should not wait”** together with SQLite’s disk interface. Closest threads are about the VFS/OS layer, locks that return `SQLITE_BUSY`…\", \"answer_chars\": 3510, \"evidence\": {\"unique_urls\": 20, \"unique_domains\": 1, \"cross_provider_matches\": 1, \"pages_fetched\": 2, \"primary_citation_count\": 51, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 37171, \"warning_count\": 2, \"warnings\": [\"auto_scrape_truncated\", \"auto_scrape_truncated\"], \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 11, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"hackernews\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"site_native\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 20, \"citation_count\": 54, \"results\": [], \"citations\": [{\"id\": \"c1\", \"url\": \"https://news.ycombinator.com/item?id=20837527\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://news.ycombinator.com/item?id=50063427\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://news.ycombinator.com/item?id=38650570\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://news.ycombinator.com/item?id=49977177\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://news.ycombinator.com/item?id=44671373\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://news.ycombinator.com/item?id=49985548\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://news.ycombinator.com/item?id=47683140\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://news.ycombinator.com/item?id=49984923\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://news.ycombinator.com/item?id=47534283\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://news.ycombinator.com/item?id=48905491\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://news.ycombinator.com/item?id=50008427\", \"title\": \"\", \"result_item_id\": \"r11\", \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://news.ycombinator.com/item?id=45066999\", \"title\": \"\", \"result_item_id\": \"r12\", \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://news.ycombinator.com/item?id=42839684\", \"title\": \"\", \"result_item_id\": \"r13\", \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://news.ycombinator.com/item?id=47637353\", \"title\": \"\", \"result_item_id\": \"r14\", \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://news.ycombinator.com/item?id=47659556\", \"title\": \"\", \"result_item_id\": \"r15\", \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://news.ycombinator.com/item?id=32309622\", \"title\": \"\", \"result_item_id\": \"r16\", \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://news.ycombinator.com/item?id=38823297\", \"title\": \"\", \"result_item_id\": \"r17\", \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://news.ycombinator.com/item?id=46234710\", \"title\": \"\", \"result_item_id\": \"r18\", \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://news.ycombinator.com/item?id=49519289\", \"title\": \"\", \"result_item_id\": \"r19\", \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"https://news.ycombinator.com/item?id=45005071\", \"title\": \"\", \"result_item_id\": \"r20\", \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"https://news.ycombinator.com/item?id=27016630\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"https://news.ycombinator.com/item?id=49274871\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c23\", \"url\": \"https://news.ycombinator.com/item?id=39803830\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c24\", \"url\": \"https://news.ycombinator.com/item?id=49272832\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c25\", \"url\": \"https://news.ycombinator.com/newest?n=31&next=50040625\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c26\", \"url\": \"https://news.ycombinator.com/item?id=38791608\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c27\", \"url\": \"https://news.ycombinator.com/item?id=42965714\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c28\", \"url\": \"https://news.ycombinator.com/item?id=44565652\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c29\", \"url\": \"https://news.ycombinator.com/item?id=47888037\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c30\", \"url\": \"https://news.ycombinator.com/item?id=42806095\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c31\", \"url\": \"https://news.ycombinator.com/item?id=41085376\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c32\", \"url\": \"https://news.ycombinator.com/item?id=48046144\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c33\", \"url\": \"https://news.ycombinator.com/item?id=45508462\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c34\", \"url\": \"https://news.ycombinator.com/item?id=22030974\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c35\", \"url\": \"https://news.ycombinator.com/item?id=49124652\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c36\", \"url\": \"https://news.ycombinator.com/item?id=47031268\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c37\", \"url\": \"https://news.ycombinator.com/item?id=47876858\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c38\", \"url\": \"https://news.ycombinator.com/item?id=45781298\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c39\", \"url\": \"https://news.ycombinator.com/item?id=34818449\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c40\", \"url\": \"https://news.ycombinator.com/item?id=46893167\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c41\", \"url\": \"https://news.ycombinator.com/item?id=50089123\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c42\", \"url\": \"https://news.ycombinator.com/item?id=44569287\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c43\", \"url\": \"https://news.ycombinator.com/item?id=42388900\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c44\", \"url\": \"https://news.ycombinator.com/item?id=35964955\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c45\", \"url\": \"https://news.ycombinator.com/item?id=20777183\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c46\", \"url\": \"https://news.ycombinator.com/item?id=20400593\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c47\", \"url\": \"https://news.ycombinator.com/item?id=38786012\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c48\", \"url\": \"https://news.ycombinator.com/item?id=48899847\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c49\", \"url\": \"https://news.ycombinator.com/item?id=49279043\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c50\", \"url\": \"https://news.ycombinator.com/item?id=48954157\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"9772e9f44423d301c078978c\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"Hacker News\", \"satisfied\": true, \"detail\": \"52 content page(s), e.g. https://news.ycombinator.com/item?id=20837527\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 3, \"fetch\": 1, \"read_result\": 3}, \"new_urls\": 44, \"new_pages_read\": 2, \"seen_urls\": 118, \"pages_read\": 9, \"calls_without_new_evidence\": 0}, \"results_truncated\": true, \"citations_truncated\": true}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"d31a2ca9ccaf13a91be5b2e5\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:news.ycombinator.com \\\"SQLite as an application file format\\\"\", \"answer\": \"Relevant Hacker News threads on SQLite as an application file format:\\n\\n1. **SQLite as an Application File Format** — https://news.ycombinator.com/item?id=46076642  \\n   Thread on sqlite.org’s app-file-format page (~178 points). Includes Mapbox MBTiles (map tiles in SQLite), tree vs. flat-table data, and benefits such as migrations, constraints, and off-the-shelf GUI tools.\\n\\n2. **Comment thread under the same discussion** — https://news.ycombinator.com/item?id=46079326  \\n   Side discussion of using SQLite as an executable/container format (ELF-like, fat binaries, sqlelf).\\n\\n3. **Comment on tree-…\", \"answer_chars\": 2476, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 2, \"primary_citation_count\": 14, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 14356, \"warning_count\": 1, \"warnings\": [\"auto_scrape_truncated\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"hackernews\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"site_native\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 22, \"results\": [{\"id\": \"r1\", \"title\": \"https://news.ycombinator.com/item?id=46080273\", \"url\": \"https://news.ycombinator.com/item?id=46080273\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"Make Tmux the OS | Hacker News\", \"url\": \"https://news.ycombinator.com/item?id=49937540\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://news.ycombinator.com/item?id=50008427\", \"url\": \"https://news.ycombinator.com/item?id=50008427\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"apsw: Another Python SQLite Wrapper | Hacker News\", \"url\": \"https://news.ycombinator.com/item?id=50045273\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://news.ycombinator.com/item?id=46079326\", \"url\": \"https://news.ycombinator.com/item?id=46079326\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"Show HN: StatLite – Lightweight dashboard for application monitoring | Hacker N…\", \"url\": \"https://news.ycombinator.com/item?id=49983919\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"https://news.ycombinator.com/item?id=45132498\", \"url\": \"https://news.ycombinator.com/item?id=45132498\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"And I don't understand the obsession with server-based databases for single app…\", \"url\": \"https://news.ycombinator.com/item?id=48332797\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"https://news.ycombinator.com/item?id=47046185\", \"url\": \"https://news.ycombinator.com/item?id=47046185\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"Is the CGI process opening up the SQLite database for every request...? That wo…\", \"url\": \"https://news.ycombinator.com/item?id=50063124\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://news.ycombinator.com/item?id=46080273\", \"title\": \"https://news.ycombinator.com/item?id=46080273\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://news.ycombinator.com/item?id=49937540\", \"title\": \"Make Tmux the OS | Hacker News\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://news.ycombinator.com/item?id=50008427\", \"title\": \"https://news.ycombinator.com/item?id=50008427\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://news.ycombinator.com/item?id=50045273\", \"title\": \"apsw: Another Python SQLite Wrapper | Hacker News\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://news.ycombinator.com/item?id=46079326\", \"title\": \"https://news.ycombinator.com/item?id=46079326\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://news.ycombinator.com/item?id=49983919\", \"title\": \"Show HN: StatLite – Lightweight dashboard for application monitoring | Hacker N…\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://news.ycombinator.com/item?id=45132498\", \"title\": \"https://news.ycombinator.com/item?id=45132498\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://news.ycombinator.com/item?id=48332797\", \"title\": \"And I don't understand the obsession with server-based databases for single app…\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://news.ycombinator.com/item?id=47046185\", \"title\": \"https://news.ycombinator.com/item?id=47046185\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://news.ycombinator.com/item?id=50063124\", \"title\": \"Is the CGI process opening up the SQLite database for every request...? That wo…\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://news.ycombinator.com/item?id=46076642\", \"title\": \"https://news.ycombinator.com/item?id=46076642\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://news.ycombinator.com/item?id=26163589\", \"title\": \"https://news.ycombinator.com/item?id=26163589\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://news.ycombinator.com/item?id=49442589\", \"title\": \"https://news.ycombinator.com/item?id=49442589\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://news.ycombinator.com/item?id=49421475\", \"title\": \"https://news.ycombinator.com/item?id=49421475\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://news.ycombinator.com/item?id=40655974\", \"title\": \"https://news.ycombinator.com/item?id=40655974\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://news.ycombinator.com/item?id=43682006\", \"title\": \"https://news.ycombinator.com/item?id=43682006\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://news.ycombinator.com/item?id=22155311\", \"title\": \"https://news.ycombinator.com/item?id=22155311\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://news.ycombinator.com/item?id=39797104\", \"title\": \"https://news.ycombinator.com/item?id=39797104\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://news.ycombinator.com/item?id=48046007\", \"title\": \"https://news.ycombinator.com/item?id=48046007\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"https://news.ycombinator.com/item?id=49930760\", \"title\": \"As an expansion on that, as far as I know there's only one implementation of Fo…\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c21\", \"url\": \"https://news.ycombinator.com/item?id=49988641\", \"title\": \"Show HN: Musql, JIT-compiled SQL, up to 300x faster than SQLite, 1000x vs. Turs…\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c22\", \"url\": \"https://news.ycombinator.com/item?id=50052163\", \"title\": \"Postgres isn't slow, your storage is | Hacker News\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"d31a2ca9ccaf13a91be5b2e5\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"Hacker News\", \"satisfied\": true, \"detail\": \"22 content page(s), e.g. https://news.ycombinator.com/item?id=46080273\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 4, \"fetch\": 1, \"read_result\": 3}, \"new_urls\": 13, \"new_pages_read\": 1, \"seen_urls\": 131, \"pages_read\": 10, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"4fce1e7d40d08bf62b00cfa3\", \"kind\": \"fetch\", \"status\": \"ok\", \"url\": \"https://news.ycombinator.com/item?id=46076642\", \"final_url\": \"https://news.ycombinator.com/item?id=46076642\", \"title\": \"SQLite as an Application File Format\", \"provider\": \"hackernews\", \"content_preview\": \"# SQLite as an Application File Format\\n\\nby gjvc · 2025-11-28T08:15:50.000Z · via hn.algolia.com/api/v1/items\\n\\nLink: https://sqlite.org/appfileformat.html\\n\\n## Comments (92 shown of 92)\\n\\n### [46079683] TeMPOraL · 2025-11-28T15:50:44.000Z · reply to 46079599\\nhttps://news.ycombinator.com/item?id=46079683\\n\\nIt was, back when software development was run by hackers and not suits and security people. Easy access was a feature for users, too; back in those days, software was a tool that worked on data, it didn't try to own the data.\\n\\n### [46088356] mort96 · 2025-11-29T15:41:46.000Z · reply to 46080167\\nhttps://news.ycombinator.com/item?id=46088356\\n\\nThis seems completely orthogonal? This is an alternative to zip and tar built on SQLite:\\n> An \\\"SQLite Archive\\\" is a file container similar to a ZIP archive or Tarball but based on an SQLite database.\\nYour parent comment said that when you're using SQLite as an application format, the content in the database don't get compressed. These two things have \", \"content_chars\": 35345, \"truncated\": true, \"errors\": [], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"4fce1e7d40d08bf62b00cfa3\", \"fields\": [\"content\"], \"comment_fields\": [\"comments\"]}, \"thread\": {\"platform\": \"hackernews\", \"url\": \"https://news.ycombinator.com/item?id=46076642\", \"title\": \"SQLite as an Application File Format\", \"status\": \"comments_read\", \"comments_total\": 92, \"comments_read\": 92, \"top_comments\": [{\"id\": \"46079683\", \"author\": \"TeMPOraL\", \"text\": \"It was, back when software development was run by hackers and not suits and security people. Easy access was a feature for users, too; back in those days, software was a tool that worked on data, it didn't try to own the data.\"}, {\"id\": \"46088356\", \"author\": \"mort96\", \"text\": \"This seems completely orthogonal? This is an alternative to zip and tar built on SQLite:\\n> An \\\"SQLite Archive\\\" is a file container similar to a ZIP archive or Tarball but based on an SQLite database.\\nYour parent comment said that when you'…\"}]}, \"session\": {\"calls\": {\"search\": 4, \"fetch\": 2, \"read_result\": 3}, \"new_urls\": 0, \"new_pages_read\": 1, \"seen_urls\": 131, \"pages_read\": 11, \"calls_without_new_evidence\": 0}}"
+  ],
+  "answer": "",
+  "observation": {
+    "id": "hn-comment-dissent",
+    "answer": "",
+    "results": [
+      {
+        "url": "https://news.ycombinator.com/item?id=45782743",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50063427",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=37604307",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50052163",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=20777183",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49729412",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49977177",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=42965714",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49922569",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/front?day=2026-10-15",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45782743",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50063427",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=37604307",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50052163",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=20777183",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49729412",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49977177",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=42965714",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49922569",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/front?day=2026-10-15",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49395628",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=39797104",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=44569287",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45134010",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48046007",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=42965198",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47046185",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46076642",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47874647",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=40655974",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45132498",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=42826171",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=33381514",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=26765422",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=42382126",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=16982752",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=44565652",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47888037",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47874837",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50009295",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48045580",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46276002",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47534283",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=44671740",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49421475",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45014131",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=31475744",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48954157",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47970222",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49998350",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50049508",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50048312",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50098570",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49937631",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46496623",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49998801",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46099143",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49732036",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48386238",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50015515",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48585866",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=20158467",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50029123",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46747670",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50052163",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49309269",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49731285",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=39811774",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50098570",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49937631",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46496623",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49998801",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46099143",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49732036",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48386238",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50015515",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48585866",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=20158467",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50029123",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46747670",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50052163",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49309269",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49731285",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=39811774",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49933270",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50023362",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46609242",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/front?day=2026-10-15",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47504338",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50009295",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50088558",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=20342725",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=40655974",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50063427",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47493246",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=43828396",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=30385832",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=39811604",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50023260",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47188893",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49909404",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=30115187",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49882422",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=36007273",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=27903580",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=20837527",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50063427",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=38650570",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49977177",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=44671373",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49985548",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47683140",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49984923",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47534283",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48905491",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50008427",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45066999",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=42839684",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47637353",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47659556",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=32309622",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=38823297",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46234710",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49519289",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45005071",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=27016630",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49274871",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=39803830",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49272832",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/newest?n=31&next=50040625",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=38791608",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=42965714",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=44565652",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47888037",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=42806095",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=41085376",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48046144",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45508462",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=22030974",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49124652",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47031268",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47876858",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45781298",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=34818449",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46893167",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50089123",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=44569287",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=42388900",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=35964955",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=20777183",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=20400593",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=38786012",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48899847",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49279043",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48954157",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46080273",
+        "title": "https://news.ycombinator.com/item?id=46080273",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49937540",
+        "title": "Make Tmux the OS | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50008427",
+        "title": "https://news.ycombinator.com/item?id=50008427",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50045273",
+        "title": "apsw: Another Python SQLite Wrapper | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46079326",
+        "title": "https://news.ycombinator.com/item?id=46079326",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49983919",
+        "title": "Show HN: StatLite – Lightweight dashboard for application monitoring | Hacker N…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45132498",
+        "title": "https://news.ycombinator.com/item?id=45132498",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48332797",
+        "title": "And I don't understand the obsession with server-based databases for single app…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47046185",
+        "title": "https://news.ycombinator.com/item?id=47046185",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50063124",
+        "title": "Is the CGI process opening up the SQLite database for every request...? That wo…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46080273",
+        "title": "https://news.ycombinator.com/item?id=46080273",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49937540",
+        "title": "Make Tmux the OS | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50008427",
+        "title": "https://news.ycombinator.com/item?id=50008427",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50045273",
+        "title": "apsw: Another Python SQLite Wrapper | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46079326",
+        "title": "https://news.ycombinator.com/item?id=46079326",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49983919",
+        "title": "Show HN: StatLite – Lightweight dashboard for application monitoring | Hacker N…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45132498",
+        "title": "https://news.ycombinator.com/item?id=45132498",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48332797",
+        "title": "And I don't understand the obsession with server-based databases for single app…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47046185",
+        "title": "https://news.ycombinator.com/item?id=47046185",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50063124",
+        "title": "Is the CGI process opening up the SQLite database for every request...? That wo…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46076642",
+        "title": "https://news.ycombinator.com/item?id=46076642",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=26163589",
+        "title": "https://news.ycombinator.com/item?id=26163589",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49442589",
+        "title": "https://news.ycombinator.com/item?id=49442589",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49421475",
+        "title": "https://news.ycombinator.com/item?id=49421475",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=40655974",
+        "title": "https://news.ycombinator.com/item?id=40655974",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=43682006",
+        "title": "https://news.ycombinator.com/item?id=43682006",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=22155311",
+        "title": "https://news.ycombinator.com/item?id=22155311",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=39797104",
+        "title": "https://news.ycombinator.com/item?id=39797104",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48046007",
+        "title": "https://news.ycombinator.com/item?id=48046007",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49930760",
+        "title": "As an expansion on that, as far as I know there's only one implementation of Fo…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49988641",
+        "title": "Show HN: Musql, JIT-compiled SQL, up to 300x faster than SQLite, 1000x vs. Turs…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50052163",
+        "title": "Postgres isn't slow, your storage is | Hacker News",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://news.ycombinator.com/item?id=40655974",
+        "content": "# https://news.ycombinator.com/item?id=40655974\n\nby OskarS · 2024-06-12T08:53:03.000Z · via hn.algolia.com/api/v1/items (story 40654734)\n\nThe killer feature for me with SQLite is as an application file format: https://sqlite.org/appfileformat.html\nIt has SO MANY advantages over every other solution. It can do the \"just a bundle of files\" thing, but it can also do all this rich data as well. And unlike most \"just a bundle of files\" formats, it's incrementally updatable, it's so good. We're using this in production right now and couldn't be happier with it, wouldn't dream of using anything else at this point.\nOne notable application that uses SQLite for this is Audacity: all the stuff you record is streamed into a SQLite database (the project file). This is a huge reason why Audacity is so good for recording long sessions, and why it's so resilient against crashes and failures.\n\n## Comments (63 shown of 63)\n\n### [40656594] kabanka · 2024-06-12T10:46:50.000Z · reply to 40655974\nhttps://ne# https://news.ycombinator.com/item?id=40655974\n\nby OskarS · 2024-06-12T08:53:03.000Z · via hn.algolia.com/api/v1/items (story 40654734)\n\nThe killer feature for me with SQLite is as an application file format: https://sqlite.org/appfileformat.html",
+        "errors": []
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46076642",
+        "content": "# SQLite as an Application File Format\n\nby gjvc · 2025-11-28T08:15:50.000Z · via hn.algolia.com/api/v1/items\n\nLink: https://sqlite.org/appfileformat.html\n\n## Comments (92 shown of 92)\n\n### [46079683] TeMPOraL · 2025-11-28T15:50:44.000Z · reply to 46079599\nhttps://news.ycombinator.com/item?id=46079683\n\nIt was, back when software development was run by hackers and not suits and security people. Easy access was a feature for users, too; back in those days, software was a tool that worked on data, it didn't try to own the data.\n\n### [46088356] mort96 · 2025-11-29T15:41:46.000Z · reply to 46080167\nhttps://news.ycombinator.com/item?id=46088356\n\nThis seems completely orthogonal? This is an alternative to zip and tar built on SQLite:\n> An \"SQLite Archive\" is a file container similar to a ZIP archive or Tarball but based on an SQLite database.\nYour parent comment said that when you're using SQLite as an application format, the content in the database don't get compressed. These two things have ",
+        "errors": []
+      }
+    ],
+    "comments": [
+      {
+        "id": "40656594",
+        "author": "kabanka",
+        "text": "Also, the in-memory feature (‘:memory:’) allows you to start working “on the fly” and saving the work to disk later.\nReally convenient for the user, zero cost for the developer (same API for in-memory/fs db and smooth transition between th…",
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40724077",
+        "author": "jhanschoo",
+        "text": "Thanks, I did a quick google for something like this before writing my comment, but your link did not come up.",
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40656594",
+        "author": "kabanka",
+        "created_at": "2024-06-12T10:46:50.000Z",
+        "text": "Also, the in-memory feature (‘:memory:’) allows you to start working “on the fly” and saving the work to disk later.\nReally convenient for the user, zero cost for the developer (same API for in-memory/fs db and smooth transition between them).",
+        "url": "https://news.ycombinator.com/item?id=40656594",
+        "parent_id": "40655974",
+        "depth": 0,
+        "points": null,
+        "relevance": 5.485,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40724077",
+        "author": "jhanschoo",
+        "created_at": "2024-06-19T02:04:16.000Z",
+        "text": "Thanks, I did a quick google for something like this before writing my comment, but your link did not come up.",
+        "url": "https://news.ycombinator.com/item?id=40724077",
+        "parent_id": "40657777",
+        "depth": 2,
+        "points": null,
+        "relevance": 5.16,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40660371",
+        "author": "fwip",
+        "created_at": "2024-06-12T17:02:32.000Z",
+        "text": "> If you're serving it uncompressed\nThat 847 KB is actually the size of the (compressed) zip file, but it does contain other files. The compressed WASM + the JS to load it is probably about 500K, depending on the specifics of compression & minification.",
+        "url": "https://news.ycombinator.com/item?id=40660371",
+        "parent_id": "40659300",
+        "depth": 5,
+        "points": null,
+        "relevance": 4.284,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40657079",
+        "author": "fauigerzigerk",
+        "created_at": "2024-06-12T12:00:00.000Z",
+        "text": "Those journal/wal files create a number of potential issues for user visible application files. E.g. a user could copy a database file into a directory that already has an old journal file, corrupting the database [1].\nOr users could simply get confused about what to do with those files and contact support a million times just to ask why these files exist, whether they need to be copied as well, why they are getting large, etc.\nThese issues can be worked around, but I wonder how many apps that use SQLite actually bother doing that. Clearly not all of them [2].\nAvoiding file corruption is non-…",
+        "url": "https://news.ycombinator.com/item?id=40657079",
+        "parent_id": "40656495",
+        "depth": 1,
+        "points": null,
+        "relevance": 3.112,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40668120",
+        "author": "jitl",
+        "created_at": "2024-06-13T11:09:06.000Z",
+        "text": "They said 1.0 means “we aren’t going to break the disk format backwards compatibility anymore” other than that, it’s just a number and doesn’t have any power to make the software more reliable. It really depends on their priorities how much they’ll actually stabilize my use-case. I’ll probably check back in a year and see if things improved.",
+        "url": "https://news.ycombinator.com/item?id=40668120",
+        "parent_id": "40662007",
+        "depth": 5,
+        "points": null,
+        "relevance": 2.59,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40656935",
+        "author": "andyferris",
+        "created_at": "2024-06-12T11:42:49.000Z",
+        "text": "Arrow isn’t great at random insertion and deletion, as each column is a contiguous array. If it’s on disk those arrays are probably packed tightly together, so you can’t even append rows.\n(I have an idea to implement an LSM tree where each layer is an arrow file, which should allow for faster mutations while maintaining a lot of the benefits of arrow. But I haven’t got around to it).",
+        "url": "https://news.ycombinator.com/item?id=40656935",
+        "parent_id": "40656856",
+        "depth": 3,
+        "points": null,
+        "relevance": 2.442,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40666282",
+        "author": "eternityforest",
+        "created_at": "2024-06-13T05:35:33.000Z",
+        "text": "There's one big obvious one. Git and SyncThing.\nIf the user could benefit from either of those, atomically updated plain files are great. Otherwise, SQLite is perfect.\nOf course there's always workarounds to use SQLite in memory and dump to SQL code and such.",
+        "url": "https://news.ycombinator.com/item?id=40666282",
+        "parent_id": "40656495",
+        "depth": 1,
+        "points": null,
+        "relevance": 2.406,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40662721",
+        "author": "fauigerzigerk",
+        "created_at": "2024-06-12T20:28:32.000Z",
+        "text": ">What happens if your application crashes in the middle writing out a JSON file?\nThe usual way to deal with this is to write to a temporary file and then atomically replace the original file with that temporary file. You could do the same thing with an SQLite database. This is the workaround I was referring to earlier.\njournal_mode=delete may not be the worst compromise, but I hate the idea of exposing users to potential database corruption, even in a relatively unlikely event.",
+        "url": "https://news.ycombinator.com/item?id=40662721",
+        "parent_id": "40662160",
+        "depth": 5,
+        "points": null,
+        "relevance": 2.012,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40657859",
+        "author": "jitl",
+        "created_at": "2024-06-12T13:22:56.000Z",
+        "text": "DuckDB can have massive performance advantage over SQLite for things like aggregates on wide tables or or filters on unindexed columns, with advantage growing with the size of the table. We tried a few head to heads between the two and while we ultimately went with SQLite, we may go back and double write everything to DuckDB to get better performance for those kinds of queries on the same data set.\nDuckdb can also read / import SQLite natively so we could ingest lazily from sqlite disk -> duckdb.\nBiggest issue with duckdb is some memory leaks and crashes for the nodejs driver. Seems not produ…",
+        "url": "https://news.ycombinator.com/item?id=40657859",
+        "parent_id": "40656961",
+        "depth": 3,
+        "points": null,
+        "relevance": 1.917,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40657249",
+        "author": "wil421",
+        "created_at": "2024-06-12T12:20:02.000Z",
+        "text": ">Or users could simply get confused about what to do with those files and contact support a million times just to ask why these files exist, whether they need to be copied as well, why they are getting large, etc.\nThis reminds me of a college roommate who was dissatisfied with his computer, likely due to malware from sketchy sites. He decided to delete large or suspicious files from window’s system32 folder. By suspicious I mean he didn’t like the file name.\nHe had to get a new computer later in the semester.",
+        "url": "https://news.ycombinator.com/item?id=40657249",
+        "parent_id": "40657079",
+        "depth": 2,
+        "points": null,
+        "relevance": 1.889,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40656809",
+        "author": "TeMPOraL",
+        "created_at": "2024-06-12T11:25:01.000Z",
+        "text": "It is. It's a bit of a hassle, because the git mechanism that allows it is considered sensitive, so all users of your repo will need to separately configure this if they want to use it.\nBigger problem for me is that none of the code review systems I know of support this. At work, we've been wishing to have something like this in Gerrit, due to multiple SQLite DBs and other binary documents living in the repo, but as far as we can tell, we'd have to modify Gerrit sources directly to make it happen, which IT would frown at and nobody has time for anyway.",
+        "url": "https://news.ycombinator.com/item?id=40656809",
+        "parent_id": "40656676",
+        "depth": 3,
+        "points": null,
+        "relevance": 1.779,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40656116",
+        "author": "therein",
+        "created_at": "2024-06-12T09:17:27.000Z",
+        "text": "I don't use Audacity often, maybe once or twice a month at most but stability and snappiness aren't really things I associate with Audacity.\nNone of the crashes I ever encountered with Audacity has been due to SQLite of course. If anything this article made me want to use SQLite in more of my projects where I need to store local data.",
+        "url": "https://news.ycombinator.com/item?id=40656116",
+        "parent_id": "40655974",
+        "depth": 0,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40656141",
+        "author": "bux93",
+        "created_at": "2024-06-12T09:21:37.000Z",
+        "text": "The resiliency against crashes offered by it's SQLite file format is much needed. Because it crashes a lot.",
+        "url": "https://news.ycombinator.com/item?id=40656141",
+        "parent_id": "40656116",
+        "depth": 1,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40656191",
+        "author": "sureglymop",
+        "created_at": "2024-06-12T09:30:01.000Z",
+        "text": "I agree. And the best feature for me is \"ATTACH DATABASE\".\nThen one can just join together tables from multiple files etc.",
+        "url": "https://news.ycombinator.com/item?id=40656191",
+        "parent_id": "40655974",
+        "depth": 0,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40656235",
+        "author": "romwell",
+        "created_at": "2024-06-12T09:35:37.000Z",
+        "text": "Once upon a time, I revamped a binary file format for a propriety industrial-scientific software.\nThe software was writing vast arrays of numbers into a file, and reading them based on offsets.\nAs the software (and its data) evolved, versioning became a nightmare.\nI ended up writing an ORM serializer which read from/wrote into an SQLite DB with a variation on an EAV schema.\nOne of my favorite projects, result-wise. Reading and writing was clean and efficient; the format was portable, language-agnostic, compact.\nVersions of the new format were backwards- (and, within reason, forward-) compatib…",
+        "url": "https://news.ycombinator.com/item?id=40656235",
+        "parent_id": "40655974",
+        "depth": 0,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40656514",
+        "author": "gchamonlive",
+        "created_at": "2024-06-12T10:31:06.000Z",
+        "text": "For numeric values only, any advantage of using sqlite over let's say parquet with Apache Arrow/duckdb?",
+        "url": "https://news.ycombinator.com/item?id=40656514",
+        "parent_id": "40656235",
+        "depth": 1,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40656856",
+        "author": "avereveard",
+        "created_at": "2024-06-12T11:30:55.000Z",
+        "text": "SQLite let's you decide when and if vacuuming after partial row modifications. Does arrow allows that I don't know but it's most likely the best SQLite feature you can open a massive database and do one value change really really fast without having to write and compact the entire thing all the times.",
+        "url": "https://news.ycombinator.com/item?id=40656856",
+        "parent_id": "40656514",
+        "depth": 2,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40656961",
+        "author": "CJefferson",
+        "created_at": "2024-06-12T11:46:47.000Z",
+        "text": "Given SQLite is already distributed on basically every OS,is amazingly rock solid, I’d ask instead any advantage to using Apache Arrow/duckdb? I don’t have great experience with either.",
+        "url": "https://news.ycombinator.com/item?id=40656961",
+        "parent_id": "40656514",
+        "depth": 2,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40662007",
+        "author": "datadrivenangel",
+        "created_at": "2024-06-12T19:30:40.000Z",
+        "text": "They did just release DuckDB version 1.0, so it should be getting much more reliable and stable.",
+        "url": "https://news.ycombinator.com/item?id=40662007",
+        "parent_id": "40657859",
+        "depth": 4,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40658165",
+        "author": "prirun",
+        "created_at": "2024-06-12T13:52:35.000Z",
+        "text": "SQLite encodes integers in a variable-length format, so it can be very space-efficient compared to always storing integers in 4 or 8 bytes.",
+        "url": "https://news.ycombinator.com/item?id=40658165",
+        "parent_id": "40656514",
+        "depth": 2,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40657008",
+        "author": "Jean-Papoulos",
+        "created_at": "2024-06-12T11:52:06.000Z",
+        "text": "Strangely enough I'm doing the exact same thing. My case seems a bit more complicated since we're dumping not only long arrays of floats, but also a bunch of miscellaneous data (datetimes, unique datapoints, ids) right before/after those numbers. So it's even more of a nightmare... Some of these files have version numbers in the 30's (oh yeah, and file versions are based on file size.)\nAnd did I mention that the file handles are kept open for the whole program duration (might be multiple hours) ? That's fun, data loss is almost a daily occurrence. It's the main thing I'm refactoring right now.",
+        "url": "https://news.ycombinator.com/item?id=40657008",
+        "parent_id": "40656235",
+        "depth": 1,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40663101",
+        "author": "romwell",
+        "created_at": "2024-06-12T21:04:16.000Z",
+        "text": "Well, with an ORM you put everything in data structures, and write them.\nMost data fits into hierarchical data structures that don't form a complicated memory graph with references.\nOnce you know how to write primitive types and arrays of them, you can write objects, and it means you can write anything (without having to worry about writing \"before\" or \"after\").\nAnd yes, switching to SQLite absolutely addresses the \"perpetual fopen” problem.",
+        "url": "https://news.ycombinator.com/item?id=40663101",
+        "parent_id": "40657008",
+        "depth": 2,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40656327",
+        "author": "boffinAudio",
+        "created_at": "2024-06-12T09:52:18.000Z",
+        "text": "I used SQLite as the file format for a game system, and it was probably one of the most successful technical decisions I've made in 40 years. The fact that the artists and developers and even managers could use standard database tools to lay out changes to the game levels, characters and even physics behaviours, meant I didn't have to write a ton of tooling to allow them access to all of those things - they just opened up their favourite database GUI, added the data to the sqlite database, and shared the single file around.\nNowadays I just can't see any other way to do this, other than by mai…",
+        "url": "https://news.ycombinator.com/item?id=40656327",
+        "parent_id": "40655974",
+        "depth": 0,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40656601",
+        "author": "jeremyjh",
+        "created_at": "2024-06-12T10:48:23.000Z",
+        "text": "That sounds like a decent solution, but I'd rather have all that content in text files so there is meaningful version control with features like diffs and merges. Some engines will store the data this way but give you an editor to manage it, and there are dedicated level editors as well but every project is different and it could be the case none of that would have been helpful to you.",
+        "url": "https://news.ycombinator.com/item?id=40656601",
+        "parent_id": "40656327",
+        "depth": 1,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40656676",
+        "author": "Karellen",
+        "created_at": "2024-06-12T11:04:42.000Z",
+        "text": "AFAIK git has pluggable diff and merge engines. I wonder if it would be possible to create a diff/merge git plugin for sqlite files that does an intermediate conversion to .sql dump files, with some kind of serialisation normalisation so that rows are output in a stable order between runs.",
+        "url": "https://news.ycombinator.com/item?id=40656676",
+        "parent_id": "40656601",
+        "depth": 2,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40656842",
+        "author": "simonw",
+        "created_at": "2024-06-12T11:29:18.000Z",
+        "text": "I haven't tried it with git pluggable diff tools yet, but I wrote a tool that lets me convert a SQLite database into a bunch of plain text files so I can manage them in git: https://github.com/simonw/sqlite-diffable",
+        "url": "https://news.ycombinator.com/item?id=40656842",
+        "parent_id": "40656676",
+        "depth": 3,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40663793",
+        "author": "type0",
+        "created_at": "2024-06-12T22:15:27.000Z",
+        "text": "Not git, but I find it's interesting how Fossil implements version control https://www.fossil-scm.org/home/doc/trunk/www/tech_overview....",
+        "url": "https://news.ycombinator.com/item?id=40663793",
+        "parent_id": "40656676",
+        "depth": 3,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40656909",
+        "author": "robertlagrant",
+        "created_at": "2024-06-12T11:38:50.000Z",
+        "text": "We maintain a compromise with Alembic migration files in source control. This does mean people need to do Alembic things to make changes, but if they can do that little bit it's very good, and fully diffable of course.",
+        "url": "https://news.ycombinator.com/item?id=40656909",
+        "parent_id": "40656601",
+        "depth": 2,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40656942",
+        "author": "boffinAudio",
+        "created_at": "2024-06-12T11:44:14.000Z",
+        "text": "We solved this problem by checking in full sql dumps of the content database into source control, in between major changes. Not that we ever had to check and see what went wrong with the content side - using an sqlite database pretty much ensured that things were in the right format before it hit the filesystem assets, and we had practially zero bugs from introducing this methodology to the project.",
+        "url": "https://news.ycombinator.com/item?id=40656942",
+        "parent_id": "40656601",
+        "depth": 2,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40657553",
+        "author": "out_of_protocol",
+        "created_at": "2024-06-12T12:52:54.000Z",
+        "text": "Thousands of text files laying on bare filesystem is rather slow solution, so additional step to convert between text files and sqlite is needed. Never have seen ready to use solutions, only heard of ad-hoc scripts",
+        "url": "https://news.ycombinator.com/item?id=40657553",
+        "parent_id": "40656601",
+        "depth": 2,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40656495",
+        "author": "belter",
+        "created_at": "2024-06-12T10:27:37.000Z",
+        "text": "In 2024, not using SQLite as your application file format, should really force an engineering team to have a damn good explanation....\nhttps://www.sqlite.org/famous.html",
+        "url": "https://news.ycombinator.com/item?id=40656495",
+        "parent_id": "40655974",
+        "depth": 0,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40656658",
+        "author": "throwup238",
+        "created_at": "2024-06-12T10:59:50.000Z",
+        "text": "> The United States Library of Congress recognizes SQLite as a recommended storage format for preservation of digital content.\nThat’s one hell of an endorsement.",
+        "url": "https://news.ycombinator.com/item?id=40656658",
+        "parent_id": "40656495",
+        "depth": 1,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40656746",
+        "author": "threatofrain",
+        "created_at": "2024-06-12T11:13:46.000Z",
+        "text": "Is SQLite the best solution for on-device logs?",
+        "url": "https://news.ycombinator.com/item?id=40656746",
+        "parent_id": "40656495",
+        "depth": 1,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40657003",
+        "author": "ecuaflo",
+        "created_at": "2024-06-12T11:51:26.000Z",
+        "text": "unfortunately in the browser it needs to be downloaded so you’re stuck with indexeddb",
+        "url": "https://news.ycombinator.com/item?id=40657003",
+        "parent_id": "40656495",
+        "depth": 1,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40659004",
+        "author": "sgbeal",
+        "created_at": "2024-06-12T15:11:12.000Z",
+        "text": "> unfortunately in the browser it needs to be downloaded so you’re stuck with indexeddb\nThat argument implies that we're stuck with the browser's single built-in home page because every other web page has to be downloaded.\nHow is having to download sqlite3.wasm any different from having to download HTML, CSS, JS, images, etc.?",
+        "url": "https://news.ycombinator.com/item?id=40659004",
+        "parent_id": "40657003",
+        "depth": 2,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40659141",
+        "author": "w0m",
+        "created_at": "2024-06-12T15:23:58.000Z",
+        "text": "> How is having to download sqlite3.wasm any different from\n'unnecessary' file size. K matter on the web still.\nI'm not normally a web guy, but from https://sqlite.org/download.html it looks like it's ~800k extra added to initial page load? Based on average mobile speed in US of 97.09Mbps; that's an extra half second added to initial page load. That's not trivial; maybe an extra 15% bounce rate on initial hits.",
+        "url": "https://news.ycombinator.com/item?id=40659141",
+        "parent_id": "40659004",
+        "depth": 3,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40659300",
+        "author": "sgbeal",
+        "created_at": "2024-06-12T15:37:12.000Z",
+        "text": "> ~800k extra added to initial page load?\nIf you're serving it uncompressed, which no production-grade site will (for a given definition of \"no\"/\"none\").\n> K matter on the web still.\nNot, i opine, for the types of apps which want to host client-side databases. These are client-side applications, not \"web pages.\"\nEven a bare-bones, database-less google.com is now 3.14mb uncompressed (1.32 compressed), and that's not counting the pieces which uBlock Origin keep from loading. It loads somewhere around 2MB (uncompressed) of JS.\nLast i checked, gdrive downloaded some 14mb to get up and running.\n> …",
+        "url": "https://news.ycombinator.com/item?id=40659300",
+        "parent_id": "40659141",
+        "depth": 4,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40661016",
+        "author": "Digit-Al",
+        "created_at": "2024-06-12T18:00:11.000Z",
+        "text": "Makes me laugh. When I got my first computer in 1987 it took so long to load a small game from cassette that I could go downstairs, boil a kettle, make a cuppa, and bring it back to my room, and the game would be just about finished loading. Now people are moaning about an extra half a second lol\nHow things change.",
+        "url": "https://news.ycombinator.com/item?id=40661016",
+        "parent_id": "40659141",
+        "depth": 4,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40661317",
+        "author": "paulddraper",
+        "created_at": "2024-06-12T18:32:30.000Z",
+        "text": "No, the narrative here is that things used to be fast and idiot JS devs have made everything bloated and slow.",
+        "url": "https://news.ycombinator.com/item?id=40661317",
+        "parent_id": "40661016",
+        "depth": 5,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40664344",
+        "author": "andrepd",
+        "created_at": "2024-06-12T23:35:37.000Z",
+        "text": "Computers are thousands to millions of times faster. So yes, that's a true assessment.",
+        "url": "https://news.ycombinator.com/item?id=40664344",
+        "parent_id": "40661317",
+        "depth": 6,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40664727",
+        "author": "paulddraper",
+        "created_at": "2024-06-13T00:37:52.000Z",
+        "text": "> millions of times faster\nUnless you had a 3KHz processor (and no processor ever had that), that statement is just not true.",
+        "url": "https://news.ycombinator.com/item?id=40664727",
+        "parent_id": "40664344",
+        "depth": 7,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40678277",
+        "author": "andrepd",
+        "created_at": "2024-06-14T07:04:41.000Z",
+        "text": "It's not about raw clock speed, or a Zen 4 would be as fast as a Pentium 4 :)",
+        "url": "https://news.ycombinator.com/item?id=40678277",
+        "parent_id": "40664727",
+        "depth": 8,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40663143",
+        "author": "jacobprall",
+        "created_at": "2024-06-12T21:07:52.000Z",
+        "text": "It's a matter of use case - for simple web page or even a lightweight client-side app, maybe too big. But for tool with heavy data processing, I could see it being quite useful.",
+        "url": "https://news.ycombinator.com/item?id=40663143",
+        "parent_id": "40659141",
+        "depth": 4,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40659086",
+        "author": "iansinnott",
+        "created_at": "2024-06-12T15:17:51.000Z",
+        "text": "It's too bad WebSQL never took off, as that was sqlite built in to the browser.\nFrom memory the wasm binary of wa-sqlite is ~1mb, which is certainly not nothing but is an acceptable one-time download size for many web apps. I've seen websites with single image files larger than that. Not an advocating for more bloated web apps, but a sqlite download might not be a deal breaker.",
+        "url": "https://news.ycombinator.com/item?id=40659086",
+        "parent_id": "40657003",
+        "depth": 2,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40657270",
+        "author": "macintux",
+        "created_at": "2024-06-12T12:23:58.000Z",
+        "text": "Decades ago I troubleshot a Solaris server that wouldn’t boot, and discovered the kernel file was missing. I suspect someone had tried to deal with a too-small root partition by removing large files.",
+        "url": "https://news.ycombinator.com/item?id=40657270",
+        "parent_id": "40657249",
+        "depth": 3,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40660188",
+        "author": "eli",
+        "created_at": "2024-06-12T16:47:52.000Z",
+        "text": "You could simply turn off WAL for a simple application database, if you were really worried. You lose some performance and scale, but it should work fine.",
+        "url": "https://news.ycombinator.com/item?id=40660188",
+        "parent_id": "40657079",
+        "depth": 2,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40661676",
+        "author": "fauigerzigerk",
+        "created_at": "2024-06-12T19:00:32.000Z",
+        "text": "Setting the journal_mode to OFF or MEMORY is a sure-fire way of corrupting the database. It's not fine.\nhttps://sqlite.org/pragma.html#pragma_journal_mode",
+        "url": "https://news.ycombinator.com/item?id=40661676",
+        "parent_id": "40660188",
+        "depth": 3,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40662160",
+        "author": "eli",
+        "created_at": "2024-06-12T19:42:49.000Z",
+        "text": "If the application crashes in the middle of a writing a transaction, yes. You can work around this if you care to, and I don't think it's anything specific to SQLite. What happens if your application crashes in the middle writing out a JSON file?\nI had actually meant JOURNAL_MODE=DELETE, though. This would not technically use a WAL file, though there would be a rollback journal file that exists only for the duration of the transaction.",
+        "url": "https://news.ycombinator.com/item?id=40662160",
+        "parent_id": "40661676",
+        "depth": 4,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40661436",
+        "author": "renonce",
+        "created_at": "2024-06-12T18:42:02.000Z",
+        "text": "> 1.4. Mispairing database files and hot journals\nI’m surprised it would corrupt the database. The database could have included a unique identifier as well as in the journal and refuse opening the database if the identifiers don’t match.",
+        "url": "https://news.ycombinator.com/item?id=40661436",
+        "parent_id": "40657079",
+        "depth": 2,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40661839",
+        "author": "fauigerzigerk",
+        "created_at": "2024-06-12T19:14:56.000Z",
+        "text": "Uniquely identifying a database and its journal/wal files would prevent just one of the five mispairing cases they mention. And it's the least likely case.",
+        "url": "https://news.ycombinator.com/item?id=40661839",
+        "parent_id": "40661436",
+        "depth": 3,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40656633",
+        "author": "TeMPOraL",
+        "created_at": "2024-06-12T10:54:58.000Z",
+        "text": "If you're careful about it, you can store the canonical runtime state for e.g. a videogame in :memory: database; you then get saving/loading for free with SQLite backup API.",
+        "url": "https://news.ycombinator.com/item?id=40656633",
+        "parent_id": "40656594",
+        "depth": 1,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40656743",
+        "author": "bryancoxwell",
+        "created_at": "2024-06-12T11:13:39.000Z",
+        "text": "Can you explain what you mean about needing to be careful about it?",
+        "url": "https://news.ycombinator.com/item?id=40656743",
+        "parent_id": "40656633",
+        "depth": 2,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40656785",
+        "author": "TeMPOraL",
+        "created_at": "2024-06-12T11:21:02.000Z",
+        "text": "You need to store all the data that define the runtime state, so it can be dumped and recovered, without accidentally capturing information or references to things that live outside the DB and won't survive application restart. It's a more generic case of the \"don't dump pointers to files, if you can't guarantee they'll be valid after reload\".",
+        "url": "https://news.ycombinator.com/item?id=40656785",
+        "parent_id": "40656743",
+        "depth": 3,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40656795",
+        "author": "bryancoxwell",
+        "created_at": "2024-06-12T11:22:57.000Z",
+        "text": "Thanks!",
+        "url": "https://news.ycombinator.com/item?id=40656795",
+        "parent_id": "40656785",
+        "depth": 4,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40656841",
+        "author": "v7n",
+        "created_at": "2024-06-12T11:28:40.000Z",
+        "text": "In addition to paying attention to references, perhaps it makes sense to always keep e.g. player inventory state in there, but something that can change every frame, like player position data, should perhaps only be synced just prior to the snapshot if it would otherwise degrade performance too much. This is of course another layer of complexity (volatile vs non-volatile game state) to think about.",
+        "url": "https://news.ycombinator.com/item?id=40656841",
+        "parent_id": "40656743",
+        "depth": 3,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40656945",
+        "author": "TeMPOraL",
+        "created_at": "2024-06-12T11:44:46.000Z",
+        "text": "This. In my testing some years ago, trying to make a basic Roguelike game with the state stored entitely in SQLite, the in-memory db could support reading the visible portion of the map and positions of entities at 60 FPS with time to spare, on a modest machine, and with slight FFI penalty as the code was written in Common Lisp (SBCL). So while you may not want to do this for a first-person shooter, there are many types of games that could in fact live entirely in SQLite, save for some transient visual FX.",
+        "url": "https://news.ycombinator.com/item?id=40656945",
+        "parent_id": "40656841",
+        "depth": 4,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40658902",
+        "author": "semi",
+        "created_at": "2024-06-12T14:59:13.000Z",
+        "text": "I'm pretty far removed from game dev but curious.. is the in mem sqlite DB the only representation of game state or is it just 'mirroring' the 'real' values in ram? like if there's a Score on the HUD, are you doing a SQL select to read the value on every frame?\nOr is this just a way to serialize and deserialization the game state to automatically save the game so it could be reloaded if it closed/crashed without explicitly running a 'save game' function?",
+        "url": "https://news.ycombinator.com/item?id=40658902",
+        "parent_id": "40656945",
+        "depth": 5,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40659241",
+        "author": "TeMPOraL",
+        "created_at": "2024-06-12T15:33:10.000Z",
+        "text": "> if there's a Score on the HUD, are you doing a SQL select to read the value on every frame?\nYes. That was the point of my experiments, after I realized that good chunks of the data structures I set up for my game look suspiciously similar to indices and materialized views. So I figured, why waste time reinventing them poorly, when I could use a proper database for it, and do something silly in the process?\nIn a way, it's also coming back to the origin of the ECS pattern. The way it was originally designed, in MMO space, the entity was a primary key into component tables, and systems did a m…",
+        "url": "https://news.ycombinator.com/item?id=40659241",
+        "parent_id": "40658902",
+        "depth": 6,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40660846",
+        "author": "nathanfries",
+        "created_at": "2024-06-12T17:43:15.000Z",
+        "text": "I followed this line of thinking last week due to curiosity w.r.t ECS & SQLite. I found that the bottleneck was not on the reads, but on the complexity of the writes (iterating each entity and subsequently you have num_systems X num_components writes). You can actually avoid this entirely if you write your systems in SQL.\nSince I had already thrown out logic & reason for the sake of curiosity, I took it a step further and learned that the Bun JS runtime actually has SQLite baked in, which allows you to create a :memory: db that can be accessed _synchronously_ avoiding modification of most ECS…",
+        "url": "https://news.ycombinator.com/item?id=40660846",
+        "parent_id": "40659241",
+        "depth": 7,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40657059",
+        "author": "out_of_protocol",
+        "created_at": "2024-06-12T11:58:12.000Z",
+        "text": "Theres is \"Pack\" archive format that does exactly this for general-purpose archives (sqlite + zstd for compression). https://news.ycombinator.com/item?id=39793805 https://pack.ac/\nworks faster AND more compact than .tar.zstd and .7z.zstd (patched 7z with zstd compression)",
+        "url": "https://news.ycombinator.com/item?id=40657059",
+        "parent_id": "40655974",
+        "depth": 0,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40657127",
+        "author": "jhanschoo",
+        "created_at": "2024-06-12T12:06:12.000Z",
+        "text": "It doesn't list obvious cases where you shouldn't take this approach, so I have one off the top of my head that SQLite doesn't seem like it's a good fit, I'm interested in whether I'm wrong on this.\nThe article discusses storing files as BLOBs. But it looks to me like this isn't a good fit for sufficiently memory-constrained environments, given a task involving processing a very large file in a sequential manner, like with media reencoding, or video playback. It seems like the traditional file access patterns are better suited for those tasks.",
+        "url": "https://news.ycombinator.com/item?id=40657127",
+        "parent_id": "40655974",
+        "depth": 0,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40657777",
+        "author": "jitl",
+        "created_at": "2024-06-12T13:14:53.000Z",
+        "text": "You can incrementally read or write the value in a BLOB column of a row. You can read/write etc using a file descriptor like API: https://www.sqlite.org/c3ref/blob_open.html",
+        "url": "https://news.ycombinator.com/item?id=40657777",
+        "parent_id": "40657127",
+        "depth": 1,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "40657848",
+        "author": "OskarS",
+        "created_at": "2024-06-12T13:22:14.000Z",
+        "text": "It's very easy to design a schema that breaks up blobs into chunks. SQLite is excellent for memory constrained environments, with even mathematical proofs of maximum memory usage: https://www.sqlite.org/malloc.html",
+        "url": "https://news.ycombinator.com/item?id=40657848",
+        "parent_id": "40657127",
+        "depth": 1,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=40655974",
+        "source": "api"
+      },
+      {
+        "id": "46079683",
+        "author": "TeMPOraL",
+        "text": "It was, back when software development was run by hackers and not suits and security people. Easy access was a feature for users, too; back in those days, software was a tool that worked on data, it didn't try to own the data.",
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46088356",
+        "author": "mort96",
+        "text": "This seems completely orthogonal? This is an alternative to zip and tar built on SQLite:\n> An \"SQLite Archive\" is a file container similar to a ZIP archive or Tarball but based on an SQLite database.\nYour parent comment said that when you'…",
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      }
+    ],
+    "executed_at": "2026-10-16T09:42:08.381276+00:00",
+    "timed_out": true
+  },
+  "score": {
+    "id": "hn-comment-dissent",
+    "scores": {
+      "discovery": {
+        "status": "fail",
+        "matched_targets": [],
+        "required": 1
+      },
+      "comments": {
+        "status": "fail",
+        "matched_comments": []
+      },
+      "synthesis": {
+        "status": "fail",
+        "reason": "empty_answer"
+      }
+    },
+    "task": {
+      "status": "timeout",
+      "reasons": [
+        "comments:fail",
+        "synthesis:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": false,
+    "grader": "v2"
+  }
+}

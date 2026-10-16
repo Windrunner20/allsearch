@@ -1,0 +1,1975 @@
+{
+  "id": "compare-react-vue",
+  "query": "对比 React 官方的 managing state 和 Vue 官方的 reactivity fundamentals",
+  "returncode": 124,
+  "elapsed_ms": 240025,
+  "efficiency": {
+    "tool_calls": {
+      "search": 13,
+      "fetch": 6
+    },
+    "total_calls": 19,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 0,
+    "errors": 0
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": [
+          "stackoverflow.com",
+          "dev.to"
+        ],
+        "fresh": false,
+        "include_domains": [
+          "react.dev"
+        ],
+        "max_results": 8,
+        "mode": "docs",
+        "query": "site:react.dev/learn managing state React official documentation state structure sharing state preserving resetting state choosing state structure reducer context refs effects derived state event handlers render commit snapshot queueing updates avoid redundant state state as a snapshot reactive comparison Vue reactivity fundamentals official comparison assumptions no comments needed unless found in sources",
+        "vertical": "software"
+      },
+      "is_error": false,
+      "ms": 3007
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": [
+          "stackoverflow.com",
+          "dev.to"
+        ],
+        "fresh": false,
+        "include_domains": [
+          "vuejs.org"
+        ],
+        "max_results": 8,
+        "mode": "docs",
+        "query": "site:vuejs.org/guide/essentials/reactivity-fundamentals.html Vue official reactivity fundamentals ref reactive computed reactive proxy limitations deep reactivity DOM update timing",
+        "vertical": "software"
+      },
+      "is_error": false,
+      "ms": 2711
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "balanced",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "react.dev",
+          "vuejs.org"
+        ],
+        "max_results": 8,
+        "mode": "docs",
+        "query": "React managing state Vue reactivity fundamentals official documentation comparison state updates derived state shared state",
+        "vertical": "software"
+      },
+      "is_error": false,
+      "ms": 18948
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "React official Managing State page: extract section headings and exact wording about state structure, redundant state, sharing state, reducers/context, render/update behavior. Preserve quotations.",
+        "fresh": false,
+        "max_chars": 24000,
+        "url": "https://react.dev/learn/managing-state"
+      },
+      "is_error": false,
+      "ms": 10688
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "React official State as a Snapshot and useState: extract exact wording about renders, snapshot, setter, batching/queued updates, mutation. Preserve quotations.",
+        "fresh": false,
+        "max_chars": 18000,
+        "url": "https://react.dev/learn/state-as-a-snapshot"
+      },
+      "is_error": false,
+      "ms": 10688
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "React official Choosing the State Structure and Sharing State Between Components: exact guidance on minimal state, derived values, lifting state, single source of truth. Preserve quotations.",
+        "fresh": false,
+        "max_chars": 22000,
+        "url": "https://react.dev/learn/choosing-the-state-structure"
+      },
+      "is_error": false,
+      "ms": 10688
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Vue official Reactivity Fundamentals: extract exact wording and examples for ref, reactive, deep reactivity, DOM update timing, limitations. Preserve quotations.",
+        "fresh": false,
+        "max_chars": 30000,
+        "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals"
+      },
+      "is_error": false,
+      "ms": 10689
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Vue official Computed Properties: exact guidance on computed refs, caching, reactive dependencies, methods comparison, writable computed if relevant. Preserve quotations.",
+        "fresh": false,
+        "max_chars": 18000,
+        "url": "https://vuejs.org/guide/essentials/computed"
+      },
+      "is_error": false,
+      "ms": 10862
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Vue official State Management or provide/inject: extract guidance on sharing state and scaling beyond component-local reactivity. Preserve quotations.",
+        "fresh": false,
+        "max_chars": 18000,
+        "url": "https://vuejs.org/guide/scaling-up/state-management"
+      },
+      "is_error": false,
+      "ms": 10861
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "react.dev"
+        ],
+        "max_results": 10,
+        "mode": "docs",
+        "query": "site:react.dev/learn/managing-state \"Managing State\" \"avoid redundant state\"",
+        "vertical": "software"
+      },
+      "is_error": false,
+      "ms": 16013
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "react.dev"
+        ],
+        "max_results": 10,
+        "mode": "docs",
+        "query": "site:react.dev/learn/choosing-the-state-structure \"Principles for structuring state\"",
+        "vertical": "software"
+      },
+      "is_error": false,
+      "ms": 14298
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "react.dev"
+        ],
+        "max_results": 10,
+        "mode": "docs",
+        "query": "site:react.dev/learn/state-as-a-snapshot \"snapshot\" \"render\"",
+        "vertical": "software"
+      },
+      "is_error": false,
+      "ms": 17548
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "vuejs.org"
+        ],
+        "max_results": 10,
+        "mode": "docs",
+        "query": "site:vuejs.org/guide/essentials/reactivity-fundamentals \"ref()\" \"reactive()\"",
+        "vertical": "software"
+      },
+      "is_error": false,
+      "ms": 24196
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "vuejs.org"
+        ],
+        "max_results": 10,
+        "mode": "docs",
+        "query": "site:vuejs.org/guide/essentials/reactivity-fundamentals \"deeply reactive\" \"DOM update timing\"",
+        "vertical": "software"
+      },
+      "is_error": false,
+      "ms": 19099
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "vuejs.org"
+        ],
+        "max_results": 10,
+        "mode": "docs",
+        "query": "site:vuejs.org/guide/essentials/computed \"cached\" \"reactive dependencies\"",
+        "vertical": "software"
+      },
+      "is_error": false,
+      "ms": 21499
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "react.dev"
+        ],
+        "max_results": 8,
+        "mode": "docs",
+        "query": "site:react.dev/learn/managing-state \"Reacting to Input\" \"Managing State\" reducer context",
+        "vertical": "software"
+      },
+      "is_error": false,
+      "ms": 24650
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "react.dev"
+        ],
+        "max_results": 8,
+        "mode": "docs",
+        "query": "site:react.dev/learn/sharing-state-between-components \"single source of truth\" \"lifting state up\"",
+        "vertical": "software"
+      },
+      "is_error": false,
+      "ms": 16432
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "vuejs.org"
+        ],
+        "max_results": 8,
+        "mode": "docs",
+        "query": "site:vuejs.org/guide/scaling-up/state-management \"simple state management\" \"reactive\"",
+        "vertical": "software"
+      },
+      "is_error": false,
+      "ms": 16029
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "vuejs.org"
+        ],
+        "max_results": 8,
+        "mode": "docs",
+        "query": "site:vuejs.org/guide/essentials/reactivity-fundamentals \"limitations of reactive\" destructure replacement",
+        "vertical": "software"
+      },
+      "is_error": false,
+      "ms": 28243
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.0\", \"result_id\": \"0eec1f78b5d0be29\", \"kind\": \"search\", \"status\": \"error\", \"query\": \"site:react.dev/learn managing state React official documentation state structure sharing state preserving resetting state choosing state structure reducer context refs effects derived state event handlers render commit snapshot queueing updates avoid redundant state state as a snapshot reactive comparison Vue reactivity fundamentals official comparison assumptions no comments needed unless found …\", \"answer\": \"\", \"answer_chars\": 0, \"evidence\": {\"unique_urls\": 0, \"unique_domains\": 0, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 2955, \"warning_count\": 0, \"warnings\": [], \"errors\": [{\"provider\": \"xai\", \"code\": \"provider_contract_error\", \"message\": \"bad request from provider: {\\\"error\\\":{\\\"message\\\":\\\"Upstream rejected the request\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":\\\"\\\",\\\"code\\\":null}}\", \"retryable\": false}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"error\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"skipped\", \"reason\": \"primary_unavailable\"}, {\"provider\": \"anysearch\", \"operation\": \"search\", \"outcome\": \"skipped\", \"reason\": \"primary_unavailable\"}], \"result_count\": 0, \"citation_count\": 0, \"results\": [], \"citations\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"0eec1f78b5d0be29\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"bb120f9a8ee9d070\", \"kind\": \"search\", \"status\": \"error\", \"query\": \"site:vuejs.org/guide/essentials/reactivity-fundamentals.html Vue official reactivity fundamentals ref reactive computed reactive proxy limitations deep reactivity DOM update timing\", \"answer\": \"\", \"answer_chars\": 0, \"evidence\": {\"unique_urls\": 0, \"unique_domains\": 0, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 2623, \"warning_count\": 0, \"warnings\": [], \"errors\": [{\"provider\": \"xai\", \"code\": \"provider_contract_error\", \"message\": \"bad request from provider: {\\\"error\\\":{\\\"message\\\":\\\"Upstream rejected the request\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":\\\"\\\",\\\"code\\\":null}}\", \"retryable\": false}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"error\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"skipped\", \"reason\": \"primary_unavailable\"}, {\"provider\": \"anysearch\", \"operation\": \"search\", \"outcome\": \"skipped\", \"reason\": \"primary_unavailable\"}], \"result_count\": 0, \"citation_count\": 0, \"results\": [], \"citations\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"bb120f9a8ee9d070\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"00b27e49256907f5\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"React managing state Vue reactivity fundamentals official documentation comparison state updates derived state shared state\", \"answer\": \"Official docs on React state management versus Vue reactivity, focused on updates, derived values, and shared state.\\n\\n1. **React — Managing State** — Organizing state, avoiding duplicate data, and sharing it. [react.dev/learn/managing-state](https://react.dev/learn/managing-state) [[1]](https://react.dev/learn/managing-state)\\n\\n2. **React — useState** — Declares state and a setter that schedules a re-render. Prefer deriving values during render over storing redundant state; `useMemo` if the calculation is expensive. [react.dev/reference/react/useState](https://react.dev/reference/react/useState) [[2]](https://react.dev/reference/react/useState)\\n\\n3. **React — State as a Snapshot** — Setting state does not mutate the current render’s variables; each render gets a snapshot, and updates queue …\", \"answer_chars\": 3223, \"evidence\": {\"unique_urls\": 8, \"unique_domains\": 2, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 8}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 18855, \"warning_count\": 1, \"warnings\": [\"anysearch_no_sub_domain_available\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"skipped\", \"reason\": \"primary_sufficient\"}, {\"provider\": \"anysearch\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"high_confidence_vertical\"}], \"result_count\": 8, \"citation_count\": 8, \"results\": [{\"id\": \"r1\", \"title\": \"1\", \"url\": \"https://react.dev/learn/managing-state\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"2\", \"url\": \"https://react.dev/reference/react/useState\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r3\", \"title\": \"3\", \"url\": \"https://react.dev/learn/state-as-a-snapshot\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"4\", \"url\": \"https://react.dev/learn/choosing-the-state-structure\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r5\", \"title\": \"5\", \"url\": \"https://react.dev/learn/sharing-state-between-components\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"6\", \"url\": \"https://vuejs.org/guide/essentials/reactivity-fundamentals\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r7\", \"title\": \"7\", \"url\": \"https://vuejs.org/guide/essentials/computed\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"8\", \"url\": \"https://vuejs.org/guide/components/provide-inject.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://react.dev/learn/managing-state\", \"title\": \"1\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://react.dev/reference/react/useState\", \"title\": \"2\", \"result_item_id\": \"r2\", \"providers\": [\"xai\"]}, {\"id\": \"c3\", \"url\": \"https://react.dev/learn/state-as-a-snapshot\", \"title\": \"3\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://react.dev/learn/choosing-the-state-structure\", \"title\": \"4\", \"result_item_id\": \"r4\", \"providers\": [\"xai\"]}, {\"id\": \"c5\", \"url\": \"https://react.dev/learn/sharing-state-between-components\", \"title\": \"5\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://vuejs.org/guide/essentials/reactivity-fundamentals\", \"title\": \"6\", \"result_item_id\": \"r6\", \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://vuejs.org/guide/essentials/computed\", \"title\": \"7\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://vuejs.org/guide/components/provide-inject.html\", \"title\": \"8\", \"result_item_id\": \"r8\", \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"00b27e49256907f5\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"d07c3f9e02a29522\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://react.dev/learn/managing-state\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"d07c3f9e02a29522\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"1cbfc56dbf080a01\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://react.dev/learn/state-as-a-snapshot\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"1cbfc56dbf080a01\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"95eb7b1e06ee9ab5\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://react.dev/learn/choosing-the-state-structure\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"95eb7b1e06ee9ab5\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"60ac4bcc6359de0a\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://vuejs.org/guide/essentials/reactivity-fundamentals\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"60ac4bcc6359de0a\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"9d29d3c1dfc50ba1\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://vuejs.org/guide/essentials/computed\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"9d29d3c1dfc50ba1\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"1f9ab2a912c12701\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://vuejs.org/guide/scaling-up/state-management\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"1f9ab2a912c12701\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"719b461c45c6f296\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:react.dev/learn/managing-state \\\"Managing State\\\" \\\"avoid redundant state\\\"\", \"answer\": \"Relevant React docs on avoiding redundant state:\\n\\n1. **Managing State** — [react.dev/learn/managing-state](https://react.dev/learn/managing-state)  \\n   Chapter overview. Says redundant or duplicate state is a common source of bugs. Principle: state shouldn’t hold redundant or duplicated information. Example: drop a redundant `fullName` state and compute `firstName + ' ' + lastName` during render. Points to “Choosing the State Structure.” [[1]](https://react.dev/learn/managing-state)\\n\\n2. **Choosing the State Structure** — [react.dev/learn/choosing-the-state-structure](https://react.dev/learn/choosing-the-state-structure)  \\n   Primary guide. Principle 3: **Avoid redundant state.** If you can calculate something from props or existing state during rendering, don’t store it. Same `fullName` e…\", \"answer_chars\": 3098, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 2, \"cross_provider_matches\": 3, \"pages_fetched\": 0, \"primary_citation_count\": 8}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 15952, \"warning_count\": 1, \"warnings\": [\"anysearch_no_sub_domain_available\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"anysearch\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_vertical\"}], \"result_count\": 10, \"citation_count\": 13, \"results\": [{\"id\": \"r1\", \"title\": \"Managing State – React\", \"url\": \"https://react.dev/learn/managing-state\", \"snippet\": \"## Ready to learn this topic?\\n\\nRead Reacting to Input with State to learn how to approach interactions with a state-driven mindset.\\n\\nRead More\\n\\n## Choosing the…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r2\", \"title\": \"Choosing the State Structure – React\", \"url\": \"https://react.dev/learn/choosing-the-state-structure\", \"snippet\": \"1. Group related state. If you always update two or more state variables at the same time, consider merging them into a single state variable.\\n2. Avoid contrad…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"You Might Not Need an Effect – React\", \"url\": \"https://react.dev/learn/you-might-not-need-an-effect\", \"snippet\": \"const [newTodo, setNewTodo] = useState('');\\n\\n// 🔴 Avoid: redundant state and unnecessary Effect\\n\\nconst [visibleTodos, setVisibleTodos] = useState([]);\\n\\nuseEffe…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r4\", \"title\": \"Escape Hatches – React\", \"url\": \"https://react.dev/learn/escape-hatches\", \"snippet\": \"const [firstName, setFirstName] = useState('Taylor');\\n\\nconst [lastName, setLastName] = useState('Swift');\\n\\n// 🔴 Avoid: redundant state and unnecessary Effect\\n\\n…\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"4\", \"url\": \"https://react.dev/learn/you-might-not-need-an-effect.md\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"Preserving and Resetting State – React\", \"url\": \"https://react.dev/learn/preserving-and-resetting-state\", \"snippet\": \"Learn React\\n\\nManaging State\\n\\n# Preserving and Resetting State\\n\\nState is isolated between components. React keeps track of which state belongs to which componen…\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"5\", \"url\": \"https://react.dev/learn/choosing-the-state-structure.md\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"Scaling Up with Reducer and Context – React\", \"url\": \"https://react.dev/learn/scaling-up-with-reducer-and-context\", \"snippet\": \"Learn React\\n\\nManaging State\\n\\n# Scaling Up with Reducer and Context\\n\\nReducers let you consolidate a component’s state update logic. Context lets you pass inform…\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"6\", \"url\": \"https://zh-hans.react.dev/learn/managing-state\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"State: A Component's Memory – React\", \"url\": \"https://react.dev/learn/state-a-components-memory\", \"snippet\": \"```\\n\\nconst [index, setIndex] = useState(0);\\n\\n```\\n\\n1. Your component renders the first time. Because you passed `0` to `useState` as the initial value for `inde…\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://react.dev/learn/managing-state\", \"title\": \"Managing State – React\", \"result_item_id\": \"r1\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c2\", \"url\": \"https://react.dev/learn/choosing-the-state-structure\", \"title\": \"Choosing the State Structure – React\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://react.dev/learn/you-might-not-need-an-effect\", \"title\": \"You Might Not Need an Effect – React\", \"result_item_id\": \"r3\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c4\", \"url\": \"https://react.dev/learn/escape-hatches\", \"title\": \"Escape Hatches – React\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://react.dev/learn/you-might-not-need-an-effect.md\", \"title\": \"4\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://react.dev/learn/preserving-and-resetting-state\", \"title\": \"Preserving and Resetting State – React\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://react.dev/learn/choosing-the-state-structure.md\", \"title\": \"5\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://react.dev/learn/scaling-up-with-reducer-and-context\", \"title\": \"Scaling Up with Reducer and Context – React\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://zh-hans.react.dev/learn/managing-state\", \"title\": \"6\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://react.dev/learn/state-a-components-memory\", \"title\": \"State: A Component's Memory – React\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://zh-hans.react.dev/learn/choosing-the-state-structure\", \"title\": \"7\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://it.react.dev/learn/managing-state\", \"title\": \"8\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://react.dev/blog/2024/12/05/react-19\", \"title\": \"React v19 – React\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"719b461c45c6f296\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"49d4c8c176623938\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:react.dev/learn/choosing-the-state-structure \\\"Principles for structuring state\\\"\", \"answer\": \"Relevant results for **“Principles for structuring state”** on React’s docs:\\n\\n1. **[Choosing the State Structure](https://react.dev/learn/choosing-the-state-structure)** (canonical English page; also available as `.md`)  \\n   Section: **Principles for structuring state**. Five principles: group related state; avoid contradictions; avoid redundant state; avoid duplication; avoid deeply nested state. Goal: make state easy to update without mistakes (normalize, like a database). [web:0]\\n\\n2. **[Managing State](https://react.dev/learn/managing-state)**  \\n   Chapter overview. Points to “Choosing the state structure” and states the main idea: state should not hold redundant or duplicated information (example: derived `fullName`). [web:1]\\n\\n3. **[Thinking in React](https://react.dev/learn/thinking-…\", \"answer_chars\": 2429, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 5, \"cross_provider_matches\": 2, \"pages_fetched\": 0, \"primary_citation_count\": 10}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 14232, \"warning_count\": 1, \"warnings\": [\"anysearch_no_sub_domain_available\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"anysearch\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_vertical\"}], \"result_count\": 10, \"citation_count\": 16, \"results\": [{\"id\": \"r1\", \"title\": \"https://es.react.dev/learn/choosing-the-state-structure\", \"url\": \"https://es.react.dev/learn/choosing-the-state-structure\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"Thinking in React – React\", \"url\": \"https://react.dev/learn/thinking-in-react\", \"snippet\": \"Think of state as the minimal set of changing data that your app needs to remember. The most important principle for structuring state is to keep it DRY (Don’t…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://pt-br.react.dev/learn/choosing-the-state-structure\", \"url\": \"https://pt-br.react.dev/learn/choosing-the-state-structure\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"Choosing the State Structure – React\", \"url\": \"https://react.dev/learn/choosing-the-state-structure\", \"snippet\": \"Learn React\\n\\nManaging State\\n\\n# Choosing the State Structure\\n\\nStructuring state well can make a difference between a component that is pleasant to modify and de…\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://zh-hans.react.dev/learn/choosing-the-state-structure\", \"url\": \"https://zh-hans.react.dev/learn/choosing-the-state-structure\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"Managing State – React\", \"url\": \"https://react.dev/learn/managing-state\", \"snippet\": \"## Ready to learn this topic?\\n\\nRead Reacting to Input with State to learn how to approach interactions with a state-driven mindset.\\n\\nRead More\\n\\n## Choosing the…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r7\", \"title\": \"https://fr.react.dev/learn/choosing-the-state-structure\", \"url\": \"https://fr.react.dev/learn/choosing-the-state-structure\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"Using TypeScript – React\", \"url\": \"https://react.dev/learn/typescript\", \"snippet\": \"```\\n\\nThis isn’t very useful in this case, but a common case where you may want to provide a type is when you have a union type. For example, `status` here can …\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"https://react.dev/learn/choosing-the-state-structure.md\", \"url\": \"https://react.dev/learn/choosing-the-state-structure.md\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"Sharing State Between Components – React\", \"url\": \"https://react.dev/learn/sharing-state-between-components\", \"snippet\": \"For each unique piece of state, you will choose the component that “owns” it. This principle is also known as having a “single source of truth”. It doesn’t mea…\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://es.react.dev/learn/choosing-the-state-structure\", \"title\": \"https://es.react.dev/learn/choosing-the-state-structure\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://react.dev/learn/thinking-in-react\", \"title\": \"Thinking in React – React\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://pt-br.react.dev/learn/choosing-the-state-structure\", \"title\": \"https://pt-br.react.dev/learn/choosing-the-state-structure\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://react.dev/learn/choosing-the-state-structure\", \"title\": \"Choosing the State Structure – React\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://zh-hans.react.dev/learn/choosing-the-state-structure\", \"title\": \"https://zh-hans.react.dev/learn/choosing-the-state-structure\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://react.dev/learn/managing-state\", \"title\": \"Managing State – React\", \"result_item_id\": \"r6\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://fr.react.dev/learn/choosing-the-state-structure\", \"title\": \"https://fr.react.dev/learn/choosing-the-state-structure\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://react.dev/learn/typescript\", \"title\": \"Using TypeScript – React\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://react.dev/learn/choosing-the-state-structure.md\", \"title\": \"https://react.dev/learn/choosing-the-state-structure.md\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://react.dev/learn/sharing-state-between-components\", \"title\": \"Sharing State Between Components – React\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://ja.react.dev/learn/choosing-the-state-structure\", \"title\": \"https://ja.react.dev/learn/choosing-the-state-structure\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://react.dev/learn/you-might-not-need-an-effect?amp=&amp=\", \"title\": \"https://react.dev/learn/you-might-not-need-an-effect?amp=&amp=\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://it.react.dev/learn/choosing-the-state-structure\", \"title\": \"https://it.react.dev/learn/choosing-the-state-structure\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://react.dev/learn/referencing-values-with-refs\", \"title\": \"Referencing Values with Refs – React\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c15\", \"url\": \"https://react.dev/blog/2025/02/14/sunsetting-create-react-app\", \"title\": \"Sunsetting Create React App – React\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c16\", \"url\": \"https://react.dev/learn/passing-data-deeply-with-context\", \"title\": \"Passing Data Deeply with Context – React\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"49d4c8c176623938\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"a3b9db8e61f80606\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:react.dev/learn/state-as-a-snapshot \\\"snapshot\\\" \\\"render\\\"\", \"answer\": \"Relevant results from React docs on state as a snapshot and rendering:\\n\\n1. **[State as a Snapshot](https://react.dev/learn/state-as-a-snapshot)** — Canonical page. State behaves like a snapshot: setting it does not change the current variable; it requests a re-render. “Rendering takes a snapshot in time”: React calls your component function; the returned JSX is a snapshot of the UI using that render’s state, props, and event handlers. State lives in React outside the function; each render gets its own snapshot. A state variable’s value never changes within a render, even if the handler is async. Recap: setting state requests a new render; `useState` gives a snapshot for that render; variables and handlers don’t survive re-renders. [[1]](https://react.dev/learn/state-as-a-snapshot) [[1]](h…\", \"answer_chars\": 3550, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 3, \"cross_provider_matches\": 3, \"pages_fetched\": 0, \"primary_citation_count\": 10}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 17478, \"warning_count\": 1, \"warnings\": [\"anysearch_no_sub_domain_available\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"anysearch\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_vertical\"}], \"result_count\": 10, \"citation_count\": 15, \"results\": [{\"id\": \"r1\", \"title\": \"State as a Snapshot – React\", \"url\": \"https://react.dev/learn/state-as-a-snapshot\", \"snippet\": \"A state variable’s value never changes within a render, even if its event handler’s code is asynchronous. Inside that render’s `onClick`, the value of `number`…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r2\", \"title\": \"useSyncExternalStore – React\", \"url\": \"https://react.dev/reference/react/useSyncExternalStore\", \"snippet\": \"`getSnapshot`: A function that returns a snapshot of the data in the store that’s needed by the component. While the store has not changed, repeated calls to `…\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"2\", \"url\": \"https://react.dev/reference/react/useState\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"如同快照的 State – React\", \"url\": \"https://zh-hant.react.dev/learn/state-as-a-snapshot\", \"snippet\": \"以下是當你點擊按鈕時所發生的事情：\\n\\n1. 執行 `onSubmit` event handler。\\n2. `setIsSent(true)` 將 `isSent` 設定為 `true`，並安排新的一次 render。\\n3. React 根據 `isSent` 新的值，重新 render component。\\n\\n接著…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r5\", \"title\": \"3\", \"url\": \"https://react.dev/learn/queueing-a-series-of-state-updates.md\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"Component\", \"url\": \"https://react.dev/reference/react/Component\", \"snippet\": \"// (snapshot here is the value returned from getSnapshotBeforeUpdate)\\n\\nif (snapshot !== null) {\\n\\nconst list = this.listRef.current;\\n\\nlist.scrollTop = list.scro…\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"4\", \"url\": \"http://hu.react.dev/learn/adding-interactivity\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"Adding Interactivity – React\", \"url\": \"https://react.dev/learn/adding-interactivity\", \"snippet\": \"Read More\\n\\n## State as a snapshot\\n\\nUnlike regular JavaScript variables, React state behaves more like a snapshot. Setting it does not change the state variable…\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"Render and Commit – React\", \"url\": \"https://react.dev/learn/render-and-commit\", \"snippet\": \"PreviousState: A Component's MemoryNextState as a Snapshot\\n\\n--- [...] This works because during this last step, React only updates the content of  with the new…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r10\", \"title\": \"cache – React\", \"url\": \"https://react.dev/reference/react/cache\", \"snippet\": \"import getWeekReport from './getWeekReport';\\n\\nexport default function Precipitation({cityData}) {\\n\\nconst report = getWeekReport(cityData);\\n\\n// ...\\n\\n}`\\n\\nHere, b…\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://react.dev/learn/state-as-a-snapshot\", \"title\": \"State as a Snapshot – React\", \"result_item_id\": \"r1\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c2\", \"url\": \"https://react.dev/reference/react/useSyncExternalStore\", \"title\": \"useSyncExternalStore – React\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://react.dev/reference/react/useState\", \"title\": \"2\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://zh-hant.react.dev/learn/state-as-a-snapshot\", \"title\": \"如同快照的 State – React\", \"result_item_id\": \"r4\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://react.dev/learn/queueing-a-series-of-state-updates.md\", \"title\": \"3\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://react.dev/reference/react/Component\", \"title\": \"Component\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"http://hu.react.dev/learn/adding-interactivity\", \"title\": \"4\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://react.dev/learn/adding-interactivity\", \"title\": \"Adding Interactivity – React\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://react.dev/learn/render-and-commit\", \"title\": \"Render and Commit – React\", \"result_item_id\": \"r9\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c10\", \"url\": \"https://react.dev/reference/react/cache\", \"title\": \"cache – React\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://zh-hans.react.dev/learn/state-as-a-snapshot\", \"title\": \"7\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://uk.react.dev/learn/state-as-a-snapshot\", \"title\": \"8\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://react.dev/learn/understanding-your-ui-as-a-tree\", \"title\": \"9\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://id.react.dev/reference/react/useSyncExternalStore\", \"title\": \"10\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://react.dev/learn/updating-objects-in-state\", \"title\": \"Updating Objects in State – React\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"a3b9db8e61f80606\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"5f890fd1848a75f2\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:vuejs.org/guide/essentials/reactivity-fundamentals \\\"ref()\\\" \\\"reactive()\\\"\", \"answer\": \"Relevant results for `ref()` and `reactive()` on Vue’s reactivity docs:\\n\\n1. **Reactivity Fundamentals** — https://vuejs.org/guide/essentials/reactivity-fundamentals  \\n   Main guide. `ref()` is the recommended Composition API way to declare reactive state (wraps a value in an object with `.value`). `reactive()` makes an object itself reactive via a Proxy. Covers template unwrapping, dependency tracking, and limitations of `reactive()` (replacement, destructuring).\\n\\n2. **Reactivity API: Core** — https://vuejs.org/api/reactivity-core.html  \\n   API reference. `ref(value)` returns a mutable `Ref` whose `.value` reads are tracked and writes trigger effects; object values are deeply converted with `reactive()`. `reactive(target)` returns a deep reactive proxy (`UnwrapNestedRefs`). Also covers ne…\", \"answer_chars\": 2652, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 4, \"cross_provider_matches\": 2, \"pages_fetched\": 0, \"primary_citation_count\": 11}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 24125, \"warning_count\": 1, \"warnings\": [\"anysearch_no_sub_domain_available\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"anysearch\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_vertical\"}], \"result_count\": 10, \"citation_count\": 17, \"results\": [{\"id\": \"r1\", \"title\": \"https://vuejs.org/guide/essentials/reactivity-fundamentals\", \"url\": \"https://vuejs.org/guide/essentials/reactivity-fundamentals\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"Reactivity API: Core | Vue.js\", \"url\": \"https://vuejs.org/api/reactivity-core.html\", \"snippet\": \"Compile-Time Flags\\n\\n# Reactivity API: Core ​\\n\\nSee also\\n\\nTo better understand the Reactivity APIs, it is recommended to read the following chapters in the guide…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://vuejs.org/guide/extras/reactivity-in-depth.html\", \"url\": \"https://vuejs.org/guide/extras/reactivity-in-depth.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"Composition API FAQ | Vue.js\", \"url\": \"https://vuejs.org/guide/extras/composition-api-faq.html\", \"snippet\": \"Reactivity API, e.g. `ref()` and `reactive()`, that allows us to directly create reactive state, computed state, and watchers.\\n Lifecycle Hooks, e.g. `onMounte…\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://ja.vuejs.org/guide/essentials/reactivity-fundamentals\", \"url\": \"https://ja.vuejs.org/guide/essentials/reactivity-fundamentals\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"Reactivity Fundamentals | Vue.js\", \"url\": \"https://vuejs.org/guide/essentials/reactivity-fundamentals.html\", \"snippet\": \"`reactive()` converts the object deeply: nested objects are also wrapped with `reactive()` when accessed. It is also called by `ref()` internally when the ref …\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"Reactivity API: Advanced | Vue.js\", \"url\": \"https://vuejs.org/api/reactivity-advanced.html\", \"snippet\": \"Shallow version of `ref()`.\\n\\n`ref()`\\n\\nType\\n\\n`function shallowRef<T>(value: T): ShallowRef<T>\\n\\ninterface ShallowRef<T> {\\n value: T\\n}`\\n\\nDetails\\n\\nUnlike `ref()`, …\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r8\", \"title\": \"Реактивность: Основное | Vue.js\", \"url\": \"https://ru.vuejs.org/api/reactivity-core.html\", \"snippet\": \"Compile-Time Flags\\n\\n# Реактивность: Основное ​\\n\\nСм. также\\n\\nЧтобы лучше понять основы реактивности, рекомендуется прочитать следующие разделы руководства:\\n\\n## r…\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"https://vuejs.org/guide/extras/reactivity-transform.html\", \"url\": \"https://vuejs.org/guide/extras/reactivity-transform.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"响应式 API：核心 | Vue.js\", \"url\": \"https://cn.vuejs.org/api/reactivity-core\", \"snippet\": \"console.log(plusOne.value) // 2\\n\\nplusOne.value++ // 错误`\\n\\n创建一个可写的计算属性 ref：\\n\\n`const count = ref(1)\\nconst plusOne = computed({\\n get: () => count.value + 1,\\n set: …\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://vuejs.org/guide/essentials/reactivity-fundamentals\", \"title\": \"https://vuejs.org/guide/essentials/reactivity-fundamentals\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://vuejs.org/api/reactivity-core.html\", \"title\": \"Reactivity API: Core | Vue.js\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://vuejs.org/guide/extras/reactivity-in-depth.html\", \"title\": \"https://vuejs.org/guide/extras/reactivity-in-depth.html\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://vuejs.org/guide/extras/composition-api-faq.html\", \"title\": \"Composition API FAQ | Vue.js\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://ja.vuejs.org/guide/essentials/reactivity-fundamentals\", \"title\": \"https://ja.vuejs.org/guide/essentials/reactivity-fundamentals\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://vuejs.org/guide/essentials/reactivity-fundamentals.html\", \"title\": \"Reactivity Fundamentals | Vue.js\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://vuejs.org/api/reactivity-advanced.html\", \"title\": \"Reactivity API: Advanced | Vue.js\", \"result_item_id\": \"r7\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c8\", \"url\": \"https://ru.vuejs.org/api/reactivity-core.html\", \"title\": \"Реактивность: Основное | Vue.js\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://vuejs.org/guide/extras/reactivity-transform.html\", \"title\": \"https://vuejs.org/guide/extras/reactivity-transform.html\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://cn.vuejs.org/api/reactivity-core\", \"title\": \"响应式 API：核心 | Vue.js\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://eslint.vuejs.org/rules/no-ref-object-destructure\", \"title\": \"https://eslint.vuejs.org/rules/no-ref-object-destructure\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://bn.vuejs.org/guide/essentials/reactivity-fundamentals.html\", \"title\": \"https://bn.vuejs.org/guide/essentials/reactivity-fundamentals.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://zh-hk.vuejs.org/guide/essentials/reactivity-fundamentals.html\", \"title\": \"https://zh-hk.vuejs.org/guide/essentials/reactivity-fundamentals.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://vuejs.org/api/reactivity-utilities\", \"title\": \"https://vuejs.org/api/reactivity-utilities\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://cn.vuejs.org/guide/essentials/reactivity-fundamentals\", \"title\": \"https://cn.vuejs.org/guide/essentials/reactivity-fundamentals\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://vuejs.org/api/reactivity-utilities.html\", \"title\": \"Reactivity API: Utilities | Vue.js\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c17\", \"url\": \"https://vuejs.org/guide/reusability/composables.html\", \"title\": \"Composables | Vue.js\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"5f890fd1848a75f2\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"38f2f43227d29654\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:vuejs.org/guide/essentials/reactivity-fundamentals \\\"deeply reactive\\\" \\\"DOM update timing\\\"\", \"answer\": \"Relevant results for **“deeply reactive”** and **“DOM update timing”** on Vue.js docs:\\n\\n1. **[Reactivity Fundamentals | Vue.js](https://vuejs.org/guide/essentials/reactivity-fundamentals)** — Primary match. **Deep Reactivity:** state is deeply reactive by default (nested objects/arrays; same for `ref` values). **DOM Update Timing:** DOM updates are buffered until the next tick so each component updates once; use `nextTick()` to wait for the DOM. [web:0][web:5]\\n\\n2. **[Reactivity API: Core | Vue.js](https://vuejs.org/api/reactivity-core.html)** — `ref` makes assigned objects deeply reactive via `reactive()`; `reactive()` conversion is deep for nested properties; watcher flush timing (`pre` / `post` / `sync`) and the `deep` watch option. [web:4][web:10]\\n\\n3. **[Reactivity API: Advanced | Vue.…\", \"answer_chars\": 2424, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 5, \"cross_provider_matches\": 2, \"pages_fetched\": 0, \"primary_citation_count\": 10}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 19026, \"warning_count\": 1, \"warnings\": [\"anysearch_no_sub_domain_available\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"anysearch\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_vertical\"}], \"result_count\": 10, \"citation_count\": 16, \"results\": [{\"id\": \"r1\", \"title\": \"Reactivity in Depth — Vue.js\", \"url\": \"https://v2.vuejs.org/v2/guide/reactivity.html\", \"snippet\": \"## Async Update Queue\\n\\nIn case you haven’t noticed yet, Vue performs DOM updates asynchronously. Whenever a data change is observed, it will open a queue and b…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r2\", \"title\": \"Reactivity Fundamentals | Vue.js\", \"url\": \"https://vuejs.org/guide/essentials/reactivity-fundamentals.html\", \"snippet\": \"`.value`\\n\\nFurther reading:\\n\\n### DOM Update Timing ​\\n\\nWhen you mutate reactive state, the DOM is updated automatically. However, it should be noted that the DOM…\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://vuejs.org/api/reactivity-core.html\", \"url\": \"https://vuejs.org/api/reactivity-core.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"Reactivity in Depth | Vue.js\", \"url\": \"https://vuejs.org/guide/extras/reactivity-in-depth.html\", \"snippet\": \"js\\n\\n```\\nimport { ref, watchEffect } from 'vue' import { ref, watchEffect } from  'vue' const count = ref(0) const  count =  ref(0) watchEffect(() => {watchEffe…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://eslint.vuejs.org/rules/\", \"url\": \"https://eslint.vuejs.org/rules\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"Performance | Vue.js\", \"url\": \"https://vuejs.org/guide/best-practices/performance.html\", \"snippet\": \"Vue does provide an escape hatch to opt-out of deep reactivity by using `shallowRef()` and `shallowReactive()`. Shallow APIs create state that is reactive only…\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"https://vuejs.org/api/reactivity-advanced.html\", \"url\": \"https://vuejs.org/api/reactivity-advanced.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"Global API: General | Vue.js\", \"url\": \"https://vuejs.org/api/general.html\", \"snippet\": \"Type: `string`\\n\\n`string`\\n\\nExample\\n\\n`import { version } from 'vue'\\n\\nconsole.log(version)`\\n\\n## nextTick() ​\\n\\nA utility for waiting for the next DOM update flush.…\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"https://ru.vuejs.org/guide/essentials/reactivity-fundamentals.html\", \"url\": \"https://ru.vuejs.org/guide/essentials/reactivity-fundamentals.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"Announcing Vue 3.5 | The Vue Point\", \"url\": \"https://blog.vuejs.org/posts/vue-3-5\", \"snippet\": \"In addition, 3.5 also optimizes reactivity tracking for large, deeply reactive arrays, making such operations up to 10x faster in some cases.\\n\\nDetails: PR#1039…\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://v2.vuejs.org/v2/guide/reactivity.html\", \"title\": \"Reactivity in Depth — Vue.js\", \"result_item_id\": \"r1\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c2\", \"url\": \"https://vuejs.org/guide/essentials/reactivity-fundamentals.html\", \"title\": \"Reactivity Fundamentals | Vue.js\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://vuejs.org/api/reactivity-core.html\", \"title\": \"https://vuejs.org/api/reactivity-core.html\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://vuejs.org/guide/extras/reactivity-in-depth.html\", \"title\": \"Reactivity in Depth | Vue.js\", \"result_item_id\": \"r4\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://eslint.vuejs.org/rules\", \"title\": \"https://eslint.vuejs.org/rules/\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://vuejs.org/guide/best-practices/performance.html\", \"title\": \"Performance | Vue.js\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://vuejs.org/api/reactivity-advanced.html\", \"title\": \"https://vuejs.org/api/reactivity-advanced.html\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://vuejs.org/api/general.html\", \"title\": \"Global API: General | Vue.js\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://ru.vuejs.org/guide/essentials/reactivity-fundamentals.html\", \"title\": \"https://ru.vuejs.org/guide/essentials/reactivity-fundamentals.html\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://blog.vuejs.org/posts/vue-3-5\", \"title\": \"Announcing Vue 3.5 | The Vue Point\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://vuejs.org/guide/extras/rendering-mechanism.html\", \"title\": \"https://vuejs.org/guide/extras/rendering-mechanism.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://vuejs.org/guide/essentials/reactivity-fundamentals\", \"title\": \"https://vuejs.org/guide/essentials/reactivity-fundamentals\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://ja.vuejs.org/guide/essentials/reactivity-fundamentals\", \"title\": \"https://ja.vuejs.org/guide/essentials/reactivity-fundamentals\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://v1.vuejs.org/guide/reactivity.html\", \"title\": \"https://v1.vuejs.org/guide/reactivity.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://v2.vuejs.org/v2/api\", \"title\": \"API — Vue.js\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c16\", \"url\": \"https://vuejs.org/api/composition-api-lifecycle.html\", \"title\": \"Composition API: Lifecycle Hooks | Vue.js\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"38f2f43227d29654\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"abb9cc6d2aede7b5\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:vuejs.org/guide/essentials/computed \\\"cached\\\" \\\"reactive dependencies\\\"\", \"answer\": \"Relevant results for `site:vuejs.org` on computed properties, caching, and reactive dependencies:\\n\\n1. **Computed Properties | Vue.js** — https://vuejs.org/guide/essentials/computed  \\n   Current guide: computed properties auto-track reactive dependencies and are **cached based on those dependencies**. They re-evaluate only when a dependency changes. `Date.now()` is not a reactive dependency, so a computed that only uses it never updates. Methods always re-run on re-render. Caching avoids repeating expensive getters that other computeds depend on. [web:0]\\n\\n2. **Computed Properties and Watchers — Vue.js** — https://vuejs.org/guide/computed.html  \\n   Same caching wording: computeds are cached based on reactive dependencies and only re-evaluate when those change; `Date.now()` is not a reactive…\", \"answer_chars\": 3232, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 6, \"cross_provider_matches\": 3, \"pages_fetched\": 0, \"primary_citation_count\": 12}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 21423, \"warning_count\": 1, \"warnings\": [\"anysearch_no_sub_domain_available\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"anysearch\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_vertical\"}], \"result_count\": 10, \"citation_count\": 17, \"results\": [{\"id\": \"r1\", \"title\": \"https://vuejs.org/guide/extras/reactivity-in-depth.html\", \"url\": \"https://vuejs.org/guide/extras/reactivity-in-depth.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"Reactivity in Depth - vue.js\", \"url\": \"https://v1.vuejs.org/guide/reactivity.html\", \"snippet\": \"## Inside Computed Properties\\n\\nIt should be noted that Vue.js computed properties are not simple getters. Each computed property keeps track of its own reactiv…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://vuejs.org/guide/computed.html\", \"url\": \"https://vuejs.org/guide/computed.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"Computed Properties - vue.js\", \"url\": \"https://012.vuejs.org/guide/computed.html\", \"snippet\": \"Imagine we have an expensive computed property A, which requires looping through a huge Array and doing a lot of computations. Then, we may have other computed…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r5\", \"title\": \"Reactivity API: Core | Vue.js\", \"url\": \"https://vuejs.org/api/reactivity-core.html\", \"snippet\": \"By default, watchers will run just prior to component rendering. Setting `flush: 'post'` will defer the watcher until after component rendering. See Callback F…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r6\", \"title\": \"Computed Properties | Vue.js\", \"url\": \"https://vuejs.org/guide/essentials/computed.html\", \"snippet\": \"Instead of a computed property, we can define the same function as a method. For the end result, the two approaches are indeed exactly the same. However, the d…\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"https://coverage.vuejs.org/reactivity/src/dep.ts\", \"url\": \"https://coverage.vuejs.org/reactivity/src/dep.ts\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"Computed Properties and Watchers — Vue.js\", \"url\": \"https://v2.vuejs.org/v2/guide/computed\", \"snippet\": \"|  |\\n\\n| ``` <p> p p ``` |\\n\\n|  |\\n\\n| ``` // in component methods reverseMessage function return this message split '' reverse join '' ``` |\\n\\nInstead of a compute…\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"https://cn.vuejs.org/guide/essentials/computed.html\", \"url\": \"https://cn.vuejs.org/guide/essentials/computed.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"Watchers | Vue.js\", \"url\": \"https://vuejs.org/guide/essentials/watchers.html\", \"snippet\": \"js\\n\\n```\\nconst todoId = ref(1) const  todoId =  ref(1)const data = ref(null) const  data =  ref(null) watch(watch( todoId, todoId, async () => { async () => { c…\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://vuejs.org/guide/extras/reactivity-in-depth.html\", \"title\": \"https://vuejs.org/guide/extras/reactivity-in-depth.html\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://v1.vuejs.org/guide/reactivity.html\", \"title\": \"Reactivity in Depth - vue.js\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://vuejs.org/guide/computed.html\", \"title\": \"https://vuejs.org/guide/computed.html\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://012.vuejs.org/guide/computed.html\", \"title\": \"Computed Properties - vue.js\", \"result_item_id\": \"r4\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://vuejs.org/api/reactivity-core.html\", \"title\": \"Reactivity API: Core | Vue.js\", \"result_item_id\": \"r5\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c6\", \"url\": \"https://vuejs.org/guide/essentials/computed.html\", \"title\": \"Computed Properties | Vue.js\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://coverage.vuejs.org/reactivity/src/dep.ts\", \"title\": \"https://coverage.vuejs.org/reactivity/src/dep.ts\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://v2.vuejs.org/v2/guide/computed\", \"title\": \"Computed Properties and Watchers — Vue.js\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://cn.vuejs.org/guide/essentials/computed.html\", \"title\": \"https://cn.vuejs.org/guide/essentials/computed.html\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://vuejs.org/guide/essentials/watchers.html\", \"title\": \"Watchers | Vue.js\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://v2.vuejs.org/v2/guide/reactivity.html\", \"title\": \"https://v2.vuejs.org/v2/guide/reactivity.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://vuejs.org/guide/essentials/reactivity-fundamentals\", \"title\": \"https://vuejs.org/guide/essentials/reactivity-fundamentals\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://v3.ru.vuejs.org/ru/guide/computed.html\", \"title\": \"https://v3.ru.vuejs.org/ru/guide/computed.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://vuejs.org/guide/essentials/computed\", \"title\": \"https://vuejs.org/guide/essentials/computed\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://012-cn.vuejs.org/guide/computed.html\", \"title\": \"https://012-cn.vuejs.org/guide/computed.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://vuejs.org/api/composition-api-lifecycle.html\", \"title\": \"Composition API: Lifecycle Hooks | Vue.js\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c17\", \"url\": \"https://vuejs.org/api/options-lifecycle.html\", \"title\": \"Options: Lifecycle | Vue.js\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"abb9cc6d2aede7b5\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"8bbb6c44aad74115\", \"kind\": \"search\", \"status\": \"partial\", \"query\": \"site:react.dev/learn/managing-state \\\"Reacting to Input\\\" \\\"Managing State\\\" reducer context\", \"answer\": \"Relevant React docs pages on reacting to input, managing state, reducers, and context:\\n\\n1. **Managing State** (chapter overview) — https://react.dev/learn/managing-state  \\n   Covers “Reacting to input with state,” extracting logic into a reducer, and scaling up with reducer + context.\\n\\n2. **Reacting to Input with State** — https://react.dev/learn/reacting-to-input-with-state  \\n   Declarative UI: describe visual states and switch them on input. Deep dive on eliminating impossible states with a reducer.\\n\\n3. **Extracting State Logic into a Reducer** — https://react.dev/learn/extracting-state-logic-into-a-reducer  \\n   Move from `useState` to `useReducer`: dispatch actions, write a reducer, wire it in the component.\\n\\n4. **Scaling Up with Reducer and Context** — https://react.dev/learn/scaling-…\", \"answer_chars\": 1686, \"evidence\": {\"unique_urls\": 8, \"unique_domains\": 1, \"cross_provider_matches\": 5, \"pages_fetched\": 1, \"primary_citation_count\": 11}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 24577, \"warning_count\": 2, \"warnings\": [\"anysearch_no_sub_domain_available\", \"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"anysearch\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_vertical\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}], \"result_count\": 8, \"citation_count\": 13, \"results\": [{\"id\": \"r1\", \"title\": \"https://react.dev/reference/react/useContext\", \"url\": \"https://react.dev/reference/react/useContext\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"Managing State – React\", \"url\": \"https://react.dev/learn/managing-state\", \"snippet\": \"Fork\\n\\n```\\nimport AddTask from'./AddTask.js'; import TaskList from'./TaskList.js'; import{TasksProvider} from'./TasksContext.js'; export default function TaskAp…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://react.dev/learn/state-as-a-snapshot\", \"url\": \"https://react.dev/learn/state-as-a-snapshot\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"Scaling Up with Reducer and Context – React\", \"url\": \"https://react.dev/learn/scaling-up-with-reducer-and-context\", \"snippet\": \"Learn React\\n\\nManaging State\\n\\n# Scaling Up with Reducer and Context\\n\\nReducers let you consolidate a component’s state update logic. Context lets you pass inform…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r5\", \"title\": \"Passing Data Deeply with Context – React\", \"url\": \"https://react.dev/learn/passing-data-deeply-with-context\", \"snippet\": \"Routing: Most routing solutions use context internally to hold the current route. This is how every link “knows” whether it’s active or not. If you build your …\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r6\", \"title\": \"Reacting to Input with State – React\", \"url\": \"https://react.dev/learn/reacting-to-input-with-state\", \"snippet\": \"After this clean-up, you’re left with 3 (down from 7!) essential state variables:\\n\\n```\\n\\nconst [answer, setAnswer] = useState('');\\n\\nconst [error, setError] = us…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r7\", \"title\": \"https://react.dev/learn/reacting-to-input-with-state.md\", \"url\": \"https://react.dev/learn/reacting-to-input-with-state.md\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"Extracting State Logic into a Reducer – React\", \"url\": \"https://react.dev/learn/extracting-state-logic-into-a-reducer\", \"snippet\": \"Managing state with reducers is slightly different from directly setting state. Instead of telling React “what to do” by setting state, you specify “what the u…\", \"providers\": [\"xai\", \"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://react.dev/reference/react/useContext\", \"title\": \"https://react.dev/reference/react/useContext\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://react.dev/learn/managing-state\", \"title\": \"Managing State – React\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://react.dev/learn/state-as-a-snapshot\", \"title\": \"https://react.dev/learn/state-as-a-snapshot\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://react.dev/learn/scaling-up-with-reducer-and-context\", \"title\": \"Scaling Up with Reducer and Context – React\", \"result_item_id\": \"r4\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://react.dev/learn/passing-data-deeply-with-context\", \"title\": \"Passing Data Deeply with Context – React\", \"result_item_id\": \"r5\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c6\", \"url\": \"https://react.dev/learn/reacting-to-input-with-state\", \"title\": \"Reacting to Input with State – React\", \"result_item_id\": \"r6\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://react.dev/learn/reacting-to-input-with-state.md\", \"title\": \"https://react.dev/learn/reacting-to-input-with-state.md\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://react.dev/learn/extracting-state-logic-into-a-reducer\", \"title\": \"Extracting State Logic into a Reducer – React\", \"result_item_id\": \"r8\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://react.dev/reference/react/useReducer\", \"title\": \"https://react.dev/reference/react/useReducer\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://react.dev/reference/react/useActionState\", \"title\": \"https://react.dev/reference/react/useActionState\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://react.dev/learn/extracting-state-logic-into-a-reducer.md\", \"title\": \"https://react.dev/learn/extracting-state-logic-into-a-reducer.md\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://react.dev/learn/sharing-state-between-components\", \"title\": \"Sharing State Between Components – React\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c13\", \"url\": \"https://react.dev/learn/choosing-the-state-structure\", \"title\": \"Choosing the State Structure – React\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"8bbb6c44aad74115\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"a78efbd50642fc27\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:react.dev/learn/sharing-state-between-components \\\"single source of truth\\\" \\\"lifting state up\\\"\", \"answer\": \"Relevant results from React docs on lifting state and a single source of truth:\\n\\n1. **Sharing State Between Components** — https://react.dev/learn/sharing-state-between-components  \\n   Primary page. To sync two components, remove state from both, move it to the closest common parent, and pass it down via props (“lift their state up”). The parent becomes the source of truth for which panel is active. Section “A single source of truth for each state”: for each piece of state, one specific component owns it; don’t duplicate shared state—lift it to the common parent and pass it down. [web:0][web:8]\\n\\n2. **Managing State** — https://react.dev/learn/managing-state  \\n   Overview that defines “lifting state up” the same way and links to Sharing State Between Components. Accordion example: parent h…\", \"answer_chars\": 2443, \"evidence\": {\"unique_urls\": 8, \"unique_domains\": 3, \"cross_provider_matches\": 2, \"pages_fetched\": 2, \"primary_citation_count\": 10}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 16358, \"warning_count\": 2, \"warnings\": [\"anysearch_no_sub_domain_available\", \"auto_scrape_truncated\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"anysearch\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_vertical\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 8, \"citation_count\": 11, \"results\": [{\"id\": \"r1\", \"title\": \"https://react.dev/learn/you-might-not-need-an-effect?amp=&amp=\", \"url\": \"https://react.dev/learn/you-might-not-need-an-effect?amp=&amp=\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"Sharing State Between Components – React\", \"url\": \"https://react.dev/learn/sharing-state-between-components\", \"snippet\": \"For each unique piece of state, you will choose the component that “owns” it. This principle is also known as having a “single source of truth”. It doesn’t mea…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://es.react.dev/learn/sharing-state-between-components\", \"url\": \"https://es.react.dev/learn/sharing-state-between-components\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"Managing State – React\", \"url\": \"https://react.dev/learn/managing-state\", \"snippet\": \"This might seem like a small change, but many bugs in React apps are fixed this way.\\n\\n## Ready to learn this topic?\\n\\nRead Choosing the State Structure to learn…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://ja.react.dev/learn/sharing-state-between-components\", \"url\": \"https://ja.react.dev/learn/sharing-state-between-components\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"Thinking in React – React\", \"url\": \"https://react.dev/learn/thinking-in-react\", \"snippet\": \"To build a static version of your app that renders your data model, you’ll want to build components that reuse other components and pass data using props. Prop…\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"https://react.dev/learn/you-might-not-need-an-effect\", \"url\": \"https://react.dev/learn/you-might-not-need-an-effect\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"https://react.dev/learn/passing-data-deeply-with-context\", \"url\": \"https://react.dev/learn/passing-data-deeply-with-context\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://react.dev/learn/you-might-not-need-an-effect?amp=&amp=\", \"title\": \"https://react.dev/learn/you-might-not-need-an-effect?amp=&amp=\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://react.dev/learn/sharing-state-between-components\", \"title\": \"Sharing State Between Components – React\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://es.react.dev/learn/sharing-state-between-components\", \"title\": \"https://es.react.dev/learn/sharing-state-between-components\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://react.dev/learn/managing-state\", \"title\": \"Managing State – React\", \"result_item_id\": \"r4\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://ja.react.dev/learn/sharing-state-between-components\", \"title\": \"https://ja.react.dev/learn/sharing-state-between-components\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://react.dev/learn/thinking-in-react\", \"title\": \"Thinking in React – React\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://react.dev/learn/you-might-not-need-an-effect\", \"title\": \"https://react.dev/learn/you-might-not-need-an-effect\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://react.dev/learn/passing-data-deeply-with-context\", \"title\": \"https://react.dev/learn/passing-data-deeply-with-context\", \"result_item_id\": \"r8\", \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://react.dev/learn/scaling-up-with-reducer-and-context\", \"title\": \"https://react.dev/learn/scaling-up-with-reducer-and-context\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://tr.react.dev/learn/sharing-state-between-components\", \"title\": \"https://tr.react.dev/learn/sharing-state-between-components\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://react.dev/learn/reusing-logic-with-custom-hooks.md\", \"title\": \"https://react.dev/learn/reusing-logic-with-custom-hooks.md\", \"result_item_id\": null, \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"a78efbd50642fc27\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"c50092878c1287da\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:vuejs.org/guide/scaling-up/state-management \\\"simple state management\\\" \\\"reactive\\\"\", \"answer\": \"Relevant results for simple state management with Vue’s reactivity APIs:\\n\\n1. **[State Management | Vue.js](https://vuejs.org/guide/scaling-up/state-management.html)** — Section “Simple State Management with Reactivity API”: share a `reactive()` object (or `ref()` / `computed()` / a composable) across components as a single source of truth; optional methods on the store for mutations.\\n\\n2. **[state-management.md (source)](https://vuejs.org/guide/scaling-up/state-management.md)** — Same guide in Markdown: extract shared state into a global singleton built with `reactive()`.\\n\\n3. **[状態管理 | Vue.js (Japanese)](https://v3.ja.vuejs.org/guide/scaling-up/state-management.html)** — Japanese translation of the same “リアクティビティー API によるシンプルな状態の管理” section, including the `reactive({ count, increment() })`…\", \"answer_chars\": 1836, \"evidence\": {\"unique_urls\": 8, \"unique_domains\": 5, \"cross_provider_matches\": 3, \"pages_fetched\": 2, \"primary_citation_count\": 9}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 15949, \"warning_count\": 1, \"warnings\": [\"anysearch_no_sub_domain_available\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"anysearch\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_vertical\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 8, \"citation_count\": 14, \"results\": [{\"id\": \"r1\", \"title\": \"https://vuex.vuejs.org/api/\", \"url\": \"https://vuex.vuejs.org/api\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"State Management | Vue.js\", \"url\": \"https://vuejs.org/guide/scaling-up/state-management.html\", \"snippet\": \"A simpler and more straightforward solution is to extract the shared state out of the components, and manage it in a global singleton. With this, our component…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"Reactivity in Depth - vue.js\", \"url\": \"https://v1.vuejs.org/guide/reactivity.html\", \"snippet\": \"# Reactivity in Depth\\n\\nWe’ve covered most of the basics - now it’s time to take a deep dive! One of Vue.js’ most distinct features is the unobtrusive reactive …\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r4\", \"title\": \"State Management — Vue.js\", \"url\": \"https://v2.vuejs.org/v2/guide/state-management\", \"snippet\": \"### Information for React Developers\\n\\nIf you’re coming from React, you may be wondering how vuex compares to redux, the most popular Flux implementation in tha…\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://v3.vuex.vuejs.org/guide/\", \"url\": \"https://v3.vuex.vuejs.org/guide\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r6\", \"title\": \"Reactivity in Depth — Vue.js\", \"url\": \"https://v2.vuejs.org/v2/guide/reactivity.html\", \"snippet\": \"Platinum Sponsors\\n\\nBit   VueMastery   VueSchool   Vehikl   Passionate People   Storyblok   Skilled   Chrome Frameworks Fund   HeroDevs\\n\\n Become a Sponsor\\n\\n# Re…\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"Reactivity in Depth | Vue.js\", \"url\": \"https://vuejs.org/guide/extras/reactivity-in-depth.html\", \"snippet\": \"Skip to content\\n\\nVue.js\\n\\ngithubtwitterdiscord\\n\\nAppearance\\n\\ngithubtwitterdiscord\\n\\nOn this page\\n\\nSponsors\\n\\nBecome a Sponsor\\n\\nAre you an LLM? You can read better …\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r8\", \"title\": \"Performance | Vue.js\", \"url\": \"https://vuejs.org/guide/best-practices/performance.html\", \"snippet\": \"vue-virtual-scroller\\n vue-virtual-scroll-grid\\n vueuc/VVirtualList\\n\\n### Reduce Reactivity Overhead for Large Immutable Structures ​\\n\\nVue's reactivity system is …\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://vuex.vuejs.org/api\", \"title\": \"https://vuex.vuejs.org/api/\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://vuejs.org/guide/scaling-up/state-management.html\", \"title\": \"State Management | Vue.js\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://v1.vuejs.org/guide/reactivity.html\", \"title\": \"Reactivity in Depth - vue.js\", \"result_item_id\": \"r3\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c4\", \"url\": \"https://v2.vuejs.org/v2/guide/state-management\", \"title\": \"State Management — Vue.js\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://v3.vuex.vuejs.org/guide\", \"title\": \"https://v3.vuex.vuejs.org/guide/\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://v2.vuejs.org/v2/guide/reactivity.html\", \"title\": \"Reactivity in Depth — Vue.js\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://vuejs.org/guide/extras/reactivity-in-depth.html\", \"title\": \"Reactivity in Depth | Vue.js\", \"result_item_id\": \"r7\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c8\", \"url\": \"https://vuejs.org/guide/best-practices/performance.html\", \"title\": \"Performance | Vue.js\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://vuejs.org/guide/essentials/reactivity-fundamentals\", \"title\": \"https://vuejs.org/guide/essentials/reactivity-fundamentals\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://v1.vuejs.org/guide/state-management.html\", \"title\": \"https://v1.vuejs.org/guide/state-management.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://vuejs.org/guide/scaling-up/state-management.md\", \"title\": \"https://vuejs.org/guide/scaling-up/state-management.md\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://v3.ja.vuejs.org/guide/scaling-up/state-management.html\", \"title\": \"https://v3.ja.vuejs.org/guide/scaling-up/state-management.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://vuex.vuejs.org\", \"title\": \"What is Vuex? | Vuex\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c14\", \"url\": \"https://vuejs.org/guide/essentials/reactivity-fundamentals.html\", \"title\": \"Reactivity Fundamentals | Vue.js\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"c50092878c1287da\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"214eef8a6a27f424\", \"kind\": \"search\", \"status\": \"partial\", \"query\": \"site:vuejs.org/guide/essentials/reactivity-fundamentals \\\"limitations of reactive\\\" destructure replacement\", \"answer\": \"Relevant results on Vue’s `reactive()` limits (destructure and whole-object replacement):\\n\\n1. **Reactivity Fundamentals (official)** — [vuejs.org/guide/essentials/reactivity-fundamentals](https://vuejs.org/guide/essentials/reactivity-fundamentals)  \\n   Section **Limitations of `reactive()`**: (1) object types only, not primitives; (2) **cannot replace the entire object** (`state = reactive({...})` drops tracking of the old reference); (3) **not destructure-friendly** — `let { count } = state` or passing `state.count` into a function loses the connection. Docs recommend `ref()` as the primary API. [web:1] [web:8]\\n\\n2. **Reactivity in Depth** — [vuejs.org/guide/extras/reactivity-in-depth.html](https://vuejs.org/guide/extras/reactivity-in-depth.html)  \\n   Explains why: tracking is on property…\", \"answer_chars\": 3131, \"evidence\": {\"unique_urls\": 8, \"unique_domains\": 3, \"cross_provider_matches\": 2, \"pages_fetched\": 0, \"primary_citation_count\": 10}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 28163, \"warning_count\": 1, \"warnings\": [\"anysearch_no_sub_domain_available\"], \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}, {\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"anysearch\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_vertical\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}], \"result_count\": 8, \"citation_count\": 14, \"results\": [{\"id\": \"r1\", \"title\": \"https://vuejs.org/api/reactivity-core.html\", \"url\": \"https://vuejs.org/api/reactivity-core.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"Reactivity Fundamentals | Vue.js\", \"url\": \"https://vuejs.org/guide/essentials/reactivity-fundamentals.html\", \"snippet\": \"`const proxy = reactive({})\\n\\nconst raw = {}\\nproxy.nested = raw\\n\\nconsole.log(proxy.nested === raw) // false`\\n\\n### Limitations of `reactive()` ​\\n\\n`reactive()`\\n\\nT…\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://bn.vuejs.org/guide/essentials/reactivity-fundamentals.html\", \"url\": \"https://bn.vuejs.org/guide/essentials/reactivity-fundamentals.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"<script setup> | Vue.js\", \"url\": \"https://vuejs.org/api/sfc-script-setup\", \"snippet\": \"`defineProps()`\\n\\nThis limitation was resolved in 3.3. The latest version of Vue supports referencing imported and a limited set of complex types in the type pa…\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://eslint.vuejs.org/rules/\", \"url\": \"https://eslint.vuejs.org/rules\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"vue/no-setup-props-destructure | eslint-plugin-vue\", \"url\": \"https://eslint.vuejs.org/rules/no-setup-props-destructure\", \"snippet\": \"Title: vue/no-setup-props-destructure | eslint-plugin-vue\\n# vue/no-setup-props-destructure ​. > disallow usages that lose the reactivity of `props` passed to `…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r7\", \"title\": \"https://vuejs.org/guide/essentials/reactivity-fundamentals\", \"url\": \"https://vuejs.org/guide/essentials/reactivity-fundamentals\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"Reactivity in Depth | Vue.js\", \"url\": \"https://vuejs.org/guide/extras/reactivity-in-depth.html\", \"snippet\": \"When you assign or destructure a reactive object's property to a local variable, accessing or assigning to that variable is non-reactive because it no longer t…\", \"providers\": [\"xai\", \"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://vuejs.org/api/reactivity-core.html\", \"title\": \"https://vuejs.org/api/reactivity-core.html\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://vuejs.org/guide/essentials/reactivity-fundamentals.html\", \"title\": \"Reactivity Fundamentals | Vue.js\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://bn.vuejs.org/guide/essentials/reactivity-fundamentals.html\", \"title\": \"https://bn.vuejs.org/guide/essentials/reactivity-fundamentals.html\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://vuejs.org/api/sfc-script-setup\", \"title\": \"<script setup> | Vue.js\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://eslint.vuejs.org/rules\", \"title\": \"https://eslint.vuejs.org/rules/\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://eslint.vuejs.org/rules/no-setup-props-destructure\", \"title\": \"vue/no-setup-props-destructure | eslint-plugin-vue\", \"result_item_id\": \"r6\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://vuejs.org/guide/essentials/reactivity-fundamentals\", \"title\": \"https://vuejs.org/guide/essentials/reactivity-fundamentals\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://vuejs.org/guide/extras/reactivity-in-depth.html\", \"title\": \"Reactivity in Depth | Vue.js\", \"result_item_id\": \"r8\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://zh-hk.vuejs.org/guide/essentials/reactivity-fundamentals.html\", \"title\": \"https://zh-hk.vuejs.org/guide/essentials/reactivity-fundamentals.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://vuejs.org/api/reactivity-utilities\", \"title\": \"https://vuejs.org/api/reactivity-utilities\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://vuejs.org/guide/extras/reactivity-transform.html\", \"title\": \"https://vuejs.org/guide/extras/reactivity-transform.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://eslint.vuejs.org/rules/no-ref-object-destructure\", \"title\": \"https://eslint.vuejs.org/rules/no-ref-object-destructure\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://blog.vuejs.org/posts/vue-3-5\", \"title\": \"Announcing Vue 3.5 | The Vue Point\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c14\", \"url\": \"https://vuejs.org/api/composition-api-setup\", \"title\": \"Composition API: setup() | Vue.js\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"214eef8a6a27f424\"}}"
+  ],
+  "answer": "",
+  "observation": {
+    "id": "compare-react-vue",
+    "answer": "",
+    "results": [
+      {
+        "url": "https://react.dev/learn/managing-state",
+        "title": "1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/reference/react/useState",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/state-as-a-snapshot",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/choosing-the-state-structure",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/sharing-state-between-components",
+        "title": "5",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+        "title": "6",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/essentials/computed",
+        "title": "7",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/components/provide-inject.html",
+        "title": "8",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/managing-state",
+        "title": "1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/reference/react/useState",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/state-as-a-snapshot",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/choosing-the-state-structure",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/sharing-state-between-components",
+        "title": "5",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+        "title": "6",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/essentials/computed",
+        "title": "7",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/components/provide-inject.html",
+        "title": "8",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/managing-state",
+        "title": "Managing State – React",
+        "snippet": "## Ready to learn this topic?\n\nRead Reacting to Input with State to learn how to approach interactions with a state-driven mindset.\n\nRead More\n\n## Choosing the…",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/choosing-the-state-structure",
+        "title": "Choosing the State Structure – React",
+        "snippet": "1. Group related state. If you always update two or more state variables at the same time, consider merging them into a single state variable.\n2. Avoid contrad…",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/you-might-not-need-an-effect",
+        "title": "You Might Not Need an Effect – React",
+        "snippet": "const [newTodo, setNewTodo] = useState('');\n\n// 🔴 Avoid: redundant state and unnecessary Effect\n\nconst [visibleTodos, setVisibleTodos] = useState([]);\n\nuseEffe…",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/escape-hatches",
+        "title": "Escape Hatches – React",
+        "snippet": "const [firstName, setFirstName] = useState('Taylor');\n\nconst [lastName, setLastName] = useState('Swift');\n\n// 🔴 Avoid: redundant state and unnecessary Effect\n\n…",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/you-might-not-need-an-effect.md",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/preserving-and-resetting-state",
+        "title": "Preserving and Resetting State – React",
+        "snippet": "Learn React\n\nManaging State\n\n# Preserving and Resetting State\n\nState is isolated between components. React keeps track of which state belongs to which componen…",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/choosing-the-state-structure.md",
+        "title": "5",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/scaling-up-with-reducer-and-context",
+        "title": "Scaling Up with Reducer and Context – React",
+        "snippet": "Learn React\n\nManaging State\n\n# Scaling Up with Reducer and Context\n\nReducers let you consolidate a component’s state update logic. Context lets you pass inform…",
+        "published_at": null
+      },
+      {
+        "url": "https://zh-hans.react.dev/learn/managing-state",
+        "title": "6",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/state-a-components-memory",
+        "title": "State: A Component's Memory – React",
+        "snippet": "```\n\nconst [index, setIndex] = useState(0);\n\n```\n\n1. Your component renders the first time. Because you passed `0` to `useState` as the initial value for `inde…",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/managing-state",
+        "title": "Managing State – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/choosing-the-state-structure",
+        "title": "Choosing the State Structure – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/you-might-not-need-an-effect",
+        "title": "You Might Not Need an Effect – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/escape-hatches",
+        "title": "Escape Hatches – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/you-might-not-need-an-effect.md",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/preserving-and-resetting-state",
+        "title": "Preserving and Resetting State – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/choosing-the-state-structure.md",
+        "title": "5",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/scaling-up-with-reducer-and-context",
+        "title": "Scaling Up with Reducer and Context – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zh-hans.react.dev/learn/managing-state",
+        "title": "6",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/state-a-components-memory",
+        "title": "State: A Component's Memory – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zh-hans.react.dev/learn/choosing-the-state-structure",
+        "title": "7",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://it.react.dev/learn/managing-state",
+        "title": "8",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/blog/2024/12/05/react-19",
+        "title": "React v19 – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://es.react.dev/learn/choosing-the-state-structure",
+        "title": "https://es.react.dev/learn/choosing-the-state-structure",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/thinking-in-react",
+        "title": "Thinking in React – React",
+        "snippet": "Think of state as the minimal set of changing data that your app needs to remember. The most important principle for structuring state is to keep it DRY (Don’t…",
+        "published_at": null
+      },
+      {
+        "url": "https://pt-br.react.dev/learn/choosing-the-state-structure",
+        "title": "https://pt-br.react.dev/learn/choosing-the-state-structure",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/choosing-the-state-structure",
+        "title": "Choosing the State Structure – React",
+        "snippet": "Learn React\n\nManaging State\n\n# Choosing the State Structure\n\nStructuring state well can make a difference between a component that is pleasant to modify and de…",
+        "published_at": null
+      },
+      {
+        "url": "https://zh-hans.react.dev/learn/choosing-the-state-structure",
+        "title": "https://zh-hans.react.dev/learn/choosing-the-state-structure",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/managing-state",
+        "title": "Managing State – React",
+        "snippet": "## Ready to learn this topic?\n\nRead Reacting to Input with State to learn how to approach interactions with a state-driven mindset.\n\nRead More\n\n## Choosing the…",
+        "published_at": null
+      },
+      {
+        "url": "https://fr.react.dev/learn/choosing-the-state-structure",
+        "title": "https://fr.react.dev/learn/choosing-the-state-structure",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/typescript",
+        "title": "Using TypeScript – React",
+        "snippet": "```\n\nThis isn’t very useful in this case, but a common case where you may want to provide a type is when you have a union type. For example, `status` here can …",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/choosing-the-state-structure.md",
+        "title": "https://react.dev/learn/choosing-the-state-structure.md",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/sharing-state-between-components",
+        "title": "Sharing State Between Components – React",
+        "snippet": "For each unique piece of state, you will choose the component that “owns” it. This principle is also known as having a “single source of truth”. It doesn’t mea…",
+        "published_at": null
+      },
+      {
+        "url": "https://es.react.dev/learn/choosing-the-state-structure",
+        "title": "https://es.react.dev/learn/choosing-the-state-structure",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/thinking-in-react",
+        "title": "Thinking in React – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://pt-br.react.dev/learn/choosing-the-state-structure",
+        "title": "https://pt-br.react.dev/learn/choosing-the-state-structure",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/choosing-the-state-structure",
+        "title": "Choosing the State Structure – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zh-hans.react.dev/learn/choosing-the-state-structure",
+        "title": "https://zh-hans.react.dev/learn/choosing-the-state-structure",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/managing-state",
+        "title": "Managing State – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://fr.react.dev/learn/choosing-the-state-structure",
+        "title": "https://fr.react.dev/learn/choosing-the-state-structure",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/typescript",
+        "title": "Using TypeScript – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/choosing-the-state-structure.md",
+        "title": "https://react.dev/learn/choosing-the-state-structure.md",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/sharing-state-between-components",
+        "title": "Sharing State Between Components – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://ja.react.dev/learn/choosing-the-state-structure",
+        "title": "https://ja.react.dev/learn/choosing-the-state-structure",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/you-might-not-need-an-effect?amp=&amp=",
+        "title": "https://react.dev/learn/you-might-not-need-an-effect?amp=&amp=",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://it.react.dev/learn/choosing-the-state-structure",
+        "title": "https://it.react.dev/learn/choosing-the-state-structure",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/referencing-values-with-refs",
+        "title": "Referencing Values with Refs – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/blog/2025/02/14/sunsetting-create-react-app",
+        "title": "Sunsetting Create React App – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/passing-data-deeply-with-context",
+        "title": "Passing Data Deeply with Context – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/state-as-a-snapshot",
+        "title": "State as a Snapshot – React",
+        "snippet": "A state variable’s value never changes within a render, even if its event handler’s code is asynchronous. Inside that render’s `onClick`, the value of `number`…",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/reference/react/useSyncExternalStore",
+        "title": "useSyncExternalStore – React",
+        "snippet": "`getSnapshot`: A function that returns a snapshot of the data in the store that’s needed by the component. While the store has not changed, repeated calls to `…",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/reference/react/useState",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zh-hant.react.dev/learn/state-as-a-snapshot",
+        "title": "如同快照的 State – React",
+        "snippet": "以下是當你點擊按鈕時所發生的事情：\n\n1. 執行 `onSubmit` event handler。\n2. `setIsSent(true)` 將 `isSent` 設定為 `true`，並安排新的一次 render。\n3. React 根據 `isSent` 新的值，重新 render component。\n\n接著…",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/queueing-a-series-of-state-updates.md",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/reference/react/Component",
+        "title": "Component",
+        "snippet": "// (snapshot here is the value returned from getSnapshotBeforeUpdate)\n\nif (snapshot !== null) {\n\nconst list = this.listRef.current;\n\nlist.scrollTop = list.scro…",
+        "published_at": null
+      },
+      {
+        "url": "http://hu.react.dev/learn/adding-interactivity",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/adding-interactivity",
+        "title": "Adding Interactivity – React",
+        "snippet": "Read More\n\n## State as a snapshot\n\nUnlike regular JavaScript variables, React state behaves more like a snapshot. Setting it does not change the state variable…",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/render-and-commit",
+        "title": "Render and Commit – React",
+        "snippet": "PreviousState: A Component's MemoryNextState as a Snapshot\n\n--- [...] This works because during this last step, React only updates the content of  with the new…",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/reference/react/cache",
+        "title": "cache – React",
+        "snippet": "import getWeekReport from './getWeekReport';\n\nexport default function Precipitation({cityData}) {\n\nconst report = getWeekReport(cityData);\n\n// ...\n\n}`\n\nHere, b…",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/state-as-a-snapshot",
+        "title": "State as a Snapshot – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/reference/react/useSyncExternalStore",
+        "title": "useSyncExternalStore – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/reference/react/useState",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zh-hant.react.dev/learn/state-as-a-snapshot",
+        "title": "如同快照的 State – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/queueing-a-series-of-state-updates.md",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/reference/react/Component",
+        "title": "Component",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://hu.react.dev/learn/adding-interactivity",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/adding-interactivity",
+        "title": "Adding Interactivity – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/render-and-commit",
+        "title": "Render and Commit – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/reference/react/cache",
+        "title": "cache – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zh-hans.react.dev/learn/state-as-a-snapshot",
+        "title": "7",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://uk.react.dev/learn/state-as-a-snapshot",
+        "title": "8",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/understanding-your-ui-as-a-tree",
+        "title": "9",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://id.react.dev/reference/react/useSyncExternalStore",
+        "title": "10",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/updating-objects-in-state",
+        "title": "Updating Objects in State – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+        "title": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/api/reactivity-core.html",
+        "title": "Reactivity API: Core | Vue.js",
+        "snippet": "Compile-Time Flags\n\n# Reactivity API: Core ​\n\nSee also\n\nTo better understand the Reactivity APIs, it is recommended to read the following chapters in the guide…",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+        "title": "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/extras/composition-api-faq.html",
+        "title": "Composition API FAQ | Vue.js",
+        "snippet": "Reactivity API, e.g. `ref()` and `reactive()`, that allows us to directly create reactive state, computed state, and watchers.\n Lifecycle Hooks, e.g. `onMounte…",
+        "published_at": null
+      },
+      {
+        "url": "https://ja.vuejs.org/guide/essentials/reactivity-fundamentals",
+        "title": "https://ja.vuejs.org/guide/essentials/reactivity-fundamentals",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html",
+        "title": "Reactivity Fundamentals | Vue.js",
+        "snippet": "`reactive()` converts the object deeply: nested objects are also wrapped with `reactive()` when accessed. It is also called by `ref()` internally when the ref …",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/api/reactivity-advanced.html",
+        "title": "Reactivity API: Advanced | Vue.js",
+        "snippet": "Shallow version of `ref()`.\n\n`ref()`\n\nType\n\n`function shallowRef<T>(value: T): ShallowRef<T>\n\ninterface ShallowRef<T> {\n value: T\n}`\n\nDetails\n\nUnlike `ref()`, …",
+        "published_at": null
+      },
+      {
+        "url": "https://ru.vuejs.org/api/reactivity-core.html",
+        "title": "Реактивность: Основное | Vue.js",
+        "snippet": "Compile-Time Flags\n\n# Реактивность: Основное ​\n\nСм. также\n\nЧтобы лучше понять основы реактивности, рекомендуется прочитать следующие разделы руководства:\n\n## r…",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/extras/reactivity-transform.html",
+        "title": "https://vuejs.org/guide/extras/reactivity-transform.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://cn.vuejs.org/api/reactivity-core",
+        "title": "响应式 API：核心 | Vue.js",
+        "snippet": "console.log(plusOne.value) // 2\n\nplusOne.value++ // 错误`\n\n创建一个可写的计算属性 ref：\n\n`const count = ref(1)\nconst plusOne = computed({\n get: () => count.value + 1,\n set: …",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+        "title": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/api/reactivity-core.html",
+        "title": "Reactivity API: Core | Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+        "title": "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/extras/composition-api-faq.html",
+        "title": "Composition API FAQ | Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://ja.vuejs.org/guide/essentials/reactivity-fundamentals",
+        "title": "https://ja.vuejs.org/guide/essentials/reactivity-fundamentals",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html",
+        "title": "Reactivity Fundamentals | Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/api/reactivity-advanced.html",
+        "title": "Reactivity API: Advanced | Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://ru.vuejs.org/api/reactivity-core.html",
+        "title": "Реактивность: Основное | Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/extras/reactivity-transform.html",
+        "title": "https://vuejs.org/guide/extras/reactivity-transform.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://cn.vuejs.org/api/reactivity-core",
+        "title": "响应式 API：核心 | Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://eslint.vuejs.org/rules/no-ref-object-destructure",
+        "title": "https://eslint.vuejs.org/rules/no-ref-object-destructure",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://bn.vuejs.org/guide/essentials/reactivity-fundamentals.html",
+        "title": "https://bn.vuejs.org/guide/essentials/reactivity-fundamentals.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zh-hk.vuejs.org/guide/essentials/reactivity-fundamentals.html",
+        "title": "https://zh-hk.vuejs.org/guide/essentials/reactivity-fundamentals.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/api/reactivity-utilities",
+        "title": "https://vuejs.org/api/reactivity-utilities",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://cn.vuejs.org/guide/essentials/reactivity-fundamentals",
+        "title": "https://cn.vuejs.org/guide/essentials/reactivity-fundamentals",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/api/reactivity-utilities.html",
+        "title": "Reactivity API: Utilities | Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/reusability/composables.html",
+        "title": "Composables | Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://v2.vuejs.org/v2/guide/reactivity.html",
+        "title": "Reactivity in Depth — Vue.js",
+        "snippet": "## Async Update Queue\n\nIn case you haven’t noticed yet, Vue performs DOM updates asynchronously. Whenever a data change is observed, it will open a queue and b…",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html",
+        "title": "Reactivity Fundamentals | Vue.js",
+        "snippet": "`.value`\n\nFurther reading:\n\n### DOM Update Timing ​\n\nWhen you mutate reactive state, the DOM is updated automatically. However, it should be noted that the DOM…",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/api/reactivity-core.html",
+        "title": "https://vuejs.org/api/reactivity-core.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+        "title": "Reactivity in Depth | Vue.js",
+        "snippet": "js\n\n```\nimport { ref, watchEffect } from 'vue' import { ref, watchEffect } from  'vue' const count = ref(0) const  count =  ref(0) watchEffect(() => {watchEffe…",
+        "published_at": null
+      },
+      {
+        "url": "https://eslint.vuejs.org/rules",
+        "title": "https://eslint.vuejs.org/rules/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/best-practices/performance.html",
+        "title": "Performance | Vue.js",
+        "snippet": "Vue does provide an escape hatch to opt-out of deep reactivity by using `shallowRef()` and `shallowReactive()`. Shallow APIs create state that is reactive only…",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/api/reactivity-advanced.html",
+        "title": "https://vuejs.org/api/reactivity-advanced.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/api/general.html",
+        "title": "Global API: General | Vue.js",
+        "snippet": "Type: `string`\n\n`string`\n\nExample\n\n`import { version } from 'vue'\n\nconsole.log(version)`\n\n## nextTick() ​\n\nA utility for waiting for the next DOM update flush.…",
+        "published_at": null
+      },
+      {
+        "url": "https://ru.vuejs.org/guide/essentials/reactivity-fundamentals.html",
+        "title": "https://ru.vuejs.org/guide/essentials/reactivity-fundamentals.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://blog.vuejs.org/posts/vue-3-5",
+        "title": "Announcing Vue 3.5 | The Vue Point",
+        "snippet": "In addition, 3.5 also optimizes reactivity tracking for large, deeply reactive arrays, making such operations up to 10x faster in some cases.\n\nDetails: PR#1039…",
+        "published_at": null
+      },
+      {
+        "url": "https://v2.vuejs.org/v2/guide/reactivity.html",
+        "title": "Reactivity in Depth — Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html",
+        "title": "Reactivity Fundamentals | Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/api/reactivity-core.html",
+        "title": "https://vuejs.org/api/reactivity-core.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+        "title": "Reactivity in Depth | Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://eslint.vuejs.org/rules",
+        "title": "https://eslint.vuejs.org/rules/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/best-practices/performance.html",
+        "title": "Performance | Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/api/reactivity-advanced.html",
+        "title": "https://vuejs.org/api/reactivity-advanced.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/api/general.html",
+        "title": "Global API: General | Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://ru.vuejs.org/guide/essentials/reactivity-fundamentals.html",
+        "title": "https://ru.vuejs.org/guide/essentials/reactivity-fundamentals.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://blog.vuejs.org/posts/vue-3-5",
+        "title": "Announcing Vue 3.5 | The Vue Point",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/extras/rendering-mechanism.html",
+        "title": "https://vuejs.org/guide/extras/rendering-mechanism.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+        "title": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://ja.vuejs.org/guide/essentials/reactivity-fundamentals",
+        "title": "https://ja.vuejs.org/guide/essentials/reactivity-fundamentals",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://v1.vuejs.org/guide/reactivity.html",
+        "title": "https://v1.vuejs.org/guide/reactivity.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://v2.vuejs.org/v2/api",
+        "title": "API — Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/api/composition-api-lifecycle.html",
+        "title": "Composition API: Lifecycle Hooks | Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+        "title": "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://v1.vuejs.org/guide/reactivity.html",
+        "title": "Reactivity in Depth - vue.js",
+        "snippet": "## Inside Computed Properties\n\nIt should be noted that Vue.js computed properties are not simple getters. Each computed property keeps track of its own reactiv…",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/computed.html",
+        "title": "https://vuejs.org/guide/computed.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://012.vuejs.org/guide/computed.html",
+        "title": "Computed Properties - vue.js",
+        "snippet": "Imagine we have an expensive computed property A, which requires looping through a huge Array and doing a lot of computations. Then, we may have other computed…",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/api/reactivity-core.html",
+        "title": "Reactivity API: Core | Vue.js",
+        "snippet": "By default, watchers will run just prior to component rendering. Setting `flush: 'post'` will defer the watcher until after component rendering. See Callback F…",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/essentials/computed.html",
+        "title": "Computed Properties | Vue.js",
+        "snippet": "Instead of a computed property, we can define the same function as a method. For the end result, the two approaches are indeed exactly the same. However, the d…",
+        "published_at": null
+      },
+      {
+        "url": "https://coverage.vuejs.org/reactivity/src/dep.ts",
+        "title": "https://coverage.vuejs.org/reactivity/src/dep.ts",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://v2.vuejs.org/v2/guide/computed",
+        "title": "Computed Properties and Watchers — Vue.js",
+        "snippet": "|  |\n\n| ``` <p> p p ``` |\n\n|  |\n\n| ``` // in component methods reverseMessage function return this message split '' reverse join '' ``` |\n\nInstead of a compute…",
+        "published_at": null
+      },
+      {
+        "url": "https://cn.vuejs.org/guide/essentials/computed.html",
+        "title": "https://cn.vuejs.org/guide/essentials/computed.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/essentials/watchers.html",
+        "title": "Watchers | Vue.js",
+        "snippet": "js\n\n```\nconst todoId = ref(1) const  todoId =  ref(1)const data = ref(null) const  data =  ref(null) watch(watch( todoId, todoId, async () => { async () => { c…",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+        "title": "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://v1.vuejs.org/guide/reactivity.html",
+        "title": "Reactivity in Depth - vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/computed.html",
+        "title": "https://vuejs.org/guide/computed.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://012.vuejs.org/guide/computed.html",
+        "title": "Computed Properties - vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/api/reactivity-core.html",
+        "title": "Reactivity API: Core | Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/essentials/computed.html",
+        "title": "Computed Properties | Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://coverage.vuejs.org/reactivity/src/dep.ts",
+        "title": "https://coverage.vuejs.org/reactivity/src/dep.ts",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://v2.vuejs.org/v2/guide/computed",
+        "title": "Computed Properties and Watchers — Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://cn.vuejs.org/guide/essentials/computed.html",
+        "title": "https://cn.vuejs.org/guide/essentials/computed.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/essentials/watchers.html",
+        "title": "Watchers | Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://v2.vuejs.org/v2/guide/reactivity.html",
+        "title": "https://v2.vuejs.org/v2/guide/reactivity.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+        "title": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://v3.ru.vuejs.org/ru/guide/computed.html",
+        "title": "https://v3.ru.vuejs.org/ru/guide/computed.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/essentials/computed",
+        "title": "https://vuejs.org/guide/essentials/computed",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://012-cn.vuejs.org/guide/computed.html",
+        "title": "https://012-cn.vuejs.org/guide/computed.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/api/composition-api-lifecycle.html",
+        "title": "Composition API: Lifecycle Hooks | Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/api/options-lifecycle.html",
+        "title": "Options: Lifecycle | Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/reference/react/useContext",
+        "title": "https://react.dev/reference/react/useContext",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/managing-state",
+        "title": "Managing State – React",
+        "snippet": "Fork\n\n```\nimport AddTask from'./AddTask.js'; import TaskList from'./TaskList.js'; import{TasksProvider} from'./TasksContext.js'; export default function TaskAp…",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/state-as-a-snapshot",
+        "title": "https://react.dev/learn/state-as-a-snapshot",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/scaling-up-with-reducer-and-context",
+        "title": "Scaling Up with Reducer and Context – React",
+        "snippet": "Learn React\n\nManaging State\n\n# Scaling Up with Reducer and Context\n\nReducers let you consolidate a component’s state update logic. Context lets you pass inform…",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/passing-data-deeply-with-context",
+        "title": "Passing Data Deeply with Context – React",
+        "snippet": "Routing: Most routing solutions use context internally to hold the current route. This is how every link “knows” whether it’s active or not. If you build your …",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/reacting-to-input-with-state",
+        "title": "Reacting to Input with State – React",
+        "snippet": "After this clean-up, you’re left with 3 (down from 7!) essential state variables:\n\n```\n\nconst [answer, setAnswer] = useState('');\n\nconst [error, setError] = us…",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/reacting-to-input-with-state.md",
+        "title": "https://react.dev/learn/reacting-to-input-with-state.md",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/extracting-state-logic-into-a-reducer",
+        "title": "Extracting State Logic into a Reducer – React",
+        "snippet": "Managing state with reducers is slightly different from directly setting state. Instead of telling React “what to do” by setting state, you specify “what the u…",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/reference/react/useContext",
+        "title": "https://react.dev/reference/react/useContext",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/managing-state",
+        "title": "Managing State – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/state-as-a-snapshot",
+        "title": "https://react.dev/learn/state-as-a-snapshot",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/scaling-up-with-reducer-and-context",
+        "title": "Scaling Up with Reducer and Context – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/passing-data-deeply-with-context",
+        "title": "Passing Data Deeply with Context – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/reacting-to-input-with-state",
+        "title": "Reacting to Input with State – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/reacting-to-input-with-state.md",
+        "title": "https://react.dev/learn/reacting-to-input-with-state.md",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/extracting-state-logic-into-a-reducer",
+        "title": "Extracting State Logic into a Reducer – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/reference/react/useReducer",
+        "title": "https://react.dev/reference/react/useReducer",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/reference/react/useActionState",
+        "title": "https://react.dev/reference/react/useActionState",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/extracting-state-logic-into-a-reducer.md",
+        "title": "https://react.dev/learn/extracting-state-logic-into-a-reducer.md",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/sharing-state-between-components",
+        "title": "Sharing State Between Components – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/choosing-the-state-structure",
+        "title": "Choosing the State Structure – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/you-might-not-need-an-effect?amp=&amp=",
+        "title": "https://react.dev/learn/you-might-not-need-an-effect?amp=&amp=",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/sharing-state-between-components",
+        "title": "Sharing State Between Components – React",
+        "snippet": "For each unique piece of state, you will choose the component that “owns” it. This principle is also known as having a “single source of truth”. It doesn’t mea…",
+        "published_at": null
+      },
+      {
+        "url": "https://es.react.dev/learn/sharing-state-between-components",
+        "title": "https://es.react.dev/learn/sharing-state-between-components",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/managing-state",
+        "title": "Managing State – React",
+        "snippet": "This might seem like a small change, but many bugs in React apps are fixed this way.\n\n## Ready to learn this topic?\n\nRead Choosing the State Structure to learn…",
+        "published_at": null
+      },
+      {
+        "url": "https://ja.react.dev/learn/sharing-state-between-components",
+        "title": "https://ja.react.dev/learn/sharing-state-between-components",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/thinking-in-react",
+        "title": "Thinking in React – React",
+        "snippet": "To build a static version of your app that renders your data model, you’ll want to build components that reuse other components and pass data using props. Prop…",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/you-might-not-need-an-effect",
+        "title": "https://react.dev/learn/you-might-not-need-an-effect",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/passing-data-deeply-with-context",
+        "title": "https://react.dev/learn/passing-data-deeply-with-context",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/you-might-not-need-an-effect?amp=&amp=",
+        "title": "https://react.dev/learn/you-might-not-need-an-effect?amp=&amp=",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/sharing-state-between-components",
+        "title": "Sharing State Between Components – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://es.react.dev/learn/sharing-state-between-components",
+        "title": "https://es.react.dev/learn/sharing-state-between-components",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/managing-state",
+        "title": "Managing State – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://ja.react.dev/learn/sharing-state-between-components",
+        "title": "https://ja.react.dev/learn/sharing-state-between-components",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/thinking-in-react",
+        "title": "Thinking in React – React",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/you-might-not-need-an-effect",
+        "title": "https://react.dev/learn/you-might-not-need-an-effect",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/passing-data-deeply-with-context",
+        "title": "https://react.dev/learn/passing-data-deeply-with-context",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/scaling-up-with-reducer-and-context",
+        "title": "https://react.dev/learn/scaling-up-with-reducer-and-context",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://tr.react.dev/learn/sharing-state-between-components",
+        "title": "https://tr.react.dev/learn/sharing-state-between-components",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://react.dev/learn/reusing-logic-with-custom-hooks.md",
+        "title": "https://react.dev/learn/reusing-logic-with-custom-hooks.md",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuex.vuejs.org/api",
+        "title": "https://vuex.vuejs.org/api/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/scaling-up/state-management.html",
+        "title": "State Management | Vue.js",
+        "snippet": "A simpler and more straightforward solution is to extract the shared state out of the components, and manage it in a global singleton. With this, our component…",
+        "published_at": null
+      },
+      {
+        "url": "https://v1.vuejs.org/guide/reactivity.html",
+        "title": "Reactivity in Depth - vue.js",
+        "snippet": "# Reactivity in Depth\n\nWe’ve covered most of the basics - now it’s time to take a deep dive! One of Vue.js’ most distinct features is the unobtrusive reactive …",
+        "published_at": null
+      },
+      {
+        "url": "https://v2.vuejs.org/v2/guide/state-management",
+        "title": "State Management — Vue.js",
+        "snippet": "### Information for React Developers\n\nIf you’re coming from React, you may be wondering how vuex compares to redux, the most popular Flux implementation in tha…",
+        "published_at": null
+      },
+      {
+        "url": "https://v3.vuex.vuejs.org/guide",
+        "title": "https://v3.vuex.vuejs.org/guide/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://v2.vuejs.org/v2/guide/reactivity.html",
+        "title": "Reactivity in Depth — Vue.js",
+        "snippet": "Platinum Sponsors\n\nBit   VueMastery   VueSchool   Vehikl   Passionate People   Storyblok   Skilled   Chrome Frameworks Fund   HeroDevs\n\n Become a Sponsor\n\n# Re…",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+        "title": "Reactivity in Depth | Vue.js",
+        "snippet": "Skip to content\n\nVue.js\n\ngithubtwitterdiscord\n\nAppearance\n\ngithubtwitterdiscord\n\nOn this page\n\nSponsors\n\nBecome a Sponsor\n\nAre you an LLM? You can read better …",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/best-practices/performance.html",
+        "title": "Performance | Vue.js",
+        "snippet": "vue-virtual-scroller\n vue-virtual-scroll-grid\n vueuc/VVirtualList\n\n### Reduce Reactivity Overhead for Large Immutable Structures ​\n\nVue's reactivity system is …",
+        "published_at": null
+      },
+      {
+        "url": "https://vuex.vuejs.org/api",
+        "title": "https://vuex.vuejs.org/api/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/scaling-up/state-management.html",
+        "title": "State Management | Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://v1.vuejs.org/guide/reactivity.html",
+        "title": "Reactivity in Depth - vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://v2.vuejs.org/v2/guide/state-management",
+        "title": "State Management — Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://v3.vuex.vuejs.org/guide",
+        "title": "https://v3.vuex.vuejs.org/guide/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://v2.vuejs.org/v2/guide/reactivity.html",
+        "title": "Reactivity in Depth — Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+        "title": "Reactivity in Depth | Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/best-practices/performance.html",
+        "title": "Performance | Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+        "title": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://v1.vuejs.org/guide/state-management.html",
+        "title": "https://v1.vuejs.org/guide/state-management.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/scaling-up/state-management.md",
+        "title": "https://vuejs.org/guide/scaling-up/state-management.md",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://v3.ja.vuejs.org/guide/scaling-up/state-management.html",
+        "title": "https://v3.ja.vuejs.org/guide/scaling-up/state-management.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuex.vuejs.org",
+        "title": "What is Vuex? | Vuex",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html",
+        "title": "Reactivity Fundamentals | Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/api/reactivity-core.html",
+        "title": "https://vuejs.org/api/reactivity-core.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html",
+        "title": "Reactivity Fundamentals | Vue.js",
+        "snippet": "`const proxy = reactive({})\n\nconst raw = {}\nproxy.nested = raw\n\nconsole.log(proxy.nested === raw) // false`\n\n### Limitations of `reactive()` ​\n\n`reactive()`\n\nT…",
+        "published_at": null
+      },
+      {
+        "url": "https://bn.vuejs.org/guide/essentials/reactivity-fundamentals.html",
+        "title": "https://bn.vuejs.org/guide/essentials/reactivity-fundamentals.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/api/sfc-script-setup",
+        "title": "<script setup> | Vue.js",
+        "snippet": "`defineProps()`\n\nThis limitation was resolved in 3.3. The latest version of Vue supports referencing imported and a limited set of complex types in the type pa…",
+        "published_at": null
+      },
+      {
+        "url": "https://eslint.vuejs.org/rules",
+        "title": "https://eslint.vuejs.org/rules/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://eslint.vuejs.org/rules/no-setup-props-destructure",
+        "title": "vue/no-setup-props-destructure | eslint-plugin-vue",
+        "snippet": "Title: vue/no-setup-props-destructure | eslint-plugin-vue\n# vue/no-setup-props-destructure ​. > disallow usages that lose the reactivity of `props` passed to `…",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+        "title": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+        "title": "Reactivity in Depth | Vue.js",
+        "snippet": "When you assign or destructure a reactive object's property to a local variable, accessing or assigning to that variable is non-reactive because it no longer t…",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/api/reactivity-core.html",
+        "title": "https://vuejs.org/api/reactivity-core.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals.html",
+        "title": "Reactivity Fundamentals | Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://bn.vuejs.org/guide/essentials/reactivity-fundamentals.html",
+        "title": "https://bn.vuejs.org/guide/essentials/reactivity-fundamentals.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/api/sfc-script-setup",
+        "title": "<script setup> | Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://eslint.vuejs.org/rules",
+        "title": "https://eslint.vuejs.org/rules/",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://eslint.vuejs.org/rules/no-setup-props-destructure",
+        "title": "vue/no-setup-props-destructure | eslint-plugin-vue",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+        "title": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/extras/reactivity-in-depth.html",
+        "title": "Reactivity in Depth | Vue.js",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://zh-hk.vuejs.org/guide/essentials/reactivity-fundamentals.html",
+        "title": "https://zh-hk.vuejs.org/guide/essentials/reactivity-fundamentals.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/api/reactivity-utilities",
+        "title": "https://vuejs.org/api/reactivity-utilities",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/guide/extras/reactivity-transform.html",
+        "title": "https://vuejs.org/guide/extras/reactivity-transform.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://eslint.vuejs.org/rules/no-ref-object-destructure",
+        "title": "https://eslint.vuejs.org/rules/no-ref-object-destructure",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://blog.vuejs.org/posts/vue-3-5",
+        "title": "Announcing Vue 3.5 | The Vue Point",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://vuejs.org/api/composition-api-setup",
+        "title": "Composition API: setup() | Vue.js",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://react.dev/learn/managing-state",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://react.dev/learn/state-as-a-snapshot",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://react.dev/learn/choosing-the-state-structure",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://vuejs.org/guide/essentials/reactivity-fundamentals",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://vuejs.org/guide/essentials/computed",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://vuejs.org/guide/scaling-up/state-management",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:22:59.355381+00:00",
+    "timed_out": true
+  },
+  "score": {
+    "id": "compare-react-vue",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "react-state",
+          "vue-reactivity"
+        ],
+        "required": 2
+      },
+      "cross_language": {
+        "status": "pass",
+        "matched_hosts": [
+          "react.dev",
+          "vuejs.org"
+        ]
+      },
+      "synthesis": {
+        "status": "fail",
+        "reason": "empty_answer"
+      }
+    },
+    "task": {
+      "status": "timeout",
+      "reasons": [
+        "synthesis:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": false,
+    "grader": "v2"
+  }
+}

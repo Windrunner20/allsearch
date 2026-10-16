@@ -1,0 +1,1106 @@
+{
+  "id": "zhihu-cross-rust",
+  "query": "用中文找 Rust 所有权机制的英文原文，要 The Rust Book 的 ownership 章节",
+  "returncode": 0,
+  "elapsed_ms": 234383,
+  "efficiency": {
+    "tool_calls": {
+      "search": 10,
+      "health": 1,
+      "fetch": 4
+    },
+    "total_calls": 15,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 0,
+    "errors": 0
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "balanced",
+        "exclude_domains": [
+          "reddit.com"
+        ],
+        "fresh": false,
+        "include_domains": [
+          "doc.rust-lang.org"
+        ],
+        "max_results": 8,
+        "mode": "web",
+        "query": "site:doc.rust-lang.org/book/ch04-00-understanding-ownership.html The Rust Programming Language ownership chapter English original system ownership rules stack heap references borrowing slices strings Chinese explanation source quotes",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 2968
+    },
+    {
+      "tool": "mcp__allsearch__health",
+      "args": {
+        "probe": true
+      },
+      "is_error": false,
+      "ms": 5
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "fast",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "doc.rust-lang.org"
+        ],
+        "max_results": 5,
+        "mode": "web",
+        "query": "The Rust Programming Language Understanding Ownership chapter",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 8496
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Extract the exact English wording of the chapter overview, especially why ownership matters and what the chapter covers.",
+        "fresh": false,
+        "max_chars": 12000,
+        "url": "https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html"
+      },
+      "is_error": false,
+      "ms": 10754
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Extract exact English quotations for the definition of ownership, the three ownership rules, scope, String move/copy, and drop.",
+        "fresh": false,
+        "max_chars": 22000,
+        "url": "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html"
+      },
+      "is_error": false,
+      "ms": 10754
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Extract exact English quotations defining references and borrowing, mutable references, and the borrowing rules.",
+        "fresh": false,
+        "max_chars": 22000,
+        "url": "https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html"
+      },
+      "is_error": false,
+      "ms": 10754
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Extract exact English quotations defining slices and string slices, including the summary of ownership.",
+        "fresh": false,
+        "max_chars": 18000,
+        "url": "https://doc.rust-lang.org/book/ch04-03-slices.html"
+      },
+      "is_error": false,
+      "ms": 10755
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "doc.rust-lang.org"
+        ],
+        "max_results": 5,
+        "mode": "web",
+        "query": "site:doc.rust-lang.org/book/ch04-01-what-is-ownership.html \"Ownership is a set of rules\" \"three rules\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 10327
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "doc.rust-lang.org"
+        ],
+        "max_results": 5,
+        "mode": "web",
+        "query": "site:doc.rust-lang.org/book/ch04-02-references-and-borrowing.html \"A reference allows you to refer to some value\" borrowing",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 13353
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "doc.rust-lang.org"
+        ],
+        "max_results": 5,
+        "mode": "web",
+        "query": "site:doc.rust-lang.org/book/ch04-03-slices.html \"A slice is a data type\" string slice",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 13078
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "doc.rust-lang.org"
+        ],
+        "max_results": 5,
+        "mode": "web",
+        "query": "site:doc.rust-lang.org/book/ch04-00-understanding-ownership.html \"Ownership is Rust's most unique feature\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 10380
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "doc.rust-lang.org"
+        ],
+        "max_results": 5,
+        "mode": "web",
+        "query": "site:doc.rust-lang.org/book/ch04-01-what-is-ownership.html \"When a variable goes out of scope\" \"drop\" \"String\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 36667
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "doc.rust-lang.org"
+        ],
+        "max_results": 5,
+        "mode": "web",
+        "query": "site:doc.rust-lang.org/book/ch04-01-what-is-ownership.html \"Because only one owner\" move copy \"Rust\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 31422
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "doc.rust-lang.org"
+        ],
+        "max_results": 5,
+        "mode": "web",
+        "query": "site:doc.rust-lang.org/book/ch04-02-references-and-borrowing.html \"At any given time\" \"one mutable reference\" \"immutable references\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 23183
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "doc.rust-lang.org"
+        ],
+        "max_results": 5,
+        "mode": "web",
+        "query": "site:doc.rust-lang.org/book/ch04-01-what-is-ownership.html \"The Stack and the Heap\" ownership String",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 32498
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.0\", \"result_id\": \"7f4eb47986cef3dd\", \"kind\": \"search\", \"status\": \"error\", \"query\": \"site:doc.rust-lang.org/book/ch04-00-understanding-ownership.html The Rust Programming Language ownership chapter English original system ownership rules stack heap references borrowing slices strings Chinese explanation source quotes\", \"answer\": \"\", \"answer_chars\": 0, \"evidence\": {\"unique_urls\": 0, \"unique_domains\": 0, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 2961, \"warning_count\": 0, \"warnings\": [], \"errors\": [{\"provider\": \"xai\", \"code\": \"provider_contract_error\", \"message\": \"bad request from provider: {\\\"error\\\":{\\\"message\\\":\\\"Upstream rejected the request\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":\\\"\\\",\\\"code\\\":null}}\", \"retryable\": false}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"error\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"skipped\", \"reason\": \"primary_unavailable\"}], \"result_count\": 0, \"citation_count\": 0, \"results\": [], \"citations\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"7f4eb47986cef3dd\"}}",
+    "{\"schema_version\": \"1.0\", \"status\": \"degraded\", \"version\": \"0.2.0\", \"transport\": \"stdio\", \"model\": \"grok-4.7\", \"allow_degraded_search\": false, \"providers\": [{\"name\": \"xai\", \"configured\": true, \"state\": \"degraded\", \"last_success_at\": null, \"last_error_code\": \"provider_contract_error\", \"consecutive_failures\": 0, \"latency_ms_ewma\": null, \"probe_at\": 1792141815.9291804, \"detail\": null}, {\"name\": \"tavily\", \"configured\": true, \"state\": \"idle\", \"last_success_at\": null, \"last_error_code\": null, \"consecutive_failures\": 0, \"latency_ms_ewma\": null, \"probe_at\": null, \"detail\": null}, {\"name\": \"anysearch\", \"configured\": true, \"state\": \"idle\", \"last_success_at\": null, \"last_error_code\": null, \"consecutive_failures\": 0, \"latency_ms_ewma\": null, \"probe_at\": null, \"detail\": null}, {\"name\": \"firecrawl\", \"configured\": true, \"state\": \"idle\", \"last_success_at\": null, \"last_error_code\": null, \"consecutive_failures\": 0, \"latency_ms_ewma\": null, \"probe_at\": null, \"detail\": null}], \"cache\": {\"hits\": 0, \"misses\": 2, \"sets\": 1, \"evictions\": 0, \"entries\": 1}, \"warnings\": [], \"timing_ms\": 0}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"9d1ac54cbc6dd450\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"The Rust Programming Language Understanding Ownership chapter\", \"answer\": \"Here are five relevant sources for the **Understanding Ownership** chapter of *The Rust Programming Language*:\\n\\n1. **Chapter overview (current book)** — Ownership is Rust’s main memory-safety feature (no garbage collector). The chapter covers ownership, borrowing, slices, and memory layout.  \\n   https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html\\n\\n2. **What is Ownership?** — Ownership rules: each value has one owner; when the owner goes out of scope, the value is dropped. Focuses on heap data such as `String`.  \\n   https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html\\n\\n3. **References and Borrowing** — References (`&T`) let you use a value without taking ownership (“borrowing”). Rules: either one mutable reference or any number of immutable references; references m…\", \"answer_chars\": 1282, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 13}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 8487, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"skipped\", \"reason\": \"primary_sufficient\"}], \"result_count\": 5, \"citation_count\": 13, \"results\": [{\"id\": \"r1\", \"title\": \"https://doc.rust-lang.org/nightly/book/ownership.html\", \"url\": \"https://doc.rust-lang.org/nightly/book/ownership.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html\", \"url\": \"https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r3\", \"title\": \"https://doc.rust-lang.org/1.69.0/book/ch04-03-slices.html\", \"url\": \"https://doc.rust-lang.org/1.69.0/book/ch04-03-slices.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"https://doc.rust-lang.org/1.23.0/book/second-edition/ch04-02-references-and-borrowing.html\", \"url\": \"https://doc.rust-lang.org/1.23.0/book/second-edition/ch04-02-references-and-borrowing.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r5\", \"title\": \"https://doc.rust-lang.org/book/first-edition/ownership.html\", \"url\": \"https://doc.rust-lang.org/book/first-edition/ownership.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://doc.rust-lang.org/nightly/book/ownership.html\", \"title\": \"https://doc.rust-lang.org/nightly/book/ownership.html\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html\", \"title\": \"https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html\", \"result_item_id\": \"r2\", \"providers\": [\"xai\"]}, {\"id\": \"c3\", \"url\": \"https://doc.rust-lang.org/1.69.0/book/ch04-03-slices.html\", \"title\": \"https://doc.rust-lang.org/1.69.0/book/ch04-03-slices.html\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://doc.rust-lang.org/1.23.0/book/second-edition/ch04-02-references-and-borrowing.html\", \"title\": \"https://doc.rust-lang.org/1.23.0/book/second-edition/ch04-02-references-and-borrowing.html\", \"result_item_id\": \"r4\", \"providers\": [\"xai\"]}, {\"id\": \"c5\", \"url\": \"https://doc.rust-lang.org/book/first-edition/ownership.html\", \"title\": \"https://doc.rust-lang.org/book/first-edition/ownership.html\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://doc.rust-lang.org/1.69.0/book/ch15-04-rc.html\", \"title\": \"https://doc.rust-lang.org/1.69.0/book/ch15-04-rc.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://doc.rust-lang.org/1.23.0/book/second-edition/ch04-00-understanding-ownership.html\", \"title\": \"https://doc.rust-lang.org/1.23.0/book/second-edition/ch04-00-understanding-ownership.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://doc.rust-lang.org/1.13.0/book/ownership.html\", \"title\": \"https://doc.rust-lang.org/1.13.0/book/ownership.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html\", \"title\": \"https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://doc.rust-lang.org/beta/book/ownership.html\", \"title\": \"https://doc.rust-lang.org/beta/book/ownership.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://doc.rust-lang.org/1.33.0/book/ch04-00-understanding-ownership.html\", \"title\": \"https://doc.rust-lang.org/1.33.0/book/ch04-00-understanding-ownership.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://doc.rust-lang.org/nomicon/ownership.html\", \"title\": \"https://doc.rust-lang.org/nomicon/ownership.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://doc.rust-lang.org/1.69.0/book/ch04-02-references-and-borrowing.html\", \"title\": \"https://doc.rust-lang.org/1.69.0/book/ch04-02-references-and-borrowing.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"9d1ac54cbc6dd450\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"6189fc89bc12da46\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"6189fc89bc12da46\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"7d193656b0b85255\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"7d193656b0b85255\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"808eb03cb568e6fd\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"808eb03cb568e6fd\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"92abdb06c2ac607d\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://doc.rust-lang.org/book/ch04-03-slices.html\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"92abdb06c2ac607d\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"0cafac9eb4426409\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:doc.rust-lang.org/book/ch04-01-what-is-ownership.html \\\"Ownership is a set of rules\\\" \\\"three rules\\\"\", \"answer\": \"The matching page is the Rust Book chapter on ownership.\\n\\n1. **[What is Ownership? — The Rust Programming Language](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html)**  \\n   States: “*Ownership* is a set of rules that govern how a Rust program manages memory.” Under **Ownership Rules**, it lists three rules:  \\n   - Each value in Rust has an owner.  \\n   - There can only be one owner at a time.  \\n   - When the owner goes out of scope, the value will be dropped.  \\n\\nNo other distinct pages in the search results matched both phrases.\", \"answer_chars\": 546, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 1, \"pages_fetched\": 0, \"primary_citation_count\": 1}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 10307, \"warning_count\": 1, \"warnings\": [\"primary_insufficient:citations_below_threshold:1<3,domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}], \"result_count\": 5, \"citation_count\": 5, \"results\": [{\"id\": \"r1\", \"title\": \"What is Ownership? - The Rust Programming Language\", \"url\": \"https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html\", \"snippet\": \"# The Rust Programming Language\\n\\n## What Is Ownership?\\n\\nOwnership is a set of rules that govern how a Rust program manages memory. All programs have to manage …\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r2\", \"title\": \"Shared-State Concurrency - The Rust Programming Language\", \"url\": \"https://doc.rust-lang.org/book/ch16-03-shared-state.html\", \"snippet\": \"For a real-world metaphor for a mutex, imagine a panel discussion at a conference with only one microphone. Before a panelist can speak, they have to ask or si…\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"Ownership - The Rustonomicon\", \"url\": \"https://doc.rust-lang.org/nomicon/ownership.html\", \"snippet\": \"## Keyboard shortcuts\\n\\nPress `←` or `→` to navigate between chapters\\n\\nPress `S` or `/` to search in the book\\n\\nPress `?` to show this help\\n\\nPress `Esc` to hide …\", \"providers\": [\"tavily\"]}, {\"id\": \"r4\", \"title\": \"Using Threads to Run Code Simultaneously - The Rust Programming Language\", \"url\": \"https://doc.rust-lang.org/book/ch16-01-threads.html\", \"snippet\": \"Rust’s ownership rules have saved us again! We got an error from the code in Listing 16-3 because Rust was being conservative and only borrowing `v` for the th…\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"RefCell<T> and the Interior Mutability Pattern - The Rust Programming Language\", \"url\": \"https://doc.rust-lang.org/book/ch15-05-interior-mutability.html\", \"snippet\": \"Because some analysis is impossible, if the Rust compiler can’t be sure the code complies with the ownership rules, it might reject a correct program; in this …\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html\", \"title\": \"What is Ownership? - The Rust Programming Language\", \"result_item_id\": \"r1\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c2\", \"url\": \"https://doc.rust-lang.org/book/ch16-03-shared-state.html\", \"title\": \"Shared-State Concurrency - The Rust Programming Language\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://doc.rust-lang.org/nomicon/ownership.html\", \"title\": \"Ownership - The Rustonomicon\", \"result_item_id\": \"r3\", \"providers\": [\"tavily\"]}, {\"id\": \"c4\", \"url\": \"https://doc.rust-lang.org/book/ch16-01-threads.html\", \"title\": \"Using Threads to Run Code Simultaneously - The Rust Programming Language\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://doc.rust-lang.org/book/ch15-05-interior-mutability.html\", \"title\": \"RefCell<T> and the Interior Mutability Pattern - The Rust Programming Language\", \"result_item_id\": \"r5\", \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"0cafac9eb4426409\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"7bc536e5dcf2b161\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:doc.rust-lang.org/book/ch04-02-references-and-borrowing.html \\\"A reference allows you to refer to some value\\\" borrowing\", \"answer\": \"Relevant results from the Rust documentation:\\n\\n1. **References and Borrowing** — [doc.rust-lang.org/book/ch04-02-references-and-borrowing.html](https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html)  \\n   Current book chapter. Ampersands are references that “allow you to refer to some value without taking ownership of it.” Creating a reference is called *borrowing*. A reference does not own the value, so the value is not dropped when the reference goes out of scope.\\n\\n2. **The Rust Programming Language (print)** — [doc.rust-lang.org/book/print.html](https://doc.rust-lang.org/book/print.html)  \\n   Same chapter text in the single-page book: references let you refer to a value without taking ownership; that action is called borrowing.\\n\\n3. **References and Borrowing (redirect / o…\", \"answer_chars\": 1804, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 5}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 13332, \"warning_count\": 1, \"warnings\": [\"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}], \"result_count\": 5, \"citation_count\": 10, \"results\": [{\"id\": \"r1\", \"title\": \"https://doc.rust-lang.org/book/references-and-borrowing.html\", \"url\": \"https://doc.rust-lang.org/book/references-and-borrowing.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"reference - Rust\", \"url\": \"https://doc.rust-lang.org/std/primitive.reference.html\", \"snippet\": \"## reference\\n\\n# Primitive Type reference\\n\\n1.0.0\\n\\nExpand description\\n\\nReferences, `&T` and `&mut T`.\\n\\nA reference represents a borrow of some owned value. You c…\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html?highlight=String%3A%3Afrom\", \"url\": \"https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html?highlight=String%3A%3Afrom\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"References and Borrowing - The Rust Programming Language\", \"url\": \"https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html\", \"snippet\": \"Filename: src/main.rs\\n\\n```\\nfn main() { let s1 = String::from(\\\"hello\\\"); let len = calculate_length(&s1); println!(\\\"The length of '{s1}' is {len}.\\\"); } fn calcul…\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://doc.rust-lang.org/book/print.html\", \"url\": \"https://doc.rust-lang.org/book/print.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://doc.rust-lang.org/book/references-and-borrowing.html\", \"title\": \"https://doc.rust-lang.org/book/references-and-borrowing.html\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://doc.rust-lang.org/std/primitive.reference.html\", \"title\": \"reference - Rust\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html?highlight=String%3A%3Afrom\", \"title\": \"https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html?highlight=String%3A%3Afrom\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html\", \"title\": \"References and Borrowing - The Rust Programming Language\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://doc.rust-lang.org/book/print.html\", \"title\": \"https://doc.rust-lang.org/book/print.html\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://doc.rust-lang.org/0.12.0/guide-lifetimes.html\", \"title\": \"https://doc.rust-lang.org/0.12.0/guide-lifetimes.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://doc.rust-lang.org/1.10.0/book/references-and-borrowing.html\", \"title\": \"https://doc.rust-lang.org/1.10.0/book/references-and-borrowing.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://doc.rust-lang.org/book/ch15-00-smart-pointers.html?highlight=borrow+and+asref\", \"title\": \"Smart Pointers - The Rust Programming Language\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://doc.rust-lang.org/book/ch15-00-smart-pointers.html\", \"title\": \"Smart Pointers - The Rust Programming Language\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c10\", \"url\": \"https://doc.rust-lang.org/beta/std/borrow/trait.Borrow.html\", \"title\": \"Borrow in std\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"7bc536e5dcf2b161\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"8b393b6e4eedd174\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:doc.rust-lang.org/book/ch04-03-slices.html \\\"A slice is a data type\\\" string slice\", \"answer\": \"The exact phrase “A slice is a data type” does not appear on the current book page. Closest wording is that a slice is a kind of reference (no ownership) and, in the reference, a dynamically sized type.\\n\\n1. **The Slice Type** ([doc.rust-lang.org/book/ch04-03-slices.html](https://doc.rust-lang.org/book/ch04-03-slices.html)) — Slices reference a contiguous sequence and do not own data. **String slices**: a reference to part of a `String` (`&s[0..5]`, range `[start..end)`); internally stores start and length; the type is written `&str`. [[1]](https://doc.rust-lang.org/book/ch04-03-slices.html)\\n\\n2. **Same chapter, Rust 1.82** ([doc.rust-lang.org/1.82.0/book/ch04-03-slices.html](https://doc.rust-lang.org/1.82.0/book/ch04-03-slices.html)) — Same idea: string slice is a reference to part of a `S…\", \"answer_chars\": 1803, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 2, \"pages_fetched\": 0, \"primary_citation_count\": 5}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 13056, \"warning_count\": 1, \"warnings\": [\"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}], \"result_count\": 5, \"citation_count\": 8, \"results\": [{\"id\": \"r1\", \"title\": \"The Slice Type - The Rust Programming Language\", \"url\": \"https://doc.rust-lang.org/book/ch04-03-slices.html\", \"snippet\": \"The Slice Type. Slices let you reference a contiguous sequence of elements in a collection. A slice is a kind of reference, so it does not have ownership.\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r2\", \"title\": \"String slice type - The Rust Reference\", \"url\": \"https://doc.rust-lang.org/reference/types/str.html\", \"snippet\": \"The string slice ( str ) type represents a sequence of characters. a slice of 8-bit unsigned bytes. A str is a dynamically sized type. iated through a pointer\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"2\", \"url\": \"https://doc.rust-lang.org/1.82.0/book/ch04-03-slices.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"Advanced Types - The Rust Programming Language\", \"url\": \"https://doc.rust-lang.org/book/ch20-03-advanced-types.html?highlight=nu\", \"snippet\": \"So, what do we do? In this case, you already know the answer: We make the type\\nof `s1` and `s2` string slice (`&str`) rather than `str`. Recall from the\\n“Strin…\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"3\", \"url\": \"https://doc.rust-lang.org/1.42.0/book/print.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://doc.rust-lang.org/book/ch04-03-slices.html\", \"title\": \"The Slice Type - The Rust Programming Language\", \"result_item_id\": \"r1\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c2\", \"url\": \"https://doc.rust-lang.org/reference/types/str.html\", \"title\": \"String slice type - The Rust Reference\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://doc.rust-lang.org/1.82.0/book/ch04-03-slices.html\", \"title\": \"2\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://doc.rust-lang.org/book/ch20-03-advanced-types.html?highlight=nu\", \"title\": \"Advanced Types - The Rust Programming Language\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://doc.rust-lang.org/1.42.0/book/print.html\", \"title\": \"3\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://doc.rust-lang.org/reference/types/slice.html\", \"title\": \"5\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://doc.rust-lang.org/std\", \"title\": \"std - Rust\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c8\", \"url\": \"https://doc.rust-lang.org/std?search=_unchecked\", \"title\": \"std - Rust\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"8b393b6e4eedd174\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"27d06e93d19a2b57\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:doc.rust-lang.org/book/ch04-00-understanding-ownership.html \\\"Ownership is Rust's most unique feature\\\"\", \"answer\": \"Relevant results for the phrase:\\n\\n1. **Current book chapter** — [Understanding Ownership](https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html)  \\n   “Ownership is Rust’s most unique feature and has deep implications for the rest of the language. It enables Rust to make memory safety guarantees without needing a garbage collector…”  \\n   [[1]](https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html)\\n\\n2. **Rust 1.57 book (same path)** — [Understanding Ownership](https://doc.rust-lang.org/1.57.0/book/ch04-00-understanding-ownership.html)  \\n   “Ownership is Rust’s most unique feature, and it enables Rust to make memory safety guarantees without needing a garbage collector.”  \\n   [[2]](https://doc.rust-lang.org/1.57.0/book/ch04-00-understanding-ownership.html)\\n\\n3. **N…\", \"answer_chars\": 1727, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 2, \"pages_fetched\": 0, \"primary_citation_count\": 5}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 10354, \"warning_count\": 1, \"warnings\": [\"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}], \"result_count\": 5, \"citation_count\": 8, \"results\": [{\"id\": \"r1\", \"title\": \"Understanding Ownership - The Rust Programming Language\", \"url\": \"https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html\", \"snippet\": \"## Keyboard shortcuts\\n\\nPress `←` or `→` to navigate between chapters\\n\\nPress `S` or `/` to search in the book\\n\\nPress `?` to show this help\\n\\nPress `Esc` to hide …\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r2\", \"title\": \"Ownership - The Rustonomicon\", \"url\": \"https://doc.rust-lang.org/nomicon/ownership.html\", \"snippet\": \"## Keyboard shortcuts\\n\\nPress `←` or `→` to navigate between chapters\\n\\nPress `S` or `/` to search in the book\\n\\nPress `?` to show this help\\n\\nPress `Esc` to hide …\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"2\", \"url\": \"https://doc.rust-lang.org/1.57.0/book/ch04-00-understanding-ownership.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"What is Ownership? - The Rust Programming Language\", \"url\": \"https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html\", \"snippet\": \"# The Rust Programming Language\\n\\n## What Is Ownership?\\n\\nOwnership is a set of rules that govern how a Rust program manages memory. All programs have to manage …\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"3\", \"url\": \"https://doc.rust-lang.org/nightly/book/ownership.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html\", \"title\": \"Understanding Ownership - The Rust Programming Language\", \"result_item_id\": \"r1\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c2\", \"url\": \"https://doc.rust-lang.org/nomicon/ownership.html\", \"title\": \"Ownership - The Rustonomicon\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://doc.rust-lang.org/1.57.0/book/ch04-00-understanding-ownership.html\", \"title\": \"2\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html\", \"title\": \"What is Ownership? - The Rust Programming Language\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://doc.rust-lang.org/nightly/book/ownership.html\", \"title\": \"3\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://doc.rust-lang.org/1.9.0/book/ownership.html\", \"title\": \"4\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://doc.rust-lang.org/book/ch16-00-concurrency.html\", \"title\": \"Fearless Concurrency - The Rust Programming Language\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c8\", \"url\": \"https://doc.rust-lang.org/rust-by-example/scope/move.html\", \"title\": \"Ownership and moves - Rust By Example\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"27d06e93d19a2b57\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"ce78635f5ac124c9\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:doc.rust-lang.org/book/ch04-01-what-is-ownership.html \\\"When a variable goes out of scope\\\" \\\"drop\\\" \\\"String\\\"\", \"answer\": \"1. **What is Ownership?** — [doc.rust-lang.org/book/ch04-01-what-is-ownership.html](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html)  \\n   Direct hit. Rules: each value has one owner; when the owner goes out of scope, the value is dropped. For `String`, when `s` goes out of scope Rust calls `drop` so the author of `String` can return the memory. `drop` runs automatically at the closing curly brace. Later: heap data is cleaned up by `drop` unless ownership was moved.  \\n   [[1]](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html)\\n\\n2. **The Rust Programming Language (print, older edition)** — [doc.rust-lang.org/1.42.0/book/print.html](https://doc.rust-lang.org/1.42.0/book/print.html)  \\n   Same ownership chapter text: memory for a `String` is returned when `s` goes out…\", \"answer_chars\": 2289, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 3, \"pages_fetched\": 2, \"primary_citation_count\": 5}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 36639, \"warning_count\": 2, \"warnings\": [\"auto_scrape_truncated\", \"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 5, \"citation_count\": 7, \"results\": [{\"id\": \"r1\", \"title\": \"What is Ownership? - The Rust Programming Language\", \"url\": \"https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html\", \"snippet\": \"Rust takes a different path: The memory is automatically returned once the variable that owns it goes out of scope. Here’s a version of our scope example from …\", \"providers\": [\"xai\", \"tavily\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"Drop - Rust By Example\", \"url\": \"https://doc.rust-lang.org/rust-by-example/trait/drop.html\", \"snippet\": \"## Keyboard shortcuts\\n\\nPress `←` or `→` to navigate between chapters\\n\\nPress `S` or `/` to search in the book\\n\\nPress `?` to show this help\\n\\nPress `Esc` to hide …\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"2\", \"url\": \"https://doc.rust-lang.org/1.42.0/book/print.html\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"Destructors - The Rust Reference\", \"url\": \"https://doc.rust-lang.org/reference/destructors.html\", \"snippet\": \"## Keyboard shortcuts\\n\\nPress `←` or `→` to navigate between chapters\\n\\nPress `S` or `/` to search in the book\\n\\nPress `?` to show this help\\n\\nPress `Esc` to hide …\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"Running Code on Cleanup with the Drop Trait - The Rust Programming Language\", \"url\": \"https://doc.rust-lang.org/book/ch15-03-drop.html\", \"snippet\": \"The `std::mem::drop` function is different from the `drop` method in the `Drop` trait. We call it by passing as an argument the value we want to force-drop. Th…\", \"providers\": [\"xai\", \"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html\", \"title\": \"What is Ownership? - The Rust Programming Language\", \"result_item_id\": \"r1\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c2\", \"url\": \"https://doc.rust-lang.org/rust-by-example/trait/drop.html\", \"title\": \"Drop - Rust By Example\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://doc.rust-lang.org/1.42.0/book/print.html\", \"title\": \"2\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://doc.rust-lang.org/reference/destructors.html\", \"title\": \"Destructors - The Rust Reference\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://doc.rust-lang.org/book/ch15-03-drop.html\", \"title\": \"Running Code on Cleanup with the Drop Trait - The Rust Programming Language\", \"result_item_id\": \"r5\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c6\", \"url\": \"https://doc.rust-lang.org/1.84.1/reference/destructors.html\", \"title\": \"5\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://doc.rust-lang.org/rust-by-example/scope/raii.html\", \"title\": \"RAII - Rust By Example\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"ce78635f5ac124c9\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"c3f18375de32bb59\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:doc.rust-lang.org/book/ch04-01-what-is-ownership.html \\\"Because only one owner\\\" move copy \\\"Rust\\\"\", \"answer\": \"Relevant results (up to 5), focused on ownership, single owner, move, and `Copy`:\\n\\n1. **What is Ownership?** — [The Rust Programming Language](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html)  \\n   Rules: each value has one owner; only one owner at a time; owner drop frees the value. Assigning a non-`Copy` type (e.g. `String`) **moves** ownership and invalidates the source; types that implement `Copy` are copied instead. A pointer/length/capacity copy that also invalidates the original is a move, not a shallow copy.\\n\\n2. **Ownership and moves** — [Rust By Example](https://doc.rust-lang.org/rust-by-example/scope/move.html)  \\n   Closest wording to the query: resources can have only one owner so they are not freed twice. Assignment or pass-by-value **moves** ownership; the previo…\", \"answer_chars\": 1827, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 2, \"pages_fetched\": 2, \"primary_citation_count\": 8}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 31394, \"warning_count\": 2, \"warnings\": [\"auto_scrape_truncated\", \"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 5, \"citation_count\": 11, \"results\": [{\"id\": \"r1\", \"title\": \"What is Ownership? - The Rust Programming Language\", \"url\": \"https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html\", \"snippet\": \"If you’ve heard the terms shallow copy and deep copy while working with other languages, the concept of copying the pointer, length, and capacity without copyi…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r2\", \"title\": \"Ownership and moves - Rust By Example\", \"url\": \"https://doc.rust-lang.org/rust-by-example/scope/move.html\", \"snippet\": \"## Keyboard shortcuts\\n\\nPress `←` or `→` to navigate between chapters\\n\\nPress `S` or `/` to search in the book\\n\\nPress `?` to show this help\\n\\nPress `Esc` to hide …\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://doc.rust-lang.org/1.57.0/book/print.html\", \"url\": \"https://doc.rust-lang.org/1.57.0/book/print.html\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"E0382 - Error codes index\", \"url\": \"https://doc.rust-lang.org/error_codes/E0382.html\", \"snippet\": \"## Keyboard shortcuts\\n\\nPress ← or → to navigate between chapters\\n\\nPress S or / to search in the book\\n\\nPress ? to show this help\\n\\nPress Esc to hide this help\\n\\n-…\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html\", \"url\": \"https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html\", \"title\": \"What is Ownership? - The Rust Programming Language\", \"result_item_id\": \"r1\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c2\", \"url\": \"https://doc.rust-lang.org/rust-by-example/scope/move.html\", \"title\": \"Ownership and moves - Rust By Example\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://doc.rust-lang.org/1.57.0/book/print.html\", \"title\": \"https://doc.rust-lang.org/1.57.0/book/print.html\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://doc.rust-lang.org/error_codes/E0382.html\", \"title\": \"E0382 - Error codes index\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html\", \"title\": \"https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://doc.rust-lang.org/nomicon/ownership.html\", \"title\": \"https://doc.rust-lang.org/nomicon/ownership.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://doc.rust-lang.org/1.13.0/book/ownership.html\", \"title\": \"https://doc.rust-lang.org/1.13.0/book/ownership.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://doc.rust-lang.org/nightly/book/ownership.html\", \"title\": \"https://doc.rust-lang.org/nightly/book/ownership.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://doc.rust-lang.org/book/print.html\", \"title\": \"https://doc.rust-lang.org/book/print.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://doc.rust-lang.org/nomicon/constructors.html\", \"title\": \"Constructors - The Rustonomicon\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://doc.rust-lang.org/book/ch16-03-shared-state.html\", \"title\": \"Shared-State Concurrency - The Rust Programming Language\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"c3f18375de32bb59\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"6e85743e0062e19b\", \"kind\": \"search\", \"status\": \"partial\", \"query\": \"site:doc.rust-lang.org/book/ch04-02-references-and-borrowing.html \\\"At any given time\\\" \\\"one mutable reference\\\" \\\"immutable references\\\"\", \"answer\": \"Relevant results for the borrowing rule (“at any given time… one mutable reference… immutable references”):\\n\\n1. **References and Borrowing** (current book, ch. 4.2) — https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html  \\n   Recap: “At any given time, you can have *either* one mutable reference *or* any number of immutable references.” Also: mutable refs cannot coexist with other refs to the same value; multiple immutable refs are fine. [web:3][web:5]\\n\\n2. **The Rust Programming Language** (1.42 print edition) — https://doc.rust-lang.org/1.42.0/book/print.html  \\n   Same recap under “The Rules of References,” plus the error for mixing `&s` and `&mut s` (E0502). [web:1]\\n\\n3. **`RefCell<T>` and the Interior Mutability Pattern** — https://doc.rust-lang.org/book/ch15-05-interior-…\", \"answer_chars\": 1377, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 8}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 23155, \"warning_count\": 1, \"warnings\": [\"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}, {\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}], \"result_count\": 5, \"citation_count\": 13, \"results\": [{\"id\": \"r1\", \"title\": \"https://doc.rust-lang.org/rustonomicon/borrow-splitting.html\", \"url\": \"https://doc.rust-lang.org/rustonomicon/borrow-splitting.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"References and Borrowing - The Rust Programming Language\", \"url\": \"https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html\", \"snippet\": \"The solution here is to return the `String` directly:\\n\\n```\\nfn main() {  let string = no_dangle(); }  \\n```\\n\\nThis works without any problems. Ownership is moved …\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://doc.rust-lang.org/1.10.0/book/references-and-borrowing.html\", \"url\": \"https://doc.rust-lang.org/1.10.0/book/references-and-borrowing.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"RefCell<T> and the Interior Mutability Pattern - The Rust Programming Language\", \"url\": \"https://doc.rust-lang.org/book/ch15-05-interior-mutability.html?highlight=cell\", \"snippet\": \"We can use types that use the interior mutability pattern only when we can ensure that the borrowing rules will be followed at runtime, even though the compile…\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html?highlight=String%3A%3Afrom\", \"url\": \"https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html?highlight=String%3A%3Afrom\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://doc.rust-lang.org/rustonomicon/borrow-splitting.html\", \"title\": \"https://doc.rust-lang.org/rustonomicon/borrow-splitting.html\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html\", \"title\": \"References and Borrowing - The Rust Programming Language\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://doc.rust-lang.org/1.10.0/book/references-and-borrowing.html\", \"title\": \"https://doc.rust-lang.org/1.10.0/book/references-and-borrowing.html\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://doc.rust-lang.org/book/ch15-05-interior-mutability.html?highlight=cell\", \"title\": \"RefCell<T> and the Interior Mutability Pattern - The Rust Programming Language\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html?highlight=String%3A%3Afrom\", \"title\": \"https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html?highlight=String%3A%3Afrom\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://doc.rust-lang.org/rust-by-example/scope/borrow/alias.html\", \"title\": \"https://doc.rust-lang.org/rust-by-example/scope/borrow/alias.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://doc.rust-lang.org/rust-by-example/scope/borrow/mut.html\", \"title\": \"https://doc.rust-lang.org/rust-by-example/scope/borrow/mut.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://doc.rust-lang.org/1.42.0/book/print.html\", \"title\": \"https://doc.rust-lang.org/1.42.0/book/print.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://doc.rust-lang.org/1.19.0/book/second-edition/ch15-05-interior-mutability.html\", \"title\": \"https://doc.rust-lang.org/1.19.0/book/second-edition/ch15-05-interior-mutability.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://doc.rust-lang.org/book/ch15-05-interior-mutability.html\", \"title\": \"https://doc.rust-lang.org/book/ch15-05-interior-mutability.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://doc.rust-lang.org/book/ch15-05-interior-mutability.html?highlight=borrow+checker\", \"title\": \"RefCell<T> and the Interior Mutability Pattern - The Rust Programming Language\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c12\", \"url\": \"https://doc.rust-lang.org/error_codes/E0499.html\", \"title\": \"E0499 - Error codes index\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c13\", \"url\": \"https://doc.rust-lang.org/book/ch15-02-deref.html?highlight=Box%3CT%3E\", \"title\": \"Treating Smart Pointers Like Regular References\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"6e85743e0062e19b\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"1403ac597a21a19e\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:doc.rust-lang.org/book/ch04-01-what-is-ownership.html \\\"The Stack and the Heap\\\" ownership String\", \"answer\": \"1. **What is Ownership?** — [doc.rust-lang.org/book/ch04-01-what-is-ownership.html](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html)  \\n   Current book chapter. Explains stack vs heap (LIFO stack vs heap allocation), then how `String` stores pointer, length, and capacity on the stack while the contents live on the heap, and how ownership drops that heap memory when the owner goes out of scope.\\n\\n2. **The Stack and the Heap (first edition notice)** — [doc.rust-lang.org/book/first-edition/the-stack-and-the-heap.html](https://doc.rust-lang.org/book/first-edition/the-stack-and-the-heap.html)  \\n   Stub only: first-edition chapter is no longer shipped; points readers to the current book.\\n\\n3. **The Stack and the Heap (Rust 1.6 book)** — [doc.rust-lang.org/1.6.0/book/the-stack-and-the…\", \"answer_chars\": 1639, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 1, \"pages_fetched\": 2, \"primary_citation_count\": 5}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 32465, \"warning_count\": 2, \"warnings\": [\"auto_scrape_truncated\", \"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 5, \"citation_count\": 6, \"results\": [{\"id\": \"r1\", \"title\": \"https://doc.rust-lang.org/0.11.0/tutorial.html\", \"url\": \"https://doc.rust-lang.org/0.11.0/tutorial.html\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"What is Ownership? - The Rust Programming Language\", \"url\": \"https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html\", \"snippet\": \"Title: What is Ownership? - The Rust Programming Language\\nPress `S` or `/` to search in the book. ## What Is Ownership? *Ownership* is a set of rules that gove…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://doc.rust-lang.org/1.6.0/book/the-stack-and-the-heap.html\", \"url\": \"https://doc.rust-lang.org/1.6.0/book/the-stack-and-the-heap.html\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"What is Ownership? - The Rust Programming Language\", \"url\": \"https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html?search=\", \"snippet\": \"Title: What is Ownership? - The Rust Programming Language\\nPress `S` or `/` to search in the book. ## What Is Ownership? *Ownership* is a set of rules that gove…\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://doc.rust-lang.org/1.42.0/alloc/string/struct.String.html\", \"url\": \"https://doc.rust-lang.org/1.42.0/alloc/string/struct.String.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://doc.rust-lang.org/0.11.0/tutorial.html\", \"title\": \"https://doc.rust-lang.org/0.11.0/tutorial.html\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html\", \"title\": \"What is Ownership? - The Rust Programming Language\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://doc.rust-lang.org/1.6.0/book/the-stack-and-the-heap.html\", \"title\": \"https://doc.rust-lang.org/1.6.0/book/the-stack-and-the-heap.html\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html?search=\", \"title\": \"What is Ownership? - The Rust Programming Language\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://doc.rust-lang.org/1.42.0/alloc/string/struct.String.html\", \"title\": \"https://doc.rust-lang.org/1.42.0/alloc/string/struct.String.html\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://doc.rust-lang.org/book/first-edition/the-stack-and-the-heap.html\", \"title\": \"https://doc.rust-lang.org/book/first-edition/the-stack-and-the-heap.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"1403ac597a21a19e\"}}"
+  ],
+  "answer": "Rust 所有权机制的官方英文原文在 **The Rust Programming Language（The Rust Book）第 4 章：Understanding Ownership**。\n\n**完整章节入口**\n\n- [Chapter 4. Understanding Ownership](https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html)\n- [Chapter 4 的单页打印版](https://doc.rust-lang.org/book/print.html)\n\n## 分节原文\n\n### 1. What Is Ownership?\n\n[官方原文：What Is Ownership?](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html)\n\n核心定义：\n\n> “Ownership is a set of rules that govern how a Rust program manages memory.”\n\n中文：所有权是一组规则，用来规定 Rust 程序如何管理内存。\n\n官方列出的三条所有权规则：\n\n> “Each value in Rust has an owner.”\n\n> “There can only be one owner at a time.”\n\n> “When the owner goes out of scope, the value will be dropped.”\n\n中文：\n\n1. Rust 中每个值都有一个所有者。\n2. 一个值在同一时间只能有一个所有者。\n3. 所有者离开作用域时，该值会被丢弃。\n\n本节还解释了 `String` 的堆内存、移动（move）、复制（copy）和自动释放（drop）。\n\n---\n\n### 2. References and Borrowing\n\n[官方原文：References and Borrowing](https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html)\n\n引用和借用的核心原文：\n\n> “A reference allows you to refer to some value without taking ownership of it.”\n\n中文：引用允许你使用某个值，而不取得该值的所有权。\n\n> “We call the action of creating a reference borrowing.”\n\n中文：创建引用的行为称为借用。\n\n引用规则：\n\n> “At any given time, you can have either one mutable reference or any number of immutable references.”\n\n中文：在任意时刻，要么只能有一个可变引用，要么可以有任意数量的不可变引用。\n\n这就是 Rust 常说的借用规则：\n\n- 可以同时存在多个 `&T` 不可变引用；\n- 不能同时存在 `&mut T` 和其他引用；\n- 同一时间最多只能有一个 `&mut T`。\n\n---\n\n### 3. The Slice Type\n\n[官方原文：The Slice Type](https://doc.rust-lang.org/book/ch04-03-slices.html)\n\n切片的定义：\n\n> “Slices let you reference a contiguous sequence of elements in a collection.”\n\n> “A slice is a kind of reference, so it does not have ownership.”\n\n中文：切片允许你引用集合中连续的一段元素。切片属于引用，因此不拥有数据的所有权。\n\n字符串切片通常写作 `&str`，例如：\n\n```rust\nlet s = String::from(\"hello world\");\nlet hello = &s[0..5];\n```\n\n这里的 `hello` 只是借用了 `s` 的一部分，并没有取得 `String` 的所有权。\n\n## 最适合阅读的顺序\n\n1. [Understanding Ownership](https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html)\n2. [What Is Ownership?](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html)\n3. [References and Borrowing](https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html)\n4. [The Slice Type](https://doc.rust-lang.org/book/ch04-03-slices.html)\n\n以上链接均为 Rust 官方文档中的 The Rust Book 英文原文。",
+  "observation": {
+    "id": "zhihu-cross-rust",
+    "answer": "Rust 所有权机制的官方英文原文在 **The Rust Programming Language（The Rust Book）第 4 章：Understanding Ownership**。\n\n**完整章节入口**\n\n- [Chapter 4. Understanding Ownership](https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html)\n- [Chapter 4 的单页打印版](https://doc.rust-lang.org/book/print.html)\n\n## 分节原文\n\n### 1. What Is Ownership?\n\n[官方原文：What Is Ownership?](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html)\n\n核心定义：\n\n> “Ownership is a set of rules that govern how a Rust program manages memory.”\n\n中文：所有权是一组规则，用来规定 Rust 程序如何管理内存。\n\n官方列出的三条所有权规则：\n\n> “Each value in Rust has an owner.”\n\n> “There can only be one owner at a time.”\n\n> “When the owner goes out of scope, the value will be dropped.”\n\n中文：\n\n1. Rust 中每个值都有一个所有者。\n2. 一个值在同一时间只能有一个所有者。\n3. 所有者离开作用域时，该值会被丢弃。\n\n本节还解释了 `String` 的堆内存、移动（move）、复制（copy）和自动释放（drop）。\n\n---\n\n### 2. References and Borrowing\n\n[官方原文：References and Borrowing](https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html)\n\n引用和借用的核心原文：\n\n> “A reference allows you to refer to some value without taking ownership of it.”\n\n中文：引用允许你使用某个值，而不取得该值的所有权。\n\n> “We call the action of creating a reference borrowing.”\n\n中文：创建引用的行为称为借用。\n\n引用规则：\n\n> “At any given time, you can have either one mutable reference or any number of immutable references.”\n\n中文：在任意时刻，要么只能有一个可变引用，要么可以有任意数量的不可变引用。\n\n这就是 Rust 常说的借用规则：\n\n- 可以同时存在多个 `&T` 不可变引用；\n- 不能同时存在 `&mut T` 和其他引用；\n- 同一时间最多只能有一个 `&mut T`。\n\n---\n\n### 3. The Slice Type\n\n[官方原文：The Slice Type](https://doc.rust-lang.org/book/ch04-03-slices.html)\n\n切片的定义：\n\n> “Slices let you reference a contiguous sequence of elements in a collection.”\n\n> “A slice is a kind of reference, so it does not have ownership.”\n\n中文：切片允许你引用集合中连续的一段元素。切片属于引用，因此不拥有数据的所有权。\n\n字符串切片通常写作 `&str`，例如：\n\n```rust\nlet s = String::from(\"hello world\");\nlet hello = &s[0..5];\n```\n\n这里的 `hello` 只是借用了 `s` 的一部分，并没有取得 `String` 的所有权。\n\n## 最适合阅读的顺序\n\n1. [Understanding Ownership](https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html)\n2. [What Is Ownership?](https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html)\n3. [References and Borrowing](https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html)\n4. [The Slice Type](https://doc.rust-lang.org/book/ch04-03-slices.html)\n\n以上链接均为 Rust 官方文档中的 The Rust Book 英文原文。",
+    "results": [
+      {
+        "url": "https://doc.rust-lang.org/nightly/book/ownership.html",
+        "title": "https://doc.rust-lang.org/nightly/book/ownership.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html",
+        "title": "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.69.0/book/ch04-03-slices.html",
+        "title": "https://doc.rust-lang.org/1.69.0/book/ch04-03-slices.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.23.0/book/second-edition/ch04-02-references-and-borrowing.html",
+        "title": "https://doc.rust-lang.org/1.23.0/book/second-edition/ch04-02-references-and-borrowing.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/first-edition/ownership.html",
+        "title": "https://doc.rust-lang.org/book/first-edition/ownership.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/nightly/book/ownership.html",
+        "title": "https://doc.rust-lang.org/nightly/book/ownership.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html",
+        "title": "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.69.0/book/ch04-03-slices.html",
+        "title": "https://doc.rust-lang.org/1.69.0/book/ch04-03-slices.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.23.0/book/second-edition/ch04-02-references-and-borrowing.html",
+        "title": "https://doc.rust-lang.org/1.23.0/book/second-edition/ch04-02-references-and-borrowing.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/first-edition/ownership.html",
+        "title": "https://doc.rust-lang.org/book/first-edition/ownership.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.69.0/book/ch15-04-rc.html",
+        "title": "https://doc.rust-lang.org/1.69.0/book/ch15-04-rc.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.23.0/book/second-edition/ch04-00-understanding-ownership.html",
+        "title": "https://doc.rust-lang.org/1.23.0/book/second-edition/ch04-00-understanding-ownership.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.13.0/book/ownership.html",
+        "title": "https://doc.rust-lang.org/1.13.0/book/ownership.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html",
+        "title": "https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/beta/book/ownership.html",
+        "title": "https://doc.rust-lang.org/beta/book/ownership.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.33.0/book/ch04-00-understanding-ownership.html",
+        "title": "https://doc.rust-lang.org/1.33.0/book/ch04-00-understanding-ownership.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/nomicon/ownership.html",
+        "title": "https://doc.rust-lang.org/nomicon/ownership.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.69.0/book/ch04-02-references-and-borrowing.html",
+        "title": "https://doc.rust-lang.org/1.69.0/book/ch04-02-references-and-borrowing.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html",
+        "title": "What is Ownership? - The Rust Programming Language",
+        "snippet": "# The Rust Programming Language\n\n## What Is Ownership?\n\nOwnership is a set of rules that govern how a Rust program manages memory. All programs have to manage …",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch16-03-shared-state.html",
+        "title": "Shared-State Concurrency - The Rust Programming Language",
+        "snippet": "For a real-world metaphor for a mutex, imagine a panel discussion at a conference with only one microphone. Before a panelist can speak, they have to ask or si…",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/nomicon/ownership.html",
+        "title": "Ownership - The Rustonomicon",
+        "snippet": "## Keyboard shortcuts\n\nPress `←` or `→` to navigate between chapters\n\nPress `S` or `/` to search in the book\n\nPress `?` to show this help\n\nPress `Esc` to hide …",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch16-01-threads.html",
+        "title": "Using Threads to Run Code Simultaneously - The Rust Programming Language",
+        "snippet": "Rust’s ownership rules have saved us again! We got an error from the code in Listing 16-3 because Rust was being conservative and only borrowing `v` for the th…",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch15-05-interior-mutability.html",
+        "title": "RefCell<T> and the Interior Mutability Pattern - The Rust Programming Language",
+        "snippet": "Because some analysis is impossible, if the Rust compiler can’t be sure the code complies with the ownership rules, it might reject a correct program; in this …",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html",
+        "title": "What is Ownership? - The Rust Programming Language",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch16-03-shared-state.html",
+        "title": "Shared-State Concurrency - The Rust Programming Language",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/nomicon/ownership.html",
+        "title": "Ownership - The Rustonomicon",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch16-01-threads.html",
+        "title": "Using Threads to Run Code Simultaneously - The Rust Programming Language",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch15-05-interior-mutability.html",
+        "title": "RefCell<T> and the Interior Mutability Pattern - The Rust Programming Language",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/references-and-borrowing.html",
+        "title": "https://doc.rust-lang.org/book/references-and-borrowing.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/std/primitive.reference.html",
+        "title": "reference - Rust",
+        "snippet": "## reference\n\n# Primitive Type reference\n\n1.0.0\n\nExpand description\n\nReferences, `&T` and `&mut T`.\n\nA reference represents a borrow of some owned value. You c…",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html?highlight=String%3A%3Afrom",
+        "title": "https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html?highlight=String%3A%3Afrom",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html",
+        "title": "References and Borrowing - The Rust Programming Language",
+        "snippet": "Filename: src/main.rs\n\n```\nfn main() { let s1 = String::from(\"hello\"); let len = calculate_length(&s1); println!(\"The length of '{s1}' is {len}.\"); } fn calcul…",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/print.html",
+        "title": "https://doc.rust-lang.org/book/print.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/references-and-borrowing.html",
+        "title": "https://doc.rust-lang.org/book/references-and-borrowing.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/std/primitive.reference.html",
+        "title": "reference - Rust",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html?highlight=String%3A%3Afrom",
+        "title": "https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html?highlight=String%3A%3Afrom",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html",
+        "title": "References and Borrowing - The Rust Programming Language",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/print.html",
+        "title": "https://doc.rust-lang.org/book/print.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/0.12.0/guide-lifetimes.html",
+        "title": "https://doc.rust-lang.org/0.12.0/guide-lifetimes.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.10.0/book/references-and-borrowing.html",
+        "title": "https://doc.rust-lang.org/1.10.0/book/references-and-borrowing.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch15-00-smart-pointers.html?highlight=borrow+and+asref",
+        "title": "Smart Pointers - The Rust Programming Language",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch15-00-smart-pointers.html",
+        "title": "Smart Pointers - The Rust Programming Language",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/beta/std/borrow/trait.Borrow.html",
+        "title": "Borrow in std",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-03-slices.html",
+        "title": "The Slice Type - The Rust Programming Language",
+        "snippet": "The Slice Type. Slices let you reference a contiguous sequence of elements in a collection. A slice is a kind of reference, so it does not have ownership.",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/reference/types/str.html",
+        "title": "String slice type - The Rust Reference",
+        "snippet": "The string slice ( str ) type represents a sequence of characters. a slice of 8-bit unsigned bytes. A str is a dynamically sized type. iated through a pointer",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.82.0/book/ch04-03-slices.html",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch20-03-advanced-types.html?highlight=nu",
+        "title": "Advanced Types - The Rust Programming Language",
+        "snippet": "So, what do we do? In this case, you already know the answer: We make the type\nof `s1` and `s2` string slice (`&str`) rather than `str`. Recall from the\n“Strin…",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.42.0/book/print.html",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-03-slices.html",
+        "title": "The Slice Type - The Rust Programming Language",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/reference/types/str.html",
+        "title": "String slice type - The Rust Reference",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.82.0/book/ch04-03-slices.html",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch20-03-advanced-types.html?highlight=nu",
+        "title": "Advanced Types - The Rust Programming Language",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.42.0/book/print.html",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/reference/types/slice.html",
+        "title": "5",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/std",
+        "title": "std - Rust",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/std?search=_unchecked",
+        "title": "std - Rust",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html",
+        "title": "Understanding Ownership - The Rust Programming Language",
+        "snippet": "## Keyboard shortcuts\n\nPress `←` or `→` to navigate between chapters\n\nPress `S` or `/` to search in the book\n\nPress `?` to show this help\n\nPress `Esc` to hide …",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/nomicon/ownership.html",
+        "title": "Ownership - The Rustonomicon",
+        "snippet": "## Keyboard shortcuts\n\nPress `←` or `→` to navigate between chapters\n\nPress `S` or `/` to search in the book\n\nPress `?` to show this help\n\nPress `Esc` to hide …",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.57.0/book/ch04-00-understanding-ownership.html",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html",
+        "title": "What is Ownership? - The Rust Programming Language",
+        "snippet": "# The Rust Programming Language\n\n## What Is Ownership?\n\nOwnership is a set of rules that govern how a Rust program manages memory. All programs have to manage …",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/nightly/book/ownership.html",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html",
+        "title": "Understanding Ownership - The Rust Programming Language",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/nomicon/ownership.html",
+        "title": "Ownership - The Rustonomicon",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.57.0/book/ch04-00-understanding-ownership.html",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html",
+        "title": "What is Ownership? - The Rust Programming Language",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/nightly/book/ownership.html",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.9.0/book/ownership.html",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch16-00-concurrency.html",
+        "title": "Fearless Concurrency - The Rust Programming Language",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/rust-by-example/scope/move.html",
+        "title": "Ownership and moves - Rust By Example",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html",
+        "title": "What is Ownership? - The Rust Programming Language",
+        "snippet": "Rust takes a different path: The memory is automatically returned once the variable that owns it goes out of scope. Here’s a version of our scope example from …",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/rust-by-example/trait/drop.html",
+        "title": "Drop - Rust By Example",
+        "snippet": "## Keyboard shortcuts\n\nPress `←` or `→` to navigate between chapters\n\nPress `S` or `/` to search in the book\n\nPress `?` to show this help\n\nPress `Esc` to hide …",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.42.0/book/print.html",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/reference/destructors.html",
+        "title": "Destructors - The Rust Reference",
+        "snippet": "## Keyboard shortcuts\n\nPress `←` or `→` to navigate between chapters\n\nPress `S` or `/` to search in the book\n\nPress `?` to show this help\n\nPress `Esc` to hide …",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch15-03-drop.html",
+        "title": "Running Code on Cleanup with the Drop Trait - The Rust Programming Language",
+        "snippet": "The `std::mem::drop` function is different from the `drop` method in the `Drop` trait. We call it by passing as an argument the value we want to force-drop. Th…",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html",
+        "title": "What is Ownership? - The Rust Programming Language",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/rust-by-example/trait/drop.html",
+        "title": "Drop - Rust By Example",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.42.0/book/print.html",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/reference/destructors.html",
+        "title": "Destructors - The Rust Reference",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch15-03-drop.html",
+        "title": "Running Code on Cleanup with the Drop Trait - The Rust Programming Language",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.84.1/reference/destructors.html",
+        "title": "5",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/rust-by-example/scope/raii.html",
+        "title": "RAII - Rust By Example",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html",
+        "title": "What is Ownership? - The Rust Programming Language",
+        "snippet": "If you’ve heard the terms shallow copy and deep copy while working with other languages, the concept of copying the pointer, length, and capacity without copyi…",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/rust-by-example/scope/move.html",
+        "title": "Ownership and moves - Rust By Example",
+        "snippet": "## Keyboard shortcuts\n\nPress `←` or `→` to navigate between chapters\n\nPress `S` or `/` to search in the book\n\nPress `?` to show this help\n\nPress `Esc` to hide …",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.57.0/book/print.html",
+        "title": "https://doc.rust-lang.org/1.57.0/book/print.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/error_codes/E0382.html",
+        "title": "E0382 - Error codes index",
+        "snippet": "## Keyboard shortcuts\n\nPress ← or → to navigate between chapters\n\nPress S or / to search in the book\n\nPress ? to show this help\n\nPress Esc to hide this help\n\n-…",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html",
+        "title": "https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html",
+        "title": "What is Ownership? - The Rust Programming Language",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/rust-by-example/scope/move.html",
+        "title": "Ownership and moves - Rust By Example",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.57.0/book/print.html",
+        "title": "https://doc.rust-lang.org/1.57.0/book/print.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/error_codes/E0382.html",
+        "title": "E0382 - Error codes index",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html",
+        "title": "https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/nomicon/ownership.html",
+        "title": "https://doc.rust-lang.org/nomicon/ownership.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.13.0/book/ownership.html",
+        "title": "https://doc.rust-lang.org/1.13.0/book/ownership.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/nightly/book/ownership.html",
+        "title": "https://doc.rust-lang.org/nightly/book/ownership.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/print.html",
+        "title": "https://doc.rust-lang.org/book/print.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/nomicon/constructors.html",
+        "title": "Constructors - The Rustonomicon",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch16-03-shared-state.html",
+        "title": "Shared-State Concurrency - The Rust Programming Language",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/rustonomicon/borrow-splitting.html",
+        "title": "https://doc.rust-lang.org/rustonomicon/borrow-splitting.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html",
+        "title": "References and Borrowing - The Rust Programming Language",
+        "snippet": "The solution here is to return the `String` directly:\n\n```\nfn main() {  let string = no_dangle(); }  \n```\n\nThis works without any problems. Ownership is moved …",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.10.0/book/references-and-borrowing.html",
+        "title": "https://doc.rust-lang.org/1.10.0/book/references-and-borrowing.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch15-05-interior-mutability.html?highlight=cell",
+        "title": "RefCell<T> and the Interior Mutability Pattern - The Rust Programming Language",
+        "snippet": "We can use types that use the interior mutability pattern only when we can ensure that the borrowing rules will be followed at runtime, even though the compile…",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html?highlight=String%3A%3Afrom",
+        "title": "https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html?highlight=String%3A%3Afrom",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/rustonomicon/borrow-splitting.html",
+        "title": "https://doc.rust-lang.org/rustonomicon/borrow-splitting.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html",
+        "title": "References and Borrowing - The Rust Programming Language",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.10.0/book/references-and-borrowing.html",
+        "title": "https://doc.rust-lang.org/1.10.0/book/references-and-borrowing.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch15-05-interior-mutability.html?highlight=cell",
+        "title": "RefCell<T> and the Interior Mutability Pattern - The Rust Programming Language",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html?highlight=String%3A%3Afrom",
+        "title": "https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html?highlight=String%3A%3Afrom",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/rust-by-example/scope/borrow/alias.html",
+        "title": "https://doc.rust-lang.org/rust-by-example/scope/borrow/alias.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/rust-by-example/scope/borrow/mut.html",
+        "title": "https://doc.rust-lang.org/rust-by-example/scope/borrow/mut.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.42.0/book/print.html",
+        "title": "https://doc.rust-lang.org/1.42.0/book/print.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.19.0/book/second-edition/ch15-05-interior-mutability.html",
+        "title": "https://doc.rust-lang.org/1.19.0/book/second-edition/ch15-05-interior-mutability.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch15-05-interior-mutability.html",
+        "title": "https://doc.rust-lang.org/book/ch15-05-interior-mutability.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch15-05-interior-mutability.html?highlight=borrow+checker",
+        "title": "RefCell<T> and the Interior Mutability Pattern - The Rust Programming Language",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/error_codes/E0499.html",
+        "title": "E0499 - Error codes index",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch15-02-deref.html?highlight=Box%3CT%3E",
+        "title": "Treating Smart Pointers Like Regular References",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/0.11.0/tutorial.html",
+        "title": "https://doc.rust-lang.org/0.11.0/tutorial.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html",
+        "title": "What is Ownership? - The Rust Programming Language",
+        "snippet": "Title: What is Ownership? - The Rust Programming Language\nPress `S` or `/` to search in the book. ## What Is Ownership? *Ownership* is a set of rules that gove…",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.6.0/book/the-stack-and-the-heap.html",
+        "title": "https://doc.rust-lang.org/1.6.0/book/the-stack-and-the-heap.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html?search=",
+        "title": "What is Ownership? - The Rust Programming Language",
+        "snippet": "Title: What is Ownership? - The Rust Programming Language\nPress `S` or `/` to search in the book. ## What Is Ownership? *Ownership* is a set of rules that gove…",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.42.0/alloc/string/struct.String.html",
+        "title": "https://doc.rust-lang.org/1.42.0/alloc/string/struct.String.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/0.11.0/tutorial.html",
+        "title": "https://doc.rust-lang.org/0.11.0/tutorial.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html",
+        "title": "What is Ownership? - The Rust Programming Language",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.6.0/book/the-stack-and-the-heap.html",
+        "title": "https://doc.rust-lang.org/1.6.0/book/the-stack-and-the-heap.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html?search=",
+        "title": "What is Ownership? - The Rust Programming Language",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/1.42.0/alloc/string/struct.String.html",
+        "title": "https://doc.rust-lang.org/1.42.0/alloc/string/struct.String.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/first-edition/the-stack-and-the-heap.html",
+        "title": "https://doc.rust-lang.org/book/first-edition/the-stack-and-the-heap.html",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-00-understanding-ownership.html",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-01-what-is-ownership.html",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-02-references-and-borrowing.html",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://doc.rust-lang.org/book/ch04-03-slices.html",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:13:32.030440+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "zhihu-cross-rust",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "rust-book"
+        ],
+        "required": 1
+      },
+      "cross_language": {
+        "status": "pass",
+        "matched_hosts": [
+          "doc.rust-lang.org"
+        ]
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "pass",
+      "reasons": []
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": false,
+    "grader": "v2"
+  }
+}

@@ -1,0 +1,383 @@
+{
+  "id": "wiki-en-tcp",
+  "query": "English Wikipedia HTTP article: the default TCP port",
+  "returncode": 0,
+  "elapsed_ms": 73003,
+  "efficiency": {
+    "tool_calls": {
+      "search": 2,
+      "fetch": 1,
+      "read_result": 1
+    },
+    "total_calls": 4,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 1,
+    "errors": 0
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": "en.wikipedia.org",
+        "max_results": 5,
+        "mode": "web",
+        "query": "site:en.wikipedia.org/wiki/HTTP default TCP port HTTP 80",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 11210
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "default TCP port, port 80, HTTP implementations typically use TCP/IP",
+        "fresh": false,
+        "max_chars": 12000,
+        "url": "https://en.wikipedia.org/wiki/HTTP"
+      },
+      "is_error": false,
+      "ms": 677
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": "content",
+        "limit": 20000,
+        "max_bytes": 16384,
+        "offset": 0,
+        "result_id": "f9963e767fa5f8463cbf9fdb"
+      },
+      "is_error": false,
+      "ms": 3
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "balanced",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": "en.wikipedia.org",
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:en.wikipedia.org/wiki/HTTP \"port 80\" \"TCP\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 11314
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.1\", \"result_id\": \"9767450a69a2809775742583\", \"kind\": \"search\", \"status\": \"partial\", \"query\": \"site:en.wikipedia.org/wiki/HTTP default TCP port HTTP 80\", \"answer\": \"Relevant Wikipedia results on the default TCP port for HTTP (80):\\n\\n1. **HTTP – Wikipedia** — HTTP implementations typically use TCP/IP on well-known ports, usually **port 80** when unencrypted (port 443 when encrypted). HTTP/1.x and HTTP/2 use TCP; HTTP/3 uses QUIC over UDP. An example request targets `www.example.com` on port 80.  \\n   https://en.wikipedia.org/wiki/HTTP  \\n   [[1]](https://en.wikipedia.org/wiki/HTTP)\\n\\n2. **List of TCP and UDP port numbers – Wikipedia** — Port **80** is assigned to Hypertext Transfer Protocol (HTTP), using TCP in versions 1.x and 2; HTTP/3 uses QUIC over UDP.  \\n   https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers  \\n   [[2]](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers)\\n\\n3. **Port (computer networking) – Wikipedia** — Common po…\", \"answer_chars\": 1521, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 3, \"pages_fetched\": 0, \"primary_citation_count\": 5, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 11202, \"warning_count\": 0, \"warnings\": [], \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 16, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}, {\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 17, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"wikipedia\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"site_native\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}], \"result_count\": 5, \"citation_count\": 11, \"results\": [{\"id\": \"r1\", \"title\": \"1\", \"url\": \"https://en.wikipedia.org/wiki/HTTP\", \"snippet\": \"1. HTTP – Wikipedia — HTTP implementations typically use TCP/IP on well-known ports, usually port 80 when unencrypted (port 443 when encrypted). HTTP/1.x and H…\", \"providers\": [\"xai\", \"wikipedia\"]}, {\"id\": \"r2\", \"title\": \"Internet\", \"url\": \"https://en.wikipedia.org/wiki/Internet\", \"snippet\": \"interconnected computer networks that uses the Internet protocol suite (TCP/IP) to communicate between networks and devices. It is a network of networks — Glob…\", \"providers\": [\"wikipedia\"]}, {\"id\": \"r3\", \"title\": \"List of TCP and UDP port numbers - Wikipedia\", \"url\": \"https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers\", \"snippet\": \"50. 1 2 Fielding, Roy T.; Reschke, Julian F., eds. (June 2014). Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing. IETF. pp. 11, 17, 19, 42–43…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r4\", \"title\": \"Port (computer networking)\", \"url\": \"https://en.wikipedia.org/wiki/Port_(computer_networking)\", \"snippet\": \"While the listening port number of a server is well defined (IANA calls these the well-known ports), the client's port number is often chosen from the dynamic …\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r5\", \"title\": \"Spanning Tree Protocol\", \"url\": \"https://en.wikipedia.org/wiki/Spanning_Tree_Protocol\", \"snippet\": \"the default bridge priority is 32,768, and Port ID = priority (4 bits) + ID (Interface number) (12 bits); the default port priority is 128. Root ports When — N…\", \"providers\": [\"wikipedia\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://en.wikipedia.org/wiki/HTTP\", \"title\": \"1\", \"result_item_id\": \"r1\", \"providers\": [\"xai\", \"wikipedia\"]}, {\"id\": \"c2\", \"url\": \"https://en.wikipedia.org/wiki/Internet\", \"title\": \"Internet\", \"result_item_id\": \"r2\", \"providers\": [\"wikipedia\"]}, {\"id\": \"c3\", \"url\": \"https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers\", \"title\": \"List of TCP and UDP port numbers - Wikipedia\", \"result_item_id\": \"r3\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c4\", \"url\": \"https://en.wikipedia.org/wiki/Port_(computer_networking)\", \"title\": \"Port (computer networking)\", \"result_item_id\": \"r4\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://en.wikipedia.org/wiki/Spanning_Tree_Protocol\", \"title\": \"Spanning Tree Protocol\", \"result_item_id\": \"r5\", \"providers\": [\"wikipedia\"]}, {\"id\": \"c6\", \"url\": \"https://en.wikipedia.org/wiki/Port_80\", \"title\": \"4\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://en.wikipedia.org/wiki/Port_forwarding\", \"title\": \"5\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://en.wikipedia.org/wiki/Tor_%28network%29\", \"title\": \"Tor (network)\", \"result_item_id\": null, \"providers\": [\"wikipedia\"]}, {\"id\": \"c9\", \"url\": \"https://en.wikipedia.org/wiki/Bolivia\", \"title\": \"Bolivia\", \"result_item_id\": null, \"providers\": [\"wikipedia\"]}, {\"id\": \"c10\", \"url\": \"https://en.wikipedia.org/wiki/HTTPS\", \"title\": \"https\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://en.wikipedia.org/wiki/Transmission_Control_Protocol\", \"title\": \"Transmission Control Protocol - Wikipedia\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"9767450a69a2809775742583\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"Wikipedia\", \"satisfied\": true, \"detail\": \"11 content page(s), e.g. https://en.wikipedia.org/wiki/HTTP\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 11, \"new_pages_read\": 0, \"seen_urls\": 11, \"pages_read\": 0, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"f9963e767fa5f8463cbf9fdb\", \"kind\": \"fetch\", \"status\": \"ok\", \"url\": \"https://en.wikipedia.org/wiki/HTTP\", \"final_url\": \"https://en.wikipedia.org/wiki/HTTP\", \"title\": \"HTTP - Wikipedia\", \"provider\": \"firecrawl\", \"content_preview\": \"[Jump to content](https://en.wikipedia.org/wiki/HTTP#bodyContent)\\n\\n[![Page semi-protected](https://thumb.wikimedia.org/wikipedia/en/thumb/1/1b/Semi-protection-shackle.svg/20px-Semi-protection-shackle.svg.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail)](https://en.wikipedia.org/wiki/Wikipedia:Protection_policy#semi \\\"This article is semi-protected due to vandalism\\\")\\n\\nFrom Wikipedia, the free encyclopedia\\n\\nApplication layer protocol\\n\\n| [![](https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/HTTP_logo.svg/250px-HTTP_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail)](https://en.wikipedia.org/wiki/File:HTTP_logo.svg) |\\n| International standard | - [RFC](https://en.wikipedia.org/wiki/RFC_(identifier) \\\"RFC (identifier)\\\") [1945](https://www.rfc-editor.org/rfc/rfc1945) HTTP/1.0<br>- [RFC](https://en.wikipedia.org/wiki/RFC_(identifier) \\\"RFC (identifier)\\\") [9110](https://www.rfc-editor.org/rfc/rfc9110) HTTP Semantics<br>- [RFC](htt\", \"content_chars\": 12000, \"truncated\": true, \"errors\": [], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"f9963e767fa5f8463cbf9fdb\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 1, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 1, \"seen_urls\": 11, \"pages_read\": 1, \"calls_without_new_evidence\": 0}}",
+    "{\"result_id\": \"f9963e767fa5f8463cbf9fdb\", \"kind\": \"fetch\", \"fields\": [\"content\"], \"offset\": 0, \"next_offset\": null, \"next_offsets\": {\"content\": null}, \"truncated\": false, \"data\": {\"content\": \"[Jump to content](https://en.wikipedia.org/wiki/HTTP#bodyContent)\\n\\n[![Page semi-protected](https://thumb.wikimedia.org/wikipedia/en/thumb/1/1b/Semi-protection-shackle.svg/20px-Semi-protection-shackle.svg.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail)](https://en.wikipedia.org/wiki/Wikipedia:Protection_policy#semi \\\"This article is semi-protected due to vandalism\\\")\\n\\nFrom Wikipedia, the free encyclopedia\\n\\nApplication layer protocol\\n\\n| [![](https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/HTTP_logo.svg/250px-HTTP_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail)](https://en.wikipedia.org/wiki/File:HTTP_logo.svg) |\\n| International standard | - [RFC](https://en.wikipedia.org/wiki/RFC_(identifier) \\\"RFC (identifier)\\\") [1945](https://www.rfc-editor.org/rfc/rfc1945) HTTP/1.0<br>- [RFC](https://en.wikipedia.org/wiki/RFC_(identifier) \\\"RFC (identifier)\\\") [9110](https://www.rfc-editor.org/rfc/rfc9110) HTTP Semantics<br>- [RFC](https://en.wikipedia.org/wiki/RFC_(identifier) \\\"RFC (identifier)\\\") [9111](https://www.rfc-editor.org/rfc/rfc9111) HTTP Caching<br>- [RFC](https://en.wikipedia.org/wiki/RFC_(identifier) \\\"RFC (identifier)\\\") [9112](https://www.rfc-editor.org/rfc/rfc9112) HTTP/1.1<br>- [RFC](https://en.wikipedia.org/wiki/RFC_(identifier) \\\"RFC (identifier)\\\") [9113](https://www.rfc-editor.org/rfc/rfc9113) [HTTP/2](https://en.wikipedia.org/wiki/HTTP/2 \\\"HTTP/2\\\")<br>- [RFC](https://en.wikipedia.org/wiki/RFC_(identifier) \\\"RFC (identifier)\\\") [7541](https://www.rfc-editor.org/rfc/rfc7541) HTTP/2: HPACK Header Compression<br>- [RFC](https://en.wikipedia.org/wiki/RFC_(identifier) \\\"RFC (identifier)\\\") [8164](https://www.rfc-editor.org/rfc/rfc8164) HTTP/2: Opportunistic Security for HTTP/2<br>- [RFC](https://en.wikipedia.org/wiki/RFC_(identifier) \\\"RFC (identifier)\\\") [8336](https://www.rfc-editor.org/rfc/rfc8336) HTTP/2: The ORIGIN HTTP/2 Frame<br>- [RFC](https://en.wikipedia.org/wiki/RFC_(identifier) \\\"RFC (identifier)\\\") [8441](https://www.rfc-editor.org/rfc/rfc8441) HTTP/2: Bootstrapping WebSockets with HTTP/2<br>- [RFC](https://en.wikipedia.org/wiki/RFC_(identifier) \\\"RFC (identifier)\\\") [9114](https://www.rfc-editor.org/rfc/rfc9114) [HTTP/3](https://en.wikipedia.org/wiki/HTTP/3 \\\"HTTP/3\\\")<br>- [RFC](https://en.wikipedia.org/wiki/RFC_(identifier) \\\"RFC (identifier)\\\") [9204](https://www.rfc-editor.org/rfc/rfc9204) HTTP/3: QPACK: Field Compression |\\n| Developed by | Initially [CERN](https://en.wikipedia.org/wiki/CERN \\\"CERN\\\"); [IETF](https://en.wikipedia.org/wiki/IETF \\\"IETF\\\"), [W3C](https://en.wikipedia.org/wiki/W3C \\\"W3C\\\") |\\n| Introduced | 1991;35years ago(1991) |\\n| Website | [httpwg.org/specs/](https://httpwg.org/specs/) |\\n\\nHTTP\\n\\n**HTTP** ( **Hypertext Transfer Protocol**) is an [application layer](https://en.wikipedia.org/wiki/Application_layer \\\"Application layer\\\") protocol in the [Internet protocol suite](https://en.wikipedia.org/wiki/Internet_protocol_suite \\\"Internet protocol suite\\\") for distributed, collaborative, [hypermedia](https://en.wikipedia.org/wiki/Hypermedia \\\"Hypermedia\\\") information systems.[\\\\[1\\\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-:0-1) HTTP is the foundation of data communication for the [World Wide Web](https://en.wikipedia.org/wiki/World_Wide_Web \\\"World Wide Web\\\"), where [hypertext](https://en.wikipedia.org/wiki/Hypertext \\\"Hypertext\\\") documents include [hyperlinks](https://en.wikipedia.org/wiki/Hyperlink \\\"Hyperlink\\\") to other resources that the user can easily access, for example by a [mouse](https://en.wikipedia.org/wiki/Computer_mouse \\\"Computer mouse\\\") click or by tapping the screen in a [web browser](https://en.wikipedia.org/wiki/Web_browser \\\"Web browser\\\").\\n\\nHTTP is a [request–response](https://en.wikipedia.org/wiki/Request%E2%80%93response \\\"Request–response\\\") protocol in the [client–server model](https://en.wikipedia.org/wiki/Client%E2%80%93server_model \\\"Client–server model\\\"). A transaction starts with a client submitting a request to the server, the server attempts to satisfy the request and returns a response to the client that describes the disposition of the request and optionally contains a requested resource such as an [HTML](https://en.wikipedia.org/wiki/HTML \\\"HTML\\\") document or other content.\\n\\nIn a common scenario, a [web browser](https://en.wikipedia.org/wiki/Web_browser \\\"Web browser\\\") acts as the [client](https://en.wikipedia.org/wiki/Client_(computing) \\\"Client (computing)\\\"), and a [web server](https://en.wikipedia.org/wiki/Web_server \\\"Web server\\\"), [hosting](https://en.wikipedia.org/wiki/Host_(network) \\\"Host (network)\\\") one or more [websites](https://en.wikipedia.org/wiki/Website \\\"Website\\\"), is the [server](https://en.wikipedia.org/wiki/Server_(computing) \\\"Server (computing)\\\"). A web browser is an example of a [user agent](https://en.wikipedia.org/wiki/User_agent \\\"User agent\\\") (UA). Other types of user agent include the indexing software used by search providers ( [web crawlers](https://en.wikipedia.org/wiki/Web_crawler \\\"Web crawler\\\")), [voice browsers](https://en.wikipedia.org/wiki/Voice_browser \\\"Voice browser\\\"), [mobile apps](https://en.wikipedia.org/wiki/Mobile_app \\\"Mobile app\\\"), and other [software](https://en.wikipedia.org/wiki/Software \\\"Software\\\") that accesses, consumes, or displays web content.\\n\\nHTTP is designed to permit intermediate network elements to improve or enable communications between clients and servers. High-traffic websites often benefit from [web cache](https://en.wikipedia.org/wiki/Web_cache \\\"Web cache\\\") servers that deliver content on behalf of [upstream servers](https://en.wikipedia.org/wiki/Upstream_server \\\"Upstream server\\\") to improve response time. Web browsers cache previously accessed web resources and reuse them, whenever possible, to reduce network traffic. HTTP [proxy servers](https://en.wikipedia.org/wiki/Proxy_server \\\"Proxy server\\\") at [private network](https://en.wikipedia.org/wiki/Private_network \\\"Private network\\\") boundaries can facilitate communication for clients without a globally routable address, by relaying messages with external servers.\\n\\nTo allow intermediate HTTP nodes (proxy servers, web caches, etc.) to accomplish their functions, some of the [HTTP headers](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields \\\"List of HTTP header fields\\\") (found in HTTP requests/responses) are managed [hop-by-hop](https://en.wikipedia.org/wiki/Hop-by-hop_transport \\\"Hop-by-hop transport\\\") whereas other HTTP headers are managed [end-to-end](https://en.wikipedia.org/wiki/End-to-end_principle \\\"End-to-end principle\\\") (managed only by the source client and by the target web server).\\n\\nA [web resource](https://en.wikipedia.org/wiki/Web_resource \\\"Web resource\\\") is located by a [uniform resource locator](https://en.wikipedia.org/wiki/Uniform_resource_locator \\\"Uniform resource locator\\\") (URL), using the [Uniform Resource Identifier](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier \\\"Uniform Resource Identifier\\\") (URI) schemes _http_ and _[https](https://en.wikipedia.org/wiki/Https \\\"Https\\\")_. URIs are encoded as [hyperlinks](https://en.wikipedia.org/wiki/Hyperlink \\\"Hyperlink\\\") in [HTML](https://en.wikipedia.org/wiki/HTML \\\"HTML\\\") documents, so as to form interlinked [hypertext](https://en.wikipedia.org/wiki/Hypertext \\\"Hypertext\\\") documents.[\\\\[2\\\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-rfc3986-2)\\n\\n## Versions\\n\\nSee also: [CERN httpd](https://en.wikipedia.org/wiki/CERN_httpd \\\"CERN httpd\\\")\\n\\nThe protocol has been revised over time. A version is identified as HTTP/# where # is the version number. This article covers aspects of all versions but provides primary coverage for HTTP/0.9, HTTP/1.0, and HTTP/1.1. Separate articles cover [HTTP/2](https://en.wikipedia.org/wiki/HTTP/2 \\\"HTTP/2\\\") and [HTTP/3](https://en.wikipedia.org/wiki/HTTP/3 \\\"HTTP/3\\\") in detail.\\n\\n| Version | Introduced | Status |\\n| --- | --- | --- |\\n| 0.9 | 1991 | Obsolete |\\n| 1.0 | 1996 | Obsolete |\\n| 1.1 | 1997 | Standard |\\n| 2 | 2015 | Standard |\\n| 3 | 2022 | Standard |\\n\\nIn HTTP/1.0, a separate TCP [connection](https://en.wikipedia.org/wiki/Connection-oriented_communication \\\"Connection-oriented communication\\\") to the same server is made for every resource request.[\\\\[3\\\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-rfc1945-3):§1.3\\n\\nIn HTTP/1.1, instead a TCP connection can be reused to make multiple resource requests (i.e. of HTML pages, frames, images, [scripts](https://en.wikipedia.org/wiki/Client-side_scripting \\\"Client-side scripting\\\"), [stylesheets](https://en.wikipedia.org/wiki/Cascading_Style_Sheets \\\"Cascading Style Sheets\\\"), etc.).[\\\\[4\\\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-rfc9112-4):§9.1,9.3 HTTP/1.1 communications therefore experience less [latency](https://en.wikipedia.org/wiki/Network_latency \\\"Network latency\\\") as the establishment of TCP connections presents considerable overhead, especially under high traffic conditions.[\\\\[5\\\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-5)\\n\\nEnhancements added with HTTP/2 allow for less latency and, in most cases, higher speeds than HTTP/1.1 communications. HTTP/2 adds support for:\\n\\n- a compressed binary representation of metadata (HTTP headers) instead of a textual one, so that headers require much less space;\\n- a single [TCP/IP](https://en.wikipedia.org/wiki/Internet_Protocol_suite \\\"Internet Protocol suite\\\") (usually [encrypted](https://en.wikipedia.org/wiki/Encryption \\\"Encryption\\\")) connection per accessed server domain instead of 2 to 8 TCP/IP connections;\\n- one or more bidirectional streams per TCP/IP connection in which HTTP requests and responses are broken down and transmitted in small packets to almost solve the problem of the HOLB ( [head-of-line blocking](https://en.wikipedia.org/wiki/Head-of-line_blocking \\\"Head-of-line blocking\\\"));[\\\\[note 1\\\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-6)\\n- a push capability to allow server application to send data to clients whenever new data is available (without forcing clients to request periodically new data to server by using [polling](https://en.wikipedia.org/wiki/Polling_(computer_science) \\\"Polling (computer science)\\\") methods).[\\\\[6\\\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-rfc9113-7):§2\\n\\nHTTP/3 uses [QUIC](https://en.wikipedia.org/wiki/QUIC \\\"QUIC\\\") \\\\+ UDP transport protocols instead of TCP. Only the IP layer is used (which UDP, like TCP, builds on). This slightly improves the average speed of communications and avoids the occasional problem of TCP connection [congestion](https://en.wikipedia.org/wiki/TCP_congestion_control \\\"TCP congestion control\\\") that can temporarily block or slow down the data flow of all its streams (another form of \\\" _head of line blocking_\\\").\\n\\n## Use\\n\\nHTTP/2 is supported by 71% of websites[\\\\[7\\\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-8)[\\\\[8\\\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-9) (34.1% HTTP/2 + 36.9% HTTP/3 with backwards compatibility) and supported by almost all web browsers (over 98% of users).[\\\\[9\\\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-10) It is also supported by major web servers over [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security \\\"Transport Layer Security\\\") (TLS) using an [Application-Layer Protocol Negotiation](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation \\\"Application-Layer Protocol Negotiation\\\") (ALPN) extension[\\\\[10\\\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-rfc7301-11) where [TLS 1.2](https://en.wikipedia.org/wiki/TLS_1.2 \\\"TLS 1.2\\\") or newer is required.[\\\\[6\\\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-rfc9113-7)\\n\\nHTTP/3 is used on 40% of websites[\\\\[11\\\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-12) and is supported by most web browsers, i.e. (at least partially) supported by 97% of users.[\\\\[12\\\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-13) HTTP/3 uses [QUIC](https://en.wikipedia.org/wiki/QUIC \\\"QUIC\\\") instead of [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol \\\"Transmission Control Protocol\\\") for the underlying transport pro\", \"content_chars\": 12000}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 1, \"read_result\": 1}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 11, \"pages_read\": 1, \"calls_without_new_evidence\": 1}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"b13e045448a601e9cf892fd2\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:en.wikipedia.org/wiki/HTTP \\\"port 80\\\" \\\"TCP\\\"\", \"answer\": \"Relevant English Wikipedia results tying HTTP to TCP port 80:\\n\\n1. **HTTP** — https://en.wikipedia.org/wiki/HTTP  \\n   HTTP assumes a reliable transport; before HTTP/3 the usual choice is TCP. Implementations typically use well-known ports: **port 80** if unencrypted, **port 443** if encrypted. HTTP/1.x and HTTP/2 run over TCP; HTTP/3 uses QUIC over UDP. An example request targets `www.example.com` on port 80. [web:12]\\n\\n2. **List of TCP and UDP port numbers** — https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers  \\n   Port **80** is assigned for Hypertext Transfer Protocol (HTTP). HTTP versions 1.x and 2 use **TCP**; HTTP/3 uses QUIC on UDP. Port 443 is the corresponding HTTPS assignment (TCP for 1.x/2). [web:2] [web:14]\\n\\n3. **Port (computer networking)** — https://en.wikipedia.or…\", \"answer_chars\": 2581, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 1, \"cross_provider_matches\": 1, \"pages_fetched\": 0, \"primary_citation_count\": 14, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 11308, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"wikipedia\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"site_native\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"skipped\", \"reason\": \"primary_sufficient\"}], \"result_count\": 10, \"citation_count\": 18, \"results\": [{\"id\": \"r1\", \"title\": \"https://en.wikipedia.org/wiki/Netstat\", \"url\": \"https://en.wikipedia.org/wiki/Netstat\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"https://en.wikipedia.org/wiki/HTTP\", \"url\": \"https://en.wikipedia.org/wiki/HTTP\", \"snippet\": \"1. HTTP — HTTP assumes a reliable transport; before HTTP/3 the usual choice is TCP. Implementations typically use well-known ports: port 80 if unencrypted, por…\", \"providers\": [\"xai\", \"wikipedia\"]}, {\"id\": \"r3\", \"title\": \"https://en.wikipedia.org/wiki/Port_80\", \"url\": \"https://en.wikipedia.org/wiki/Port_80\", \"snippet\": \"4. Port 80 — Disambiguation: TCP port 80 , most often used by HTTP, versus I/O port 80 on IBM PCs (POST).\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"Proxy server\", \"url\": \"https://en.wikipedia.org/wiki/Proxy_server\", \"snippet\": \"the network path and filters or redirects outgoing traffic, commonly TCP port 80 traffic. In deployment contexts, interception proxies are also commonly — Comp…\", \"providers\": [\"wikipedia\"]}, {\"id\": \"r5\", \"title\": \"https://en.wikipedia.org/wiki/Transport_layer\", \"url\": \"https://en.wikipedia.org/wiki/Transport_layer\", \"snippet\": \"9. Transport layer — TCP and UDP use port numbers to multiplex applications; a TCP connection is identified by a pair of sockets (address + port).\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"Spanning Tree Protocol\", \"url\": \"https://en.wikipedia.org/wiki/Spanning_Tree_Protocol\", \"snippet\": \"of their ports as a root port. This is either the port that connects the switch to the root bridge, or if there are several paths, the port with the preferred …\", \"providers\": [\"wikipedia\"]}, {\"id\": \"r7\", \"title\": \"https://en.wikipedia.org/wiki/Port_scanner\", \"url\": \"https://en.wikipedia.org/wiki/Port_scanner\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"Internet\", \"url\": \"https://en.wikipedia.org/wiki/Internet\", \"snippet\": \"interconnected computer networks that uses the Internet protocol suite (TCP/IP) to communicate between networks and devices. It is a network of networks — Glob…\", \"providers\": [\"wikipedia\"]}, {\"id\": \"r9\", \"title\": \"https://en.wikipedia.org/wiki/Transmission_Control_Protocol\", \"url\": \"https://en.wikipedia.org/wiki/Transmission_Control_Protocol\", \"snippet\": \"6. Transmission Control Protocol — TCP provides reliable, ordered, error-checked byte streams (including for the Web). Servers listen on a port (passive open);…\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"Bolivia\", \"url\": \"https://en.wikipedia.org/wiki/Bolivia\", \"snippet\": \"Archived from the original on 14 April 2021. Retrieved 4 October 2020. \\\"TCP reconoce posesión de Jeanine Añez\\\". www.paginasiete.bo. Archived from the — Country…\", \"providers\": [\"wikipedia\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://en.wikipedia.org/wiki/Netstat\", \"title\": \"https://en.wikipedia.org/wiki/Netstat\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://en.wikipedia.org/wiki/HTTP\", \"title\": \"https://en.wikipedia.org/wiki/HTTP\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"wikipedia\"]}, {\"id\": \"c3\", \"url\": \"https://en.wikipedia.org/wiki/Port_80\", \"title\": \"https://en.wikipedia.org/wiki/Port_80\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://en.wikipedia.org/wiki/Proxy_server\", \"title\": \"Proxy server\", \"result_item_id\": \"r4\", \"providers\": [\"wikipedia\"]}, {\"id\": \"c5\", \"url\": \"https://en.wikipedia.org/wiki/Transport_layer\", \"title\": \"https://en.wikipedia.org/wiki/Transport_layer\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://en.wikipedia.org/wiki/Spanning_Tree_Protocol\", \"title\": \"Spanning Tree Protocol\", \"result_item_id\": \"r6\", \"providers\": [\"wikipedia\"]}, {\"id\": \"c7\", \"url\": \"https://en.wikipedia.org/wiki/Port_scanner\", \"title\": \"https://en.wikipedia.org/wiki/Port_scanner\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://en.wikipedia.org/wiki/Internet\", \"title\": \"Internet\", \"result_item_id\": \"r8\", \"providers\": [\"wikipedia\"]}, {\"id\": \"c9\", \"url\": \"https://en.wikipedia.org/wiki/Transmission_Control_Protocol\", \"title\": \"https://en.wikipedia.org/wiki/Transmission_Control_Protocol\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://en.wikipedia.org/wiki/Bolivia\", \"title\": \"Bolivia\", \"result_item_id\": \"r10\", \"providers\": [\"wikipedia\"]}, {\"id\": \"c11\", \"url\": \"https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers\", \"title\": \"https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://en.wikipedia.org/wiki/Open_port\", \"title\": \"https://en.wikipedia.org/wiki/Open_port\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://en.wikipedia.org/wiki/Port_(computer_networking)\", \"title\": \"https://en.wikipedia.org/wiki/Port_(computer_networking)\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://en.wikipedia.org/wiki/HTTP_persistent_connection\", \"title\": \"https://en.wikipedia.org/wiki/HTTP_persistent_connection\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://en.wikipedia.org/wiki/List_of_IP_protocol_numbers\", \"title\": \"https://en.wikipedia.org/wiki/List_of_IP_protocol_numbers\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://en.wikipedia.org/api/rest_v1/page/html/The_CP80_Foundation\", \"title\": \"https://en.wikipedia.org/api/rest_v1/page/html/The_CP80_Foundation\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://en.wikipedia.org/wiki/Port_forwarding\", \"title\": \"https://en.wikipedia.org/wiki/Port_forwarding\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://en.wikipedia.org/wiki/Network_socket\", \"title\": \"https://en.wikipedia.org/wiki/Network_socket\", \"result_item_id\": null, \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"b13e045448a601e9cf892fd2\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"Wikipedia\", \"satisfied\": true, \"detail\": \"17 content page(s), e.g. https://en.wikipedia.org/wiki/Netstat\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 2, \"fetch\": 1, \"read_result\": 1}, \"new_urls\": 9, \"new_pages_read\": 0, \"seen_urls\": 20, \"pages_read\": 1, \"calls_without_new_evidence\": 0}}"
+  ],
+  "answer": "English Wikipedia 的 **HTTP 默认 TCP 端口是 `80`**（未加密 HTTP；HTTPS 通常使用 `443`）。\n\n原始链接：\n\n- [HTTP - Wikipedia](https://en.wikipedia.org/wiki/HTTP)\n- [List of TCP and UDP port numbers - Wikipedia](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers)",
+  "observation": {
+    "id": "wiki-en-tcp",
+    "answer": "English Wikipedia 的 **HTTP 默认 TCP 端口是 `80`**（未加密 HTTP；HTTPS 通常使用 `443`）。\n\n原始链接：\n\n- [HTTP - Wikipedia](https://en.wikipedia.org/wiki/HTTP)\n- [List of TCP and UDP port numbers - Wikipedia](https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers)",
+    "results": [
+      {
+        "url": "https://en.wikipedia.org/wiki/HTTP",
+        "title": "1",
+        "snippet": "1. HTTP – Wikipedia — HTTP implementations typically use TCP/IP on well-known ports, usually port 80 when unencrypted (port 443 when encrypted). HTTP/1.x and H…",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Internet",
+        "title": "Internet",
+        "snippet": "interconnected computer networks that uses the Internet protocol suite (TCP/IP) to communicate between networks and devices. It is a network of networks — Glob…",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers",
+        "title": "List of TCP and UDP port numbers - Wikipedia",
+        "snippet": "50. 1 2 Fielding, Roy T.; Reschke, Julian F., eds. (June 2014). Hypertext Transfer Protocol (HTTP/1.1): Message Syntax and Routing. IETF. pp. 11, 17, 19, 42–43…",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Port_(computer_networking)",
+        "title": "Port (computer networking)",
+        "snippet": "While the listening port number of a server is well defined (IANA calls these the well-known ports), the client's port number is often chosen from the dynamic …",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Spanning_Tree_Protocol",
+        "title": "Spanning Tree Protocol",
+        "snippet": "the default bridge priority is 32,768, and Port ID = priority (4 bits) + ID (Interface number) (12 bits); the default port priority is 128. Root ports When — N…",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/HTTP",
+        "title": "1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Internet",
+        "title": "Internet",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers",
+        "title": "List of TCP and UDP port numbers - Wikipedia",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Port_(computer_networking)",
+        "title": "Port (computer networking)",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Spanning_Tree_Protocol",
+        "title": "Spanning Tree Protocol",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Port_80",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Port_forwarding",
+        "title": "5",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Tor_%28network%29",
+        "title": "Tor (network)",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Bolivia",
+        "title": "Bolivia",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/HTTPS",
+        "title": "https",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Transmission_Control_Protocol",
+        "title": "Transmission Control Protocol - Wikipedia",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Netstat",
+        "title": "https://en.wikipedia.org/wiki/Netstat",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/HTTP",
+        "title": "https://en.wikipedia.org/wiki/HTTP",
+        "snippet": "1. HTTP — HTTP assumes a reliable transport; before HTTP/3 the usual choice is TCP. Implementations typically use well-known ports: port 80 if unencrypted, por…",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Port_80",
+        "title": "https://en.wikipedia.org/wiki/Port_80",
+        "snippet": "4. Port 80 — Disambiguation: TCP port 80 , most often used by HTTP, versus I/O port 80 on IBM PCs (POST).",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Proxy_server",
+        "title": "Proxy server",
+        "snippet": "the network path and filters or redirects outgoing traffic, commonly TCP port 80 traffic. In deployment contexts, interception proxies are also commonly — Comp…",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Transport_layer",
+        "title": "https://en.wikipedia.org/wiki/Transport_layer",
+        "snippet": "9. Transport layer — TCP and UDP use port numbers to multiplex applications; a TCP connection is identified by a pair of sockets (address + port).",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Spanning_Tree_Protocol",
+        "title": "Spanning Tree Protocol",
+        "snippet": "of their ports as a root port. This is either the port that connects the switch to the root bridge, or if there are several paths, the port with the preferred …",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Port_scanner",
+        "title": "https://en.wikipedia.org/wiki/Port_scanner",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Internet",
+        "title": "Internet",
+        "snippet": "interconnected computer networks that uses the Internet protocol suite (TCP/IP) to communicate between networks and devices. It is a network of networks — Glob…",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Transmission_Control_Protocol",
+        "title": "https://en.wikipedia.org/wiki/Transmission_Control_Protocol",
+        "snippet": "6. Transmission Control Protocol — TCP provides reliable, ordered, error-checked byte streams (including for the Web). Servers listen on a port (passive open);…",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Bolivia",
+        "title": "Bolivia",
+        "snippet": "Archived from the original on 14 April 2021. Retrieved 4 October 2020. \"TCP reconoce posesión de Jeanine Añez\". www.paginasiete.bo. Archived from the — Country…",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Netstat",
+        "title": "https://en.wikipedia.org/wiki/Netstat",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/HTTP",
+        "title": "https://en.wikipedia.org/wiki/HTTP",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Port_80",
+        "title": "https://en.wikipedia.org/wiki/Port_80",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Proxy_server",
+        "title": "Proxy server",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Transport_layer",
+        "title": "https://en.wikipedia.org/wiki/Transport_layer",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Spanning_Tree_Protocol",
+        "title": "Spanning Tree Protocol",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Port_scanner",
+        "title": "https://en.wikipedia.org/wiki/Port_scanner",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Internet",
+        "title": "Internet",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Transmission_Control_Protocol",
+        "title": "https://en.wikipedia.org/wiki/Transmission_Control_Protocol",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Bolivia",
+        "title": "Bolivia",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers",
+        "title": "https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Open_port",
+        "title": "https://en.wikipedia.org/wiki/Open_port",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Port_(computer_networking)",
+        "title": "https://en.wikipedia.org/wiki/Port_(computer_networking)",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/HTTP_persistent_connection",
+        "title": "https://en.wikipedia.org/wiki/HTTP_persistent_connection",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/List_of_IP_protocol_numbers",
+        "title": "https://en.wikipedia.org/wiki/List_of_IP_protocol_numbers",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/api/rest_v1/page/html/The_CP80_Foundation",
+        "title": "https://en.wikipedia.org/api/rest_v1/page/html/The_CP80_Foundation",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Port_forwarding",
+        "title": "https://en.wikipedia.org/wiki/Port_forwarding",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Network_socket",
+        "title": "https://en.wikipedia.org/wiki/Network_socket",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://en.wikipedia.org/wiki/HTTP",
+        "content": "[Jump to content](https://en.wikipedia.org/wiki/HTTP#bodyContent)\n\n[![Page semi-protected](https://thumb.wikimedia.org/wikipedia/en/thumb/1/1b/Semi-protection-shackle.svg/20px-Semi-protection-shackle.svg.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail)](https://en.wikipedia.org/wiki/Wikipedia:Protection_policy#semi \"This article is semi-protected due to vandalism\")\n\nFrom Wikipedia, the free encyclopedia\n\nApplication layer protocol\n\n| [![](https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/HTTP_logo.svg/250px-HTTP_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail)](https://en.wikipedia.org/wiki/File:HTTP_logo.svg) |\n| International standard | - [RFC](https://en.wikipedia.org/wiki/RFC_(identifier) \"RFC (identifier)\") [1945](https://www.rfc-editor.org/rfc/rfc1945) HTTP/1.0<br>- [RFC](https://en.wikipedia.org/wiki/RFC_(identifier) \"RFC (identifier)\") [9110](https://www.rfc-editor.org/rfc/rfc9110) HTTP Semantics<br>- [RFC](htt[Jump to content](https://en.wikipedia.org/wiki/HTTP#bodyContent)\n\n[![Page semi-protected](https://thumb.wikimedia.org/wikipedia/en/thumb/1/1b/Semi-protection-shackle.svg/20px-Semi-protection-shackle.svg.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail)](https://en.wikipedia.org/wiki/Wikipedia:Protection_policy#semi \"This article is semi-protected due to vandalism\")\n\nFrom Wikipedia, the free encyclopedia\n\nApplication layer protocol\n\n| [![](https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/HTTP_logo.svg/250px-HTTP_logo.svg.png?utm_source=en.wikipedia.org&utm_campaign=parser&utm_content=thumbnail)](https://en.wikipedia.org/wiki/File:HTTP_logo.svg) |\n| International standard | - [RFC](https://en.wikipedia.org/wiki/RFC_(identifier) \"RFC (identifier)\") [1945](https://www.rfc-editor.org/rfc/rfc1945) HTTP/1.0<br>- [RFC](https://en.wikipedia.org/wiki/RFC_(identifier) \"RFC (identifier)\") [9110](https://www.rfc-editor.org/rfc/rfc9110) HTTP Semantics<br>- [RFC](https://en.wikipedia.org/wiki/RFC_(identifier) \"RFC (identifier)\") [9111](https://www.rfc-editor.org/rfc/rfc9111) HTTP Caching<br>- [RFC](https://en.wikipedia.org/wiki/RFC_(identifier) \"RFC (identifier)\") [9112](https://www.rfc-editor.org/rfc/rfc9112) HTTP/1.1<br>- [RFC](https://en.wikipedia.org/wiki/RFC_(identifier) \"RFC (identifier)\") [9113](https://www.rfc-editor.org/rfc/rfc9113) [HTTP/2](https://en.wikipedia.org/wiki/HTTP/2 \"HTTP/2\")<br>- [RFC](https://en.wikipedia.org/wiki/RFC_(identifier) \"RFC (identifier)\") [7541](https://www.rfc-editor.org/rfc/rfc7541) HTTP/2: HPACK Header Compression<br>- [RFC](https://en.wikipedia.org/wiki/RFC_(identifier) \"RFC (identifier)\") [8164](https://www.rfc-editor.org/rfc/rfc8164) HTTP/2: Opportunistic Security for HTTP/2<br>- [RFC](https://en.wikipedia.org/wiki/RFC_(identifier) \"RFC (identifier)\") [8336](https://www.rfc-editor.org/rfc/rfc8336) HTTP/2: The ORIGIN HTTP/2 Frame<br>- [RFC](https://en.wikipedia.org/wiki/RFC_(identifier) \"RFC (identifier)\") [8441](https://www.rfc-editor.org/rfc/rfc8441) HTTP/2: Bootstrapping WebSockets with HTTP/2<br>- [RFC](https://en.wikipedia.org/wiki/RFC_(identifier) \"RFC (identifier)\") [9114](https://www.rfc-editor.org/rfc/rfc9114) [HTTP/3](https://en.wikipedia.org/wiki/HTTP/3 \"HTTP/3\")<br>- [RFC](https://en.wikipedia.org/wiki/RFC_(identifier) \"RFC (identifier)\") [9204](https://www.rfc-editor.org/rfc/rfc9204) HTTP/3: QPACK: Field Compression |\n| Developed by | Initially [CERN](https://en.wikipedia.org/wiki/CERN \"CERN\"); [IETF](https://en.wikipedia.org/wiki/IETF \"IETF\"), [W3C](https://en.wikipedia.org/wiki/W3C \"W3C\") |\n| Introduced | 1991;35years ago(1991) |\n| Website | [httpwg.org/specs/](https://httpwg.org/specs/) |\n\nHTTP\n\n**HTTP** ( **Hypertext Transfer Protocol**) is an [application layer](https://en.wikipedia.org/wiki/Application_layer \"Application layer\") protocol in the [Internet protocol suite](https://en.wikipedia.org/wiki/Internet_protocol_suite \"Internet protocol suite\") for distributed, collaborative, [hypermedia](https://en.wikipedia.org/wiki/Hypermedia \"Hypermedia\") information systems.[\\[1\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-:0-1) HTTP is the foundation of data communication for the [World Wide Web](https://en.wikipedia.org/wiki/World_Wide_Web \"World Wide Web\"), where [hypertext](https://en.wikipedia.org/wiki/Hypertext \"Hypertext\") documents include [hyperlinks](https://en.wikipedia.org/wiki/Hyperlink \"Hyperlink\") to other resources that the user can easily access, for example by a [mouse](https://en.wikipedia.org/wiki/Computer_mouse \"Computer mouse\") click or by tapping the screen in a [web browser](https://en.wikipedia.org/wiki/Web_browser \"Web browser\").\n\nHTTP is a [request–response](https://en.wikipedia.org/wiki/Request%E2%80%93response \"Request–response\") protocol in the [client–server model](https://en.wikipedia.org/wiki/Client%E2%80%93server_model \"Client–server model\"). A transaction starts with a client submitting a request to the server, the server attempts to satisfy the request and returns a response to the client that describes the disposition of the request and optionally contains a requested resource such as an [HTML](https://en.wikipedia.org/wiki/HTML \"HTML\") document or other content.\n\nIn a common scenario, a [web browser](https://en.wikipedia.org/wiki/Web_browser \"Web browser\") acts as the [client](https://en.wikipedia.org/wiki/Client_(computing) \"Client (computing)\"), and a [web server](https://en.wikipedia.org/wiki/Web_server \"Web server\"), [hosting](https://en.wikipedia.org/wiki/Host_(network) \"Host (network)\") one or more [websites](https://en.wikipedia.org/wiki/Website \"Website\"), is the [server](https://en.wikipedia.org/wiki/Server_(computing) \"Server (computing)\"). A web browser is an example of a [user agent](https://en.wikipedia.org/wiki/User_agent \"User agent\") (UA). Other types of user agent include the indexing software used by search providers ( [web crawlers](https://en.wikipedia.org/wiki/Web_crawler \"Web crawler\")), [voice browsers](https://en.wikipedia.org/wiki/Voice_browser \"Voice browser\"), [mobile apps](https://en.wikipedia.org/wiki/Mobile_app \"Mobile app\"), and other [software](https://en.wikipedia.org/wiki/Software \"Software\") that accesses, consumes, or displays web content.\n\nHTTP is designed to permit intermediate network elements to improve or enable communications between clients and servers. High-traffic websites often benefit from [web cache](https://en.wikipedia.org/wiki/Web_cache \"Web cache\") servers that deliver content on behalf of [upstream servers](https://en.wikipedia.org/wiki/Upstream_server \"Upstream server\") to improve response time. Web browsers cache previously accessed web resources and reuse them, whenever possible, to reduce network traffic. HTTP [proxy servers](https://en.wikipedia.org/wiki/Proxy_server \"Proxy server\") at [private network](https://en.wikipedia.org/wiki/Private_network \"Private network\") boundaries can facilitate communication for clients without a globally routable address, by relaying messages with external servers.\n\nTo allow intermediate HTTP nodes (proxy servers, web caches, etc.) to accomplish their functions, some of the [HTTP headers](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields \"List of HTTP header fields\") (found in HTTP requests/responses) are managed [hop-by-hop](https://en.wikipedia.org/wiki/Hop-by-hop_transport \"Hop-by-hop transport\") whereas other HTTP headers are managed [end-to-end](https://en.wikipedia.org/wiki/End-to-end_principle \"End-to-end principle\") (managed only by the source client and by the target web server).\n\nA [web resource](https://en.wikipedia.org/wiki/Web_resource \"Web resource\") is located by a [uniform resource locator](https://en.wikipedia.org/wiki/Uniform_resource_locator \"Uniform resource locator\") (URL), using the [Uniform Resource Identifier](https://en.wikipedia.org/wiki/Uniform_Resource_Identifier \"Uniform Resource Identifier\") (URI) schemes _http_ and _[https](https://en.wikipedia.org/wiki/Https \"Https\")_. URIs are encoded as [hyperlinks](https://en.wikipedia.org/wiki/Hyperlink \"Hyperlink\") in [HTML](https://en.wikipedia.org/wiki/HTML \"HTML\") documents, so as to form interlinked [hypertext](https://en.wikipedia.org/wiki/Hypertext \"Hypertext\") documents.[\\[2\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-rfc3986-2)\n\n## Versions\n\nSee also: [CERN httpd](https://en.wikipedia.org/wiki/CERN_httpd \"CERN httpd\")\n\nThe protocol has been revised over time. A version is identified as HTTP/# where # is the version number. This article covers aspects of all versions but provides primary coverage for HTTP/0.9, HTTP/1.0, and HTTP/1.1. Separate articles cover [HTTP/2](https://en.wikipedia.org/wiki/HTTP/2 \"HTTP/2\") and [HTTP/3](https://en.wikipedia.org/wiki/HTTP/3 \"HTTP/3\") in detail.\n\n| Version | Introduced | Status |\n| --- | --- | --- |\n| 0.9 | 1991 | Obsolete |\n| 1.0 | 1996 | Obsolete |\n| 1.1 | 1997 | Standard |\n| 2 | 2015 | Standard |\n| 3 | 2022 | Standard |\n\nIn HTTP/1.0, a separate TCP [connection](https://en.wikipedia.org/wiki/Connection-oriented_communication \"Connection-oriented communication\") to the same server is made for every resource request.[\\[3\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-rfc1945-3):§1.3\n\nIn HTTP/1.1, instead a TCP connection can be reused to make multiple resource requests (i.e. of HTML pages, frames, images, [scripts](https://en.wikipedia.org/wiki/Client-side_scripting \"Client-side scripting\"), [stylesheets](https://en.wikipedia.org/wiki/Cascading_Style_Sheets \"Cascading Style Sheets\"), etc.).[\\[4\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-rfc9112-4):§9.1,9.3 HTTP/1.1 communications therefore experience less [latency](https://en.wikipedia.org/wiki/Network_latency \"Network latency\") as the establishment of TCP connections presents considerable overhead, especially under high traffic conditions.[\\[5\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-5)\n\nEnhancements added with HTTP/2 allow for less latency and, in most cases, higher speeds than HTTP/1.1 communications. HTTP/2 adds support for:\n\n- a compressed binary representation of metadata (HTTP headers) instead of a textual one, so that headers require much less space;\n- a single [TCP/IP](https://en.wikipedia.org/wiki/Internet_Protocol_suite \"Internet Protocol suite\") (usually [encrypted](https://en.wikipedia.org/wiki/Encryption \"Encryption\")) connection per accessed server domain instead of 2 to 8 TCP/IP connections;\n- one or more bidirectional streams per TCP/IP connection in which HTTP requests and responses are broken down and transmitted in small packets to almost solve the problem of the HOLB ( [head-of-line blocking](https://en.wikipedia.org/wiki/Head-of-line_blocking \"Head-of-line blocking\"));[\\[note 1\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-6)\n- a push capability to allow server application to send data to clients whenever new data is available (without forcing clients to request periodically new data to server by using [polling](https://en.wikipedia.org/wiki/Polling_(computer_science) \"Polling (computer science)\") methods).[\\[6\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-rfc9113-7):§2\n\nHTTP/3 uses [QUIC](https://en.wikipedia.org/wiki/QUIC \"QUIC\") \\+ UDP transport protocols instead of TCP. Only the IP layer is used (which UDP, like TCP, builds on). This slightly improves the average speed of communications and avoids the occasional problem of TCP connection [congestion](https://en.wikipedia.org/wiki/TCP_congestion_control \"TCP congestion control\") that can temporarily block or slow down the data flow of all its streams (another form of \" _head of line blocking_\").\n\n## Use\n\nHTTP/2 is supported by 71% of websites[\\[7\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-8)[\\[8\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-9) (34.1% HTTP/2 + 36.9% HTTP/3 with backwards compatibility) and supported by almost all web browsers (over 98% of users).[\\[9\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-10) It is also supported by major web servers over [Transport Layer Security](https://en.wikipedia.org/wiki/Transport_Layer_Security \"Transport Layer Security\") (TLS) using an [Application-Layer Protocol Negotiation](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation \"Application-Layer Protocol Negotiation\") (ALPN) extension[\\[10\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-rfc7301-11) where [TLS 1.2](https://en.wikipedia.org/wiki/TLS_1.2 \"TLS 1.2\") or newer is required.[\\[6\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-rfc9113-7)\n\nHTTP/3 is used on 40% of websites[\\[11\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-12) and is supported by most web browsers, i.e. (at least partially) supported by 97% of users.[\\[12\\]](https://en.wikipedia.org/wiki/HTTP#cite_note-13) HTTP/3 uses [QUIC](https://en.wikipedia.org/wiki/QUIC \"QUIC\") instead of [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol \"Transmission Control Protocol\") for the underlying transport pro",
+        "errors": []
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:34:24.468736+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "wiki-en-tcp",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "en-http"
+        ],
+        "required": 1
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "pass",
+      "reasons": []
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": false,
+    "grader": "v2"
+  }
+}

@@ -1,0 +1,261 @@
+{
+  "id": "x-public-post",
+  "query": "Find the public X status from OpenAI that announces GPT-4",
+  "returncode": 0,
+  "elapsed_ms": 87874,
+  "efficiency": {
+    "tool_calls": {
+      "search": 1,
+      "fetch": 1
+    },
+    "total_calls": 2,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 0,
+    "errors": 0
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "x.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:x.com/OpenAI GPT-4 announcement OpenAI March 14 2023 status",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 28297
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "post text, author, timestamp, replies",
+        "fresh": false,
+        "max_chars": 12000,
+        "url": "https://x.com/OpenAI/status/1635687373060317185"
+      },
+      "is_error": false,
+      "ms": 5302
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.1\", \"result_id\": \"f9b2d64494bb14eda6043c66\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:x.com/OpenAI GPT-4 announcement OpenAI March 14 2023 status\", \"answer\": \"**Official OpenAI post (March 14, 2023)**\\n\\n1. **@OpenAI** — status `1635687373060317185`  \\n   Posted 2023-03-14 17:00 UTC  \\n   “Announcing GPT-4, a large multimodal model, with our best-ever results on capabilities and alignment: https://openai.com/product/gpt-4”  \\n   ~59.7k likes, ~16.0k reposts  \\n   https://x.com/OpenAI/status/1635687373060317185  \\n\\n**Related leadership posts the same day (not under @OpenAI, but part of the announcement)**\\n\\n2. **@gdb** (Greg Brockman) — `1635687252616679426`  \\n   2023-03-14 17:00 UTC  \\n   Release of GPT-4 as a multimodal model (image & text in, text out); c…\", \"answer_chars\": 1709, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 1, \"cross_provider_matches\": 1, \"pages_fetched\": 2, \"primary_citation_count\": 13, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 28289, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 19, \"results\": [{\"id\": \"r1\", \"title\": \"https://x.com/thefernandocz/status/2108543268447481930\", \"url\": \"https://x.com/thefernandocz/status/2108543268447481930\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"OpenAI on X: \\\"Announcing GPT-4, a large multimodal model, with our best-ever re…\", \"url\": \"https://x.com/OpenAI/status/1635687373060317185\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://x.com/_akhaliq/status/1681481086784643072\", \"url\": \"https://x.com/_akhaliq/status/1681481086784643072\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"Jason Wei on X: \\\"IMO GPT-4 is a bigger leap than GPT-3 was. - GPT-3 advanced AI…\", \"url\": \"https://x.com/_jasonwei/status/1635687554220691456\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://x.com/npew/status/1635687624047489024\", \"url\": \"https://x.com/npew/status/1635687624047489024\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"elvis on X: \\\"Lots of tweets about GPT-4 in the last 8 hours. Here is a thread h…\", \"url\": \"https://x.com/omarsar0/status/1635816470016827399\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"https://x.com/gdb/status/1635687252616679426\", \"url\": \"https://x.com/gdb/status/1635687252616679426\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"Andrej Karpathy on X: \\\"🎉 GPT-4 is out!! - 📈 it is incredible - 👀 it is multimod…\", \"url\": \"https://x.com/karpathy/status/1635691329996062725\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"https://x.com/one_shot_finish/status/1635692671741349888\", \"url\": \"https://x.com/one_shot_finish/status/1635692671741349888\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"Rowan Cheung on X: \\\"It's here. OpenAI just launched GPT-4. And it's incredible:…\", \"url\": \"https://x.com/rowancheung/status/1635690962973339672\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://x.com/thefernandocz/status/2108543268447481930\", \"title\": \"https://x.com/thefernandocz/status/2108543268447481930\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://x.com/OpenAI/status/1635687373060317185\", \"title\": \"OpenAI on X: \\\"Announcing GPT-4, a large multimodal model, with our best-ever re…\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://x.com/_akhaliq/status/1681481086784643072\", \"title\": \"https://x.com/_akhaliq/status/1681481086784643072\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://x.com/_jasonwei/status/1635687554220691456\", \"title\": \"Jason Wei on X: \\\"IMO GPT-4 is a bigger leap than GPT-3 was. - GPT-3 advanced AI…\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://x.com/npew/status/1635687624047489024\", \"title\": \"https://x.com/npew/status/1635687624047489024\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://x.com/omarsar0/status/1635816470016827399\", \"title\": \"elvis on X: \\\"Lots of tweets about GPT-4 in the last 8 hours. Here is a thread h…\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://x.com/gdb/status/1635687252616679426\", \"title\": \"https://x.com/gdb/status/1635687252616679426\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://x.com/karpathy/status/1635691329996062725\", \"title\": \"Andrej Karpathy on X: \\\"🎉 GPT-4 is out!! - 📈 it is incredible - 👀 it is multimod…\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://x.com/one_shot_finish/status/1635692671741349888\", \"title\": \"https://x.com/one_shot_finish/status/1635692671741349888\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://x.com/rowancheung/status/1635690962973339672\", \"title\": \"Rowan Cheung on X: \\\"It's here. OpenAI just launched GPT-4. And it's incredible:…\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://x.com/sama/status/1635687853324902401\", \"title\": \"https://x.com/sama/status/1635687853324902401\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://x.com/tailin_wu/status/1635705839481937921\", \"title\": \"https://x.com/tailin_wu/status/1635705839481937921\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://x.com/SebastienBubeck/status/1638704164770332674\", \"title\": \"https://x.com/SebastienBubeck/status/1638704164770332674\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://x.com/verge/status/1635688829792268307\", \"title\": \"https://x.com/verge/status/1635688829792268307\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://x.com/tomwarren/status/1635696367061413899\", \"title\": \"https://x.com/tomwarren/status/1635696367061413899\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://x.com/TrapitBansal/status/1635696548763041793\", \"title\": \"https://x.com/TrapitBansal/status/1635696548763041793\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://x.com/asierarranz/status/1635687897868259328\", \"title\": \"https://x.com/asierarranz/status/1635687897868259328\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://x.com/debarghya_das/status/1635692650300067840\", \"title\": \"Deedy on X: \\\"OpenAI's GPT-4 announcement is FINALLY HERE and its UNREAL! - Mult…\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c19\", \"url\": \"https://x.com/omarsar0/status/1635817667499008001\", \"title\": \"elvis on X: \\\"GPT-4 for code generation. Coding capabilities will only get bette…\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"f9b2d64494bb14eda6043c66\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"X (Twitter)\", \"satisfied\": true, \"detail\": \"19 content page(s), e.g. https://x.com/thefernandocz/status/2108543268447481930\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 19, \"new_pages_read\": 2, \"seen_urls\": 19, \"pages_read\": 2, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"2bcdf0894e54d5156b658eb4\", \"kind\": \"fetch\", \"status\": \"ok\", \"url\": \"https://x.com/OpenAI/status/1635687373060317185\", \"final_url\": \"https://x.com/OpenAI/status/1635687373060317185\", \"title\": \"\", \"provider\": \"firecrawl\", \"content_preview\": \"# Post by @OpenAI\\n\\nAuthor: OpenAI @OpenAI\\nPosted: 2023\\\\-03\\\\-14T17:00:33\\\\.000Z\\nURL: [https://x\\\\.com/OpenAI/status/1635687373060317185](https://x.com/OpenAI/status/1635687373060317185)\\nLikes: 59,704 | Retweets: 15,954\\n\\n## Post\\n\\nAnnouncing GPT-4, a large multimodal model, with our best-ever results on capabilities and alignment: https://openai.com/index/gpt-4/\\n\\n## Top Comments\\n\\n### 1. @OpenAI\\nAuthor: OpenAI\\nPosted: 2023\\\\-03\\\\-14T17:05:19\\\\.000Z\\nURL: [https://x\\\\.com/OpenAI/status/1635688570710298625](https://x.com/OpenAI/status/1635688570710298625)\\n\\n> Join us at 1 pm PT today for a developer demo livestream showing GPT-4 and its capabilities/limitations: https://t.co/xAg35cWkA5\\n>\\n> (comments in Discord:\\n\\nLikes: 2,932\\n\", \"content_chars\": 721, \"truncated\": false, \"errors\": [], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"2bcdf0894e54d5156b658eb4\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 1, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 1, \"seen_urls\": 19, \"pages_read\": 3, \"calls_without_new_evidence\": 0}}"
+  ],
+  "answer": "OpenAI 在 X 上宣布 GPT-4 的公开状态：\n\n> “Announcing GPT-4, a large multimodal model, with our best-ever results on capabilities and alignment: https://openai.com/index/gpt-4/”\n\n- 发布者：OpenAI（@OpenAI）\n- 发布时间：2023 年 3 月 14 日 17:00 UTC\n- 原始链接：https://x.com/OpenAI/status/1635687373060317185",
+  "observation": {
+    "id": "x-public-post",
+    "answer": "OpenAI 在 X 上宣布 GPT-4 的公开状态：\n\n> “Announcing GPT-4, a large multimodal model, with our best-ever results on capabilities and alignment: https://openai.com/index/gpt-4/”\n\n- 发布者：OpenAI（@OpenAI）\n- 发布时间：2023 年 3 月 14 日 17:00 UTC\n- 原始链接：https://x.com/OpenAI/status/1635687373060317185",
+    "results": [
+      {
+        "url": "https://x.com/thefernandocz/status/2108543268447481930",
+        "title": "https://x.com/thefernandocz/status/2108543268447481930",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/OpenAI/status/1635687373060317185",
+        "title": "OpenAI on X: \"Announcing GPT-4, a large multimodal model, with our best-ever re…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/_akhaliq/status/1681481086784643072",
+        "title": "https://x.com/_akhaliq/status/1681481086784643072",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/_jasonwei/status/1635687554220691456",
+        "title": "Jason Wei on X: \"IMO GPT-4 is a bigger leap than GPT-3 was. - GPT-3 advanced AI…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/npew/status/1635687624047489024",
+        "title": "https://x.com/npew/status/1635687624047489024",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/omarsar0/status/1635816470016827399",
+        "title": "elvis on X: \"Lots of tweets about GPT-4 in the last 8 hours. Here is a thread h…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/gdb/status/1635687252616679426",
+        "title": "https://x.com/gdb/status/1635687252616679426",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/karpathy/status/1635691329996062725",
+        "title": "Andrej Karpathy on X: \"🎉 GPT-4 is out!! - 📈 it is incredible - 👀 it is multimod…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/one_shot_finish/status/1635692671741349888",
+        "title": "https://x.com/one_shot_finish/status/1635692671741349888",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/rowancheung/status/1635690962973339672",
+        "title": "Rowan Cheung on X: \"It's here. OpenAI just launched GPT-4. And it's incredible:…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/thefernandocz/status/2108543268447481930",
+        "title": "https://x.com/thefernandocz/status/2108543268447481930",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/OpenAI/status/1635687373060317185",
+        "title": "OpenAI on X: \"Announcing GPT-4, a large multimodal model, with our best-ever re…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/_akhaliq/status/1681481086784643072",
+        "title": "https://x.com/_akhaliq/status/1681481086784643072",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/_jasonwei/status/1635687554220691456",
+        "title": "Jason Wei on X: \"IMO GPT-4 is a bigger leap than GPT-3 was. - GPT-3 advanced AI…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/npew/status/1635687624047489024",
+        "title": "https://x.com/npew/status/1635687624047489024",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/omarsar0/status/1635816470016827399",
+        "title": "elvis on X: \"Lots of tweets about GPT-4 in the last 8 hours. Here is a thread h…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/gdb/status/1635687252616679426",
+        "title": "https://x.com/gdb/status/1635687252616679426",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/karpathy/status/1635691329996062725",
+        "title": "Andrej Karpathy on X: \"🎉 GPT-4 is out!! - 📈 it is incredible - 👀 it is multimod…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/one_shot_finish/status/1635692671741349888",
+        "title": "https://x.com/one_shot_finish/status/1635692671741349888",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/rowancheung/status/1635690962973339672",
+        "title": "Rowan Cheung on X: \"It's here. OpenAI just launched GPT-4. And it's incredible:…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/sama/status/1635687853324902401",
+        "title": "https://x.com/sama/status/1635687853324902401",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/tailin_wu/status/1635705839481937921",
+        "title": "https://x.com/tailin_wu/status/1635705839481937921",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/SebastienBubeck/status/1638704164770332674",
+        "title": "https://x.com/SebastienBubeck/status/1638704164770332674",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/verge/status/1635688829792268307",
+        "title": "https://x.com/verge/status/1635688829792268307",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/tomwarren/status/1635696367061413899",
+        "title": "https://x.com/tomwarren/status/1635696367061413899",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/TrapitBansal/status/1635696548763041793",
+        "title": "https://x.com/TrapitBansal/status/1635696548763041793",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/asierarranz/status/1635687897868259328",
+        "title": "https://x.com/asierarranz/status/1635687897868259328",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/debarghya_das/status/1635692650300067840",
+        "title": "Deedy on X: \"OpenAI's GPT-4 announcement is FINALLY HERE and its UNREAL! - Mult…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://x.com/omarsar0/status/1635817667499008001",
+        "title": "elvis on X: \"GPT-4 for code generation. Coding capabilities will only get bette…",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://x.com/OpenAI/status/1635687373060317185",
+        "content": "# Post by @OpenAI\n\nAuthor: OpenAI @OpenAI\nPosted: 2023\\-03\\-14T17:00:33\\.000Z\nURL: [https://x\\.com/OpenAI/status/1635687373060317185](https://x.com/OpenAI/status/1635687373060317185)\nLikes: 59,704 | Retweets: 15,954\n\n## Post\n\nAnnouncing GPT-4, a large multimodal model, with our best-ever results on capabilities and alignment: https://openai.com/index/gpt-4/\n\n## Top Comments\n\n### 1. @OpenAI\nAuthor: OpenAI\nPosted: 2023\\-03\\-14T17:05:19\\.000Z\nURL: [https://x\\.com/OpenAI/status/1635688570710298625](https://x.com/OpenAI/status/1635688570710298625)\n\n> Join us at 1 pm PT today for a developer demo livestream showing GPT-4 and its capabilities/limitations: https://t.co/xAg35cWkA5\n>\n> (comments in Discord:\n\nLikes: 2,932\n",
+        "errors": []
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:32:27.357273+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "x-public-post",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "x-status"
+        ],
+        "required": 1
+      }
+    },
+    "task": {
+      "status": "pass",
+      "reasons": []
+    },
+    "expected_access": "login",
+    "observed_failure": null,
+    "algorithm_miss": false,
+    "grader": "v2"
+  }
+}

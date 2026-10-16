@@ -1,0 +1,588 @@
+{
+  "id": "paywall-wsj",
+  "query": "Wall Street Journal article page about the 2024 Nobel Prize in Physics",
+  "returncode": 0,
+  "elapsed_ms": 159460,
+  "efficiency": {
+    "tool_calls": {
+      "search": 3,
+      "fetch": 2,
+      "read_result": 1
+    },
+    "total_calls": 6,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 0,
+    "errors": 0
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "balanced",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "wsj.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:wsj.com 2024 Nobel Prize in Physics article Wall Street Journal Nobel physics 2024 Geoffrey Hinton John Hopfield 原文 评论 comments",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 12870
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Retrieve the article title, author, publication date, URL, and any visible reader comments or comment excerpts. If comments are unavailable, state that explicitly.",
+        "fresh": false,
+        "max_chars": 20000,
+        "url": "https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7"
+      },
+      "is_error": false,
+      "ms": 1829
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "wsj.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "\"nobel-prize-in-physics-awarded-to-duo-for-machine-learning\" comments OR comment OR \"2024 Nobel Prize in Physics\" \"Wall Street Journal\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 32730
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": [
+          "content"
+        ],
+        "limit": 1,
+        "max_bytes": 30000,
+        "offset": 0,
+        "result_id": "4010c8679a59e474"
+      },
+      "is_error": false,
+      "ms": 4
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Extract only the article metadata and the article body text near the headline/byline/date. Also report whether the page contains a reader-comments section; do not invent comments.",
+        "fresh": false,
+        "max_chars": 30000,
+        "url": "https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7"
+      },
+      "is_error": false,
+      "ms": 10736
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "wsj.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7 Aylin Woodward October 8 2024 John Hopfield Geoffrey Hinton",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 19265
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.0\", \"result_id\": \"470fb3e477e9e40d\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:wsj.com 2024 Nobel Prize in Physics article Wall Street Journal Nobel physics 2024 Geoffrey Hinton John Hopfield 原文 评论 comments\", \"answer\": \"Relevant Wall Street Journal pieces on the 2024 Nobel Prize in Physics for John Hopfield and Geoffrey Hinton (up to 10). Full articles are mostly subscriber-only; snippets do not include reader comment threads.\\n\\n1. **Main award story (Oct. 8, 2024)** — “Geoffrey Hinton, Godfather of AI Who Expressed Alarm Over the Technology, Shares Nobel Prize in Physics” / “AI Pioneers John Hopfield and Geoffrey Hinton Win Nobel Prize in Physics,” by Aylin Woodward. Hopfield (Princeton) and Hinton (Toronto) cited for neural-network work that underpins machine learning.  \\n   https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7\\n\\n2. **Follow-up on Hinton’s warnings (updated Oct. 9, 2024)** — “A Godfather of AI Just Won a Nobel. He Has Been Warning the Machines Cou…\", \"answer_chars\": 2613, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 2, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 11}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 12801, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"skipped\", \"reason\": \"primary_sufficient\"}], \"result_count\": 10, \"citation_count\": 11, \"results\": [{\"id\": \"r1\", \"title\": \"https://www.wsj.com/tech/ai/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-wor…\", \"url\": \"https://www.wsj.com/tech/ai/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-world-b127da71\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"https://www.wsj.com/public/resources/documents/U9AKwHSdzNii9VLVoe2o-WSJNewsPaper-10-10-2024.pdf\", \"url\": \"https://www.wsj.com/public/resources/documents/U9AKwHSdzNii9VLVoe2o-WSJNewsPaper-10-10-2024.pdf\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r3\", \"title\": \"https://www.wsj.com/public/resources/documents/YkVkcIFvt1lhyGHzCmpk-WSJNewsPaper-10-8-2025.pdf\", \"url\": \"https://www.wsj.com/public/resources/documents/YkVkcIFvt1lhyGHzCmpk-WSJNewsPaper-10-8-2025.pdf\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"https://www.wsj.com/tech/ai/yann-lecun-ai-meta-aa59e2f5\", \"url\": \"https://www.wsj.com/tech/ai/yann-lecun-ai-meta-aa59e2f5\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r5\", \"title\": \"https://cn.wsj.com/articles/ai教父-辛頓獲得諾貝爾獎-近年來一直警告機器可能統治世界-6f543cc5\", \"url\": \"https://cn.wsj.com/articles/ai教父-辛頓獲得諾貝爾獎-近年來一直警告機器可能統治世界-6f543cc5\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"https://www.wsj.com/opinion/2024-was-a-year-of-excellence-ironic-and-otherwise-awards-tech-journalism-econ-education-sp…\", \"url\": \"https://www.wsj.com/opinion/2024-was-a-year-of-excellence-ironic-and-otherwise-awards-tech-journalism-econ-education-sports-0a4420db\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r7\", \"title\": \"https://www.wsj.com/public/resources/documents/LKm4CO40tO1rZUvD4vDr-WSJNewsPaper-10-9-2024.pdf\", \"url\": \"https://www.wsj.com/public/resources/documents/LKm4CO40tO1rZUvD4vDr-WSJNewsPaper-10-9-2024.pdf\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"https://cn.wsj.com/articles/ai教父-辛顿获得诺贝尔奖-近年来一直警告机器可能统治世界-c91993cc\", \"url\": \"https://cn.wsj.com/articles/ai教父-辛顿获得诺贝尔奖-近年来一直警告机器可能统治世界-c91993cc\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r9\", \"title\": \"https://www.wsj.com/public/resources/documents/ySndN5vSiMUsyJ8rAOaj-WSJNewsPaper-10-15-2024.pdf\", \"url\": \"https://www.wsj.com/public/resources/documents/ySndN5vSiMUsyJ8rAOaj-WSJNewsPaper-10-15-2024.pdf\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"https://www.wsj.com/science/nobel-prize-in-chemistry-awarded-to-trio-for-cracking-code-to-predict-protein-structure-622…\", \"url\": \"https://www.wsj.com/science/nobel-prize-in-chemistry-awarded-to-trio-for-cracking-code-to-predict-protein-structure-62295a7d\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.wsj.com/tech/ai/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-world-b127da71\", \"title\": \"https://www.wsj.com/tech/ai/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-wor…\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.wsj.com/public/resources/documents/U9AKwHSdzNii9VLVoe2o-WSJNewsPaper-10-10-2024.pdf\", \"title\": \"https://www.wsj.com/public/resources/documents/U9AKwHSdzNii9VLVoe2o-WSJNewsPaper-10-10-2024.pdf\", \"result_item_id\": \"r2\", \"providers\": [\"xai\"]}, {\"id\": \"c3\", \"url\": \"https://www.wsj.com/public/resources/documents/YkVkcIFvt1lhyGHzCmpk-WSJNewsPaper-10-8-2025.pdf\", \"title\": \"https://www.wsj.com/public/resources/documents/YkVkcIFvt1lhyGHzCmpk-WSJNewsPaper-10-8-2025.pdf\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://www.wsj.com/tech/ai/yann-lecun-ai-meta-aa59e2f5\", \"title\": \"https://www.wsj.com/tech/ai/yann-lecun-ai-meta-aa59e2f5\", \"result_item_id\": \"r4\", \"providers\": [\"xai\"]}, {\"id\": \"c5\", \"url\": \"https://cn.wsj.com/articles/ai教父-辛頓獲得諾貝爾獎-近年來一直警告機器可能統治世界-6f543cc5\", \"title\": \"https://cn.wsj.com/articles/ai教父-辛頓獲得諾貝爾獎-近年來一直警告機器可能統治世界-6f543cc5\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://www.wsj.com/opinion/2024-was-a-year-of-excellence-ironic-and-otherwise-awards-tech-journalism-econ-education-sports-0a4420db\", \"title\": \"https://www.wsj.com/opinion/2024-was-a-year-of-excellence-ironic-and-otherwise-awards-tech-journalism-econ-education-sp…\", \"result_item_id\": \"r6\", \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://www.wsj.com/public/resources/documents/LKm4CO40tO1rZUvD4vDr-WSJNewsPaper-10-9-2024.pdf\", \"title\": \"https://www.wsj.com/public/resources/documents/LKm4CO40tO1rZUvD4vDr-WSJNewsPaper-10-9-2024.pdf\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://cn.wsj.com/articles/ai教父-辛顿获得诺贝尔奖-近年来一直警告机器可能统治世界-c91993cc\", \"title\": \"https://cn.wsj.com/articles/ai教父-辛顿获得诺贝尔奖-近年来一直警告机器可能统治世界-c91993cc\", \"result_item_id\": \"r8\", \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://www.wsj.com/public/resources/documents/ySndN5vSiMUsyJ8rAOaj-WSJNewsPaper-10-15-2024.pdf\", \"title\": \"https://www.wsj.com/public/resources/documents/ySndN5vSiMUsyJ8rAOaj-WSJNewsPaper-10-15-2024.pdf\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.wsj.com/science/nobel-prize-in-chemistry-awarded-to-trio-for-cracking-code-to-predict-protein-structure-62295a7d\", \"title\": \"https://www.wsj.com/science/nobel-prize-in-chemistry-awarded-to-trio-for-cracking-code-to-predict-protein-structure-622…\", \"result_item_id\": \"r10\", \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7\", \"title\": \"https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7\", \"result_item_id\": null, \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"470fb3e477e9e40d\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"4010c8679a59e474\", \"kind\": \"fetch\", \"status\": \"ok\", \"url\": \"https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7\", \"final_url\": \"https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7\", \"title\": \"AI Pioneers John Hopfield and Geoffrey Hinton Win Nobel Prize in Physics - WSJ\", \"provider\": \"firecrawl\", \"content_preview\": \"Skip to Main Content\\n\\nSkip to...\\n\\nSelect\\n\\n- What to Read Next\\n- Most Popular News\\n- Most Popular Opinion\\n- Recommended Videos\\n\\n[FTSE 100\\\\\\\\\\n\\\\\\\\\\n10785.48\\\\\\\\\\n\\\\\\\\\\n0.57%](https://www.wsj.com/market-data/quotes/index/UK/UKX)\\n\\n[DAX\\\\\\\\\\n\\\\\\\\\\n25220.58\\\\\\\\\\n\\\\\\\\\\n-0.31%](https://www.wsj.com/market-data/quotes/index/DX/DAX)\\n\\n[CAC 40\\\\\\\\\\n\\\\\\\\\\n7896.83\\\\\\\\\\n\\\\\\\\\\n0.30%](https://www.wsj.com/market-data/quotes/index/FR/PX1)\\n\\n[SX5P\\\\\\\\\\n\\\\\\\\\\n5344.40\\\\\\\\\\n\\\\\\\\\\n-0.17%](https://www.wsj.com/market-data/quotes/index/XX/SX5P)\\n\\n[FTSE MIB\\\\\\\\\\n\\\\\\\\\\n49652.26\\\\\\\\\\n\\\\\\\\\\n-0.20%](https://www.wsj.com/market-data/quotes/index/IT/I945)\\n\\n[IBEX 35\\\\\\\\\\n\\\\\\\\\\n19323.10\\\\\\\\\\n\\\\\\\\\\n0.48%](https://www.wsj.com/market-data/quotes/index/XX/IBEX)\\n\\n[FTSE 250\\\\\\\\\\n\\\\\\\\\\n24347.04\\\\\\\\\\n\\\\\\\\\\n-0.06%](https://www.wsj.com/market-data/quotes/index/UK/FTSE%20UK/MCX)\\n\\nAdvertisement\\n\\nThis copy is for your personal, non-commercial use only. Distribution and use of this material are governed by\\nour Subscriber Agreement and by copyright law. For non-personal use or to order multiple copies, please contact\\nDo\", \"content_chars\": 10815, \"truncated\": true, \"errors\": [], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"4010c8679a59e474\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"4f4a79785b35f1fa\", \"kind\": \"search\", \"status\": \"partial\", \"query\": \"\\\"nobel-prize-in-physics-awarded-to-duo-for-machine-learning\\\" comments OR comment OR \\\"2024 Nobel Prize in Physics\\\" \\\"Wall Street Journal\\\"\", \"answer\": \"Relevant Wall Street Journal coverage of the 2024 Nobel Prize in Physics (Hopfield and Hinton, machine learning / neural networks). Public reader-comment threads on the article were not indexed; below are the closest on-page sources and quoted reactions.\\n\\n1. **Main news story** — “Geoffrey Hinton, Godfather of AI Who Expressed Alarm Over the Technology, Shares Nobel Prize in Physics” (Aylin Woodward, updated Oct. 8, 2024).  \\n   URL slug matches the query: [wsj.com/.../nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7](https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7).  \\n   Reports the prize to John J. Hopfield (Princeton) and Geoffrey E. Hinton (Toronto) for work enabling machine learning with artificial neural networks; not…\", \"answer_chars\": 4047, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 3, \"cross_provider_matches\": 2, \"pages_fetched\": 0, \"primary_citation_count\": 7}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 32558, \"warning_count\": 0, \"warnings\": [], \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}, {\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"anysearch\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_vertical\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 13, \"results\": [{\"id\": \"r1\", \"title\": \"AI Pioneers John Hopfield and Geoffrey Hinton Win Nobel Prize in ...\", \"url\": \"https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\", \"anysearch\"]}, {\"id\": \"r2\", \"title\": \"Hezbollah Launches More Than 100 Rockets Into Northern Israel\", \"url\": \"https://www.wsj.com/podcasts/minute-briefing/hezbollah-launches-more-than-100-rockets-into-northern-israel/f43164cf-1ecb-4139-8b52-ac3d175c1c94\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"2\", \"url\": \"https://www.wsj.com/tech/ai/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-world-b127da71\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"Is AI the Next Climate Change?\", \"url\": \"https://www.wsj.com/opinion/is-ai-the-next-climate-change-e7a11637\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"3\", \"url\": \"https://www.wsj.com/public/resources/documents/LKm4CO40tO1rZUvD4vDr-WSJNewsPaper-10-9-2024.pdf\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"Nobel Prize in Chemistry Awarded to Trio Who Used AI to Crack the Code of Prote…\", \"url\": \"https://www.wsj.com/science/nobel-prize-in-chemistry-awarded-to-trio-for-cracking-code-to-predict-protein-structure-62295a7d\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r7\", \"title\": \"5\", \"url\": \"https://www.wsj.com/tech/ai/yann-lecun-ai-meta-aa59e2f5\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"Valuing AI: Extreme Bubble, New Golden Era, or Both\", \"url\": \"https://trk.wsj.com/click/43920879.97682/aHR0cHM6Ly93d3cuZ21vLmNvbS9hbWVyaWNhcy9yZXNlYXJjaC1saWJyYXJ5L3ZhbHVpbmctYWktZXh0cmVtZS1idWJibGUtbmV3LWdvbGRlbi1lcmEtb3ItYm90aF92aWV3cG9pbnRzLz9tb2Q9ZGplbU1hcmtldHNBTQ/67364c72111e4b664c191a41C452e2228\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"6\", \"url\": \"https://cn.wsj.com/articles/ai教父-辛顿获得诺贝尔奖-近年来一直警告机器可能统治世界-c91993cc\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"TNB Tech Minute: Roblox Targeted by Short-Seller ...\", \"url\": \"https://www.wsj.com/podcasts/tech-news-briefing/tnb-tech-minute-roblox-targeted-by-short-seller-hindenburg/f11909f3-5ce1-4080-8bec-f3a9df0158a9\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7\", \"title\": \"AI Pioneers John Hopfield and Geoffrey Hinton Win Nobel Prize in ...\", \"result_item_id\": \"r1\", \"providers\": [\"xai\", \"tavily\", \"anysearch\"]}, {\"id\": \"c2\", \"url\": \"https://www.wsj.com/podcasts/minute-briefing/hezbollah-launches-more-than-100-rockets-into-northern-israel/f43164cf-1ecb-4139-8b52-ac3d175c1c94\", \"title\": \"Hezbollah Launches More Than 100 Rockets Into Northern Israel\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://www.wsj.com/tech/ai/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-world-b127da71\", \"title\": \"2\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://www.wsj.com/opinion/is-ai-the-next-climate-change-e7a11637\", \"title\": \"Is AI the Next Climate Change?\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://www.wsj.com/public/resources/documents/LKm4CO40tO1rZUvD4vDr-WSJNewsPaper-10-9-2024.pdf\", \"title\": \"3\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://www.wsj.com/science/nobel-prize-in-chemistry-awarded-to-trio-for-cracking-code-to-predict-protein-structure-62295a7d\", \"title\": \"Nobel Prize in Chemistry Awarded to Trio Who Used AI to Crack the Code of Prote…\", \"result_item_id\": \"r6\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://www.wsj.com/tech/ai/yann-lecun-ai-meta-aa59e2f5\", \"title\": \"5\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://trk.wsj.com/click/43920879.97682/aHR0cHM6Ly93d3cuZ21vLmNvbS9hbWVyaWNhcy9yZXNlYXJjaC1saWJyYXJ5L3ZhbHVpbmctYWktZXh0cmVtZS1idWJibGUtbmV3LWdvbGRlbi1lcmEtb3ItYm90aF92aWV3cG9pbnRzLz9tb2Q9ZGplbU1hcmtldHNBTQ/67364c72111e4b664c191a41C452e2228\", \"title\": \"Valuing AI: Extreme Bubble, New Golden Era, or Both\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://cn.wsj.com/articles/ai教父-辛顿获得诺贝尔奖-近年来一直警告机器可能统治世界-c91993cc\", \"title\": \"6\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.wsj.com/podcasts/tech-news-briefing/tnb-tech-minute-roblox-targeted-by-short-seller-hindenburg/f11909f3-5ce1-4080-8bec-f3a9df0158a9\", \"title\": \"TNB Tech Minute: Roblox Targeted by Short-Seller ...\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://www.wsj.com/science/nobel-physics-prize-2025-john-clarke-michel-devoret-john-martinis-67e47032\", \"title\": \"7\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://www.wsj.com/tech/ai/artificial-intelligence-questions-answered-137f116c\", \"title\": \"We Answered All Your Questions About AI - WSJ\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c13\", \"url\": \"https://www.wsj.com/tech/ai/move-37-ai-demis-hassabis-google-deepmind-alphago-ec832a41\", \"title\": \"Move 37 Is the Moment AI Changes Everything. It’s Suddenly Happening Everywhere…\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"4f4a79785b35f1fa\"}}",
+    "{\"result_id\": \"4010c8679a59e474\", \"kind\": \"fetch\", \"offset\": 0, \"returned\": 1, \"next_offset\": 1, \"data\": {\"content\": \"S\", \"content_chars\": 10815}, \"truncated\": true}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"ce6186044aed0df2\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"ce6186044aed0df2\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"c922250e79a52a7e\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7 Aylin Woodward October 8 2024 John Hopfield Geoffrey Hinton\", \"answer\": \"Relevant WSJ results on the 2024 Nobel Prize in Physics for John Hopfield and Geoffrey Hinton (machine learning / neural networks), including the Aylin Woodward piece:\\n\\n1. **Geoffrey Hinton, Godfather of AI Who Expressed Alarm Over the Technology, Shares Nobel Prize in Physics** — Aylin Woodward, updated Oct. 8, 2024. Hopfield (Princeton) and Hinton (University of Toronto) awarded for discoveries that underpin machine learning with artificial neural networks.  \\n   https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7\\n\\n2. **A Godfather of AI Just Won a Nobel. He Has Been Warning the Machines Could Take Over the World.** — Oct. 9, 2024. Follow-up on Hinton’s safety warnings after sharing the physics prize with Hopfield for neural-network work since …\", \"answer_chars\": 3321, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 2, \"cross_provider_matches\": 2, \"pages_fetched\": 0, \"primary_citation_count\": 12}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 19188, \"warning_count\": 1, \"warnings\": [\"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"anysearch\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_vertical\"}], \"result_count\": 10, \"citation_count\": 18, \"results\": [{\"id\": \"r1\", \"title\": \"\", \"url\": \"https://www.wsj.com/opinion/ai-cant-teach-ai-new-tricks-model-collapse-need-for-human-prose-a6d0648f\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"\", \"url\": \"https://www.wsj.com/news/author/aylin-woodward?page=2\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"\", \"url\": \"https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\", \"anysearch\"]}, {\"id\": \"r4\", \"title\": \"\", \"url\": \"https://www.wsj.com/podcasts/opinion-free-expression/thinking-with-machines/f285e811-adea-4eb9-a0a3-7c289c964d6b\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r5\", \"title\": \"\", \"url\": \"https://cn.wsj.com/articles/%E5%85%A9%E4%BD%8D%E7%A7%91%E5%AD%B8%E5%AE%B6%E5%9B%A0%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E6%96%B9%E9%9D%A2%E6%88%90%E5%B0%B1%E7%8D%B2%E8%AB%BE%E8%B2%9D%E7%88%BE%E7%89%A9%E7%90%86%E5%AD%B8%E7%8D%8E-58559881?eafs_enabled=false\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r6\", \"title\": \"\", \"url\": \"https://www.wsj.com/science/nobel-physics-prize-2025-john-clarke-michel-devoret-john-martinis-67e47032\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r7\", \"title\": \"\", \"url\": \"https://cn.wsj.com/articles/%E4%B8%A4%E4%BD%8D%E7%A7%91%E5%AD%A6%E5%AE%B6%E5%9B%A0%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%96%B9%E9%9D%A2%E6%88%90%E5%B0%B1%E8%8E%B7%E8%AF%BA%E8%B4%9D%E5%B0%94%E7%89%A9%E7%90%86%E5%AD%A6%E5%A5%96-fe183788?eafs_enabled=false\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r8\", \"title\": \"\", \"url\": \"https://www.wsj.com/tech/ai/yann-lecun-ai-meta-aa59e2f5\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r9\", \"title\": \"\", \"url\": \"https://www.wsj.com/science/space-astronomy/nasa-moon-landings-2024-9103f9ad\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r10\", \"title\": \"\", \"url\": \"https://www.wsj.com/public/resources/documents/U9AKwHSdzNii9VLVoe2o-WSJNewsPaper-10-10-2024.pdf\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.wsj.com/opinion/ai-cant-teach-ai-new-tricks-model-collapse-need-for-human-prose-a6d0648f\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.wsj.com/news/author/aylin-woodward?page=2\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\", \"tavily\", \"anysearch\"]}, {\"id\": \"c4\", \"url\": \"https://www.wsj.com/podcasts/opinion-free-expression/thinking-with-machines/f285e811-adea-4eb9-a0a3-7c289c964d6b\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"xai\"]}, {\"id\": \"c5\", \"url\": \"https://cn.wsj.com/articles/%E5%85%A9%E4%BD%8D%E7%A7%91%E5%AD%B8%E5%AE%B6%E5%9B%A0%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E6%96%B9%E9%9D%A2%E6%88%90%E5%B0%B1%E7%8D%B2%E8%AB%BE%E8%B2%9D%E7%88%BE%E7%89%A9%E7%90%86%E5%AD%B8%E7%8D%8E-58559881?eafs_enabled=false\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"tavily\"]}, {\"id\": \"c6\", \"url\": \"https://www.wsj.com/science/nobel-physics-prize-2025-john-clarke-michel-devoret-john-martinis-67e47032\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://cn.wsj.com/articles/%E4%B8%A4%E4%BD%8D%E7%A7%91%E5%AD%A6%E5%AE%B6%E5%9B%A0%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%96%B9%E9%9D%A2%E6%88%90%E5%B0%B1%E8%8E%B7%E8%AF%BA%E8%B4%9D%E5%B0%94%E7%89%A9%E7%90%86%E5%AD%A6%E5%A5%96-fe183788?eafs_enabled=false\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"tavily\"]}, {\"id\": \"c8\", \"url\": \"https://www.wsj.com/tech/ai/yann-lecun-ai-meta-aa59e2f5\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://www.wsj.com/science/space-astronomy/nasa-moon-landings-2024-9103f9ad\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"tavily\"]}, {\"id\": \"c10\", \"url\": \"https://www.wsj.com/public/resources/documents/U9AKwHSdzNii9VLVoe2o-WSJNewsPaper-10-10-2024.pdf\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://www.wsj.com/science/nobel-prize-in-chemistry-awarded-to-trio-for-cracking-code-to-predict-protein-structure-62295a7d\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://www.wsj.com/tech/ai/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-world-b127da71\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://www.wsj.com/news/author/aylin-woodward\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://www.wsj.com/podcasts/google-news-update/why-one-ai-godfather-says-ai-is-dumber-than-a-cat/1ba5b830-032f-41f3-a215-8ba161b64af0\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://www.wsj.com/public/resources/documents/LKm4CO40tO1rZUvD4vDr-WSJNewsPaper-10-9-2024.pdf\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7?eafs_enabled=false\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c17\", \"url\": \"https://www.wsj.com/science\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c18\", \"url\": \"https://www.wsj.com/us-news/solar-eclipse-2024-photos-97d1d6ba\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"c922250e79a52a7e\"}}"
+  ],
+  "answer": "找到的《华尔街日报》（WSJ）文章页面：\n\n- 标题：**AI Pioneers John Hopfield and Geoffrey Hinton Win Nobel Prize in Physics**\n- 作者：Aylin Woodward\n- 日期：2024 年 10 月 8 日（更新）\n- 内容：John Hopfield 与 Geoffrey Hinton 因对人工神经网络和机器学习的奠基性贡献，获得 2024 年诺贝尔物理学奖。\n\n原始链接：  \nhttps://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7\n\n我没有在可访问页面内容中读到读者评论，因此没有引用评论原句。",
+  "observation": {
+    "id": "paywall-wsj",
+    "answer": "找到的《华尔街日报》（WSJ）文章页面：\n\n- 标题：**AI Pioneers John Hopfield and Geoffrey Hinton Win Nobel Prize in Physics**\n- 作者：Aylin Woodward\n- 日期：2024 年 10 月 8 日（更新）\n- 内容：John Hopfield 与 Geoffrey Hinton 因对人工神经网络和机器学习的奠基性贡献，获得 2024 年诺贝尔物理学奖。\n\n原始链接：  \nhttps://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7\n\n我没有在可访问页面内容中读到读者评论，因此没有引用评论原句。",
+    "results": [
+      {
+        "url": "https://www.wsj.com/tech/ai/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-world-b127da71",
+        "title": "https://www.wsj.com/tech/ai/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-wor…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/public/resources/documents/U9AKwHSdzNii9VLVoe2o-WSJNewsPaper-10-10-2024.pdf",
+        "title": "https://www.wsj.com/public/resources/documents/U9AKwHSdzNii9VLVoe2o-WSJNewsPaper-10-10-2024.pdf",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/public/resources/documents/YkVkcIFvt1lhyGHzCmpk-WSJNewsPaper-10-8-2025.pdf",
+        "title": "https://www.wsj.com/public/resources/documents/YkVkcIFvt1lhyGHzCmpk-WSJNewsPaper-10-8-2025.pdf",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/tech/ai/yann-lecun-ai-meta-aa59e2f5",
+        "title": "https://www.wsj.com/tech/ai/yann-lecun-ai-meta-aa59e2f5",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://cn.wsj.com/articles/ai教父-辛頓獲得諾貝爾獎-近年來一直警告機器可能統治世界-6f543cc5",
+        "title": "https://cn.wsj.com/articles/ai教父-辛頓獲得諾貝爾獎-近年來一直警告機器可能統治世界-6f543cc5",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/opinion/2024-was-a-year-of-excellence-ironic-and-otherwise-awards-tech-journalism-econ-education-sports-0a4420db",
+        "title": "https://www.wsj.com/opinion/2024-was-a-year-of-excellence-ironic-and-otherwise-awards-tech-journalism-econ-education-sp…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/public/resources/documents/LKm4CO40tO1rZUvD4vDr-WSJNewsPaper-10-9-2024.pdf",
+        "title": "https://www.wsj.com/public/resources/documents/LKm4CO40tO1rZUvD4vDr-WSJNewsPaper-10-9-2024.pdf",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://cn.wsj.com/articles/ai教父-辛顿获得诺贝尔奖-近年来一直警告机器可能统治世界-c91993cc",
+        "title": "https://cn.wsj.com/articles/ai教父-辛顿获得诺贝尔奖-近年来一直警告机器可能统治世界-c91993cc",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/public/resources/documents/ySndN5vSiMUsyJ8rAOaj-WSJNewsPaper-10-15-2024.pdf",
+        "title": "https://www.wsj.com/public/resources/documents/ySndN5vSiMUsyJ8rAOaj-WSJNewsPaper-10-15-2024.pdf",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/nobel-prize-in-chemistry-awarded-to-trio-for-cracking-code-to-predict-protein-structure-62295a7d",
+        "title": "https://www.wsj.com/science/nobel-prize-in-chemistry-awarded-to-trio-for-cracking-code-to-predict-protein-structure-622…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/tech/ai/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-world-b127da71",
+        "title": "https://www.wsj.com/tech/ai/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-wor…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/public/resources/documents/U9AKwHSdzNii9VLVoe2o-WSJNewsPaper-10-10-2024.pdf",
+        "title": "https://www.wsj.com/public/resources/documents/U9AKwHSdzNii9VLVoe2o-WSJNewsPaper-10-10-2024.pdf",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/public/resources/documents/YkVkcIFvt1lhyGHzCmpk-WSJNewsPaper-10-8-2025.pdf",
+        "title": "https://www.wsj.com/public/resources/documents/YkVkcIFvt1lhyGHzCmpk-WSJNewsPaper-10-8-2025.pdf",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/tech/ai/yann-lecun-ai-meta-aa59e2f5",
+        "title": "https://www.wsj.com/tech/ai/yann-lecun-ai-meta-aa59e2f5",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://cn.wsj.com/articles/ai教父-辛頓獲得諾貝爾獎-近年來一直警告機器可能統治世界-6f543cc5",
+        "title": "https://cn.wsj.com/articles/ai教父-辛頓獲得諾貝爾獎-近年來一直警告機器可能統治世界-6f543cc5",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/opinion/2024-was-a-year-of-excellence-ironic-and-otherwise-awards-tech-journalism-econ-education-sports-0a4420db",
+        "title": "https://www.wsj.com/opinion/2024-was-a-year-of-excellence-ironic-and-otherwise-awards-tech-journalism-econ-education-sp…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/public/resources/documents/LKm4CO40tO1rZUvD4vDr-WSJNewsPaper-10-9-2024.pdf",
+        "title": "https://www.wsj.com/public/resources/documents/LKm4CO40tO1rZUvD4vDr-WSJNewsPaper-10-9-2024.pdf",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://cn.wsj.com/articles/ai教父-辛顿获得诺贝尔奖-近年来一直警告机器可能统治世界-c91993cc",
+        "title": "https://cn.wsj.com/articles/ai教父-辛顿获得诺贝尔奖-近年来一直警告机器可能统治世界-c91993cc",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/public/resources/documents/ySndN5vSiMUsyJ8rAOaj-WSJNewsPaper-10-15-2024.pdf",
+        "title": "https://www.wsj.com/public/resources/documents/ySndN5vSiMUsyJ8rAOaj-WSJNewsPaper-10-15-2024.pdf",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/nobel-prize-in-chemistry-awarded-to-trio-for-cracking-code-to-predict-protein-structure-62295a7d",
+        "title": "https://www.wsj.com/science/nobel-prize-in-chemistry-awarded-to-trio-for-cracking-code-to-predict-protein-structure-622…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7",
+        "title": "https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7",
+        "title": "AI Pioneers John Hopfield and Geoffrey Hinton Win Nobel Prize in ...",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/podcasts/minute-briefing/hezbollah-launches-more-than-100-rockets-into-northern-israel/f43164cf-1ecb-4139-8b52-ac3d175c1c94",
+        "title": "Hezbollah Launches More Than 100 Rockets Into Northern Israel",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/tech/ai/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-world-b127da71",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/opinion/is-ai-the-next-climate-change-e7a11637",
+        "title": "Is AI the Next Climate Change?",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/public/resources/documents/LKm4CO40tO1rZUvD4vDr-WSJNewsPaper-10-9-2024.pdf",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/nobel-prize-in-chemistry-awarded-to-trio-for-cracking-code-to-predict-protein-structure-62295a7d",
+        "title": "Nobel Prize in Chemistry Awarded to Trio Who Used AI to Crack the Code of Prote…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/tech/ai/yann-lecun-ai-meta-aa59e2f5",
+        "title": "5",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://trk.wsj.com/click/43920879.97682/aHR0cHM6Ly93d3cuZ21vLmNvbS9hbWVyaWNhcy9yZXNlYXJjaC1saWJyYXJ5L3ZhbHVpbmctYWktZXh0cmVtZS1idWJibGUtbmV3LWdvbGRlbi1lcmEtb3ItYm90aF92aWV3cG9pbnRzLz9tb2Q9ZGplbU1hcmtldHNBTQ/67364c72111e4b664c191a41C452e2228",
+        "title": "Valuing AI: Extreme Bubble, New Golden Era, or Both",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://cn.wsj.com/articles/ai教父-辛顿获得诺贝尔奖-近年来一直警告机器可能统治世界-c91993cc",
+        "title": "6",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/podcasts/tech-news-briefing/tnb-tech-minute-roblox-targeted-by-short-seller-hindenburg/f11909f3-5ce1-4080-8bec-f3a9df0158a9",
+        "title": "TNB Tech Minute: Roblox Targeted by Short-Seller ...",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7",
+        "title": "AI Pioneers John Hopfield and Geoffrey Hinton Win Nobel Prize in ...",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/podcasts/minute-briefing/hezbollah-launches-more-than-100-rockets-into-northern-israel/f43164cf-1ecb-4139-8b52-ac3d175c1c94",
+        "title": "Hezbollah Launches More Than 100 Rockets Into Northern Israel",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/tech/ai/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-world-b127da71",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/opinion/is-ai-the-next-climate-change-e7a11637",
+        "title": "Is AI the Next Climate Change?",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/public/resources/documents/LKm4CO40tO1rZUvD4vDr-WSJNewsPaper-10-9-2024.pdf",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/nobel-prize-in-chemistry-awarded-to-trio-for-cracking-code-to-predict-protein-structure-62295a7d",
+        "title": "Nobel Prize in Chemistry Awarded to Trio Who Used AI to Crack the Code of Prote…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/tech/ai/yann-lecun-ai-meta-aa59e2f5",
+        "title": "5",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://trk.wsj.com/click/43920879.97682/aHR0cHM6Ly93d3cuZ21vLmNvbS9hbWVyaWNhcy9yZXNlYXJjaC1saWJyYXJ5L3ZhbHVpbmctYWktZXh0cmVtZS1idWJibGUtbmV3LWdvbGRlbi1lcmEtb3ItYm90aF92aWV3cG9pbnRzLz9tb2Q9ZGplbU1hcmtldHNBTQ/67364c72111e4b664c191a41C452e2228",
+        "title": "Valuing AI: Extreme Bubble, New Golden Era, or Both",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://cn.wsj.com/articles/ai教父-辛顿获得诺贝尔奖-近年来一直警告机器可能统治世界-c91993cc",
+        "title": "6",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/podcasts/tech-news-briefing/tnb-tech-minute-roblox-targeted-by-short-seller-hindenburg/f11909f3-5ce1-4080-8bec-f3a9df0158a9",
+        "title": "TNB Tech Minute: Roblox Targeted by Short-Seller ...",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/nobel-physics-prize-2025-john-clarke-michel-devoret-john-martinis-67e47032",
+        "title": "7",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/tech/ai/artificial-intelligence-questions-answered-137f116c",
+        "title": "We Answered All Your Questions About AI - WSJ",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/tech/ai/move-37-ai-demis-hassabis-google-deepmind-alphago-ec832a41",
+        "title": "Move 37 Is the Moment AI Changes Everything. It’s Suddenly Happening Everywhere…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/opinion/ai-cant-teach-ai-new-tricks-model-collapse-need-for-human-prose-a6d0648f",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/news/author/aylin-woodward?page=2",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/podcasts/opinion-free-expression/thinking-with-machines/f285e811-adea-4eb9-a0a3-7c289c964d6b",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://cn.wsj.com/articles/%E5%85%A9%E4%BD%8D%E7%A7%91%E5%AD%B8%E5%AE%B6%E5%9B%A0%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E6%96%B9%E9%9D%A2%E6%88%90%E5%B0%B1%E7%8D%B2%E8%AB%BE%E8%B2%9D%E7%88%BE%E7%89%A9%E7%90%86%E5%AD%B8%E7%8D%8E-58559881?eafs_enabled=false",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/nobel-physics-prize-2025-john-clarke-michel-devoret-john-martinis-67e47032",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://cn.wsj.com/articles/%E4%B8%A4%E4%BD%8D%E7%A7%91%E5%AD%A6%E5%AE%B6%E5%9B%A0%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%96%B9%E9%9D%A2%E6%88%90%E5%B0%B1%E8%8E%B7%E8%AF%BA%E8%B4%9D%E5%B0%94%E7%89%A9%E7%90%86%E5%AD%A6%E5%A5%96-fe183788?eafs_enabled=false",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/tech/ai/yann-lecun-ai-meta-aa59e2f5",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/space-astronomy/nasa-moon-landings-2024-9103f9ad",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/public/resources/documents/U9AKwHSdzNii9VLVoe2o-WSJNewsPaper-10-10-2024.pdf",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/opinion/ai-cant-teach-ai-new-tricks-model-collapse-need-for-human-prose-a6d0648f",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/news/author/aylin-woodward?page=2",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/podcasts/opinion-free-expression/thinking-with-machines/f285e811-adea-4eb9-a0a3-7c289c964d6b",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://cn.wsj.com/articles/%E5%85%A9%E4%BD%8D%E7%A7%91%E5%AD%B8%E5%AE%B6%E5%9B%A0%E6%A9%9F%E5%99%A8%E5%AD%B8%E7%BF%92%E6%96%B9%E9%9D%A2%E6%88%90%E5%B0%B1%E7%8D%B2%E8%AB%BE%E8%B2%9D%E7%88%BE%E7%89%A9%E7%90%86%E5%AD%B8%E7%8D%8E-58559881?eafs_enabled=false",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/nobel-physics-prize-2025-john-clarke-michel-devoret-john-martinis-67e47032",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://cn.wsj.com/articles/%E4%B8%A4%E4%BD%8D%E7%A7%91%E5%AD%A6%E5%AE%B6%E5%9B%A0%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E6%96%B9%E9%9D%A2%E6%88%90%E5%B0%B1%E8%8E%B7%E8%AF%BA%E8%B4%9D%E5%B0%94%E7%89%A9%E7%90%86%E5%AD%A6%E5%A5%96-fe183788?eafs_enabled=false",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/tech/ai/yann-lecun-ai-meta-aa59e2f5",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/space-astronomy/nasa-moon-landings-2024-9103f9ad",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/public/resources/documents/U9AKwHSdzNii9VLVoe2o-WSJNewsPaper-10-10-2024.pdf",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/nobel-prize-in-chemistry-awarded-to-trio-for-cracking-code-to-predict-protein-structure-62295a7d",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/tech/ai/a-godfather-of-ai-just-won-a-nobel-he-has-been-warning-the-machines-could-take-over-the-world-b127da71",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/news/author/aylin-woodward",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/podcasts/google-news-update/why-one-ai-godfather-says-ai-is-dumber-than-a-cat/1ba5b830-032f-41f3-a215-8ba161b64af0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/public/resources/documents/LKm4CO40tO1rZUvD4vDr-WSJNewsPaper-10-9-2024.pdf",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7?eafs_enabled=false",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/science",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.wsj.com/us-news/solar-eclipse-2024-photos-97d1d6ba",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://www.wsj.com/science/nobel-prize-in-physics-awarded-to-duo-for-machine-learning-c9e4b0d7",
+        "content": "Skip to Main Content\n\nSkip to...\n\nSelect\n\n- What to Read Next\n- Most Popular News\n- Most Popular Opinion\n- Recommended Videos\n\n[FTSE 100\\\\\n\\\\\n10785.48\\\\\n\\\\\n0.57%](https://www.wsj.com/market-data/quotes/index/UK/UKX)\n\n[DAX\\\\\n\\\\\n25220.58\\\\\n\\\\\n-0.31%](https://www.wsj.com/market-data/quotes/index/DX/DAX)\n\n[CAC 40\\\\\n\\\\\n7896.83\\\\\n\\\\\n0.30%](https://www.wsj.com/market-data/quotes/index/FR/PX1)\n\n[SX5P\\\\\n\\\\\n5344.40\\\\\n\\\\\n-0.17%](https://www.wsj.com/market-data/quotes/index/XX/SX5P)\n\n[FTSE MIB\\\\\n\\\\\n49652.26\\\\\n\\\\\n-0.20%](https://www.wsj.com/market-data/quotes/index/IT/I945)\n\n[IBEX 35\\\\\n\\\\\n19323.10\\\\\n\\\\\n0.48%](https://www.wsj.com/market-data/quotes/index/XX/IBEX)\n\n[FTSE 250\\\\\n\\\\\n24347.04\\\\\n\\\\\n-0.06%](https://www.wsj.com/market-data/quotes/index/UK/FTSE%20UK/MCX)\n\nAdvertisement\n\nThis copy is for your personal, non-commercial use only. Distribution and use of this material are governed by\nour Subscriber Agreement and by copyright law. For non-personal use or to order multiple copies, please contact\nDoS",
+        "errors": []
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:23:57.800852+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "paywall-wsj",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "wsj-nobel"
+        ],
+        "required": 1
+      },
+      "reading": {
+        "status": "fail"
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "reading:fail"
+      ]
+    },
+    "expected_access": "paywall",
+    "observed_failure": null,
+    "algorithm_miss": true,
+    "grader": "v2"
+  }
+}

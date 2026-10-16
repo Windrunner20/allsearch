@@ -1,0 +1,375 @@
+{
+  "id": "telegram-public-preview",
+  "query": "Public Telegram web preview of the official Telegram channel",
+  "returncode": 0,
+  "elapsed_ms": 161637,
+  "efficiency": {
+    "tool_calls": {
+      "search": 2,
+      "fetch": 3
+    },
+    "total_calls": 5,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 0,
+    "errors": 0
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": true,
+        "include_domains": [
+          "telegram.org",
+          "t.me"
+        ],
+        "max_results": 8,
+        "mode": "web",
+        "query": "site:t.me/s/telegram official Telegram channel public web preview Telegram official channel @telegram referral",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 23241
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Verify channel title, username, verification status, description, and whether this is a public web preview.",
+        "fresh": true,
+        "max_chars": 12000,
+        "url": "https://t.me/s/telegram"
+      },
+      "is_error": false,
+      "ms": 10964
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Verify Telegram's official channel identity or link from the official Telegram website.",
+        "fresh": true,
+        "max_chars": 12000,
+        "url": "https://telegram.org/tour/channels"
+      },
+      "is_error": false,
+      "ms": 10963
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Verify Telegram public username links and web preview syntax, especially t.me/s/<username>.",
+        "fresh": true,
+        "max_chars": 12000,
+        "url": "https://core.telegram.org/api/links"
+      },
+      "is_error": false,
+      "ms": 10964
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": true,
+        "include_domains": [
+          "telegram.org",
+          "t.me"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "Telegram official channel Telegram News @telegram \"The official Telegram on Telegram\" public preview",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 24515
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.0\", \"result_id\": \"74491b96d2e6d7c1\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:t.me/s/telegram official Telegram channel public web preview Telegram official channel @telegram referral\", \"answer\": \"Results from the search, focused on the official channel preview and related docs:\\n\\n1. **Telegram News – @telegram (public web preview)**  \\n   https://t.me/s/telegram?before=371  \\n   Public preview of the verified channel “Telegram News” (@telegram): “The official Telegram on Telegram.” About 9.33M subscribers. Includes a December update post on affiliate programs and unique referral links. [web:4]\\n\\n2. **Telegram News – @telegram (later preview)**  \\n   https://t.me/s/telegram?before=456  \\n   Same official channel web view (@telegram, verified, ~9.32M subscribers), same bio. Product posts (communities, welcome messages, AI features). [web:8]\\n\\n3. **Telegram News – @TELEGRAM**  \\n   https://t.me/s/TELEGRAM?before=377  \\n   Same public channel page (username is case-insensitive), verified, ~9.3…\", \"answer_chars\": 2520, \"evidence\": {\"unique_urls\": 8, \"unique_domains\": 2, \"cross_provider_matches\": 0, \"pages_fetched\": 2, \"primary_citation_count\": 13}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 23163, \"warning_count\": 1, \"warnings\": [\"auto_scrape_truncated\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 8, \"citation_count\": 21, \"results\": [{\"id\": \"r1\", \"title\": \"https://t.me/s/telegram?before=380\", \"url\": \"https://t.me/s/telegram?before=380\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"PSArips 🏴‍☠️ | The Official Telegram Channel – Telegram\", \"url\": \"https://t.me/s/psarips/788\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://t.me/share/url?url=https%3A%2F%2Ftelegram.org%2Fblog%2Fdirect-to-channe…\", \"url\": \"https://t.me/share/url?text=Met+de+update+van+vandaag+introduceren+we+nieuwe+manieren+voor+gebruikers+om+een+gesprek+te+starten+met+hun+favoriete+kanaal.+Ook+kun+je+nu+effectiever+door+onderwerpen+bladeren%2C+spraakberichten+knippen+voordat+ze+worden+verzonden%2C+foto%27s+in+hogere+kwaliteit+versturen+--+en+meer&url=https%3A%2F%2Ftelegram.org%2Fblog%2Fdirect-to-channel-trim-voice-and-more%2Fnl\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"NUSSU's Official Telegram Channel – Telegram\", \"url\": \"https://t.me/s/nushappenings?after=7991\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://t.me/s/telegaru?before=206\", \"url\": \"https://t.me/s/telegaru?before=206\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"WarRoom: Official Telegram Channel – Telegram\", \"url\": \"https://t.me/s/bannonwarroom?q=%23RudyStrong\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"https://core.telegram.org/constructor/webPage\", \"url\": \"https://core.telegram.org/constructor/webPage\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"PSArips 🏴‍☠️ | The Official Telegram Channel – Telegram\", \"url\": \"https://t.me/s/psarips?before=4905&q=%23Action\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://t.me/s/telegram?before=380\", \"title\": \"https://t.me/s/telegram?before=380\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://t.me/s/psarips/788\", \"title\": \"PSArips 🏴‍☠️ | The Official Telegram Channel – Telegram\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://t.me/share/url?text=Met+de+update+van+vandaag+introduceren+we+nieuwe+manieren+voor+gebruikers+om+een+gesprek+te+starten+met+hun+favoriete+kanaal.+Ook+kun+je+nu+effectiever+door+onderwerpen+bladeren%2C+spraakberichten+knippen+voordat+ze+worden+verzonden%2C+foto%27s+in+hogere+kwaliteit+versturen+--+en+meer&url=https%3A%2F%2Ftelegram.org%2Fblog%2Fdirect-to-channel-trim-voice-and-more%2Fnl\", \"title\": \"https://t.me/share/url?url=https%3A%2F%2Ftelegram.org%2Fblog%2Fdirect-to-channe…\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://t.me/s/nushappenings?after=7991\", \"title\": \"NUSSU's Official Telegram Channel – Telegram\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://t.me/s/telegaru?before=206\", \"title\": \"https://t.me/s/telegaru?before=206\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://t.me/s/bannonwarroom?q=%23RudyStrong\", \"title\": \"WarRoom: Official Telegram Channel – Telegram\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://core.telegram.org/constructor/webPage\", \"title\": \"https://core.telegram.org/constructor/webPage\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://t.me/s/psarips?before=4905&q=%23Action\", \"title\": \"PSArips 🏴‍☠️ | The Official Telegram Channel – Telegram\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://telegram.org/tour/channels?setln=id\", \"title\": \"https://telegram.org/tour/channels/?setln=id\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://core.telegram.org/api/links\", \"title\": \"https://core.telegram.org/api/links\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://t.me/share/url?text=Introducing+Reproducible+Apps%2C+Theme+Editor+2.0%2C+Send+When+Online+and+So+Much+More&url=https%3A%2F%2Ftelegram.org%2Fblog%2Fverifiable-apps-and-more\", \"title\": \"https://t.me/share/url?url=https%3A%2F%2Ftelegram.org%2Fblog%2Fverifiable-apps-…\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://t.me/s/telegram?before=371\", \"title\": \"https://t.me/s/telegram?before=371\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://t.me/s/telegram?before=456\", \"title\": \"https://t.me/s/telegram?before=456\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://t.me/s/TELEGRAM?before=377\", \"title\": \"https://t.me/s/TELEGRAM?before=377\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://telegram.org/tour/channels?setln=de\", \"title\": \"https://telegram.org/tour/channels/?setln=de\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://t.me/s/telegram?before=461\", \"title\": \"https://t.me/s/telegram?before=461\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://t.me/s/kunuzofficial?before=174698\", \"title\": \"https://t.me/s/kunuzofficial?before=174698\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://t.me/s/INTERENofficial?before=195\", \"title\": \"Official INTEREN Channel – Telegram\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c19\", \"url\": \"https://t.me/s/vajiramandraviofficial?before=19530\", \"title\": \"Vajiram and Ravi Official Channel – Telegram\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c20\", \"url\": \"https://www.t.me/s/NRG_Official_Channel?before=11718&q=%23techno\", \"title\": \"N.R.G Official Channel – Telegram\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c21\", \"url\": \"https://t.me/s/nusinformationtechnology?before=296&q=%23cybersecurity\", \"title\": \"NUS IT Official Telegram Channel – Telegram\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"74491b96d2e6d7c1\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"d37a3ff8f8cb6586\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://t.me/s/telegram\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"d37a3ff8f8cb6586\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"090dbc247b59a917\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://telegram.org/tour/channels\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"090dbc247b59a917\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"d93f09acc128be8a\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://core.telegram.org/api/links\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"d93f09acc128be8a\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"42f557784e6c977d\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"Telegram official channel Telegram News @telegram \\\"The official Telegram on Telegram\\\" public preview\", \"answer\": \"**Telegram News (@telegram)** is Telegram’s verified official channel. Public web preview: [t.me/s/telegram](https://t.me/s/telegram).\\n\\n**Profile (public preview)**  \\n- Name: Telegram News (blue check)  \\n- Handle: [@telegram](https://t.me/telegram)  \\n- About: “The official Telegram on Telegram. Much recursion. Very Telegram. Wow.”  \\n- Subscribers: about **9.33 million**  \\n- Media listed on the preview: 16 photos, 228 videos, 378 links  \\n\\nSource: public channel preview at [t.me/s/telegram](https://t.me/s/telegram). [[1]](https://t.me/s/telegram)\\n\\n**Recent public posts (newest shown first on the preview)**\\n\\n1. **August features — Welcome Messages** — Messages shown only to a new member when they join a group or channel. ~1.03M views. [t.me/telegram/455](https://t.me/telegram/455) [[1]](http…\", \"answer_chars\": 3334, \"evidence\": {\"unique_urls\": 3, \"unique_domains\": 2, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 3}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 24433, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}], \"result_count\": 3, \"citation_count\": 3, \"results\": [{\"id\": \"r1\", \"title\": \"1\", \"url\": \"https://t.me/s/telegram\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"2\", \"url\": \"https://telegram.org/blog\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r3\", \"title\": \"3\", \"url\": \"https://telegram.org/tour/channels?setln=de\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://t.me/s/telegram\", \"title\": \"1\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://telegram.org/blog\", \"title\": \"2\", \"result_item_id\": \"r2\", \"providers\": [\"xai\"]}, {\"id\": \"c3\", \"url\": \"https://telegram.org/tour/channels?setln=de\", \"title\": \"3\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"42f557784e6c977d\"}}"
+  ],
+  "answer": "官方 Telegram 频道是 **Telegram News (@telegram)**。\n\n公开网页预览：  \nhttps://t.me/s/telegram\n\n频道主页：  \nhttps://t.me/telegram\n\n预览页显示的频道简介为：“The official Telegram on Telegram. Much recursion. Very Telegram. Wow.”",
+  "observation": {
+    "id": "telegram-public-preview",
+    "answer": "官方 Telegram 频道是 **Telegram News (@telegram)**。\n\n公开网页预览：  \nhttps://t.me/s/telegram\n\n频道主页：  \nhttps://t.me/telegram\n\n预览页显示的频道简介为：“The official Telegram on Telegram. Much recursion. Very Telegram. Wow.”",
+    "results": [
+      {
+        "url": "https://t.me/s/telegram?before=380",
+        "title": "https://t.me/s/telegram?before=380",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/psarips/788",
+        "title": "PSArips 🏴‍☠️ | The Official Telegram Channel – Telegram",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/share/url?text=Met+de+update+van+vandaag+introduceren+we+nieuwe+manieren+voor+gebruikers+om+een+gesprek+te+starten+met+hun+favoriete+kanaal.+Ook+kun+je+nu+effectiever+door+onderwerpen+bladeren%2C+spraakberichten+knippen+voordat+ze+worden+verzonden%2C+foto%27s+in+hogere+kwaliteit+versturen+--+en+meer&url=https%3A%2F%2Ftelegram.org%2Fblog%2Fdirect-to-channel-trim-voice-and-more%2Fnl",
+        "title": "https://t.me/share/url?url=https%3A%2F%2Ftelegram.org%2Fblog%2Fdirect-to-channe…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/nushappenings?after=7991",
+        "title": "NUSSU's Official Telegram Channel – Telegram",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/telegaru?before=206",
+        "title": "https://t.me/s/telegaru?before=206",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/bannonwarroom?q=%23RudyStrong",
+        "title": "WarRoom: Official Telegram Channel – Telegram",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://core.telegram.org/constructor/webPage",
+        "title": "https://core.telegram.org/constructor/webPage",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/psarips?before=4905&q=%23Action",
+        "title": "PSArips 🏴‍☠️ | The Official Telegram Channel – Telegram",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/telegram?before=380",
+        "title": "https://t.me/s/telegram?before=380",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/psarips/788",
+        "title": "PSArips 🏴‍☠️ | The Official Telegram Channel – Telegram",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/share/url?text=Met+de+update+van+vandaag+introduceren+we+nieuwe+manieren+voor+gebruikers+om+een+gesprek+te+starten+met+hun+favoriete+kanaal.+Ook+kun+je+nu+effectiever+door+onderwerpen+bladeren%2C+spraakberichten+knippen+voordat+ze+worden+verzonden%2C+foto%27s+in+hogere+kwaliteit+versturen+--+en+meer&url=https%3A%2F%2Ftelegram.org%2Fblog%2Fdirect-to-channel-trim-voice-and-more%2Fnl",
+        "title": "https://t.me/share/url?url=https%3A%2F%2Ftelegram.org%2Fblog%2Fdirect-to-channe…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/nushappenings?after=7991",
+        "title": "NUSSU's Official Telegram Channel – Telegram",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/telegaru?before=206",
+        "title": "https://t.me/s/telegaru?before=206",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/bannonwarroom?q=%23RudyStrong",
+        "title": "WarRoom: Official Telegram Channel – Telegram",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://core.telegram.org/constructor/webPage",
+        "title": "https://core.telegram.org/constructor/webPage",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/psarips?before=4905&q=%23Action",
+        "title": "PSArips 🏴‍☠️ | The Official Telegram Channel – Telegram",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://telegram.org/tour/channels?setln=id",
+        "title": "https://telegram.org/tour/channels/?setln=id",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://core.telegram.org/api/links",
+        "title": "https://core.telegram.org/api/links",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/share/url?text=Introducing+Reproducible+Apps%2C+Theme+Editor+2.0%2C+Send+When+Online+and+So+Much+More&url=https%3A%2F%2Ftelegram.org%2Fblog%2Fverifiable-apps-and-more",
+        "title": "https://t.me/share/url?url=https%3A%2F%2Ftelegram.org%2Fblog%2Fverifiable-apps-…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/telegram?before=371",
+        "title": "https://t.me/s/telegram?before=371",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/telegram?before=456",
+        "title": "https://t.me/s/telegram?before=456",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/TELEGRAM?before=377",
+        "title": "https://t.me/s/TELEGRAM?before=377",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://telegram.org/tour/channels?setln=de",
+        "title": "https://telegram.org/tour/channels/?setln=de",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/telegram?before=461",
+        "title": "https://t.me/s/telegram?before=461",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/kunuzofficial?before=174698",
+        "title": "https://t.me/s/kunuzofficial?before=174698",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/INTERENofficial?before=195",
+        "title": "Official INTEREN Channel – Telegram",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/vajiramandraviofficial?before=19530",
+        "title": "Vajiram and Ravi Official Channel – Telegram",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.t.me/s/NRG_Official_Channel?before=11718&q=%23techno",
+        "title": "N.R.G Official Channel – Telegram",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/nusinformationtechnology?before=296&q=%23cybersecurity",
+        "title": "NUS IT Official Telegram Channel – Telegram",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/telegram",
+        "title": "1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://telegram.org/blog",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://telegram.org/tour/channels?setln=de",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://t.me/s/telegram",
+        "title": "1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://telegram.org/blog",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://telegram.org/tour/channels?setln=de",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://t.me/s/telegram",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://telegram.org/tour/channels",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://core.telegram.org/api/links",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:26:39.439650+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "telegram-public-preview",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "tg-preview"
+        ],
+        "required": 1
+      },
+      "reading": {
+        "status": "pass"
+      }
+    },
+    "task": {
+      "status": "pass",
+      "reasons": []
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": false,
+    "grader": "v2"
+  }
+}

@@ -1,0 +1,1134 @@
+{
+  "id": "hn-two-comments",
+  "query": "In the Hacker News discussion of SQLite as an application file format, read both the comment that rejects waiting on disk in the interface and the comment about Windows file-system snapshots",
+  "returncode": 124,
+  "elapsed_ms": 240018,
+  "efficiency": {
+    "tool_calls": {
+      "search": 4,
+      "fetch": 2,
+      "read_result": 1
+    },
+    "total_calls": 7,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 0,
+    "errors": 0
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "news.ycombinator.com"
+        ],
+        "max_results": 8,
+        "mode": "web",
+        "query": "site:news.ycombinator.com SQLite as an application file format \"Windows\" \"snapshots\" waiting on disk interface comment discussion",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 46073
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Find the exact comments in this Hacker News thread: one rejecting waiting on disk in the interface, and one discussing Windows file-system snapshots. Return comment text, author, and direct comment URLs if available.",
+        "fresh": false,
+        "max_chars": 50000,
+        "url": "https://news.ycombinator.com/item?id=40655974"
+      },
+      "is_error": false,
+      "ms": 722
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": [
+          "content"
+        ],
+        "limit": 1,
+        "max_bytes": 50000,
+        "offset": 0,
+        "result_id": "1ef5bea90f574c98"
+      },
+      "is_error": false,
+      "ms": 3
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "news.ycombinator.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:news.ycombinator.com/item?id=40655974 \"wait\" \"disk\" interface SQLite",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 48139
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "news.ycombinator.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:news.ycombinator.com \"waiting on disk\" interface SQLite",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 44237
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Extract all visible comments and identify exact comment IDs/authors containing: (1) rejecting waiting on disk in the interface, likely wording about interface not waiting on disk; (2) Windows file-system snapshots. Quote the original comments exactly.",
+        "fresh": false,
+        "max_chars": 100000,
+        "url": "https://news.ycombinator.com/item?id=40654734"
+      },
+      "is_error": false,
+      "ms": 90
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "news.ycombinator.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:news.ycombinator.com/item?id=40654734 Windows filesystem snapshots SQLite",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 27940
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.0\", \"result_id\": \"d92c460223003527\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:news.ycombinator.com SQLite as an application file format \\\"Windows\\\" \\\"snapshots\\\" waiting on disk interface comment discussion\", \"answer\": \"Relevant Hacker News threads matching SQLite as an application file format, Windows, snapshots, and disk/VFS discussion:\\n\\n1. **SQLite backups via filesystem snapshots (VSS on Windows)** — Comment thread on consistent point-in-time copies of SQLite (WAL/journal included). Covers LVM/`fsfreeze`, block snapshots, and VSS on Windows; argues crash recovery makes atomic snapshots safe if the snapshot is consistent.  \\n   https://news.ycombinator.com/item?id=43857834\\n\\n2. **SQLite as an application file format** — Discussion of `sqlite.org/appfileformat.html`: single-file, incrementally updatable documents (e.g. Audacity). Later comments flag user-facing problems with `-journal`/`-wal` sidecars (stale journal corruption, support confusion).  \\n   https://news.ycombinator.com/item?id=40655974\\n\\n3. **…\", \"answer_chars\": 2788, \"evidence\": {\"unique_urls\": 8, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 3, \"primary_citation_count\": 26}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 45991, \"warning_count\": 2, \"warnings\": [\"auto_scrape_truncated\", \"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 8, \"citation_count\": 34, \"results\": [{\"id\": \"r1\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=16479613\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=49937540\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=43857834\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=50052163\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=40655974\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r6\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=50063427\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/front?day=2026-10-15\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=50078691\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://news.ycombinator.com/item?id=16479613\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://news.ycombinator.com/item?id=49937540\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://news.ycombinator.com/item?id=43857834\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://news.ycombinator.com/item?id=50052163\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://news.ycombinator.com/item?id=40655974\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://news.ycombinator.com/item?id=50063427\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://news.ycombinator.com/front?day=2026-10-15\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://news.ycombinator.com/item?id=50078691\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://news.ycombinator.com/item?id=44671373\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://news.ycombinator.com/item?id=47534283\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://news.ycombinator.com/item?id=45585230\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://news.ycombinator.com/item?id=38823297\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://news.ycombinator.com/item?id=48954157\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://news.ycombinator.com/item?id=44673671\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://news.ycombinator.com/item?id=47888037\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://news.ycombinator.com/item?id=46234710\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://news.ycombinator.com/item?id=31387762\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://news.ycombinator.com/item?id=47676935\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://news.ycombinator.com/item?id=50009295\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"https://news.ycombinator.com/item?id=42238451\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"https://news.ycombinator.com/item?id=46893167\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"https://news.ycombinator.com/item?id=45132498\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c23\", \"url\": \"https://news.ycombinator.com/item?id=32305049\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c24\", \"url\": \"https://news.ycombinator.com/item?id=49519289\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c25\", \"url\": \"https://news.ycombinator.com/item?id=42965198\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c26\", \"url\": \"https://news.ycombinator.com/item?id=39797104\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c27\", \"url\": \"https://news.ycombinator.com/item?id=43682006\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c28\", \"url\": \"https://news.ycombinator.com/item?id=49415271\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c29\", \"url\": \"https://news.ycombinator.com/item?id=50039627\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c30\", \"url\": \"https://news.ycombinator.com/item?id=39139026\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c31\", \"url\": \"https://news.ycombinator.com/item?id=49729412\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c32\", \"url\": \"https://news.ycombinator.com/item?id=49802871\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c33\", \"url\": \"https://news.ycombinator.com/item?id=50109715\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c34\", \"url\": \"https://news.ycombinator.com/item?id=49848955\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"d92c460223003527\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"1ef5bea90f574c98\", \"kind\": \"fetch\", \"status\": \"ok\", \"url\": \"https://news.ycombinator.com/item?id=40655974\", \"final_url\": \"https://news.ycombinator.com/item?id=40655974\", \"title\": \"The killer feature for me with SQLite is as an application file format: https://... | Hacker News\", \"provider\": \"firecrawl\", \"content_preview\": \"|     |     |     |\\n| --- | --- | --- |\\n| |     |     |     |\\n| --- | --- | --- |\\n| [![](https://news.ycombinator.com/y18.svg)](https://news.ycombinator.com/) | **[Hacker News](https://news.ycombinator.com/news)** [new](https://news.ycombinator.com/newest) \\\\| [past](https://news.ycombinator.com/front) \\\\| [comments](https://news.ycombinator.com/newcomments) \\\\| [ask](https://news.ycombinator.com/ask) \\\\| [show](https://news.ycombinator.com/show) \\\\| [jobs](https://news.ycombinator.com/jobs) \\\\| [submit](https://news.ycombinator.com/submit) | [login](https://news.ycombinator.com/login?goto=item%3Fid%3D40655974) | |\\n\\n| |     |     |     |\\n| --- | --- | --- |\\n|  |  | [OskarS](https://news.ycombinator.com/user?id=OskarS) [on June 12, 2024](https://news.ycombinator.com/item?id=40655974) \\\\| [parent](https://news.ycombinator.com/item?id=40654734) \\\\| [context](https://news.ycombinator.com/item?id=40654734#40655974) \\\\| [favorite](https://news.ycombinator.com/fave?id=40655974) \\\\| on: [Discussion on w\", \"content_chars\": 49950, \"truncated\": true, \"errors\": [], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"1ef5bea90f574c98\", \"fields\": [\"content\"]}}",
+    "{\"result_id\": \"1ef5bea90f574c98\", \"kind\": \"fetch\", \"offset\": 0, \"returned\": 1, \"next_offset\": 1, \"data\": {\"content\": \"|\", \"content_chars\": 49950}, \"truncated\": true}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"46aba8577afee04d\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:news.ycombinator.com/item?id=40655974 \\\"wait\\\" \\\"disk\\\" interface SQLite\", \"answer\": \"No comment on [item 40655974](https://news.ycombinator.com/item?id=40655974) matches all of `\\\"wait\\\"`, `\\\"disk\\\"`, and `interface` together. The fetched thread (OskarS, 12 June 2024, under “Discussion on why SQLite is gaining popularity”) is about SQLite as an application file format. `\\\"wait\\\"` does not appear in that page text.\\n\\nClosest on-thread hits:\\n\\n1. **OskarS** — SQLite as an app file format ([sqlite.org/appfileformat.html](https://sqlite.org/appfileformat.html)); Audacity streams recordings into a SQLite project file.  \\n   https://news.ycombinator.com/item?id=40655974\\n\\n2. **fauigerzigerk** — WAL/journal sidecars can corrupt a user-visible DB if an old journal is left beside a copied database file; cites [howtocorrupt.html](https://www.sqlite.org/howtocorrupt.html) and an Audacity `.au…\", \"answer_chars\": 1632, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 3, \"primary_citation_count\": 26}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 48058, \"warning_count\": 3, \"warnings\": [\"auto_scrape_truncated\", \"auto_scrape_truncated\", \"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 34, \"results\": [{\"id\": \"r1\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=41085376\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=50045273\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=44565326\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=50046583\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/newest?n=31&next=50040625\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r6\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=50052163\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=42382126\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=50063124\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=48954157\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=46571272\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://news.ycombinator.com/item?id=41085376\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://news.ycombinator.com/item?id=50045273\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://news.ycombinator.com/item?id=44565326\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://news.ycombinator.com/item?id=50046583\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://news.ycombinator.com/newest?n=31&next=50040625\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://news.ycombinator.com/item?id=50052163\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://news.ycombinator.com/item?id=42382126\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://news.ycombinator.com/item?id=50063124\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://news.ycombinator.com/item?id=48954157\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://news.ycombinator.com/item?id=46571272\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://news.ycombinator.com/item?id=45781298\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://news.ycombinator.com/item?id=34818449\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://news.ycombinator.com/item?id=44671373\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://news.ycombinator.com/item?id=40654734\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://news.ycombinator.com/item?id=20837527\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://news.ycombinator.com/item?id=44565652\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://news.ycombinator.com/item?id=42965198\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://news.ycombinator.com/item?id=44671740\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://news.ycombinator.com/item?id=26765422\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"https://news.ycombinator.com/item?id=44569287\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"https://news.ycombinator.com/item?id=47874647\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"https://news.ycombinator.com/item?id=47888037\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c23\", \"url\": \"https://news.ycombinator.com/item?id=49124652\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c24\", \"url\": \"https://news.ycombinator.com/item?id=49272832\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c25\", \"url\": \"https://news.ycombinator.com/item?id=45508462\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c26\", \"url\": \"https://news.ycombinator.com/item?id=42965714\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c27\", \"url\": \"https://news.ycombinator.com/front?day=2026-10-15\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c28\", \"url\": \"https://news.ycombinator.com/item?id=40655974\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c29\", \"url\": \"https://news.ycombinator.com/item?id=38823297\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c30\", \"url\": \"https://news.ycombinator.com/item?id=20777183\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c31\", \"url\": \"https://news.ycombinator.com/item?id=22028581\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c32\", \"url\": \"https://news.ycombinator.com/item?id=49766611\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c33\", \"url\": \"https://news.ycombinator.com/item?id=50048312\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c34\", \"url\": \"https://news.ycombinator.com/item?id=49988641\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"46aba8577afee04d\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"e8ba324047a961c3\", \"kind\": \"search\", \"status\": \"partial\", \"query\": \"site:news.ycombinator.com \\\"waiting on disk\\\" interface SQLite\", \"answer\": \"Exact phrase `\\\"waiting on disk\\\"` did not show up in indexed Hacker News hits for SQLite. Closest relevant threads on the synchronous I/O interface, VFS, and disk waits:\\n\\n1. **Limbo rewrite / async I/O vs SQLite’s sync interface** — Comment argues a full rewrite is unnecessary because the cost is “leaving a thread idle while you wait for IO”; replies say the VFS is synchronous and that waiting for each read before the next hurts high-latency (e.g. S3) storage.  \\n   https://news.ycombinator.com/item?id=42382126 (thread: https://news.ycombinator.com/item?id=42378843)\\n\\n2. **Show HN: SQLite disk page explorer** — File-format visualization; comments on high-latency S3 VFS and why every seek matters.  \\n   https://news.ycombinator.com/item?id=42965198\\n\\n3. **Show HN: Turbolite – SQLite VFS from S3…\", \"answer_chars\": 2320, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 22}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 44159, \"warning_count\": 1, \"warnings\": [\"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}, {\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}, {\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 29, \"results\": [{\"id\": \"r1\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=45896707\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=50045273\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=49124652\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=49937540\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/front?day=2026-10-15\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=50052163\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=44671373\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=49985548\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=42965198\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=46571272\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://news.ycombinator.com/item?id=45896707\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://news.ycombinator.com/item?id=50045273\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://news.ycombinator.com/item?id=49124652\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://news.ycombinator.com/item?id=49937540\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://news.ycombinator.com/front?day=2026-10-15\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://news.ycombinator.com/item?id=50052163\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://news.ycombinator.com/item?id=44671373\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://news.ycombinator.com/item?id=49985548\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://news.ycombinator.com/item?id=42965198\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://news.ycombinator.com/item?id=46571272\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://news.ycombinator.com/item?id=44565652\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://news.ycombinator.com/item?id=47534283\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://news.ycombinator.com/threads?id=dumbledorf\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://news.ycombinator.com/item?id=38823297\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://news.ycombinator.com/item?id=48046144\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://news.ycombinator.com/item?id=48954157\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://news.ycombinator.com/item?id=50063427\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://news.ycombinator.com/item?id=43355824\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://news.ycombinator.com/item?id=42382126\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"https://news.ycombinator.com/item?id=40990641\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"https://news.ycombinator.com/item?id=47888037\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"https://news.ycombinator.com/item?id=48899847\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c23\", \"url\": \"https://news.ycombinator.com/item?id=45508462\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c24\", \"url\": \"https://news.ycombinator.com/item?id=45464927\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c25\", \"url\": \"https://news.ycombinator.com/item?id=46893167\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c26\", \"url\": \"https://news.ycombinator.com/item?id=47053548\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c27\", \"url\": \"https://news.ycombinator.com/item?id=47045459\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c28\", \"url\": \"https://news.ycombinator.com/item?id=50109715\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c29\", \"url\": \"https://news.ycombinator.com/item?id=49998350\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"e8ba324047a961c3\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"f4d6ac5338489b16\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://news.ycombinator.com/item?id=40654734\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"circuit_open\", \"message\": \"circuit open for provider firecrawl\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"f4d6ac5338489b16\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"0662828148a71220\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:news.ycombinator.com/item?id=40654734 Windows filesystem snapshots SQLite\", \"answer\": \"Relevant Hacker News threads and comments on SQLite and filesystem snapshots (including Windows/VSS). The given item is the June 2024 SQLite-popularity thread; snapshot discussion there is limited.\\n\\n1. **[Discussion on why SQLite is gaining popularity [audio]](https://news.ycombinator.com/item?id=40654734)** (168 points, June 12, 2024) — Main thread for `item?id=40654734`. Focus is SQLite as an app file format (WAL/journal pitfalls, git diffs). Mentions of Windows, filesystem structure, and “snapshot backup” appear in side comments (e.g. game state snapshots; Windows PE/self-update and crash or snapshot backup mid-replace), not a dedicated VSS discussion.\\n\\n2. **[It can't be done without fs specific snapshots…](https://news.ycombinator.com/item?id=43857834)** — Comment thread on consistent…\", \"answer_chars\": 3510, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 16}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 27862, \"warning_count\": 1, \"warnings\": [\"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}], \"result_count\": 10, \"citation_count\": 24, \"results\": [{\"id\": \"r1\", \"title\": \"https://news.ycombinator.com/item?id=44673671\", \"url\": \"https://news.ycombinator.com/item?id=44673671\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"Postgres isn't slow, your storage is | Hacker News\", \"url\": \"https://news.ycombinator.com/item?id=50052163\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://news.ycombinator.com/item?id=40654734\", \"url\": \"https://news.ycombinator.com/item?id=40654734\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"Make Tmux the OS | Hacker News\", \"url\": \"https://news.ycombinator.com/item?id=49937540\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://news.ycombinator.com/item?id=49272832\", \"url\": \"https://news.ycombinator.com/item?id=49272832\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"I think \\\"online\\\" here means \\\"loaded in a device\\\", as opposed to \\\"sitting in a s…\", \"url\": \"https://news.ycombinator.com/item?id=50054984\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"https://news.ycombinator.com/item?id=49519289\", \"url\": \"https://news.ycombinator.com/item?id=49519289\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"Ask HN: Who's still keeping a DOS machine up because the business depends on it…\", \"url\": \"https://news.ycombinator.com/item?id=49848955\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"https://news.ycombinator.com/item?id=43857834\", \"url\": \"https://news.ycombinator.com/item?id=43857834\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"I asked Meta’s Muse for its filesystem and it sent me 6.8GB | Hacker News\", \"url\": \"https://news.ycombinator.com/item?id=49802871\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://news.ycombinator.com/item?id=44673671\", \"title\": \"https://news.ycombinator.com/item?id=44673671\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://news.ycombinator.com/item?id=50052163\", \"title\": \"Postgres isn't slow, your storage is | Hacker News\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://news.ycombinator.com/item?id=40654734\", \"title\": \"https://news.ycombinator.com/item?id=40654734\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://news.ycombinator.com/item?id=49937540\", \"title\": \"Make Tmux the OS | Hacker News\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://news.ycombinator.com/item?id=49272832\", \"title\": \"https://news.ycombinator.com/item?id=49272832\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://news.ycombinator.com/item?id=50054984\", \"title\": \"I think \\\"online\\\" here means \\\"loaded in a device\\\", as opposed to \\\"sitting in a s…\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://news.ycombinator.com/item?id=49519289\", \"title\": \"https://news.ycombinator.com/item?id=49519289\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://news.ycombinator.com/item?id=49848955\", \"title\": \"Ask HN: Who's still keeping a DOS machine up because the business depends on it…\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://news.ycombinator.com/item?id=43857834\", \"title\": \"https://news.ycombinator.com/item?id=43857834\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://news.ycombinator.com/item?id=49802871\", \"title\": \"I asked Meta’s Muse for its filesystem and it sent me 6.8GB | Hacker News\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://news.ycombinator.com/item?id=49130369\", \"title\": \"https://news.ycombinator.com/item?id=49130369\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://news.ycombinator.com/item?id=39003944\", \"title\": \"https://news.ycombinator.com/item?id=39003944\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://news.ycombinator.com/item?id=50088935\", \"title\": \"https://news.ycombinator.com/item?id=50088935\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://news.ycombinator.com/item?id=27897427\", \"title\": \"https://news.ycombinator.com/item?id=27897427\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://news.ycombinator.com/item?id=32628367\", \"title\": \"https://news.ycombinator.com/item?id=32628367\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://news.ycombinator.com/item?id=48050873\", \"title\": \"https://news.ycombinator.com/item?id=48050873\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://news.ycombinator.com/item?id=46234710\", \"title\": \"https://news.ycombinator.com/item?id=46234710\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://news.ycombinator.com/item?id=42698170\", \"title\": \"https://news.ycombinator.com/item?id=42698170\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://news.ycombinator.com/item?id=42358471\", \"title\": \"https://news.ycombinator.com/item?id=42358471\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"https://news.ycombinator.com/item?id=50008427\", \"title\": \"https://news.ycombinator.com/item?id=50008427\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"https://news.ycombinator.com/front?day=2026-10-15\", \"title\": \"https://news.ycombinator.com/front?day=2026-10-15\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"https://news.ycombinator.com/item?id=50078691\", \"title\": \"Dutch tax authorities cancel Microsoft 365 cloud rollout and turn to open sourc…\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c23\", \"url\": \"https://news.ycombinator.com/item?id=49985548\", \"title\": \"Ask HN: What do you run on a $5 VPS that's worth keeping online 24/7? | Hacker …\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c24\", \"url\": \"https://news.ycombinator.com/item?id=49990876\", \"title\": \"Holos Commander – a Commander for power users | Hacker News\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"0662828148a71220\"}}"
+  ],
+  "answer": "",
+  "observation": {
+    "id": "hn-two-comments",
+    "answer": "",
+    "results": [
+      {
+        "url": "https://news.ycombinator.com/item?id=16479613",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49937540",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=43857834",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50052163",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=40655974",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50063427",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/front?day=2026-10-15",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50078691",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=16479613",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49937540",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=43857834",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50052163",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=40655974",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50063427",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/front?day=2026-10-15",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50078691",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=44671373",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47534283",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45585230",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=38823297",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48954157",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=44673671",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47888037",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46234710",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=31387762",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47676935",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50009295",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=42238451",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46893167",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45132498",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=32305049",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49519289",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=42965198",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=39797104",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=43682006",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49415271",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50039627",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=39139026",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49729412",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49802871",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50109715",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49848955",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=41085376",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50045273",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=44565326",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50046583",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/newest?n=31&next=50040625",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50052163",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=42382126",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50063124",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48954157",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46571272",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=41085376",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50045273",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=44565326",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50046583",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/newest?n=31&next=50040625",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50052163",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=42382126",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50063124",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48954157",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46571272",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45781298",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=34818449",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=44671373",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=40654734",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=20837527",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=44565652",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=42965198",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=44671740",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=26765422",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=44569287",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47874647",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47888037",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49124652",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49272832",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45508462",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=42965714",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/front?day=2026-10-15",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=40655974",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=38823297",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=20777183",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=22028581",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49766611",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50048312",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49988641",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45896707",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50045273",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49124652",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49937540",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/front?day=2026-10-15",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50052163",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=44671373",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49985548",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=42965198",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46571272",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45896707",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50045273",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49124652",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49937540",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/front?day=2026-10-15",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50052163",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=44671373",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49985548",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=42965198",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46571272",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=44565652",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47534283",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/threads?id=dumbledorf",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=38823297",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48046144",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48954157",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50063427",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=43355824",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=42382126",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=40990641",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47888037",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48899847",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45508462",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45464927",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46893167",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47053548",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47045459",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50109715",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49998350",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=44673671",
+        "title": "https://news.ycombinator.com/item?id=44673671",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50052163",
+        "title": "Postgres isn't slow, your storage is | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=40654734",
+        "title": "https://news.ycombinator.com/item?id=40654734",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49937540",
+        "title": "Make Tmux the OS | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49272832",
+        "title": "https://news.ycombinator.com/item?id=49272832",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50054984",
+        "title": "I think \"online\" here means \"loaded in a device\", as opposed to \"sitting in a s…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49519289",
+        "title": "https://news.ycombinator.com/item?id=49519289",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49848955",
+        "title": "Ask HN: Who's still keeping a DOS machine up because the business depends on it…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=43857834",
+        "title": "https://news.ycombinator.com/item?id=43857834",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49802871",
+        "title": "I asked Meta’s Muse for its filesystem and it sent me 6.8GB | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=44673671",
+        "title": "https://news.ycombinator.com/item?id=44673671",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50052163",
+        "title": "Postgres isn't slow, your storage is | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=40654734",
+        "title": "https://news.ycombinator.com/item?id=40654734",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49937540",
+        "title": "Make Tmux the OS | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49272832",
+        "title": "https://news.ycombinator.com/item?id=49272832",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50054984",
+        "title": "I think \"online\" here means \"loaded in a device\", as opposed to \"sitting in a s…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49519289",
+        "title": "https://news.ycombinator.com/item?id=49519289",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49848955",
+        "title": "Ask HN: Who's still keeping a DOS machine up because the business depends on it…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=43857834",
+        "title": "https://news.ycombinator.com/item?id=43857834",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49802871",
+        "title": "I asked Meta’s Muse for its filesystem and it sent me 6.8GB | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49130369",
+        "title": "https://news.ycombinator.com/item?id=49130369",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=39003944",
+        "title": "https://news.ycombinator.com/item?id=39003944",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50088935",
+        "title": "https://news.ycombinator.com/item?id=50088935",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=27897427",
+        "title": "https://news.ycombinator.com/item?id=27897427",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=32628367",
+        "title": "https://news.ycombinator.com/item?id=32628367",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48050873",
+        "title": "https://news.ycombinator.com/item?id=48050873",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46234710",
+        "title": "https://news.ycombinator.com/item?id=46234710",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=42698170",
+        "title": "https://news.ycombinator.com/item?id=42698170",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=42358471",
+        "title": "https://news.ycombinator.com/item?id=42358471",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50008427",
+        "title": "https://news.ycombinator.com/item?id=50008427",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/front?day=2026-10-15",
+        "title": "https://news.ycombinator.com/front?day=2026-10-15",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50078691",
+        "title": "Dutch tax authorities cancel Microsoft 365 cloud rollout and turn to open sourc…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49985548",
+        "title": "Ask HN: What do you run on a $5 VPS that's worth keeping online 24/7? | Hacker …",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49990876",
+        "title": "Holos Commander – a Commander for power users | Hacker News",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://news.ycombinator.com/item?id=40655974",
+        "content": "|     |     |     |\n| --- | --- | --- |\n| |     |     |     |\n| --- | --- | --- |\n| [![](https://news.ycombinator.com/y18.svg)](https://news.ycombinator.com/) | **[Hacker News](https://news.ycombinator.com/news)** [new](https://news.ycombinator.com/newest) \\| [past](https://news.ycombinator.com/front) \\| [comments](https://news.ycombinator.com/newcomments) \\| [ask](https://news.ycombinator.com/ask) \\| [show](https://news.ycombinator.com/show) \\| [jobs](https://news.ycombinator.com/jobs) \\| [submit](https://news.ycombinator.com/submit) | [login](https://news.ycombinator.com/login?goto=item%3Fid%3D40655974) | |\n\n| |     |     |     |\n| --- | --- | --- |\n|  |  | [OskarS](https://news.ycombinator.com/user?id=OskarS) [on June 12, 2024](https://news.ycombinator.com/item?id=40655974) \\| [parent](https://news.ycombinator.com/item?id=40654734) \\| [context](https://news.ycombinator.com/item?id=40654734#40655974) \\| [favorite](https://news.ycombinator.com/fave?id=40655974) \\| on: [Discussion on w|",
+        "errors": []
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=40654734",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "circuit_open",
+            "message": "circuit open for provider firecrawl",
+            "retryable": true
+          }
+        ]
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:30:10.510411+00:00",
+    "timed_out": true
+  },
+  "score": {
+    "id": "hn-two-comments",
+    "scores": {
+      "comments": {
+        "status": "fail",
+        "matched_comments": []
+      }
+    },
+    "task": {
+      "status": "timeout",
+      "reasons": [
+        "comments:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": false,
+    "grader": "v2"
+  }
+}

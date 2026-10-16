@@ -1,0 +1,298 @@
+{
+  "id": "wechat-mp-discovery",
+  "query": "找一篇讲解 Python GIL 的微信公众号文章原文链接",
+  "returncode": 0,
+  "elapsed_ms": 72611,
+  "efficiency": {
+    "tool_calls": {
+      "search": 1,
+      "fetch": 3
+    },
+    "total_calls": 4,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 1,
+    "errors": 0
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "mp.weixin.qq.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:mp.weixin.qq.com Python GIL 全局解释器锁 文章 公众号 原文链接",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 22719
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "标题、作者、正文中对 GIL/全局解释器锁的讲解",
+        "fresh": false,
+        "max_chars": 12000,
+        "url": "https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ"
+      },
+      "is_error": false,
+      "ms": 11962
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "标题、作者、正文中对 GIL/全局解释器锁的讲解",
+        "fresh": false,
+        "max_chars": 12000,
+        "url": "https://mp.weixin.qq.com/s/HHSjv0ZlAjq0ZvLHMI-W9g"
+      },
+      "is_error": false,
+      "ms": 12272
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "标题、作者、正文中对 GIL/全局解释器锁的讲解",
+        "fresh": false,
+        "max_chars": 12000,
+        "url": "https://mp.weixin.qq.com/s/-0wQCHrTO6JXRQNLO0i7WQ"
+      },
+      "is_error": false,
+      "ms": 11780
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.1\", \"result_id\": \"2cba219cdb5ef59ec282bf2d\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:mp.weixin.qq.com Python GIL 全局解释器锁 文章 公众号 原文链接\", \"answer\": \"以下是微信公众号（mp.weixin.qq.com）上与 Python GIL（全局解释器锁）相关的文章，最多 10 条，附原文链接与简要说明。\\n\\n1. **CPython的线程与GIL**  \\n   源码向分析 CPython 3.8 中 GIL、线程获取/释放时机及与字节码线程安全的关系。  \\n   https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ  \\n   [web:0]\\n\\n2. **Python新版本去GIL刷屏，Karpathy 点赞敢死队，Python 之父：冷静，别神话并发**  \\n   介绍 Python 3.14 自由线程（可禁用 GIL，PEP 703）及相关讨论。  \\n   https://mp.weixin.qq.com/s/2Ictx9VbqNTuBw1yZQDIOg  \\n   [web:1]\\n\\n3. **Pyt…\", \"answer_chars\": 1843, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 3, \"primary_citation_count\": 11, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 22708, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 19, \"results\": [{\"id\": \"r1\", \"title\": \"\", \"url\": \"https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"\", \"url\": \"https://mp.weixin.qq.com/s/HHSjv0ZlAjq0ZvLHMI-W9g\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"\", \"url\": \"https://mp.weixin.qq.com/s/-0wQCHrTO6JXRQNLO0i7WQ\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"\", \"url\": \"https://mp.weixin.qq.com/s/Ioh-ZJ8aV_jFMT3v85NVAA\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"\", \"url\": \"http://mp.weixin.qq.com/s?__biz=MzA5NzgzODI5NA%3D%3D&chksm=872bb019b05c390f567449c5deebc4033d055a744c07cc5a4bb1663d4044e3404a7f673b1ce3&idx=4&mid=2454037920&scene=21&sn=4e08d690d7951f87d467ca6eeb0acea0\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r6\", \"title\": \"\", \"url\": \"https://mp.weixin.qq.com/s/SvUyyUGLZFbqEyERWWJIYQ\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"\", \"url\": \"https://mp.weixin.qq.com/s/xrZkt2dQLX2-iPUZSJVVLQ\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r8\", \"title\": \"\", \"url\": \"https://mp.weixin.qq.com/s/8KvQemz0SWq2hw-2aBPv2Q\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"\", \"url\": \"https://mp.weixin.qq.com/s/2Ictx9VbqNTuBw1yZQDIOg\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"\", \"url\": \"https://mp.weixin.qq.com/s/GWByw61O56gJ7qUisAGQNw\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://mp.weixin.qq.com/s/HHSjv0ZlAjq0ZvLHMI-W9g\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://mp.weixin.qq.com/s/-0wQCHrTO6JXRQNLO0i7WQ\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://mp.weixin.qq.com/s/Ioh-ZJ8aV_jFMT3v85NVAA\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"http://mp.weixin.qq.com/s?__biz=MzA5NzgzODI5NA%3D%3D&chksm=872bb019b05c390f567449c5deebc4033d055a744c07cc5a4bb1663d4044e3404a7f673b1ce3&idx=4&mid=2454037920&scene=21&sn=4e08d690d7951f87d467ca6eeb0acea0\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://mp.weixin.qq.com/s/SvUyyUGLZFbqEyERWWJIYQ\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://mp.weixin.qq.com/s/xrZkt2dQLX2-iPUZSJVVLQ\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://mp.weixin.qq.com/s/8KvQemz0SWq2hw-2aBPv2Q\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://mp.weixin.qq.com/s/2Ictx9VbqNTuBw1yZQDIOg\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://mp.weixin.qq.com/s/GWByw61O56gJ7qUisAGQNw\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://mp.weixin.qq.com/s/1YajqhcWoGGPQcOQiAATgA\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA%3D%3D&chksm=fdc603edcab18afbbb665903d4ff939c9b3fdf6c8d6b2065d8dfa60ff4002eae495eeb5560ea&idx=1&mid=2247484178&scene=21&sn=fa385d6a50de9262cf16f8b737b20b80\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://mp.weixin.qq.com/s/cc_yM0waqSOqq8xfg1G79Q\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"http://mp.weixin.qq.com/s?__biz=MzA4MjEyNTA5Mw%3D%3D&chksm=8464d388b3135a9e76bfe57603b4518ae4e12018c45a120fd30229e14970687881e307fb8b85&idx=1&mid=2652568514&scene=21&sn=9a5f20e1141dad543ae7f9e765a660b7\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://mp.weixin.qq.com/s/H-0pd3NcAJDbUckNi0-IEw\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://mp.weixin.qq.com/s/gX_-JECFEFKaK0AyJiUjTw\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"http://mp.weixin.qq.com/s?__biz=MzUyOTk2MTcwNg%3D%3D&chksm=fa5bab48cd2c225e7e904ac7d7c058f537d827aafa522eb367b7d46c5b258267b937d03fa90d&idx=1&mid=2247494861&scene=21&sn=2d0ce5425ef047ee6cdc72331d871508\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c18\", \"url\": \"http://mp.weixin.qq.com/s?__biz=MjM5NzM0MjcyMQ%3D%3D&chksm=bed94e5d89aec74b71dbca6dcf729e12b7d2c40793c31545a8e98e38360885f49cb606867638&idx=1&mid=2650182963&scene=21&sn=fba0b93e62c006844ff1265c1e8dfdf4\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c19\", \"url\": \"https://mp.weixin.qq.com/s/FaLI-FYOy-GOk4P6iUaTRw\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"2cba219cdb5ef59ec282bf2d\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"微信公众号\", \"satisfied\": true, \"detail\": \"19 content page(s), e.g. https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 19, \"new_pages_read\": 3, \"seen_urls\": 19, \"pages_read\": 3, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"16242f2d96117c6f9f12c358\", \"kind\": \"fetch\", \"status\": \"ok\", \"url\": \"https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ\", \"final_url\": \"https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ\", \"title\": \"CPython的线程与GIL\", \"provider\": \"firecrawl\", \"content_preview\": \"# CPython的线程与GIL\\n\\nOriginalleverydleveryd\\nleveryd\\n\\n_Mar 29, 2021, 12:52 AM_\\n\\n在小说阅读器读本章\\n\\n去阅读\\n\\n在公众号小说中沉浸阅读\\n\\n## 问题背景\\n\\nCPython程序的GIL会导致在CPU密集型任务中，多线程并不能提高运算速度。\\n\\n比如test.py\\\\[1\\\\]例子中，从执行test2函数和test1函数时间对比可以看出来，多线程并没有比单线程跑得更快。\\n\\n本文主要学习总结GIL、线程和GIL的关系，回答以下问题：\\n\\n- GIL\\n\\n  - GIL是什么？\\n  - 为什么存在GIL？\\n  - 能否去掉GIL，让Python程序应用层加锁来代替GIL的作用？\\n\\n- 线程和GIL的关系\\n\\n  - Python的线程是真线程吗？\\n  - 既然GIL能保证只有一个线程在执行字节码，为什么我们用Python多线程时还需要考虑线程安全？\\n  - 持有GIL的线程什么时候释放GIL？\\n  - 未持有GIL的线程什么时候申请GIL？\\n  - 怎么保证两个线程不会同时抢到GIL？\\n  - 为什么CPython要保证只有一个线程在执行字节码？\\n  - CPython线程什么时候切换？\\n\\n分析的CPython是3.8.0版本，commit id是fa919fdf2583bdfead1df00e842f24f30b2a34bf\\n\\n# 分析过程\\n\\n## GIL\\n\\n1. GIL是什么？\\n\\n\\n\\nCPython的一个全局解释锁。\\n\\n2. 为什么存在GIL？\\n\\n\\n\\nGIL\\\\[2\\\\]文档中写到，GIL可以保证多线程场景中，只有一个线程在执行字节码。\\n\\n\\n\\n这样可以避免确保在CPython源码层面是线程安全的。\\n\\n\\n\\n假设没有了GIL，多线程运行时，引用计数就有可能出现问题。\\n\\n3. 能否去掉GIL，让Python程序应用层加锁来代替？\\n\\n\\n\\n如果python程序多线程全部在消费者代码第一行就加锁，就可以代替GIL。（只是我的推测，没有验证过，结论不一定对。）\\n\\n\\n\\n但是实际编写Python代码时，不可能要求所有的线程都加锁。如下的代码中，单线程和多线程也就没有区别了。\\n\\n\\n\\n```\\nlock = threading.Lock()\\n\\nclass Worker2(threading.Thread):\\n     def run(se\", \"content_chars\": 8023, \"truncated\": true, \"errors\": [], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"16242f2d96117c6f9f12c358\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 2, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 19, \"pages_read\": 4, \"calls_without_new_evidence\": 1}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"5052d589f13c9f9ca4df9835\", \"kind\": \"fetch\", \"status\": \"ok\", \"url\": \"https://mp.weixin.qq.com/s/HHSjv0ZlAjq0ZvLHMI-W9g\", \"final_url\": \"https://mp.weixin.qq.com/s/HHSjv0ZlAjq0ZvLHMI-W9g\", \"title\": \"这一次，Python 真的有望告别 GIL 锁了？\", \"provider\": \"firecrawl\", \"content_preview\": \"# 这一次，Python 真的有望告别 GIL 锁了？\\n\\nOriginal豌豆花下猫豌豆花下猫\\nPython猫\\n\\n_Feb 19, 2023, 9:00 PM_\\n\\n在小说阅读器读本章\\n\\n去阅读\\n\\n在公众号小说中沉浸阅读\\n\\n△点击上方“**Python猫**”关注 ，回复“**1**”领取电子书\\n\\n![Image](https://mmbiz.qpic.cn/mmbiz_jpg/LLRiaS9YfFTN4rJQicZa35aEEsJMuvbziaES5kTaXqF1AobjeiagmdQwr9DgrlGtxOhEeFTAwLZ30ZjKMhvn9Ou0GA/640?wx_fmt=jpeg#imgIndex=0)\\n\\nPython 中有一把著名的锁——全局解释器锁（Global Interpreter Lock，简写 GIL），它的作用是防止多个本地线程同时执行 Python 字节码，这会导致 Python 无法实现真正的多线程执行。（注：本文中 Python 解释器特指 CPython）\\n\\n这把锁在 Python 的早期发展中具有积极的作用（单核 CPU 时代），然而，它阻碍了 Python 在多核 CPU 上的并行编程，引起了开发者们与日俱增的诟病。\\n\\nGIL 影响的主要是 CPU 密集型任务，比如科学计算与数值计算任务。\\n\\n在最近发布的 PEP-703 中，它概括了 GIL 对科学计算（主要是 AI/ML）造成的四类问题：\\n\\n- GIL 导致许多并行化操作难以表达（影响强化学习、DeepMind、医学治疗及生物研究等领域）\\n- GIL 影响了 Python 库的可用性（例如 PyTorch、scikit-learn、NumPy）\\n- GIL 导致无法充分利用 GPU 资源（例如计算机视觉任务）\\n- GIL 导致难以部署 Python AI 模型（例如基于神经网络的 AI 模型）\\n\\n社区中想要移除 GIL 的呼声以及尝试，此起彼伏，绵绵不绝，但这个话题一直悬而未决。\\n\\n抱怨、质疑、不满、不甘、期盼等这些诸多的情绪，不是那么容易平息的。然而，从一个积重已久的庞大的项目中移除一个根基性的设计，又谈何容易？\\n\\n2023 新年刚过，这个话题又一次热了起来，又一轮对 GIL 的挑战开始了。\\n\\n这一次，事情似乎有了新的转机，这次也许能成功了呢？\\n\\n![Image](https:/\", \"content_chars\": 7729, \"truncated\": true, \"errors\": [], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"5052d589f13c9f9ca4df9835\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 3, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 1, \"seen_urls\": 19, \"pages_read\": 5, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"9e6cb69b4deff9b1a6cbd4ff\", \"kind\": \"fetch\", \"status\": \"ok\", \"url\": \"https://mp.weixin.qq.com/s/-0wQCHrTO6JXRQNLO0i7WQ\", \"final_url\": \"https://mp.weixin.qq.com/s/-0wQCHrTO6JXRQNLO0i7WQ\", \"title\": \"Python 多进程+多线程+多协程：大厂必问的 python 许三多，它的 幕后  神秘机关 是什么？\", \"provider\": \"firecrawl\", \"content_preview\": \"# Python 多进程+多线程+多协程：大厂必问的 python 许三多，它的 幕后 神秘机关 是什么？\\n\\nOriginal45岁老架构师尼恩45岁老架构师尼恩\\n技术自由圈\\n\\n_Nov 7, 2025, 11:41 PM_\\n\\n在小说阅读器读本章\\n\\n去阅读\\n\\n在公众号小说中沉浸阅读\\n\\nFSAC未来超级架构师\\n\\n架构师总动员\\n\\n实现架构转型，再无中年危机\\n\\n![](http://mmbiz.qpic.cn/mmbiz_png/xlgvgPaib7WMRF8xl7G3f8DbazOdeA6STL9f3BBk1D0Hsq3L29NS17lH5kUTgicdSuTpjGI4ulMLiaVof6O1nuKXQ/300?wx_fmt=png&wxfrom=19)\\n\\n**技术自由圈**\\n\\n疯狂创客圈（技术自由架构圈）：一个 技术狂人、技术大神、高性能 发烧友 圈子。圈内一大波顶级高手、架构师、发烧友已经实现技术自由；另外一大波卷王，正在狠狠卷，奔向技术自由\\n\\n431篇原创内容\\n\\nOfficial Account\\n\\n\\n，\\n\\n## 尼恩说在前面\\n\\n在45岁老架构师 尼恩的 **读者交流群**(50+)中，最近有小伙伴拿到了一线互联网企业如阿里、滴滴、极兔、有赞、希音、百度、网易、美团的面试资格，遇到很多很重要的面试题：\\n\\n> python 协程 用过吗？ 怎么实现的？python  多进程、 多线程、 多协程  知道吗？  底层原理是 什么？\\n\\n最近又有小伙伴在面试很多 大厂 ，都遇到了相关的面试题。虽然 回答了一些边边角角，但是回答不全面不体系，面试官不满意，面试挂了。借着此文，尼恩给大家做一下系统化、体系化的梳理，使得大家内力猛增，展示一下雄厚的 “技术肌肉、技术实力”， **让面试官爱到 “不能自已、口水直流”**，然后实现”offer直提，offer自由”。![Image](https://mmbiz.qpic.cn/sz_mmbiz_png/xlgvgPaib7WMSkPrsEm7ibrKfzYMHUnCpoSn4HrBNLgBAKYxhJswr4y2mUIZEINRxxolmFiccyutIdHYRpAck494g/640?wx_fmt=png&from=appmsg&watermark=1#imgIndex=0)\\n\\n当然，这道面试题，以及参考答案，也会收入咱们的 《尼恩\", \"content_chars\": 12000, \"truncated\": true, \"errors\": [], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"9e6cb69b4deff9b1a6cbd4ff\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 1, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 1, \"seen_urls\": 19, \"pages_read\": 4, \"calls_without_new_evidence\": 0}}"
+  ],
+  "answer": "推荐这篇微信公众号文章：\n\n**《CPython的线程与GIL》**  \n文章系统讲解了 GIL 是什么、为什么存在、线程与 GIL 的关系，以及 GIL 的获取、释放和线程切换机制；分析基于 CPython 3.8。\n\n原文链接：  \nhttps://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ",
+  "observation": {
+    "id": "wechat-mp-discovery",
+    "answer": "推荐这篇微信公众号文章：\n\n**《CPython的线程与GIL》**  \n文章系统讲解了 GIL 是什么、为什么存在、线程与 GIL 的关系，以及 GIL 的获取、释放和线程切换机制；分析基于 CPython 3.8。\n\n原文链接：  \nhttps://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ",
+    "results": [
+      {
+        "url": "https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://mp.weixin.qq.com/s/HHSjv0ZlAjq0ZvLHMI-W9g",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://mp.weixin.qq.com/s/-0wQCHrTO6JXRQNLO0i7WQ",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://mp.weixin.qq.com/s/Ioh-ZJ8aV_jFMT3v85NVAA",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://mp.weixin.qq.com/s?__biz=MzA5NzgzODI5NA%3D%3D&chksm=872bb019b05c390f567449c5deebc4033d055a744c07cc5a4bb1663d4044e3404a7f673b1ce3&idx=4&mid=2454037920&scene=21&sn=4e08d690d7951f87d467ca6eeb0acea0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://mp.weixin.qq.com/s/SvUyyUGLZFbqEyERWWJIYQ",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://mp.weixin.qq.com/s/xrZkt2dQLX2-iPUZSJVVLQ",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://mp.weixin.qq.com/s/8KvQemz0SWq2hw-2aBPv2Q",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://mp.weixin.qq.com/s/2Ictx9VbqNTuBw1yZQDIOg",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://mp.weixin.qq.com/s/GWByw61O56gJ7qUisAGQNw",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://mp.weixin.qq.com/s/HHSjv0ZlAjq0ZvLHMI-W9g",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://mp.weixin.qq.com/s/-0wQCHrTO6JXRQNLO0i7WQ",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://mp.weixin.qq.com/s/Ioh-ZJ8aV_jFMT3v85NVAA",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://mp.weixin.qq.com/s?__biz=MzA5NzgzODI5NA%3D%3D&chksm=872bb019b05c390f567449c5deebc4033d055a744c07cc5a4bb1663d4044e3404a7f673b1ce3&idx=4&mid=2454037920&scene=21&sn=4e08d690d7951f87d467ca6eeb0acea0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://mp.weixin.qq.com/s/SvUyyUGLZFbqEyERWWJIYQ",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://mp.weixin.qq.com/s/xrZkt2dQLX2-iPUZSJVVLQ",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://mp.weixin.qq.com/s/8KvQemz0SWq2hw-2aBPv2Q",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://mp.weixin.qq.com/s/2Ictx9VbqNTuBw1yZQDIOg",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://mp.weixin.qq.com/s/GWByw61O56gJ7qUisAGQNw",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://mp.weixin.qq.com/s/1YajqhcWoGGPQcOQiAATgA",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://mp.weixin.qq.com/s?__biz=MzU4OTg0NjkyOA%3D%3D&chksm=fdc603edcab18afbbb665903d4ff939c9b3fdf6c8d6b2065d8dfa60ff4002eae495eeb5560ea&idx=1&mid=2247484178&scene=21&sn=fa385d6a50de9262cf16f8b737b20b80",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://mp.weixin.qq.com/s/cc_yM0waqSOqq8xfg1G79Q",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://mp.weixin.qq.com/s?__biz=MzA4MjEyNTA5Mw%3D%3D&chksm=8464d388b3135a9e76bfe57603b4518ae4e12018c45a120fd30229e14970687881e307fb8b85&idx=1&mid=2652568514&scene=21&sn=9a5f20e1141dad543ae7f9e765a660b7",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://mp.weixin.qq.com/s/H-0pd3NcAJDbUckNi0-IEw",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://mp.weixin.qq.com/s/gX_-JECFEFKaK0AyJiUjTw",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://mp.weixin.qq.com/s?__biz=MzUyOTk2MTcwNg%3D%3D&chksm=fa5bab48cd2c225e7e904ac7d7c058f537d827aafa522eb367b7d46c5b258267b937d03fa90d&idx=1&mid=2247494861&scene=21&sn=2d0ce5425ef047ee6cdc72331d871508",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://mp.weixin.qq.com/s?__biz=MjM5NzM0MjcyMQ%3D%3D&chksm=bed94e5d89aec74b71dbca6dcf729e12b7d2c40793c31545a8e98e38360885f49cb606867638&idx=1&mid=2650182963&scene=21&sn=fba0b93e62c006844ff1265c1e8dfdf4",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://mp.weixin.qq.com/s/FaLI-FYOy-GOk4P6iUaTRw",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://mp.weixin.qq.com/s/FZEweLR9srvpuarbYHcNzQ",
+        "content": "# CPython的线程与GIL\n\nOriginalleverydleveryd\nleveryd\n\n_Mar 29, 2021, 12:52 AM_\n\n在小说阅读器读本章\n\n去阅读\n\n在公众号小说中沉浸阅读\n\n## 问题背景\n\nCPython程序的GIL会导致在CPU密集型任务中，多线程并不能提高运算速度。\n\n比如test.py\\[1\\]例子中，从执行test2函数和test1函数时间对比可以看出来，多线程并没有比单线程跑得更快。\n\n本文主要学习总结GIL、线程和GIL的关系，回答以下问题：\n\n- GIL\n\n  - GIL是什么？\n  - 为什么存在GIL？\n  - 能否去掉GIL，让Python程序应用层加锁来代替GIL的作用？\n\n- 线程和GIL的关系\n\n  - Python的线程是真线程吗？\n  - 既然GIL能保证只有一个线程在执行字节码，为什么我们用Python多线程时还需要考虑线程安全？\n  - 持有GIL的线程什么时候释放GIL？\n  - 未持有GIL的线程什么时候申请GIL？\n  - 怎么保证两个线程不会同时抢到GIL？\n  - 为什么CPython要保证只有一个线程在执行字节码？\n  - CPython线程什么时候切换？\n\n分析的CPython是3.8.0版本，commit id是fa919fdf2583bdfead1df00e842f24f30b2a34bf\n\n# 分析过程\n\n## GIL\n\n1. GIL是什么？\n\n\n\nCPython的一个全局解释锁。\n\n2. 为什么存在GIL？\n\n\n\nGIL\\[2\\]文档中写到，GIL可以保证多线程场景中，只有一个线程在执行字节码。\n\n\n\n这样可以避免确保在CPython源码层面是线程安全的。\n\n\n\n假设没有了GIL，多线程运行时，引用计数就有可能出现问题。\n\n3. 能否去掉GIL，让Python程序应用层加锁来代替？\n\n\n\n如果python程序多线程全部在消费者代码第一行就加锁，就可以代替GIL。（只是我的推测，没有验证过，结论不一定对。）\n\n\n\n但是实际编写Python代码时，不可能要求所有的线程都加锁。如下的代码中，单线程和多线程也就没有区别了。\n\n\n\n```\nlock = threading.Lock()\n\nclass Worker2(threading.Thread):\n     def run(se",
+        "errors": []
+      },
+      {
+        "url": "https://mp.weixin.qq.com/s/HHSjv0ZlAjq0ZvLHMI-W9g",
+        "content": "# 这一次，Python 真的有望告别 GIL 锁了？\n\nOriginal豌豆花下猫豌豆花下猫\nPython猫\n\n_Feb 19, 2023, 9:00 PM_\n\n在小说阅读器读本章\n\n去阅读\n\n在公众号小说中沉浸阅读\n\n△点击上方“**Python猫**”关注 ，回复“**1**”领取电子书\n\n![Image](https://mmbiz.qpic.cn/mmbiz_jpg/LLRiaS9YfFTN4rJQicZa35aEEsJMuvbziaES5kTaXqF1AobjeiagmdQwr9DgrlGtxOhEeFTAwLZ30ZjKMhvn9Ou0GA/640?wx_fmt=jpeg#imgIndex=0)\n\nPython 中有一把著名的锁——全局解释器锁（Global Interpreter Lock，简写 GIL），它的作用是防止多个本地线程同时执行 Python 字节码，这会导致 Python 无法实现真正的多线程执行。（注：本文中 Python 解释器特指 CPython）\n\n这把锁在 Python 的早期发展中具有积极的作用（单核 CPU 时代），然而，它阻碍了 Python 在多核 CPU 上的并行编程，引起了开发者们与日俱增的诟病。\n\nGIL 影响的主要是 CPU 密集型任务，比如科学计算与数值计算任务。\n\n在最近发布的 PEP-703 中，它概括了 GIL 对科学计算（主要是 AI/ML）造成的四类问题：\n\n- GIL 导致许多并行化操作难以表达（影响强化学习、DeepMind、医学治疗及生物研究等领域）\n- GIL 影响了 Python 库的可用性（例如 PyTorch、scikit-learn、NumPy）\n- GIL 导致无法充分利用 GPU 资源（例如计算机视觉任务）\n- GIL 导致难以部署 Python AI 模型（例如基于神经网络的 AI 模型）\n\n社区中想要移除 GIL 的呼声以及尝试，此起彼伏，绵绵不绝，但这个话题一直悬而未决。\n\n抱怨、质疑、不满、不甘、期盼等这些诸多的情绪，不是那么容易平息的。然而，从一个积重已久的庞大的项目中移除一个根基性的设计，又谈何容易？\n\n2023 新年刚过，这个话题又一次热了起来，又一轮对 GIL 的挑战开始了。\n\n这一次，事情似乎有了新的转机，这次也许能成功了呢？\n\n![Image](https:/",
+        "errors": []
+      },
+      {
+        "url": "https://mp.weixin.qq.com/s/-0wQCHrTO6JXRQNLO0i7WQ",
+        "content": "# Python 多进程+多线程+多协程：大厂必问的 python 许三多，它的 幕后 神秘机关 是什么？\n\nOriginal45岁老架构师尼恩45岁老架构师尼恩\n技术自由圈\n\n_Nov 7, 2025, 11:41 PM_\n\n在小说阅读器读本章\n\n去阅读\n\n在公众号小说中沉浸阅读\n\nFSAC未来超级架构师\n\n架构师总动员\n\n实现架构转型，再无中年危机\n\n![](http://mmbiz.qpic.cn/mmbiz_png/xlgvgPaib7WMRF8xl7G3f8DbazOdeA6STL9f3BBk1D0Hsq3L29NS17lH5kUTgicdSuTpjGI4ulMLiaVof6O1nuKXQ/300?wx_fmt=png&wxfrom=19)\n\n**技术自由圈**\n\n疯狂创客圈（技术自由架构圈）：一个 技术狂人、技术大神、高性能 发烧友 圈子。圈内一大波顶级高手、架构师、发烧友已经实现技术自由；另外一大波卷王，正在狠狠卷，奔向技术自由\n\n431篇原创内容\n\nOfficial Account\n\n\n，\n\n## 尼恩说在前面\n\n在45岁老架构师 尼恩的 **读者交流群**(50+)中，最近有小伙伴拿到了一线互联网企业如阿里、滴滴、极兔、有赞、希音、百度、网易、美团的面试资格，遇到很多很重要的面试题：\n\n> python 协程 用过吗？ 怎么实现的？python  多进程、 多线程、 多协程  知道吗？  底层原理是 什么？\n\n最近又有小伙伴在面试很多 大厂 ，都遇到了相关的面试题。虽然 回答了一些边边角角，但是回答不全面不体系，面试官不满意，面试挂了。借着此文，尼恩给大家做一下系统化、体系化的梳理，使得大家内力猛增，展示一下雄厚的 “技术肌肉、技术实力”， **让面试官爱到 “不能自已、口水直流”**，然后实现”offer直提，offer自由”。![Image](https://mmbiz.qpic.cn/sz_mmbiz_png/xlgvgPaib7WMSkPrsEm7ibrKfzYMHUnCpoSn4HrBNLgBAKYxhJswr4y2mUIZEINRxxolmFiccyutIdHYRpAck494g/640?wx_fmt=png&from=appmsg&watermark=1#imgIndex=0)\n\n当然，这道面试题，以及参考答案，也会收入咱们的 《尼恩",
+        "errors": []
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:39:35.156912+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "wechat-mp-discovery",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "wechat-article"
+        ],
+        "required": 1
+      },
+      "reading": {
+        "status": "pass"
+      }
+    },
+    "task": {
+      "status": "pass",
+      "reasons": []
+    },
+    "expected_access": "login",
+    "observed_failure": null,
+    "algorithm_miss": false,
+    "grader": "v2"
+  }
+}

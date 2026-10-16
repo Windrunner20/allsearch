@@ -1,0 +1,304 @@
+{
+  "id": "antibot-shell",
+  "query": "Open the Chiphell viewthread page and record whether the body is a captcha shell",
+  "returncode": 0,
+  "elapsed_ms": 94988,
+  "efficiency": {
+    "tool_calls": {
+      "search": 1,
+      "fetch": 2,
+      "read_result": 1
+    },
+    "total_calls": 4,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 0,
+    "errors": 0
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "balanced",
+        "exclude_domains": [],
+        "fresh": false,
+        "include_domains": [
+          "chiphell.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:chiphell.com/thread.php viewthread Chiphell viewthread page captcha shell body 炒作 captcha shell benchmark task Open the Chiphell viewthread page and record whether the body is a captcha shell",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 19651
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Determine whether the page body is a captcha shell/interstitial or a normal forum thread. Report visible body text and any captcha/challenge indicators, quoting exact lines if present.",
+        "fresh": true,
+        "max_chars": 20000,
+        "url": "https://www.chiphell.com/forum.php?mod=viewthread&tid=2462208"
+      },
+      "is_error": false,
+      "ms": 2797
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": [
+          "content"
+        ],
+        "limit": 1,
+        "max_bytes": 30000,
+        "offset": 0,
+        "result_id": "a4e5d0af96b2d7bc"
+      },
+      "is_error": false,
+      "ms": 3
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Inspect only the rendered page body and thread structure. State whether it is a captcha challenge shell. Include exact visible headings or UI text proving a normal thread, but do not summarize individual user comments.",
+        "fresh": true,
+        "max_chars": 12000,
+        "url": "https://www.chiphell.com/thread-2462208-1-1.html"
+      },
+      "is_error": false,
+      "ms": 10694
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.0\", \"result_id\": \"f92efa5dd8aad452\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:chiphell.com/thread.php viewthread Chiphell viewthread page captcha shell body 炒作 captcha shell benchmark task Open the Chiphell viewthread page and record whether the body is a captcha shell\", \"answer\": \"Opened one Chiphell viewthread URL. The body is a normal Discuz thread, not a captcha shell.\\n\\n**Check:** `https://www.chiphell.com/forum.php?mod=viewthread&tid=2462208`  \\n**Body:** full thread (title, view/reply counts, posts 1#–16#, reply form, footer). No captcha interstitial. Topic is user discussion of captcha UX, not a gate page. [[1]](https://www.chiphell.com/forum.php?mod=viewthread&tid=2462208)\\n\\nRelevant results (up to 10):\\n\\n1. **人机验证captcha是不是还很不成熟** — thread body present; users discuss curve/digit/block captchas and reCAPTCHA. `thread-2462208` / viewthread tid=2462208. [[2]](https://www.chiphell.com/thread-2462208-1-1.html) [[1]](https://www.chiphell.com/forum.php?mod=viewthread&tid=2462208)\\n\\n2. **求助：电脑登陆chh论坛人机验证问题** — login captcha failures (puzzle vs green check, cookies, ad …\", \"answer_chars\": 2250, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 11}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 19576, \"warning_count\": 1, \"warnings\": [\"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"conditional_supplement\"}], \"result_count\": 10, \"citation_count\": 19, \"results\": [{\"id\": \"r1\", \"title\": \"1\", \"url\": \"https://www.chiphell.com/forum.php?mod=viewthread&tid=2462208\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"同一个主机装专业显卡和游戏显卡 - 电脑讨论(新) - Chiphell - 分享与交流用户体验\", \"url\": \"https://www.chiphell.com/thread-2732091-1-1.html\", \"snippet\": \"GMT+8, 2026-10-15 17:55 , Processed in 0.009172 second(s), 5 queries , Gzip On, Redis On.\\n\\nPowered by Discuz! X3.5 Licensed\\n\\n© 2007-2024 Chiphell.com All right…\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"2\", \"url\": \"https://www.chiphell.com/thread-2462208-1-1.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"5090D 已经在路上了 - 电脑讨论(新) - Chiphell - 分享与交流用户体验 - Powered by Discuz! Archiver\", \"url\": \"https://www.chiphell.com/archiver/tid-2620818.html\", \"snippet\": \"Powered by Discuz! X3.5 Archiver   © 2001-2026 Discuz! Team. [...] 老黄 要是 良心 ，就 降频锁功耗 ，别砍 核心\\n\\nhuhudna 发表于 2024-7-17 17:46\\n\\n会不会核心比4090弱，但因为带宽暴涨所以游戏更强呢[困惑]\\n\\nwoodw…\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"3\", \"url\": \"https://www.chiphell.com/thread-2522672-1-1.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"这个叫金胜维的SSD品牌能买嘛？ - 电脑讨论(新) - Chiphell - 分享与交流用户体验\", \"url\": \"https://www.chiphell.com/thread-2548919-1-1.html\", \"snippet\": \"GMT+8, 2026-10-15 17:55 , Processed in 0.021101 second(s), 5 queries , Gzip On, Redis On.\\n\\nPowered by Discuz! X3.5 Licensed\\n\\n© 2007-2024 Chiphell.com All right…\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"4\", \"url\": \"https://www.chiphell.com/thread-2844250-1-1.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"[CHH首发]iPhone 15 Pro Max——全新影像体验 - 原创分享(新) - Chiphell - 分享与交流用户体验\", \"url\": \"https://www.chiphell.com/thread-2550527-1-1.html\", \"snippet\": \"返回列表 发新帖\\n\\nArchiver|手机版|小黑屋|Chiphell ( 沪ICP备12027953号-5 )沪公网备310112100042806 上海市互联网违法与不良信息举报中心\\n\\nGMT+8, 2026-10-15 17:55 , Processed in 0.017481 second(s), 7 que…\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"5\", \"url\": \"https://www.chiphell.com/thread-2680193-1-1.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"workme的个人资料 - Chiphell - 分享与交流用户体验\", \"url\": \"https://www.chiphell.com/space-uid-187918.html\", \"snippet\": \"## workme. ## workme(UID: 187918). ## 勋章. #### 见证Chiphell七周年. #### CHIPHELL基友团. #### 见证Chiphell八周年. #### 见证Chiphell九周年. #### 见证Chiphell十周年. #### 见证Chiphell十一周年…\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.chiphell.com/forum.php?mod=viewthread&tid=2462208\", \"title\": \"1\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.chiphell.com/thread-2732091-1-1.html\", \"title\": \"同一个主机装专业显卡和游戏显卡 - 电脑讨论(新) - Chiphell - 分享与交流用户体验\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://www.chiphell.com/thread-2462208-1-1.html\", \"title\": \"2\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://www.chiphell.com/archiver/tid-2620818.html\", \"title\": \"5090D 已经在路上了 - 电脑讨论(新) - Chiphell - 分享与交流用户体验 - Powered by Discuz! Archiver\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://www.chiphell.com/thread-2522672-1-1.html\", \"title\": \"3\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://www.chiphell.com/thread-2548919-1-1.html\", \"title\": \"这个叫金胜维的SSD品牌能买嘛？ - 电脑讨论(新) - Chiphell - 分享与交流用户体验\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://www.chiphell.com/thread-2844250-1-1.html\", \"title\": \"4\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://www.chiphell.com/thread-2550527-1-1.html\", \"title\": \"[CHH首发]iPhone 15 Pro Max——全新影像体验 - 原创分享(新) - Chiphell - 分享与交流用户体验\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://www.chiphell.com/thread-2680193-1-1.html\", \"title\": \"5\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.chiphell.com/space-uid-187918.html\", \"title\": \"workme的个人资料 - Chiphell - 分享与交流用户体验\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://www.chiphell.com/thread-2752604-1-1.html\", \"title\": \"6\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://www.chiphell.com/thread-2582504-1-1.html\", \"title\": \"7\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://www.chiphell.com/thread-2543210-1-1.html\", \"title\": \"8\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://www.chiphell.com/thread-2747304-1-1.html\", \"title\": \"9\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://www.chiphell.com/thread-2702990-1-1.html\", \"title\": \"10\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://www.chiphell.com/thread-2493242-1-1.html\", \"title\": \"11\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://www.chiphell.com/home.php?do=profile&mod=space&uid=98925\", \"title\": \"ishadow的个人资料 - Chiphell - 分享与交流用户体验\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c18\", \"url\": \"https://www.chiphell.com/archiver/tid-2535922.html?page=2\", \"title\": \"9.24更新：你是否被A卡掉驱动逼疯了？附解决办法。 - 第2页 - 电脑讨论(新) - Chiphell - 分享与交流用户体验 - Powered by Discuz! Archiver\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c19\", \"url\": \"https://www.chiphell.com/article-24286-4.html\", \"title\": \"Samsung 980 PRO NVMe M.2 1T 评测 - 第4页 - 存储 -  Chiphell - 分享与交流用户体验\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"f92efa5dd8aad452\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"a4e5d0af96b2d7bc\", \"kind\": \"fetch\", \"status\": \"ok\", \"url\": \"https://www.chiphell.com/forum.php?mod=viewthread&tid=2462208\", \"final_url\": \"https://www.chiphell.com/forum.php?mod=viewthread&tid=2462208\", \"title\": \"人机验证captcha是不是还很不成熟，被折腾疯了：（ - 电脑讨论(新) -  Chiphell - 分享与交流用户体验   \", \"provider\": \"firecrawl\", \"content_preview\": \"设为首页 [收藏本站](https://www.chiphell.com/)\\n\\n请 **登录** 后使用快捷导航\\n\\n没有账号？ [加入我们](https://www.chiphell.com/member.php?mod=register)\\n\\n## [![Chiphell - 分享与交流用户体验](https://www.chiphell.com/static/image/common/logo.png)](https://www.chiphell.com/ \\\"Chiphell - 分享与交流用户体验\\\")\\n\\n|     |     |     |     |\\n| --- | --- | --- | --- |\\n| 账号 |  | 自动登录 | 找回密码 |\\n| 密码 |  | _登录_ | [加入我们](https://www.chiphell.com/member.php?mod=register) |\\n\\n快捷导航\\n\\n- [首页](https://www.chiphell.com/)\\n- [评测](https://www.chiphell.com/portal.php?mod=list&catid=1)\\n- [电脑](https://www.chiphell.com/portal.php?mod=list&catid=2)\\n- [掌设](https://www.chiphell.com/portal.php?mod=list&catid=36)\\n- [摄影](https://www.chiphell.com/portal.php?mod=list&catid=31)\\n- [照片](https://www.chiphell.com/portal.php?mod=list&catid=3)\\n- [汽车](https://www.chiphell.com/portal.php?mod=list&catid=32)\\n- [单车](https://www.chiphell.com/portal.php?mod=list&catid=29)\\n- [模型](https://www.chiphell.com/portal.php?mod=list&catid=30)\\n- [败家](https://www.chiphell.com/portal.php?mod=list&catid\", \"content_chars\": 20000, \"truncated\": true, \"errors\": [], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"a4e5d0af96b2d7bc\", \"fields\": [\"content\"]}}",
+    "{\"result_id\": \"a4e5d0af96b2d7bc\", \"kind\": \"fetch\", \"offset\": 0, \"returned\": 1, \"next_offset\": 1, \"data\": {\"content\": \"设\", \"content_chars\": 20000}, \"truncated\": true}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"e6030fa8eb234112\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://www.chiphell.com/thread-2462208-1-1.html\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"e6030fa8eb234112\", \"fields\": [\"content\"]}}"
+  ],
+  "answer": "结论：**不是 captcha shell**。页面正文是正常的 Chiphell Discuz 主题页，包含登录区、导航、主题标题和帖子内容；没有看到验证码拦截页或 captcha challenge。\n\n可核对原始链接：\n\nhttps://www.chiphell.com/forum.php?mod=viewthread&tid=2462208\n\n页面标题原文为：`人机验证captcha是不是还很不成熟，被折腾疯了：（`  \n页面中可见的正常论坛 UI 文本包括：`请登录后使用快捷导航`。",
+  "observation": {
+    "id": "antibot-shell",
+    "answer": "结论：**不是 captcha shell**。页面正文是正常的 Chiphell Discuz 主题页，包含登录区、导航、主题标题和帖子内容；没有看到验证码拦截页或 captcha challenge。\n\n可核对原始链接：\n\nhttps://www.chiphell.com/forum.php?mod=viewthread&tid=2462208\n\n页面标题原文为：`人机验证captcha是不是还很不成熟，被折腾疯了：（`  \n页面中可见的正常论坛 UI 文本包括：`请登录后使用快捷导航`。",
+    "results": [
+      {
+        "url": "https://www.chiphell.com/forum.php?mod=viewthread&tid=2462208",
+        "title": "1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2732091-1-1.html",
+        "title": "同一个主机装专业显卡和游戏显卡 - 电脑讨论(新) - Chiphell - 分享与交流用户体验",
+        "snippet": "GMT+8, 2026-10-15 17:55 , Processed in 0.009172 second(s), 5 queries , Gzip On, Redis On.\n\nPowered by Discuz! X3.5 Licensed\n\n© 2007-2024 Chiphell.com All right…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2462208-1-1.html",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/archiver/tid-2620818.html",
+        "title": "5090D 已经在路上了 - 电脑讨论(新) - Chiphell - 分享与交流用户体验 - Powered by Discuz! Archiver",
+        "snippet": "Powered by Discuz! X3.5 Archiver   © 2001-2026 Discuz! Team. [...] 老黄 要是 良心 ，就 降频锁功耗 ，别砍 核心\n\nhuhudna 发表于 2024-7-17 17:46\n\n会不会核心比4090弱，但因为带宽暴涨所以游戏更强呢[困惑]\n\nwoodw…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2522672-1-1.html",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2548919-1-1.html",
+        "title": "这个叫金胜维的SSD品牌能买嘛？ - 电脑讨论(新) - Chiphell - 分享与交流用户体验",
+        "snippet": "GMT+8, 2026-10-15 17:55 , Processed in 0.021101 second(s), 5 queries , Gzip On, Redis On.\n\nPowered by Discuz! X3.5 Licensed\n\n© 2007-2024 Chiphell.com All right…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2844250-1-1.html",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2550527-1-1.html",
+        "title": "[CHH首发]iPhone 15 Pro Max——全新影像体验 - 原创分享(新) - Chiphell - 分享与交流用户体验",
+        "snippet": "返回列表 发新帖\n\nArchiver|手机版|小黑屋|Chiphell ( 沪ICP备12027953号-5 )沪公网备310112100042806 上海市互联网违法与不良信息举报中心\n\nGMT+8, 2026-10-15 17:55 , Processed in 0.017481 second(s), 7 que…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2680193-1-1.html",
+        "title": "5",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/space-uid-187918.html",
+        "title": "workme的个人资料 - Chiphell - 分享与交流用户体验",
+        "snippet": "## workme. ## workme(UID: 187918). ## 勋章. #### 见证Chiphell七周年. #### CHIPHELL基友团. #### 见证Chiphell八周年. #### 见证Chiphell九周年. #### 见证Chiphell十周年. #### 见证Chiphell十一周年…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/forum.php?mod=viewthread&tid=2462208",
+        "title": "1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2732091-1-1.html",
+        "title": "同一个主机装专业显卡和游戏显卡 - 电脑讨论(新) - Chiphell - 分享与交流用户体验",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2462208-1-1.html",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/archiver/tid-2620818.html",
+        "title": "5090D 已经在路上了 - 电脑讨论(新) - Chiphell - 分享与交流用户体验 - Powered by Discuz! Archiver",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2522672-1-1.html",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2548919-1-1.html",
+        "title": "这个叫金胜维的SSD品牌能买嘛？ - 电脑讨论(新) - Chiphell - 分享与交流用户体验",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2844250-1-1.html",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2550527-1-1.html",
+        "title": "[CHH首发]iPhone 15 Pro Max——全新影像体验 - 原创分享(新) - Chiphell - 分享与交流用户体验",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2680193-1-1.html",
+        "title": "5",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/space-uid-187918.html",
+        "title": "workme的个人资料 - Chiphell - 分享与交流用户体验",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2752604-1-1.html",
+        "title": "6",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2582504-1-1.html",
+        "title": "7",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2543210-1-1.html",
+        "title": "8",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2747304-1-1.html",
+        "title": "9",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2702990-1-1.html",
+        "title": "10",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2493242-1-1.html",
+        "title": "11",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/home.php?do=profile&mod=space&uid=98925",
+        "title": "ishadow的个人资料 - Chiphell - 分享与交流用户体验",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/archiver/tid-2535922.html?page=2",
+        "title": "9.24更新：你是否被A卡掉驱动逼疯了？附解决办法。 - 第2页 - 电脑讨论(新) - Chiphell - 分享与交流用户体验 - Powered by Discuz! Archiver",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/article-24286-4.html",
+        "title": "Samsung 980 PRO NVMe M.2 1T 评测 - 第4页 - 存储 -  Chiphell - 分享与交流用户体验",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://www.chiphell.com/forum.php?mod=viewthread&tid=2462208",
+        "content": "设为首页 [收藏本站](https://www.chiphell.com/)\n\n请 **登录** 后使用快捷导航\n\n没有账号？ [加入我们](https://www.chiphell.com/member.php?mod=register)\n\n## [![Chiphell - 分享与交流用户体验](https://www.chiphell.com/static/image/common/logo.png)](https://www.chiphell.com/ \"Chiphell - 分享与交流用户体验\")\n\n|     |     |     |     |\n| --- | --- | --- | --- |\n| 账号 |  | 自动登录 | 找回密码 |\n| 密码 |  | _登录_ | [加入我们](https://www.chiphell.com/member.php?mod=register) |\n\n快捷导航\n\n- [首页](https://www.chiphell.com/)\n- [评测](https://www.chiphell.com/portal.php?mod=list&catid=1)\n- [电脑](https://www.chiphell.com/portal.php?mod=list&catid=2)\n- [掌设](https://www.chiphell.com/portal.php?mod=list&catid=36)\n- [摄影](https://www.chiphell.com/portal.php?mod=list&catid=31)\n- [照片](https://www.chiphell.com/portal.php?mod=list&catid=3)\n- [汽车](https://www.chiphell.com/portal.php?mod=list&catid=32)\n- [单车](https://www.chiphell.com/portal.php?mod=list&catid=29)\n- [模型](https://www.chiphell.com/portal.php?mod=list&catid=30)\n- [败家](https://www.chiphell.com/portal.php?mod=list&catid设",
+        "errors": []
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2462208-1-1.html",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:23:52.006475+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "antibot-shell",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "chiphell-shell"
+        ],
+        "required": 1
+      },
+      "reading": {
+        "status": "pass"
+      }
+    },
+    "task": {
+      "status": "pass",
+      "reasons": []
+    },
+    "expected_access": "anti_bot",
+    "observed_failure": null,
+    "algorithm_miss": false,
+    "grader": "v2"
+  }
+}

@@ -1,0 +1,1016 @@
+{
+  "id": "hn-two-comments",
+  "query": "In the Hacker News discussion of SQLite as an application file format, read both the comment that rejects waiting on disk in the interface and the comment about Windows file-system snapshots",
+  "returncode": 124,
+  "elapsed_ms": 240100,
+  "efficiency": {
+    "tool_calls": {
+      "search": 6,
+      "fetch": 1,
+      "read_result": 1
+    },
+    "total_calls": 8,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 1,
+    "errors": 0
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "news.ycombinator.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:news.ycombinator.com SQLite application file format waiting on disk interface Windows file-system snapshots Hacker News discussion",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 34399
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "news.ycombinator.com"
+        ],
+        "max_results": 20,
+        "mode": "web",
+        "query": "site:news.ycombinator.com \"SQLite as an application file format\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 19978
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "waiting on disk in the interface; Windows file-system snapshots; snapshot; application file format",
+        "fresh": false,
+        "max_chars": 100000,
+        "url": "https://news.ycombinator.com/item?id=18754634"
+      },
+      "is_error": false,
+      "ms": 865
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": [
+          "content",
+          "comments"
+        ],
+        "limit": 200000,
+        "max_bytes": 16384,
+        "offset": 0,
+        "result_id": "9986602063156aaacc442706"
+      },
+      "is_error": false,
+      "ms": 8
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "news.ycombinator.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:news.ycombinator.com/item?id=18754634 \"wait\" \"disk\" interface SQLite",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 31580
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "news.ycombinator.com"
+        ],
+        "max_results": 20,
+        "mode": "web",
+        "query": "site:news.ycombinator.com \"waiting on disk\" SQLite interface",
+        "vertical": null
+      }
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "news.ycombinator.com"
+        ],
+        "max_results": 20,
+        "mode": "web",
+        "query": "site:news.ycombinator.com SQLite \"Windows\" \"snapshots\" application file format",
+        "vertical": null
+      }
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "news.ycombinator.com"
+        ],
+        "max_results": 20,
+        "mode": "web",
+        "query": "site:news.ycombinator.com/item?id=18754634 snapshot Windows file-system",
+        "vertical": null
+      }
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.1\", \"result_id\": \"3aea469d157bc25c381930bd\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:news.ycombinator.com SQLite application file format waiting on disk interface Windows file-system snapshots Hacker News discussion\", \"answer\": \"Closest Hacker News threads on SQLite as an application file format, consistent copies, and filesystem or Windows-style snapshots:\\n\\n1. **FS snapshots vs consistent SQLite reads** — Comment thread on distinguishing `cp`/`rsync` from live SQLite clients, LVM/`fsfreeze`, and point-in-time snapshots including VSS on Windows.  \\n   https://news.ycombinator.com/item?id=43857834\\n\\n2. **LVM/WAL consistency…\", \"answer_chars\": 2321, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 2, \"primary_citation_count\": 28, \"threads_read\": 2, \"comments_read\": 369}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 34384, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"hackernews\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"site_native\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"hackernews\", \"operation\": \"read_thread\", \"outcome\": \"ok\", \"reason\": \"thread\"}, {\"provider\": \"hackernews\", \"operation\": \"read_thread\", \"outcome\": \"ok\", \"reason\": \"thread\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 36, \"results\": [{\"id\": \"r1\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=46079326\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=49937540\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=38823297\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=50052163\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=44671373\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=49802871\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=47046185\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=42965198\", \"snippet\": \"\", \"providers\": [\"xai\", \"hackernews\"]}, {\"id\": \"r9\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=50029123\", \"snippet\": \"\", \"providers\": [\"tavily\", \"hackernews\"]}, {\"id\": \"r10\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/highlights\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://news.ycombinator.com/item?id=46079326\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://news.ycombinator.com/item?id=49937540\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://news.ycombinator.com/item?id=38823297\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://news.ycombinator.com/item?id=50052163\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://news.ycombinator.com/item?id=44671373\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://news.ycombinator.com/item?id=49802871\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://news.ycombinator.com/item?id=47046185\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://news.ycombinator.com/item?id=42965198\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://news.ycombinator.com/item?id=50029123\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"tavily\"]}, {\"id\": \"c10\", \"url\": \"https://news.ycombinator.com/highlights\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://news.ycombinator.com/item?id=31387762\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://news.ycombinator.com/item?id=45132498\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://news.ycombinator.com/item?id=45005071\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://news.ycombinator.com/front?day=2026-10-15\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://news.ycombinator.com/item?id=43857834\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://news.ycombinator.com/item?id=46079942\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://news.ycombinator.com/item?id=48954157\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://news.ycombinator.com/item?id=44673671\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://news.ycombinator.com/item?id=50008427\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"https://news.ycombinator.com/item?id=40655974\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"https://news.ycombinator.com/item?id=47534283\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"https://news.ycombinator.com/item?id=34391597\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c23\", \"url\": \"https://news.ycombinator.com/item?id=46076642\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c24\", \"url\": \"https://news.ycombinator.com/item?id=16982752\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c25\", \"url\": \"https://news.ycombinator.com/item?id=43682006\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c26\", \"url\": \"https://news.ycombinator.com/item?id=49519289\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c27\", \"url\": \"https://news.ycombinator.com/item?id=32305049\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c28\", \"url\": \"https://news.ycombinator.com/item?id=43870446\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c29\", \"url\": \"https://news.ycombinator.com/item?id=39797104\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c30\", \"url\": \"https://news.ycombinator.com/item?id=44671740\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c31\", \"url\": \"https://news.ycombinator.com/item?id=49432434\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c32\", \"url\": \"https://news.ycombinator.com/item?id=45585230\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c33\", \"url\": \"https://news.ycombinator.com/item?id=47888037\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c34\", \"url\": \"https://news.ycombinator.com/item?id=50031653\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c35\", \"url\": \"https://news.ycombinator.com/item?id=49937631\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c36\", \"url\": \"https://news.ycombinator.com/item?id=49998801\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"3aea469d157bc25c381930bd\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"Hacker News\", \"satisfied\": true, \"detail\": \"34 content page(s), e.g. https://news.ycombinator.com/item?id=46079326\"}], \"requirements_total\": 1}, \"threads\": [{\"platform\": \"hackernews\", \"url\": \"https://news.ycombinator.com/item?id=42965198\", \"title\": \"Show HN: SQLite disk page explorer\", \"status\": \"comments_read\", \"comments_total\": 41, \"comments_read\": 41, \"top_comments\": []}, {\"platform\": \"hackernews\", \"url\": \"https://news.ycombinator.com/item?id=50029123\", \"title\": \"Telegram Desktop vulnerability allowed any user's file to be stolen\", \"status\": \"comments_read\", \"comments_total\": 328, \"comments_read\": 328, \"top_comments\": []}], \"next_steps\": [{\"tool\": \"read_result\", \"why\": \"16 comment(s) matched the request and come first on page 1 (relevance > 0); later pages hold the remaining comments in …\", \"fields\": [\"comments\"]}], \"session\": {\"calls\": {\"search\": 1, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 36, \"new_pages_read\": 4, \"seen_urls\": 36, \"pages_read\": 4, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"3d532b5d8e568784bf02e33a\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:news.ycombinator.com \\\"SQLite as an application file format\\\"\", \"answer\": \"Relevant Hacker News threads on using SQLite as an application file format (up to 20):\\n\\n1. **SQLite as an Application File Format** — https://news.ycombinator.com/item?id=46076642 — 178 points, ~99 comments; MBTiles origin, tree vs tables, schema benefits.  \\n2. **SQLite as an Application File Format (2014)** — https://news.ycombinator.com/item?id=18754634 — 211 points, ~161 comments; single-file …\", \"answer_chars\": 3174, \"evidence\": {\"unique_urls\": 20, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 3, \"primary_citation_count\": 22, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 19969, \"warning_count\": 2, \"warnings\": [\"auto_scrape_truncated\", \"auto_scrape_truncated\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"hackernews\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"site_native\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 20, \"citation_count\": 30, \"results\": [{\"id\": \"r1\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=49937540\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r2\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=50008427\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r3\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=50045273\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r4\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=49415271\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r5\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=49983919\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r6\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=22155311\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r7\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=48332797\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r8\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=47046185\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r9\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=50063124\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r10\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=37553574\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r11\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=49930760\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r12\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=32832332\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r13\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=49988641\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r14\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=40655974\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r15\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=50052163\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r16\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=46079326\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r17\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=49442589\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r18\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=46782370\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r19\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=46080273\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r20\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/front?day=2026-10-15\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://news.ycombinator.com/item?id=49937540\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"tavily\"]}, {\"id\": \"c2\", \"url\": \"https://news.ycombinator.com/item?id=50008427\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"xai\"]}, {\"id\": \"c3\", \"url\": \"https://news.ycombinator.com/item?id=50045273\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"tavily\"]}, {\"id\": \"c4\", \"url\": \"https://news.ycombinator.com/item?id=49415271\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"xai\"]}, {\"id\": \"c5\", \"url\": \"https://news.ycombinator.com/item?id=49983919\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"tavily\"]}, {\"id\": \"c6\", \"url\": \"https://news.ycombinator.com/item?id=22155311\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://news.ycombinator.com/item?id=48332797\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"tavily\"]}, {\"id\": \"c8\", \"url\": \"https://news.ycombinator.com/item?id=47046185\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://news.ycombinator.com/item?id=50063124\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"tavily\"]}, {\"id\": \"c10\", \"url\": \"https://news.ycombinator.com/item?id=37553574\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://news.ycombinator.com/item?id=49930760\", \"title\": \"\", \"result_item_id\": \"r11\", \"providers\": [\"tavily\"]}, {\"id\": \"c12\", \"url\": \"https://news.ycombinator.com/item?id=32832332\", \"title\": \"\", \"result_item_id\": \"r12\", \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://news.ycombinator.com/item?id=49988641\", \"title\": \"\", \"result_item_id\": \"r13\", \"providers\": [\"tavily\"]}, {\"id\": \"c14\", \"url\": \"https://news.ycombinator.com/item?id=40655974\", \"title\": \"\", \"result_item_id\": \"r14\", \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://news.ycombinator.com/item?id=50052163\", \"title\": \"\", \"result_item_id\": \"r15\", \"providers\": [\"tavily\"]}, {\"id\": \"c16\", \"url\": \"https://news.ycombinator.com/item?id=46079326\", \"title\": \"\", \"result_item_id\": \"r16\", \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://news.ycombinator.com/item?id=49442589\", \"title\": \"\", \"result_item_id\": \"r17\", \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://news.ycombinator.com/item?id=46782370\", \"title\": \"\", \"result_item_id\": \"r18\", \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://news.ycombinator.com/item?id=46080273\", \"title\": \"\", \"result_item_id\": \"r19\", \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"https://news.ycombinator.com/front?day=2026-10-15\", \"title\": \"\", \"result_item_id\": \"r20\", \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"https://news.ycombinator.com/item?id=45132498\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"https://news.ycombinator.com/item?id=43682006\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c23\", \"url\": \"https://news.ycombinator.com/item?id=23508923\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c24\", \"url\": \"https://news.ycombinator.com/item?id=46076642\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c25\", \"url\": \"https://news.ycombinator.com/item?id=26163589\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c26\", \"url\": \"https://news.ycombinator.com/item?id=18755335\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c27\", \"url\": \"https://news.ycombinator.com/item?id=18754634\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c28\", \"url\": \"https://news.ycombinator.com/item?id=49421475\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c29\", \"url\": \"https://news.ycombinator.com/item?id=39797104\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c30\", \"url\": \"https://news.ycombinator.com/item?id=48046007\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"3d532b5d8e568784bf02e33a\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"Hacker News\", \"satisfied\": true, \"detail\": \"29 content page(s), e.g. https://news.ycombinator.com/item?id=49937540\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 2, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 19, \"new_pages_read\": 3, \"seen_urls\": 55, \"pages_read\": 7, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"9986602063156aaacc442706\", \"kind\": \"fetch\", \"status\": \"ok\", \"url\": \"https://news.ycombinator.com/item?id=18754634\", \"final_url\": \"https://news.ycombinator.com/item?id=18754634\", \"title\": \"SQLite as an Application File Format (2014)\", \"provider\": \"hackernews\", \"content_preview\": \"# SQLite as an Application File Format (2014)\\n\\nby kjeetgill · 2018-12-24T22:29:06.000Z · via hn.algolia.com/api/v1/items\\n\\nLink: https://www.sqlite.org/appfileformat.html\\n\\n## Comments (161 shown of 161)\\n\\n### [18757335] agumonkey · 2018-12-25T13:31:54.000Z · reply to 18755505\\nhttps://news.ycombinator.com/item?id=18757335\\n\\nReminds me I have to extract data from an 9x day windows application. It's a jetdb that refuses to load in the first viewers I could find. Made me wish it was sqlite (although it didn't exist at the time..)\\n\\n### [18757402] hestefisk · 2018-12-25T13:56:58.000Z · reply to 18754634\\nhttps://news.ycombinator.com/item?id=18757402\\n\\nI have done this on a large .NET Win32/XAML client / server application in two ways:\\n1) Saving application state and config/settings (window layout, ... very easy to marshall XAML stage to an SQLite file)\\n2) Caching of common data sets to avoid unnecessary polling to the server of data that is accessed all the time (ie customer master data)\\nIt works\", \"content_chars\": 71763, \"truncated\": true, \"errors\": [], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"9986602063156aaacc442706\", \"fields\": [\"content\"], \"comment_fields\": [\"comments\"]}, \"thread\": {\"platform\": \"hackernews\", \"url\": \"https://news.ycombinator.com/item?id=18754634\", \"title\": \"SQLite as an Application File Format (2014)\", \"status\": \"comments_read\", \"comments_total\": 161, \"comments_read\": 161, \"top_comments\": [{\"id\": \"18757335\", \"author\": \"agumonkey\", \"text\": \"Reminds me I have to extract data from an 9x day windows application. It's a jetdb that refuses to load in the first viewers I could find. Made me wish it was sqlite (although it didn't exist at the time..)\"}, {\"id\": \"18757402\", \"author\": \"hestefisk\", \"text\": \"I have done this on a large .NET Win32/XAML client / server application in two ways:\\n1) Saving application state and config/settings (window layout, ... very easy to marshall XAML stage to an SQLite file)\\n2) Caching of common data sets to …\"}]}, \"session\": {\"calls\": {\"search\": 2, \"fetch\": 1, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 1, \"seen_urls\": 55, \"pages_read\": 8, \"calls_without_new_evidence\": 0}}",
+    "{\"result_id\": \"9986602063156aaacc442706\", \"kind\": \"fetch\", \"fields\": [\"content\", \"comments\"], \"offset\": 0, \"next_offset\": 10, \"next_offsets\": {\"content\": 10152, \"comments\": 10}, \"truncated\": true, \"data\": {\"content\": \"# SQLite as an Application File Format (2014)\\n\\nby kjeetgill · 2018-12-24T22:29:06.000Z · via hn.algolia.com/api/v1/items\\n\\nLink: https://www.sqlite.org/appfileformat.html\\n\\n## Comments (161 shown of 161)\\n\\n### [18757335] agumonkey · 2018-12-25T13:31:54.000Z · reply to 18755505\\nhttps://news.ycombinator.com/item?id=18757335\\n\\nReminds me I have to extract data from an 9x day windows application. It's a jetdb that refuses to load in the first viewers I could find. Made me wish it was sqlite (although it didn't exist at the time..)\\n\\n### [18757402] hestefisk · 2018-12-25T13:56:58.000Z · reply to 18754634\\nhttps://news.ycombinator.com/item?id=18757402\\n\\nI have done this on a large .NET Win32/XAML client / server application in two ways:\\n1) Saving application state and config/settings (window layout, ... very easy to marshall XAML stage to an SQLite file)\\n2) Caching of common data sets to avoid unnecessary polling to the server of data that is accessed all the time (ie customer master data)\\nIt works beautifully.\\n\\n### [18755656] adzm · 2018-12-25T03:17:02.000Z · reply to 18755444\\nhttps://news.ycombinator.com/item?id=18755656\\n\\nWhy would you realistically need wal or shm for an application file format anyway? That's for high concurrency in general.\\n\\n### [18756986] SQLite · 2018-12-25T11:13:02.000Z · reply to 18756732\\nhttps://news.ycombinator.com/item?id=18756986\\n\\nI'm not sure what you mean by \\\"stream\\\" here. However, there are two APIs designed to facilitate sending SQLite database files over a socket. The sqlite3_serialize() interface (https://www.sqlite.org/c3ref/serialize.html) takes a database and converts it into a blob of contiguous memory that can be sent over a wire. The sqlite3_deserialize() interface (https://www.sqlite.org/c3ref/deserialize.html) does the opposite, accepting a blob and using it as a database file. These interfaces were created for the purpose of \\\"streaming\\\" database files across network connections. Depending on your specific needs, they might work for you.\\n\\n### [18757062] xte · 2018-12-25T11:47:01.000Z · reply to 18754634\\nhttps://news.ycombinator.com/item?id=18757062\\n\\nMh,\\n> Simplified Application Development\\nIt's depend \\\"application development\\\" is a vast area...\\n> Single-File Documents\\nNot much related to SQlite, can be or cannot be done with nearly any format you like. Also remember as a good advise how worse go Catia v6 R2009 (Catia is the best CAD/CAE/CAM suite in the world, used anywhere from automotive to aerospace&defence, it's sole real competitor are Creo (formerly Pro-e) and Nx) when it start to offer single-file PLMs for \\\"light usage\\\"...\\n> High-Level Query Language\\nDepending on the format you choose you may have the best/highest level query language: your own apps programming language itself, so IMO may not be an SQLite plus at all\\n> Accessible Content\\nAny binary content is FAR LESS accessible than text\\n> Better Applications\\nSorry, it have NO mining at all.\\nI like SQLite for many aspects but I certainly not look at it as a file format for most applications I use or imaging, for some usage is really nice, for others usages {Tokyo,Kioto}Cabinet is another nice format, for MANY other usage text files in various format, binary files in various formats (including classic pickle) may be better...\\n\\n### [18755488] kccqzy · 2018-12-25T02:25:56.000Z · reply to 18755444\\nhttps://news.ycombinator.com/item?id=18755488\\n\\nIt's mentioned on the WAL docs on https://sqlite.org/wal.html\\n> There is an additional quasi-persistent \\\"-wal\\\" file and \\\"-shm\\\" shared memory file associated with each database, which can make SQLite less appealing for use as an application file-format.\\n\\n### [18755824] wongarsu · 2018-12-25T03:59:59.000Z · reply to 18755335\\nhttps://news.ycombinator.com/item?id=18755824\\n\\nYes. The MBTiles Format [1][2] is essentially just an SQLite database storing map tiles (thousands of square images of parts of a map). In that case it's mostly done because SQLite stores small files much more efficiently than a general purpose file system in default settings.\\n1: https://github.com/mapbox/mbtiles-spec\\n2: https://wiki.openstreetmap.org/wiki/MBTiles\\n\\n### [18756491] mirimir · 2018-12-25T08:00:14.000Z · reply to 18756465\\nhttps://news.ycombinator.com/item?id=18756491\\n\\nIndeed. I used to clean up data in UltraEdit. With the option for direct disk read/write set, there was virtually no file-size limit.\\n\\n### [18756514] out_of_protocol · 2018-12-25T08:08:45.000Z · reply to 18756175\\nhttps://news.ycombinator.com/item?id=18756514\\n\\nCounterpoint: tiled maps, which are basically loads and loads of images, can be stored on disk as\\n- Direcory structure\\n- Zip file\\n- Tar file\\n- Sqlite db\\nOut of these, sqlite is the most compact, by far (also the fastest)\\n\\n### [18756697] quickthrower2 · 2018-12-25T09:19:37.000Z · reply to 18756610\\nhttps://news.ycombinator.com/item?id=18756697\\n\\nWhat is the source of the corruption. Unlikely to be disks nowadays but people should take backups of things. Very unlikely to be a SQLite buggy write but again a backup could save you. Worse case I’m sure there are tools to recover a corrupted file.\\n\\n### [18755450] thechao · 2018-12-25T02:14:59.000Z · reply to 18755200\\nhttps://news.ycombinator.com/item?id=18755450\\n\\nIf you code in c/c++, and have even a modest OS/RTOS available, you should use SQLite as your persistence layer, full stop. I switched to this methodology 5 years ago & never looked back. You know what happens when another engineer gets your on disk format & asks how to look at it? You say “open it in SQLite browser”; all further questions disappear.\\n\\n### [18757920] coredog64 · 2018-12-25T16:24:12.000Z · reply to 18756304\\nhttps://news.ycombinator.com/item?id=18757920\\n\\nAbout 10 years ago I had to use those for a financial system integration. I was getting files that had been created on a mainframe, and whoever wrote it originally had the foresight to use those characters. Probably because they were based out of EMEA and understood that commas weren’t useful across national borders.\\n\\n### [18756107] fiddlerwoaroof · 2018-12-25T05:36:53.000Z · reply to 18755960\\nhttps://news.ycombinator.com/item?id=18756107\\n\\nThe thing is SQLite handles a lot of hard problems that you might not realize you have: like “was my data actually written to the disk”\\n\\n### [18756351] revskill · 2018-12-25T07:01:35.000Z · reply to 18756138\\nhttps://news.ycombinator.com/item?id=18756351\\n\\nIt's because my projects are universal application, that's why Javascript. But JS is not the only choice.\\nWhat i mean is, we want a programmable config file, not \\\"static one\\\"\\n\\n### [18755200] saagarjha · 2018-12-25T01:01:04.000Z · reply to 18754634\\nhttps://news.ycombinator.com/item?id=18755200\\n\\nCoreData has an option to write to a SQLite database, so a lot of data on iOS and macOS apps ends up being written to disk this way.\\n\\n### [18756481] mirimir · 2018-12-25T07:57:27.000Z · reply to 18756172\\nhttps://news.ycombinator.com/item?id=18756481\\n\\nIt could have been, I suppose.\\nBut more likely is twisted creativity. It seems that some businesses are still using ancient systems, based on COBOL, AS/400, etc. There's resistance to changing legacy code. So when business changes require additional data fields, fields sometimes get subdivided. So a field that originally contained stuff like |foo| now contains stuff like |\\\"foo\\\",\\\"bar,baz\\\"| or whatever. That works, because there's nothing like CSV in the data system. But when someone tries a CSV export, you get garbage.\\n\\n### [18756705] darkpuma · 2018-12-25T09:23:57.000Z · reply to 18756506\\nhttps://news.ycombinator.com/item?id=18756705\\n\\n>\\\"This file contains some example code demonstrating how the SQLite vfs feature can be used to have SQLite operate directly on an embedded media, without using an intermediate file system.\\\"\\nhttps://www.sqlite.org/src/doc/trunk/src/test_onefile.c\\nhttps://www.sqlite.org/vfs.html\\nIIRC, during one of his talks D. Richard Hipp mentions this actually being done for real.\\n\\n### [18758499] geocar · 2018-12-25T18:19:01.000Z · reply to 18756986\\nhttps://news.ycombinator.com/item?id=18758499\\n\\n> I'm not sure what you mean by \\\"stream\\\" here. However, there are two APIs designed to facilitate sending SQLite database files over a socket.\\nI already have APIs that send SQLite database files over a socket: send(), sendfile(), writev(), and so on.\\nWhat I don't have is the ability to receive SQLite database files incrementally (stream): I always need enough disk and/or memory to store an SQLite database.\\nI can however, receive an XLS file (or even XLSX) incrementally and implement a streaming parser for it.\\n\\n### [18760582] mbrumlow · 2018-12-26T04:46:06.000Z · reply to 18757836\\nhttps://news.ycombinator.com/item?id=18760582\\n\\nThere are many different concurrence modules for sqlite. I can't see why you would have any problems with what you describe.\\nThe systems I work with use it for backup data. We have many readers and writes. Some of those export a iscsi daemon that represents a block device from the backup that is then booted form.\\n\\n### [18757452] ineedasername · 2018-12-25T14:08:25.000Z · reply to 18756932\\nhttps://news.ycombinator.com/item?id=18757452\\n\\nMaybe that future maintainers/inheritors of the application would thereby be defacto knowledgeable in the config language as well?\\n\\n### [18755956] romwell · 2018-12-25T04:45:55.000Z · reply to 18755450\\nhttps://news.ycombinator.com/item?id=18755956\\n\\nSeconding this.\\nOne thing though: last time I did that, I ended up writing my own ORM/serialization library (with templates and all), but I wish I didn't have to.\\nIs there anything freely available out there that would allow one to store object hierarchies with the ease of boost::serialization, but into an SQLite EAV scheme?\\n\\n### [18757257] thechao · 2018-12-25T13:06:56.000Z · reply to 18755956\\nhttps://news.ycombinator.com/item?id=18757257\\n\\nI always trace rather than log. That means I have one table per ‘tracing function’, and just record the arguments to each table. Recording an object means recording the function calls that generated the object; regenerating the object is just playing those functions back. I’ll admit that this works far better in C tha\", \"content_chars\": 71763, \"comments\": [{\"id\": \"18757335\", \"author\": \"agumonkey\", \"created_at\": \"2018-12-25T13:31:54.000Z\", \"text\": \"Reminds me I have to extract data from an 9x day windows application. It's a jetdb that refuses to load in the first viewers I could find. Made me wish it was sqlite (although it didn't exist at the time..)\", \"url\": \"https://news.ycombinator.com/item?id=18757335\", \"parent_id\": \"18755505\", \"depth\": 1, \"points\": null, \"relevance\": 7.694}, {\"id\": \"18757402\", \"author\": \"hestefisk\", \"created_at\": \"2018-12-25T13:56:58.000Z\", \"text\": \"I have done this on a large .NET Win32/XAML client / server application in two ways:\\n1) Saving application state and config/settings (window layout, ... very easy to marshall XAML stage to an SQLite file)\\n2) Caching of common data sets to avoid unnecessary polling to the server of data that is accessed all the time (ie customer master data)\\nIt works beautifully.\", \"url\": \"https://news.ycombinator.com/item?id=18757402\", \"parent_id\": \"18754634\", \"depth\": 0, \"points\": null, \"relevance\": 7.6}, {\"id\": \"18755656\", \"author\": \"adzm\", \"created_at\": \"2018-12-25T03:17:02.000Z\", \"text\": \"Why would you realistically need wal or shm for an application file format anyway? That's for high concurrency in general.\", \"url\": \"https://news.ycombinator.com/item?id=18755656\", \"parent_id\": \"18755444\", \"depth\": 1, \"points\": null, \"relevance\": 6.122}, {\"id\": \"18756986\", \"author\": \"SQLite\", \"created_at\": \"2018-12-25T11:13:02.000Z\", \"text\": \"I'm not sure what you mean by \\\"stream\\\" here. However, there are two APIs designed to facilitate sending SQLite database files over a socket. The sqlite3_serialize() interface (https://www.sqlite.org/c3ref/serialize.html) takes a database and converts it into a blob of contiguous memory that can be sent over a wire. The sqlite3_deserialize() interface (https://www.sqlite.org/c3ref/deserialize.html) does the opposite, accepting a blob and using it as a database file. These interfaces were created for the purpose of \\\"streaming\\\" database files across network connections. Depending on your specifi…\", \"url\": \"https://news.ycombinator.com/item?id=18756986\", \"parent_id\": \"18756732\", \"depth\": 1, \"points\": null, \"relevance\": 5.621}, {\"id\": \"18757062\", \"author\": \"xte\", \"created_at\": \"2018-12-25T11:47:01.000Z\", \"text\": \"Mh,\\n> Simplified Application Development\\nIt's depend \\\"application development\\\" is a vast area...\\n> Single-File Documents\\nNot much related to SQlite, can be or cannot be done with nearly any format you like. Also remember as a good advise how worse go Catia v6 R2009 (Catia is the best CAD/CAE/CAM suite in the world, used anywhere from automotive to aerospace&defence, it's sole real competitor are Creo (formerly Pro-e) and Nx) when it start to offer single-file PLMs for \\\"light usage\\\"...\\n> High-Level Query Language\\nDepending on the format you choose you may have the best/highest level query lang…\", \"url\": \"https://news.ycombinator.com/item?id=18757062\", \"parent_id\": \"18754634\", \"depth\": 0, \"points\": null, \"relevance\": 5.465}, {\"id\": \"18755488\", \"author\": \"kccqzy\", \"created_at\": \"2018-12-25T02:25:56.000Z\", \"text\": \"It's mentioned on the WAL docs on https://sqlite.org/wal.html\\n> There is an additional quasi-persistent \\\"-wal\\\" file and \\\"-shm\\\" shared memory file associated with each database, which can make SQLite less appealing for use as an application file-format.\", \"url\": \"https://news.ycombinator.com/item?id=18755488\", \"parent_id\": \"18755444\", \"depth\": 1, \"points\": null, \"relevance\": 5.208}, {\"id\": \"18755824\", \"author\": \"wongarsu\", \"created_at\": \"2018-12-25T03:59:59.000Z\", \"text\": \"Yes. The MBTiles Format [1][2] is essentially just an SQLite database storing map tiles (thousands of square images of parts of a map). In that case it's mostly done because SQLite stores small files much more efficiently than a general purpose file system in default settings.\\n1: https://github.com/mapbox/mbtiles-spec\\n2: https://wiki.openstreetmap.org/wiki/MBTiles\", \"url\": \"https://news.ycombinator.com/item?id=18755824\", \"parent_id\": \"18755335\", \"depth\": 1, \"points\": null, \"relevance\": 5.067}, {\"id\": \"18756491\", \"author\": \"mirimir\", \"created_at\": \"2018-12-25T08:00:14.000Z\", \"text\": \"Indeed. I used to clean up data in UltraEdit. With the option for direct disk read/write set, there was virtually no file-size limit.\", \"url\": \"https://news.ycombinator.com/item?id=18756491\", \"parent_id\": \"18756465\", \"depth\": 6, \"points\": null, \"relevance\": 4.879}, {\"id\": \"18756514\", \"author\": \"out_of_protocol\", \"created_at\": \"2018-12-25T08:08:45.000Z\", \"text\": \"Counterpoint: tiled maps, which are basically loads and loads of images, can be stored on disk as\\n- Direcory structure\\n- Zip file\\n- Tar file\\n- Sqlite db\\nOut of these, sqlite is the most compact, by far (also the fastest)\", \"url\": \"https://news.ycombinator.com/item?id=18756514\", \"parent_id\": \"18756175\", \"depth\": 4, \"points\": null, \"relevance\": 4.736}, {\"id\": \"18756697\", \"author\": \"quickthrower2\", \"created_at\": \"2018-12-25T09:19:37.000Z\", \"text\": \"What is the source of the corruption. Unlikely to be disks nowadays but people should take backups of things. Very unlikely to be a SQLite buggy write but again a backup could save you. Worse case I’m sure there are tools to recover a corrupted file.\", \"url\": \"https://news.ycombinator.com/item?id=18756697\", \"parent_id\": \"18756610\", \"depth\": 2, \"points\": null, \"relevance\": 4.405}], \"comments_total\": 161, \"comments_relevant\": 20}, \"session\": {\"calls\": {\"search\": 2, \"fetch\": 1, \"read_result\": 1}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 55, \"pages_read\": 8, \"calls_without_new_evidence\": 1}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"0624e6d52bae4b83db799c87\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:news.ycombinator.com/item?id=18754634 \\\"wait\\\" \\\"disk\\\" interface SQLite\", \"answer\": \"The thread at that URL is **SQLite as an Application File Format (2014)** (sqlite.org), 211 points, Dec 24, 2018, 161 comments: https://news.ycombinator.com/item?id=18754634. A full fetch of the page has **no occurrence of “wait.”** Closest comments that match **disk** and/or **interface** (plus SQLite) are below.\\n\\n1. **i_feel_great** (Dec 25, 2018) — A SQLite file carries its schema; use SQL to **interface** with it; more compact than XML as data grows; single file over the wire. https://news.ycombinator.com/item?id=18754634  \\n   [[1]](https://news.ycombinator.com/item?id=18754634)\\n\\n2. **SQLite** (official account, Dec 25, 2018) — `sqlite3_serialize()` / `sqlite3_deserialize()` **interfaces** turn a DB into a contiguous blob (and back) for sending over a socket. https://news.ycombinator.…\", \"answer_chars\": 3067, \"evidence\": {\"unique_urls\": 9, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 3, \"primary_citation_count\": 1, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 31573, \"warning_count\": 1, \"warnings\": [\"auto_scrape_truncated\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"hackernews\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"site_native\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 9, \"citation_count\": 9, \"results\": [{\"id\": \"r1\", \"title\": \"1\", \"url\": \"https://news.ycombinator.com/item?id=18754634\", \"snippet\": \"The thread at that URL is SQLite as an Application File Format (2014) (sqlite.org), 211 points, Dec 24, 2018, 161 comments: A full fetch of the page has no occ…\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"apsw: Another Python SQLite Wrapper | Hacker News\", \"url\": \"https://news.ycombinator.com/item?id=50045273\", \"snippet\": \"It only became less common by shifting the issue to the supply chain, now you need orms and yet another wrangling library. So I'm not convinced the security is…\", \"providers\": [\"tavily\", \"firecrawl\"]}, {\"id\": \"r3\", \"title\": \"In a sentence, I'd say apsw is \\\"the SQLite lover's SQLite library\\\". The python s... | Hacker News\", \"url\": \"https://news.ycombinator.com/item?id=50046583\", \"snippet\": \"|  |  |  |\\n --- \\n|  | Hacker Newsnew | past | comments | <ask> | <show> | <jobs> | <submit> | login |\\n\\n|  |  |  |\\n --- \\n|  |  | Retr0id 4 days ago  | parent | …\", \"providers\": [\"tavily\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"Postgres isn't slow, your storage is | Hacker News\", \"url\": \"https://news.ycombinator.com/item?id=50052163\", \"snippet\": \"reply | | | |  |  |  |  ---  |  |  | buckle8017 2 days ago  | root | parent | prev | next (javascript:void(0))   For the low low price of unlimited liability. …\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"Is the CGI process opening up the SQLite database for every request...? That wou... | Hacker News\", \"url\": \"https://news.ycombinator.com/item?id=50063124\", \"snippet\": \"|  |  |  |\\n --- \\n|  |  | zbentley 3 days ago  | next (javascript:void(0))   Would it? The file handle doesn’t contend for a lock IIRC; just writes.  reply |\\n\\nr…\", \"providers\": [\"tavily\"]}, {\"id\": \"r6\", \"title\": \"Have you done any updated benchmarks on maximum supported writes/sec since the t... | Hacker News\", \"url\": \"https://news.ycombinator.com/item?id=46571272\", \"snippet\": \"|  |  |  |\\n --- \\n|  |  | otoolep 9 months ago  (javascript:void(0))   rqlite creator here. I have performed a fair amount of performance testing, some of which…\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"Tin: full-text search for Postgres | Hacker News\", \"url\": \"https://news.ycombinator.com/item?id=49766611\", \"snippet\": \"Cool to see. Seems like there's still a lot of juice to be squeezed out of how it's architected and integrated into each system, but you can't help but wonder …\", \"providers\": [\"tavily\"]}, {\"id\": \"r8\", \"title\": \"Passkeys are a trap | Hacker News\", \"url\": \"https://news.ycombinator.com/item?id=50048312\", \"snippet\": \"If I wanted, the private key itself just be in something like AWS KMS instead of a SQLite database, and it would all still work fine. Nothing about passkeys it…\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"Show HN: Musql, JIT-compiled SQL, up to 300x faster than SQLite, 1000x vs. Turso | Hacker News\", \"url\": \"https://news.ycombinator.com/item?id=49988641\", \"snippet\": \"It works with Go's database/sql or through a server for libSQL clients. It uses its own storage format, with SQLite import/export. And yes, the SQL VM runs DOO…\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://news.ycombinator.com/item?id=18754634\", \"title\": \"1\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://news.ycombinator.com/item?id=50045273\", \"title\": \"apsw: Another Python SQLite Wrapper | Hacker News\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://news.ycombinator.com/item?id=50046583\", \"title\": \"In a sentence, I'd say apsw is \\\"the SQLite lover's SQLite library\\\". The python s... | Hacker News\", \"result_item_id\": \"r3\", \"providers\": [\"tavily\"]}, {\"id\": \"c4\", \"url\": \"https://news.ycombinator.com/item?id=50052163\", \"title\": \"Postgres isn't slow, your storage is | Hacker News\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://news.ycombinator.com/item?id=50063124\", \"title\": \"Is the CGI process opening up the SQLite database for every request...? That wou... | Hacker News\", \"result_item_id\": \"r5\", \"providers\": [\"tavily\"]}, {\"id\": \"c6\", \"url\": \"https://news.ycombinator.com/item?id=46571272\", \"title\": \"Have you done any updated benchmarks on maximum supported writes/sec since the t... | Hacker News\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://news.ycombinator.com/item?id=49766611\", \"title\": \"Tin: full-text search for Postgres | Hacker News\", \"result_item_id\": \"r7\", \"providers\": [\"tavily\"]}, {\"id\": \"c8\", \"url\": \"https://news.ycombinator.com/item?id=50048312\", \"title\": \"Passkeys are a trap | Hacker News\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://news.ycombinator.com/item?id=49988641\", \"title\": \"Show HN: Musql, JIT-compiled SQL, up to 300x faster than SQLite, 1000x vs. Turso | Hacker News\", \"result_item_id\": \"r9\", \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"0624e6d52bae4b83db799c87\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"Hacker News\", \"satisfied\": true, \"detail\": \"9 content page(s), e.g. https://news.ycombinator.com/item?id=18754634\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 3, \"fetch\": 1, \"read_result\": 1}, \"new_urls\": 4, \"new_pages_read\": 2, \"seen_urls\": 59, \"pages_read\": 10, \"calls_without_new_evidence\": 0}}",
+    "null",
+    "null",
+    "null"
+  ],
+  "answer": "",
+  "observation": {
+    "id": "hn-two-comments",
+    "answer": "",
+    "results": [
+      {
+        "url": "https://news.ycombinator.com/item?id=46079326",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49937540",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=38823297",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50052163",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=44671373",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49802871",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47046185",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=42965198",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50029123",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/highlights",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46079326",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49937540",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=38823297",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50052163",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=44671373",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49802871",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47046185",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=42965198",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50029123",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/highlights",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=31387762",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45132498",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45005071",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/front?day=2026-10-15",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=43857834",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46079942",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48954157",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=44673671",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50008427",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=40655974",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47534283",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=34391597",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46076642",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=16982752",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=43682006",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49519289",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=32305049",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=43870446",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=39797104",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=44671740",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49432434",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45585230",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47888037",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50031653",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49937631",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49998801",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49937540",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50008427",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50045273",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49415271",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49983919",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=22155311",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48332797",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47046185",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50063124",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=37553574",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49930760",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=32832332",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49988641",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=40655974",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50052163",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46079326",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49442589",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46782370",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46080273",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/front?day=2026-10-15",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49937540",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50008427",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50045273",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49415271",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49983919",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=22155311",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48332797",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47046185",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50063124",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=37553574",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49930760",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=32832332",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49988641",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=40655974",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50052163",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46079326",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49442589",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46782370",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46080273",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/front?day=2026-10-15",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45132498",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=43682006",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=23508923",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46076642",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=26163589",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=18755335",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=18754634",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49421475",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=39797104",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48046007",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=18754634",
+        "title": "1",
+        "snippet": "The thread at that URL is SQLite as an Application File Format (2014) (sqlite.org), 211 points, Dec 24, 2018, 161 comments: A full fetch of the page has no occ…",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50045273",
+        "title": "apsw: Another Python SQLite Wrapper | Hacker News",
+        "snippet": "It only became less common by shifting the issue to the supply chain, now you need orms and yet another wrangling library. So I'm not convinced the security is…",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50046583",
+        "title": "In a sentence, I'd say apsw is \"the SQLite lover's SQLite library\". The python s... | Hacker News",
+        "snippet": "|  |  |  |\n --- \n|  | Hacker Newsnew | past | comments | <ask> | <show> | <jobs> | <submit> | login |\n\n|  |  |  |\n --- \n|  |  | Retr0id 4 days ago  | parent | …",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50052163",
+        "title": "Postgres isn't slow, your storage is | Hacker News",
+        "snippet": "reply | | | |  |  |  |  ---  |  |  | buckle8017 2 days ago  | root | parent | prev | next (javascript:void(0))   For the low low price of unlimited liability. …",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50063124",
+        "title": "Is the CGI process opening up the SQLite database for every request...? That wou... | Hacker News",
+        "snippet": "|  |  |  |\n --- \n|  |  | zbentley 3 days ago  | next (javascript:void(0))   Would it? The file handle doesn’t contend for a lock IIRC; just writes.  reply |\n\nr…",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46571272",
+        "title": "Have you done any updated benchmarks on maximum supported writes/sec since the t... | Hacker News",
+        "snippet": "|  |  |  |\n --- \n|  |  | otoolep 9 months ago  (javascript:void(0))   rqlite creator here. I have performed a fair amount of performance testing, some of which…",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49766611",
+        "title": "Tin: full-text search for Postgres | Hacker News",
+        "snippet": "Cool to see. Seems like there's still a lot of juice to be squeezed out of how it's architected and integrated into each system, but you can't help but wonder …",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50048312",
+        "title": "Passkeys are a trap | Hacker News",
+        "snippet": "If I wanted, the private key itself just be in something like AWS KMS instead of a SQLite database, and it would all still work fine. Nothing about passkeys it…",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49988641",
+        "title": "Show HN: Musql, JIT-compiled SQL, up to 300x faster than SQLite, 1000x vs. Turso | Hacker News",
+        "snippet": "It works with Go's database/sql or through a server for libSQL clients. It uses its own storage format, with SQLite import/export. And yes, the SQL VM runs DOO…",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=18754634",
+        "title": "1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50045273",
+        "title": "apsw: Another Python SQLite Wrapper | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50046583",
+        "title": "In a sentence, I'd say apsw is \"the SQLite lover's SQLite library\". The python s... | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50052163",
+        "title": "Postgres isn't slow, your storage is | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50063124",
+        "title": "Is the CGI process opening up the SQLite database for every request...? That wou... | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46571272",
+        "title": "Have you done any updated benchmarks on maximum supported writes/sec since the t... | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49766611",
+        "title": "Tin: full-text search for Postgres | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50048312",
+        "title": "Passkeys are a trap | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49988641",
+        "title": "Show HN: Musql, JIT-compiled SQL, up to 300x faster than SQLite, 1000x vs. Turso | Hacker News",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://news.ycombinator.com/item?id=18754634",
+        "content": "# SQLite as an Application File Format (2014)\n\nby kjeetgill · 2018-12-24T22:29:06.000Z · via hn.algolia.com/api/v1/items\n\nLink: https://www.sqlite.org/appfileformat.html\n\n## Comments (161 shown of 161)\n\n### [18757335] agumonkey · 2018-12-25T13:31:54.000Z · reply to 18755505\nhttps://news.ycombinator.com/item?id=18757335\n\nReminds me I have to extract data from an 9x day windows application. It's a jetdb that refuses to load in the first viewers I could find. Made me wish it was sqlite (although it didn't exist at the time..)\n\n### [18757402] hestefisk · 2018-12-25T13:56:58.000Z · reply to 18754634\nhttps://news.ycombinator.com/item?id=18757402\n\nI have done this on a large .NET Win32/XAML client / server application in two ways:\n1) Saving application state and config/settings (window layout, ... very easy to marshall XAML stage to an SQLite file)\n2) Caching of common data sets to avoid unnecessary polling to the server of data that is accessed all the time (ie customer master data)\nIt works# SQLite as an Application File Format (2014)\n\nby kjeetgill · 2018-12-24T22:29:06.000Z · via hn.algolia.com/api/v1/items\n\nLink: https://www.sqlite.org/appfileformat.html\n\n## Comments (161 shown of 161)\n\n### [18757335] agumonkey · 2018-12-25T13:31:54.000Z · reply to 18755505\nhttps://news.ycombinator.com/item?id=18757335\n\nReminds me I have to extract data from an 9x day windows application. It's a jetdb that refuses to load in the first viewers I could find. Made me wish it was sqlite (although it didn't exist at the time..)\n\n### [18757402] hestefisk · 2018-12-25T13:56:58.000Z · reply to 18754634\nhttps://news.ycombinator.com/item?id=18757402\n\nI have done this on a large .NET Win32/XAML client / server application in two ways:\n1) Saving application state and config/settings (window layout, ... very easy to marshall XAML stage to an SQLite file)\n2) Caching of common data sets to avoid unnecessary polling to the server of data that is accessed all the time (ie customer master data)\nIt works beautifully.\n\n### [18755656] adzm · 2018-12-25T03:17:02.000Z · reply to 18755444\nhttps://news.ycombinator.com/item?id=18755656\n\nWhy would you realistically need wal or shm for an application file format anyway? That's for high concurrency in general.\n\n### [18756986] SQLite · 2018-12-25T11:13:02.000Z · reply to 18756732\nhttps://news.ycombinator.com/item?id=18756986\n\nI'm not sure what you mean by \"stream\" here. However, there are two APIs designed to facilitate sending SQLite database files over a socket. The sqlite3_serialize() interface (https://www.sqlite.org/c3ref/serialize.html) takes a database and converts it into a blob of contiguous memory that can be sent over a wire. The sqlite3_deserialize() interface (https://www.sqlite.org/c3ref/deserialize.html) does the opposite, accepting a blob and using it as a database file. These interfaces were created for the purpose of \"streaming\" database files across network connections. Depending on your specific needs, they might work for you.\n\n### [18757062] xte · 2018-12-25T11:47:01.000Z · reply to 18754634\nhttps://news.ycombinator.com/item?id=18757062\n\nMh,\n> Simplified Application Development\nIt's depend \"application development\" is a vast area...\n> Single-File Documents\nNot much related to SQlite, can be or cannot be done with nearly any format you like. Also remember as a good advise how worse go Catia v6 R2009 (Catia is the best CAD/CAE/CAM suite in the world, used anywhere from automotive to aerospace&defence, it's sole real competitor are Creo (formerly Pro-e) and Nx) when it start to offer single-file PLMs for \"light usage\"...\n> High-Level Query Language\nDepending on the format you choose you may have the best/highest level query language: your own apps programming language itself, so IMO may not be an SQLite plus at all\n> Accessible Content\nAny binary content is FAR LESS accessible than text\n> Better Applications\nSorry, it have NO mining at all.\nI like SQLite for many aspects but I certainly not look at it as a file format for most applications I use or imaging, for some usage is really nice, for others usages {Tokyo,Kioto}Cabinet is another nice format, for MANY other usage text files in various format, binary files in various formats (including classic pickle) may be better...\n\n### [18755488] kccqzy · 2018-12-25T02:25:56.000Z · reply to 18755444\nhttps://news.ycombinator.com/item?id=18755488\n\nIt's mentioned on the WAL docs on https://sqlite.org/wal.html\n> There is an additional quasi-persistent \"-wal\" file and \"-shm\" shared memory file associated with each database, which can make SQLite less appealing for use as an application file-format.\n\n### [18755824] wongarsu · 2018-12-25T03:59:59.000Z · reply to 18755335\nhttps://news.ycombinator.com/item?id=18755824\n\nYes. The MBTiles Format [1][2] is essentially just an SQLite database storing map tiles (thousands of square images of parts of a map). In that case it's mostly done because SQLite stores small files much more efficiently than a general purpose file system in default settings.\n1: https://github.com/mapbox/mbtiles-spec\n2: https://wiki.openstreetmap.org/wiki/MBTiles\n\n### [18756491] mirimir · 2018-12-25T08:00:14.000Z · reply to 18756465\nhttps://news.ycombinator.com/item?id=18756491\n\nIndeed. I used to clean up data in UltraEdit. With the option for direct disk read/write set, there was virtually no file-size limit.\n\n### [18756514] out_of_protocol · 2018-12-25T08:08:45.000Z · reply to 18756175\nhttps://news.ycombinator.com/item?id=18756514\n\nCounterpoint: tiled maps, which are basically loads and loads of images, can be stored on disk as\n- Direcory structure\n- Zip file\n- Tar file\n- Sqlite db\nOut of these, sqlite is the most compact, by far (also the fastest)\n\n### [18756697] quickthrower2 · 2018-12-25T09:19:37.000Z · reply to 18756610\nhttps://news.ycombinator.com/item?id=18756697\n\nWhat is the source of the corruption. Unlikely to be disks nowadays but people should take backups of things. Very unlikely to be a SQLite buggy write but again a backup could save you. Worse case I’m sure there are tools to recover a corrupted file.\n\n### [18755450] thechao · 2018-12-25T02:14:59.000Z · reply to 18755200\nhttps://news.ycombinator.com/item?id=18755450\n\nIf you code in c/c++, and have even a modest OS/RTOS available, you should use SQLite as your persistence layer, full stop. I switched to this methodology 5 years ago & never looked back. You know what happens when another engineer gets your on disk format & asks how to look at it? You say “open it in SQLite browser”; all further questions disappear.\n\n### [18757920] coredog64 · 2018-12-25T16:24:12.000Z · reply to 18756304\nhttps://news.ycombinator.com/item?id=18757920\n\nAbout 10 years ago I had to use those for a financial system integration. I was getting files that had been created on a mainframe, and whoever wrote it originally had the foresight to use those characters. Probably because they were based out of EMEA and understood that commas weren’t useful across national borders.\n\n### [18756107] fiddlerwoaroof · 2018-12-25T05:36:53.000Z · reply to 18755960\nhttps://news.ycombinator.com/item?id=18756107\n\nThe thing is SQLite handles a lot of hard problems that you might not realize you have: like “was my data actually written to the disk”\n\n### [18756351] revskill · 2018-12-25T07:01:35.000Z · reply to 18756138\nhttps://news.ycombinator.com/item?id=18756351\n\nIt's because my projects are universal application, that's why Javascript. But JS is not the only choice.\nWhat i mean is, we want a programmable config file, not \"static one\"\n\n### [18755200] saagarjha · 2018-12-25T01:01:04.000Z · reply to 18754634\nhttps://news.ycombinator.com/item?id=18755200\n\nCoreData has an option to write to a SQLite database, so a lot of data on iOS and macOS apps ends up being written to disk this way.\n\n### [18756481] mirimir · 2018-12-25T07:57:27.000Z · reply to 18756172\nhttps://news.ycombinator.com/item?id=18756481\n\nIt could have been, I suppose.\nBut more likely is twisted creativity. It seems that some businesses are still using ancient systems, based on COBOL, AS/400, etc. There's resistance to changing legacy code. So when business changes require additional data fields, fields sometimes get subdivided. So a field that originally contained stuff like |foo| now contains stuff like |\"foo\",\"bar,baz\"| or whatever. That works, because there's nothing like CSV in the data system. But when someone tries a CSV export, you get garbage.\n\n### [18756705] darkpuma · 2018-12-25T09:23:57.000Z · reply to 18756506\nhttps://news.ycombinator.com/item?id=18756705\n\n>\"This file contains some example code demonstrating how the SQLite vfs feature can be used to have SQLite operate directly on an embedded media, without using an intermediate file system.\"\nhttps://www.sqlite.org/src/doc/trunk/src/test_onefile.c\nhttps://www.sqlite.org/vfs.html\nIIRC, during one of his talks D. Richard Hipp mentions this actually being done for real.\n\n### [18758499] geocar · 2018-12-25T18:19:01.000Z · reply to 18756986\nhttps://news.ycombinator.com/item?id=18758499\n\n> I'm not sure what you mean by \"stream\" here. However, there are two APIs designed to facilitate sending SQLite database files over a socket.\nI already have APIs that send SQLite database files over a socket: send(), sendfile(), writev(), and so on.\nWhat I don't have is the ability to receive SQLite database files incrementally (stream): I always need enough disk and/or memory to store an SQLite database.\nI can however, receive an XLS file (or even XLSX) incrementally and implement a streaming parser for it.\n\n### [18760582] mbrumlow · 2018-12-26T04:46:06.000Z · reply to 18757836\nhttps://news.ycombinator.com/item?id=18760582\n\nThere are many different concurrence modules for sqlite. I can't see why you would have any problems with what you describe.\nThe systems I work with use it for backup data. We have many readers and writes. Some of those export a iscsi daemon that represents a block device from the backup that is then booted form.\n\n### [18757452] ineedasername · 2018-12-25T14:08:25.000Z · reply to 18756932\nhttps://news.ycombinator.com/item?id=18757452\n\nMaybe that future maintainers/inheritors of the application would thereby be defacto knowledgeable in the config language as well?\n\n### [18755956] romwell · 2018-12-25T04:45:55.000Z · reply to 18755450\nhttps://news.ycombinator.com/item?id=18755956\n\nSeconding this.\nOne thing though: last time I did that, I ended up writing my own ORM/serialization library (with templates and all), but I wish I didn't have to.\nIs there anything freely available out there that would allow one to store object hierarchies with the ease of boost::serialization, but into an SQLite EAV scheme?\n\n### [18757257] thechao · 2018-12-25T13:06:56.000Z · reply to 18755956\nhttps://news.ycombinator.com/item?id=18757257\n\nI always trace rather than log. That means I have one table per ‘tracing function’, and just record the arguments to each table. Recording an object means recording the function calls that generated the object; regenerating the object is just playing those functions back. I’ll admit that this works far better in C tha",
+        "errors": []
+      }
+    ],
+    "comments": [
+      {
+        "id": "18757335",
+        "author": "agumonkey",
+        "text": "Reminds me I have to extract data from an 9x day windows application. It's a jetdb that refuses to load in the first viewers I could find. Made me wish it was sqlite (although it didn't exist at the time..)",
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18757402",
+        "author": "hestefisk",
+        "text": "I have done this on a large .NET Win32/XAML client / server application in two ways:\n1) Saving application state and config/settings (window layout, ... very easy to marshall XAML stage to an SQLite file)\n2) Caching of common data sets to …",
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18757335",
+        "author": "agumonkey",
+        "created_at": "2018-12-25T13:31:54.000Z",
+        "text": "Reminds me I have to extract data from an 9x day windows application. It's a jetdb that refuses to load in the first viewers I could find. Made me wish it was sqlite (although it didn't exist at the time..)",
+        "url": "https://news.ycombinator.com/item?id=18757335",
+        "parent_id": "18755505",
+        "depth": 1,
+        "points": null,
+        "relevance": 7.694,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18757402",
+        "author": "hestefisk",
+        "created_at": "2018-12-25T13:56:58.000Z",
+        "text": "I have done this on a large .NET Win32/XAML client / server application in two ways:\n1) Saving application state and config/settings (window layout, ... very easy to marshall XAML stage to an SQLite file)\n2) Caching of common data sets to avoid unnecessary polling to the server of data that is accessed all the time (ie customer master data)\nIt works beautifully.",
+        "url": "https://news.ycombinator.com/item?id=18757402",
+        "parent_id": "18754634",
+        "depth": 0,
+        "points": null,
+        "relevance": 7.6,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18755656",
+        "author": "adzm",
+        "created_at": "2018-12-25T03:17:02.000Z",
+        "text": "Why would you realistically need wal or shm for an application file format anyway? That's for high concurrency in general.",
+        "url": "https://news.ycombinator.com/item?id=18755656",
+        "parent_id": "18755444",
+        "depth": 1,
+        "points": null,
+        "relevance": 6.122,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18756986",
+        "author": "SQLite",
+        "created_at": "2018-12-25T11:13:02.000Z",
+        "text": "I'm not sure what you mean by \"stream\" here. However, there are two APIs designed to facilitate sending SQLite database files over a socket. The sqlite3_serialize() interface (https://www.sqlite.org/c3ref/serialize.html) takes a database and converts it into a blob of contiguous memory that can be sent over a wire. The sqlite3_deserialize() interface (https://www.sqlite.org/c3ref/deserialize.html) does the opposite, accepting a blob and using it as a database file. These interfaces were created for the purpose of \"streaming\" database files across network connections. Depending on your specifi…",
+        "url": "https://news.ycombinator.com/item?id=18756986",
+        "parent_id": "18756732",
+        "depth": 1,
+        "points": null,
+        "relevance": 5.621,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18757062",
+        "author": "xte",
+        "created_at": "2018-12-25T11:47:01.000Z",
+        "text": "Mh,\n> Simplified Application Development\nIt's depend \"application development\" is a vast area...\n> Single-File Documents\nNot much related to SQlite, can be or cannot be done with nearly any format you like. Also remember as a good advise how worse go Catia v6 R2009 (Catia is the best CAD/CAE/CAM suite in the world, used anywhere from automotive to aerospace&defence, it's sole real competitor are Creo (formerly Pro-e) and Nx) when it start to offer single-file PLMs for \"light usage\"...\n> High-Level Query Language\nDepending on the format you choose you may have the best/highest level query lang…",
+        "url": "https://news.ycombinator.com/item?id=18757062",
+        "parent_id": "18754634",
+        "depth": 0,
+        "points": null,
+        "relevance": 5.465,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18755488",
+        "author": "kccqzy",
+        "created_at": "2018-12-25T02:25:56.000Z",
+        "text": "It's mentioned on the WAL docs on https://sqlite.org/wal.html\n> There is an additional quasi-persistent \"-wal\" file and \"-shm\" shared memory file associated with each database, which can make SQLite less appealing for use as an application file-format.",
+        "url": "https://news.ycombinator.com/item?id=18755488",
+        "parent_id": "18755444",
+        "depth": 1,
+        "points": null,
+        "relevance": 5.208,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18755824",
+        "author": "wongarsu",
+        "created_at": "2018-12-25T03:59:59.000Z",
+        "text": "Yes. The MBTiles Format [1][2] is essentially just an SQLite database storing map tiles (thousands of square images of parts of a map). In that case it's mostly done because SQLite stores small files much more efficiently than a general purpose file system in default settings.\n1: https://github.com/mapbox/mbtiles-spec\n2: https://wiki.openstreetmap.org/wiki/MBTiles",
+        "url": "https://news.ycombinator.com/item?id=18755824",
+        "parent_id": "18755335",
+        "depth": 1,
+        "points": null,
+        "relevance": 5.067,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18756491",
+        "author": "mirimir",
+        "created_at": "2018-12-25T08:00:14.000Z",
+        "text": "Indeed. I used to clean up data in UltraEdit. With the option for direct disk read/write set, there was virtually no file-size limit.",
+        "url": "https://news.ycombinator.com/item?id=18756491",
+        "parent_id": "18756465",
+        "depth": 6,
+        "points": null,
+        "relevance": 4.879,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18756514",
+        "author": "out_of_protocol",
+        "created_at": "2018-12-25T08:08:45.000Z",
+        "text": "Counterpoint: tiled maps, which are basically loads and loads of images, can be stored on disk as\n- Direcory structure\n- Zip file\n- Tar file\n- Sqlite db\nOut of these, sqlite is the most compact, by far (also the fastest)",
+        "url": "https://news.ycombinator.com/item?id=18756514",
+        "parent_id": "18756175",
+        "depth": 4,
+        "points": null,
+        "relevance": 4.736,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18756697",
+        "author": "quickthrower2",
+        "created_at": "2018-12-25T09:19:37.000Z",
+        "text": "What is the source of the corruption. Unlikely to be disks nowadays but people should take backups of things. Very unlikely to be a SQLite buggy write but again a backup could save you. Worse case I’m sure there are tools to recover a corrupted file.",
+        "url": "https://news.ycombinator.com/item?id=18756697",
+        "parent_id": "18756610",
+        "depth": 2,
+        "points": null,
+        "relevance": 4.405,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      }
+    ],
+    "executed_at": "2026-10-16T09:43:49.944680+00:00",
+    "timed_out": true
+  },
+  "score": {
+    "id": "hn-two-comments",
+    "scores": {
+      "comments": {
+        "status": "fail",
+        "matched_comments": []
+      }
+    },
+    "task": {
+      "status": "timeout",
+      "reasons": [
+        "comments:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": false,
+    "grader": "v2"
+  }
+}

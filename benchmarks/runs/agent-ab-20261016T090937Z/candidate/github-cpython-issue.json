@@ -1,0 +1,202 @@
+{
+  "id": "github-cpython-issue",
+  "query": "PEP 703 page that proposes making the CPython GIL optional",
+  "returncode": 0,
+  "elapsed_ms": 129126,
+  "efficiency": {
+    "tool_calls": {
+      "search": 1,
+      "fetch": 1
+    },
+    "total_calls": 2,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 1,
+    "errors": 1
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "peps.python.org"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:peps.python.org PEP 703 Making the Global Interpreter Lock Optional in CPython optional GIL",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 63757
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "title, abstract, status, exact PEP 703 page identity",
+        "fresh": false,
+        "max_chars": 12000,
+        "url": "https://peps.python.org/pep-0703"
+      },
+      "is_error": true,
+      "ms": 198
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.1\", \"result_id\": \"ca90c5f4fbba07cdd7174122\", \"kind\": \"search\", \"status\": \"partial\", \"query\": \"site:peps.python.org PEP 703 Making the Global Interpreter Lock Optional in CPython optional GIL\", \"answer\": \"PEP 703 proposes adding a build configuration `--disable-gil` to CPython to run Python code without the global interpreter lock (GIL) and with the necessary changes to make the interpreter thread-safe. The GIL is an obstacle to using multi-core CPUs efficiently. The PEP is in the final stage and was accepted by the Steering Council, with Python 3.13 as its target version. PEP 779 outlines the criteria for supporting a free-threaded (GIL-less) Python build, which will first be experimental and then officially supported but still optional. PEP 805 discusses the safety issues with the GIL-less approach, emphasizing the need for well-defined semantics to prevent race conditions.\", \"answer_chars\": 683, \"evidence\": {\"unique_urls\": 8, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 2, \"primary_citation_count\": 0, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 63749, \"warning_count\": 2, \"warnings\": [\"auto_scrape_truncated\", \"answer_from_tavily_primary_timeout\"], \"errors\": [{\"provider\": \"xai\", \"code\": \"primary_timeout\", \"message\": \"primary search stopped after 58s to leave time for supplements\", \"retryable\": true}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"skipped\", \"reason\": \"primary_time_cap\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 8, \"citation_count\": 8, \"results\": [{\"id\": \"r1\", \"title\": \"PEP 703 – Making the Global Interpreter Lock Optional in CPython | peps.python.org\", \"url\": \"https://peps.python.org/pep-0703\", \"snippet\": \"# Python Enhancement Proposals\\n\\n Python »\\n PEP Index\\\") »\\n PEP 703\\nPEP 703 – Making the Global Interpreter Lock Optional in CPython\\n\\n# PEP 703 – Making the Glob…\", \"providers\": [\"tavily\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"PEP 779 – Criteria for supported status for free-threaded Python | peps.python.org\", \"url\": \"https://peps.python.org/pep-0779\", \"snippet\": \"The acceptance of PEP 703 (Making the Global Interpreter Lock Optional in CPython), as announced by the Steering Council, describes three phases of development…\", \"providers\": [\"tavily\", \"firecrawl\"]}, {\"id\": \"r3\", \"title\": \"PEP 805 – Safe Parallel Python | peps.python.org\", \"url\": \"https://peps.python.org/pep-0805\", \"snippet\": \"PEP 703, Making the Global Interpreter Lock Optional in CPython, and PEP 554, Multiple Interpreters in the Stdlib, offer ways to support parallelism. Multiple …\", \"providers\": [\"tavily\"]}, {\"id\": \"r4\", \"title\": \"PEP 0 – Index of Python Enhancement Proposals (PEPs ...\", \"url\": \"https://peps.python.org\", \"snippet\": \"| SF | 698 | Override Decorator for Static Typing | Steven Troxler, Joshua Xu, Shannon Zhu | 3.12 |\\n| SF | 699 | Remove private dict version field added in PEP…\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"PEP 809 – Stable ABI for the Future | peps.python.org\", \"url\": \"https://peps.python.org/pep-0809\", \"snippet\": \"## Background\\n\\nPython’s Stable ABI, as defined in PEP 384 and PEP 652, provides a way to compile extension modules that can be loaded on multiple minor version…\", \"providers\": [\"tavily\"]}, {\"id\": \"r6\", \"title\": \"PEP 684 – A Per-Interpreter GIL | peps.python.org\", \"url\": \"https://peps.python.org/pep-0684\", \"snippet\": \"### The GIL\\n\\nThe GIL protects concurrent access to most of CPython’s runtime state. So all that GIL-protected global state must move to each interpreter before…\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"PEP 803 – “abi3t”: Stable ABI for Free-Threaded Builds | peps.python.org\", \"url\": \"https://peps.python.org/pep-0803\", \"snippet\": \"As for `Py_LIMITED_API`, this PEP proposes no change, which means keeping it for `abi3`. `abi3` is expected to eventually become irrelevant if free-threaded bu…\", \"providers\": [\"tavily\"]}, {\"id\": \"r8\", \"title\": \"PEP 780 – ABI features as environment markers | peps.python.org\", \"url\": \"https://peps.python.org/pep-0780\", \"snippet\": \"### ABI Features\\n\\nABI features are intrinsic properties of the Python interpreter, expressed as simple, understandable strings. However, not all features are e…\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://peps.python.org/pep-0703\", \"title\": \"PEP 703 – Making the Global Interpreter Lock Optional in CPython | peps.python.org\", \"result_item_id\": \"r1\", \"providers\": [\"tavily\"]}, {\"id\": \"c2\", \"url\": \"https://peps.python.org/pep-0779\", \"title\": \"PEP 779 – Criteria for supported status for free-threaded Python | peps.python.org\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://peps.python.org/pep-0805\", \"title\": \"PEP 805 – Safe Parallel Python | peps.python.org\", \"result_item_id\": \"r3\", \"providers\": [\"tavily\"]}, {\"id\": \"c4\", \"url\": \"https://peps.python.org\", \"title\": \"PEP 0 – Index of Python Enhancement Proposals (PEPs ...\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://peps.python.org/pep-0809\", \"title\": \"PEP 809 – Stable ABI for the Future | peps.python.org\", \"result_item_id\": \"r5\", \"providers\": [\"tavily\"]}, {\"id\": \"c6\", \"url\": \"https://peps.python.org/pep-0684\", \"title\": \"PEP 684 – A Per-Interpreter GIL | peps.python.org\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://peps.python.org/pep-0803\", \"title\": \"PEP 803 – “abi3t”: Stable ABI for Free-Threaded Builds | peps.python.org\", \"result_item_id\": \"r7\", \"providers\": [\"tavily\"]}, {\"id\": \"c8\", \"url\": \"https://peps.python.org/pep-0780\", \"title\": \"PEP 780 – ABI features as environment markers | peps.python.org\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"ca90c5f4fbba07cdd7174122\"}, \"coverage\": {\"status\": \"not_applicable\", \"requirements\": [], \"requirements_total\": 0}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 8, \"new_pages_read\": 2, \"seen_urls\": 8, \"pages_read\": 2, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"ade6a0a27bf5a713d244f807\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://peps.python.org/pep-0703\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 13, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"ade6a0a27bf5a713d244f807\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 1, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 8, \"pages_read\": 2, \"calls_without_new_evidence\": 1}}"
+  ],
+  "answer": "对应页面是：\n\n**PEP 703 – Making the Global Interpreter Lock Optional in CPython**\n\n原始链接：<https://peps.python.org/pep-0703>",
+  "observation": {
+    "id": "github-cpython-issue",
+    "answer": "对应页面是：\n\n**PEP 703 – Making the Global Interpreter Lock Optional in CPython**\n\n原始链接：<https://peps.python.org/pep-0703>",
+    "results": [
+      {
+        "url": "https://peps.python.org/pep-0703",
+        "title": "PEP 703 – Making the Global Interpreter Lock Optional in CPython | peps.python.org",
+        "snippet": "# Python Enhancement Proposals\n\n Python »\n PEP Index\") »\n PEP 703\nPEP 703 – Making the Global Interpreter Lock Optional in CPython\n\n# PEP 703 – Making the Glob…",
+        "published_at": null
+      },
+      {
+        "url": "https://peps.python.org/pep-0779",
+        "title": "PEP 779 – Criteria for supported status for free-threaded Python | peps.python.org",
+        "snippet": "The acceptance of PEP 703 (Making the Global Interpreter Lock Optional in CPython), as announced by the Steering Council, describes three phases of development…",
+        "published_at": null
+      },
+      {
+        "url": "https://peps.python.org/pep-0805",
+        "title": "PEP 805 – Safe Parallel Python | peps.python.org",
+        "snippet": "PEP 703, Making the Global Interpreter Lock Optional in CPython, and PEP 554, Multiple Interpreters in the Stdlib, offer ways to support parallelism. Multiple …",
+        "published_at": null
+      },
+      {
+        "url": "https://peps.python.org",
+        "title": "PEP 0 – Index of Python Enhancement Proposals (PEPs ...",
+        "snippet": "| SF | 698 | Override Decorator for Static Typing | Steven Troxler, Joshua Xu, Shannon Zhu | 3.12 |\n| SF | 699 | Remove private dict version field added in PEP…",
+        "published_at": null
+      },
+      {
+        "url": "https://peps.python.org/pep-0809",
+        "title": "PEP 809 – Stable ABI for the Future | peps.python.org",
+        "snippet": "## Background\n\nPython’s Stable ABI, as defined in PEP 384 and PEP 652, provides a way to compile extension modules that can be loaded on multiple minor version…",
+        "published_at": null
+      },
+      {
+        "url": "https://peps.python.org/pep-0684",
+        "title": "PEP 684 – A Per-Interpreter GIL | peps.python.org",
+        "snippet": "### The GIL\n\nThe GIL protects concurrent access to most of CPython’s runtime state. So all that GIL-protected global state must move to each interpreter before…",
+        "published_at": null
+      },
+      {
+        "url": "https://peps.python.org/pep-0803",
+        "title": "PEP 803 – “abi3t”: Stable ABI for Free-Threaded Builds | peps.python.org",
+        "snippet": "As for `Py_LIMITED_API`, this PEP proposes no change, which means keeping it for `abi3`. `abi3` is expected to eventually become irrelevant if free-threaded bu…",
+        "published_at": null
+      },
+      {
+        "url": "https://peps.python.org/pep-0780",
+        "title": "PEP 780 – ABI features as environment markers | peps.python.org",
+        "snippet": "### ABI Features\n\nABI features are intrinsic properties of the Python interpreter, expressed as simple, understandable strings. However, not all features are e…",
+        "published_at": null
+      },
+      {
+        "url": "https://peps.python.org/pep-0703",
+        "title": "PEP 703 – Making the Global Interpreter Lock Optional in CPython | peps.python.org",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://peps.python.org/pep-0779",
+        "title": "PEP 779 – Criteria for supported status for free-threaded Python | peps.python.org",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://peps.python.org/pep-0805",
+        "title": "PEP 805 – Safe Parallel Python | peps.python.org",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://peps.python.org",
+        "title": "PEP 0 – Index of Python Enhancement Proposals (PEPs ...",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://peps.python.org/pep-0809",
+        "title": "PEP 809 – Stable ABI for the Future | peps.python.org",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://peps.python.org/pep-0684",
+        "title": "PEP 684 – A Per-Interpreter GIL | peps.python.org",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://peps.python.org/pep-0803",
+        "title": "PEP 803 – “abi3t”: Stable ABI for Free-Threaded Builds | peps.python.org",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://peps.python.org/pep-0780",
+        "title": "PEP 780 – ABI features as environment markers | peps.python.org",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://peps.python.org/pep-0703",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 13, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…",
+            "retryable": true
+          }
+        ]
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:33:11.464699+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "github-cpython-issue",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "pep-703"
+        ],
+        "required": 1
+      },
+      "reading": {
+        "status": "fail"
+      },
+      "synthesis": {
+        "status": "fail",
+        "missing": [
+          "GIL"
+        ]
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "reading:fail",
+        "synthesis:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true,
+    "grader": "v2"
+  }
+}

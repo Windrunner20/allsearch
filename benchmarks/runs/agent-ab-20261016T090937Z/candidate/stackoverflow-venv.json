@@ -1,0 +1,415 @@
+{
+  "id": "stackoverflow-venv",
+  "query": "Stack Overflow question page about creating a Python virtual environment",
+  "returncode": 0,
+  "elapsed_ms": 48941,
+  "efficiency": {
+    "tool_calls": {
+      "search": 1,
+      "fetch": 1,
+      "read_result": 1
+    },
+    "total_calls": 3,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 2,
+    "errors": 0
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "balanced",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "stackoverflow.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:stackoverflow.com/questions creating a Python virtual environment question page python virtual environment create venv virtualenv",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 11250
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "question title, question body, accepted answer, answers, comments",
+        "fresh": false,
+        "max_chars": 30000,
+        "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3"
+      },
+      "is_error": false,
+      "ms": 7
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": [
+          "content",
+          "comments"
+        ],
+        "limit": 200000,
+        "max_bytes": 16384,
+        "offset": 0,
+        "result_id": "1bcf40c94f4ef6be12975582"
+      },
+      "is_error": false,
+      "ms": 5
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.1\", \"result_id\": \"b82a780c0ae98c648d6a9a5f\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:stackoverflow.com/questions creating a Python virtual environment question page python virtual environment create venv virtualenv\", \"answer\": \"Relevant Stack Overflow threads on creating Python virtual environments (`venv` / `virtualenv`):\\n\\n1. **How can I create a virtual environment with Python 3?** — Recommends `python3 -m venv ./path-to-new-venv` (or `.venv`), plus activate/deactivate. Also covers `virtualenv -p python3`.  \\n   https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3\\n\\n2. **What…\", \"answer_chars\": 2819, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 12, \"threads_read\": 1, \"comments_read\": 13}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 11241, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"stackexchange\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"site_native\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"skipped\", \"reason\": \"primary_sufficient\"}, {\"provider\": \"stackexchange\", \"operation\": \"read_thread\", \"outcome\": \"ok\", \"reason\": \"thread\"}], \"result_count\": 10, \"citation_count\": 16, \"results\": [{\"id\": \"r1\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3\", \"snippet\": \"\", \"providers\": [\"xai\", \"stackexchange\"]}, {\"id\": \"r2\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/65317916/python-3-3-any-reasons-or-issues-with-the-standard-venv-virtual-environment-pa\", \"snippet\": \"\", \"providers\": [\"stackexchange\"]}, {\"id\": \"r3\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/57921255/how-to-create-python-virtual-environment-within-a-python-script\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/4837632/django-admin-py-and-virtualenv-issue-on-windows\", \"snippet\": \"\", \"providers\": [\"stackexchange\"]}, {\"id\": \"r5\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/41746408/creating-virtualenv-for-an-existing-project\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/60330966/fundamentals-question-django-python-virtual-env-pycharm-and-cli-are-two\", \"snippet\": \"\", \"providers\": [\"stackexchange\"]}, {\"id\": \"r7\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/40869502/do-i-use-pyvenv-or-virtualenv-for-creating-a-virtual-environment\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/51763280/python-virtual-environment-with-python-3-7-and-apache-do-i-have-to-compile-mod\", \"snippet\": \"\", \"providers\": [\"stackexchange\"]}, {\"id\": \"r9\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/35017160/how-to-use-virtualenv-with-python\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"\", \"url\": \"https://stackoverflow.com/questions/68941179/what-is-best-practice-in-gitlab-ci-cd-for-setup-of-a-python-virtual-environment\", \"snippet\": \"\", \"providers\": [\"stackexchange\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://stackoverflow.com/questions/65317916/python-3-3-any-reasons-or-issues-with-the-standard-venv-virtual-environment-pa\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"stackexchange\"]}, {\"id\": \"c3\", \"url\": \"https://stackoverflow.com/questions/57921255/how-to-create-python-virtual-environment-within-a-python-script\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://stackoverflow.com/questions/4837632/django-admin-py-and-virtualenv-issue-on-windows\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"stackexchange\"]}, {\"id\": \"c5\", \"url\": \"https://stackoverflow.com/questions/41746408/creating-virtualenv-for-an-existing-project\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://stackoverflow.com/questions/60330966/fundamentals-question-django-python-virtual-env-pycharm-and-cli-are-two\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"stackexchange\"]}, {\"id\": \"c7\", \"url\": \"https://stackoverflow.com/questions/40869502/do-i-use-pyvenv-or-virtualenv-for-creating-a-virtual-environment\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://stackoverflow.com/questions/51763280/python-virtual-environment-with-python-3-7-and-apache-do-i-have-to-compile-mod\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"stackexchange\"]}, {\"id\": \"c9\", \"url\": \"https://stackoverflow.com/questions/35017160/how-to-use-virtualenv-with-python\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://stackoverflow.com/questions/68941179/what-is-best-practice-in-gitlab-ci-cd-for-setup-of-a-python-virtual-environment\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"stackexchange\"]}, {\"id\": \"c11\", \"url\": \"https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://stackoverflow.com/a/64392385\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt/44091914\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://stackoverflow.com/questions/60873454/how-can-i-list-all-the-virtual-environments-created-with-venv\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://stackoverflow.com/questions/60973987/is-there-a-way-to-list-all-python-virtual-environments-created-using-the-venv-mo\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"b82a780c0ae98c648d6a9a5f\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"Stack Overflow\", \"satisfied\": true, \"detail\": \"16 content page(s), e.g. https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-pytho…\"}], \"requirements_total\": 1}, \"threads\": [{\"platform\": \"stackexchange\", \"url\": \"https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3\", \"title\": \"How can I create a virtual environment with Python 3?\", \"status\": \"comments_read\", \"comments_total\": 13, \"comments_read\": 13, \"top_comments\": []}], \"next_steps\": [{\"tool\": \"read_result\", \"why\": \"8 comment(s) matched the request and come first on page 1 (relevance > 0); later pages hold the remaining comments in t…\", \"fields\": [\"comments\"]}], \"session\": {\"calls\": {\"search\": 1, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 16, \"new_pages_read\": 1, \"seen_urls\": 16, \"pages_read\": 1, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"1bcf40c94f4ef6be12975582\", \"kind\": \"fetch\", \"status\": \"ok\", \"url\": \"https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3\", \"final_url\": \"https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3\", \"title\": \"How can I create a virtual environment with Python 3?\", \"provider\": \"stackexchange\", \"content_preview\": \"# How can I create a virtual environment with Python 3?\\n\\nby Anish · 2017-03-28T12:36:59Z · via api.stackexchange.com/2.3 site=stackoverflow\\n\\nI am using Python 2.7 + virtualenv version 1.10.1 for running myproject project. Due to some other projects requirement, I have to work with another version of Python (3.5). For this, I have installed Python in my user directory. Also, I have downloaded and installed virtualenv (version 15.1.0) into my user directory.\\n\\nBut whenever I am trying to create a virtual env, I am getting the below error\\n\\npython virtualenv/virtualenv.py myproject\\n\\nOutput:\\n\\nUsing base prefix '/home/myuser/python3'\\nNew python executable in /home/mount/myuser/project_python3/myproject/bin/python\\nERROR: The executable /home/mount/myuser/project_python3/myproject/bin/python is not functioning\\nERROR: It thinks sys.prefix is '/home/myuser/python3' (should be '/home/mount/myuser/project_python3/myproject')\\nERROR: virtualenv is not compatible with this system or executable\\n\\nWhat a\", \"content_chars\": 10882, \"truncated\": true, \"errors\": [], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"1bcf40c94f4ef6be12975582\", \"fields\": [\"content\"], \"comment_fields\": [\"comments\"]}, \"thread\": {\"platform\": \"stackexchange\", \"url\": \"https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3\", \"title\": \"How can I create a virtual environment with Python 3?\", \"status\": \"comments_read\", \"comments_total\": 13, \"comments_read\": 13, \"top_comments\": [{\"id\": \"78290807\", \"author\": \"Vinod Srivastav\", \"text\": \"Try this batch script in Windows to create your project. Name it new-py-env.bat\\n\\nnew-py-env.bat\\n\\nmkdir %1\\ncd %1\\npy -m venv env\\nenv\\\\Scripts\\\\activate.bat\\n\\nHow to use it ?\\n\\nThe script will accept the first parameter as the folder/directory na…\"}, {\"id\": \"57784374\", \"author\": \"Parishilan Rayamajhi\", \"text\": \"To create a virtual environment\\n\\nvirtualenv -p python3 venv_name\\n\\nThis will create a new Python executable in baseDirectory/bin/python3.\\n\\nHow to activate the newly created Venv:\\n\\ncd baseDirectory/bin/\\n\\nsource activate\\n\\nDeactivate new venv\\n…\"}]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 1, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 16, \"pages_read\": 1, \"calls_without_new_evidence\": 1}}",
+    "{\"result_id\": \"1bcf40c94f4ef6be12975582\", \"kind\": \"fetch\", \"fields\": [\"content\", \"comments\"], \"offset\": 0, \"next_offset\": 10, \"next_offsets\": {\"content\": 6670, \"comments\": 10}, \"truncated\": true, \"data\": {\"content\": \"# How can I create a virtual environment with Python 3?\\n\\nby Anish · 2017-03-28T12:36:59Z · via api.stackexchange.com/2.3 site=stackoverflow\\n\\nI am using Python 2.7 + virtualenv version 1.10.1 for running myproject project. Due to some other projects requirement, I have to work with another version of Python (3.5). For this, I have installed Python in my user directory. Also, I have downloaded and installed virtualenv (version 15.1.0) into my user directory.\\n\\nBut whenever I am trying to create a virtual env, I am getting the below error\\n\\npython virtualenv/virtualenv.py myproject\\n\\nOutput:\\n\\nUsing base prefix '/home/myuser/python3'\\nNew python executable in /home/mount/myuser/project_python3/myproject/bin/python\\nERROR: The executable /home/mount/myuser/project_python3/myproject/bin/python is not functioning\\nERROR: It thinks sys.prefix is '/home/myuser/python3' (should be '/home/mount/myuser/project_python3/myproject')\\nERROR: virtualenv is not compatible with this system or executable\\n\\nWhat am I doing wrong here, and how do I solve it?\\n\\n## Comments (13 shown of 13)\\n\\n### [78290807] Vinod Srivastav · 2024-04-08T07:20:51Z · reply to 43069780\\nhttps://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#78290807\\n\\nTry this batch script in Windows to create your project. Name it new-py-env.bat\\n\\nnew-py-env.bat\\n\\nmkdir %1\\ncd %1\\npy -m venv env\\nenv\\\\Scripts\\\\activate.bat\\n\\nHow to use it ?\\n\\nThe script will accept the first parameter as the folder/directory name, so you can call it as.\\n\\nnew-py-env myproject01 from cmd.exe and it will create the project folder myproject01 then create a virtual environment and activates it.\\n\\nWhat does it do ?\\n\\nIt performs four cli operations\\n\\nCreate the project folder with parameter %1\\n\\nChange the directory to %1\\n\\nCreate a virtual environment named env\\n\\nActivates the environment env\\n\\nThe same can be done with Linux with a few changes.\\n\\nmkdir -p \\\"$1\\\"\\ncd \\\"$1\\\"\\npython3 -m venv env\\nsource env/bin/activate\\n\\n### [57784374] Parishilan Rayamajhi · 2019-09-04T08:25:19Z · reply to 43069780\\nhttps://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#57784374\\n\\nTo create a virtual environment\\n\\nvirtualenv -p python3 venv_name\\n\\nThis will create a new Python executable in baseDirectory/bin/python3.\\n\\nHow to activate the newly created Venv:\\n\\ncd baseDirectory/bin/\\n\\nsource activate\\n\\nDeactivate new venv\\n\\ndeactivate\\n\\nThis method has been deprecated as the use of venv is now recommended for creating virtual environments.\\nPlease check this link for an updated answer.\\n\\n### [63442886] OM Bharatiya · 2020-08-16T23:34:36Z · reply to 43069780\\nhttps://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#63442886\\n\\nvirtualenv is the tool of choice for Python 2, while venv handles the task in Python 3.\\n\\nYet, you can create the virtual environment for Python 3 using any of them.\\n\\nUsing venv\\n\\npython3 -m venv virtualenvname\\n\\nCommand syntax:\\n\\n/path/to/python3 -m venv /path/to/directory/virtual_env_name\\n\\nUsing virtualenv\\n\\nvirtualenv -p python3 virtualenvname\\n\\nCommand Syntax:\\n\\nvirtualenv -p /path/to/python3 /path/to/directory/virtual_env_name\\n\\nActivate the virtual environment\\n\\nOn Linux, Unix or macOS, using the terminal or Bash shell:\\n\\nsource /path/to/venv/bin/activate\\n\\nE.g., source virtualenvname/bin/activate\\n\\nOn Unix or macOS, using the C shell shell (executable csh):\\n\\nsource /path/to/venv/bin/activate.csh\\n\\nOn Unix or macOS, using the Fish shell:\\n\\nsource /path/to/venv/bin/activate.fish\\n\\nOn Windows using the Command Prompt:\\n\\npath\\\\to\\\\venv\\\\Scripts\\\\activate.bat\\n\\nOn Windows using PowerShell:\\n\\npath\\\\to\\\\venv\\\\Scripts\\\\Activate.ps1\\n\\nDeactivating the virtual environment\\n\\nOn Linux, Unix or macOS, using the terminal or Bash shell:\\n\\ndeactivate\\n\\nOn Windows using the Command Prompt:\\n\\npath\\\\to\\\\venv\\\\Scripts\\\\deactivate.bat\\n\\nOn Windows using PowerShell:\\n\\ndeactivate\\n\\nThis answer is for those who may use a different operating system.\\n\\n### [43070301] The Aelfinn [accepted] · 2017-03-28T13:00:33Z · reply to 43069780\\nhttps://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#43070301\\n\\nUse:\\n\\npython3 -m venv ./path-to-new-venv\\n\\nThis is the recommended way to create virtual environments.\\n\\nHistorically, a wrapper command pyvenv was provided for this. However, the wrapper was deprecated in Python 3.6, and removed in 3.8.\\n\\n### [77815354] hgq287 · 2024-01-14T14:10:31Z · reply to 43069780\\nhttps://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#77815354\\n\\nTo create a virtual environment, go to your project’s directory and run the following command. This will create a new virtual environment in a local folder named .venv:\\n\\npython3 -m venv .venv\\n\\nActivate a virtual environment\\n\\nsource .venv/bin/activate\\n\\nTo confirm the virtual environment is activated, check the location of your Python interpreter:\\n\\nwhich python\\n\\nTo deactivate a virtual environment\\n\\ndeactivate\\n\\nSee more here: Install packages in a virtual environment using pip and venv\\n\\n### [43069982] user73657 · 2017-03-28T12:44:48Z · reply to 43069780\\nhttps://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#43069982\\n\\nPython already ships with its built-in \\\"virtualenv\\\" called venv since version 3.3. You no longer need to install or download the virtualenv scripts for Python 3.3 and later.\\n\\nSee venv — Creation of virtual environments.\\n\\nCheck that your installation provided the pyvenv command that should take care of creating the \\\"virtualenv\\\". Arguments are similar to the classic virtualenv project.\\n\\npyvenv --help\\n\\nOutput:\\n\\nusage: venv [-h] [--system-site-packages] [--symlinks | --copies] [--clear]\\n [--upgrade] [--without-pip]\\n ENV_DIR [ENV_DIR ...]\\n\\nCreates virtual Python environments in one or more target directories.\\n\\npositional arguments:\\n ENV_DIR A directory to create the environment in.\\n\\noptional arguments:\\n -h, --help show this help message and exit\\n --system-site-packages\\n Give the virtual environment access to the system\\n site-packages dir.\\n --symlinks Try to use symlinks rather than copies, when symlinks\\n are not the default for the platform.\\n --copies Try to use copies rather than symlinks, even when\\n symlinks are the default for the platform.\\n --clear Delete the contents of the environment directory if it\\n already exists, before environment creation.\\n --upgrade Upgrade the environment directory to use this version\\n of Python, assuming Python has been upgraded in-place.\\n --without-pip Skips installing or upgrading pip in the virtual\\n environment (pip is bootstrapped by default)\\n\\nOnce an environment has been created, you ma\", \"content_chars\": 10882, \"comments\": [{\"id\": \"78290807\", \"author\": \"Vinod Srivastav\", \"created_at\": \"2024-04-08T07:20:51Z\", \"text\": \"Try this batch script in Windows to create your project. Name it new-py-env.bat\\n\\nnew-py-env.bat\\n\\nmkdir %1\\ncd %1\\npy -m venv env\\nenv\\\\Scripts\\\\activate.bat\\n\\nHow to use it ?\\n\\nThe script will accept the first parameter as the folder/directory name, so you can call it as.\\n\\nnew-py-env myproject01 from cmd.exe and it will create the project folder myproject01 then create a virtual environment and activates it.\\n\\nWhat does it do ?\\n\\nIt performs four cli operations\\n\\nCreate the project folder with parameter %1\\n\\nChange the directory to %1\\n\\nCreate a virtual environment named env\\n\\nActivates the environment en…\", \"url\": \"https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#78290807\", \"parent_id\": \"43069780\", \"depth\": 0, \"points\": 0, \"relevance\": 1.969}, {\"id\": \"57784374\", \"author\": \"Parishilan Rayamajhi\", \"created_at\": \"2019-09-04T08:25:19Z\", \"text\": \"To create a virtual environment\\n\\nvirtualenv -p python3 venv_name\\n\\nThis will create a new Python executable in baseDirectory/bin/python3.\\n\\nHow to activate the newly created Venv:\\n\\ncd baseDirectory/bin/\\n\\nsource activate\\n\\nDeactivate new venv\\n\\ndeactivate\\n\\nThis method has been deprecated as the use of venv is now recommended for creating virtual environments.\\nPlease check this link for an updated answer.\", \"url\": \"https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#57784374\", \"parent_id\": \"43069780\", \"depth\": 0, \"points\": 41, \"relevance\": 1.958}, {\"id\": \"63442886\", \"author\": \"OM Bharatiya\", \"created_at\": \"2020-08-16T23:34:36Z\", \"text\": \"virtualenv is the tool of choice for Python 2, while venv handles the task in Python 3.\\n\\nYet, you can create the virtual environment for Python 3 using any of them.\\n\\nUsing venv\\n\\npython3 -m venv virtualenvname\\n\\nCommand syntax:\\n\\n/path/to/python3 -m venv /path/to/directory/virtual_env_name\\n\\nUsing virtualenv\\n\\nvirtualenv -p python3 virtualenvname\\n\\nCommand Syntax:\\n\\nvirtualenv -p /path/to/python3 /path/to/directory/virtual_env_name\\n\\nActivate the virtual environment\\n\\nOn Linux, Unix or macOS, using the terminal or Bash shell:\\n\\nsource /path/to/venv/bin/activate\\n\\nE.g., source virtualenvname/bin/activate…\", \"url\": \"https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#63442886\", \"parent_id\": \"43069780\", \"depth\": 0, \"points\": 13, \"relevance\": 1.134}, {\"id\": \"43070301\", \"author\": \"The Aelfinn [accepted]\", \"created_at\": \"2017-03-28T13:00:33Z\", \"text\": \"Use:\\n\\npython3 -m venv ./path-to-new-venv\\n\\nThis is the recommended way to create virtual environments.\\n\\nHistorically, a wrapper command pyvenv was provided for this. However, the wrapper was deprecated in Python 3.6, and removed in 3.8.\", \"url\": \"https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#43070301\", \"parent_id\": \"43069780\", \"depth\": 0, \"points\": 288, \"relevance\": null}, {\"id\": \"77815354\", \"author\": \"hgq287\", \"created_at\": \"2024-01-14T14:10:31Z\", \"text\": \"To create a virtual environment, go to your project’s directory and run the following command. This will create a new virtual environment in a local folder named .venv:\\n\\npython3 -m venv .venv\\n\\nActivate a virtual environment\\n\\nsource .venv/bin/activate\\n\\nTo confirm the virtual environment is activated, check the location of your Python interpreter:\\n\\nwhich python\\n\\nTo deactivate a virtual environment\\n\\ndeactivate\\n\\nSee more here: Install packages in a virtual environment using pip and venv\", \"url\": \"https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#77815354\", \"parent_id\": \"43069780\", \"depth\": 0, \"points\": 97, \"relevance\": null}, {\"id\": \"43069982\", \"author\": \"user73657\", \"created_at\": \"2017-03-28T12:44:48Z\", \"text\": \"Python already ships with its built-in \\\"virtualenv\\\" called venv since version 3.3. You no longer need to install or download the virtualenv scripts for Python 3.3 and later.\\n\\nSee venv — Creation of virtual environments.\\n\\nCheck that your installation provided the pyvenv command that should take care of creating the \\\"virtualenv\\\". Arguments are similar to the classic virtualenv project.\\n\\npyvenv --help\\n\\nOutput:\\n\\nusage: venv [-h] [--system-site-packages] [--symlinks | --copies] [--clear]\\n [--upgrade] [--without-pip]\\n ENV_DIR [ENV_DIR ...]\\n\\nCreates virtual Python environments in one or more target …\", \"url\": \"https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#43069982\", \"parent_id\": \"43069780\", \"depth\": 0, \"points\": 8, \"relevance\": null}, {\"id\": \"79668832\", \"author\": \"Shivam Bharadwaj\", \"created_at\": \"2025-06-17T09:43:47Z\", \"text\": \"Run these two commands:\\n\\npython3 -m venv .venv\\nsource .venv/bin/activate\\n\\nYour virtual environment is ready to use. In order to check this, use:\\n\\nwhich python\", \"url\": \"https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#79668832\", \"parent_id\": \"43069780\", \"depth\": 0, \"points\": 6, \"relevance\": null}, {\"id\": \"54966635\", \"author\": \"Arefe\", \"created_at\": \"2019-03-03T07:41:56Z\", \"text\": \"I install it using the command (for Python 3.x),\\n\\npython3 -m venv env\", \"url\": \"https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#54966635\", \"parent_id\": \"43069780\", \"depth\": 0, \"points\": 2, \"relevance\": null}, {\"id\": \"62147544\", \"author\": \"Yogita Bhatia\", \"created_at\": \"2020-06-02T08:08:11Z\", \"text\": \"Since the launch of Python version 3.3, there hasn't been any need to download the virtualenv package separately, as it comes built-in in Python.\\n\\nRefer to the documentation to gain complete insights on it.\\n\\nTest the installation of virtualenv:\\n\\nvirtualenv --version\\n\\nUsage:\\n\\nCreating a virtual environment:\\n\\nvirtualenv --system-site-packages -p python3 ./virtual_env_name\\n\\nFor enabling it, use the following command:\\n\\nsource ./virtual_env_name/bin/activate\\n\\nFor disabling the virtual environment and get back to working with the local environment:\\n\\ndeactivate\\n\\nFor listing down the packages in the …\", \"url\": \"https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#62147544\", \"parent_id\": \"43069780\", \"depth\": 0, \"points\": 2, \"relevance\": null}, {\"id\": \"76918608\", \"author\": \"MD. SHIFULLAH\", \"created_at\": \"2023-08-17T05:05:50Z\", \"text\": \"Create a virtual environment:\\n\\nFor Python 3 version:\\n\\nCommand: python3 -m venv [environment_name]\\n\\nExample: python3 -m venv my_virtual_environment\\n\\nFor Python 2 version:\\n\\nCommand: python -m [environment_name]\\n\\nExample: python -m venv my_virtual_environment\\n\\nActivate a virtual environment in Linux:\\n\\nGo to the virtual environment directory, and then open the terminal.\\n\\nCommand: source [environment_name]/bin/activate\\n\\nExample: source my_virtual_environment/bin/activate\\n\\nActivate a virtual environment in Windows:\\n\\nGo to the virtual environment directory, and then open cmd.\\n\\nCommand: [environment_…\", \"url\": \"https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#76918608\", \"parent_id\": \"43069780\", \"depth\": 0, \"points\": 2, \"relevance\": null}], \"comments_total\": 13, \"comments_relevant\": 3}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 1, \"read_result\": 1}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 16, \"pages_read\": 1, \"calls_without_new_evidence\": 2}}"
+  ],
+  "answer": "相关的 Stack Overflow 问题页面是：\n\n**How can I create a virtual environment with Python 3?**  \nhttps://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3\n\n问题涉及 Python 3.5 下创建虚拟环境时使用 `virtualenv` 出错。已采纳答案建议使用 Python 内置的 `venv`：\n\n```bash\npython3 -m venv ./path-to-new-venv\n```\n\n评论中的原句：\n\n> “This method has been deprecated as the use of venv is now recommended.”\n\n另一个评论给出的创建和激活示例是：\n\n> “python3 -m venv .venv”  \n> “source .venv/bin/activate”\n\n采纳答案直链：  \nhttps://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#43070301",
+  "observation": {
+    "id": "stackoverflow-venv",
+    "answer": "相关的 Stack Overflow 问题页面是：\n\n**How can I create a virtual environment with Python 3?**  \nhttps://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3\n\n问题涉及 Python 3.5 下创建虚拟环境时使用 `virtualenv` 出错。已采纳答案建议使用 Python 内置的 `venv`：\n\n```bash\npython3 -m venv ./path-to-new-venv\n```\n\n评论中的原句：\n\n> “This method has been deprecated as the use of venv is now recommended.”\n\n另一个评论给出的创建和激活示例是：\n\n> “python3 -m venv .venv”  \n> “source .venv/bin/activate”\n\n采纳答案直链：  \nhttps://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#43070301",
+    "results": [
+      {
+        "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/65317916/python-3-3-any-reasons-or-issues-with-the-standard-venv-virtual-environment-pa",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/57921255/how-to-create-python-virtual-environment-within-a-python-script",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/4837632/django-admin-py-and-virtualenv-issue-on-windows",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/41746408/creating-virtualenv-for-an-existing-project",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/60330966/fundamentals-question-django-python-virtual-env-pycharm-and-cli-are-two",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/40869502/do-i-use-pyvenv-or-virtualenv-for-creating-a-virtual-environment",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/51763280/python-virtual-environment-with-python-3-7-and-apache-do-i-have-to-compile-mod",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/35017160/how-to-use-virtualenv-with-python",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/68941179/what-is-best-practice-in-gitlab-ci-cd-for-setup-of-a-python-virtual-environment",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/65317916/python-3-3-any-reasons-or-issues-with-the-standard-venv-virtual-environment-pa",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/57921255/how-to-create-python-virtual-environment-within-a-python-script",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/4837632/django-admin-py-and-virtualenv-issue-on-windows",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/41746408/creating-virtualenv-for-an-existing-project",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/60330966/fundamentals-question-django-python-virtual-env-pycharm-and-cli-are-two",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/40869502/do-i-use-pyvenv-or-virtualenv-for-creating-a-virtual-environment",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/51763280/python-virtual-environment-with-python-3-7-and-apache-do-i-have-to-compile-mod",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/35017160/how-to-use-virtualenv-with-python",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/68941179/what-is-best-practice-in-gitlab-ci-cd-for-setup-of-a-python-virtual-environment",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/70422866/how-to-create-a-venv-with-a-different-python-version",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/41972261/what-is-a-virtualenv-and-why-should-i-use-one",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/a/64392385",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/44091886/whats-the-difference-between-virtualenv-and-m-venv-in-creating-python-virt/44091914",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/60873454/how-can-i-list-all-the-virtual-environments-created-with-venv",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://stackoverflow.com/questions/60973987/is-there-a-way-to-list-all-python-virtual-environments-created-using-the-venv-mo",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+        "content": "# How can I create a virtual environment with Python 3?\n\nby Anish · 2017-03-28T12:36:59Z · via api.stackexchange.com/2.3 site=stackoverflow\n\nI am using Python 2.7 + virtualenv version 1.10.1 for running myproject project. Due to some other projects requirement, I have to work with another version of Python (3.5). For this, I have installed Python in my user directory. Also, I have downloaded and installed virtualenv (version 15.1.0) into my user directory.\n\nBut whenever I am trying to create a virtual env, I am getting the below error\n\npython virtualenv/virtualenv.py myproject\n\nOutput:\n\nUsing base prefix '/home/myuser/python3'\nNew python executable in /home/mount/myuser/project_python3/myproject/bin/python\nERROR: The executable /home/mount/myuser/project_python3/myproject/bin/python is not functioning\nERROR: It thinks sys.prefix is '/home/myuser/python3' (should be '/home/mount/myuser/project_python3/myproject')\nERROR: virtualenv is not compatible with this system or executable\n\nWhat a# How can I create a virtual environment with Python 3?\n\nby Anish · 2017-03-28T12:36:59Z · via api.stackexchange.com/2.3 site=stackoverflow\n\nI am using Python 2.7 + virtualenv version 1.10.1 for running myproject project. Due to some other projects requirement, I have to work with another version of Python (3.5). For this, I have installed Python in my user directory. Also, I have downloaded and installed virtualenv (version 15.1.0) into my user directory.\n\nBut whenever I am trying to create a virtual env, I am getting the below error\n\npython virtualenv/virtualenv.py myproject\n\nOutput:\n\nUsing base prefix '/home/myuser/python3'\nNew python executable in /home/mount/myuser/project_python3/myproject/bin/python\nERROR: The executable /home/mount/myuser/project_python3/myproject/bin/python is not functioning\nERROR: It thinks sys.prefix is '/home/myuser/python3' (should be '/home/mount/myuser/project_python3/myproject')\nERROR: virtualenv is not compatible with this system or executable\n\nWhat am I doing wrong here, and how do I solve it?\n\n## Comments (13 shown of 13)\n\n### [78290807] Vinod Srivastav · 2024-04-08T07:20:51Z · reply to 43069780\nhttps://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#78290807\n\nTry this batch script in Windows to create your project. Name it new-py-env.bat\n\nnew-py-env.bat\n\nmkdir %1\ncd %1\npy -m venv env\nenv\\Scripts\\activate.bat\n\nHow to use it ?\n\nThe script will accept the first parameter as the folder/directory name, so you can call it as.\n\nnew-py-env myproject01 from cmd.exe and it will create the project folder myproject01 then create a virtual environment and activates it.\n\nWhat does it do ?\n\nIt performs four cli operations\n\nCreate the project folder with parameter %1\n\nChange the directory to %1\n\nCreate a virtual environment named env\n\nActivates the environment env\n\nThe same can be done with Linux with a few changes.\n\nmkdir -p \"$1\"\ncd \"$1\"\npython3 -m venv env\nsource env/bin/activate\n\n### [57784374] Parishilan Rayamajhi · 2019-09-04T08:25:19Z · reply to 43069780\nhttps://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#57784374\n\nTo create a virtual environment\n\nvirtualenv -p python3 venv_name\n\nThis will create a new Python executable in baseDirectory/bin/python3.\n\nHow to activate the newly created Venv:\n\ncd baseDirectory/bin/\n\nsource activate\n\nDeactivate new venv\n\ndeactivate\n\nThis method has been deprecated as the use of venv is now recommended for creating virtual environments.\nPlease check this link for an updated answer.\n\n### [63442886] OM Bharatiya · 2020-08-16T23:34:36Z · reply to 43069780\nhttps://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#63442886\n\nvirtualenv is the tool of choice for Python 2, while venv handles the task in Python 3.\n\nYet, you can create the virtual environment for Python 3 using any of them.\n\nUsing venv\n\npython3 -m venv virtualenvname\n\nCommand syntax:\n\n/path/to/python3 -m venv /path/to/directory/virtual_env_name\n\nUsing virtualenv\n\nvirtualenv -p python3 virtualenvname\n\nCommand Syntax:\n\nvirtualenv -p /path/to/python3 /path/to/directory/virtual_env_name\n\nActivate the virtual environment\n\nOn Linux, Unix or macOS, using the terminal or Bash shell:\n\nsource /path/to/venv/bin/activate\n\nE.g., source virtualenvname/bin/activate\n\nOn Unix or macOS, using the C shell shell (executable csh):\n\nsource /path/to/venv/bin/activate.csh\n\nOn Unix or macOS, using the Fish shell:\n\nsource /path/to/venv/bin/activate.fish\n\nOn Windows using the Command Prompt:\n\npath\\to\\venv\\Scripts\\activate.bat\n\nOn Windows using PowerShell:\n\npath\\to\\venv\\Scripts\\Activate.ps1\n\nDeactivating the virtual environment\n\nOn Linux, Unix or macOS, using the terminal or Bash shell:\n\ndeactivate\n\nOn Windows using the Command Prompt:\n\npath\\to\\venv\\Scripts\\deactivate.bat\n\nOn Windows using PowerShell:\n\ndeactivate\n\nThis answer is for those who may use a different operating system.\n\n### [43070301] The Aelfinn [accepted] · 2017-03-28T13:00:33Z · reply to 43069780\nhttps://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#43070301\n\nUse:\n\npython3 -m venv ./path-to-new-venv\n\nThis is the recommended way to create virtual environments.\n\nHistorically, a wrapper command pyvenv was provided for this. However, the wrapper was deprecated in Python 3.6, and removed in 3.8.\n\n### [77815354] hgq287 · 2024-01-14T14:10:31Z · reply to 43069780\nhttps://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#77815354\n\nTo create a virtual environment, go to your project’s directory and run the following command. This will create a new virtual environment in a local folder named .venv:\n\npython3 -m venv .venv\n\nActivate a virtual environment\n\nsource .venv/bin/activate\n\nTo confirm the virtual environment is activated, check the location of your Python interpreter:\n\nwhich python\n\nTo deactivate a virtual environment\n\ndeactivate\n\nSee more here: Install packages in a virtual environment using pip and venv\n\n### [43069982] user73657 · 2017-03-28T12:44:48Z · reply to 43069780\nhttps://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#43069982\n\nPython already ships with its built-in \"virtualenv\" called venv since version 3.3. You no longer need to install or download the virtualenv scripts for Python 3.3 and later.\n\nSee venv — Creation of virtual environments.\n\nCheck that your installation provided the pyvenv command that should take care of creating the \"virtualenv\". Arguments are similar to the classic virtualenv project.\n\npyvenv --help\n\nOutput:\n\nusage: venv [-h] [--system-site-packages] [--symlinks | --copies] [--clear]\n [--upgrade] [--without-pip]\n ENV_DIR [ENV_DIR ...]\n\nCreates virtual Python environments in one or more target directories.\n\npositional arguments:\n ENV_DIR A directory to create the environment in.\n\noptional arguments:\n -h, --help show this help message and exit\n --system-site-packages\n Give the virtual environment access to the system\n site-packages dir.\n --symlinks Try to use symlinks rather than copies, when symlinks\n are not the default for the platform.\n --copies Try to use copies rather than symlinks, even when\n symlinks are the default for the platform.\n --clear Delete the contents of the environment directory if it\n already exists, before environment creation.\n --upgrade Upgrade the environment directory to use this version\n of Python, assuming Python has been upgraded in-place.\n --without-pip Skips installing or upgrading pip in the virtual\n environment (pip is bootstrapped by default)\n\nOnce an environment has been created, you ma",
+        "errors": []
+      }
+    ],
+    "comments": [
+      {
+        "id": "78290807",
+        "author": "Vinod Srivastav",
+        "text": "Try this batch script in Windows to create your project. Name it new-py-env.bat\n\nnew-py-env.bat\n\nmkdir %1\ncd %1\npy -m venv env\nenv\\Scripts\\activate.bat\n\nHow to use it ?\n\nThe script will accept the first parameter as the folder/directory na…",
+        "thread_url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+        "source": "api"
+      },
+      {
+        "id": "57784374",
+        "author": "Parishilan Rayamajhi",
+        "text": "To create a virtual environment\n\nvirtualenv -p python3 venv_name\n\nThis will create a new Python executable in baseDirectory/bin/python3.\n\nHow to activate the newly created Venv:\n\ncd baseDirectory/bin/\n\nsource activate\n\nDeactivate new venv\n…",
+        "thread_url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+        "source": "api"
+      },
+      {
+        "id": "78290807",
+        "author": "Vinod Srivastav",
+        "created_at": "2024-04-08T07:20:51Z",
+        "text": "Try this batch script in Windows to create your project. Name it new-py-env.bat\n\nnew-py-env.bat\n\nmkdir %1\ncd %1\npy -m venv env\nenv\\Scripts\\activate.bat\n\nHow to use it ?\n\nThe script will accept the first parameter as the folder/directory name, so you can call it as.\n\nnew-py-env myproject01 from cmd.exe and it will create the project folder myproject01 then create a virtual environment and activates it.\n\nWhat does it do ?\n\nIt performs four cli operations\n\nCreate the project folder with parameter %1\n\nChange the directory to %1\n\nCreate a virtual environment named env\n\nActivates the environment en…",
+        "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#78290807",
+        "parent_id": "43069780",
+        "depth": 0,
+        "points": 0,
+        "relevance": 1.969,
+        "thread_url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+        "source": "api"
+      },
+      {
+        "id": "57784374",
+        "author": "Parishilan Rayamajhi",
+        "created_at": "2019-09-04T08:25:19Z",
+        "text": "To create a virtual environment\n\nvirtualenv -p python3 venv_name\n\nThis will create a new Python executable in baseDirectory/bin/python3.\n\nHow to activate the newly created Venv:\n\ncd baseDirectory/bin/\n\nsource activate\n\nDeactivate new venv\n\ndeactivate\n\nThis method has been deprecated as the use of venv is now recommended for creating virtual environments.\nPlease check this link for an updated answer.",
+        "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#57784374",
+        "parent_id": "43069780",
+        "depth": 0,
+        "points": 41,
+        "relevance": 1.958,
+        "thread_url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+        "source": "api"
+      },
+      {
+        "id": "63442886",
+        "author": "OM Bharatiya",
+        "created_at": "2020-08-16T23:34:36Z",
+        "text": "virtualenv is the tool of choice for Python 2, while venv handles the task in Python 3.\n\nYet, you can create the virtual environment for Python 3 using any of them.\n\nUsing venv\n\npython3 -m venv virtualenvname\n\nCommand syntax:\n\n/path/to/python3 -m venv /path/to/directory/virtual_env_name\n\nUsing virtualenv\n\nvirtualenv -p python3 virtualenvname\n\nCommand Syntax:\n\nvirtualenv -p /path/to/python3 /path/to/directory/virtual_env_name\n\nActivate the virtual environment\n\nOn Linux, Unix or macOS, using the terminal or Bash shell:\n\nsource /path/to/venv/bin/activate\n\nE.g., source virtualenvname/bin/activate…",
+        "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#63442886",
+        "parent_id": "43069780",
+        "depth": 0,
+        "points": 13,
+        "relevance": 1.134,
+        "thread_url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+        "source": "api"
+      },
+      {
+        "id": "43070301",
+        "author": "The Aelfinn [accepted]",
+        "created_at": "2017-03-28T13:00:33Z",
+        "text": "Use:\n\npython3 -m venv ./path-to-new-venv\n\nThis is the recommended way to create virtual environments.\n\nHistorically, a wrapper command pyvenv was provided for this. However, the wrapper was deprecated in Python 3.6, and removed in 3.8.",
+        "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#43070301",
+        "parent_id": "43069780",
+        "depth": 0,
+        "points": 288,
+        "relevance": null,
+        "thread_url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+        "source": "api"
+      },
+      {
+        "id": "77815354",
+        "author": "hgq287",
+        "created_at": "2024-01-14T14:10:31Z",
+        "text": "To create a virtual environment, go to your project’s directory and run the following command. This will create a new virtual environment in a local folder named .venv:\n\npython3 -m venv .venv\n\nActivate a virtual environment\n\nsource .venv/bin/activate\n\nTo confirm the virtual environment is activated, check the location of your Python interpreter:\n\nwhich python\n\nTo deactivate a virtual environment\n\ndeactivate\n\nSee more here: Install packages in a virtual environment using pip and venv",
+        "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#77815354",
+        "parent_id": "43069780",
+        "depth": 0,
+        "points": 97,
+        "relevance": null,
+        "thread_url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+        "source": "api"
+      },
+      {
+        "id": "43069982",
+        "author": "user73657",
+        "created_at": "2017-03-28T12:44:48Z",
+        "text": "Python already ships with its built-in \"virtualenv\" called venv since version 3.3. You no longer need to install or download the virtualenv scripts for Python 3.3 and later.\n\nSee venv — Creation of virtual environments.\n\nCheck that your installation provided the pyvenv command that should take care of creating the \"virtualenv\". Arguments are similar to the classic virtualenv project.\n\npyvenv --help\n\nOutput:\n\nusage: venv [-h] [--system-site-packages] [--symlinks | --copies] [--clear]\n [--upgrade] [--without-pip]\n ENV_DIR [ENV_DIR ...]\n\nCreates virtual Python environments in one or more target …",
+        "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#43069982",
+        "parent_id": "43069780",
+        "depth": 0,
+        "points": 8,
+        "relevance": null,
+        "thread_url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+        "source": "api"
+      },
+      {
+        "id": "79668832",
+        "author": "Shivam Bharadwaj",
+        "created_at": "2025-06-17T09:43:47Z",
+        "text": "Run these two commands:\n\npython3 -m venv .venv\nsource .venv/bin/activate\n\nYour virtual environment is ready to use. In order to check this, use:\n\nwhich python",
+        "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#79668832",
+        "parent_id": "43069780",
+        "depth": 0,
+        "points": 6,
+        "relevance": null,
+        "thread_url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+        "source": "api"
+      },
+      {
+        "id": "54966635",
+        "author": "Arefe",
+        "created_at": "2019-03-03T07:41:56Z",
+        "text": "I install it using the command (for Python 3.x),\n\npython3 -m venv env",
+        "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#54966635",
+        "parent_id": "43069780",
+        "depth": 0,
+        "points": 2,
+        "relevance": null,
+        "thread_url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+        "source": "api"
+      },
+      {
+        "id": "62147544",
+        "author": "Yogita Bhatia",
+        "created_at": "2020-06-02T08:08:11Z",
+        "text": "Since the launch of Python version 3.3, there hasn't been any need to download the virtualenv package separately, as it comes built-in in Python.\n\nRefer to the documentation to gain complete insights on it.\n\nTest the installation of virtualenv:\n\nvirtualenv --version\n\nUsage:\n\nCreating a virtual environment:\n\nvirtualenv --system-site-packages -p python3 ./virtual_env_name\n\nFor enabling it, use the following command:\n\nsource ./virtual_env_name/bin/activate\n\nFor disabling the virtual environment and get back to working with the local environment:\n\ndeactivate\n\nFor listing down the packages in the …",
+        "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#62147544",
+        "parent_id": "43069780",
+        "depth": 0,
+        "points": 2,
+        "relevance": null,
+        "thread_url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+        "source": "api"
+      },
+      {
+        "id": "76918608",
+        "author": "MD. SHIFULLAH",
+        "created_at": "2023-08-17T05:05:50Z",
+        "text": "Create a virtual environment:\n\nFor Python 3 version:\n\nCommand: python3 -m venv [environment_name]\n\nExample: python3 -m venv my_virtual_environment\n\nFor Python 2 version:\n\nCommand: python -m [environment_name]\n\nExample: python -m venv my_virtual_environment\n\nActivate a virtual environment in Linux:\n\nGo to the virtual environment directory, and then open the terminal.\n\nCommand: source [environment_name]/bin/activate\n\nExample: source my_virtual_environment/bin/activate\n\nActivate a virtual environment in Windows:\n\nGo to the virtual environment directory, and then open cmd.\n\nCommand: [environment_…",
+        "url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3#76918608",
+        "parent_id": "43069780",
+        "depth": 0,
+        "points": 2,
+        "relevance": null,
+        "thread_url": "https://stackoverflow.com/questions/43069780/how-can-i-create-a-virtual-environment-with-python-3",
+        "source": "api"
+      }
+    ],
+    "executed_at": "2026-10-16T09:35:13.412253+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "stackoverflow-venv",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "so-question"
+        ],
+        "required": 1
+      },
+      "comments": {
+        "status": "pass",
+        "matched_comments": [
+          "0"
+        ]
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "pass",
+      "reasons": []
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": false,
+    "grader": "v2"
+  }
+}

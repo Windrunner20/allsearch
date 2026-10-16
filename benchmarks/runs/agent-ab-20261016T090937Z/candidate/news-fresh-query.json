@@ -1,0 +1,772 @@
+{
+  "id": "news-fresh-query",
+  "query": "过去 48 小时内关于半导体出口管制的一条新闻",
+  "returncode": 0,
+  "elapsed_ms": 113234,
+  "efficiency": {
+    "tool_calls": {
+      "health": 1,
+      "search": 2,
+      "fetch": 3,
+      "read_result": 2
+    },
+    "total_calls": 8,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 5,
+    "errors": 3
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__health",
+      "args": {
+        "probe": true
+      },
+      "is_error": false,
+      "ms": 20
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": true,
+        "include_domains": null,
+        "max_results": 10,
+        "mode": "news",
+        "query": "semiconductor export controls latest news past 48 hours chip export restrictions",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 43647
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": true,
+        "include_domains": null,
+        "max_results": 10,
+        "mode": "news",
+        "query": "半导体 出口管制 新闻 近两日",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 56535
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "发布时间、拟新增的40项技术、半导体或AI算力相关内容、官方原话",
+        "fresh": true,
+        "max_chars": 30000,
+        "url": "https://www.reuters.com/world/asia-pacific/china-proposes-adding-40-ai-biotech-solar-technologies-export-control-list-2026-10-16"
+      },
+      "is_error": true,
+      "ms": 211
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "公告日期、征求意见、出口管制目录、AI算力集群和芯片相关原文",
+        "fresh": true,
+        "max_chars": 30000,
+        "url": "https://www.mofcom.gov.cn/zwgk/zcfb/art/2026/art_0a31a3c9ac404f7a9b0e917ce3412997.html"
+      },
+      "is_error": true,
+      "ms": 211
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Taiwan AI chip exports China publication date and exact reported details",
+        "fresh": true,
+        "max_chars": 30000,
+        "url": "https://www.straitstimes.com/asia/east-asia/taiwan-to-curb-ai-chip-exports-to-china-as-part-of-us-trade-deal"
+      },
+      "is_error": true,
+      "ms": 211
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": [
+          "answer",
+          "citations",
+          "coverage",
+          "warnings"
+        ],
+        "limit": 12000,
+        "max_bytes": 16384,
+        "offset": 0,
+        "result_id": "6f876dab1fd3f95d6c7452a2"
+      },
+      "is_error": false,
+      "ms": 5
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": [
+          "answer",
+          "citations",
+          "coverage",
+          "warnings"
+        ],
+        "limit": 12000,
+        "max_bytes": 16384,
+        "offset": 0,
+        "result_id": "b0d8958a5f8a8b7e3d9b1136"
+      },
+      "is_error": false,
+      "ms": 5
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.1\", \"status\": \"ok\", \"version\": \"0.3.0\", \"transport\": \"stdio\", \"model\": \"grok-4.7\", \"allow_degraded_search\": false, \"providers\": [{\"name\": \"hackernews\", \"configured\": true, \"state\": \"idle\", \"last_success_at\": null, \"last_error_code\": null, \"consecutive_failures\": 0, \"latency_ms_ewma\": null, \"probe_at\": null, \"detail\": null}, {\"name\": \"v2ex\", \"configured\": true, \"state\": \"idle\", \"last_success_at\": null, \"last_error_code\": null, \"consecutive_failures\": 0, \"latency_ms_ewma\": null, \"probe_at\": null, \"detail\": null}, {\"name\": \"stackexchange\", \"configured\": true, \"state\": \"idle\", \"last_success_at\": null, \"last_error_code\": null, \"consecutive_failures\": 0, \"latency_ms_ewma\": null, \"probe_at\": null, \"detail\": null}, {\"name\": \"wikipedia\", \"configured\": true, \"state\": \"idle\", \"last_success_at\": null, \"last_error_code\": null, \"consecutive_failures\": 0, \"latency_ms_ewma\": null, \"probe_at\": null, \"detail\": null}, {\"name\": \"reddit\", \"configured\": false, \"state\": \"unconfigured\", \"last_success_at\": null, \"last_error_code\": null, \"consecutive_failures\": 0, \"latency_ms_ewma\": null, \"probe_at\": null, \"detail\": null}, {\"name\": \"xai\", \"configured\": true, \"state\": \"idle\", \"last_success_at\": null, \"last_error_code\": null, \"consecutive_failures\": 0, \"latency_ms_ewma\": null, \"probe_at\": 1792143323.2203689, \"detail\": null}, {\"name\": \"tavily\", \"configured\": true, \"state\": \"idle\", \"last_success_at\": null, \"last_error_code\": null, \"consecutive_failures\": 0, \"latency_ms_ewma\": null, \"probe_at\": null, \"detail\": null}, {\"name\": \"anysearch\", \"configured\": true, \"state\": \"idle\", \"last_success_at\": null, \"last_error_code\": null, \"consecutive_failures\": 0, \"latency_ms_ewma\": null, \"probe_at\": null, \"detail\": null}, {\"name\": \"firecrawl\", \"configured\": true, \"state\": \"idle\", \"last_success_at\": null, \"last_error_code\": null, \"consecutive_failures\": 0, \"latency_ms_ewma\": null, \"probe_at\": null, \"detail\": null}], \"cache\": {\"hits\": 0, \"misses\": 1, \"sets\": 1, \"evictions\": 0, \"entries\": 1}, \"warnings\": [], \"timing_ms\": 0}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"6f876dab1fd3f95d6c7452a2\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"semiconductor export controls latest news past 48 hours chip export restrictions\", \"answer\": \"Recent items from roughly the past 48 hours (through Oct. 16, 2026). Dates are as reported by the outlets.\\n\\n1. **Taiwan plans tighter AI chip export controls on China** — Taiwan’s economics minister …\", \"answer_chars\": 3563, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 10, \"cross_provider_matches\": 0, \"pages_fetched\": 1, \"primary_citation_count\": 38, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 43634, \"warning_count\": 2, \"warnings\": [\"auto_scrape_truncated\", \"auto_scrape_rejected:anti_bot_shell\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"recency_window\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"partial\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 40, \"results\": [], \"citations\": [{\"id\": \"c1\", \"url\": \"https://economictimes.indiatimes.com/topic/us-export-curbs-on-chips\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.tradingview.com/news/stocktwits:557f4a73c094b:0-amid-tsmc-terafab-talks-taiwan-said-to-be-mulling-greater-curbs-on-ai-chip-sales-to-china\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://www.scmp.com/economy/china-economy/article/3371149/china-mulls-new-tech-export-bans-covering-ai-biotech-and-solar-power\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://scanx.trade/stock-market-news/global/china-us-agree-prepare-next-stage-high-level-exchanges/51200561\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://www.emsnow.com/semi-warns-against-new-unilateral-u-s-export-controls-on-commercial-technology\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://news.bloomberglaw.com/international-trade/taiwan-to-curb-ai-chip-exports-to-china-as-part-of-us-trade-deal\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://www.reuters.com/world/asia-pacific/china-proposes-adding-40-ai-biotech-solar-technologies-export-control-list-2026-10-16\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://insidetrade.com/daily-news/bis-revokes-general-authorizations-intel-samsung-sk-hynix-china-facilities\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://www.chinatechnews.com/2026/10/15/130864-worlds-most-valuable-memory-chip-maker-to-us-accept-this-china-condition-if-you-want-us-to-build-factories-in-america\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://insideaipolicy.com/ai-wire/white-house-china-relax-existing-export-controls-semiconductor-inputs\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://www.marketscreener.com/news/china-proposes-adding-40-ai-biotech-solar-technologies-to-export-control-list-ce785cdad88cf12c\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://www.reuters.com/world/asia-pacific/sk-hynix-conditions-new-us-factory-more-us-chip-equipment-exports-china-sources-2026-10-15\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://www.livemint.com/companies/news/samsung-sk-hynix-get-us-approval-to-ship-chipmaking-tools-to-china-in-2026-11767099857396.html\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://www.emsnow.com/a-mixed-bag-of-chips-significant-new-import-and-export-changes-for-advanced-semiconductors\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://economictimes.indiatimes.com/topic/military-computing-restrictions\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://economictimes.indiatimes.com/topic/chinese-chip-equipment-restrictions-in-us\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://www.investing.com/news/stock-market-news/samsung-wins-us-annual-approval-on-chipmaking-tool-shipments-to-china-source-says-4424875\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://asiaai.fyi/guides/chip-export-controls-tracker\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://www.bloomberg.com/news/articles/2026-10-16/china-proposes-export-controls-on-ai-models-chips-and-agents\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"https://www.yahoo.com/news/world/articles/china-proposes-adding-40-ai-084246835.html\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"https://www.trendforce.com/news/2026/10/15/news-sk-hynix-reportedly-seeks-u-s-chip-tool-approval-for-china-expansion-to-fund-potential-u-s-nand-fab\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"https://insidetrade.com/daily-news/house-panel-advances-bills-compel-allies-bolster-export-controls\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c23\", \"url\": \"https://www.tomshardware.com/tech-industry/us-grants-samsung-and-sk-hynix-2026-licenses-for-chipmaking-tool-shipments-to-china\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c24\", \"url\": \"https://www.mofcom.gov.cn/zwgk/zcfb/art/2026/art_0a31a3c9ac404f7a9b0e917ce3412997.html\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c25\", \"url\": \"https://www.bdo.com/insights/tax/bis-updates-expands-semiconductor-export-control-rules\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c26\", \"url\": \"http://rmb.reuters.com/rmd/rss/item/tag:reuters.com,2026:newsml_KBN3VV05J?channel=frL012\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c27\", \"url\": \"https://www.cnbc.com/2025/12/30/us-approves-samsung-sk-hynix-chipmaking-tool-shipments-to-china-for-2026-reuters.html?__source=androidappshare\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c28\", \"url\": \"https://finance.sina.com.cn/stock/bxjj/2026-10-16/doc-inivmazf7044300.shtml\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c29\", \"url\": \"https://www.straitstimes.com/asia/east-asia/taiwan-to-curb-ai-chip-exports-to-china-as-part-of-us-trade-deal\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c30\", \"url\": \"https://www.bloomberg.com/news/articles/2026-10-16/taiwan-to-curb-ai-chip-exports-to-china-as-part-of-us-trade-deal\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c31\", \"url\": \"https://www.bjnews.com.cn/detail/1792137269129878.html\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c32\", \"url\": \"https://ground.news/article/us-approves-samsung-sk-hynix-chipmaking-tool-shipments-to-china-for-2026-reuters\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c33\", \"url\": \"https://m.economictimes.com/news/international/business/sk-hynix-seeks-us-nod-to-expand-china-chip-output-ties-approval-to-us-plant-report/articleshow/134955363.cms\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c34\", \"url\": \"https://kwsn.com/2026/10/16/china-proposes-adding-40-ai-biotech-solar-technologies-to-export-control-list\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c35\", \"url\": \"https://timesofindia.indiatimes.com/technology/tech-news/samsung-and-other-korean-companies-get-us-approval-to-bring-chip-making-tools-into-china/articleshow/126289304.cms\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"6f876dab1fd3f95d6c7452a2\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"recency\", \"target\": \"48h\", \"satisfied\": true, \"detail\": \"1 result(s) published in the last 48h\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 40, \"new_pages_read\": 1, \"seen_urls\": 40, \"pages_read\": 1, \"calls_without_new_evidence\": 0}, \"results_truncated\": true, \"citations_truncated\": true}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"b0d8958a5f8a8b7e3d9b1136\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"半导体 出口管制 新闻 近两日\", \"answer\": \"近两日（约2026年10月14–16日）与半导体/技术出口管制相关的主要报道如下：\\n\\n1. **中国拟增列40项技术出口管制**（2026-10-16）  \\n   商务部、科技部就修订《中国禁止出口限制出口技术目录》公开征求意见（至11月15日），拟增列人工智能、生物医药、光伏共40项；同步对相关技术实施出口前登记。AI部分含大模型、智能体、算力集群等；已开源或论文公开的技术拟不纳入。  \\n  …\", \"answer_chars\": 1895, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 10, \"cross_provider_matches\": 0, \"pages_fetched\": 2, \"primary_citation_count\": 29, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 56476, \"warning_count\": 1, \"warnings\": [\"auto_scrape_truncated\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 37, \"results\": [{\"id\": \"r1\", \"title\": \"\", \"url\": \"https://insideaipolicy.com/ai-wire/white-house-china-relax-existing-export-controls-semiconductor-inputs\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"\", \"url\": \"https://paper.people.com.cn/rmrb/pc/content/202504/04/content_30065764.html\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"\", \"url\": \"https://k.sina.cn/article_5953189932_162d6782c06704tubm.html?from=tech&oid=3817713346214450&vt=4\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"\", \"url\": \"http://www.nbd.com.cn/rss/toutiao/articles/2900054.html\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"\", \"url\": \"https://fddi.fudan.edu.cn/49/b9/c21253a739769/page.htm\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://insideaipolicy.com/ai-wire/white-house-china-relax-existing-export-controls-semiconductor-inputs\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://paper.people.com.cn/rmrb/pc/content/202504/04/content_30065764.html\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://k.sina.cn/article_5953189932_162d6782c06704tubm.html?from=tech&oid=3817713346214450&vt=4\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"http://www.nbd.com.cn/rss/toutiao/articles/2900054.html\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://fddi.fudan.edu.cn/49/b9/c21253a739769/page.htm\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://www.ajudaily.com/view/20260915075670604\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://www.bloomberg.com/news/articles/2026-10-16/taiwan-to-curb-ai-chip-exports-to-china-as-part-of-us-trade-deal\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://www.voachinese.com/a/us-restriction-china-20240911/7780701.html\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://www.mk.co.kr/cn/economy/12173351\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.cls.cn/detail/2390673\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://finance.sina.com.cn/jjxw/2026-10-15/doc-inivhier8104271.shtml\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://www.etnet.com.hk/www/tc/news/news-article.php?category=latest&newsid=ETN341203864&section=categorized\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://www.zaobao.com.sg/news/china/story20261016-9848338\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://www.straitstimes.com/asia/east-asia/taiwan-to-curb-ai-chip-exports-to-china-as-part-of-us-trade-deal\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://news.mysteel.com/a/26101509/B4128010CE237CB2.html\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://www.ithome.com/1/013/669.htm\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://ground.news/article/taiwan-moves-to-curb-ai-chip-exports-to-china-under-us-deal\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://unwire.hk/2026/10/06/cts-duvi-export-ban-china-ai-chip/ai\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://abmedia.io/tag/%E5%87%BA%E5%8F%A3%E7%AE%A1%E5%88%B6\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"https://businesstimescn.com/articles/629678.html\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"https://www.reuters.com/world/asia-pacific/china-proposes-adding-40-ai-biotech-solar-technologies-export-control-list-2026-10-16\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"https://exportprac.com/export-controls?category_id=114&page=7&page_size=20&sub_type=stories%2Cphotos%2Cvideos%2Cspecialsections%2Cprintissues%2Ceeditions%2Cpackages%2Cmagazines%2Cmaps%2Cpolls%2Ccharts%2Celections\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c23\", \"url\": \"https://www.jtn.com/CN/booksdetail.aspx?Lan=CN&PageUrl=majorbook&keyid=00000000000000010204&type=06001\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c24\", \"url\": \"https://news.ifeng.com/c/8xGuSUh0Gop\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c25\", \"url\": \"https://www.slrbs.com/news/guoji/2026-10-15/1964859.html\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c26\", \"url\": \"https://www.bdo.com/insights/tax/bis-updates-expands-semiconductor-export-control-rules\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c27\", \"url\": \"https://news.bloomberglaw.com/international-trade/taiwan-to-curb-ai-chip-exports-to-china-as-part-of-us-trade-deal\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c28\", \"url\": \"https://www.emsnow.com/a-mixed-bag-of-chips-significant-new-import-and-export-changes-for-advanced-semiconductors\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c29\", \"url\": \"https://www.emsnow.com/semi-warns-against-new-unilateral-u-s-export-controls-on-commercial-technology\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c30\", \"url\": \"https://36kr.com/p/4028003030389379\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c31\", \"url\": \"https://money.udn.com/money/story/5603/9805643\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c32\", \"url\": \"https://www.ctee.com.tw/search/%E8%B5%B4%E7%BE%8E\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c33\", \"url\": \"https://www.ctee.com.tw/news/20261014702348-430704\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c34\", \"url\": \"https://technews.tw/2026/04/07/us-lawmakers-ban-export-chipmaking-tools\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c35\", \"url\": \"https://china.usembassy-china.org.cn/zh/commerce-implements-new-export-controls-on-advanced-computing-and-semiconductor-manufacturing-items-to-the-peoples-republic-of-china-prc\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c36\", \"url\": \"https://www.eet-china.com/news/202604175185.html\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c37\", \"url\": \"https://cn.nytimes.com/business/20250530/china-us-export-controls\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"b0d8958a5f8a8b7e3d9b1136\"}, \"coverage\": {\"status\": \"not_applicable\", \"requirements\": [], \"requirements_total\": 0}, \"session\": {\"calls\": {\"search\": 2, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 26, \"new_pages_read\": 2, \"seen_urls\": 66, \"pages_read\": 3, \"calls_without_new_evidence\": 0}, \"results_truncated\": true}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"920d64a2c00413203c8861e2\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://www.reuters.com/world/asia-pacific/china-proposes-adding-40-ai-biotech-solar-technologies-export-control-list-2026-10-16\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 16, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"920d64a2c00413203c8861e2\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 2, \"fetch\": 2, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 66, \"pages_read\": 3, \"calls_without_new_evidence\": 2}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"ed01188aff2887e75686442c\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://www.mofcom.gov.cn/zwgk/zcfb/art/2026/art_0a31a3c9ac404f7a9b0e917ce3412997.html\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 17, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"ed01188aff2887e75686442c\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 2, \"fetch\": 1, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 66, \"pages_read\": 3, \"calls_without_new_evidence\": 1}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"8e06545a74e153c0d6b32cf7\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://www.straitstimes.com/asia/east-asia/taiwan-to-curb-ai-chip-exports-to-china-as-part-of-us-trade-deal\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 18, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"8e06545a74e153c0d6b32cf7\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 2, \"fetch\": 3, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 66, \"pages_read\": 3, \"calls_without_new_evidence\": 3, \"advice\": \"The last calls found no new URLs or pages. Answer with the evidence already found and say what is missing, or change the site, language, or wording.\"}}",
+    "{\"result_id\": \"6f876dab1fd3f95d6c7452a2\", \"kind\": \"search\", \"fields\": [\"answer\", \"citations\", \"coverage\", \"warnings\"], \"offset\": 0, \"next_offset\": 10, \"next_offsets\": {\"answer\": null, \"citations\": 10, \"warnings\": null}, \"truncated\": true, \"data\": {\"answer\": \"Recent items from roughly the past 48 hours (through Oct. 16, 2026). Dates are as reported by the outlets.\\n\\n1. **Taiwan plans tighter AI chip export controls on China** — Taiwan’s economics minister said Taipei will add AI servers and cutting-edge semiconductors to its controlled list under commitments in a 2026 U.S.–Taiwan trade deal. After the rules take effect, shipping restricted AI hardware to China would be a criminal offense under the Foreign Trade Act. Timing was not given.  \\n   Source: Bloomberg / Straits Times / Yahoo Finance, Oct. 16, 2026.  \\n   https://www.bloomberg.com/news/articles/2026-10-16/taiwan-to-curb-ai-chip-exports-to-china-as-part-of-us-trade-deal\\n\\n2. **China proposes new export limits on AI and related tech** — MOFCOM and the Ministry of Science and Technology opened public comment (through Nov. 15) on adding 40 technologies in AI, biomedicine, and photovoltaics to the prohibited/restricted export catalogue, with interim pre-export registration. AI items include large models, agents, computing clusters, and related information-processing tech (about 23 AI items). Bloomberg reported the draft covers chip designs and model weights/source code above certain thresholds. Open-source and already-public AI tech would be carved out; some overseas uses (including chip tape-out abroad) would get simplified licensing. Officials called it routine and not aimed at any country.  \\n   Source: Reuters, Bloomberg, MOFCOM notice, SCMP, Oct. 16, 2026.  \\n   https://www.reuters.com/world/asia-pacific/china-proposes-adding-40-ai-biotech-solar-technologies-export-control-list-2026-10-16/\\n\\n3. **SK Hynix ties a possible U.S. plant to more U.S. tool exports to China** — Sources told Reuters that SK Hynix (via Solidigm) is seeking U.S. licenses to ship additional U.S. chipmaking equipment to unused space at its Dalian NAND site, and has linked that approval to building a factory in the United States. The company said Mod B equipment work is under U.S. authorization and that it is not seeking capacity expansion there. Background: Commerce revoked prior license waivers in 2025 and issued quantity-limited 2026 licenses; sources said a broader 2027 authorization was not yet issued.  \\n   Source: Reuters, Oct. 14–15, 2026.  \\n   https://www.reuters.com/world/asia-pacific/sk-hynix-conditions-new-us-factory-more-us-chip-equipment-exports-china-sources-2026-10-15/\\n\\n4. **Coverage roundup of the SK Hynix license ask** — Follow-on reports repeated the Reuters account: Solidigm wants tools for NAND in Dalian’s unfinished Mod B space; U.S. policy has been to allow maintenance of existing China fabs but not expansion or technology upgrades.  \\n   Source: Economic Times, TrendForce, ChinaTechNews, Oct. 15, 2026.\\n\\n5. **Nvidia’s China AI-chip share under existing U.S. curbs (slightly older)** — An IDC report cited by Reuters said Nvidia’s share of China’s data-center AI chip market fell to about 34% in the first half of 2026 as U.S. export controls limited supply and Huawei and other domestic suppliers gained share. Outside a strict 48-hour window but widely recirculated Oct. 13–15.  \\n   Source: Reuters via Economic Times, Oct. 13, 2026.\\n\\nItems that appeared in search with Oct. 16 timestamps but describe older rules (not new this week): SEMI commentary on Huawei-related foreign-direct-product and de minimis proposals; a January 2026 BIS shift to case-by-case licensing for certain H200/MI325X-class chips plus a 25% Section 232 tariff; and 2023 BIS advanced-computing rule summaries. Those are background, not fresh controls.\", \"answer_chars\": 3563, \"citations\": [{\"id\": \"c1\", \"title\": \"https://economictimes.indiatimes.com/topic/us-export-curbs-on-chips\", \"url\": \"https://economictimes.indiatimes.com/topic/us-export-curbs-on-chips\", \"result_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"title\": \"Amid TSMC-Terafab Talks, Taiwan Said To Be Mulling Greater Curbs On AI Chip Sales To China — TradingView News\", \"url\": \"https://www.tradingview.com/news/stocktwits:557f4a73c094b:0-amid-tsmc-terafab-talks-taiwan-said-to-be-mulling-greater-curbs-on-ai-chip-sales-to-china\", \"result_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"title\": \"https://www.scmp.com/economy/china-economy/article/3371149/china-mulls-new-tech-export-bans-covering-ai-biotech-and-solar-power\", \"url\": \"https://www.scmp.com/economy/china-economy/article/3371149/china-mulls-new-tech-export-bans-covering-ai-biotech-and-solar-power\", \"result_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"title\": \"Rubio says US-China talks focused on trade, Trump to meet at APEC\", \"url\": \"https://scanx.trade/stock-market-news/global/china-us-agree-prepare-next-stage-high-level-exchanges/51200561\", \"result_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"title\": \"https://www.emsnow.com/semi-warns-against-new-unilateral-u-s-export-controls-on-commercial-technology/\", \"url\": \"https://www.emsnow.com/semi-warns-against-new-unilateral-u-s-export-controls-on-commercial-technology\", \"result_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"title\": \"https://news.bloomberglaw.com/international-trade/taiwan-to-curb-ai-chip-exports-to-china-as-part-of-us-trade-deal\", \"url\": \"https://news.bloomberglaw.com/international-trade/taiwan-to-curb-ai-chip-exports-to-china-as-part-of-us-trade-deal\", \"result_id\": \"r6\", \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"title\": \"https://www.reuters.com/world/asia-pacific/china-proposes-adding-40-ai-biotech-solar-technologies-export-control-list-2026-10-16/\", \"url\": \"https://www.reuters.com/world/asia-pacific/china-proposes-adding-40-ai-biotech-solar-technologies-export-control-list-2026-10-16\", \"result_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"title\": \"https://insidetrade.com/daily-news/bis-revokes-general-authorizations-intel-samsung-sk-hynix-china-facilities\", \"url\": \"https://insidetrade.com/daily-news/bis-revokes-general-authorizations-intel-samsung-sk-hynix-china-facilities\", \"result_id\": \"r8\", \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"title\": \"https://www.chinatechnews.com/2026/10/15/130864-worlds-most-valuable-memory-chip-maker-to-us-accept-this-china-condition-if-you-want-us-to-build-factories-in-america\", \"url\": \"https://www.chinatechnews.com/2026/10/15/130864-worlds-most-valuable-memory-chip-maker-to-us-accept-this-china-condition-if-you-want-us-to-build-factories-in-america\", \"result_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"title\": \"https://insideaipolicy.com/ai-wire/white-house-china-relax-existing-export-controls-semiconductor-inputs\", \"url\": \"https://insideaipolicy.com/ai-wire/white-house-china-relax-existing-export-controls-semiconductor-inputs\", \"result_id\": \"r10\", \"providers\": [\"xai\"]}], \"citations_total\": 40, \"warnings\": [\"auto_scrape_truncated\", \"auto_scrape_rejected:anti_bot_shell\"], \"warnings_total\": 2, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"recency\", \"target\": \"48h\", \"satisfied\": true, \"detail\": \"1 result(s) published in the last 48h\"}]}}, \"session\": {\"calls\": {\"search\": 2, \"fetch\": 3, \"read_result\": 1}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 66, \"pages_read\": 3, \"calls_without_new_evidence\": 4}}",
+    "{\"result_id\": \"b0d8958a5f8a8b7e3d9b1136\", \"kind\": \"search\", \"fields\": [\"answer\", \"citations\", \"coverage\", \"warnings\"], \"offset\": 0, \"next_offset\": 10, \"next_offsets\": {\"answer\": null, \"citations\": 10, \"warnings\": null}, \"truncated\": true, \"data\": {\"answer\": \"近两日（约2026年10月14–16日）与半导体/技术出口管制相关的主要报道如下：\\n\\n1. **中国拟增列40项技术出口管制**（2026-10-16）  \\n   商务部、科技部就修订《中国禁止出口限制出口技术目录》公开征求意见（至11月15日），拟增列人工智能、生物医药、光伏共40项；同步对相关技术实施出口前登记。AI部分含大模型、智能体、算力集群等；已开源或论文公开的技术拟不纳入。  \\n   来源：路透、联合早报、凤凰网转商务部答问。\\n\\n2. **台湾拟收紧对华AI芯片出口**（2026-10-16）  \\n   经济部长龚明鑫称，台将把AI服务器与先进半导体列入管制清单，与美方限制对齐；措施生效后，向中国运送受管制AI硬件可依《贸易法》构成刑事犯罪。背景为美台互惠贸易安排中的承诺。  \\n   来源：Bloomberg、海峡时报。\\n\\n3. **SK海力士以赴美建厂换大连带设备许可**（2026-10-15）  \\n   路透称SK海力士/Solidigm正申请向大连厂（Mod B）出口更多美制设备（Lam、Applied Materials、KLA等），并与在美新建NAND厂投资挂钩。公司称设备引进正按美方协商与许可推进，否认单纯扩产。美方此前撤销韩厂“全面豁免”，扩产/升级许可预期偏紧。  \\n   来源：路透（IT之家、工商时报转引）。\\n\\n4. **欧中磋商互撤部分限制，涉ASML供应链**（2026-10-14）  \\n   外媒称欧盟拟撤销对一家涉俄乌相关中企的贸易限制，以换北京解除对ASML德国供应商Sindlhauser Materials的出口管制反制。欧方贸易执委访华时曾讨论互撤与提前通报。  \\n   来源：工商时报引知情人士。\\n\\n5. **光模块、PCB“限制”多为传闻，非正式出口管制**（2026-10-15/16）  \\n   市场波动来自：参议院S.5548政府采购提案（仍在立法）、FCC 26-50（10月13日生效，针对新设备授权、不追溯、不构成对华出口禁令）、国防部PCB采购限制（拟2027年起、仅限防务新合同）。券商普遍判断短期落地概率低、商业AI供应链影响有限。  \\n   来源：财联社、新浪财经、36氪。\\n\\n6. **中欧贸易投资磋商成果含出口管制安排**（约2026-10-09公布，近两日仍被解读）  \\n   第二次例会16项共识包括：稀土/永磁对欧许可“绿色通道”、两用物项列单前提前通报、提高移单透明度。与芯片设备直接相关的细节有限。  \\n   来源：经济日报、商洛之窗等。\\n\\n7. **美国智库呼吁全面限制对华高阶DUV**（2026-10-06，仍被近两日汇总引用）  \\n   Center for Technology & Statecraft称若高阶浸没式DUV继续输华，美方AI芯片优势或在5–10年内收窄；估中资晶圆厂至2026年初已获约343台浸没式DUV。属政策建议，非新规。  \\n   来源：unwire.hk 转CTS报告。\\n\\n8. **白宫称中方放松部分半导体相关投入品管制**（页面日期标注混杂，内容指向2025年11月前后安排）  \\n   白宫称中方同意放松镓、锗、石墨、锑等出口管制，并允许安世（Nexperia）相关产品离境。并非近两日新公告，检索中仍被聚合站点标为近期。  \\n   来源：InsideAIPolicy 转白宫情况说明。\\n\\n9. **美国对华为相关FDPR/微量规则的扩控讨论**（SEMI公开反对，页面聚合日期靠前）  \\n   SEMI警告美方拟扩大外国直接产品规则与微量规则、针对华为及其关联方的单边管制，可能波及大量使用美系设备的海外晶圆厂与约40%美国设备份额。属业界立场，非已生效新规。  \\n   来源：EMSNow 转SEMI。\\n\\n10. **BIS先进计算芯片许可政策的既有调整**（2026年1月规则，合规评论仍在传播）  \\n    部分H200/MI325X等级芯片（ECCN 3A090）对华由“推定拒绝”改为逐案审查，并配合美国测试与终端用途核验；同时存在针对相关进口的232条款关税安排。非近两日新发规则。  \\n    来源：EMSNow、律所解读文章。\\n\\n**简要归纳：** 近两日最明确的新动态是中国技术目录征求意见（偏AI/光伏技术出口）和台湾拟把对华先进AI芯片/服务器出口刑事化；设备端焦点仍是美方对韩厂在华扩产许可，以及欧中围绕供应链反制的互撤谈判。光模块与PCB相关消息被多家媒体澄清为传闻或窄范围采购规则，不宜等同于半导体出口管制升级。\", \"answer_chars\": 1895, \"citations\": [{\"id\": \"c1\", \"title\": \"https://insideaipolicy.com/ai-wire/white-house-china-relax-existing-export-controls-semiconductor-inputs\", \"url\": \"https://insideaipolicy.com/ai-wire/white-house-china-relax-existing-export-controls-semiconductor-inputs\", \"result_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"title\": \"商务部回应日本实施半导体出口管制措施\", \"url\": \"https://paper.people.com.cn/rmrb/pc/content/202504/04/content_30065764.html\", \"result_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"title\": \"https://k.sina.cn/article_5953189932_162d6782c06704tubm.html?oid=3817713346214450&vt=4&from=tech\", \"url\": \"https://k.sina.cn/article_5953189932_162d6782c06704tubm.html?from=tech&oid=3817713346214450&vt=4\", \"result_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"title\": \"事关“芯片粮食”！两部门出手：对两大稀有金属出口管制！影响有多大？解读来了→\", \"url\": \"http://www.nbd.com.cn/rss/toutiao/articles/2900054.html\", \"result_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"title\": \"https://fddi.fudan.edu.cn/49/b9/c21253a739769/page.htm\", \"url\": \"https://fddi.fudan.edu.cn/49/b9/c21253a739769/page.htm\", \"result_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"title\": \"韩国加强对先进半导体设备的出口管制，设备公司面临双重压力\", \"url\": \"https://www.ajudaily.com/view/20260915075670604\", \"result_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"title\": \"https://www.bloomberg.com/news/articles/2026-10-16/taiwan-to-curb-ai-chip-exports-to-china-as-part-of-us-trade-deal\", \"url\": \"https://www.bloomberg.com/news/articles/2026-10-16/taiwan-to-curb-ai-chip-exports-to-china-as-part-of-us-trade-deal\", \"result_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"title\": \"美国对华出口管制层层加码，新一轮措施全面升级防堵漏洞\", \"url\": \"https://www.voachinese.com/a/us-restriction-china-20240911/7780701.html\", \"result_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"title\": \"https://www.mk.co.kr/cn/economy/12173351\", \"url\": \"https://www.mk.co.kr/cn/economy/12173351\", \"result_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"title\": \"商务部：美滥用出口管制冲击全球半导体产供链稳定\", \"url\": \"https://www.cls.cn/detail/2390673\", \"result_id\": \"r10\", \"providers\": [\"tavily\"]}], \"citations_total\": 37, \"warnings\": [\"auto_scrape_truncated\"], \"warnings_total\": 1, \"coverage\": {\"status\": \"not_applicable\", \"requirements\": []}}, \"session\": {\"calls\": {\"search\": 2, \"fetch\": 3, \"read_result\": 2}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 66, \"pages_read\": 3, \"calls_without_new_evidence\": 5}}"
+  ],
+  "answer": "**新闻：台湾拟收紧对华 AI 芯片出口管制**\n\n据 Bloomberg 报道，台湾经济部长表示，台湾计划把 **AI 服务器和先进半导体** 纳入出口管制清单，以履行美台贸易安排中的承诺。新规生效后，向中国大陆出口受管制的 AI 硬件，可能依据台湾《贸易法》构成刑事犯罪。报道日期为 **2026 年 10 月 16 日**，在过去 48 小时内。\n\n原始链接：\n\n- [Bloomberg：Taiwan to Curb AI Chip Exports to China as Part of US Trade Deal](https://www.bloomberg.com/news/articles/2026-10-16/taiwan-to-curb-ai-chip-exports-to-china-as-part-of-us-trade-deal)\n- [Reuters：China proposes adding 40 AI, biotech, solar technologies to export control list](https://www.reuters.com/world/asia-pacific/china-proposes-adding-40-ai-biotech-solar-technologies-export-control-list-2026-10-16/)\n\n本次检索未读取到评论，因此没有可引用的评论原句。",
+  "observation": {
+    "id": "news-fresh-query",
+    "answer": "**新闻：台湾拟收紧对华 AI 芯片出口管制**\n\n据 Bloomberg 报道，台湾经济部长表示，台湾计划把 **AI 服务器和先进半导体** 纳入出口管制清单，以履行美台贸易安排中的承诺。新规生效后，向中国大陆出口受管制的 AI 硬件，可能依据台湾《贸易法》构成刑事犯罪。报道日期为 **2026 年 10 月 16 日**，在过去 48 小时内。\n\n原始链接：\n\n- [Bloomberg：Taiwan to Curb AI Chip Exports to China as Part of US Trade Deal](https://www.bloomberg.com/news/articles/2026-10-16/taiwan-to-curb-ai-chip-exports-to-china-as-part-of-us-trade-deal)\n- [Reuters：China proposes adding 40 AI, biotech, solar technologies to export control list](https://www.reuters.com/world/asia-pacific/china-proposes-adding-40-ai-biotech-solar-technologies-export-control-list-2026-10-16/)\n\n本次检索未读取到评论，因此没有可引用的评论原句。",
+    "results": [
+      {
+        "url": "https://economictimes.indiatimes.com/topic/us-export-curbs-on-chips",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.tradingview.com/news/stocktwits:557f4a73c094b:0-amid-tsmc-terafab-talks-taiwan-said-to-be-mulling-greater-curbs-on-ai-chip-sales-to-china",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.scmp.com/economy/china-economy/article/3371149/china-mulls-new-tech-export-bans-covering-ai-biotech-and-solar-power",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://scanx.trade/stock-market-news/global/china-us-agree-prepare-next-stage-high-level-exchanges/51200561",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.emsnow.com/semi-warns-against-new-unilateral-u-s-export-controls-on-commercial-technology",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.bloomberglaw.com/international-trade/taiwan-to-curb-ai-chip-exports-to-china-as-part-of-us-trade-deal",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reuters.com/world/asia-pacific/china-proposes-adding-40-ai-biotech-solar-technologies-export-control-list-2026-10-16",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://insidetrade.com/daily-news/bis-revokes-general-authorizations-intel-samsung-sk-hynix-china-facilities",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chinatechnews.com/2026/10/15/130864-worlds-most-valuable-memory-chip-maker-to-us-accept-this-china-condition-if-you-want-us-to-build-factories-in-america",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://insideaipolicy.com/ai-wire/white-house-china-relax-existing-export-controls-semiconductor-inputs",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.marketscreener.com/news/china-proposes-adding-40-ai-biotech-solar-technologies-to-export-control-list-ce785cdad88cf12c",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reuters.com/world/asia-pacific/sk-hynix-conditions-new-us-factory-more-us-chip-equipment-exports-china-sources-2026-10-15",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.livemint.com/companies/news/samsung-sk-hynix-get-us-approval-to-ship-chipmaking-tools-to-china-in-2026-11767099857396.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.emsnow.com/a-mixed-bag-of-chips-significant-new-import-and-export-changes-for-advanced-semiconductors",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://economictimes.indiatimes.com/topic/military-computing-restrictions",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://economictimes.indiatimes.com/topic/chinese-chip-equipment-restrictions-in-us",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.investing.com/news/stock-market-news/samsung-wins-us-annual-approval-on-chipmaking-tool-shipments-to-china-source-says-4424875",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://asiaai.fyi/guides/chip-export-controls-tracker",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.bloomberg.com/news/articles/2026-10-16/china-proposes-export-controls-on-ai-models-chips-and-agents",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.yahoo.com/news/world/articles/china-proposes-adding-40-ai-084246835.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.trendforce.com/news/2026/10/15/news-sk-hynix-reportedly-seeks-u-s-chip-tool-approval-for-china-expansion-to-fund-potential-u-s-nand-fab",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://insidetrade.com/daily-news/house-panel-advances-bills-compel-allies-bolster-export-controls",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.tomshardware.com/tech-industry/us-grants-samsung-and-sk-hynix-2026-licenses-for-chipmaking-tool-shipments-to-china",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.mofcom.gov.cn/zwgk/zcfb/art/2026/art_0a31a3c9ac404f7a9b0e917ce3412997.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.bdo.com/insights/tax/bis-updates-expands-semiconductor-export-control-rules",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://rmb.reuters.com/rmd/rss/item/tag:reuters.com,2026:newsml_KBN3VV05J?channel=frL012",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cnbc.com/2025/12/30/us-approves-samsung-sk-hynix-chipmaking-tool-shipments-to-china-for-2026-reuters.html?__source=androidappshare",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://finance.sina.com.cn/stock/bxjj/2026-10-16/doc-inivmazf7044300.shtml",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.straitstimes.com/asia/east-asia/taiwan-to-curb-ai-chip-exports-to-china-as-part-of-us-trade-deal",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.bloomberg.com/news/articles/2026-10-16/taiwan-to-curb-ai-chip-exports-to-china-as-part-of-us-trade-deal",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.bjnews.com.cn/detail/1792137269129878.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://ground.news/article/us-approves-samsung-sk-hynix-chipmaking-tool-shipments-to-china-for-2026-reuters",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://m.economictimes.com/news/international/business/sk-hynix-seeks-us-nod-to-expand-china-chip-output-ties-approval-to-us-plant-report/articleshow/134955363.cms",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://kwsn.com/2026/10/16/china-proposes-adding-40-ai-biotech-solar-technologies-to-export-control-list",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://timesofindia.indiatimes.com/technology/tech-news/samsung-and-other-korean-companies-get-us-approval-to-bring-chip-making-tools-into-china/articleshow/126289304.cms",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://insideaipolicy.com/ai-wire/white-house-china-relax-existing-export-controls-semiconductor-inputs",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://paper.people.com.cn/rmrb/pc/content/202504/04/content_30065764.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://k.sina.cn/article_5953189932_162d6782c06704tubm.html?from=tech&oid=3817713346214450&vt=4",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://www.nbd.com.cn/rss/toutiao/articles/2900054.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://fddi.fudan.edu.cn/49/b9/c21253a739769/page.htm",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://insideaipolicy.com/ai-wire/white-house-china-relax-existing-export-controls-semiconductor-inputs",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://paper.people.com.cn/rmrb/pc/content/202504/04/content_30065764.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://k.sina.cn/article_5953189932_162d6782c06704tubm.html?from=tech&oid=3817713346214450&vt=4",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://www.nbd.com.cn/rss/toutiao/articles/2900054.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://fddi.fudan.edu.cn/49/b9/c21253a739769/page.htm",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.ajudaily.com/view/20260915075670604",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.bloomberg.com/news/articles/2026-10-16/taiwan-to-curb-ai-chip-exports-to-china-as-part-of-us-trade-deal",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.voachinese.com/a/us-restriction-china-20240911/7780701.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.mk.co.kr/cn/economy/12173351",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cls.cn/detail/2390673",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://finance.sina.com.cn/jjxw/2026-10-15/doc-inivhier8104271.shtml",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.etnet.com.hk/www/tc/news/news-article.php?category=latest&newsid=ETN341203864&section=categorized",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.zaobao.com.sg/news/china/story20261016-9848338",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.straitstimes.com/asia/east-asia/taiwan-to-curb-ai-chip-exports-to-china-as-part-of-us-trade-deal",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.mysteel.com/a/26101509/B4128010CE237CB2.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.ithome.com/1/013/669.htm",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://ground.news/article/taiwan-moves-to-curb-ai-chip-exports-to-china-under-us-deal",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://unwire.hk/2026/10/06/cts-duvi-export-ban-china-ai-chip/ai",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://abmedia.io/tag/%E5%87%BA%E5%8F%A3%E7%AE%A1%E5%88%B6",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://businesstimescn.com/articles/629678.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.reuters.com/world/asia-pacific/china-proposes-adding-40-ai-biotech-solar-technologies-export-control-list-2026-10-16",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://exportprac.com/export-controls?category_id=114&page=7&page_size=20&sub_type=stories%2Cphotos%2Cvideos%2Cspecialsections%2Cprintissues%2Ceeditions%2Cpackages%2Cmagazines%2Cmaps%2Cpolls%2Ccharts%2Celections",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.jtn.com/CN/booksdetail.aspx?Lan=CN&PageUrl=majorbook&keyid=00000000000000010204&type=06001",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ifeng.com/c/8xGuSUh0Gop",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.slrbs.com/news/guoji/2026-10-15/1964859.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.bdo.com/insights/tax/bis-updates-expands-semiconductor-export-control-rules",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.bloomberglaw.com/international-trade/taiwan-to-curb-ai-chip-exports-to-china-as-part-of-us-trade-deal",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.emsnow.com/a-mixed-bag-of-chips-significant-new-import-and-export-changes-for-advanced-semiconductors",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.emsnow.com/semi-warns-against-new-unilateral-u-s-export-controls-on-commercial-technology",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://36kr.com/p/4028003030389379",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://money.udn.com/money/story/5603/9805643",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.ctee.com.tw/search/%E8%B5%B4%E7%BE%8E",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.ctee.com.tw/news/20261014702348-430704",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://technews.tw/2026/04/07/us-lawmakers-ban-export-chipmaking-tools",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://china.usembassy-china.org.cn/zh/commerce-implements-new-export-controls-on-advanced-computing-and-semiconductor-manufacturing-items-to-the-peoples-republic-of-china-prc",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.eet-china.com/news/202604175185.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://cn.nytimes.com/business/20250530/china-us-export-controls",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://economictimes.indiatimes.com/topic/us-export-curbs-on-chips",
+        "title": "https://economictimes.indiatimes.com/topic/us-export-curbs-on-chips",
+        "snippet": ""
+      },
+      {
+        "url": "https://www.tradingview.com/news/stocktwits:557f4a73c094b:0-amid-tsmc-terafab-talks-taiwan-said-to-be-mulling-greater-curbs-on-ai-chip-sales-to-china",
+        "title": "Amid TSMC-Terafab Talks, Taiwan Said To Be Mulling Greater Curbs On AI Chip Sales To China — TradingView News",
+        "snippet": ""
+      },
+      {
+        "url": "https://www.scmp.com/economy/china-economy/article/3371149/china-mulls-new-tech-export-bans-covering-ai-biotech-and-solar-power",
+        "title": "https://www.scmp.com/economy/china-economy/article/3371149/china-mulls-new-tech-export-bans-covering-ai-biotech-and-solar-power",
+        "snippet": ""
+      },
+      {
+        "url": "https://scanx.trade/stock-market-news/global/china-us-agree-prepare-next-stage-high-level-exchanges/51200561",
+        "title": "Rubio says US-China talks focused on trade, Trump to meet at APEC",
+        "snippet": ""
+      },
+      {
+        "url": "https://www.emsnow.com/semi-warns-against-new-unilateral-u-s-export-controls-on-commercial-technology",
+        "title": "https://www.emsnow.com/semi-warns-against-new-unilateral-u-s-export-controls-on-commercial-technology/",
+        "snippet": ""
+      },
+      {
+        "url": "https://news.bloomberglaw.com/international-trade/taiwan-to-curb-ai-chip-exports-to-china-as-part-of-us-trade-deal",
+        "title": "https://news.bloomberglaw.com/international-trade/taiwan-to-curb-ai-chip-exports-to-china-as-part-of-us-trade-deal",
+        "snippet": ""
+      },
+      {
+        "url": "https://www.reuters.com/world/asia-pacific/china-proposes-adding-40-ai-biotech-solar-technologies-export-control-list-2026-10-16",
+        "title": "https://www.reuters.com/world/asia-pacific/china-proposes-adding-40-ai-biotech-solar-technologies-export-control-list-2026-10-16/",
+        "snippet": ""
+      },
+      {
+        "url": "https://insidetrade.com/daily-news/bis-revokes-general-authorizations-intel-samsung-sk-hynix-china-facilities",
+        "title": "https://insidetrade.com/daily-news/bis-revokes-general-authorizations-intel-samsung-sk-hynix-china-facilities",
+        "snippet": ""
+      },
+      {
+        "url": "https://www.chinatechnews.com/2026/10/15/130864-worlds-most-valuable-memory-chip-maker-to-us-accept-this-china-condition-if-you-want-us-to-build-factories-in-america",
+        "title": "https://www.chinatechnews.com/2026/10/15/130864-worlds-most-valuable-memory-chip-maker-to-us-accept-this-china-condition-if-you-want-us-to-build-factories-in-america",
+        "snippet": ""
+      },
+      {
+        "url": "https://insideaipolicy.com/ai-wire/white-house-china-relax-existing-export-controls-semiconductor-inputs",
+        "title": "https://insideaipolicy.com/ai-wire/white-house-china-relax-existing-export-controls-semiconductor-inputs",
+        "snippet": ""
+      },
+      {
+        "url": "https://insideaipolicy.com/ai-wire/white-house-china-relax-existing-export-controls-semiconductor-inputs",
+        "title": "https://insideaipolicy.com/ai-wire/white-house-china-relax-existing-export-controls-semiconductor-inputs",
+        "snippet": ""
+      },
+      {
+        "url": "https://paper.people.com.cn/rmrb/pc/content/202504/04/content_30065764.html",
+        "title": "商务部回应日本实施半导体出口管制措施",
+        "snippet": ""
+      },
+      {
+        "url": "https://k.sina.cn/article_5953189932_162d6782c06704tubm.html?from=tech&oid=3817713346214450&vt=4",
+        "title": "https://k.sina.cn/article_5953189932_162d6782c06704tubm.html?oid=3817713346214450&vt=4&from=tech",
+        "snippet": ""
+      },
+      {
+        "url": "http://www.nbd.com.cn/rss/toutiao/articles/2900054.html",
+        "title": "事关“芯片粮食”！两部门出手：对两大稀有金属出口管制！影响有多大？解读来了→",
+        "snippet": ""
+      },
+      {
+        "url": "https://fddi.fudan.edu.cn/49/b9/c21253a739769/page.htm",
+        "title": "https://fddi.fudan.edu.cn/49/b9/c21253a739769/page.htm",
+        "snippet": ""
+      },
+      {
+        "url": "https://www.ajudaily.com/view/20260915075670604",
+        "title": "韩国加强对先进半导体设备的出口管制，设备公司面临双重压力",
+        "snippet": ""
+      },
+      {
+        "url": "https://www.bloomberg.com/news/articles/2026-10-16/taiwan-to-curb-ai-chip-exports-to-china-as-part-of-us-trade-deal",
+        "title": "https://www.bloomberg.com/news/articles/2026-10-16/taiwan-to-curb-ai-chip-exports-to-china-as-part-of-us-trade-deal",
+        "snippet": ""
+      },
+      {
+        "url": "https://www.voachinese.com/a/us-restriction-china-20240911/7780701.html",
+        "title": "美国对华出口管制层层加码，新一轮措施全面升级防堵漏洞",
+        "snippet": ""
+      },
+      {
+        "url": "https://www.mk.co.kr/cn/economy/12173351",
+        "title": "https://www.mk.co.kr/cn/economy/12173351",
+        "snippet": ""
+      },
+      {
+        "url": "https://www.cls.cn/detail/2390673",
+        "title": "商务部：美滥用出口管制冲击全球半导体产供链稳定",
+        "snippet": ""
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://www.reuters.com/world/asia-pacific/china-proposes-adding-40-ai-biotech-solar-technologies-export-control-list-2026-10-16",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 16, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://www.mofcom.gov.cn/zwgk/zcfb/art/2026/art_0a31a3c9ac404f7a9b0e917ce3412997.html",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 17, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://www.straitstimes.com/asia/east-asia/taiwan-to-curb-ai-chip-exports-to-china-as-part-of-us-trade-deal",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 18, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…",
+            "retryable": true
+          }
+        ]
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:37:02.802955+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "news-fresh-query",
+    "scores": {
+      "discovery": {
+        "status": "fail",
+        "matched_targets": []
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      },
+      "freshness": {
+        "status": "unverifiable"
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "discovery:fail",
+        "freshness:unverifiable"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true,
+    "grader": "v2"
+  }
+}

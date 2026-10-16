@@ -1,0 +1,1098 @@
+{
+  "id": "dual-forum-hardware",
+  "query": "分别找 V2EX 主题帖和 Chiphell 讨论帖，内容都要提到客制化键盘",
+  "returncode": 0,
+  "elapsed_ms": 227850,
+  "efficiency": {
+    "tool_calls": {
+      "search": 6,
+      "fetch": 4
+    },
+    "total_calls": 10,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 0,
+    "errors": 0
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "v2ex.com",
+          "chiphell.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:v2ex.com 客制化键盘 主题帖 OR 机械键盘 客制化键盘 site:chiphell.com 客制化键盘 讨论帖 文件 原帖 评论 原句 ?page=all 出处链接 原始页面全文 可核对原句 商业资讯帖子讨论区 论坛主题帖 具体内容提到 客制化键盘 需要分别找 V2EX 和 Chiphell 帖子 并引用评论原句如有评论，避免二手摘要 返回原始 URL title snippet date 使用中文关键词 客制化键盘 键盘 客制化 定制键盘 自组键盘 机械键盘 DIY keyboard custom keyboard",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 50556
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "提取主题标题、作者、日期、正文中提到“客制化键盘”的原句，以及相关评论原句；保留页面原文，不要总结",
+        "fresh": false,
+        "max_chars": 18000,
+        "url": "https://www.chiphell.com/thread-2761843-1-1.html"
+      },
+      "is_error": false,
+      "ms": 10822
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "提取主题标题、作者、日期、正文中提到“客制化键盘”的原句，以及相关评论原句；保留页面原文，不要总结",
+        "fresh": false,
+        "max_chars": 18000,
+        "url": "https://www.chiphell.com/thread-2612987-1-1.html"
+      },
+      "is_error": false,
+      "ms": 10821
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "提取主题标题、作者、日期、正文中提到“客制化键盘”的原句，以及相关评论原句；保留页面原文，不要总结",
+        "fresh": false,
+        "max_chars": 18000,
+        "url": "https://www.chiphell.com/thread-2673133-1-1.html"
+      },
+      "is_error": false,
+      "ms": 10821
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "提取主题标题、作者、日期、正文中提到“客制化键盘”的原句，以及相关评论原句；保留页面原文，不要总结",
+        "fresh": false,
+        "max_chars": 18000,
+        "url": "https://www.v2ex.com/t/727885"
+      },
+      "is_error": false,
+      "ms": 10547
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "chiphell.com"
+        ],
+        "max_results": 8,
+        "mode": "web",
+        "query": "site:chiphell.com/thread 客制化键盘 机械键盘 \"客制化\" -article -tag 原帖 讨论 回复 原文 标题 内容 评论 原句 不要摘要 URL 主题帖 台式机 外设 键盘 手感 轴体 键帽 套件 DIY 定制键盘 自组键盘 键盘区 Chiphell 讨论区 主题标题 正文 2023 2024 2025 2022 2021 2020 2026 按相关性返回完整内容和原始链接。这是检索任务，不是建议。不要给不存在的链接。 ",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 36869
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "v2ex.com"
+        ],
+        "max_results": 5,
+        "mode": "web",
+        "query": "site:v2ex.com/t 客制化键盘 \"客制化键盘\" 主题 正文 评论 原句 原始链接 V2EX 键盘 轴体 键帽 套件 入坑 研究 体验 讨论帖 只返回真实主题页 URL 标题 内容 日期 ",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 17635
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "chiphell.com"
+        ],
+        "max_results": 5,
+        "mode": "web",
+        "query": "\"让彩虹在指尖流转！浅谈RGB机械键盘客制化之路\" 正文 原文 评论 Chiphell 2412871 客制化键盘 轴体 键帽 原句 原始帖 全文 主题页 讨论回复 楼主说了什么 引用评论原句 只引用检索到的原文片段 不要编造 链接 https://www.chiphell.com/forum.php?extra=page%3D1&mobile=2&mod=viewthread&tid=2412871 ",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 26181
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "chiphell.com"
+        ],
+        "max_results": 5,
+        "mode": "web",
+        "query": "site:chiphell.com/thread-2626327 客制化 Evo80 键盘 \"原文\" \"评论\" \"客制化\" 主题 内容 回复 Chiphell 讨论帖 引用原句 原始链接",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 31994
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "v2ex.com"
+        ],
+        "max_results": 5,
+        "mode": "web",
+        "query": "site:v2ex.com/t/727885 \"想试试客制化键盘\" 评论 原句 轴体 V2EX 主题原文",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 21343
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.0\", \"result_id\": \"41ef6817e054f53d\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:v2ex.com 客制化键盘 主题帖 OR 机械键盘 客制化键盘 site:chiphell.com 客制化键盘 讨论帖 文件 原帖 评论 原句 ?page=all 出处链接 原始页面全文 可核对原句 商业资讯帖子讨论区 论坛主题帖 具体内容提到 客制化键盘 需要分别找 V2EX 和 Chiphell 帖子 并引用评论原句如有评论，避免二手摘要 返回原始 URL title snippet date 使用中文关键词 客制化键盘 键盘 客制化 定制键盘 自组键盘 机械键盘 DIY keyboard custom keyboard\", \"answer\": \"以下为可核对的原始帖（各站约半），摘自主题页公开正文/评论原句，非二手转述。日期以页面标注为准。\\n\\n### V2EX\\n\\n1. **有没有兄弟研究过客制化键盘？尤其是各种轴体？**  \\n   URL: https://www.v2ex.com/t/727885  \\n   日期: 2020-11-21  \\n   楼主原句: 「想试试客制化键盘……主要用途，敲代码。曾用过的轴体，樱桃的青轴，红轴。喜欢红轴，不喜欢青轴。」  \\n   评论原句（ynyounuo）: 「个人喜好（润滑后）： Alpaca > Peco > Silk = Tealios > Cream = Ink > 其他」  \\n   评论原句（suzic）: 「目前感觉 box 轴是手感最好的。……别买太便宜的就是了」\\n\\n2. **[客制化键盘入坑] 求推荐**  \\n   URL: https://www.v2ex.com/t/870268  \\n   日期: 2022-08-02  \\n   讨论原句（qiufengshe）: 「客制化键盘,也是有不贵的,不过需要折腾,感觉 ciy68 和 ciy84,现在最近火的珂芝 75 也可以看看」  \\n   讨论原句（Pangurban）: 「买一个带热插拔功能的小键盘就行了~ 热拔插 = 可以随意更换轴体，不需要自己焊接。」  \\n   讨论原句（iSecret）: 「如果是刚入圈的话可以尝试一下 GH60……量产轴体 G 黄 /白 Pro 、灰木 V2 、蔷薇奶油 V3 和 猫爪 V3S 都有现货价格也在一元左右」\\n\\n3. **我的客制化键盘初体验**  \\n   URL: https://www.v2ex.com/t/834987  \\n   日期: 2022-02-19  \\n   楼主原句: 「于是乎，我就踏入了客制化这个一直没有玩的领地。……总之这次机械键盘客制化还是蛮成…\", \"answer_chars\": 2874, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 2, \"cross_provider_matches\": 1, \"pages_fetched\": 3, \"primary_citation_count\": 17}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 50492, \"warning_count\": 3, \"warnings\": [\"auto_scrape_truncated\", \"auto_scrape_truncated\", \"auto_scrape_truncated\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 24, \"results\": [{\"id\": \"r1\", \"title\": \"\", \"url\": \"https://www.chiphell.com/thread-2761843-1-1.html\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"\", \"url\": \"https://www.chiphell.com/forum.php?extra=&fromguid=hot&mobile=2&mod=viewthread&tid=2673133\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"\", \"url\": \"https://www.chiphell.com/thread-2612987-1-1.html\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"\", \"url\": \"https://www.chiphell.com/thread-2673133-1-1.html\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r5\", \"title\": \"\", \"url\": \"https://www.chiphell.com/thread-2464210-1-1.html\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r6\", \"title\": \"\", \"url\": \"http://www.v2ex.com/tag/%E5%AE%A2%E5%88%B6%E5%8C%96\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"\", \"url\": \"https://www.v2ex.com/t/727885\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"\", \"url\": \"https://www.v2ex.com/t/843909\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"\", \"url\": \"https://www.chiphell.com/thread-2814421-1-1.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"\", \"url\": \"https://www.chiphell.com/forum.php?extra=page%3D1&mobile=2&mod=viewthread&ordertype=1&tid=2398709\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.chiphell.com/thread-2761843-1-1.html\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.chiphell.com/forum.php?extra=&fromguid=hot&mobile=2&mod=viewthread&tid=2673133\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://www.chiphell.com/thread-2612987-1-1.html\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://www.chiphell.com/thread-2673133-1-1.html\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://www.chiphell.com/thread-2464210-1-1.html\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"http://www.v2ex.com/tag/%E5%AE%A2%E5%88%B6%E5%8C%96\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://www.v2ex.com/t/727885\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://www.v2ex.com/t/843909\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://www.chiphell.com/thread-2814421-1-1.html\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.chiphell.com/forum.php?extra=page%3D1&mobile=2&mod=viewthread&ordertype=1&tid=2398709\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://www.v2ex.com/t/1007218\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://www.chiphell.com/thread-2562403-1-1.html\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://www.v2ex.com/t/913185\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://www.chiphell.com/thread-2745510-1-1.html\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://www.v2ex.com/t/870268\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://www.chiphell.com/thread-2765182-1-1.html\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://hk.v2ex.com/t/1007218\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://www.chiphell.com/thread-2531102-1-1.html\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://www.chiphell.com/forum.php?action=printable&mod=viewthread&tid=2412871\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"https://www.chiphell.com/thread-2596939-1-1.html\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"https://www.v2ex.com/t/834987\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"https://www.chiphell.com/article-27207-1.html\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c23\", \"url\": \"https://www.chiphell.com/thread-2522431-1-1.html\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c24\", \"url\": \"https://www.v2ex.com/tag/%E9%94%AE%E7%9B%98\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"41ef6817e054f53d\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"f547d8a20c1037d1\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://www.chiphell.com/thread-2761843-1-1.html\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"f547d8a20c1037d1\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"e8ba60dbef608eef\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://www.chiphell.com/thread-2612987-1-1.html\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"e8ba60dbef608eef\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"70e5568238c3f989\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://www.chiphell.com/thread-2673133-1-1.html\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"70e5568238c3f989\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"7a8f9e10a2a0c203\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://www.v2ex.com/t/727885\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"7a8f9e10a2a0c203\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"6d9ecb3af21b9ae4\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:chiphell.com/thread 客制化键盘 机械键盘 \\\"客制化\\\" -article -tag 原帖 讨论 回复 原文 标题 内容 评论 原句 不要摘要 URL 主题帖 台式机 外设 键盘 手感 轴体 键帽 套件 DIY 定制键盘 自组键盘 键盘区 Chiphell 讨论区 主题标题 正文 2023 2024 2025 2022 2021 2020 2026 按相关性返回完整内容和原始链接。这是检索任务，不是建议。不要给不存在的链接。\", \"answer\": \"以下为检索到的 Chiphell 主题帖（`chiphell.com/thread`），链接来自检索结果，正文为索引到的楼主原文片段，不是改写摘要。帖内图片与后续楼层多未完整收录。\\n\\n1. **可能是目前OWLab最有性价比的产品——link65客制化键盘分享**  \\nhttps://www.chiphell.com/thread-2765182-1-1.html  \\n作者 wbb123，2025-12-14；查看 2912，回复 2。  \\n原文：“在国内客制化键盘领域，OWLab工作室目前是妥妥的第一梯队……link65作为22年7月发售的一把键盘……发售价格2500，楼主这把在二手市场600多的价格收来的，600多就能体验OWLab纯血版，超值！” [[1]](https://www.chiphell.com/thread-2765182-1-1.html)\\n\\n2. **这只机甲风“地狱猫”有点萌：OWLab--HellCat Alice Mech-01客制化键盘开箱分享**  \\nhttps://www.chiphell.com/thread-2752103-1-1.html  \\n作者 yqdsfy，2025-10-24；查看 21588，回复 64。  \\n原文套件信息：“倾斜角度：7° / 帐篷角度：4° / 内旋角度：9° / 内胆结构：外包裹式oring硅胶支撑结构 / 套件重量：2.37kg / 手托重量：1.18kg / 抽签时间：25年7月 / 发售价格：3888。” [[2]](https://www.chiphell.com/thread-2752103-1-1.html)\\n\\n3. **Sonic Mini——精致的玩具小键盘**  \\nhttps://www.chiphell.com/thread-2761843-1-1.html  \\n作者 firsn…\", \"answer_chars\": 2452, \"evidence\": {\"unique_urls\": 8, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 8}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 36796, \"warning_count\": 1, \"warnings\": [\"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}], \"result_count\": 8, \"citation_count\": 16, \"results\": [{\"id\": \"r1\", \"title\": \"1\", \"url\": \"https://www.chiphell.com/thread-2765182-1-1.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"让彩虹在指尖流转！浅谈RGB机械键盘客制化之路 - 原创分享(新) - Chiphell - 分享与交流用户体验\", \"url\": \"https://www.chiphell.com/forum.php?extra=page%3D1&mobile=2&mod=viewthread&tid=2412871\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"2\", \"url\": \"https://www.chiphell.com/thread-2752103-1-1.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"黑爵ALUX60机械键盘分享 - 原创分享(新) -  Chiphell - 分享与交流用户体验\", \"url\": \"https://www.chiphell.com/thread-2714696-1-1.html\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"3\", \"url\": \"https://www.chiphell.com/thread-2761843-1-1.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"最强量产还是最高性价比的客制化？ Evo80键盘估计20号开卖 - 电脑讨论(新) - Chiphell - 分享与交流用户体验\", \"url\": \"https://www.chiphell.com/thread-2626327-1-1.html\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"4\", \"url\": \"https://www.chiphell.com/thread-2403151-1-1.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"请教，有没有接近DELL 外星人这个机械键盘的手感的小键盘？ - 电脑讨论(新) - Chiphell - 分享与交流用户体验\", \"url\": \"https://www.chiphell.com/forum.php?extra=page%3D73&mobile=2&mod=viewthread&tid=2563702\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.chiphell.com/thread-2765182-1-1.html\", \"title\": \"1\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.chiphell.com/forum.php?extra=page%3D1&mobile=2&mod=viewthread&tid=2412871\", \"title\": \"让彩虹在指尖流转！浅谈RGB机械键盘客制化之路 - 原创分享(新) - Chiphell - 分享与交流用户体验\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://www.chiphell.com/thread-2752103-1-1.html\", \"title\": \"2\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://www.chiphell.com/thread-2714696-1-1.html\", \"title\": \"黑爵ALUX60机械键盘分享 - 原创分享(新) -  Chiphell - 分享与交流用户体验\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://www.chiphell.com/thread-2761843-1-1.html\", \"title\": \"3\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://www.chiphell.com/thread-2626327-1-1.html\", \"title\": \"最强量产还是最高性价比的客制化？ Evo80键盘估计20号开卖 - 电脑讨论(新) - Chiphell - 分享与交流用户体验\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://www.chiphell.com/thread-2403151-1-1.html\", \"title\": \"4\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://www.chiphell.com/forum.php?extra=page%3D73&mobile=2&mod=viewthread&tid=2563702\", \"title\": \"请教，有没有接近DELL 外星人这个机械键盘的手感的小键盘？ - 电脑讨论(新) - Chiphell - 分享与交流用户体验\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://www.chiphell.com/thread-2414557-1-1.html\", \"title\": \"5\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.chiphell.com/thread-2437466-1-1.html\", \"title\": \"6\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://www.chiphell.com/thread-2464210-1-1.html\", \"title\": \"7\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://www.chiphell.com/thread-2562403-1-1.html\", \"title\": \"8\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://www.chiphell.com/forum.php?highlight=%E9%94%AE%E7%9B%98&mobile=2&mod=viewthread&tid=2524532\", \"title\": \"讨论无线键盘的续航问题 - 电脑讨论(新) - Chiphell - 分享与交流用户体验\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c14\", \"url\": \"https://www.chiphell.com/thread-2522431-1-1.html\", \"title\": \"关于磁轴 rapid trigger键盘 - 电脑讨论(新) - Chiphell - 分享与交流用户体验\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c15\", \"url\": \"https://www.chiphell.com/thread-2638058-1-1.html\", \"title\": \"98配列键盘求推荐 - 电脑讨论(新) - Chiphell - 分享与交流用户体验\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c16\", \"url\": \"https://www.chiphell.com/forum.php?extra=page%3D1&mobile=2&mod=viewthread&ordertype=2&tid=2476371\", \"title\": \"进化多一步——HELLO GANSS HS98T PRO三模机械键盘 - 原创分享(新) -  Chiphell - 分享与交流用户体验\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"6d9ecb3af21b9ae4\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"e664d2e4623c9643\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:v2ex.com/t 客制化键盘 \\\"客制化键盘\\\" 主题 正文 评论 原句 原始链接 V2EX 键盘 轴体 键帽 套件 入坑 研究 体验 讨论帖 只返回真实主题页 URL 标题 内容 日期\", \"answer\": \"以下为检索到的真实 V2EX 主题页（`/t/`），均与「客制化键盘」相关，含轴体、键帽、套件、入坑与体验讨论。\\n\\n1. **有没有兄弟研究过客制化键盘？尤其是各种轴体？**  \\n   https://www.v2ex.com/t/727885  \\n   日期：2020-11-21（最后回复约 2020-12-14）  \\n   楼主想入坑客制化、主要用于写代码，只用过 Cherry 青/红，问各种轴体区别。评论比较 Alpaca、Peco、Tealios、Cream、Ink、Box 轴等，并提到 Cherry 专利到期后国产轴增多、JWK 线性轴手感等。\\n\\n2. **[客制化键盘入坑] 求推荐**  \\n   https://www.v2ex.com/t/870268  \\n   日期：2022-08-02  \\n   入坑预算与配件讨论：60% 配列、试轴器、键帽、轴体、PCB、定位板、消音棉；提及 Keydous NJ68、Omega64、CIY、GH60、G 黄/白 Pro、灰木、TTC 静音轴等平价方案。\\n\\n3. **我的客制化键盘初体验**  \\n   https://www.v2ex.com/t/834987  \\n   日期：2022-02-19  \\n   从薄膜键盘改客制化的体验帖。套件：狼派 CIY68（蓝牙/2.4G、68 配列、热插拔）；轴：佳达隆 G 银 Pro；键帽：薄荷抹茶 XDA PBT。总花费约 252 元，并附配件价格表。\\n\\n4. **最近组装的客制化键盘 RamaWorks Kara**  \\n   https://www.v2ex.com/t/913185  \\n   日期：2023-02-04  \\n   分享首次 DIY：RamaWorks Kara（HHKB 布局），买套件、轴、键帽、卫星轴并润滑。评论涉及 Kama 内胆、QK60、Rama …\", \"answer_chars\": 974, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 2, \"cross_provider_matches\": 1, \"pages_fetched\": 0, \"primary_citation_count\": 18}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 17561, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}], \"result_count\": 5, \"citation_count\": 22, \"results\": [{\"id\": \"r1\", \"title\": \"https://www.v2ex.com/t/859165\", \"url\": \"https://www.v2ex.com/t/859165\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"[客制化键盘入坑] 求推荐 - V2EX\", \"url\": \"https://hk.v2ex.com/t/870268\", \"snippet\": \"mg52033\\n\\n|  |  |  |\\n --- \\n| barrelsoil |  | 82 barrelsoil  Aug 5, 2022   这点钱洗洗睡吧，量产好键盘都摸不到 |\\n\\nbarrelsoil\\n\\n|  |  |  |\\n --- \\n| iCong |  | 83 iCong  Aug 5, 2022  …\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://www.v2ex.com/t/349542\", \"url\": \"https://www.v2ex.com/t/349542\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"有没有兄弟研究过客制化键盘？尤其是各种轴体？ - V2EX\", \"url\": \"https://www.v2ex.com/t/727885\", \"snippet\": \"ynyounuo\\n\\n|  |  |  |\\n --- \\n| elfive |  | 15   elfive  Nov 21, 2020 via iPhone   我用的是 Massdrop CTRL 板子➕客制化固件，用的是 Cherry 退烧红轴。 客制化固件主要是适配 MacOS 和 Windows 加上我的 Ca…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://www.v2ex.com/t/1007218\", \"url\": \"https://www.v2ex.com/t/1007218\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.v2ex.com/t/859165\", \"title\": \"https://www.v2ex.com/t/859165\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://hk.v2ex.com/t/870268\", \"title\": \"[客制化键盘入坑] 求推荐 - V2EX\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://www.v2ex.com/t/349542\", \"title\": \"https://www.v2ex.com/t/349542\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://www.v2ex.com/t/727885\", \"title\": \"有没有兄弟研究过客制化键盘？尤其是各种轴体？ - V2EX\", \"result_item_id\": \"r4\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://www.v2ex.com/t/1007218\", \"title\": \"https://www.v2ex.com/t/1007218\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://www.v2ex.com/t/870268\", \"title\": \"https://www.v2ex.com/t/870268\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://www.v2ex.com/t/1143704\", \"title\": \"https://www.v2ex.com/t/1143704\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://www.v2ex.com/t/967539\", \"title\": \"https://www.v2ex.com/t/967539\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://jp.v2ex.com/tag/%E5%AE%A2%E5%88%B6%E5%8C%96\", \"title\": \"https://jp.v2ex.com/tag/%E5%AE%A2%E5%88%B6%E5%8C%96\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://v2ex.com/t/870268\", \"title\": \"https://v2ex.com/t/870268\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://www.v2ex.com/t/1149340\", \"title\": \"https://www.v2ex.com/t/1149340\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://www.v2ex.com/t/355208\", \"title\": \"https://www.v2ex.com/t/355208\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://www.v2ex.com/t/843909\", \"title\": \"https://www.v2ex.com/t/843909\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://www.v2ex.com/t/813145\", \"title\": \"https://www.v2ex.com/t/813145\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://www.v2ex.com/t/913185\", \"title\": \"https://www.v2ex.com/t/913185\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://v2ex.com/t/1066312\", \"title\": \"https://v2ex.com/t/1066312\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://www.v2ex.com/t/1017710\", \"title\": \"https://www.v2ex.com/t/1017710\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://www.v2ex.com/t/1037631\", \"title\": \"https://www.v2ex.com/t/1037631\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://www.v2ex.com/t/834987\", \"title\": \"https://www.v2ex.com/t/834987\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"https://www.v2ex.com/t/857274\", \"title\": \"新手入坑机械键盘段落轴，幸福感++ - V2EX\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c21\", \"url\": \"https://www.v2ex.com/tag/%E8%BD%B4%E4%BD%93\", \"title\": \"V2EX › 轴体\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c22\", \"url\": \"https://global.v2ex.com/t/1007218\", \"title\": \"求客制化键盘推荐 - V2EX\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"e664d2e4623c9643\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"e8b30e1b3f89fb4a\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"\\\"让彩虹在指尖流转！浅谈RGB机械键盘客制化之路\\\" 正文 原文 评论 Chiphell 2412871 客制化键盘 轴体 键帽 原句 原始帖 全文 主题页 讨论回复 楼主说了什么 引用评论原句 只引用检索到的原文片段 不要编造 链接 https://www.chiphell.com/forum.php?extra=page%3D1&mobile=2&mod=viewthread&tid=2412871\", \"answer\": \"以下内容均摘自检索到的 Chiphell 原帖打印页与主题页，未编造。帖子：浪客剑心EVB，2022-5-10；主题页显示查看约 9915、回复 4。\\n\\n1. **楼主开篇（客制化比喻）**  \\n   「在外设领域，特别是在键圈，有一个玩法多样的法宝——客制化。它就好比一道老北京的美食——炸酱面，穷有穷吃法，富有富吃法，菜码不一样，酱料不一样，就能搞出不一样的风味，随心所欲，丰俭由人。」  \\n   来源：https://www.chiphell.com/forum.php?mod=viewthread&action=printable&tid=2412871\\n\\n2. **楼主谈套件（忆光 SK98 青春版）**  \\n   「机器猫淘到的这组套件来自忆光外设的SK98（青春版）套件，价格很便宜，只有200出头……功能上：有线/蓝牙5.0/2.4G三模切换+RGB全灯+音乐律动+6000毫安时大电池+MAC适配……用料上：白色透明外壳+EVA夹心棉+全铝定位板，PCB配的是凯华5脚轴座，支持热插拔。」  \\n   来源：同上打印页\\n\\n3. **楼主谈轴体与键帽**  \\n   「当然，我最爱的，永远是TTC金粉轴。轻盈，灵动，温润，享受，就好像给指尖做了一次SPA。」  \\n   「这是一把重点突出RGB灯光效果的键盘，所以选择OEM的白色双皮奶键帽就是最佳拍档。」灯光模式写到「繁花绽放」「静谧之蓝」「彩虹流转」。  \\n   来源：同上打印页\\n\\n4. **楼主成本与收束**  \\n   「这把键盘的制造成本：套件228+金粉轴100颗*2.2元+PBT双皮奶键帽45元=493元……何乐而不为呢？这就是客制化的乐趣所在。」并称「不算一个评测，更像是一个散讲或闲聊」。  \\n   来源：同上打印页\\n\\n5. **评论原句（主题/打印页可见回复）**  \\n   - 超逸绝尘（2022-5-10…\", \"answer_chars\": 1153, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 2, \"pages_fetched\": 3, \"primary_citation_count\": 9}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 26104, \"warning_count\": 3, \"warnings\": [\"auto_scrape_truncated\", \"auto_scrape_truncated\", \"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 5, \"citation_count\": 11, \"results\": [{\"id\": \"r1\", \"title\": \"https://www.chiphell.com/thread-2745510-1-1.html\", \"url\": \"https://www.chiphell.com/thread-2745510-1-1.html\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"让彩虹在指尖流转！浅谈RGB机械键盘客制化之路 - 原创分享(新) - Chiphell - 分享与交流用户体验\", \"url\": \"https://www.chiphell.com/thread-2412871-1-1.html\", \"snippet\": \"【成品鉴赏】    1.搭载了OEM高度的双皮奶键帽的成品键盘    21.jpg (207.21 KB, 下载次数: 42)  下载附件  2022-5-10 16:51 上传      22.jpg (195.93 KB, 下载次数: 54)  下载附件  2022-5-10 16:51 上传      23.j…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://www.chiphell.com/thread-2524349-1-1.html\", \"url\": \"https://www.chiphell.com/thread-2524349-1-1.html\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"让彩虹在指尖流转！浅谈RGB机械键盘客制化之路 - 原创分享(新) - Chiphell - 分享与交流用户体验\", \"url\": \"https://www.chiphell.com/forum.php?extra=page%3D1&mobile=2&mod=viewthread&tid=2412871\", \"snippet\": \"【成品鉴赏】    1.搭载了OEM高度的双皮奶键帽的成品键盘    21.jpg (207.21 KB, 下载次数: 42)  下载附件  2022-5-10 16:51 上传      22.jpg (195.93 KB, 下载次数: 54)  下载附件  2022-5-10 16:51 上传      23.j…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://www.chiphell.com/thread-2658887-1-1.html\", \"url\": \"https://www.chiphell.com/thread-2658887-1-1.html\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.chiphell.com/thread-2745510-1-1.html\", \"title\": \"https://www.chiphell.com/thread-2745510-1-1.html\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.chiphell.com/thread-2412871-1-1.html\", \"title\": \"让彩虹在指尖流转！浅谈RGB机械键盘客制化之路 - 原创分享(新) - Chiphell - 分享与交流用户体验\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://www.chiphell.com/thread-2524349-1-1.html\", \"title\": \"https://www.chiphell.com/thread-2524349-1-1.html\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://www.chiphell.com/forum.php?extra=page%3D1&mobile=2&mod=viewthread&tid=2412871\", \"title\": \"让彩虹在指尖流转！浅谈RGB机械键盘客制化之路 - 原创分享(新) - Chiphell - 分享与交流用户体验\", \"result_item_id\": \"r4\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://www.chiphell.com/thread-2658887-1-1.html\", \"title\": \"https://www.chiphell.com/thread-2658887-1-1.html\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://www.chiphell.com/forum.php?action=printable&mod=viewthread&tid=2412871\", \"title\": \"https://www.chiphell.com/forum.php?mod=viewthread&action=printable&tid=2412871\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://www.chiphell.com/thread-2765182-1-1.html\", \"title\": \"https://www.chiphell.com/thread-2765182-1-1.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://www.chiphell.com/thread-2464210-1-1.html\", \"title\": \"https://www.chiphell.com/thread-2464210-1-1.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://www.chiphell.com/thread-2673133-1-1.html\", \"title\": \"https://www.chiphell.com/thread-2673133-1-1.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.chiphell.com/forum.php?extra=&highlight=%E5%A4%9C%E9%AD%94&mod=viewthread&page=1&tid=2534549\", \"title\": \"终于进了客制化键盘的坑？ROG Azoth“夜魔” - 原创分享(新) - Chiphell - 分享与交流用户体验\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://www.chiphell.com/forum.php?extra=&fromguid=hot&mobile=2&mod=viewthread&tid=2673133\", \"title\": \"罗技 G517 LIGHTSPEED TKL 星巡 客制化键盘 - 原创分享(新) - Chiphell - 分享与交流用户体验\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"e8b30e1b3f89fb4a\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"ac4de90357fbaa9a\", \"kind\": \"search\", \"status\": \"partial\", \"query\": \"site:chiphell.com/thread-2626327 客制化 Evo80 键盘 \\\"原文\\\" \\\"评论\\\" \\\"客制化\\\" 主题 内容 回复 Chiphell 讨论帖 引用原句 原始链接\", \"answer\": \"Relevant Chiphell threads on the Evo80 (客制化 / 量产键盘):\\n\\n1. **最强量产还是最高性价比的客制化？ Evo80键盘估计20号开卖**  \\n   https://www.chiphell.com/thread-2626327-1-1.html  \\n   Thread `2626327`, ~10,276 views, 6 replies. OP frames Evo80 (Evoworks / Owlab, 80%) as an entry product at ¥799, cites Spring Leaf (倒V, not single-side BeCu), tool-free disconnect, and official materials (6063-T6 CNC, 220-grit anodizing, Poron, etc.). Quote: “本篇主要是针对非客制圈的普通用户……Evo80是很合适入坑的产品。”\\n\\n2. **TickType EVO 80到手**  \\n   https://www.chiphell.com/thread-2631645-1-1.html  \\n   Hands-on (2024-9-2, cloud). Spray ¥799 / anodized ¥819. Notes smooth anodizing, thick keycaps, usable switches, Leaf Spring consistency, and one defective gasket hole. Reply mentions inner tray shift and BeCu contact that needed bending. “合适客制化入坑。”\\n\\n3. **EVO80 罗X913T…\", \"answer_chars\": 1632, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 2, \"pages_fetched\": 0, \"primary_citation_count\": 9}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 31914, \"warning_count\": 1, \"warnings\": [\"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}, {\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}, {\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}], \"result_count\": 5, \"citation_count\": 12, \"results\": [{\"id\": \"r1\", \"title\": \"https://www.chiphell.com/thread-2685635-1-1.html\", \"url\": \"https://www.chiphell.com/thread-2685635-1-1.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"最强量产还是最高性价比的客制化？ Evo80键盘估计20号开卖 - 电脑讨论(新) - Chiphell - 分享与交流用户体验\", \"url\": \"https://www.chiphell.com/thread-2626327-1-1.html\", \"snippet\": \"| cloud  cloud 当前离线  积分  76436  查看详细资料 | 1#  发表于 2024-8-11 15:10 | 只看该作者 |倒序浏览 |阅读模式  |  |  | 本帖最后由 cloud 于 2024-8-11 16:35 编辑     Evo80在上月月底的展会就有露面，我就很关注，今天8月…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://www.chiphell.com/thread-2491408-1-1.html\", \"url\": \"https://www.chiphell.com/thread-2491408-1-1.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"可能是目前OWLab最有性价比的产品——link65客制化键盘分享 - 原创分享(新) -  Chiphell - 分享与交流用户体验\", \"url\": \"https://www.chiphell.com/thread-2765182-1-1.html\", \"snippet\": \"Title: 可能是目前OWLab最有性价比的产品——link65客制化键盘分享 - 原创分享(新) -  Chiphell - 分享与交流用户体验\\n## Chiphell - 分享与交流用户体验. | 查看: 2745|回复: 2 |  可能是目前OWLab最有性价比的产品——link65客制化键盘分享  |. #…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://www.chiphell.com/forum.php?mod=viewthread&action=printable&tid=2753503\", \"url\": \"https://www.chiphell.com/forum.php?action=printable&mod=viewthread&tid=2753503\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.chiphell.com/thread-2685635-1-1.html\", \"title\": \"https://www.chiphell.com/thread-2685635-1-1.html\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.chiphell.com/thread-2626327-1-1.html\", \"title\": \"最强量产还是最高性价比的客制化？ Evo80键盘估计20号开卖 - 电脑讨论(新) - Chiphell - 分享与交流用户体验\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://www.chiphell.com/thread-2491408-1-1.html\", \"title\": \"https://www.chiphell.com/thread-2491408-1-1.html\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://www.chiphell.com/thread-2765182-1-1.html\", \"title\": \"可能是目前OWLab最有性价比的产品——link65客制化键盘分享 - 原创分享(新) -  Chiphell - 分享与交流用户体验\", \"result_item_id\": \"r4\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://www.chiphell.com/forum.php?action=printable&mod=viewthread&tid=2753503\", \"title\": \"https://www.chiphell.com/forum.php?mod=viewthread&action=printable&tid=2753503\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://www.chiphell.com/thread-2726375-1-1.html\", \"title\": \"https://www.chiphell.com/thread-2726375-1-1.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://www.chiphell.com/thread-2631645-1-1.html\", \"title\": \"https://www.chiphell.com/thread-2631645-1-1.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://www.chiphell.com/thread-2423255-1-1.html\", \"title\": \"https://www.chiphell.com/thread-2423255-1-1.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://www.chiphell.com/thread-2626330-1-1.html\", \"title\": \"https://www.chiphell.com/thread-2626330-1-1.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.chiphell.com/forum.php?extra=page%3D1&mobile=2&mod=viewthread&tid=2398709\", \"title\": \"纯粹外观党，盘点我收藏使用的16套非客制化机械键盘 - 原创分享(新) - Chiphell - 分享与交流用户体验\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://www.chiphell.com/article-27207-1.html\", \"title\": \"纯粹外观党，盘点我收藏使用的16套非客制化机械键盘 - 原创分享(新) - Chiphell - 分享与交流用户体验\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c12\", \"url\": \"https://www.chiphell.com/forum.php?extra=page%3D1&mobile=2&mod=viewthread&ordertype=1&tid=2398709\", \"title\": \"纯粹外观党，盘点我收藏使用的16套非客制化机械键盘 - 原创分享(新) - Chiphell - 分享与交流用户体验\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"ac4de90357fbaa9a\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"acf4aec9218ec215\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:v2ex.com/t/727885 \\\"想试试客制化键盘\\\" 评论 原句 轴体 V2EX 主题原文\", \"answer\": \"主题页：https://www.v2ex.com/t/727885（yazoox，2020-11-21，《有没有兄弟研究过客制化键盘？尤其是各种轴体？》）。楼主原文与轴体相关评论原句如下（最多 5 条）。\\n\\n1. **楼主 yazoox**  \\n   「想试试客制化键盘」「看到有选项，轴体的选择。不知道都有啥区别。」「主要用途，敲代码。」「曾用过的轴体，樱桃的青轴，红轴。喜欢红轴，不喜欢青轴。」\\n\\n2. **ynyounuo（#2 / #14）**  \\n   「个人喜好（润滑后）： Alpaca > Peco > Silk = Tealios > Cream = Ink > 其他」「目前 Linear 轴来说，JWK 生产的都比较舒服，你这个表里 2 可能还不如 4/5 。」「Cherry 专利保护过期后生产机械轴体的厂家如雨后春笋，所以 Cherry 本家的轴体竞争力大不如前，就你列表里的选择我个人建议选择 3/4/5 任一即可，1/2 应该是不值这个价的。」\\n\\n3. **suzic（#3）**  \\n   「用过樱桃黑，红，茶和各种国产轴，目前感觉 box 轴是手感最好的。当然这个东西太主观了很难参考。别买太便宜的就是了」\\n\\n4. **loading（#11）**  \\n   「你说喜欢红轴。那么就是线性轴，比较喜欢的是润滑后的佳特龙 G 黄轴」\\n\\n5. **chenchangjv（#22）**  \\n   「国产轴不要买，大部分就是糟蹋其他键盘配件的。」「樱桃轴是所谓的原厂轴，目前做工和手感都比较次，在同价位中没有优势。」「个人最喜欢 TTC 的金轴……金红二代、金粉轴是我买线性轴的不二选择。」\", \"answer_chars\": 709, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 2, \"cross_provider_matches\": 1, \"pages_fetched\": 3, \"primary_citation_count\": 13}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 21261, \"warning_count\": 1, \"warnings\": [\"auto_scrape_truncated\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 5, \"citation_count\": 17, \"results\": [{\"id\": \"r1\", \"title\": \"https://v2ex.com/t/1005598?p=1\", \"url\": \"https://v2ex.com/t/1005598?p=1\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"有没有兄弟研究过客制化键盘？尤其是各种轴体？ - V2EX\", \"url\": \"https://www.v2ex.com/t/727885\", \"snippet\": \"|  |\\n\\n| 27 ReVanTis      Nov 22, 2020   ❤️ 1 @CEBBCAT  那个 M60，我同事已经买到手用了一段时间了。 听他说固件好像不是开源的，只有 python 脚本的部分可以自己定制。 也就是只有 keymap 和一些用户侧的宏可以自己改。 这么一看可玩性比我预期的下降不少…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://www.v2ex.com/t/813145\", \"url\": \"https://www.v2ex.com/t/813145\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"hhkb hybrid / classic / 客制化 选择 - V2EX\", \"url\": \"http://www.v2ex.com/t/859165\", \"snippet\": \"Title: hhkb hybrid / classic / 客制化 选择 - V2EX\\n# hhkb hybrid / classic / 客制化 选择. kashin0116 · 2022 年 6 月 13 日 · 3669 次点击. ## 在售的 hhkb. ## 客制化. 客制化中意几款 `HHKB60` 布…\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://www.v2ex.com/t/1051008\", \"url\": \"https://www.v2ex.com/t/1051008\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://v2ex.com/t/1005598?p=1\", \"title\": \"https://v2ex.com/t/1005598?p=1\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.v2ex.com/t/727885\", \"title\": \"有没有兄弟研究过客制化键盘？尤其是各种轴体？ - V2EX\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://www.v2ex.com/t/813145\", \"title\": \"https://www.v2ex.com/t/813145\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"http://www.v2ex.com/t/859165\", \"title\": \"hhkb hybrid / classic / 客制化 选择 - V2EX\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://www.v2ex.com/t/1051008\", \"title\": \"https://www.v2ex.com/t/1051008\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://www.v2ex.com/t/913185\", \"title\": \"https://www.v2ex.com/t/913185\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://www.v2ex.com/t/1083597\", \"title\": \"https://www.v2ex.com/t/1083597\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://www.v2ex.com/t/1007218\", \"title\": \"https://www.v2ex.com/t/1007218\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://www.v2ex.com/t/834987\", \"title\": \"https://www.v2ex.com/t/834987\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.v2ex.com/t/857274\", \"title\": \"https://www.v2ex.com/t/857274\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://hk.v2ex.com/t/1007218\", \"title\": \"https://hk.v2ex.com/t/1007218\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://www.v2ex.com/t/1017710\", \"title\": \"https://www.v2ex.com/t/1017710\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://jp.v2ex.com/tag/%E5%AE%A2%E5%88%B6%E5%8C%96\", \"title\": \"https://jp.v2ex.com/tag/%E5%AE%A2%E5%88%B6%E5%8C%96\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://v2ex.com/t/870268\", \"title\": \"https://v2ex.com/t/870268\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://www.v2ex.com/amp/t/1208451\", \"title\": \"感觉机械键盘拆封后就要开始计算日历寿命了(触点氧化)。 - V2EX\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c16\", \"url\": \"https://www.v2ex.com/amp/t/859165\", \"title\": \"hhkb hybrid / classic / 客制化 选择 - V2EX\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c17\", \"url\": \"https://www.v2ex.com/t/859165\", \"title\": \"hhkb hybrid / classic / 客制化 选择 - V2EX\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"acf4aec9218ec215\"}}"
+  ],
+  "answer": "找到以下两篇原始帖子，正文或标题明确提到“客制化键盘”：\n\n### V2EX 主题帖\n\n**标题：**《有没有兄弟研究过客制化键盘？尤其是各种轴体？》  \n**原始链接：** https://www.v2ex.com/t/727885\n\n楼主原句：\n\n> 「想试试客制化键盘」  \n> 「看到有选项，轴体的选择。不知道都有啥区别。」  \n> 「主要用途，敲代码。」\n\n该帖的评论也讨论了具体轴体。例如评论者 ynyounuo 原句：\n\n> 「个人喜好（润滑后）： Alpaca > Peco > Silk = Tealios > Cream = Ink > 其他」\n\n### Chiphell 讨论帖\n\n**标题：**《让彩虹在指尖流转！浅谈RGB机械键盘客制化之路》  \n**原始链接：** https://www.chiphell.com/thread-2412871-1-1.html\n\n楼主正文原句：\n\n> 「在外设领域，特别是在键圈，有一个玩法多样的法宝——客制化。它就好比一道老北京的美食——炸酱面，穷有穷吃法，富有富吃法，菜码不一样，酱料不一样，就能搞出不一样的风味，随心所欲，丰俭由人。」\n\n帖子还写到：\n\n> 「这把键盘的制造成本：套件228+金粉轴100颗*2.2元+PBT双皮奶键帽45元=493元……何乐而不为呢？这就是客制化的乐趣所在。」\n\n两者分别是 V2EX 主题帖和 Chiphell 讨论帖，且原帖内容都直接涉及客制化键盘。",
+  "observation": {
+    "id": "dual-forum-hardware",
+    "answer": "找到以下两篇原始帖子，正文或标题明确提到“客制化键盘”：\n\n### V2EX 主题帖\n\n**标题：**《有没有兄弟研究过客制化键盘？尤其是各种轴体？》  \n**原始链接：** https://www.v2ex.com/t/727885\n\n楼主原句：\n\n> 「想试试客制化键盘」  \n> 「看到有选项，轴体的选择。不知道都有啥区别。」  \n> 「主要用途，敲代码。」\n\n该帖的评论也讨论了具体轴体。例如评论者 ynyounuo 原句：\n\n> 「个人喜好（润滑后）： Alpaca > Peco > Silk = Tealios > Cream = Ink > 其他」\n\n### Chiphell 讨论帖\n\n**标题：**《让彩虹在指尖流转！浅谈RGB机械键盘客制化之路》  \n**原始链接：** https://www.chiphell.com/thread-2412871-1-1.html\n\n楼主正文原句：\n\n> 「在外设领域，特别是在键圈，有一个玩法多样的法宝——客制化。它就好比一道老北京的美食——炸酱面，穷有穷吃法，富有富吃法，菜码不一样，酱料不一样，就能搞出不一样的风味，随心所欲，丰俭由人。」\n\n帖子还写到：\n\n> 「这把键盘的制造成本：套件228+金粉轴100颗*2.2元+PBT双皮奶键帽45元=493元……何乐而不为呢？这就是客制化的乐趣所在。」\n\n两者分别是 V2EX 主题帖和 Chiphell 讨论帖，且原帖内容都直接涉及客制化键盘。",
+    "results": [
+      {
+        "url": "https://www.chiphell.com/thread-2761843-1-1.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/forum.php?extra=&fromguid=hot&mobile=2&mod=viewthread&tid=2673133",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2612987-1-1.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2673133-1-1.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2464210-1-1.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://www.v2ex.com/tag/%E5%AE%A2%E5%88%B6%E5%8C%96",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/727885",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/843909",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2814421-1-1.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/forum.php?extra=page%3D1&mobile=2&mod=viewthread&ordertype=1&tid=2398709",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2761843-1-1.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/forum.php?extra=&fromguid=hot&mobile=2&mod=viewthread&tid=2673133",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2612987-1-1.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2673133-1-1.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2464210-1-1.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://www.v2ex.com/tag/%E5%AE%A2%E5%88%B6%E5%8C%96",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/727885",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/843909",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2814421-1-1.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/forum.php?extra=page%3D1&mobile=2&mod=viewthread&ordertype=1&tid=2398709",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/1007218",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2562403-1-1.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/913185",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2745510-1-1.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/870268",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2765182-1-1.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://hk.v2ex.com/t/1007218",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2531102-1-1.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/forum.php?action=printable&mod=viewthread&tid=2412871",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2596939-1-1.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/834987",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/article-27207-1.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2522431-1-1.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/tag/%E9%94%AE%E7%9B%98",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2765182-1-1.html",
+        "title": "1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/forum.php?extra=page%3D1&mobile=2&mod=viewthread&tid=2412871",
+        "title": "让彩虹在指尖流转！浅谈RGB机械键盘客制化之路 - 原创分享(新) - Chiphell - 分享与交流用户体验",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2752103-1-1.html",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2714696-1-1.html",
+        "title": "黑爵ALUX60机械键盘分享 - 原创分享(新) -  Chiphell - 分享与交流用户体验",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2761843-1-1.html",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2626327-1-1.html",
+        "title": "最强量产还是最高性价比的客制化？ Evo80键盘估计20号开卖 - 电脑讨论(新) - Chiphell - 分享与交流用户体验",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2403151-1-1.html",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/forum.php?extra=page%3D73&mobile=2&mod=viewthread&tid=2563702",
+        "title": "请教，有没有接近DELL 外星人这个机械键盘的手感的小键盘？ - 电脑讨论(新) - Chiphell - 分享与交流用户体验",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2765182-1-1.html",
+        "title": "1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/forum.php?extra=page%3D1&mobile=2&mod=viewthread&tid=2412871",
+        "title": "让彩虹在指尖流转！浅谈RGB机械键盘客制化之路 - 原创分享(新) - Chiphell - 分享与交流用户体验",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2752103-1-1.html",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2714696-1-1.html",
+        "title": "黑爵ALUX60机械键盘分享 - 原创分享(新) -  Chiphell - 分享与交流用户体验",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2761843-1-1.html",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2626327-1-1.html",
+        "title": "最强量产还是最高性价比的客制化？ Evo80键盘估计20号开卖 - 电脑讨论(新) - Chiphell - 分享与交流用户体验",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2403151-1-1.html",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/forum.php?extra=page%3D73&mobile=2&mod=viewthread&tid=2563702",
+        "title": "请教，有没有接近DELL 外星人这个机械键盘的手感的小键盘？ - 电脑讨论(新) - Chiphell - 分享与交流用户体验",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2414557-1-1.html",
+        "title": "5",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2437466-1-1.html",
+        "title": "6",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2464210-1-1.html",
+        "title": "7",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2562403-1-1.html",
+        "title": "8",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/forum.php?highlight=%E9%94%AE%E7%9B%98&mobile=2&mod=viewthread&tid=2524532",
+        "title": "讨论无线键盘的续航问题 - 电脑讨论(新) - Chiphell - 分享与交流用户体验",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2522431-1-1.html",
+        "title": "关于磁轴 rapid trigger键盘 - 电脑讨论(新) - Chiphell - 分享与交流用户体验",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2638058-1-1.html",
+        "title": "98配列键盘求推荐 - 电脑讨论(新) - Chiphell - 分享与交流用户体验",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/forum.php?extra=page%3D1&mobile=2&mod=viewthread&ordertype=2&tid=2476371",
+        "title": "进化多一步——HELLO GANSS HS98T PRO三模机械键盘 - 原创分享(新) -  Chiphell - 分享与交流用户体验",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/859165",
+        "title": "https://www.v2ex.com/t/859165",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://hk.v2ex.com/t/870268",
+        "title": "[客制化键盘入坑] 求推荐 - V2EX",
+        "snippet": "mg52033\n\n|  |  |  |\n --- \n| barrelsoil |  | 82 barrelsoil  Aug 5, 2022   这点钱洗洗睡吧，量产好键盘都摸不到 |\n\nbarrelsoil\n\n|  |  |  |\n --- \n| iCong |  | 83 iCong  Aug 5, 2022  …",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/349542",
+        "title": "https://www.v2ex.com/t/349542",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/727885",
+        "title": "有没有兄弟研究过客制化键盘？尤其是各种轴体？ - V2EX",
+        "snippet": "ynyounuo\n\n|  |  |  |\n --- \n| elfive |  | 15   elfive  Nov 21, 2020 via iPhone   我用的是 Massdrop CTRL 板子➕客制化固件，用的是 Cherry 退烧红轴。 客制化固件主要是适配 MacOS 和 Windows 加上我的 Ca…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/1007218",
+        "title": "https://www.v2ex.com/t/1007218",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/859165",
+        "title": "https://www.v2ex.com/t/859165",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://hk.v2ex.com/t/870268",
+        "title": "[客制化键盘入坑] 求推荐 - V2EX",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/349542",
+        "title": "https://www.v2ex.com/t/349542",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/727885",
+        "title": "有没有兄弟研究过客制化键盘？尤其是各种轴体？ - V2EX",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/1007218",
+        "title": "https://www.v2ex.com/t/1007218",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/870268",
+        "title": "https://www.v2ex.com/t/870268",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/1143704",
+        "title": "https://www.v2ex.com/t/1143704",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/967539",
+        "title": "https://www.v2ex.com/t/967539",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://jp.v2ex.com/tag/%E5%AE%A2%E5%88%B6%E5%8C%96",
+        "title": "https://jp.v2ex.com/tag/%E5%AE%A2%E5%88%B6%E5%8C%96",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://v2ex.com/t/870268",
+        "title": "https://v2ex.com/t/870268",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/1149340",
+        "title": "https://www.v2ex.com/t/1149340",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/355208",
+        "title": "https://www.v2ex.com/t/355208",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/843909",
+        "title": "https://www.v2ex.com/t/843909",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/813145",
+        "title": "https://www.v2ex.com/t/813145",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/913185",
+        "title": "https://www.v2ex.com/t/913185",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://v2ex.com/t/1066312",
+        "title": "https://v2ex.com/t/1066312",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/1017710",
+        "title": "https://www.v2ex.com/t/1017710",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/1037631",
+        "title": "https://www.v2ex.com/t/1037631",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/834987",
+        "title": "https://www.v2ex.com/t/834987",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/857274",
+        "title": "新手入坑机械键盘段落轴，幸福感++ - V2EX",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/tag/%E8%BD%B4%E4%BD%93",
+        "title": "V2EX › 轴体",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://global.v2ex.com/t/1007218",
+        "title": "求客制化键盘推荐 - V2EX",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2745510-1-1.html",
+        "title": "https://www.chiphell.com/thread-2745510-1-1.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2412871-1-1.html",
+        "title": "让彩虹在指尖流转！浅谈RGB机械键盘客制化之路 - 原创分享(新) - Chiphell - 分享与交流用户体验",
+        "snippet": "【成品鉴赏】    1.搭载了OEM高度的双皮奶键帽的成品键盘    21.jpg (207.21 KB, 下载次数: 42)  下载附件  2022-5-10 16:51 上传      22.jpg (195.93 KB, 下载次数: 54)  下载附件  2022-5-10 16:51 上传      23.j…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2524349-1-1.html",
+        "title": "https://www.chiphell.com/thread-2524349-1-1.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/forum.php?extra=page%3D1&mobile=2&mod=viewthread&tid=2412871",
+        "title": "让彩虹在指尖流转！浅谈RGB机械键盘客制化之路 - 原创分享(新) - Chiphell - 分享与交流用户体验",
+        "snippet": "【成品鉴赏】    1.搭载了OEM高度的双皮奶键帽的成品键盘    21.jpg (207.21 KB, 下载次数: 42)  下载附件  2022-5-10 16:51 上传      22.jpg (195.93 KB, 下载次数: 54)  下载附件  2022-5-10 16:51 上传      23.j…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2658887-1-1.html",
+        "title": "https://www.chiphell.com/thread-2658887-1-1.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2745510-1-1.html",
+        "title": "https://www.chiphell.com/thread-2745510-1-1.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2412871-1-1.html",
+        "title": "让彩虹在指尖流转！浅谈RGB机械键盘客制化之路 - 原创分享(新) - Chiphell - 分享与交流用户体验",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2524349-1-1.html",
+        "title": "https://www.chiphell.com/thread-2524349-1-1.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/forum.php?extra=page%3D1&mobile=2&mod=viewthread&tid=2412871",
+        "title": "让彩虹在指尖流转！浅谈RGB机械键盘客制化之路 - 原创分享(新) - Chiphell - 分享与交流用户体验",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2658887-1-1.html",
+        "title": "https://www.chiphell.com/thread-2658887-1-1.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/forum.php?action=printable&mod=viewthread&tid=2412871",
+        "title": "https://www.chiphell.com/forum.php?mod=viewthread&action=printable&tid=2412871",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2765182-1-1.html",
+        "title": "https://www.chiphell.com/thread-2765182-1-1.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2464210-1-1.html",
+        "title": "https://www.chiphell.com/thread-2464210-1-1.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2673133-1-1.html",
+        "title": "https://www.chiphell.com/thread-2673133-1-1.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/forum.php?extra=&highlight=%E5%A4%9C%E9%AD%94&mod=viewthread&page=1&tid=2534549",
+        "title": "终于进了客制化键盘的坑？ROG Azoth“夜魔” - 原创分享(新) - Chiphell - 分享与交流用户体验",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/forum.php?extra=&fromguid=hot&mobile=2&mod=viewthread&tid=2673133",
+        "title": "罗技 G517 LIGHTSPEED TKL 星巡 客制化键盘 - 原创分享(新) - Chiphell - 分享与交流用户体验",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2685635-1-1.html",
+        "title": "https://www.chiphell.com/thread-2685635-1-1.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2626327-1-1.html",
+        "title": "最强量产还是最高性价比的客制化？ Evo80键盘估计20号开卖 - 电脑讨论(新) - Chiphell - 分享与交流用户体验",
+        "snippet": "| cloud  cloud 当前离线  积分  76436  查看详细资料 | 1#  发表于 2024-8-11 15:10 | 只看该作者 |倒序浏览 |阅读模式  |  |  | 本帖最后由 cloud 于 2024-8-11 16:35 编辑     Evo80在上月月底的展会就有露面，我就很关注，今天8月…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2491408-1-1.html",
+        "title": "https://www.chiphell.com/thread-2491408-1-1.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2765182-1-1.html",
+        "title": "可能是目前OWLab最有性价比的产品——link65客制化键盘分享 - 原创分享(新) -  Chiphell - 分享与交流用户体验",
+        "snippet": "Title: 可能是目前OWLab最有性价比的产品——link65客制化键盘分享 - 原创分享(新) -  Chiphell - 分享与交流用户体验\n## Chiphell - 分享与交流用户体验. | 查看: 2745|回复: 2 |  可能是目前OWLab最有性价比的产品——link65客制化键盘分享  |. #…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/forum.php?action=printable&mod=viewthread&tid=2753503",
+        "title": "https://www.chiphell.com/forum.php?mod=viewthread&action=printable&tid=2753503",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2685635-1-1.html",
+        "title": "https://www.chiphell.com/thread-2685635-1-1.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2626327-1-1.html",
+        "title": "最强量产还是最高性价比的客制化？ Evo80键盘估计20号开卖 - 电脑讨论(新) - Chiphell - 分享与交流用户体验",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2491408-1-1.html",
+        "title": "https://www.chiphell.com/thread-2491408-1-1.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2765182-1-1.html",
+        "title": "可能是目前OWLab最有性价比的产品——link65客制化键盘分享 - 原创分享(新) -  Chiphell - 分享与交流用户体验",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/forum.php?action=printable&mod=viewthread&tid=2753503",
+        "title": "https://www.chiphell.com/forum.php?mod=viewthread&action=printable&tid=2753503",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2726375-1-1.html",
+        "title": "https://www.chiphell.com/thread-2726375-1-1.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2631645-1-1.html",
+        "title": "https://www.chiphell.com/thread-2631645-1-1.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2423255-1-1.html",
+        "title": "https://www.chiphell.com/thread-2423255-1-1.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2626330-1-1.html",
+        "title": "https://www.chiphell.com/thread-2626330-1-1.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/forum.php?extra=page%3D1&mobile=2&mod=viewthread&tid=2398709",
+        "title": "纯粹外观党，盘点我收藏使用的16套非客制化机械键盘 - 原创分享(新) - Chiphell - 分享与交流用户体验",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/article-27207-1.html",
+        "title": "纯粹外观党，盘点我收藏使用的16套非客制化机械键盘 - 原创分享(新) - Chiphell - 分享与交流用户体验",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.chiphell.com/forum.php?extra=page%3D1&mobile=2&mod=viewthread&ordertype=1&tid=2398709",
+        "title": "纯粹外观党，盘点我收藏使用的16套非客制化机械键盘 - 原创分享(新) - Chiphell - 分享与交流用户体验",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://v2ex.com/t/1005598?p=1",
+        "title": "https://v2ex.com/t/1005598?p=1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/727885",
+        "title": "有没有兄弟研究过客制化键盘？尤其是各种轴体？ - V2EX",
+        "snippet": "|  |\n\n| 27 ReVanTis      Nov 22, 2020   ❤️ 1 @CEBBCAT  那个 M60，我同事已经买到手用了一段时间了。 听他说固件好像不是开源的，只有 python 脚本的部分可以自己定制。 也就是只有 keymap 和一些用户侧的宏可以自己改。 这么一看可玩性比我预期的下降不少…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/813145",
+        "title": "https://www.v2ex.com/t/813145",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://www.v2ex.com/t/859165",
+        "title": "hhkb hybrid / classic / 客制化 选择 - V2EX",
+        "snippet": "Title: hhkb hybrid / classic / 客制化 选择 - V2EX\n# hhkb hybrid / classic / 客制化 选择. kashin0116 · 2022 年 6 月 13 日 · 3669 次点击. ## 在售的 hhkb. ## 客制化. 客制化中意几款 `HHKB60` 布…",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/1051008",
+        "title": "https://www.v2ex.com/t/1051008",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://v2ex.com/t/1005598?p=1",
+        "title": "https://v2ex.com/t/1005598?p=1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/727885",
+        "title": "有没有兄弟研究过客制化键盘？尤其是各种轴体？ - V2EX",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/813145",
+        "title": "https://www.v2ex.com/t/813145",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://www.v2ex.com/t/859165",
+        "title": "hhkb hybrid / classic / 客制化 选择 - V2EX",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/1051008",
+        "title": "https://www.v2ex.com/t/1051008",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/913185",
+        "title": "https://www.v2ex.com/t/913185",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/1083597",
+        "title": "https://www.v2ex.com/t/1083597",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/1007218",
+        "title": "https://www.v2ex.com/t/1007218",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/834987",
+        "title": "https://www.v2ex.com/t/834987",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/857274",
+        "title": "https://www.v2ex.com/t/857274",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://hk.v2ex.com/t/1007218",
+        "title": "https://hk.v2ex.com/t/1007218",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/1017710",
+        "title": "https://www.v2ex.com/t/1017710",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://jp.v2ex.com/tag/%E5%AE%A2%E5%88%B6%E5%8C%96",
+        "title": "https://jp.v2ex.com/tag/%E5%AE%A2%E5%88%B6%E5%8C%96",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://v2ex.com/t/870268",
+        "title": "https://v2ex.com/t/870268",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/amp/t/1208451",
+        "title": "感觉机械键盘拆封后就要开始计算日历寿命了(触点氧化)。 - V2EX",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/amp/t/859165",
+        "title": "hhkb hybrid / classic / 客制化 选择 - V2EX",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.v2ex.com/t/859165",
+        "title": "hhkb hybrid / classic / 客制化 选择 - V2EX",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://www.chiphell.com/thread-2761843-1-1.html",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2612987-1-1.html",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://www.chiphell.com/thread-2673133-1-1.html",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://www.v2ex.com/t/727885",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429",
+            "retryable": true
+          }
+        ]
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:23:51.757877+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "dual-forum-hardware",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "v2ex-keyboard",
+          "chiphell-keyboard-post"
+        ],
+        "required": 2
+      }
+    },
+    "task": {
+      "status": "pass",
+      "reasons": []
+    },
+    "expected_access": "mixed",
+    "observed_failure": null,
+    "algorithm_miss": false,
+    "grader": "v2"
+  }
+}

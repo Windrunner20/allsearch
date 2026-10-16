@@ -1,0 +1,419 @@
+{
+  "id": "baidu-baike",
+  "query": "百度百科图灵奖词条中的颁发机构",
+  "returncode": 0,
+  "elapsed_ms": 105949,
+  "efficiency": {
+    "tool_calls": {
+      "search": 2,
+      "fetch": 1,
+      "read_result": 1
+    },
+    "total_calls": 4,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 0,
+    "errors": 0
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "baike.baidu.com"
+        ],
+        "max_results": 5,
+        "mode": "web",
+        "query": "site:baike.baidu.com 图灵奖 颁发机构 百度百科 颁发机构是谁 Turing Award 颁发机构字段 缔造者?",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 26520
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "查找百度百科“图灵奖”词条信息框中“颁发机构”或对应机构字段的原文；只返回与该字段和词条标题直接相关的内容。",
+        "fresh": false,
+        "max_chars": 12000,
+        "url": "https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645"
+      },
+      "is_error": false,
+      "ms": 945
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": [
+          "content"
+        ],
+        "limit": 1,
+        "max_bytes": 30000,
+        "offset": 0,
+        "result_id": "14763898836b11bc"
+      },
+      "is_error": false,
+      "ms": 3
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "baike.baidu.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:baike.baidu.com/item/图灵奖/324645 \"颁发机构\" OR \"美国计算机协会\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 43031
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.0\", \"result_id\": \"10ba142f05a90bff\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:baike.baidu.com 图灵奖 颁发机构 百度百科 颁发机构是谁 Turing Award 颁发机构字段 缔造者?\", \"answer\": \"百度百科记载：图灵奖由**美国计算机协会（ACM，Association for Computing Machinery）**设立并评选颁发。\\n\\n1. **图灵奖**（中文词条）  \\n   由美国计算机协会（ACM）于1966年设立；每年由ACM征集提名并组成评选委员会确定获奖者。奖金现由企业赞助（词条中写英特尔与 Google，金额100万美元）。  \\n   https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645\\n\\n2. **A.M. Turing Award**（Baiduwiki 英文信息栏）  \\n   - **Founding Organization**：Association for Computing Machinery (ACM)  \\n   - **Selecting Organization**：Association for Computing Machinery (ACM)  \\n   https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025\\n\\n3. **ACM计算奖**词条中的相关说明  \\n   图灵奖由美国计算机协会（ACM）于1966年设立，一般每年3月下旬颁发，由ACM组织提名与评审。  \\n   https://baike.baidu.com/item/ACM%E8%AE%A1%E7%AE%97%E5%A5%96/67630810\\n\\n4. **ACM中国图灵大会**  \\n   称ACM为国际计算机协会，并说明1966年为纪念艾伦·麦席森·图灵设立了图灵奖。  \\n   https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%…\", \"answer_chars\": 913, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 1, \"pages_fetched\": 2, \"primary_citation_count\": 5}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 26462, \"warning_count\": 1, \"warnings\": [\"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 5, \"citation_count\": 9, \"results\": [{\"id\": \"r1\", \"title\": \"https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025\", \"url\": \"https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"图灵奖\", \"url\": \"https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645\", \"snippet\": \"1[]( Turing Award．ACM 官网 [引用日期2017-04-4]\\n   2[]( Shafi Goldwasser．美国计算机协会官网 [引用日期2016-01-12]\\n   3[]( 2019年图灵奖授予两位皮克斯动画室元老．新浪网 [引用日期2020-03-18]\\n   4[]( Silvio M…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://baike.baidu.com/item/ACM%E8%AE%A1%E7%AE%97%E5%A5%96/67630810\", \"url\": \"https://baike.baidu.com/item/ACM%E8%AE%A1%E7%AE%97%E5%A5%96/67630810\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"姚期智\", \"url\": \"https://baike.baidu.com/item/%E5%A7%9A%E6%9C%9F%E6%99%BA/10170340\", \"snippet\": \"网页新闻贴吧知道网盘图片视频地图文库资讯采购百科\\n\\n百度首页\\n\\n登录\\n\\n注册\\n\\nImage 1: 百度百科\\n\\n进入词条 全站搜索国际版帮助\\n\\nImage 2: 百度百科\\n\\n进入词条 全站搜索国际版帮助\\n\\n播报 编辑讨论收藏 赞\\n\\n登录\\n\\n首页\\n\\n历史上的今天\\n\\n百科冷知识\\n\\n图解百科\\n\\n秒懂百科\\n\\n懂啦\\n\\n秒懂本尊答…\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/62998422\", \"url\": \"https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/62998422\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025\", \"title\": \"https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645\", \"title\": \"图灵奖\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://baike.baidu.com/item/ACM%E8%AE%A1%E7%AE%97%E5%A5%96/67630810\", \"title\": \"https://baike.baidu.com/item/ACM%E8%AE%A1%E7%AE%97%E5%A5%96/67630810\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://baike.baidu.com/item/%E5%A7%9A%E6%9C%9F%E6%99%BA/10170340\", \"title\": \"姚期智\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/62998422\", \"title\": \"https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/62998422\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://baike.baidu.com/item/%E7%BD%97%E6%9D%B0%C2%B7%E7%91%9E%E8%BF%AA/4600662\", \"title\": \"https://baike.baidu.com/item/%E7%BD%97%E6%9D%B0%C2%B7%E7%91%9E%E8%BF%AA/4600662\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://baike.baidu.com/item/CAS/1329829\", \"title\": \"CAS（证书颁发机构）_百度百科\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c8\", \"url\": \"https://baike.baidu.com/item/%E7%BA%BD%E7%BA%A6%E5%B7%9E%E7%AB%8B%E5%A4%A7%E5%AD%A6%E7%9F%B3%E6%BA%AA%E5%88%86%E6%A0%A1/10855448\", \"title\": \"纽约州立大学石溪分校\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://baike.baidu.com/item/%E9%A2%81%E5%8F%91%E6%9C%BA%E6%9E%84%E5%BC%80%E5%A7%8B(SOA)%E8%B5%84%E6%BA%90%E8%AE%B0%E5%BD%95/5380418\", \"title\": \"颁发机构开始(SOA)资源记录_百度百科\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"10ba142f05a90bff\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"14763898836b11bc\", \"kind\": \"fetch\", \"status\": \"ok\", \"url\": \"https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645\", \"final_url\": \"https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645\", \"title\": \"图灵奖_百度百科\", \"provider\": \"firecrawl\", \"content_preview\": \"[网页](https://www.baidu.com/s?ie=utf-8&fr=bks0000&wd=%E5%9B%BE%E7%81%B5%E5%A5%96) [新闻](http://news.baidu.com/ns?tn=news&cl=2&rn=20&ct=1&fr=bks0000&ie=utf-8&word=%E5%9B%BE%E7%81%B5%E5%A5%96) [贴吧](https://tieba.baidu.com/f?ie=utf-8&fr=bks0000&kw=%E5%9B%BE%E7%81%B5%E5%A5%96) [知道](https://zhidao.baidu.com/search?pn=0&&rn=10&lm=0&fr=bks0000&word=%E5%9B%BE%E7%81%B5%E5%A5%96) [网盘](https://pan.baidu.com/disk/home#/search?from=1027327l&key=%E5%9B%BE%E7%81%B5%E5%A5%96) [图片](http://image.baidu.com/search/index?tn=baiduimage&ct=201326592&lm=-1&cl=2&nc=1&ie=utf-8&word=%E5%9B%BE%E7%81%B5%E5%A5%96) [视频](https://www.baidu.com/sf/vsearch?pd=video&tn=vsearch&ie=utf-8&rsv_spt=17&wd=%E5%9B%BE%E7%81%B5%E5%A5%96) [地图](http://map.baidu.com/m?ie=utf-8&fr=bks0000&word=%E5%9B%BE%E7%81%B5%E5%A5%96) [文库](https://wenku.baidu.com/search?lm=0&od=0&ie=utf-8&fr=bks0000&word=%E5%9B%BE%E7%81%B5%E5%A5%96) [资讯](https://www.baidu.com/s?rtt=1&bsst=1&cl=2&tn=news&fr=baike&word=%E5%9B%BE%E7%81%B5%E5%A5%96) [采购](https://b2b.bai\", \"content_chars\": 12000, \"truncated\": true, \"errors\": [], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"14763898836b11bc\", \"fields\": [\"content\"]}}",
+    "{\"result_id\": \"14763898836b11bc\", \"kind\": \"fetch\", \"offset\": 0, \"returned\": 1, \"next_offset\": 1, \"data\": {\"content\": \"[\", \"content_chars\": 12000}, \"truncated\": true}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"5bf80531ccfca2a2\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:baike.baidu.com/item/图灵奖/324645 \\\"颁发机构\\\" OR \\\"美国计算机协会\\\"\", \"answer\": \"Relevant Baidu Baike results on the Turing Award’s awarding body (美国计算机协会 / ACM):\\n\\n1. **图灵奖** — https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645  \\n   States the award was set up in 1966 by **美国计算机协会（ACM）** to honor major contributions to computing; often called the “Nobel Prize of computing.” Nominations and selection are run by ACM. Prize money is now $1,000,000, sponsored by Intel and Google (via agreement with ACM). [web:11]\\n\\n2. **A.M. Turing Award** (English Baiduwiki) — https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025  \\n   Lists founding and selecting organization as the **Association for Computing Machinery (ACM)**; established 1966; prize about $1 million. [web:13]\\n\\n3. **ACM计算奖** — https://baike.baidu.com/item/ACM%E8%AE%A1%E7%AE%97%E5%A5%96/67630810  \\n  …\", \"answer_chars\": 2185, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 1, \"cross_provider_matches\": 3, \"pages_fetched\": 2, \"primary_citation_count\": 20}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 42966, \"warning_count\": 1, \"warnings\": [\"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 25, \"results\": [{\"id\": \"r1\", \"title\": \"\", \"url\": \"https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%85%88%E9%A9%B1%E5%A5%96/7300396\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"\", \"url\": \"https://baike.baidu.com/item/ACM%E8%AE%A1%E7%AE%97%E5%A5%96/67630810\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"\", \"url\": \"https://baike.baidu.com/item/%E5%85%AC%E8%AF%81\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"\", \"url\": \"https://baike.baidu.com/item/%E7%BE%8E%E5%9B%BD%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A%E4%B8%AD%E5%9B%BD%E8%AE%A4%E8%AF%81%E4%B8%AD%E5%BF%83/4386713\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r5\", \"title\": \"\", \"url\": \"https://baike.baidu.com/item/ACM%E5%9B%BD%E9%99%85%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B/3652262\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"\", \"url\": \"https://baike.baidu.com/item/%E7%BE%8E%E5%9B%BD%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A%E6%95%B0%E5%AD%97%E5%9B%BE%E4%B9%A6%E9%A6%86/7647278\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"\", \"url\": \"https://baike.baidu.com/item/%E9%A2%81%E5%8F%91/7367189\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"\", \"url\": \"https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E4%BC%9A/64305305\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r9\", \"title\": \"\", \"url\": \"https://baike.baidu.com/item/USENIX/16660019\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"\", \"url\": \"https://baike.baidu.com/item/%E7%BE%8E%E5%9B%BD%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A%E7%BD%91%E7%BB%9C%E4%BC%9A%E6%8A%A5/64571083\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%85%88%E9%A9%B1%E5%A5%96/7300396\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://baike.baidu.com/item/ACM%E8%AE%A1%E7%AE%97%E5%A5%96/67630810\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://baike.baidu.com/item/%E5%85%AC%E8%AF%81\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://baike.baidu.com/item/%E7%BE%8E%E5%9B%BD%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A%E4%B8%AD%E5%9B%BD%E8%AE%A4%E8%AF%81%E4%B8%AD%E5%BF%83/4386713\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://baike.baidu.com/item/ACM%E5%9B%BD%E9%99%85%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B/3652262\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://baike.baidu.com/item/%E7%BE%8E%E5%9B%BD%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A%E6%95%B0%E5%AD%97%E5%9B%BE%E4%B9%A6%E9%A6%86/7647278\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://baike.baidu.com/item/%E9%A2%81%E5%8F%91/7367189\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E4%BC%9A/64305305\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://baike.baidu.com/item/USENIX/16660019\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://baike.baidu.com/item/%E7%BE%8E%E5%9B%BD%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A%E7%BD%91%E7%BB%9C%E4%BC%9A%E6%8A%A5/64571083\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E4%BC%9A%E4%BC%9A%E5%A3%AB/64331643\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://baike.baidu.com/item/CompTIA/2194322\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://baike.baidu.com/item/%E6%9C%BA%E6%9E%84%E4%BF%A1%E7%94%A8%E4%BB%A3%E7%A0%81%E8%AF%81/370491\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://baike.baidu.com/item/%E5%AD%A6%E4%BD%8D%E8%AF%81%E4%B9%A6\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E8%81%94%E5%90%88%E7%94%B5%E8%84%91%E5%85%AC%E5%8F%B8/104361\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://baike.baidu.com/item/ACM%20SIGCOMM/69029326\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://baike.baidu.com/item/%E5%8F%91%E8%AF%81%E6%9C%BA%E5%85%B3/9194579\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A/4352720\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"https://baike.baidu.com/item/IEEE%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E4%BC%9A/68839270\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/62998422\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c23\", \"url\": \"https://baike.baidu.com/item/%E9%99%88%E6%80%A1%E7%84%B6/64527738\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c24\", \"url\": \"https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B9%8B%E4%B9%A6/64652105\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c25\", \"url\": \"https://baike.baidu.com/item/%E6%9D%8E%E5%8B%87/16530171\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"5bf80531ccfca2a2\"}}"
+  ],
+  "answer": "百度百科“图灵奖”词条中的颁发机构是：**美国计算机协会（ACM，Association for Computing Machinery）**。\n\n原始链接：  \nhttps://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645",
+  "observation": {
+    "id": "baidu-baike",
+    "answer": "百度百科“图灵奖”词条中的颁发机构是：**美国计算机协会（ACM，Association for Computing Machinery）**。\n\n原始链接：  \nhttps://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645",
+    "results": [
+      {
+        "url": "https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025",
+        "title": "https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645",
+        "title": "图灵奖",
+        "snippet": "1[]( Turing Award．ACM 官网 [引用日期2017-04-4]\n   2[]( Shafi Goldwasser．美国计算机协会官网 [引用日期2016-01-12]\n   3[]( 2019年图灵奖授予两位皮克斯动画室元老．新浪网 [引用日期2020-03-18]\n   4[]( Silvio M…",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/ACM%E8%AE%A1%E7%AE%97%E5%A5%96/67630810",
+        "title": "https://baike.baidu.com/item/ACM%E8%AE%A1%E7%AE%97%E5%A5%96/67630810",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%A7%9A%E6%9C%9F%E6%99%BA/10170340",
+        "title": "姚期智",
+        "snippet": "网页新闻贴吧知道网盘图片视频地图文库资讯采购百科\n\n百度首页\n\n登录\n\n注册\n\nImage 1: 百度百科\n\n进入词条 全站搜索国际版帮助\n\nImage 2: 百度百科\n\n进入词条 全站搜索国际版帮助\n\n播报 编辑讨论收藏 赞\n\n登录\n\n首页\n\n历史上的今天\n\n百科冷知识\n\n图解百科\n\n秒懂百科\n\n懂啦\n\n秒懂本尊答…",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/62998422",
+        "title": "https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/62998422",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025",
+        "title": "https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645",
+        "title": "图灵奖",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/ACM%E8%AE%A1%E7%AE%97%E5%A5%96/67630810",
+        "title": "https://baike.baidu.com/item/ACM%E8%AE%A1%E7%AE%97%E5%A5%96/67630810",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%A7%9A%E6%9C%9F%E6%99%BA/10170340",
+        "title": "姚期智",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/62998422",
+        "title": "https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/62998422",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E7%BD%97%E6%9D%B0%C2%B7%E7%91%9E%E8%BF%AA/4600662",
+        "title": "https://baike.baidu.com/item/%E7%BD%97%E6%9D%B0%C2%B7%E7%91%9E%E8%BF%AA/4600662",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/CAS/1329829",
+        "title": "CAS（证书颁发机构）_百度百科",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E7%BA%BD%E7%BA%A6%E5%B7%9E%E7%AB%8B%E5%A4%A7%E5%AD%A6%E7%9F%B3%E6%BA%AA%E5%88%86%E6%A0%A1/10855448",
+        "title": "纽约州立大学石溪分校",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E9%A2%81%E5%8F%91%E6%9C%BA%E6%9E%84%E5%BC%80%E5%A7%8B(SOA)%E8%B5%84%E6%BA%90%E8%AE%B0%E5%BD%95/5380418",
+        "title": "颁发机构开始(SOA)资源记录_百度百科",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%85%88%E9%A9%B1%E5%A5%96/7300396",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/ACM%E8%AE%A1%E7%AE%97%E5%A5%96/67630810",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%85%AC%E8%AF%81",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E7%BE%8E%E5%9B%BD%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A%E4%B8%AD%E5%9B%BD%E8%AE%A4%E8%AF%81%E4%B8%AD%E5%BF%83/4386713",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/ACM%E5%9B%BD%E9%99%85%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B/3652262",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E7%BE%8E%E5%9B%BD%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A%E6%95%B0%E5%AD%97%E5%9B%BE%E4%B9%A6%E9%A6%86/7647278",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E9%A2%81%E5%8F%91/7367189",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E4%BC%9A/64305305",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/USENIX/16660019",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E7%BE%8E%E5%9B%BD%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A%E7%BD%91%E7%BB%9C%E4%BC%9A%E6%8A%A5/64571083",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%85%88%E9%A9%B1%E5%A5%96/7300396",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/ACM%E8%AE%A1%E7%AE%97%E5%A5%96/67630810",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%85%AC%E8%AF%81",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E7%BE%8E%E5%9B%BD%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A%E4%B8%AD%E5%9B%BD%E8%AE%A4%E8%AF%81%E4%B8%AD%E5%BF%83/4386713",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/ACM%E5%9B%BD%E9%99%85%E5%A4%A7%E5%AD%A6%E7%94%9F%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%AB%9E%E8%B5%9B/3652262",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E7%BE%8E%E5%9B%BD%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A%E6%95%B0%E5%AD%97%E5%9B%BE%E4%B9%A6%E9%A6%86/7647278",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E9%A2%81%E5%8F%91/7367189",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E4%BC%9A/64305305",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/USENIX/16660019",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E7%BE%8E%E5%9B%BD%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A%E7%BD%91%E7%BB%9C%E4%BC%9A%E6%8A%A5/64571083",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E4%BC%9A%E4%BC%9A%E5%A3%AB/64331643",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/CompTIA/2194322",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E6%9C%BA%E6%9E%84%E4%BF%A1%E7%94%A8%E4%BB%A3%E7%A0%81%E8%AF%81/370491",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%AD%A6%E4%BD%8D%E8%AF%81%E4%B9%A6",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/en/item/A.M.%20Turing%20Award/1438025",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%9B%BD%E9%99%85%E8%81%94%E5%90%88%E7%94%B5%E8%84%91%E5%85%AC%E5%8F%B8/104361",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/ACM%20SIGCOMM/69029326",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%8F%91%E8%AF%81%E6%9C%BA%E5%85%B3/9194579",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8D%8F%E4%BC%9A/4352720",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/IEEE%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%AD%A6%E4%BC%9A/68839270",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/ACM%E4%B8%AD%E5%9B%BD%E5%9B%BE%E7%81%B5%E5%A4%A7%E4%BC%9A/62998422",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E9%99%88%E6%80%A1%E7%84%B6/64527738",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B9%8B%E4%B9%A6/64652105",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E6%9D%8E%E5%8B%87/16530171",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://baike.baidu.com/item/%E5%9B%BE%E7%81%B5%E5%A5%96/324645",
+        "content": "[网页](https://www.baidu.com/s?ie=utf-8&fr=bks0000&wd=%E5%9B%BE%E7%81%B5%E5%A5%96) [新闻](http://news.baidu.com/ns?tn=news&cl=2&rn=20&ct=1&fr=bks0000&ie=utf-8&word=%E5%9B%BE%E7%81%B5%E5%A5%96) [贴吧](https://tieba.baidu.com/f?ie=utf-8&fr=bks0000&kw=%E5%9B%BE%E7%81%B5%E5%A5%96) [知道](https://zhidao.baidu.com/search?pn=0&&rn=10&lm=0&fr=bks0000&word=%E5%9B%BE%E7%81%B5%E5%A5%96) [网盘](https://pan.baidu.com/disk/home#/search?from=1027327l&key=%E5%9B%BE%E7%81%B5%E5%A5%96) [图片](http://image.baidu.com/search/index?tn=baiduimage&ct=201326592&lm=-1&cl=2&nc=1&ie=utf-8&word=%E5%9B%BE%E7%81%B5%E5%A5%96) [视频](https://www.baidu.com/sf/vsearch?pd=video&tn=vsearch&ie=utf-8&rsv_spt=17&wd=%E5%9B%BE%E7%81%B5%E5%A5%96) [地图](http://map.baidu.com/m?ie=utf-8&fr=bks0000&word=%E5%9B%BE%E7%81%B5%E5%A5%96) [文库](https://wenku.baidu.com/search?lm=0&od=0&ie=utf-8&fr=bks0000&word=%E5%9B%BE%E7%81%B5%E5%A5%96) [资讯](https://www.baidu.com/s?rtt=1&bsst=1&cl=2&tn=news&fr=baike&word=%E5%9B%BE%E7%81%B5%E5%A5%96) [采购](https://b2b.bai[",
+        "errors": []
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:21:18.339119+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "baidu-baike",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "baike-turing"
+        ],
+        "required": 1
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "pass",
+      "reasons": []
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": false,
+    "grader": "v2"
+  }
+}

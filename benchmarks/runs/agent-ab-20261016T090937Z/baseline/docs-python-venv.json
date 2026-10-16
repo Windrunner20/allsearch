@@ -1,0 +1,526 @@
+{
+  "id": "docs-python-venv",
+  "query": "Python standard library documentation for the venv module",
+  "returncode": 0,
+  "elapsed_ms": 115466,
+  "efficiency": {
+    "tool_calls": {
+      "search": 5,
+      "fetch": 1,
+      "read_result": 1
+    },
+    "total_calls": 7,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 0,
+    "errors": 0
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": [
+          "python.org"
+        ],
+        "fresh": false,
+        "include_domains": [
+          "docs.python.org"
+        ],
+        "max_results": 5,
+        "mode": "docs",
+        "query": "site:docs.python.org/3/library/venv.html Python standard library venv module documentation",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 1994
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "balanced",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "docs.python.org"
+        ],
+        "max_results": 8,
+        "mode": "web",
+        "query": "Python venv module standard library documentation",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 18825
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Extract the official venv module documentation's purpose, command-line usage, options, and EnvBuilder API. Preserve exact quotations where useful. Check whether the page contains comments or user reviews.",
+        "fresh": false,
+        "max_chars": 24000,
+        "url": "https://docs.python.org/3/library/venv.html"
+      },
+      "is_error": false,
+      "ms": 679
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": [
+          "content"
+        ],
+        "limit": 1,
+        "max_bytes": 24000,
+        "offset": 0,
+        "result_id": "a5cbcc5cc5b26791"
+      },
+      "is_error": false,
+      "ms": 3
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "docs.python.org"
+        ],
+        "max_results": 5,
+        "mode": "docs",
+        "query": "site:docs.python.org/3/library/venv.html venv command line interface EnvBuilder create virtual environment --upgrade-deps",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 26266
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "docs.python.org"
+        ],
+        "max_results": 5,
+        "mode": "docs",
+        "query": "site:docs.python.org/3/library/venv.html class venv.EnvBuilder create configure_context setup_python",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 31115
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "fast",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "docs.python.org"
+        ],
+        "max_results": 5,
+        "mode": "docs",
+        "query": "site:docs.python.org/3/library/index.html venv Python standard library",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 7648
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.0\", \"result_id\": \"016e5d6b74c9d496\", \"kind\": \"search\", \"status\": \"error\", \"query\": \"site:docs.python.org/3/library/venv.html Python standard library venv module documentation\", \"answer\": \"\", \"answer_chars\": 0, \"evidence\": {\"unique_urls\": 0, \"unique_domains\": 0, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 1948, \"warning_count\": 0, \"warnings\": [], \"errors\": [{\"provider\": \"xai\", \"code\": \"provider_contract_error\", \"message\": \"bad request from provider: {\\\"error\\\":{\\\"message\\\":\\\"Upstream rejected the request\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":\\\"\\\",\\\"code\\\":null}}\", \"retryable\": false}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"error\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"skipped\", \"reason\": \"primary_unavailable\"}], \"result_count\": 0, \"citation_count\": 0, \"results\": [], \"citations\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"016e5d6b74c9d496\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"7c3a250f930d46ba\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"Python venv module standard library documentation\", \"answer\": \"Primary sources for the standard-library `venv` module:\\n\\n1. **Library reference (current)** — [docs.python.org/3/library/venv.html](https://docs.python.org/3/library/venv.html)  \\n   `venv` creates lightweight virtual environments on top of a base Python (added in 3.3). Covers `python -m venv`, CLI flags (`--system-site-packages`, `--symlinks`/`--copies`, `--clear`, `--upgrade`, `--without-pip`, `--prompt`, `--upgrade-deps`), `pyvenv.cfg`, and the `EnvBuilder` API. Source: `Lib/venv/`. Points to PEP 405. [[1]](https://docs.python.org/3/library/venv.html)\\n\\n2. **Library reference (3.14)** — [docs.python.org/3.14/library/venv.html](https://docs.python.org/3.14/library/venv.html)  \\n   Same module docs for 3.14: isolation from the base install, creation command, option list, and `EnvBuilder`. N…\", \"answer_chars\": 2074, \"evidence\": {\"unique_urls\": 8, \"unique_domains\": 1, \"cross_provider_matches\": 2, \"pages_fetched\": 0, \"primary_citation_count\": 3}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 18781, \"warning_count\": 1, \"warnings\": [\"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"conditional_supplement\"}], \"result_count\": 8, \"citation_count\": 9, \"results\": [{\"id\": \"r1\", \"title\": \"venv — Creation of virtual environments — Python 3.15.0 documentation\", \"url\": \"https://docs.python.org/3/library/venv.html\", \"snippet\": \"The `venv` module supports creating lightweight “virtual environments”, each with their own independent set of Python packages installed in their `site` direct…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r2\", \"title\": \"12. Virtual Environments and Packages — Python 3.15.0 documentation\", \"url\": \"https://docs.python.org/3/tutorial/venv.html\", \"snippet\": \"Python applications will often use packages and modules that don’t come as part of the standard library. Applications will sometimes need a specific version of…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"2\", \"url\": \"https://docs.python.org/3.14/library/venv.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"The Python standard library — Python 3.15.0 documentation\", \"url\": \"https://docs.python.org/3/library/index.html\", \"snippet\": \"+ `tracemalloc` — Trace memory allocations\\n Software Packaging and Distribution\\n  + `ensurepip` — Bootstrapping the `pip` installer\\n  + `venv` — Creation of vi…\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"4. Using Python on Windows — Python 3.15.0 documentation\", \"url\": \"https://docs.python.org/3/using/windows.html\", \"snippet\": \"If the launcher is run with no explicit Python version specification, and a virtual environment (created with the standard library `venv` module or the externa…\", \"providers\": [\"tavily\"]}, {\"id\": \"r6\", \"title\": \"Installing Python modules — Python 3.15.0 documentation\", \"url\": \"https://docs.python.org/3/installing/index.html\", \"snippet\": \"Changed in version 3.5: The use of `venv` is now recommended for creating virtual environments.\\n\\nSee also\\n\\nPython Packaging User Guide: Creating and using virt…\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"__main__ — Top-level code environment — Python 3.15.0 documentation\", \"url\": \"https://docs.python.org/3/library/__main__.html\", \"snippet\": \"```\\n>>> import  asyncio.__main__>>> asyncio. __main__. __name__'asyncio.__main__'\\n```\\n\\nThis won’t work for `__main__.py` files in the root directory of a `.zip…\", \"providers\": [\"tavily\"]}, {\"id\": \"r8\", \"title\": \"sysconfig — Provide access to Python’s configuration information — Python 3.15.0 documentation\", \"url\": \"https://docs.python.org/3/library/sysconfig.html\", \"snippet\": \"posix\\\\_venv: scheme for `Python virtual environments` on POSIX platforms; by default it is the same as posix\\\\_prefix.\\n nt: scheme for Windows. This is the defa…\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://docs.python.org/3/library/venv.html\", \"title\": \"venv — Creation of virtual environments — Python 3.15.0 documentation\", \"result_item_id\": \"r1\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c2\", \"url\": \"https://docs.python.org/3/tutorial/venv.html\", \"title\": \"12. Virtual Environments and Packages — Python 3.15.0 documentation\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://docs.python.org/3.14/library/venv.html\", \"title\": \"2\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://docs.python.org/3/library/index.html\", \"title\": \"The Python standard library — Python 3.15.0 documentation\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://docs.python.org/3/using/windows.html\", \"title\": \"4. Using Python on Windows — Python 3.15.0 documentation\", \"result_item_id\": \"r5\", \"providers\": [\"tavily\"]}, {\"id\": \"c6\", \"url\": \"https://docs.python.org/3/installing/index.html\", \"title\": \"Installing Python modules — Python 3.15.0 documentation\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://docs.python.org/3/library/__main__.html\", \"title\": \"__main__ — Top-level code environment — Python 3.15.0 documentation\", \"result_item_id\": \"r7\", \"providers\": [\"tavily\"]}, {\"id\": \"c8\", \"url\": \"https://docs.python.org/3/library/sysconfig.html\", \"title\": \"sysconfig — Provide access to Python’s configuration information — Python 3.15.0 documentation\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://docs.python.org/3/library/sys_path_init.html\", \"title\": \"The initialization of the sys.path module search path — Python 3.15.0 documentation\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"7c3a250f930d46ba\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"a5cbcc5cc5b26791\", \"kind\": \"fetch\", \"status\": \"ok\", \"url\": \"https://docs.python.org/3/library/venv.html\", \"final_url\": \"https://docs.python.org/3/library/venv.html\", \"title\": \"venv — Creation of virtual environments — Python 3.15.0 documentation\", \"provider\": \"firecrawl\", \"content_preview\": \"### Navigation\\n\\n- [index](https://docs.python.org/3/genindex.html \\\"General Index\\\")\\n- [modules](https://docs.python.org/3/py-modindex.html \\\"Python Module Index\\\") \\\\|\\n- [next](https://docs.python.org/3/library/zipapp.html \\\"zipapp — Manage executable Python zip archives\\\") \\\\|\\n- [previous](https://docs.python.org/3/library/ensurepip.html \\\"ensurepip — Bootstrapping the pip installer\\\") \\\\|\\n- ![Python logo](https://docs.python.org/3/_static/py.svg)\\n- [Python](https://www.python.org/) »\\n- German \\\\| DeutschGreek \\\\| ΕλληνικάEnglishSpanish \\\\| españolPersian \\\\| فارسیFrench \\\\| françaisItalian \\\\| italianoJapanese \\\\| 日本語Korean \\\\| 한국어Polish \\\\| polskiBrazilian Portuguese \\\\| Português brasileiroRomanian \\\\| RomâneșteRussian \\\\| РусскийTurkish \\\\| TürkçeSimplified Chinese \\\\| 简体中文Traditional Chinese \\\\| 繁體中文\\n\\ndev (3.16)3.15.03.143.133.123.113.103.93.83.73.63.53.43.33.23.13.02.72.6\\n\\n- [3.15.0 Documentation](https://docs.python.org/3/index.html) »\\n\\n- [The Python standard library](https://docs.python.org/3/library/\", \"content_chars\": 24000, \"truncated\": true, \"errors\": [], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"a5cbcc5cc5b26791\", \"fields\": [\"content\"]}}",
+    "{\"result_id\": \"a5cbcc5cc5b26791\", \"kind\": \"fetch\", \"offset\": 0, \"returned\": 1, \"next_offset\": 1, \"data\": {\"content\": \"#\", \"content_chars\": 24000}, \"truncated\": true}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"8e519ffde53838fe\", \"kind\": \"search\", \"status\": \"partial\", \"query\": \"site:docs.python.org/3/library/venv.html venv command line interface EnvBuilder create virtual environment --upgrade-deps\", \"answer\": \"1. **Python 3 docs — `venv` CLI** ([docs.python.org/3/library/venv.html](https://docs.python.org/3/library/venv.html)): `venv` usage includes `--upgrade-deps`, which upgrades core dependencies (`pip`) to the latest on PyPI. Changed in 3.12: `setuptools` is no longer a core venv dependency. Changed in 3.9: option added to upgrade pip + setuptools. [[1]](https://docs.python.org/3/library/venv.html)\\n\\n2. **Same page — `EnvBuilder`**: `EnvBuilder(..., upgrade_deps=False)` takes `upgrade_deps` to update base venv modules to the latest on PyPI. Parameter added in 3.9 (with `with_pip` in 3.4 and `prompt` in 3.6). [[1]](https://docs.python.org/3/library/venv.html)\\n\\n3. **Same page — `upgrade_dependencies`**: Method upgrades core packages (currently `pip`) by running the environment’s `pip`. Added i…\", \"answer_chars\": 1568, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 1, \"pages_fetched\": 0, \"primary_citation_count\": 2}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 26218, \"warning_count\": 1, \"warnings\": [\"primary_insufficient:citations_below_threshold:2<3,domains_below_threshold:1<2\"], \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}, {\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}], \"result_count\": 5, \"citation_count\": 6, \"results\": [{\"id\": \"r1\", \"title\": \"venv — Creation of virtual environments — Python 3.15.0 documentation\", \"url\": \"https://docs.python.org/3/library/venv.html\", \"snippet\": \"Changed in version 3.4: Added the `with_pip` parameter\\n\\n    Changed in version 3.6: Added the `prompt` parameter\\n\\n    Changed in version 3.9: Added the `upgrad…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r2\", \"title\": \"venv — Creation of virtual environments — Python 3.15.0 documentation\", \"url\": \"https://docs.python.org/library/venv.html\", \"snippet\": \"Changed in version 3.4: Added the `with_pip` parameter\\n\\n    Changed in version 3.6: Added the `prompt` parameter\\n\\n    Changed in version 3.9: Added the `upgrad…\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"2\", \"url\": \"https://docs.python.org/zh-cn/3.9/library/venv.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"venv — Creation of virtual environments — documentación de Python - 3.15.0a7\", \"url\": \"https://docs.python.org/es/dev/library/venv.html\", \"snippet\": \"Title: venv — Creation of virtual environments — documentación de Python - 3.15.0a7\\nA virtual environment is created on top of an existing Python installation,…\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"venv — Creation of virtual environments — documentación de Python - 3.13.11\", \"url\": \"https://docs.python.org/es/3.13/library/venv.html\", \"snippet\": \"A virtual environment is created on top of an existing Python installation, known as the virtual environment’s «base» Python, and by default is isolated from t…\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://docs.python.org/3/library/venv.html\", \"title\": \"venv — Creation of virtual environments — Python 3.15.0 documentation\", \"result_item_id\": \"r1\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c2\", \"url\": \"https://docs.python.org/library/venv.html\", \"title\": \"venv — Creation of virtual environments — Python 3.15.0 documentation\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://docs.python.org/zh-cn/3.9/library/venv.html\", \"title\": \"2\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://docs.python.org/es/dev/library/venv.html\", \"title\": \"venv — Creation of virtual environments — documentación de Python - 3.15.0a7\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://docs.python.org/es/3.13/library/venv.html\", \"title\": \"venv — Creation of virtual environments — documentación de Python - 3.13.11\", \"result_item_id\": \"r5\", \"providers\": [\"tavily\"]}, {\"id\": \"c6\", \"url\": \"https://docs.python.org/es/3.14/library/venv.html\", \"title\": \"venv — Creation of virtual environments — documentación de Python - 3.14.2\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"8e519ffde53838fe\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"47abd953b4fe84c8\", \"kind\": \"search\", \"status\": \"partial\", \"query\": \"site:docs.python.org/3/library/venv.html class venv.EnvBuilder create configure_context setup_python\", \"answer\": \"No `configure_context` method appears in the current `venv` docs. `EnvBuilder.create` builds a context via `ensure_directories`, then calls `create_configuration`, `setup_python`, `setup_scripts`, and `post_setup`.\\n\\n1. **[venv — Creation of virtual environments (current)](https://docs.python.org/3/library/venv.html)** — `EnvBuilder.create` abspaths `env_dir`, then: `ensure_directories` → `create_configuration` → `setup_python` → `setup_scripts` → `post_setup`. Those hooks can be overridden. `setup_python(context)` copies or symlinks the Python executable (on POSIX, also `python` / `python3` links when a specific `python3.x` was used).\\n\\n2. **[Python 3.11.5 venv docs](https://docs.python.org/release/3.11.5/library/venv.html)** — Same `EnvBuilder` API and `create` sequence: `ensure_directori…\", \"answer_chars\": 1657, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 11}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 31064, \"warning_count\": 1, \"warnings\": [\"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}, {\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}], \"result_count\": 5, \"citation_count\": 16, \"results\": [{\"id\": \"r1\", \"title\": \"https://docs.python.org/3.7/library/venv.html?highlight=kwarg\", \"url\": \"https://docs.python.org/3.7/library/venv.html?highlight=kwarg\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"venv --- 建立虛擬環境 — Python 3.16.0a1 說明文件\", \"url\": \"https://docs.python.org/zh-tw/dev/library/venv.html\", \"snippet\": \"在 3.4 版的變更: 新增 `with_pip` 參數\\n\\n    在 3.6 版的變更: 新增 `prompt` 參數\\n\\n    在 3.9 版的變更: 新增 `upgrade_deps` 參數\\n\\n    在 3.13 版的變更: 新增 `scm_ignore_files` 參數\\n\\n    在 3.16 版的變更:…\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://docs.python.org/release/3.11.5/library/venv.html\", \"url\": \"https://docs.python.org/release/3.11.5/library/venv.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"venv --- 建立虛擬環境 — Python 3.13.16 說明文件\", \"url\": \"https://docs.python.org/zh-tw/3.13/library/venv.html\", \"snippet\": \"`with_pip`\\n\\n在 3.6 版的變更: 新增 `prompt` 參數\\n\\n`prompt`\\n\\n在 3.9 版的變更: 新增 `upgrade_deps` 參數\\n\\n`upgrade_deps`\\n\\n在 3.13 版的變更: 新增 `scm_ignore_files` 參數\\n\\n`scm_ignore_files`\\n\\n…\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://docs.python.org/zh-cn/3.7/library/venv.html\", \"url\": \"https://docs.python.org/zh-cn/3.7/library/venv.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://docs.python.org/3.7/library/venv.html?highlight=kwarg\", \"title\": \"https://docs.python.org/3.7/library/venv.html?highlight=kwarg\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://docs.python.org/zh-tw/dev/library/venv.html\", \"title\": \"venv --- 建立虛擬環境 — Python 3.16.0a1 說明文件\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://docs.python.org/release/3.11.5/library/venv.html\", \"title\": \"https://docs.python.org/release/3.11.5/library/venv.html\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://docs.python.org/zh-tw/3.13/library/venv.html\", \"title\": \"venv --- 建立虛擬環境 — Python 3.13.16 說明文件\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://docs.python.org/zh-cn/3.7/library/venv.html\", \"title\": \"https://docs.python.org/zh-cn/3.7/library/venv.html\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://docs.python.org/3/library/venv.html\", \"title\": \"https://docs.python.org/3/library/venv.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://docs.python.org/zh-cn/3.10/library/venv.html\", \"title\": \"https://docs.python.org/zh-cn/3.10/library/venv.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://docs.python.org/dev/c-api/init_config.html\", \"title\": \"https://docs.python.org/dev/c-api/init_config.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://docs.python.org/ja/3.7/library/venv.html\", \"title\": \"https://docs.python.org/ja/3.7/library/venv.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://docs.python.org/zh-cn/3.14/library/contextlib.html\", \"title\": \"https://docs.python.org/zh-cn/3.14/library/contextlib.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://docs.python.org/3/c-api/init_config.html\", \"title\": \"https://docs.python.org/3/c-api/init_config.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://docs.python.org/3.4/_sources/library/venv.txt\", \"title\": \"https://docs.python.org/3.4/_sources/library/venv.txt\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://docs.python.org/ja/3/using/configure.html\", \"title\": \"https://docs.python.org/ja/3/using/configure.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://docs.python.org/zh-cn/dev/library/venv.html\", \"title\": \"venv --- 虚拟环境的创建 — Python 3.16.0a1 文档\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c15\", \"url\": \"https://docs.python.org/zh-cn/3.12/library/venv.html\", \"title\": \"venv --- 虚拟环境的创建 — Python 3.12.15 文档\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c16\", \"url\": \"https://docs.python.org/fr/3.9/library/venv.html\", \"title\": \"venv — Création d'environnements virtuels — Documentation Python 3.9.25\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"47abd953b4fe84c8\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"69c39e5c596a03c9\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:docs.python.org/3/library/index.html venv Python standard library\", \"answer\": \"Relevant results:\\n\\n1. **venv — Creation of virtual environments** — [docs.python.org/3/library/venv.html](https://docs.python.org/3/library/venv.html)  \\n   Standard-library module (added in 3.3) for lightweight virtual environments with their own site directories, optionally isolated from the base Python. Create with `python -m venv /path/to/new/virtual/environment`.\\n\\n2. **Virtual Environments and Packages (tutorial)** — [docs.python.org/3/tutorial/venv.html](https://docs.python.org/3/tutorial/venv.html)  \\n   Tutorial on using the `venv` module: `python -m venv tutorial-env`, then activate (`Scripts\\\\activate` on Windows, `source …/bin/activate` on Unix/macOS).\\n\\n3. **The Python standard library (index)** — [docs.python.org/3/library/index.html](https://docs.python.org/3/library/index.html)…\", \"answer_chars\": 1454, \"evidence\": {\"unique_urls\": 4, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 4}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 7595, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"skipped\", \"reason\": \"primary_sufficient\"}], \"result_count\": 4, \"citation_count\": 4, \"results\": [{\"id\": \"r1\", \"title\": \"https://docs.python.org/3/tutorial/venv.html\", \"url\": \"https://docs.python.org/3/tutorial/venv.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"https://docs.python.org/release/3.3.0/library/venv.html\", \"url\": \"https://docs.python.org/release/3.3.0/library/venv.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r3\", \"title\": \"https://docs.python.org/3/library/index.html\", \"url\": \"https://docs.python.org/3/library/index.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"https://docs.python.org/3/library/venv.html\", \"url\": \"https://docs.python.org/3/library/venv.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://docs.python.org/3/tutorial/venv.html\", \"title\": \"https://docs.python.org/3/tutorial/venv.html\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://docs.python.org/release/3.3.0/library/venv.html\", \"title\": \"https://docs.python.org/release/3.3.0/library/venv.html\", \"result_item_id\": \"r2\", \"providers\": [\"xai\"]}, {\"id\": \"c3\", \"url\": \"https://docs.python.org/3/library/index.html\", \"title\": \"https://docs.python.org/3/library/index.html\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://docs.python.org/3/library/venv.html\", \"title\": \"https://docs.python.org/3/library/venv.html\", \"result_item_id\": \"r4\", \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"69c39e5c596a03c9\"}}"
+  ],
+  "answer": "Python 标准库 `venv` 模块官方文档：\n\n- **主文档（当前版本）**  \n  https://docs.python.org/3/library/venv.html  \n  标题：**“venv — Creation of virtual environments”**\n\n- **标准库索引**  \n  https://docs.python.org/3/library/index.html\n\n- **Python 教程中的虚拟环境章节**  \n  https://docs.python.org/3/tutorial/venv.html\n\n文档涵盖：\n\n```bash\npython -m venv /path/to/new/virtual/environment\n```\n\n以及：\n\n- 虚拟环境的创建与隔离机制\n- `--system-site-packages`\n- `--clear`\n- `--upgrade`\n- `--without-pip`\n- `--prompt`\n- `--upgrade-deps`\n- `venv.EnvBuilder` API\n- `pyvenv.cfg`\n- 环境激活与退出\n\n该模块自 Python 3.3 引入。检索到的官方页面中没有评论或用户评语，因此没有可引用的评论原句。",
+  "observation": {
+    "id": "docs-python-venv",
+    "answer": "Python 标准库 `venv` 模块官方文档：\n\n- **主文档（当前版本）**  \n  https://docs.python.org/3/library/venv.html  \n  标题：**“venv — Creation of virtual environments”**\n\n- **标准库索引**  \n  https://docs.python.org/3/library/index.html\n\n- **Python 教程中的虚拟环境章节**  \n  https://docs.python.org/3/tutorial/venv.html\n\n文档涵盖：\n\n```bash\npython -m venv /path/to/new/virtual/environment\n```\n\n以及：\n\n- 虚拟环境的创建与隔离机制\n- `--system-site-packages`\n- `--clear`\n- `--upgrade`\n- `--without-pip`\n- `--prompt`\n- `--upgrade-deps`\n- `venv.EnvBuilder` API\n- `pyvenv.cfg`\n- 环境激活与退出\n\n该模块自 Python 3.3 引入。检索到的官方页面中没有评论或用户评语，因此没有可引用的评论原句。",
+    "results": [
+      {
+        "url": "https://docs.python.org/3/library/venv.html",
+        "title": "venv — Creation of virtual environments — Python 3.15.0 documentation",
+        "snippet": "The `venv` module supports creating lightweight “virtual environments”, each with their own independent set of Python packages installed in their `site` direct…",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/tutorial/venv.html",
+        "title": "12. Virtual Environments and Packages — Python 3.15.0 documentation",
+        "snippet": "Python applications will often use packages and modules that don’t come as part of the standard library. Applications will sometimes need a specific version of…",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3.14/library/venv.html",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "title": "The Python standard library — Python 3.15.0 documentation",
+        "snippet": "+ `tracemalloc` — Trace memory allocations\n Software Packaging and Distribution\n  + `ensurepip` — Bootstrapping the `pip` installer\n  + `venv` — Creation of vi…",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/using/windows.html",
+        "title": "4. Using Python on Windows — Python 3.15.0 documentation",
+        "snippet": "If the launcher is run with no explicit Python version specification, and a virtual environment (created with the standard library `venv` module or the externa…",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/installing/index.html",
+        "title": "Installing Python modules — Python 3.15.0 documentation",
+        "snippet": "Changed in version 3.5: The use of `venv` is now recommended for creating virtual environments.\n\nSee also\n\nPython Packaging User Guide: Creating and using virt…",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/library/__main__.html",
+        "title": "__main__ — Top-level code environment — Python 3.15.0 documentation",
+        "snippet": "```\n>>> import  asyncio.__main__>>> asyncio. __main__. __name__'asyncio.__main__'\n```\n\nThis won’t work for `__main__.py` files in the root directory of a `.zip…",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/library/sysconfig.html",
+        "title": "sysconfig — Provide access to Python’s configuration information — Python 3.15.0 documentation",
+        "snippet": "posix\\_venv: scheme for `Python virtual environments` on POSIX platforms; by default it is the same as posix\\_prefix.\n nt: scheme for Windows. This is the defa…",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/library/venv.html",
+        "title": "venv — Creation of virtual environments — Python 3.15.0 documentation",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/tutorial/venv.html",
+        "title": "12. Virtual Environments and Packages — Python 3.15.0 documentation",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3.14/library/venv.html",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "title": "The Python standard library — Python 3.15.0 documentation",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/using/windows.html",
+        "title": "4. Using Python on Windows — Python 3.15.0 documentation",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/installing/index.html",
+        "title": "Installing Python modules — Python 3.15.0 documentation",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/library/__main__.html",
+        "title": "__main__ — Top-level code environment — Python 3.15.0 documentation",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/library/sysconfig.html",
+        "title": "sysconfig — Provide access to Python’s configuration information — Python 3.15.0 documentation",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/library/sys_path_init.html",
+        "title": "The initialization of the sys.path module search path — Python 3.15.0 documentation",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/library/venv.html",
+        "title": "venv — Creation of virtual environments — Python 3.15.0 documentation",
+        "snippet": "Changed in version 3.4: Added the `with_pip` parameter\n\n    Changed in version 3.6: Added the `prompt` parameter\n\n    Changed in version 3.9: Added the `upgrad…",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/library/venv.html",
+        "title": "venv — Creation of virtual environments — Python 3.15.0 documentation",
+        "snippet": "Changed in version 3.4: Added the `with_pip` parameter\n\n    Changed in version 3.6: Added the `prompt` parameter\n\n    Changed in version 3.9: Added the `upgrad…",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/zh-cn/3.9/library/venv.html",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/es/dev/library/venv.html",
+        "title": "venv — Creation of virtual environments — documentación de Python - 3.15.0a7",
+        "snippet": "Title: venv — Creation of virtual environments — documentación de Python - 3.15.0a7\nA virtual environment is created on top of an existing Python installation,…",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/es/3.13/library/venv.html",
+        "title": "venv — Creation of virtual environments — documentación de Python - 3.13.11",
+        "snippet": "A virtual environment is created on top of an existing Python installation, known as the virtual environment’s «base» Python, and by default is isolated from t…",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/library/venv.html",
+        "title": "venv — Creation of virtual environments — Python 3.15.0 documentation",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/library/venv.html",
+        "title": "venv — Creation of virtual environments — Python 3.15.0 documentation",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/zh-cn/3.9/library/venv.html",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/es/dev/library/venv.html",
+        "title": "venv — Creation of virtual environments — documentación de Python - 3.15.0a7",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/es/3.13/library/venv.html",
+        "title": "venv — Creation of virtual environments — documentación de Python - 3.13.11",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/es/3.14/library/venv.html",
+        "title": "venv — Creation of virtual environments — documentación de Python - 3.14.2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3.7/library/venv.html?highlight=kwarg",
+        "title": "https://docs.python.org/3.7/library/venv.html?highlight=kwarg",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/zh-tw/dev/library/venv.html",
+        "title": "venv --- 建立虛擬環境 — Python 3.16.0a1 說明文件",
+        "snippet": "在 3.4 版的變更: 新增 `with_pip` 參數\n\n    在 3.6 版的變更: 新增 `prompt` 參數\n\n    在 3.9 版的變更: 新增 `upgrade_deps` 參數\n\n    在 3.13 版的變更: 新增 `scm_ignore_files` 參數\n\n    在 3.16 版的變更:…",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/release/3.11.5/library/venv.html",
+        "title": "https://docs.python.org/release/3.11.5/library/venv.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/zh-tw/3.13/library/venv.html",
+        "title": "venv --- 建立虛擬環境 — Python 3.13.16 說明文件",
+        "snippet": "`with_pip`\n\n在 3.6 版的變更: 新增 `prompt` 參數\n\n`prompt`\n\n在 3.9 版的變更: 新增 `upgrade_deps` 參數\n\n`upgrade_deps`\n\n在 3.13 版的變更: 新增 `scm_ignore_files` 參數\n\n`scm_ignore_files`\n\n…",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/zh-cn/3.7/library/venv.html",
+        "title": "https://docs.python.org/zh-cn/3.7/library/venv.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3.7/library/venv.html?highlight=kwarg",
+        "title": "https://docs.python.org/3.7/library/venv.html?highlight=kwarg",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/zh-tw/dev/library/venv.html",
+        "title": "venv --- 建立虛擬環境 — Python 3.16.0a1 說明文件",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/release/3.11.5/library/venv.html",
+        "title": "https://docs.python.org/release/3.11.5/library/venv.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/zh-tw/3.13/library/venv.html",
+        "title": "venv --- 建立虛擬環境 — Python 3.13.16 說明文件",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/zh-cn/3.7/library/venv.html",
+        "title": "https://docs.python.org/zh-cn/3.7/library/venv.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/library/venv.html",
+        "title": "https://docs.python.org/3/library/venv.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/zh-cn/3.10/library/venv.html",
+        "title": "https://docs.python.org/zh-cn/3.10/library/venv.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/dev/c-api/init_config.html",
+        "title": "https://docs.python.org/dev/c-api/init_config.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/ja/3.7/library/venv.html",
+        "title": "https://docs.python.org/ja/3.7/library/venv.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/zh-cn/3.14/library/contextlib.html",
+        "title": "https://docs.python.org/zh-cn/3.14/library/contextlib.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/c-api/init_config.html",
+        "title": "https://docs.python.org/3/c-api/init_config.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3.4/_sources/library/venv.txt",
+        "title": "https://docs.python.org/3.4/_sources/library/venv.txt",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/ja/3/using/configure.html",
+        "title": "https://docs.python.org/ja/3/using/configure.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/zh-cn/dev/library/venv.html",
+        "title": "venv --- 虚拟环境的创建 — Python 3.16.0a1 文档",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/zh-cn/3.12/library/venv.html",
+        "title": "venv --- 虚拟环境的创建 — Python 3.12.15 文档",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/fr/3.9/library/venv.html",
+        "title": "venv — Création d'environnements virtuels — Documentation Python 3.9.25",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/tutorial/venv.html",
+        "title": "https://docs.python.org/3/tutorial/venv.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/release/3.3.0/library/venv.html",
+        "title": "https://docs.python.org/release/3.3.0/library/venv.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "title": "https://docs.python.org/3/library/index.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/library/venv.html",
+        "title": "https://docs.python.org/3/library/venv.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/tutorial/venv.html",
+        "title": "https://docs.python.org/3/tutorial/venv.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/release/3.3.0/library/venv.html",
+        "title": "https://docs.python.org/release/3.3.0/library/venv.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/library/index.html",
+        "title": "https://docs.python.org/3/library/index.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3/library/venv.html",
+        "title": "https://docs.python.org/3/library/venv.html",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://docs.python.org/3/library/venv.html",
+        "content": "### Navigation\n\n- [index](https://docs.python.org/3/genindex.html \"General Index\")\n- [modules](https://docs.python.org/3/py-modindex.html \"Python Module Index\") \\|\n- [next](https://docs.python.org/3/library/zipapp.html \"zipapp — Manage executable Python zip archives\") \\|\n- [previous](https://docs.python.org/3/library/ensurepip.html \"ensurepip — Bootstrapping the pip installer\") \\|\n- ![Python logo](https://docs.python.org/3/_static/py.svg)\n- [Python](https://www.python.org/) »\n- German \\| DeutschGreek \\| ΕλληνικάEnglishSpanish \\| españolPersian \\| فارسیFrench \\| françaisItalian \\| italianoJapanese \\| 日本語Korean \\| 한국어Polish \\| polskiBrazilian Portuguese \\| Português brasileiroRomanian \\| RomâneșteRussian \\| РусскийTurkish \\| TürkçeSimplified Chinese \\| 简体中文Traditional Chinese \\| 繁體中文\n\ndev (3.16)3.15.03.143.133.123.113.103.93.83.73.63.53.43.33.23.13.02.72.6\n\n- [3.15.0 Documentation](https://docs.python.org/3/index.html) »\n\n- [The Python standard library](https://docs.python.org/3/library/#",
+        "errors": []
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:18:50.116857+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "docs-python-venv",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "py-venv"
+        ],
+        "required": 1
+      },
+      "reading": {
+        "status": "fail"
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "pass",
+      "reasons": []
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": false,
+    "grader": "v2"
+  }
+}

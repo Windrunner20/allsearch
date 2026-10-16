@@ -1,0 +1,1888 @@
+{
+  "id": "weibo-login",
+  "query": "微博上教育部官方账号发布的开学通知单条微博",
+  "returncode": 124,
+  "elapsed_ms": 240117,
+  "efficiency": {
+    "tool_calls": {
+      "search": 11,
+      "fetch": 4
+    },
+    "total_calls": 15,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 5,
+    "errors": 5
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "weibo.com"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:weibo.com 教育部 官方 开学 通知 微博 开学通知 单条微博 教育部新闻办 教育部 2024 2025",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 45501
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": true,
+        "include_domains": [
+          "weibo.com"
+        ],
+        "max_results": 20,
+        "mode": "web",
+        "query": "site:weibo.com/u/3787459525 开学 通知 微言教育 \"开学\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 31247
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": true,
+        "include_domains": null,
+        "max_results": 20,
+        "mode": "web",
+        "query": "\"微言教育\" \"开学\" \"教育部\" 微博 通知",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 39502
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "balanced",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "weibo.com"
+        ],
+        "max_results": 20,
+        "mode": "web",
+        "query": "site:weibo.com/3787459525 开学通知 OR 开学提醒 OR 新学期",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 22613
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": true,
+        "include_domains": [
+          "weibo.com"
+        ],
+        "max_results": 20,
+        "mode": "web",
+        "query": "site:weibo.com/2737798435 \"开学\" \"微言教育\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 29492
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": true,
+        "include_domains": [
+          "weibo.com"
+        ],
+        "max_results": 20,
+        "mode": "web",
+        "query": "site:weibo.com/2737798435 \"新学期\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 29554
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": true,
+        "include_domains": [
+          "weibo.com"
+        ],
+        "max_results": 20,
+        "mode": "web",
+        "query": "site:weibo.com/2737798435 \"开学通知\" OR \"开学提醒\" OR \"开学啦\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 61825
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "weibo.com"
+        ],
+        "max_results": 20,
+        "mode": "web",
+        "query": "\"微言教育\" \"#你好新学期#\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 62656
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "开学 新学期 通知 微言教育 正文 发布时间 作者",
+        "fresh": true,
+        "max_chars": 20000,
+        "url": "https://weibo.com/2737798435/5334383344484938"
+      },
+      "is_error": true,
+      "ms": 215
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "开学 新学期 通知 微言教育 正文 发布时间 作者",
+        "fresh": true,
+        "max_chars": 20000,
+        "url": "http://weibo.com/2737798435/RfWsw7I3I?s=6cm7D0"
+      },
+      "is_error": true,
+      "ms": 215
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "开学 新学期 通知 微言教育 正文 发布时间 作者",
+        "fresh": true,
+        "max_chars": 20000,
+        "url": "http://weibo.com/2737798435/QuXYQ0En8?s=6cm7D0"
+      },
+      "is_error": true,
+      "ms": 214
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "开学 新学期 通知 微言教育 正文 发布时间 作者",
+        "fresh": true,
+        "max_chars": 20000,
+        "url": "http://weibo.com/2737798435/R4GhhdO2e?s=6cm7D0"
+      },
+      "is_error": true,
+      "ms": 214
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": [
+          "weibo.com"
+        ],
+        "fresh": true,
+        "include_domains": null,
+        "max_results": 20,
+        "mode": "web",
+        "query": "\"微言教育\" \"开学通知\"",
+        "vertical": null
+      }
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": [
+          "weibo.com"
+        ],
+        "fresh": true,
+        "include_domains": null,
+        "max_results": 20,
+        "mode": "web",
+        "query": "\"微言教育\" \"开学\" \"@微言教育\"",
+        "vertical": null
+      }
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": [
+          "weibo.com"
+        ],
+        "fresh": false,
+        "include_domains": null,
+        "max_results": 20,
+        "mode": "web",
+        "query": "教育部新闻办公室官方微博 开学 通知 微博",
+        "vertical": null
+      },
+      "is_error": true,
+      "ms": 2224
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.1\", \"result_id\": \"8dee250ef598c976ae61506e\", \"kind\": \"search\", \"status\": \"partial\", \"query\": \"site:weibo.com 教育部 官方 开学 通知 微博 开学通知 单条微博 教育部新闻办 教育部 2024 2025\", \"answer\": \"Site search did not surface a clean standalone 2024 or 2025 “开学通知” post from 教育部新闻办. Closest hits are the official account **微言教育** (教育部新闻办公室官方微博) and related education posts.\\n\\n1. **微言教育 — 2026秋季开学要求（转发摘要）**  \\n   #你好新学期#【2026年秋季开学，教育部明确这些要求】：教育部开展全国中小学幼儿园秋季开学工作视频调度，部署秋季开学重点工作。  \\n   Source: Weibo widget citing 微言教育 — [web:3]\\n\\n2. **微言教育 — 开学安全提示（转发摘要）**  \\n   #你好新学期#【@师生家长，这份开学安全提示请查收】：健康、防溺水、交通、心理、…\", \"answer_chars\": 1789, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 3, \"cross_provider_matches\": 0, \"pages_fetched\": 1, \"primary_citation_count\": 21, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 45493, \"warning_count\": 0, \"warnings\": [], \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"target_unreadable\", \"message\": \"Firecrawl could not read this URL (HTTP 500)\", \"retryable\": false}, {\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 11, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 23, \"results\": [{\"id\": \"r1\", \"title\": \"\", \"url\": \"http://weibo.com/1784473157/Qz3AerOKl\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"\", \"url\": \"http://weibo.com/1699432410/Q2gWd1Gtf\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r3\", \"title\": \"\", \"url\": \"http://weibo.com/2737798435/QzHx9qeWk?s=6cm7D0\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=3&height=800&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=3787459525&verifier=bb542853&width=0\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r5\", \"title\": \"\", \"url\": \"https://weibo.com/a/hot/b8db9365f18b1966_0.html?type=grab\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r6\", \"title\": \"\", \"url\": \"https://weibo.com/ttarticle/x/m/show/id/2309405291163854176409?_wb_client_=1&s_channel=4&s_trans=fA+pAJ6u%2Ft+qwzCe06Hccg%3D%3D_s\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r7\", \"title\": \"\", \"url\": \"https://weibo.com/a/hot/c7b5d67f23d4d75e_0.html?type=grab\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r8\", \"title\": \"\", \"url\": \"https://weibo.com/a/hot/04e174108e4e8960_0.html?type=grab\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r9\", \"title\": \"\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?fansRow=2&height=500&isFans=1&isTitle=1&isWeibo=1&noborder=1&ptype=0&skin=4&speed=0&uid=1666022553&verifier=8c7c607d&width=680\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"\", \"url\": \"https://h5.video.weibo.com/show/1034:5248057659555921?launchid=10000360-page_H5&lfid=5248121699307514&luicode=20000061\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"http://weibo.com/1784473157/Qz3AerOKl\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"http://weibo.com/1699432410/Q2gWd1Gtf\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"xai\"]}, {\"id\": \"c3\", \"url\": \"http://weibo.com/2737798435/QzHx9qeWk?s=6cm7D0\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=3&height=800&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=3787459525&verifier=bb542853&width=0\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"xai\"]}, {\"id\": \"c5\", \"url\": \"https://weibo.com/a/hot/b8db9365f18b1966_0.html?type=grab\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"tavily\"]}, {\"id\": \"c6\", \"url\": \"https://weibo.com/ttarticle/x/m/show/id/2309405291163854176409?_wb_client_=1&s_channel=4&s_trans=fA+pAJ6u%2Ft+qwzCe06Hccg%3D%3D_s\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://weibo.com/a/hot/c7b5d67f23d4d75e_0.html?type=grab\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"tavily\"]}, {\"id\": \"c8\", \"url\": \"https://weibo.com/a/hot/04e174108e4e8960_0.html?type=grab\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?fansRow=2&height=500&isFans=1&isTitle=1&isWeibo=1&noborder=1&ptype=0&skin=4&speed=0&uid=1666022553&verifier=8c7c607d&width=680\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://h5.video.weibo.com/show/1034:5248057659555921?launchid=10000360-page_H5&lfid=5248121699307514&luicode=20000061\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://www.weibo.com/ttarticle/p/show?id=2309405117698433744964\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://weibo.com/1617264814/Qo0dZ7cMK\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"http://weibo.com/2737798435/QuXYQ0En8?s=6cm7D0\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=240&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=1&speed=300&uid=2903129280&verifier=7568b691&width=243\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?fansRow=2&height=550&isFans=0&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=1050163153&verifier=f8d37ee6&width=0\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://weibo.com/2075390917/Q2rclpdib?pagetype=viewer\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://weibo.com/2656274875/QuXdxkwYW?pagetype=profilefeed\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=550&isFans=0&isTitle=0&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=300&uid=2737798435&verifier=5192ec39&width=0\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"http://weibo.com/5000609535/QdwdQnV95?s=6cm7D0&type=repost\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"http://weibo.com/2613324761/RjtMMbBvK?s=6cm7D0\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"http://weibo.com/1699432410/QtbVQgkCW?s=6cm7D0\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"https://weibo.com/a/hot/2d8e9c1b09703b87_0.html?type=grab\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c23\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=228&isFans=0&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=3&speed=0&uid=3950480876&verifier=19f30c78&width=195\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"8dee250ef598c976ae61506e\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"微博\", \"satisfied\": true, \"detail\": \"10 content page(s), e.g. http://weibo.com/1784473157/Qz3AerOKl\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 23, \"new_pages_read\": 1, \"seen_urls\": 23, \"pages_read\": 1, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"18498fa8f368460dc34ef93a\", \"kind\": \"search\", \"status\": \"partial\", \"query\": \"site:weibo.com/u/3787459525 开学 通知 微言教育 \\\"开学\\\"\", \"answer\": \"Public search results for `weibo.com/u/3787459525` mostly surface the account’s Weibo widget, not individual post permalinks. That uid is **四川绵阳教育体育** (Sichuan, Mianyang). The visible timeline is largely reposts of **微言教育** and **四川教育发布** about the new term. Below are the relevant items found (up to the widget’s recent feed; not a full archive).\\n\\nSource page: [微博秀 for uid 3787459525](http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=800&fansRow=3&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=1&isFans=1&uid=3787459525&verifier=bb542853&dpc=1) [[1]](http://widget.weibo.…\", \"answer_chars\": 3674, \"evidence\": {\"unique_urls\": 9, \"unique_domains\": 3, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 1, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 31240, \"warning_count\": 1, \"warnings\": [\"coverage_insufficient:site:微博\"], \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 13, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}, {\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 14, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"site:weibo\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}], \"result_count\": 9, \"citation_count\": 9, \"results\": [{\"id\": \"r1\", \"title\": \"1\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=3&height=800&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=3787459525&verifier=bb542853&width=0\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"微博秀\", \"url\": \"https://widget.weibo.com/weiboshow/index.php?colors=ffffff&fansRow=2&height=570&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=0&skin=1&speed=0&uid=2737798435&verifier=5192ec39&width=auto\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"微博秀\", \"url\": \"https://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=550&isFans=0&isTitle=0&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=300&uid=2737798435&verifier=5192ec39&width=0\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r4\", \"title\": \"你想了解的教育防疫动态，都在这里！_微博\", \"url\": \"https://www.weibo.com/a/hot/7584424976259073_1.html?type=new\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"#建议减轻教师非教育教学负担#_微博\", \"url\": \"https://weibo.com/a/hot/7f8abcdacbbba48d_0.html?type=grab\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r6\", \"title\": \"#官方通报中学教师坠楼事件#_微博\", \"url\": \"https://weibo.com/a/hot/2e456b697a1b9c37_0.html?type=grab\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"#教育局回应教师报考其他单位遭开除#_微博\", \"url\": \"https://weibo.com/a/hot/81a5987aa74cbeb1_0.html?type=grab\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r8\", \"title\": \"#三亚通报在职教师被开除#_微博\", \"url\": \"https://weibo.com/a/hot/03f3cc9c9018bd47_0.html?type=grab\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"#夜闯女寝留学生开除学籍#_微博\", \"url\": \"https://weibo.com/a/hot/8e074def7c88e2bf_0.html?type=grab\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=3&height=800&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=3787459525&verifier=bb542853&width=0\", \"title\": \"1\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://widget.weibo.com/weiboshow/index.php?colors=ffffff&fansRow=2&height=570&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=0&skin=1&speed=0&uid=2737798435&verifier=5192ec39&width=auto\", \"title\": \"微博秀\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=550&isFans=0&isTitle=0&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=300&uid=2737798435&verifier=5192ec39&width=0\", \"title\": \"微博秀\", \"result_item_id\": \"r3\", \"providers\": [\"tavily\"]}, {\"id\": \"c4\", \"url\": \"https://www.weibo.com/a/hot/7584424976259073_1.html?type=new\", \"title\": \"你想了解的教育防疫动态，都在这里！_微博\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://weibo.com/a/hot/7f8abcdacbbba48d_0.html?type=grab\", \"title\": \"#建议减轻教师非教育教学负担#_微博\", \"result_item_id\": \"r5\", \"providers\": [\"tavily\"]}, {\"id\": \"c6\", \"url\": \"https://weibo.com/a/hot/2e456b697a1b9c37_0.html?type=grab\", \"title\": \"#官方通报中学教师坠楼事件#_微博\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://weibo.com/a/hot/81a5987aa74cbeb1_0.html?type=grab\", \"title\": \"#教育局回应教师报考其他单位遭开除#_微博\", \"result_item_id\": \"r7\", \"providers\": [\"tavily\"]}, {\"id\": \"c8\", \"url\": \"https://weibo.com/a/hot/03f3cc9c9018bd47_0.html?type=grab\", \"title\": \"#三亚通报在职教师被开除#_微博\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://weibo.com/a/hot/8e074def7c88e2bf_0.html?type=grab\", \"title\": \"#夜闯女寝留学生开除学籍#_微博\", \"result_item_id\": \"r9\", \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"18498fa8f368460dc34ef93a\"}, \"coverage\": {\"status\": \"insufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"微博\", \"satisfied\": false, \"detail\": \"only non-content pages on 微博 (home, profile or list pages); 微博 usually requires login\"}], \"requirements_total\": 1}, \"next_steps\": [{\"tool\": \"search\", \"why\": \"nothing from 微博 yet; restrict the next search to it or report it as not found\", \"query\": \"u 3787459525 开学 通知 微言教育 开学\", \"include_domains\": [\"weibo.com\"]}], \"session\": {\"calls\": {\"search\": 3, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 8, \"new_pages_read\": 0, \"seen_urls\": 67, \"pages_read\": 1, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"45645c18c7d0be19c4ed7e8c\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"\\\"微言教育\\\" \\\"开学\\\" \\\"教育部\\\" 微博 通知\", \"answer\": \"“微言教育”是教育部新闻办公室官方微博（新浪认证，粉丝约800万+），常发开学相关通知与提示。以下为检索到的相关结果（最多20条，按主题归类，附简要来源）。\\n\\n**开学衔接与政策通知**\\n1. 幼升小、小升初衔接：幼儿园不得教授小学课程；小学一年级第一学期设入学适应期，一年级不布置书面家庭作业。来源：据微言教育转述，成都商报/新浪，2026-08-24。https://k.sina.cn/art…\", \"answer_chars\": 1976, \"evidence\": {\"unique_urls\": 20, \"unique_domains\": 16, \"cross_provider_matches\": 0, \"pages_fetched\": 2, \"primary_citation_count\": 37, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 39485, \"warning_count\": 1, \"warnings\": [\"auto_scrape_truncated\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 20, \"citation_count\": 45, \"results\": [], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.newton.com.tw/wiki/%E5%BE%AE%E8%A8%80%E6%95%99%E8%82%B2/14900121\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://age06.edu.sh.cn/age06web/home/content/2013/7274396499415404544.html\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://k.sina.cn/article_5952915720_162d2490806704za6m.html\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"http://www.moe.gov.cn/jyb_xwfb/gzdt_gzdt/s5987/201709/t20170908_313876.html\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://finance.sina.com.cn/stock/t/2026-10-11/doc-iniuvhuq0563991.shtml\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"http://www.moe.gov.cn/jyb_sy/sy_wb/201301/t20130129_147290.html\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://news.sina.cn/gn/2026-04-03/detail-inhtetzi8935710.d.html\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://v.douyin.com/i6He8FGn\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://m.henan-edu.com/jiaoyuzixun/2941.shtml\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"http://t.cn/EZVMPTO\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://m.weibo.cn/u/2737798435?lfid=5140839249740598&luicode=20000061\", \"title\": \"\", \"result_item_id\": \"r11\", \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"http://www.moe.gov.cn/jyb_xwfb/xw_zt/moe_357/2024/2024_zt14/gxdx/wyjy\", \"title\": \"\", \"result_item_id\": \"r12\", \"providers\": [\"tavily\"]}, {\"id\": \"c13\", \"url\": \"http://www.cnr.cn/jy/list/20170908/t20170908_523940652.shtml\", \"title\": \"\", \"result_item_id\": \"r13\", \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"http://www.moe.gov.cn/jyb_xwfb/xw_zt/moe_357/jyzt_2017nztzl/2017_zt03/17zt03_mtbd/mtbd_wyjy\", \"title\": \"\", \"result_item_id\": \"r14\", \"providers\": [\"tavily\"]}, {\"id\": \"c15\", \"url\": \"https://www.moe.gov.cn/jyb_sy/sy_wb/201301/t20130129_147290.html\", \"title\": \"\", \"result_item_id\": \"r15\", \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://www.bbc.com/zhongwen/simp/chinese-news-45392646\", \"title\": \"\", \"result_item_id\": \"r16\", \"providers\": [\"tavily\"]}, {\"id\": \"c17\", \"url\": \"http://news.sina.com.cn/c/2012-06-11/134724572697.shtml\", \"title\": \"\", \"result_item_id\": \"r17\", \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"http://weibo.com/2737798435/QzHx9qeWk?s=6cm7D0\", \"title\": \"\", \"result_item_id\": \"r18\", \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://www.cernet.edu.cn/zhong_guo_jiao_yu/jiao_yu_bu/xin_wen_dong_tai/201206/t20120611_789401.shtml\", \"title\": \"\", \"result_item_id\": \"r19\", \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=240&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=1&speed=300&uid=2903129280&verifier=7568b691&width=243\", \"title\": \"\", \"result_item_id\": \"r20\", \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"https://www.cernet.edu.cn/edu/jiao_yu_bu/xin_wen_dong_tai/201301/t20130118_894966.shtml\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"https://egs.stcn.com/news/detail/2197646.html\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c23\", \"url\": \"http://weibo.com/2737798435/QuXYQ0En8?s=6cm7D0\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c24\", \"url\": \"http://www.moe.gov.cn/jyb_xwfb/xw_zt/moe_357/2025/2025_zt01/jdt/202501/t20250110_1175024.html\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c25\", \"url\": \"https://finance.sina.com.cn/tech/roll/2025-12-17/doc-inhcazqc2254611.shtml\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c26\", \"url\": \"http://news.sina.com.cn/c/2013-01-04/111225952254.shtml\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c27\", \"url\": \"http://t.cn/AXp1ESz9\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c28\", \"url\": \"https://gaokao.chsi.com.cn/gkxx/zc/moe/201412/20141202/1411771653.html\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c29\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?colors=ffffff%2Cffffff%2C4b4b4b%2C567FE6%2Cffffff&dpc=1&fansRow=2&height=300&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=0&skin=1&speed=0&uid=2737798435&verifier=5192ec39&width=250\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c30\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=1&height=250&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=5&speed=100&uid=1993203494&verifier=b293b5df&width=220\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c31\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=228&isFans=0&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=3&speed=0&uid=3950480876&verifier=19f30c78&width=195\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c32\", \"url\": \"https://www.163.com/dy/article/KTHD455I0511DJHA.html\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c33\", \"url\": \"http://news.sina.com.cn/c/2013-01-17/234726061391.shtml\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c34\", \"url\": \"https://baike.baidu.com/item/%E5%BE%AE%E8%A8%80%E6%95%99%E8%82%B2/14900121\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c35\", \"url\": \"http://www.moe.gov.cn/jyb_xwfb/s5147/201412/t20141202_179069.html\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c36\", \"url\": \"https://portal.smu.edu.cn/szw/info/1011/1754.htm\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c37\", \"url\": \"https://www.163.com/dy/article/L2M25RRR051485CG.html\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c38\", \"url\": \"http://weibo.com/5000609535/QdwdQnV95?s=6cm7D0&type=repost\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c39\", \"url\": \"http://www.moe.gov.cn/jyb_xwfb/s5147/201301/t20130130_147345.html\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c40\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=3&height=800&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=3787459525&verifier=bb542853&width=0\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c41\", \"url\": \"https://edu.gmw.cn/2025-11/19/content_38423331.htm\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"45645c18c7d0be19c4ed7e8c\"}, \"coverage\": {\"status\": \"not_applicable\", \"requirements\": [], \"requirements_total\": 0}, \"session\": {\"calls\": {\"search\": 4, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 38, \"new_pages_read\": 2, \"seen_urls\": 105, \"pages_read\": 3, \"calls_without_new_evidence\": 0}, \"results_truncated\": true, \"citations_truncated\": true}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"2429edf491421a663ccef8a1\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:weibo.com/3787459525 开学通知 OR 开学提醒 OR 新学期\", \"answer\": \"Account **uid 3787459525** is **四川绵阳教育体育** (Mianyang, Sichuan). Public indexing mostly returns its Weibo widget feed of reposts, not standalone posts titled “开学通知” or “开学提醒.” Below are the new-semest…\", \"answer_chars\": 1612, \"evidence\": {\"unique_urls\": 20, \"unique_domains\": 2, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 38, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 22593, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"skipped\", \"reason\": \"primary_sufficient\"}], \"result_count\": 20, \"citation_count\": 38, \"results\": [], \"citations\": [{\"id\": \"c1\", \"url\": \"https://weibo.com/2513228987/RlFYbsflR\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://weibo.com/2002698697/RlhMbyeKY\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"xai\"]}, {\"id\": \"c3\", \"url\": \"https://weibo.com/7900596463/RleyfEHyr\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://weibo.com/3509300853/RlBAidqtN\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"xai\"]}, {\"id\": \"c5\", \"url\": \"https://weibo.com/5173245694/RlGMs67bk\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"http://weibo.com/2971760624/RieUYfpL9?s=6cm7D0\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"http://weibo.com/1420157965/Q1wn0yQia\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://weibo.com/7542252663/RlaCVmgjG\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://weibo.com/2/detail/5338289889869937\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=3&height=800&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=3787459525&verifier=bb542853&width=0\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"http://widget.weibo.com/list/list.php?appkey=&color=&dpc=1&footbar=1&height=500&info=1&isborder=1&language=zh_cn&listid=3727944616342967&listname=%E6%96%B0%E4%B9%A1%E5%B8%82%E6%95%99%E8%82%B2%E5%B1%80&showcreate=1&sidebar=1&uid=3947430314&uname=%E6%96%B0%E4%B9%A1%E5%B8%82%E6%95%99%E8%82%B2%E5%B1%80&width=950\", \"title\": \"\", \"result_item_id\": \"r11\", \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=507&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=1&speed=300&uid=1525622760&verifier=a9665210&width=0\", \"title\": \"\", \"result_item_id\": \"r12\", \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?fansRow=2&height=680&isFans=0&isTitle=0&isWeibo=1&noborder=0&ptype=1&skin=5&speed=0&uid=1666928707&verifier=784fa85f&width=0\", \"title\": \"\", \"result_item_id\": \"r13\", \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=680&isFans=0&isTitle=0&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=300&uid=1999998583&verifier=5097aa8e&width=0\", \"title\": \"\", \"result_item_id\": \"r14\", \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=540&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=1&speed=300&uid=1845850033&verifier=0b6bb11b&width=0\", \"title\": \"\", \"result_item_id\": \"r15\", \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=250&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=10&speed=300&uid=2866805914&verifier=b98e9b0b&width=510\", \"title\": \"\", \"result_item_id\": \"r16\", \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?fansRow=2&height=550&isFans=1&isTitle=1&isWeibo=1&noborder=1&ptype=1&skin=4&speed=0&uid=1892677197&verifier=6ee1d15c&width=0\", \"title\": \"\", \"result_item_id\": \"r17\", \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://weibo.com/a/hot/08f6833796eb9c77_0.html?type=grab\", \"title\": \"\", \"result_item_id\": \"r18\", \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=735&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=5534907239&verifier=6418177c&width=0\", \"title\": \"\", \"result_item_id\": \"r19\", \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"https://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=550&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=2738672840&verifier=45ea3138&width=0\", \"title\": \"\", \"result_item_id\": \"r20\", \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=228&isFans=0&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=3&speed=0&uid=3950480876&verifier=19f30c78&width=195\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"http://weibo.com/1905843503/QxBpSDWRb\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c23\", \"url\": \"https://weibo.com/7900704341/Rleyf4pHg\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c24\", \"url\": \"https://weibo.com/5496185270/RmPeiE9d4\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c25\", \"url\": \"https://weibo.com/1793202290/Q3B1aubFU\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c26\", \"url\": \"https://www.weibo.com/tv/v/I5oNVvG4D?fid=1034%3A4412869773835850\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c27\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=555&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=3&skin=1&speed=0&uid=2579889714&verifier=1d07a1a0&width=0\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c28\", \"url\": \"https://weibo.com/6577842450/RlIPB5tuB\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c29\", \"url\": \"https://weibo.com/1900412195/5180991943738895\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c30\", \"url\": \"https://weibo.com/2131593523/RlzvUiNLJ\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c31\", \"url\": \"https://weibo.com/2145917613/Rmwutj6rn\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c32\", \"url\": \"http://widget.weibo.com/list/list.php?appkey=554542457&color=&dpc=1&footbar=1&height=700&info=1&isborder=1&language=zh_cn&listid=3704465272060270&listname=%E5%8C%97%E5%A4%A7%E5%85%89%E5%8D%8E&showcreate=0&sidebar=1&uid=1743561103&uname=%E5%B2%B3%E6%89%8D%E5%8B%87&width=940\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c33\", \"url\": \"https://weibo.com/1989875622/RmkEoeT4R\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c34\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=350&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=1&speed=100&uid=1718699234&verifier=8ef712fb&width=0\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c35\", \"url\": \"https://weibo.com/5300969049/RlwnFfv28\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c36\", \"url\": \"https://weibo.com/a/hot/bde49eb605b20225_0.html?type=grab\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"2429edf491421a663ccef8a1\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"微博\", \"satisfied\": true, \"detail\": \"19 content page(s), e.g. https://weibo.com/2513228987/RlFYbsflR\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 2, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 36, \"new_pages_read\": 0, \"seen_urls\": 59, \"pages_read\": 1, \"calls_without_new_evidence\": 0}, \"results_truncated\": true, \"citations_truncated\": true}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"193b10b37e961ac82f75b95e\", \"kind\": \"search\", \"status\": \"partial\", \"query\": \"site:weibo.com/2737798435 \\\"开学\\\" \\\"微言教育\\\"\", \"answer\": \"Relevant results for **微言教育** (Weibo uid **2737798435**, Ministry of Education news office) tied to **开学**. Public search mostly surfaces widget embeds and reposts, not a full native timeline. Up to …\", \"answer_chars\": 3519, \"evidence\": {\"unique_urls\": 20, \"unique_domains\": 5, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 29, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 29477, \"warning_count\": 0, \"warnings\": [], \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 12, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}, {\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 13, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}, {\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 14, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}], \"result_count\": 20, \"citation_count\": 37, \"results\": [], \"citations\": [{\"id\": \"c1\", \"url\": \"https://weibo.com/2737798435/5334383344484938\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"tavily\"]}, {\"id\": \"c2\", \"url\": \"http://weibo.com/2737798435/RfWsw7I3I?s=6cm7D0\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://weibo.com/2737798435/5338023329270121\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"tavily\"]}, {\"id\": \"c4\", \"url\": \"http://weibo.com/2737798435/QuXYQ0En8?s=6cm7D0\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"xai\"]}, {\"id\": \"c5\", \"url\": \"http://weibo.com/2737798435/R4GhhdO2e?s=6cm7D0\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://weibo.com/1974177154/RgYSmECNd\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://weibo.com/3509300853/RlBAidqtN\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://weibo.com/2/detail/5340088512282899\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?colors=ffffff%2Cffffff%2C4b4b4b%2C567FE6%2Cffffff&dpc=1&fansRow=2&height=300&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=0&skin=1&speed=0&uid=2737798435&verifier=5192ec39&width=250\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://widget.weibo.com/weiboshow/index.php?colors=ffffff&fansRow=2&height=570&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=0&skin=1&speed=0&uid=2737798435&verifier=5192ec39&width=auto\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://card.weibo.com/article/m/show/id/2309351000894091657082506506?_wb_client_=1&extparam=lmid--4091814259104709&lfid=1076036089397020&luicode=10000011&object_id=1022%3A2309351000894091657082506506\", \"title\": \"\", \"result_item_id\": \"r11\", \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://weibo.com/u/7497885899\", \"title\": \"\", \"result_item_id\": \"r12\", \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=300&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=0&skin=1&speed=0&uid=3718026912&verifier=ffce22a7&width=247\", \"title\": \"\", \"result_item_id\": \"r13\", \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?colors=d6f3f7%2Cf6f6f6%2C666666%2C0082cb%2Cecfbfd&dpc=1&fansRow=2&height=200&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=0&skin=7&speed=0&uid=3284847533&verifier=93b4ea1e&width=586\", \"title\": \"\", \"result_item_id\": \"r14\", \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://m.s.weibo.com/zhisou/zhisoushare?url=sinaweibo%3A%2F%2Fsearchall%3Fcontainerid%3D230958%26type%3D200%26q%3D%2523%25E5%25BC%2580%25E5%25AD%25A6%25E7%25AC%25AC%25E4%25B8%2580%25E8%25AF%25BE%25E7%25B2%25BE%25E5%25BD%25A9%25E6%258A%25A2%25E5%2585%2588%25E7%259C%258B%2523%26t%3D761%26extparam%3Ddfp%253D200%2526share_page_id%253D232964abf1807aa115c0a89aecfc7370e7d2d4%2526cot%253D1%2526share_from\", \"title\": \"\", \"result_item_id\": \"r15\", \"providers\": [\"tavily\"]}, {\"id\": \"c16\", \"url\": \"https://m.s.weibo.com/zhisou/zhisoushare?url=sinaweibo%3A%2F%2Fsearchall%3Fcontainerid%3D230958%26type%3D200%26q%3D%2523%25E6%2595%2599%25E5%25B8%2588%25E8%258A%2582%25E4%25B8%25BA%25E4%25BB%2580%25E4%25B9%2588%25E6%2598%25AF9%25E6%259C%258810%25E6%2597%25A5%2523%26t%3D761%26extparam%3Ddfp%253D200%2526share_page_id%253D23296419a1cfb847e69fb057cb6bcfaabb8348%2526cot%253D1%2526share_from%253Dhot%252\", \"title\": \"\", \"result_item_id\": \"r16\", \"providers\": [\"tavily\"]}, {\"id\": \"c17\", \"url\": \"https://card.weibo.com/article/m/show/id/2309404481648900046997?_wb_client_=1&extparam=lmid--4481648903564780&lfid=231522type%3D1%26t%3D10%26q%3D%23%E9%AB%98%E6%A0%A1%23&luicode=10000011&object_id=1022%3A2309404481648900046997\", \"title\": \"\", \"result_item_id\": \"r17\", \"providers\": [\"tavily\"]}, {\"id\": \"c18\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?colors=fffdf0%2Cfffdf0%2C787878%2C00b7ef%2Cecfbfd&dpc=1&fansRow=1&height=220&isFans=0&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=9&speed=0&uid=2093306441&verifier=784ea6ed&width=230\", \"title\": \"\", \"result_item_id\": \"r18\", \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://www.weibo.com/tv/v/I5oNVvG4D?fid=1034%3A4412869773835850\", \"title\": \"\", \"result_item_id\": \"r19\", \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"http://weibo.com/eduzhi?s=6cm7D0\", \"title\": \"\", \"result_item_id\": \"r20\", \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=550&isFans=0&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=5192053742&verifier=561f9ad1&width=0\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"https://weibo.com/2737798435/RjqOj8d1B\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c23\", \"url\": \"https://weibo.com/7542252663/RlaCVmgjG\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c24\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=240&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=1&speed=300&uid=2903129280&verifier=7568b691&width=243\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c25\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=3&height=800&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=3787459525&verifier=bb542853&width=0\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"193b10b37e961ac82f75b95e\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"微博\", \"satisfied\": true, \"detail\": \"13 content page(s), e.g. https://weibo.com/2737798435/5334383344484938\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 5, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 23, \"new_pages_read\": 0, \"seen_urls\": 128, \"pages_read\": 3, \"calls_without_new_evidence\": 0}, \"results_truncated\": true, \"citations_truncated\": true, \"urls_truncated\": true}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"6cb597a0abb66a91279f5c76\", \"kind\": \"search\", \"status\": \"partial\", \"query\": \"site:weibo.com/2737798435 \\\"新学期\\\"\", \"answer\": \"UID **2737798435** is **微言教育** (教育部新闻办公室官方微博). Web search does not reliably honor `site:weibo.com/2737798435`; most hits are Weibo widgets or reposts of that account. Below are posts that contain **新…\", \"answer_chars\": 2054, \"evidence\": {\"unique_urls\": 20, \"unique_domains\": 5, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 51, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 29532, \"warning_count\": 0, \"warnings\": [], \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"circuit_open\", \"message\": \"circuit open for provider firecrawl\", \"retryable\": true}, {\"provider\": \"firecrawl\", \"code\": \"circuit_open\", \"message\": \"circuit open for provider firecrawl\", \"retryable\": true}, {\"provider\": \"firecrawl\", \"code\": \"circuit_open\", \"message\": \"circuit open for provider firecrawl\", \"retryable\": true}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}], \"result_count\": 20, \"citation_count\": 59, \"results\": [], \"citations\": [{\"id\": \"c1\", \"url\": \"https://weibo.com/1617264814/RmwutnvS4\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"http://weibo.com/3544933464/Rh85l4mp1\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://weibo.com/5496185270/RmPeiE9d4\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://weibo.com/2803301701/5337886251025934\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://weibo.com/6311296201/5340453089051674\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"tavily\"]}, {\"id\": \"c6\", \"url\": \"https://weibo.com/detail/5314087682572596\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://weibo.com/3925308009/Rfssw7BHZ\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"tavily\"]}, {\"id\": \"c8\", \"url\": \"https://weibo.com/2803301701/5338452625457624\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://weibo.com/detail/5338303005196734\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"tavily\"]}, {\"id\": \"c10\", \"url\": \"https://widget.weibo.com/weiboshow/index.php?colors=ffffff&fansRow=2&height=570&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=0&skin=1&speed=0&uid=2737798435&verifier=5192ec39&width=auto\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=550&isFans=0&isTitle=0&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=300&uid=2737798435&verifier=5192ec39&width=0\", \"title\": \"\", \"result_item_id\": \"r11\", \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?fansRow=2&height=374&isFans=0&isTitle=1&isWeibo=1&noborder=1&ptype=1&skin=9&speed=0&uid=1660266214&verifier=1cd3a528&width=300\", \"title\": \"\", \"result_item_id\": \"r12\", \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=1&height=110&isFans=0&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=300&uid=1881124713&verifier=47796520&width=185\", \"title\": \"\", \"result_item_id\": \"r13\", \"providers\": [\"tavily\"]}, {\"id\": \"c14\", \"url\": \"https://m.s.weibo.com/js.t.sinajs.cn/t4/apps/searchpc/js/vue/zhisou/zhisoushare?extparam=dfp%3D200%26share_page_id%3D232964b4eae20391ec288dc873cbcfd042e437%26cot%3D1&q=%E8%B6%85%E7%9F%AD%E5%AD%A6%E6%9C%9F&t=761&type=200&url=sinaweibo%3A%2Fsearchall%3Fcontainerid%3D230958\", \"title\": \"\", \"result_item_id\": \"r14\", \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://weibo.com/edublog\", \"title\": \"\", \"result_item_id\": \"r15\", \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://card.weibo.com/article/m/show/id/2309404545342099292210?_wb_client_=1&extparam=lmid--4545342098118389&featurecode=1&lfid=231522type%3D1%26t%3D10%26q%3D%23%E7%BA%BA%E4%B8%93%E6%97%A9%E9%97%B4%23&luicode=10000011&object_id=1022%3A2309404545342099292210\", \"title\": \"\", \"result_item_id\": \"r16\", \"providers\": [\"tavily\"]}, {\"id\": \"c17\", \"url\": \"https://weibo.com/newlogin?gid=102803&openLoginLayer=0&tabtype=weibo&url=https%3A%2Fme.weibo.com%2Foperation%2Flottery_publicity%3Fhas_side%3D0%26lid%3D25618624\", \"title\": \"\", \"result_item_id\": \"r17\", \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://gongyi.weibo.com/r/225763\", \"title\": \"\", \"result_item_id\": \"r18\", \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=1&height=560&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=9&speed=0&uid=1787594820&verifier=9bc28858&width=0\", \"title\": \"\", \"result_item_id\": \"r19\", \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"https://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=550&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=2738672840&verifier=45ea3138&width=0\", \"title\": \"\", \"result_item_id\": \"r20\", \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"https://weibo.com/a/hot/b863c8d8395eabc6_0.html?type=grab\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=240&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=1&speed=300&uid=2903129280&verifier=7568b691&width=243\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c23\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?colors=fffdf0%2Cfffdf0%2C787878%2C00b7ef%2Cecfbfd&dpc=1&fansRow=1&height=220&isFans=0&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=9&speed=0&uid=2093306441&verifier=784ea6ed&width=230\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c24\", \"url\": \"http://weibo.com/2737798435/R4w0proVF?s=6cm7D0&type=repost\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c25\", \"url\": \"https://weibo.com/a/hot/0e22f2229ca67e1e_0.html?type=grab\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c26\", \"url\": \"http://weibo.com/2737798435/R8Nlym58j?s=6cm7D0&type=comment\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c27\", \"url\": \"https://www.weibo.com/tv/v/I5oNVvG4D?fid=1034%3A4412869773835850\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c28\", \"url\": \"https://weibo.com/a/hot/bde49eb605b20225_0.html?type=grab\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c29\", \"url\": \"https://weibo.com/7542252663/RlaCVmgjG\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c30\", \"url\": \"http://weibo.com/2737798435/R4GhhdO2e?s=6cm7D0\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c31\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?fansRow=2&height=500&isFans=1&isTitle=1&isWeibo=1&noborder=1&ptype=0&skin=4&speed=0&uid=1666022553&verifier=8c7c607d&width=680\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c32\", \"url\": \"https://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=507&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=1&speed=300&uid=1525622760&verifier=a9665210&width=0\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c33\", \"url\": \"https://weibo.com/2737798435/RjqOj8d1B\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c34\", \"url\": \"https://weibo.com/7631335436/RmqxZrBCL\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"6cb597a0abb66a91279f5c76\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"微博\", \"satisfied\": true, \"detail\": \"26 content page(s), e.g. https://weibo.com/1617264814/RmwutnvS4\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 6, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 24, \"new_pages_read\": 0, \"seen_urls\": 152, \"pages_read\": 3, \"calls_without_new_evidence\": 0}, \"results_truncated\": true, \"citations_truncated\": true}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"cf7b304b1984abe1a2c05d9d\", \"kind\": \"search\", \"status\": \"partial\", \"query\": \"site:weibo.com/2737798435 \\\"开学通知\\\" OR \\\"开学提醒\\\" OR \\\"开学啦\\\"\", \"answer\": \"UID **2737798435** is **微言教育** (教育部新闻办公室官方微博). Public search did not return posts whose text is exactly “开学通知,” “开学提醒,” or “开学啦.” Closest indexed hits from that account (or clear reposts of its text)…\", \"answer_chars\": 1744, \"evidence\": {\"unique_urls\": 20, \"unique_domains\": 2, \"cross_provider_matches\": 0, \"pages_fetched\": 2, \"primary_citation_count\": 38, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 61805, \"warning_count\": 0, \"warnings\": [], \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"target_unreadable\", \"message\": \"Firecrawl could not read this URL (HTTP 500)\", \"retryable\": false}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}], \"result_count\": 20, \"citation_count\": 46, \"results\": [], \"citations\": [{\"id\": \"c1\", \"url\": \"https://weibo.com/2737798435/Btvn1v3dW\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://weibo.com/2737798435/RjqOj8d1B\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"xai\"]}, {\"id\": \"c3\", \"url\": \"http://weibo.com/2737798435/QuXYQ0En8?s=6cm7D0\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"http://weibo.com/2737798435/R4GhhdO2e?s=6cm7D0\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"xai\"]}, {\"id\": \"c5\", \"url\": \"http://weibo.com/1420157965/Q1wn0yQia\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://weibo.com/detail/5311951874820395\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://weibo.com/2/detail/5338088911930203\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"tavily\"]}, {\"id\": \"c8\", \"url\": \"http://weibo.com/1988438334/RezTAeyfg?s=6cm7D0&type=repost\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://weibo.com/5173245694/RlGMs67bk\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://weibo.com/2712268674/4864404354503498\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"http://weibo.com/3349909324/ReoEYrubR?s=6cm7D0&type=comment\", \"title\": \"\", \"result_item_id\": \"r11\", \"providers\": [\"tavily\"]}, {\"id\": \"c12\", \"url\": \"https://weibo.com/2803301701/Rf12I8RbP\", \"title\": \"\", \"result_item_id\": \"r12\", \"providers\": [\"tavily\"]}, {\"id\": \"c13\", \"url\": \"https://weibo.com/3509300853/RlBAidqtN\", \"title\": \"\", \"result_item_id\": \"r13\", \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://weibo.com/2/detail/5334840899539007\", \"title\": \"\", \"result_item_id\": \"r14\", \"providers\": [\"tavily\"]}, {\"id\": \"c15\", \"url\": \"https://weibo.com/a/hot/bde49eb605b20225_0.html?type=grab\", \"title\": \"\", \"result_item_id\": \"r15\", \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://weibo.com/ttarticle/p/show?id=2309405204719013593105&launchid=10000360-page_H5&lfid=5204719011629614&luicode=20000061\", \"title\": \"\", \"result_item_id\": \"r16\", \"providers\": [\"tavily\"]}, {\"id\": \"c17\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=228&isFans=0&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=3&speed=0&uid=3950480876&verifier=19f30c78&width=195\", \"title\": \"\", \"result_item_id\": \"r17\", \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?colors=fffdf0%2Cfffdf0%2C787878%2C00b7ef%2Cecfbfd&dpc=1&fansRow=1&height=220&isFans=0&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=9&speed=0&uid=2093306441&verifier=784ea6ed&width=230\", \"title\": \"\", \"result_item_id\": \"r18\", \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"http://widget.weibo.com/list/list.php?appkey=554542457&color=&dpc=1&footbar=1&height=700&info=1&isborder=1&language=zh_cn&listid=3704465272060270&listname=%E5%8C%97%E5%A4%A7%E5%85%89%E5%8D%8E&showcreate=0&sidebar=1&uid=1743561103&uname=%E5%B2%B3%E6%89%8D%E5%8B%87&width=940\", \"title\": \"\", \"result_item_id\": \"r19\", \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=240&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=1&speed=300&uid=2903129280&verifier=7568b691&width=243\", \"title\": \"\", \"result_item_id\": \"r20\", \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=540&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=1&speed=300&uid=1845850033&verifier=0b6bb11b&width=0\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"https://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=250&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=10&speed=300&uid=2866805914&verifier=b98e9b0b&width=510\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c23\", \"url\": \"http://widget.weibo.com/livestream/listlive.php?appkey=&at=0&atalk=1&atopic=%E5%BC%80%E5%AD%A6%E5%AD%A3%E6%9D%A5%E5%95%A6&border=1&colordiy=0&dpc=1&height=353&language=zh_cn&pic=0&ptopic=%E5%BC%80%E5%AD%A6%E5%AD%A3%E6%9D%A5%E5%95%A6&publish=1&recomm=0&refer=1&skin=8&titlebar=1&uid=2125745404&width=299\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c24\", \"url\": \"https://weibo.com/1803757251/RlG6vsqKT\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c25\", \"url\": \"https://www.weibo.com/tv/v/I5oNVvG4D?fid=1034%3A4412869773835850\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c26\", \"url\": \"https://weibo.com/2817174604/Rl4tgm3TF\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c27\", \"url\": \"https://weibo.com/7542252663/RlaCVmgjG\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c28\", \"url\": \"https://weibo.com/7950956231/RlzkL9wyo\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c29\", \"url\": \"https://weibo.com/2/detail/5338289889869937\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c30\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=350&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=1&speed=100&uid=1718699234&verifier=8ef712fb&width=0\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c31\", \"url\": \"https://weibo.com/1793202290/Q3B1aubFU\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c32\", \"url\": \"https://weibo.com/7900704341/Rleyf4pHg\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c33\", \"url\": \"https://weibo.com/2075390917/Q2rclpdib?pagetype=viewer\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c34\", \"url\": \"https://weibo.com/ttarticle/x/m/show/id/2309634470923242635385?_wb_client_=1&lfid=1076031769873155&luicode=10000011&object_id=1022%3A2309634470923242635385\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c35\", \"url\": \"https://weibo.com/ttarticle/x/m/show/id/2309354679524582555922?_wb_client_=1\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c36\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=555&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=3&skin=1&speed=0&uid=2579889714&verifier=1d07a1a0&width=0\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c37\", \"url\": \"https://weibo.com/6577842450/RlIPB5tuB\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"cf7b304b1984abe1a2c05d9d\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"微博\", \"satisfied\": true, \"detail\": \"29 content page(s), e.g. https://weibo.com/2737798435/Btvn1v3dW\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 7, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 15, \"new_pages_read\": 2, \"seen_urls\": 167, \"pages_read\": 5, \"calls_without_new_evidence\": 0}, \"results_truncated\": true, \"citations_truncated\": true}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"eabc854715c022d1c188dac9\", \"kind\": \"search\", \"status\": \"partial\", \"query\": \"\\\"微言教育\\\" \\\"#你好新学期#\\\"\", \"answer\": \"“微言教育”是教育部官方微博（北京，粉丝量约800万量级），常用话题 **#你好新学期#** 发布开学季提示。下面是检索到的相关内容（去重后的主题帖，来源多为微博转发聚合页）。\\n\\n1. **小升初课业压力** — 校长谈平稳过渡：课业是否真的更紧、家长哪些操心必要。来源：微言教育 #你好新学期#，见四川绵阳教育体育转发聚合。[web:0][web:15]\\n2. **开学安全提示** — 覆盖幼儿…\", \"answer_chars\": 1474, \"evidence\": {\"unique_urls\": 20, \"unique_domains\": 3, \"cross_provider_matches\": 0, \"pages_fetched\": 1, \"primary_citation_count\": 18, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 62637, \"warning_count\": 0, \"warnings\": [], \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 11, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 20, \"citation_count\": 26, \"results\": [{\"id\": \"r1\", \"title\": \"\", \"url\": \"https://weibo.com/2737798435/5334383344484938\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r2\", \"title\": \"\", \"url\": \"http://weibo.com/2737798435/RfWsw7I3I?s=6cm7D0\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"\", \"url\": \"https://weibo.com/1974177154/RgYSmECNd\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r4\", \"title\": \"\", \"url\": \"https://weibo.com/2/detail/5338760265075323\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"\", \"url\": \"https://weibo.com/7542252663/RlaCVmgjG\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"\", \"url\": \"https://weibo.com/2/detail/5338754359232938\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"\", \"url\": \"https://weibo.com/2/detail/5339382945942245\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r8\", \"title\": \"\", \"url\": \"https://weibo.com/2/detail/5340088512282899\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://weibo.com/2737798435/5334383344484938\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"tavily\"]}, {\"id\": \"c2\", \"url\": \"http://weibo.com/2737798435/RfWsw7I3I?s=6cm7D0\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://weibo.com/1974177154/RgYSmECNd\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"tavily\"]}, {\"id\": \"c4\", \"url\": \"https://weibo.com/2/detail/5338760265075323\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://weibo.com/7542252663/RlaCVmgjG\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://weibo.com/2/detail/5338754359232938\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://weibo.com/2/detail/5339382945942245\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"tavily\"]}, {\"id\": \"c8\", \"url\": \"https://weibo.com/2/detail/5340088512282899\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://weibo.com/2501519087/RgdmSjSFV\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"tavily\"]}, {\"id\": \"c10\", \"url\": \"https://h5.video.weibo.com/show/1034:5248057659555921?launchid=10000360-page_H5&lfid=5248121699307514&luicode=20000061\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=228&isFans=0&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=3&speed=0&uid=3950480876&verifier=19f30c78&width=195\", \"title\": \"\", \"result_item_id\": \"r11\", \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?fansRow=2&height=500&isFans=1&isTitle=1&isWeibo=1&noborder=1&ptype=0&skin=4&speed=0&uid=1666022553&verifier=8c7c607d&width=680\", \"title\": \"\", \"result_item_id\": \"r12\", \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=205&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=1&speed=300&uid=3926889691&verifier=ab1e8f09&width=372\", \"title\": \"\", \"result_item_id\": \"r13\", \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=300&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=0&skin=1&speed=0&uid=3718026912&verifier=ffce22a7&width=247\", \"title\": \"\", \"result_item_id\": \"r14\", \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://widget.weibo.com/weiboshow/index.php?colors=ffffff&fansRow=2&height=570&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=0&skin=1&speed=0&uid=2737798435&verifier=5192ec39&width=auto\", \"title\": \"\", \"result_item_id\": \"r15\", \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=240&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=1&speed=300&uid=2903129280&verifier=7568b691&width=243\", \"title\": \"\", \"result_item_id\": \"r16\", \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?colors=fffdf0%2Cfffdf0%2C787878%2C00b7ef%2Cecfbfd&dpc=1&fansRow=1&height=220&isFans=0&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=9&speed=0&uid=2093306441&verifier=784ea6ed&width=230\", \"title\": \"\", \"result_item_id\": \"r17\", \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://weibo.com/u/7497885899\", \"title\": \"\", \"result_item_id\": \"r18\", \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?colors=ffffff%2Cffffff%2C4b4b4b%2C567FE6%2Cffffff&dpc=1&fansRow=2&height=300&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=0&skin=1&speed=0&uid=2737798435&verifier=5192ec39&width=250\", \"title\": \"\", \"result_item_id\": \"r19\", \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=1&height=560&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=9&speed=0&uid=1787594820&verifier=9bc28858&width=0\", \"title\": \"\", \"result_item_id\": \"r20\", \"providers\": [\"xai\"]}, {\"id\": \"c21\", \"url\": \"https://weibo.com/1793202290/Q3B1aubFU\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c22\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=550&isFans=0&isTitle=0&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=300&uid=2737798435&verifier=5192ec39&width=0\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c23\", \"url\": \"https://widget.weibo.com/weiboshow/index.php?colors=ffffff%2Cffffff%2C4b4b4b%2C567FE6%2Cffffff&dpc=1&fansRow=2&height=300&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=0&skin=1&speed=0&uid=2737798435&verifier=5192ec39&width=auto\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c24\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=3&height=800&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=3787459525&verifier=bb542853&width=0\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c25\", \"url\": \"http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=550&isFans=0&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=5192053742&verifier=561f9ad1&width=0\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c26\", \"url\": \"https://weibo.com/3509300853/RlBAidqtN\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"eabc854715c022d1c188dac9\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"微博\", \"satisfied\": true, \"detail\": \"11 content page(s), e.g. https://weibo.com/2737798435/5334383344484938\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 8, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 5, \"new_pages_read\": 1, \"seen_urls\": 172, \"pages_read\": 6, \"calls_without_new_evidence\": 0}, \"results_truncated\": true}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"0f806747fe5296bda96102eb\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://weibo.com/2737798435/5334383344484938\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 23, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"0f806747fe5296bda96102eb\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 8, \"fetch\": 4, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 172, \"pages_read\": 6, \"calls_without_new_evidence\": 4, \"advice\": \"The last calls found no new URLs or pages. Answer with the evidence already found and say what is missing, or change the site, language, or wording.\"}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"685d88c0b9f386abdb92c44e\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"http://weibo.com/2737798435/RfWsw7I3I?s=6cm7D0\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 22, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"685d88c0b9f386abdb92c44e\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 8, \"fetch\": 2, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 172, \"pages_read\": 6, \"calls_without_new_evidence\": 2}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"604e22e3f69ec3cb9619d7fb\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"http://weibo.com/2737798435/QuXYQ0En8?s=6cm7D0\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 21, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"604e22e3f69ec3cb9619d7fb\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 8, \"fetch\": 1, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 172, \"pages_read\": 6, \"calls_without_new_evidence\": 1}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"41d34f85ecd378e16e6ab644\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"http://weibo.com/2737798435/R4GhhdO2e?s=6cm7D0\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 24, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"41d34f85ecd378e16e6ab644\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 8, \"fetch\": 3, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 172, \"pages_read\": 6, \"calls_without_new_evidence\": 3, \"advice\": \"The last calls found no new URLs or pages. Answer with the evidence already found and say what is missing, or change the site, language, or wording.\"}}",
+    "null",
+    "null",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"a1dcc44e680068b82b8d81f1\", \"kind\": \"search\", \"status\": \"error\", \"query\": \"教育部新闻办公室官方微博 开学 通知 微博\", \"answer\": \"\", \"answer_chars\": 0, \"evidence\": {\"unique_urls\": 0, \"unique_domains\": 0, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 0, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 2214, \"warning_count\": 0, \"warnings\": [], \"errors\": [{\"provider\": \"xai\", \"code\": \"provider_contract_error\", \"message\": \"bad request from provider: {\\\"error\\\":{\\\"message\\\":\\\"Upstream rejected the request\\\",\\\"type\\\":\\\"invalid_request_error\\\",\\\"param\\\":\\\"\\\",\\\"code\\\":null}}\", \"retryable\": false}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"error\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"skipped\", \"reason\": \"primary_unavailable\"}], \"result_count\": 0, \"citation_count\": 0, \"results\": [], \"citations\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"a1dcc44e680068b82b8d81f1\"}, \"session\": {\"calls\": {\"search\": 9, \"fetch\": 4, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 172, \"pages_read\": 6, \"calls_without_new_evidence\": 5, \"advice\": \"The last calls found no new URLs or pages. Answer with the evidence already found and say what is missing, or change th…\"}}"
+  ],
+  "answer": "",
+  "observation": {
+    "id": "weibo-login",
+    "answer": "",
+    "results": [
+      {
+        "url": "http://weibo.com/1784473157/Qz3AerOKl",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/1699432410/Q2gWd1Gtf",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/2737798435/QzHx9qeWk?s=6cm7D0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=3&height=800&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=3787459525&verifier=bb542853&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/a/hot/b8db9365f18b1966_0.html?type=grab",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/ttarticle/x/m/show/id/2309405291163854176409?_wb_client_=1&s_channel=4&s_trans=fA+pAJ6u%2Ft+qwzCe06Hccg%3D%3D_s",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/a/hot/c7b5d67f23d4d75e_0.html?type=grab",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/a/hot/04e174108e4e8960_0.html?type=grab",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?fansRow=2&height=500&isFans=1&isTitle=1&isWeibo=1&noborder=1&ptype=0&skin=4&speed=0&uid=1666022553&verifier=8c7c607d&width=680",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://h5.video.weibo.com/show/1034:5248057659555921?launchid=10000360-page_H5&lfid=5248121699307514&luicode=20000061",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/1784473157/Qz3AerOKl",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/1699432410/Q2gWd1Gtf",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/2737798435/QzHx9qeWk?s=6cm7D0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=3&height=800&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=3787459525&verifier=bb542853&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/a/hot/b8db9365f18b1966_0.html?type=grab",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/ttarticle/x/m/show/id/2309405291163854176409?_wb_client_=1&s_channel=4&s_trans=fA+pAJ6u%2Ft+qwzCe06Hccg%3D%3D_s",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/a/hot/c7b5d67f23d4d75e_0.html?type=grab",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/a/hot/04e174108e4e8960_0.html?type=grab",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?fansRow=2&height=500&isFans=1&isTitle=1&isWeibo=1&noborder=1&ptype=0&skin=4&speed=0&uid=1666022553&verifier=8c7c607d&width=680",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://h5.video.weibo.com/show/1034:5248057659555921?launchid=10000360-page_H5&lfid=5248121699307514&luicode=20000061",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.weibo.com/ttarticle/p/show?id=2309405117698433744964",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/1617264814/Qo0dZ7cMK",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/2737798435/QuXYQ0En8?s=6cm7D0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=240&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=1&speed=300&uid=2903129280&verifier=7568b691&width=243",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?fansRow=2&height=550&isFans=0&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=1050163153&verifier=f8d37ee6&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2075390917/Q2rclpdib?pagetype=viewer",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2656274875/QuXdxkwYW?pagetype=profilefeed",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=550&isFans=0&isTitle=0&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=300&uid=2737798435&verifier=5192ec39&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/5000609535/QdwdQnV95?s=6cm7D0&type=repost",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/2613324761/RjtMMbBvK?s=6cm7D0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/1699432410/QtbVQgkCW?s=6cm7D0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/a/hot/2d8e9c1b09703b87_0.html?type=grab",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=228&isFans=0&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=3&speed=0&uid=3950480876&verifier=19f30c78&width=195",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=3&height=800&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=3787459525&verifier=bb542853&width=0",
+        "title": "1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://widget.weibo.com/weiboshow/index.php?colors=ffffff&fansRow=2&height=570&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=0&skin=1&speed=0&uid=2737798435&verifier=5192ec39&width=auto",
+        "title": "微博秀",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=550&isFans=0&isTitle=0&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=300&uid=2737798435&verifier=5192ec39&width=0",
+        "title": "微博秀",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.weibo.com/a/hot/7584424976259073_1.html?type=new",
+        "title": "你想了解的教育防疫动态，都在这里！_微博",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/a/hot/7f8abcdacbbba48d_0.html?type=grab",
+        "title": "#建议减轻教师非教育教学负担#_微博",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/a/hot/2e456b697a1b9c37_0.html?type=grab",
+        "title": "#官方通报中学教师坠楼事件#_微博",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/a/hot/81a5987aa74cbeb1_0.html?type=grab",
+        "title": "#教育局回应教师报考其他单位遭开除#_微博",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/a/hot/03f3cc9c9018bd47_0.html?type=grab",
+        "title": "#三亚通报在职教师被开除#_微博",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/a/hot/8e074def7c88e2bf_0.html?type=grab",
+        "title": "#夜闯女寝留学生开除学籍#_微博",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=3&height=800&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=3787459525&verifier=bb542853&width=0",
+        "title": "1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://widget.weibo.com/weiboshow/index.php?colors=ffffff&fansRow=2&height=570&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=0&skin=1&speed=0&uid=2737798435&verifier=5192ec39&width=auto",
+        "title": "微博秀",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=550&isFans=0&isTitle=0&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=300&uid=2737798435&verifier=5192ec39&width=0",
+        "title": "微博秀",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.weibo.com/a/hot/7584424976259073_1.html?type=new",
+        "title": "你想了解的教育防疫动态，都在这里！_微博",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/a/hot/7f8abcdacbbba48d_0.html?type=grab",
+        "title": "#建议减轻教师非教育教学负担#_微博",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/a/hot/2e456b697a1b9c37_0.html?type=grab",
+        "title": "#官方通报中学教师坠楼事件#_微博",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/a/hot/81a5987aa74cbeb1_0.html?type=grab",
+        "title": "#教育局回应教师报考其他单位遭开除#_微博",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/a/hot/03f3cc9c9018bd47_0.html?type=grab",
+        "title": "#三亚通报在职教师被开除#_微博",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/a/hot/8e074def7c88e2bf_0.html?type=grab",
+        "title": "#夜闯女寝留学生开除学籍#_微博",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.newton.com.tw/wiki/%E5%BE%AE%E8%A8%80%E6%95%99%E8%82%B2/14900121",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://age06.edu.sh.cn/age06web/home/content/2013/7274396499415404544.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://k.sina.cn/article_5952915720_162d2490806704za6m.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://www.moe.gov.cn/jyb_xwfb/gzdt_gzdt/s5987/201709/t20170908_313876.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://finance.sina.com.cn/stock/t/2026-10-11/doc-iniuvhuq0563991.shtml",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://www.moe.gov.cn/jyb_sy/sy_wb/201301/t20130129_147290.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.sina.cn/gn/2026-04-03/detail-inhtetzi8935710.d.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://v.douyin.com/i6He8FGn",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://m.henan-edu.com/jiaoyuzixun/2941.shtml",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://t.cn/EZVMPTO",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://m.weibo.cn/u/2737798435?lfid=5140839249740598&luicode=20000061",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://www.moe.gov.cn/jyb_xwfb/xw_zt/moe_357/2024/2024_zt14/gxdx/wyjy",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://www.cnr.cn/jy/list/20170908/t20170908_523940652.shtml",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://www.moe.gov.cn/jyb_xwfb/xw_zt/moe_357/jyzt_2017nztzl/2017_zt03/17zt03_mtbd/mtbd_wyjy",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.moe.gov.cn/jyb_sy/sy_wb/201301/t20130129_147290.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.bbc.com/zhongwen/simp/chinese-news-45392646",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://news.sina.com.cn/c/2012-06-11/134724572697.shtml",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/2737798435/QzHx9qeWk?s=6cm7D0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cernet.edu.cn/zhong_guo_jiao_yu/jiao_yu_bu/xin_wen_dong_tai/201206/t20120611_789401.shtml",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=240&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=1&speed=300&uid=2903129280&verifier=7568b691&width=243",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.cernet.edu.cn/edu/jiao_yu_bu/xin_wen_dong_tai/201301/t20130118_894966.shtml",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://egs.stcn.com/news/detail/2197646.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/2737798435/QuXYQ0En8?s=6cm7D0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://www.moe.gov.cn/jyb_xwfb/xw_zt/moe_357/2025/2025_zt01/jdt/202501/t20250110_1175024.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://finance.sina.com.cn/tech/roll/2025-12-17/doc-inhcazqc2254611.shtml",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://news.sina.com.cn/c/2013-01-04/111225952254.shtml",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://t.cn/AXp1ESz9",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://gaokao.chsi.com.cn/gkxx/zc/moe/201412/20141202/1411771653.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?colors=ffffff%2Cffffff%2C4b4b4b%2C567FE6%2Cffffff&dpc=1&fansRow=2&height=300&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=0&skin=1&speed=0&uid=2737798435&verifier=5192ec39&width=250",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=1&height=250&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=5&speed=100&uid=1993203494&verifier=b293b5df&width=220",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=228&isFans=0&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=3&speed=0&uid=3950480876&verifier=19f30c78&width=195",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.163.com/dy/article/KTHD455I0511DJHA.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://news.sina.com.cn/c/2013-01-17/234726061391.shtml",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://baike.baidu.com/item/%E5%BE%AE%E8%A8%80%E6%95%99%E8%82%B2/14900121",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://www.moe.gov.cn/jyb_xwfb/s5147/201412/t20141202_179069.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://portal.smu.edu.cn/szw/info/1011/1754.htm",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.163.com/dy/article/L2M25RRR051485CG.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/5000609535/QdwdQnV95?s=6cm7D0&type=repost",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://www.moe.gov.cn/jyb_xwfb/s5147/201301/t20130130_147345.html",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=3&height=800&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=3787459525&verifier=bb542853&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://edu.gmw.cn/2025-11/19/content_38423331.htm",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2513228987/RlFYbsflR",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2002698697/RlhMbyeKY",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/7900596463/RleyfEHyr",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/3509300853/RlBAidqtN",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/5173245694/RlGMs67bk",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/2971760624/RieUYfpL9?s=6cm7D0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/1420157965/Q1wn0yQia",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/7542252663/RlaCVmgjG",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2/detail/5338289889869937",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=3&height=800&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=3787459525&verifier=bb542853&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/list/list.php?appkey=&color=&dpc=1&footbar=1&height=500&info=1&isborder=1&language=zh_cn&listid=3727944616342967&listname=%E6%96%B0%E4%B9%A1%E5%B8%82%E6%95%99%E8%82%B2%E5%B1%80&showcreate=1&sidebar=1&uid=3947430314&uname=%E6%96%B0%E4%B9%A1%E5%B8%82%E6%95%99%E8%82%B2%E5%B1%80&width=950",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=507&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=1&speed=300&uid=1525622760&verifier=a9665210&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?fansRow=2&height=680&isFans=0&isTitle=0&isWeibo=1&noborder=0&ptype=1&skin=5&speed=0&uid=1666928707&verifier=784fa85f&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=680&isFans=0&isTitle=0&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=300&uid=1999998583&verifier=5097aa8e&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=540&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=1&speed=300&uid=1845850033&verifier=0b6bb11b&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=250&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=10&speed=300&uid=2866805914&verifier=b98e9b0b&width=510",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?fansRow=2&height=550&isFans=1&isTitle=1&isWeibo=1&noborder=1&ptype=1&skin=4&speed=0&uid=1892677197&verifier=6ee1d15c&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/a/hot/08f6833796eb9c77_0.html?type=grab",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=735&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=5534907239&verifier=6418177c&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=550&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=2738672840&verifier=45ea3138&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=228&isFans=0&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=3&speed=0&uid=3950480876&verifier=19f30c78&width=195",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/1905843503/QxBpSDWRb",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/7900704341/Rleyf4pHg",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/5496185270/RmPeiE9d4",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/1793202290/Q3B1aubFU",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.weibo.com/tv/v/I5oNVvG4D?fid=1034%3A4412869773835850",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=555&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=3&skin=1&speed=0&uid=2579889714&verifier=1d07a1a0&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/6577842450/RlIPB5tuB",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/1900412195/5180991943738895",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2131593523/RlzvUiNLJ",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2145917613/Rmwutj6rn",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/list/list.php?appkey=554542457&color=&dpc=1&footbar=1&height=700&info=1&isborder=1&language=zh_cn&listid=3704465272060270&listname=%E5%8C%97%E5%A4%A7%E5%85%89%E5%8D%8E&showcreate=0&sidebar=1&uid=1743561103&uname=%E5%B2%B3%E6%89%8D%E5%8B%87&width=940",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/1989875622/RmkEoeT4R",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=350&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=1&speed=100&uid=1718699234&verifier=8ef712fb&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/5300969049/RlwnFfv28",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/a/hot/bde49eb605b20225_0.html?type=grab",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2737798435/5334383344484938",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/2737798435/RfWsw7I3I?s=6cm7D0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2737798435/5338023329270121",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/2737798435/QuXYQ0En8?s=6cm7D0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/2737798435/R4GhhdO2e?s=6cm7D0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/1974177154/RgYSmECNd",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/3509300853/RlBAidqtN",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2/detail/5340088512282899",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?colors=ffffff%2Cffffff%2C4b4b4b%2C567FE6%2Cffffff&dpc=1&fansRow=2&height=300&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=0&skin=1&speed=0&uid=2737798435&verifier=5192ec39&width=250",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://widget.weibo.com/weiboshow/index.php?colors=ffffff&fansRow=2&height=570&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=0&skin=1&speed=0&uid=2737798435&verifier=5192ec39&width=auto",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://card.weibo.com/article/m/show/id/2309351000894091657082506506?_wb_client_=1&extparam=lmid--4091814259104709&lfid=1076036089397020&luicode=10000011&object_id=1022%3A2309351000894091657082506506",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/u/7497885899",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=300&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=0&skin=1&speed=0&uid=3718026912&verifier=ffce22a7&width=247",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?colors=d6f3f7%2Cf6f6f6%2C666666%2C0082cb%2Cecfbfd&dpc=1&fansRow=2&height=200&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=0&skin=7&speed=0&uid=3284847533&verifier=93b4ea1e&width=586",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://m.s.weibo.com/zhisou/zhisoushare?url=sinaweibo%3A%2F%2Fsearchall%3Fcontainerid%3D230958%26type%3D200%26q%3D%2523%25E5%25BC%2580%25E5%25AD%25A6%25E7%25AC%25AC%25E4%25B8%2580%25E8%25AF%25BE%25E7%25B2%25BE%25E5%25BD%25A9%25E6%258A%25A2%25E5%2585%2588%25E7%259C%258B%2523%26t%3D761%26extparam%3Ddfp%253D200%2526share_page_id%253D232964abf1807aa115c0a89aecfc7370e7d2d4%2526cot%253D1%2526share_from",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://m.s.weibo.com/zhisou/zhisoushare?url=sinaweibo%3A%2F%2Fsearchall%3Fcontainerid%3D230958%26type%3D200%26q%3D%2523%25E6%2595%2599%25E5%25B8%2588%25E8%258A%2582%25E4%25B8%25BA%25E4%25BB%2580%25E4%25B9%2588%25E6%2598%25AF9%25E6%259C%258810%25E6%2597%25A5%2523%26t%3D761%26extparam%3Ddfp%253D200%2526share_page_id%253D23296419a1cfb847e69fb057cb6bcfaabb8348%2526cot%253D1%2526share_from%253Dhot%252",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://card.weibo.com/article/m/show/id/2309404481648900046997?_wb_client_=1&extparam=lmid--4481648903564780&lfid=231522type%3D1%26t%3D10%26q%3D%23%E9%AB%98%E6%A0%A1%23&luicode=10000011&object_id=1022%3A2309404481648900046997",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?colors=fffdf0%2Cfffdf0%2C787878%2C00b7ef%2Cecfbfd&dpc=1&fansRow=1&height=220&isFans=0&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=9&speed=0&uid=2093306441&verifier=784ea6ed&width=230",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.weibo.com/tv/v/I5oNVvG4D?fid=1034%3A4412869773835850",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/eduzhi?s=6cm7D0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=550&isFans=0&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=5192053742&verifier=561f9ad1&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2737798435/RjqOj8d1B",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/7542252663/RlaCVmgjG",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=240&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=1&speed=300&uid=2903129280&verifier=7568b691&width=243",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=3&height=800&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=3787459525&verifier=bb542853&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/1617264814/RmwutnvS4",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/3544933464/Rh85l4mp1",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/5496185270/RmPeiE9d4",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2803301701/5337886251025934",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/6311296201/5340453089051674",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/detail/5314087682572596",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/3925308009/Rfssw7BHZ",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2803301701/5338452625457624",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/detail/5338303005196734",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://widget.weibo.com/weiboshow/index.php?colors=ffffff&fansRow=2&height=570&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=0&skin=1&speed=0&uid=2737798435&verifier=5192ec39&width=auto",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=550&isFans=0&isTitle=0&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=300&uid=2737798435&verifier=5192ec39&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?fansRow=2&height=374&isFans=0&isTitle=1&isWeibo=1&noborder=1&ptype=1&skin=9&speed=0&uid=1660266214&verifier=1cd3a528&width=300",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=1&height=110&isFans=0&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=300&uid=1881124713&verifier=47796520&width=185",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://m.s.weibo.com/js.t.sinajs.cn/t4/apps/searchpc/js/vue/zhisou/zhisoushare?extparam=dfp%3D200%26share_page_id%3D232964b4eae20391ec288dc873cbcfd042e437%26cot%3D1&q=%E8%B6%85%E7%9F%AD%E5%AD%A6%E6%9C%9F&t=761&type=200&url=sinaweibo%3A%2Fsearchall%3Fcontainerid%3D230958",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/edublog",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://card.weibo.com/article/m/show/id/2309404545342099292210?_wb_client_=1&extparam=lmid--4545342098118389&featurecode=1&lfid=231522type%3D1%26t%3D10%26q%3D%23%E7%BA%BA%E4%B8%93%E6%97%A9%E9%97%B4%23&luicode=10000011&object_id=1022%3A2309404545342099292210",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/newlogin?gid=102803&openLoginLayer=0&tabtype=weibo&url=https%3A%2Fme.weibo.com%2Foperation%2Flottery_publicity%3Fhas_side%3D0%26lid%3D25618624",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://gongyi.weibo.com/r/225763",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=1&height=560&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=9&speed=0&uid=1787594820&verifier=9bc28858&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=550&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=2738672840&verifier=45ea3138&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/a/hot/b863c8d8395eabc6_0.html?type=grab",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=240&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=1&speed=300&uid=2903129280&verifier=7568b691&width=243",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?colors=fffdf0%2Cfffdf0%2C787878%2C00b7ef%2Cecfbfd&dpc=1&fansRow=1&height=220&isFans=0&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=9&speed=0&uid=2093306441&verifier=784ea6ed&width=230",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/2737798435/R4w0proVF?s=6cm7D0&type=repost",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/a/hot/0e22f2229ca67e1e_0.html?type=grab",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/2737798435/R8Nlym58j?s=6cm7D0&type=comment",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.weibo.com/tv/v/I5oNVvG4D?fid=1034%3A4412869773835850",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/a/hot/bde49eb605b20225_0.html?type=grab",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/7542252663/RlaCVmgjG",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/2737798435/R4GhhdO2e?s=6cm7D0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?fansRow=2&height=500&isFans=1&isTitle=1&isWeibo=1&noborder=1&ptype=0&skin=4&speed=0&uid=1666022553&verifier=8c7c607d&width=680",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=507&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=1&speed=300&uid=1525622760&verifier=a9665210&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2737798435/RjqOj8d1B",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/7631335436/RmqxZrBCL",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2737798435/Btvn1v3dW",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2737798435/RjqOj8d1B",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/2737798435/QuXYQ0En8?s=6cm7D0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/2737798435/R4GhhdO2e?s=6cm7D0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/1420157965/Q1wn0yQia",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/detail/5311951874820395",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2/detail/5338088911930203",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/1988438334/RezTAeyfg?s=6cm7D0&type=repost",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/5173245694/RlGMs67bk",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2712268674/4864404354503498",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/3349909324/ReoEYrubR?s=6cm7D0&type=comment",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2803301701/Rf12I8RbP",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/3509300853/RlBAidqtN",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2/detail/5334840899539007",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/a/hot/bde49eb605b20225_0.html?type=grab",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/ttarticle/p/show?id=2309405204719013593105&launchid=10000360-page_H5&lfid=5204719011629614&luicode=20000061",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=228&isFans=0&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=3&speed=0&uid=3950480876&verifier=19f30c78&width=195",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?colors=fffdf0%2Cfffdf0%2C787878%2C00b7ef%2Cecfbfd&dpc=1&fansRow=1&height=220&isFans=0&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=9&speed=0&uid=2093306441&verifier=784ea6ed&width=230",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/list/list.php?appkey=554542457&color=&dpc=1&footbar=1&height=700&info=1&isborder=1&language=zh_cn&listid=3704465272060270&listname=%E5%8C%97%E5%A4%A7%E5%85%89%E5%8D%8E&showcreate=0&sidebar=1&uid=1743561103&uname=%E5%B2%B3%E6%89%8D%E5%8B%87&width=940",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=240&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=1&speed=300&uid=2903129280&verifier=7568b691&width=243",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=540&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=1&speed=300&uid=1845850033&verifier=0b6bb11b&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=250&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=10&speed=300&uid=2866805914&verifier=b98e9b0b&width=510",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/livestream/listlive.php?appkey=&at=0&atalk=1&atopic=%E5%BC%80%E5%AD%A6%E5%AD%A3%E6%9D%A5%E5%95%A6&border=1&colordiy=0&dpc=1&height=353&language=zh_cn&pic=0&ptopic=%E5%BC%80%E5%AD%A6%E5%AD%A3%E6%9D%A5%E5%95%A6&publish=1&recomm=0&refer=1&skin=8&titlebar=1&uid=2125745404&width=299",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/1803757251/RlG6vsqKT",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.weibo.com/tv/v/I5oNVvG4D?fid=1034%3A4412869773835850",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2817174604/Rl4tgm3TF",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/7542252663/RlaCVmgjG",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/7950956231/RlzkL9wyo",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2/detail/5338289889869937",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=350&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=1&speed=100&uid=1718699234&verifier=8ef712fb&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/1793202290/Q3B1aubFU",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/7900704341/Rleyf4pHg",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2075390917/Q2rclpdib?pagetype=viewer",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/ttarticle/x/m/show/id/2309634470923242635385?_wb_client_=1&lfid=1076031769873155&luicode=10000011&object_id=1022%3A2309634470923242635385",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/ttarticle/x/m/show/id/2309354679524582555922?_wb_client_=1",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=555&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=3&skin=1&speed=0&uid=2579889714&verifier=1d07a1a0&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/6577842450/RlIPB5tuB",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2737798435/5334383344484938",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/2737798435/RfWsw7I3I?s=6cm7D0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/1974177154/RgYSmECNd",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2/detail/5338760265075323",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/7542252663/RlaCVmgjG",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2/detail/5338754359232938",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2/detail/5339382945942245",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2/detail/5340088512282899",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2737798435/5334383344484938",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://weibo.com/2737798435/RfWsw7I3I?s=6cm7D0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/1974177154/RgYSmECNd",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2/detail/5338760265075323",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/7542252663/RlaCVmgjG",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2/detail/5338754359232938",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2/detail/5339382945942245",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2/detail/5340088512282899",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/2501519087/RgdmSjSFV",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://h5.video.weibo.com/show/1034:5248057659555921?launchid=10000360-page_H5&lfid=5248121699307514&luicode=20000061",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=228&isFans=0&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=3&speed=0&uid=3950480876&verifier=19f30c78&width=195",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?fansRow=2&height=500&isFans=1&isTitle=1&isWeibo=1&noborder=1&ptype=0&skin=4&speed=0&uid=1666022553&verifier=8c7c607d&width=680",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=205&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=1&speed=300&uid=3926889691&verifier=ab1e8f09&width=372",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=300&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=0&skin=1&speed=0&uid=3718026912&verifier=ffce22a7&width=247",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://widget.weibo.com/weiboshow/index.php?colors=ffffff&fansRow=2&height=570&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=0&skin=1&speed=0&uid=2737798435&verifier=5192ec39&width=auto",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=240&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=1&skin=1&speed=300&uid=2903129280&verifier=7568b691&width=243",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?colors=fffdf0%2Cfffdf0%2C787878%2C00b7ef%2Cecfbfd&dpc=1&fansRow=1&height=220&isFans=0&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=9&speed=0&uid=2093306441&verifier=784ea6ed&width=230",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/u/7497885899",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?colors=ffffff%2Cffffff%2C4b4b4b%2C567FE6%2Cffffff&dpc=1&fansRow=2&height=300&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=0&skin=1&speed=0&uid=2737798435&verifier=5192ec39&width=250",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=1&height=560&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=9&speed=0&uid=1787594820&verifier=9bc28858&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/1793202290/Q3B1aubFU",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=550&isFans=0&isTitle=0&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=300&uid=2737798435&verifier=5192ec39&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://widget.weibo.com/weiboshow/index.php?colors=ffffff%2Cffffff%2C4b4b4b%2C567FE6%2Cffffff&dpc=1&fansRow=2&height=300&isFans=0&isTitle=0&isWeibo=1&language=&noborder=0&ptype=0&skin=1&speed=0&uid=2737798435&verifier=5192ec39&width=auto",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=3&height=800&isFans=1&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=3787459525&verifier=bb542853&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "http://widget.weibo.com/weiboshow/index.php?dpc=1&fansRow=2&height=550&isFans=0&isTitle=1&isWeibo=1&language=&noborder=1&ptype=1&skin=1&speed=0&uid=5192053742&verifier=561f9ad1&width=0",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://weibo.com/3509300853/RlBAidqtN",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://weibo.com/2737798435/5334383344484938",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 23, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "http://weibo.com/2737798435/RfWsw7I3I?s=6cm7D0",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 22, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "http://weibo.com/2737798435/QuXYQ0En8?s=6cm7D0",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 21, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "http://weibo.com/2737798435/R4GhhdO2e?s=6cm7D0",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 24, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…",
+            "retryable": true
+          }
+        ]
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:38:48.352398+00:00",
+    "timed_out": true
+  },
+  "score": {
+    "id": "weibo-login",
+    "scores": {
+      "discovery": {
+        "status": "fail",
+        "matched_targets": [],
+        "required": 1
+      }
+    },
+    "task": {
+      "status": "timeout",
+      "reasons": [
+        "discovery:fail"
+      ]
+    },
+    "expected_access": "login",
+    "observed_failure": null,
+    "algorithm_miss": false,
+    "grader": "v2"
+  }
+}

@@ -1,0 +1,1403 @@
+{
+  "id": "hn-sqlite",
+  "query": "Hacker News discussion of SQLite as an application file format",
+  "returncode": 0,
+  "elapsed_ms": 206786,
+  "efficiency": {
+    "tool_calls": {
+      "search": 1,
+      "fetch": 4,
+      "read_result": 3
+    },
+    "total_calls": 8,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 6,
+    "errors": 1
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": "news.ycombinator.com",
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:news.ycombinator.com SQLite \"application file format\" Hacker News discussion",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 21801
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "original post title, linked SQLite article, key arguments, exact commenter quotations",
+        "fresh": false,
+        "max_chars": 80000,
+        "url": "https://news.ycombinator.com/item?id=46076642"
+      },
+      "is_error": false,
+      "ms": 926
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "exact comments about SQLite as an application file format, benefits, drawbacks, MBTiles, migrations, constraints",
+        "fresh": false,
+        "max_chars": 120000,
+        "url": "https://news.ycombinator.com/item?id=23508923"
+      },
+      "is_error": false,
+      "ms": 61
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "exact comments about SQLite as an application file format, benefits, drawbacks, portability, corruption, concurrency",
+        "fresh": false,
+        "max_chars": 100000,
+        "url": "https://news.ycombinator.com/item?id=18754634"
+      },
+      "is_error": false,
+      "ms": 62
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": [
+          "comments"
+        ],
+        "limit": 200,
+        "max_bytes": 16384,
+        "offset": 0,
+        "result_id": "0140863efa4b2521277fbbf5"
+      },
+      "is_error": false,
+      "ms": 10
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": [
+          "comments"
+        ],
+        "limit": 200,
+        "max_bytes": 16384,
+        "offset": 0,
+        "result_id": "099a2d0258c1e19d13631236"
+      },
+      "is_error": false,
+      "ms": 13
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": [
+          "comments"
+        ],
+        "limit": 120,
+        "max_bytes": 16384,
+        "offset": 0,
+        "result_id": "e3d1a9098e73d5e28c1c344e"
+      },
+      "is_error": false,
+      "ms": 13
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "article sections: why SQLite is a good application file format, benefits, limitations, examples, compatibility, WAL and file format concerns",
+        "fresh": false,
+        "max_chars": 50000,
+        "url": "https://sqlite.org/appfileformat.html"
+      },
+      "is_error": true,
+      "ms": 199
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.1\", \"result_id\": \"e064365b4a1cb2dc500996b9\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:news.ycombinator.com SQLite \\\"application file format\\\" Hacker News discussion\", \"answer\": \"Relevant Hacker News threads on SQLite as an application file format:\\n\\n1. **[SQLite as an Application File Format](https://news.ycombinator.com/item?id=46076642)** — Main thread on the sqlite.org page (178 points, ~99 comments). Covers MBTiles/Mapbox, tree vs. tabular data, and practical benefits (migrations, constraints, tooling). [[1]](https://news.ycombinator.com/item?id=46076642)\\n\\n2. **[I see…\", \"answer_chars\": 2745, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 1, \"cross_provider_matches\": 1, \"pages_fetched\": 2, \"primary_citation_count\": 10, \"threads_read\": 2, \"comments_read\": 462}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 21786, \"warning_count\": 1, \"warnings\": [\"auto_scrape_truncated\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"hackernews\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"site_native\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"hackernews\", \"operation\": \"read_thread\", \"outcome\": \"ok\", \"reason\": \"thread\"}, {\"provider\": \"hackernews\", \"operation\": \"read_thread\", \"outcome\": \"ok\", \"reason\": \"thread\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 22, \"results\": [{\"id\": \"r1\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=46076642\", \"snippet\": \"\", \"providers\": [\"xai\", \"hackernews\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=23508923\", \"snippet\": \"\", \"providers\": [\"hackernews\"]}, {\"id\": \"r3\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=50045273\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r4\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=46079942\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r5\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=18754634\", \"snippet\": \"\", \"providers\": [\"hackernews\"]}, {\"id\": \"r6\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=49937540\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=40655974\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=10308691\", \"snippet\": \"\", \"providers\": [\"hackernews\"]}, {\"id\": \"r9\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=50098198\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r10\", \"title\": \"\", \"url\": \"https://news.ycombinator.com/item?id=45132498\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://news.ycombinator.com/item?id=46076642\", \"title\": \"\", \"result_item_id\": \"r1\", \"providers\": [\"xai\", \"hackernews\"]}, {\"id\": \"c2\", \"url\": \"https://news.ycombinator.com/item?id=23508923\", \"title\": \"\", \"result_item_id\": \"r2\", \"providers\": [\"hackernews\"]}, {\"id\": \"c3\", \"url\": \"https://news.ycombinator.com/item?id=50045273\", \"title\": \"\", \"result_item_id\": \"r3\", \"providers\": [\"tavily\"]}, {\"id\": \"c4\", \"url\": \"https://news.ycombinator.com/item?id=46079942\", \"title\": \"\", \"result_item_id\": \"r4\", \"providers\": [\"xai\"]}, {\"id\": \"c5\", \"url\": \"https://news.ycombinator.com/item?id=18754634\", \"title\": \"\", \"result_item_id\": \"r5\", \"providers\": [\"hackernews\"]}, {\"id\": \"c6\", \"url\": \"https://news.ycombinator.com/item?id=49937540\", \"title\": \"\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://news.ycombinator.com/item?id=40655974\", \"title\": \"\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://news.ycombinator.com/item?id=10308691\", \"title\": \"\", \"result_item_id\": \"r8\", \"providers\": [\"hackernews\"]}, {\"id\": \"c9\", \"url\": \"https://news.ycombinator.com/item?id=50098198\", \"title\": \"\", \"result_item_id\": \"r9\", \"providers\": [\"tavily\"]}, {\"id\": \"c10\", \"url\": \"https://news.ycombinator.com/item?id=45132498\", \"title\": \"\", \"result_item_id\": \"r10\", \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://news.ycombinator.com/item?id=45134010\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://news.ycombinator.com/item?id=45147835\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://news.ycombinator.com/item?id=47046185\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://news.ycombinator.com/item?id=39797104\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://news.ycombinator.com/item?id=46079326\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://news.ycombinator.com/item?id=49421475\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://news.ycombinator.com/item?id=13021541\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"hackernews\"]}, {\"id\": \"c18\", \"url\": \"https://news.ycombinator.com/item?id=49766611\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c19\", \"url\": \"https://news.ycombinator.com/item?id=50111944\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c20\", \"url\": \"https://news.ycombinator.com/item?id=50063124\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c21\", \"url\": \"https://news.ycombinator.com/item?id=50040360\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c22\", \"url\": \"https://news.ycombinator.com/item?id=50020838\", \"title\": \"\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"e064365b4a1cb2dc500996b9\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"Hacker News\", \"satisfied\": true, \"detail\": \"22 content page(s), e.g. https://news.ycombinator.com/item?id=46076642\"}], \"requirements_total\": 1}, \"threads\": [{\"platform\": \"hackernews\", \"url\": \"https://news.ycombinator.com/item?id=23508923\", \"title\": \"SQLite as an Application File Format (2014)\", \"status\": \"comments_read\", \"comments_total\": 301, \"comments_read\": 301, \"top_comments\": []}, {\"platform\": \"hackernews\", \"url\": \"https://news.ycombinator.com/item?id=18754634\", \"title\": \"SQLite as an Application File Format (2014)\", \"status\": \"comments_read\", \"comments_total\": 161, \"comments_read\": 161, \"top_comments\": []}], \"next_steps\": [{\"tool\": \"read_result\", \"why\": \"16 comment(s) matched the request and come first on page 1 (relevance > 0); later pages hold the remaining comments in …\", \"fields\": [\"comments\"]}], \"session\": {\"calls\": {\"search\": 1, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 22, \"new_pages_read\": 4, \"seen_urls\": 22, \"pages_read\": 4, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"e3d1a9098e73d5e28c1c344e\", \"kind\": \"fetch\", \"status\": \"ok\", \"url\": \"https://news.ycombinator.com/item?id=46076642\", \"final_url\": \"https://news.ycombinator.com/item?id=46076642\", \"title\": \"SQLite as an Application File Format\", \"provider\": \"hackernews\", \"content_preview\": \"# SQLite as an Application File Format\\n\\nby gjvc · 2025-11-28T08:15:50.000Z · via hn.algolia.com/api/v1/items\\n\\nLink: https://sqlite.org/appfileformat.html\\n\\n## Comments (92 shown of 92)\\n\\n### [46079326] askl · 2025-11-28T15:12:32.000Z · reply to 46076642\\nhttps://news.ycombinator.com/item?id=46079326\\n\\nSomehow my first thought from the title was using sqlite as a format for applications. So like a replacement for ELF. I think this idea is both fascinating and horrifying.\\n\\n### [46082856] dchest · 2025-11-28T21:20:30.000Z · reply to 46080567\\nhttps://news.ycombinator.com/item?id=46082856\\n\\nNot as an application file format discussed in the link, though. Lots of software use it as a database (as intended) it's also a base for Apple's Core Data.\\n\\n### [46088542] nly · 2025-11-29T16:03:45.000Z · reply to 46085096\\nhttps://news.ycombinator.com/item?id=46088542\\n\\nSQLCipher + a hard-coded or generated key in your app.\\n\\n### [46090549] crazygringo · 2025-11-29T20:34:50.000Z · reply to 46089470\\nhttps://new\", \"content_chars\": 35345, \"truncated\": true, \"errors\": [], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"e3d1a9098e73d5e28c1c344e\", \"fields\": [\"content\"], \"comment_fields\": [\"comments\"]}, \"thread\": {\"platform\": \"hackernews\", \"url\": \"https://news.ycombinator.com/item?id=46076642\", \"title\": \"SQLite as an Application File Format\", \"status\": \"comments_read\", \"comments_total\": 92, \"comments_read\": 92, \"top_comments\": [{\"id\": \"46079326\", \"author\": \"askl\", \"text\": \"Somehow my first thought from the title was using sqlite as a format for applications. So like a replacement for ELF. I think this idea is both fascinating and horrifying.\"}, {\"id\": \"46082856\", \"author\": \"dchest\", \"text\": \"Not as an application file format discussed in the link, though. Lots of software use it as a database (as intended) it's also a base for Apple's Core Data.\"}]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 3, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 22, \"pages_read\": 4, \"calls_without_new_evidence\": 3, \"advice\": \"The last calls found no new URLs or pages. Answer with the evidence already found and say what is missing, or change the site, language, or wording.\"}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"0140863efa4b2521277fbbf5\", \"kind\": \"fetch\", \"status\": \"ok\", \"url\": \"https://news.ycombinator.com/item?id=23508923\", \"final_url\": \"https://news.ycombinator.com/item?id=23508923\", \"title\": \"SQLite as an Application File Format (2014)\", \"provider\": \"hackernews\", \"content_preview\": \"# SQLite as an Application File Format (2014)\\n\\nby afiori · 2020-06-13T12:28:53.000Z · via hn.algolia.com/api/v1/items\\n\\nLink: https://sqlite.org/appfileformat.html\\n\\n## Comments (301 shown of 301)\\n\\n### [23515971] tonyedgecombe · 2020-06-14T08:21:02.000Z · reply to 23512826\\nhttps://news.ycombinator.com/item?id=23515971\\n\\nI think it depends on whether you need a file format or a database. All the benefits of a database are wiped out if you are implementing File->Save for a document based application.\\n\\n### [23510676] wenc · 2020-06-13T16:41:01.000Z · reply to 23509614\\nhttps://news.ycombinator.com/item?id=23510676\\n\\nThe OpenOffice case study is a fascinating thought experiment.\\nWe don't really create too many new file formats these days, and if we did they're highly performance specialized (parquet, arrow).\\nJust wondering aloud, what recent file format would have benefited from being based on sqlite?\\n\\n### [23514797] unspecified · 2020-06-14T03:13:23.000Z · reply to 23510209\\nhttps://news.ycombi\", \"content_chars\": 120000, \"truncated\": true, \"errors\": [], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"0140863efa4b2521277fbbf5\", \"fields\": [\"content\"], \"comment_fields\": [\"comments\"]}, \"thread\": {\"platform\": \"hackernews\", \"url\": \"https://news.ycombinator.com/item?id=23508923\", \"title\": \"SQLite as an Application File Format (2014)\", \"status\": \"comments_read\", \"comments_total\": 301, \"comments_read\": 301, \"top_comments\": [{\"id\": \"23515971\", \"author\": \"tonyedgecombe\", \"text\": \"I think it depends on whether you need a file format or a database. All the benefits of a database are wiped out if you are implementing File->Save for a document based application.\"}, {\"id\": \"23510676\", \"author\": \"wenc\", \"text\": \"The OpenOffice case study is a fascinating thought experiment.\\nWe don't really create too many new file formats these days, and if we did they're highly performance specialized (parquet, arrow).\\nJust wondering aloud, what recent file forma…\"}]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 1, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 22, \"pages_read\": 4, \"calls_without_new_evidence\": 1}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"099a2d0258c1e19d13631236\", \"kind\": \"fetch\", \"status\": \"ok\", \"url\": \"https://news.ycombinator.com/item?id=18754634\", \"final_url\": \"https://news.ycombinator.com/item?id=18754634\", \"title\": \"SQLite as an Application File Format (2014)\", \"provider\": \"hackernews\", \"content_preview\": \"# SQLite as an Application File Format (2014)\\n\\nby kjeetgill · 2018-12-24T22:29:06.000Z · via hn.algolia.com/api/v1/items\\n\\nLink: https://www.sqlite.org/appfileformat.html\\n\\n## Comments (161 shown of 161)\\n\\n### [18755656] adzm · 2018-12-25T03:17:02.000Z · reply to 18755444\\nhttps://news.ycombinator.com/item?id=18755656\\n\\nWhy would you realistically need wal or shm for an application file format anyway? That's for high concurrency in general.\\n\\n### [18756861] skrause · 2018-12-25T10:29:43.000Z · reply to 18756012\\nhttps://news.ycombinator.com/item?id=18756861\\n\\nThe worst part about CSV is the locale-specific format used by some programs. For example when exporting to CSV a German Excel will use the comma as the decimal separator in numbers and a semicolon for the value separator. So you need to specify the exact format for each individual file you want to import.\\n\\n### [18756610] 9712263 · 2018-12-25T08:43:46.000Z · reply to 18755505\\nhttps://news.ycombinator.com/item?id=18756610\\n\\nThe problem is d\", \"content_chars\": 71763, \"truncated\": true, \"errors\": [], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"099a2d0258c1e19d13631236\", \"fields\": [\"content\"], \"comment_fields\": [\"comments\"]}, \"thread\": {\"platform\": \"hackernews\", \"url\": \"https://news.ycombinator.com/item?id=18754634\", \"title\": \"SQLite as an Application File Format (2014)\", \"status\": \"comments_read\", \"comments_total\": 161, \"comments_read\": 161, \"top_comments\": [{\"id\": \"18755656\", \"author\": \"adzm\", \"text\": \"Why would you realistically need wal or shm for an application file format anyway? That's for high concurrency in general.\"}, {\"id\": \"18756861\", \"author\": \"skrause\", \"text\": \"The worst part about CSV is the locale-specific format used by some programs. For example when exporting to CSV a German Excel will use the comma as the decimal separator in numbers and a semicolon for the value separator. So you need to s…\"}]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 2, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 22, \"pages_read\": 4, \"calls_without_new_evidence\": 2}}",
+    "{\"result_id\": \"0140863efa4b2521277fbbf5\", \"kind\": \"fetch\", \"fields\": [\"comments\"], \"offset\": 0, \"next_offset\": 25, \"next_offsets\": {\"comments\": 25}, \"truncated\": true, \"data\": {\"comments\": [{\"id\": \"23515971\", \"author\": \"tonyedgecombe\", \"created_at\": \"2020-06-14T08:21:02.000Z\", \"text\": \"I think it depends on whether you need a file format or a database. All the benefits of a database are wiped out if you are implementing File->Save for a document based application.\", \"url\": \"https://news.ycombinator.com/item?id=23515971\", \"parent_id\": \"23512826\", \"depth\": 2, \"points\": null, \"relevance\": 9.676}, {\"id\": \"23510676\", \"author\": \"wenc\", \"created_at\": \"2020-06-13T16:41:01.000Z\", \"text\": \"The OpenOffice case study is a fascinating thought experiment.\\nWe don't really create too many new file formats these days, and if we did they're highly performance specialized (parquet, arrow).\\nJust wondering aloud, what recent file format would have benefited from being based on sqlite?\", \"url\": \"https://news.ycombinator.com/item?id=23510676\", \"parent_id\": \"23509614\", \"depth\": 2, \"points\": null, \"relevance\": 8.15}, {\"id\": \"23514797\", \"author\": \"unspecified\", \"created_at\": \"2020-06-14T03:13:23.000Z\", \"text\": \"> sqldiff\\nYou just blew my mind. Thank you!\\nI can't believe the things I find out from random HN comments.\", \"url\": \"https://news.ycombinator.com/item?id=23514797\", \"parent_id\": \"23510209\", \"depth\": 1, \"points\": null, \"relevance\": 6.767}, {\"id\": \"23510934\", \"author\": \"skrebbel\", \"created_at\": \"2020-06-13T17:15:04.000Z\", \"text\": \"Huh? If you're using SQLite as an application file format, isn't opening untrusted files a key use case? What else, never share files with people? That must be a pretty boring application.\", \"url\": \"https://news.ycombinator.com/item?id=23510934\", \"parent_id\": \"23510632\", \"depth\": 2, \"points\": null, \"relevance\": 6.261}, {\"id\": \"23511645\", \"author\": \"networkimprov\", \"created_at\": \"2020-06-13T18:45:28.000Z\", \"text\": \"SQLite is a fine single-file application file format, but if you want average users to be able to inspect and perhaps fix application data when things go wrong, a tree of JSON-format files is more friendly.\\nTrue, this requires care to ensure that such files are updated reliably, but that's not quite rocket science.\", \"url\": \"https://news.ycombinator.com/item?id=23511645\", \"parent_id\": \"23508923\", \"depth\": 0, \"points\": null, \"relevance\": 6.171}, {\"id\": \"23509782\", \"author\": \"pmilot\", \"created_at\": \"2020-06-13T14:51:40.000Z\", \"text\": \"The save model at the UX level is completely orthogonal to the application file format. You could implement either model with an SQLite DB file.\", \"url\": \"https://news.ycombinator.com/item?id=23509782\", \"parent_id\": \"23509677\", \"depth\": 1, \"points\": null, \"relevance\": 6.169}, {\"id\": \"23510222\", \"author\": \"catalogia\", \"created_at\": \"2020-06-13T15:44:02.000Z\", \"text\": \"Is there any good way to use SQLite as an application file format while also using it in WAL mode? They seem sort of mutually exclusive; near as I can figure the way to do this would be to execute `PRAGMA journal_mode=DELETE` when the user requests a save file, then copy the DB to the location the user specifies. I think this negates a few of the advantages of using sqlite as an application file format though.\", \"url\": \"https://news.ycombinator.com/item?id=23510222\", \"parent_id\": \"23508923\", \"depth\": 0, \"points\": null, \"relevance\": 6.143}, {\"id\": \"23514494\", \"author\": \"sdinsn\", \"created_at\": \"2020-06-14T01:56:49.000Z\", \"text\": \"It's funny you use that as an example, since Firefox itself uses SQLite as the application file format for history and bookmarks...\", \"url\": \"https://news.ycombinator.com/item?id=23514494\", \"parent_id\": \"23514128\", \"depth\": 7, \"points\": null, \"relevance\": 5.986}, {\"id\": \"23511301\", \"author\": \"skrebbel\", \"created_at\": \"2020-06-13T18:04:00.000Z\", \"text\": \"That translates to \\\"don't use SQLite\\\", right?\\nHow would an application that uses SQLite as a file format be able to scan for malicious database files that trigger buffer overflows in the SQLite engine? I'm really not sure what you're suggesting.\", \"url\": \"https://news.ycombinator.com/item?id=23511301\", \"parent_id\": \"23511217\", \"depth\": 4, \"points\": null, \"relevance\": 5.942}, {\"id\": \"23510688\", \"author\": \"kbumsik\", \"created_at\": \"2020-06-13T16:42:46.000Z\", \"text\": \"> The sqlite docs. You can improve the performance of sqlite by multiple orders of magnitude by messing with things like https://www.sqlite.org/pragma.html#pragma_synchronous, at the cost of safe atomic updates.\\nThanks for the link, but only when the OS or your computer crashes, not even the application itself. Could you introduce any application file format that is safe in that case? Obviously your JSON file format is much more unsafe than that, not to mention the huge overhead of JSON with binary data.\", \"url\": \"https://news.ycombinator.com/item?id=23510688\", \"parent_id\": \"23510561\", \"depth\": 3, \"points\": null, \"relevance\": 5.849}, {\"id\": \"23510209\", \"author\": \"TheRealPomax\", \"created_at\": \"2020-06-13T15:41:59.000Z\", \"text\": \"The great thing about applications that use sqlite as their application file format is that you can write secondary apps and utilities to supplement the applications themselves.\\nFor example, Adobe's Lightroom uses sqlite as their application file format, which means that it's almost trivial to write an application to help it do things it's either really bad/exceedingly slow at (like removing images from a catalogue that no longer exist on disk) or literally can't do (like generating a playlist of files-on-disk for a specific collection or tag), without being locked into whatever janky scripti…\", \"url\": \"https://news.ycombinator.com/item?id=23510209\", \"parent_id\": \"23508923\", \"depth\": 0, \"points\": null, \"relevance\": 5.756}, {\"id\": \"23514509\", \"author\": \"sdinsn\", \"created_at\": \"2020-06-14T01:59:04.000Z\", \"text\": \"That doesn't answer the question. You never should have to block the UI thread. That's just poor application design, independent of the file format; you cannot blame that on SQLite.\", \"url\": \"https://news.ycombinator.com/item?id=23514509\", \"parent_id\": \"23510880\", \"depth\": 5, \"points\": null, \"relevance\": 5.68}, {\"id\": \"23510142\", \"author\": \"TheRealPomax\", \"created_at\": \"2020-06-13T15:34:11.000Z\", \"text\": \"That's the thing: this isn't \\\"a database\\\" anymore when it's used as an application file format, it's now \\\"an application file format\\\" that is conveniently also a sqlite db file so everything in it is trivially accessible.\\nStoring huge blobs then becomes a matter of \\\"is this my data, or is this general data that I'm merely also making use of\\\". Examples abound of both:\\n- Adobe Lightroom (a non-destructive photo editor) goes with \\\"these are not my images\\\" and leaves them out of its sqlite \\\"lrcat\\\" files, instead maintaining a record of where files can be found on-disk.\\n- Clip Studio (a graphics p…\", \"url\": \"https://news.ycombinator.com/item?id=23510142\", \"parent_id\": \"23509464\", \"depth\": 1, \"points\": null, \"relevance\": 5.676}, {\"id\": \"23512190\", \"author\": \"waynesonfire\", \"created_at\": \"2020-06-13T19:56:04.000Z\", \"text\": \"What is an application file format?\", \"url\": \"https://news.ycombinator.com/item?id=23512190\", \"parent_id\": \"23508923\", \"depth\": 0, \"points\": null, \"relevance\": 5.673}, {\"id\": \"23522114\", \"author\": \"teleforce\", \"created_at\": \"2020-06-14T22:55:08.000Z\", \"text\": \"Perhaps SQlite or any SQL engine is not a good idea for application file format [1],[2], or is it just bad for web applications?\\n[1]https://news.ycombinator.com/item?id=23517663\\n[2]https://support.google.com/chrome/thread/17537877?hl=en\", \"url\": \"https://news.ycombinator.com/item?id=23522114\", \"parent_id\": \"23510055\", \"depth\": 2, \"points\": null, \"relevance\": 5.555}, {\"id\": \"23510889\", \"author\": \"ori_b\", \"created_at\": \"2020-06-13T17:09:38.000Z\", \"text\": \"> Thanks for the link, but only when the OS or your computer crashes, not even the application itself.\\nAh, right there are also the journalling knobs that you'd tweak to get to max performance -- either in-memory or no journalling at all make a big impact. There are a bunch of them scattered throughout the docs.\\n> Could you introduce any application file format that is safe in that case? Obviously your JSON file format is much more unsafe than that, not to mention the huge overhead of JSON with binary data.\\nYes, any format is safe if you write to a temporary file, and then rename(2) it to rep…\", \"url\": \"https://news.ycombinator.com/item?id=23510889\", \"parent_id\": \"23510688\", \"depth\": 4, \"points\": null, \"relevance\": 5.542}, {\"id\": \"23511258\", \"author\": \"em500\", \"created_at\": \"2020-06-13T17:57:35.000Z\", \"text\": \"Your concerns seem pretty theoretical. Several very widely used applications (Whatsapp, iMessage, Apple Notes/Calendar) use sqlite as a file format without much issue.\", \"url\": \"https://news.ycombinator.com/item?id=23511258\", \"parent_id\": \"23510865\", \"depth\": 5, \"points\": null, \"relevance\": 5.539}, {\"id\": \"23510405\", \"author\": \"TheRealPomax\", \"created_at\": \"2020-06-13T16:07:49.000Z\", \"text\": \"I'm not sure how slqite as your application file format has anything to do with open source, honestly. It's certainly super easy for open source projects to use, but a closed source proprietary application using an encrypted sqlite file sounds perfectly sensible to me?\\nWe all win when folks decide to leave it accessible, but I'm not going to hold \\\"encrypting a file format so that people can't easily reverse engineer it\\\" against folks who are trying to sell software.\", \"url\": \"https://news.ycombinator.com/item?id=23510405\", \"parent_id\": \"23510336\", \"depth\": 2, \"points\": null, \"relevance\": 5.458}, {\"id\": \"23512015\", \"author\": \"me551ah\", \"created_at\": \"2020-06-13T19:31:49.000Z\", \"text\": \"The only thing stopping SQLite from becoming the primary application file format is browsers. Every single other client supports SQLite. Embedded, Mobile, Lightroom, Desktop Apps and Cross platform mobile frameworks have really good support for SQLite.\", \"url\": \"https://news.ycombinator.com/item?id=23512015\", \"parent_id\": \"23510209\", \"depth\": 1, \"points\": null, \"relevance\": 5.38}, {\"id\": \"23512883\", \"author\": \"gwbas1c\", \"created_at\": \"2020-06-13T21:26:14.000Z\", \"text\": \"One minor point that needs to be raised: Using SQLite as your application file format locks you into the SQLite source code.\\n(And in most cases that's not a bad thing, it's free and open source.)\\nBut, if you truly want an open file format, someone needs to be able to independently write a program that can read your file without relying on third party dependencies. This is why the browser vendors decided not to put SQLite into the HTML and JavaScript standards.\\nIt is an awesome product! I've worked with it for over a decade and I'm a fan!\", \"url\": \"https://news.ycombinator.com/item?id=23512883\", \"parent_id\": \"23508923\", \"depth\": 0, \"points\": null, \"relevance\": 5.304}, {\"id\": \"23509287\", \"author\": \"juskrey\", \"created_at\": \"2020-06-13T13:41:49.000Z\", \"text\": \"Years pass, now decades, yet SQLite is still the most pleasant DB to work with.\", \"url\": \"https://news.ycombinator.com/item?id=23509287\", \"parent_id\": \"23508923\", \"depth\": 0, \"points\": null, \"relevance\": null}, {\"id\": \"23509407\", \"author\": \"TedDoesntTalk\", \"created_at\": \"2020-06-13T14:03:04.000Z\", \"text\": \"Agree, but it also side-steps some complex topics like sharding, replication, high-availability, etc. I’m not suggesting those topics should be addressed by SQLite; that simplicity is an asset.\\nHas anyone used SQLite remotely over a network?\", \"url\": \"https://news.ycombinator.com/item?id=23509407\", \"parent_id\": \"23509287\", \"depth\": 1, \"points\": null, \"relevance\": null}, {\"id\": \"23509470\", \"author\": \"trashburger\", \"created_at\": \"2020-06-13T14:13:54.000Z\", \"text\": \"I think the main reason SQLite doesn't have them is because it's not a goal for the project. SQLite would be monumentally more complex if it supported networking, sharding, etc. If you need those use cases then perhaps it's a good idea to switch to a more scalable DBMS. My favorite is PostgreSQL. If I'm building something which will have user-generated content then I always pick Postgres. Otherwise, SQLite.\", \"url\": \"https://news.ycombinator.com/item?id=23509470\", \"parent_id\": \"23509407\", \"depth\": 2, \"points\": null, \"relevance\": null}, {\"id\": \"23509477\", \"author\": \"easytiger\", \"created_at\": \"2020-06-13T14:15:02.000Z\", \"text\": \"It lives in your process. It has no network features. It's not a DBMS.\\nPeople have built layers over it though\", \"url\": \"https://news.ycombinator.com/item?id=23509477\", \"parent_id\": \"23509407\", \"depth\": 2, \"points\": null, \"relevance\": null}, {\"id\": \"23509541\", \"author\": \"rlpb\", \"created_at\": \"2020-06-13T14:23:40.000Z\", \"text\": \"Dqlite exists - it's SQLite with some of these feature added. https://dqlite.io/\", \"url\": \"https://news.ycombinator.com/item?id=23509541\", \"parent_id\": \"23509407\", \"depth\": 2, \"points\": null, \"relevance\": null}], \"comments_total\": 301, \"comments_relevant\": 20}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 3, \"read_result\": 1}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 22, \"pages_read\": 4, \"calls_without_new_evidence\": 4}}",
+    "{\"result_id\": \"099a2d0258c1e19d13631236\", \"kind\": \"fetch\", \"fields\": [\"comments\"], \"offset\": 0, \"next_offset\": 25, \"next_offsets\": {\"comments\": 25}, \"truncated\": true, \"data\": {\"comments\": [{\"id\": \"18755656\", \"author\": \"adzm\", \"created_at\": \"2018-12-25T03:17:02.000Z\", \"text\": \"Why would you realistically need wal or shm for an application file format anyway? That's for high concurrency in general.\", \"url\": \"https://news.ycombinator.com/item?id=18755656\", \"parent_id\": \"18755444\", \"depth\": 1, \"points\": null, \"relevance\": 12.488}, {\"id\": \"18756861\", \"author\": \"skrause\", \"created_at\": \"2018-12-25T10:29:43.000Z\", \"text\": \"The worst part about CSV is the locale-specific format used by some programs. For example when exporting to CSV a German Excel will use the comma as the decimal separator in numbers and a semicolon for the value separator. So you need to specify the exact format for each individual file you want to import.\", \"url\": \"https://news.ycombinator.com/item?id=18756861\", \"parent_id\": \"18756012\", \"depth\": 3, \"points\": null, \"relevance\": 7.608}, {\"id\": \"18756610\", \"author\": \"9712263\", \"created_at\": \"2018-12-25T08:43:46.000Z\", \"text\": \"The problem is data corruption. If a CSV is corrupted, then I could at least parse part of the data. For a corrupted SQL file, I'm done. Also, diff is not working for binary format, and it is more difficult to trace change for SQL format.\\nIn this sense, I prefer a SQL dump file.\", \"url\": \"https://news.ycombinator.com/item?id=18756610\", \"parent_id\": \"18755505\", \"depth\": 1, \"points\": null, \"relevance\": 7.516}, {\"id\": \"18758774\", \"author\": \"darkpuma\", \"created_at\": \"2018-12-25T19:12:01.000Z\", \"text\": \"It's not so much that they break things, but if those features are enabled sqlite will be writing multiple files instead of just one, which somewhat nullifies the \\\"single file\\\" benefit of sqlite.\", \"url\": \"https://news.ycombinator.com/item?id=18758774\", \"parent_id\": \"18757960\", \"depth\": 2, \"points\": null, \"relevance\": 7.105}, {\"id\": \"18756606\", \"author\": \"nabla9\", \"created_at\": \"2018-12-25T08:41:40.000Z\", \"text\": \"You argue bases on a good principle. But while the principle of open well documented standard is good one, it's just a principle. The goal is portability, consistence and long term stability.\\nSQLite is a Recommended Storage Format for datasets according to the US Library of Congress. https://www.loc.gov/preservation/digital/formats/fdd/fdd0004...\", \"url\": \"https://news.ycombinator.com/item?id=18756606\", \"parent_id\": \"18755904\", \"depth\": 2, \"points\": null, \"relevance\": 6.531}, {\"id\": \"18756697\", \"author\": \"quickthrower2\", \"created_at\": \"2018-12-25T09:19:37.000Z\", \"text\": \"What is the source of the corruption. Unlikely to be disks nowadays but people should take backups of things. Very unlikely to be a SQLite buggy write but again a backup could save you. Worse case I’m sure there are tools to recover a corrupted file.\", \"url\": \"https://news.ycombinator.com/item?id=18756697\", \"parent_id\": \"18756610\", \"depth\": 2, \"points\": null, \"relevance\": 6.521}, {\"id\": \"18758115\", \"author\": \"m_sahaf\", \"created_at\": \"2018-12-25T17:14:57.000Z\", \"text\": \"I've probably said this around here before, but I wish people trade SQLite files instead of Excel workbooks. Excel (and the like) can operate on top of SQLite. This way we have data portability, data integrity, and ease of data access.\", \"url\": \"https://news.ycombinator.com/item?id=18758115\", \"parent_id\": \"18757375\", \"depth\": 2, \"points\": null, \"relevance\": 6.37}, {\"id\": \"18755488\", \"author\": \"kccqzy\", \"created_at\": \"2018-12-25T02:25:56.000Z\", \"text\": \"It's mentioned on the WAL docs on https://sqlite.org/wal.html\\n> There is an additional quasi-persistent \\\"-wal\\\" file and \\\"-shm\\\" shared memory file associated with each database, which can make SQLite less appealing for use as an application file-format.\", \"url\": \"https://news.ycombinator.com/item?id=18755488\", \"parent_id\": \"18755444\", \"depth\": 1, \"points\": null, \"relevance\": 6.265}, {\"id\": \"18757062\", \"author\": \"xte\", \"created_at\": \"2018-12-25T11:47:01.000Z\", \"text\": \"Mh,\\n> Simplified Application Development\\nIt's depend \\\"application development\\\" is a vast area...\\n> Single-File Documents\\nNot much related to SQlite, can be or cannot be done with nearly any format you like. Also remember as a good advise how worse go Catia v6 R2009 (Catia is the best CAD/CAE/CAM suite in the world, used anywhere from automotive to aerospace&defence, it's sole real competitor are Creo (formerly Pro-e) and Nx) when it start to offer single-file PLMs for \\\"light usage\\\"...\\n> High-Level Query Language\\nDepending on the format you choose you may have the best/highest level query lang…\", \"url\": \"https://news.ycombinator.com/item?id=18757062\", \"parent_id\": \"18754634\", \"depth\": 0, \"points\": null, \"relevance\": 6.181}, {\"id\": \"18757405\", \"author\": \"oconnor663\", \"created_at\": \"2018-12-25T13:57:29.000Z\", \"text\": \"I'm surprised this is the only comment in the thread that mentions this security issue. It's only a week old!\", \"url\": \"https://news.ycombinator.com/item?id=18757405\", \"parent_id\": \"18757278\", \"depth\": 1, \"points\": null, \"relevance\": 5.215}, {\"id\": \"18762758\", \"author\": \"sly010\", \"created_at\": \"2018-12-26T16:03:15.000Z\", \"text\": \"> want to load config from environmental variables or centralized config management tools.\\nI am not sure I understand this, I have a feeling you are mixing \\\"configuration\\\" with \\\"loading the configuration\\\" here which is a slippery slope.\\n> you miss out on the benefits of your first language, like static typing\\nAgain, you are confusing configuration with writing your application. You have a point here if you are your applications only user (e.g. server apps) and you have to recompile anyway.\\n> Third, you can do things like merging environment-specific configs into a base config\\nAgain, I am not …\", \"url\": \"https://news.ycombinator.com/item?id=18762758\", \"parent_id\": \"18759216\", \"depth\": 6, \"points\": null, \"relevance\": 4.91}, {\"id\": \"18757402\", \"author\": \"hestefisk\", \"created_at\": \"2018-12-25T13:56:58.000Z\", \"text\": \"I have done this on a large .NET Win32/XAML client / server application in two ways:\\n1) Saving application state and config/settings (window layout, ... very easy to marshall XAML stage to an SQLite file)\\n2) Caching of common data sets to avoid unnecessary polling to the server of data that is accessed all the time (ie customer master data)\\nIt works beautifully.\", \"url\": \"https://news.ycombinator.com/item?id=18757402\", \"parent_id\": \"18754634\", \"depth\": 0, \"points\": null, \"relevance\": 4.468}, {\"id\": \"18755505\", \"author\": \"anonymouzz\", \"created_at\": \"2018-12-25T02:29:56.000Z\", \"text\": \"I wish more people would publish data as SQLite databases (if the size permits, of course; usually it does). It's so much more reliable than CSVs, which have at least a few dimensions of significant differences (quoted/unquoted, comma vs semicolon vs tab vs space, headers/no headers, comments). Not to mention that initial data exploration can be done right in an SQLite explorer/browser tool.\", \"url\": \"https://news.ycombinator.com/item?id=18755505\", \"parent_id\": \"18754634\", \"depth\": 0, \"points\": null, \"relevance\": 4.448}, {\"id\": \"18756351\", \"author\": \"revskill\", \"created_at\": \"2018-12-25T07:01:35.000Z\", \"text\": \"It's because my projects are universal application, that's why Javascript. But JS is not the only choice.\\nWhat i mean is, we want a programmable config file, not \\\"static one\\\"\", \"url\": \"https://news.ycombinator.com/item?id=18756351\", \"parent_id\": \"18756138\", \"depth\": 4, \"points\": null, \"relevance\": 3.977}, {\"id\": \"18756569\", \"author\": \"sjwright\", \"created_at\": \"2018-12-25T08:25:46.000Z\", \"text\": \"The third great file format (after text and SQLite) is the zip file with custom suffix. That is ideal for BLOB-by-nature data.\", \"url\": \"https://news.ycombinator.com/item?id=18756569\", \"parent_id\": \"18756495\", \"depth\": 1, \"points\": null, \"relevance\": 3.914}, {\"id\": \"18757052\", \"author\": \"flohofwoe\", \"created_at\": \"2018-12-25T11:42:35.000Z\", \"text\": \"I'd rather have a proper text format which I can inspect without a highly specialized tool. In 50 or 500 years it will be hard to hunt down the right tools to open an SQLite file, build SQLite from sources (if they still exist), or reverse-engineer the file format. For a text file you only need to reverse-engineer the ASCII encoding (or maybe UTF-8).\", \"url\": \"https://news.ycombinator.com/item?id=18757052\", \"parent_id\": \"18755505\", \"depth\": 1, \"points\": null, \"relevance\": 3.826}, {\"id\": \"18755362\", \"author\": \"anonymouzz\", \"created_at\": \"2018-12-25T01:44:54.000Z\", \"text\": \"Yup, see no reason why not. This is answered in the post:\\n> Any application state that can be recorded in a pile-of-files can also be recorded in an SQLite database with a simple key/value schema like this:\\n CREATE TABLE files(filename TEXT PRIMARY KEY, content BLOB);\\n\\n> If the content is compressed, then such an SQLite Archive database is the same size (±1%) as an equivalent ZIP archive, and it has the advantage of being able to update individual \\\"files\\\" without rewriting the entire document.\\nAlso look at the related post which suggests doing precisely that - storing images inside SQLite blo…\", \"url\": \"https://news.ycombinator.com/item?id=18755362\", \"parent_id\": \"18755335\", \"depth\": 1, \"points\": null, \"relevance\": 3.795}, {\"id\": \"18756064\", \"author\": \"dagenix\", \"created_at\": \"2018-12-25T05:22:23.000Z\", \"text\": \"1. \\\"YAML is stupid\\\" is not constructive. Why is it \\\"stupid\\\"?\\n2. One place where YAML is nice is if you want to have a user-edited file. JSON can be a pain to edit by hand due to a lack of comments and being so picky about where commas can and cannot go - YAML isn't perfect, but, it does help with issues like that.\\n3. There are languages outside of Javascript, and it's not possible to import a javascript file directly from most of those languages.\\n4. There is a difference between the file that you use to configure an app - for which JSON or YAML may be a good fit - and the format for which you…\", \"url\": \"https://news.ycombinator.com/item?id=18756064\", \"parent_id\": \"18755813\", \"depth\": 1, \"points\": null, \"relevance\": 3.767}, {\"id\": \"18757335\", \"author\": \"agumonkey\", \"created_at\": \"2018-12-25T13:31:54.000Z\", \"text\": \"Reminds me I have to extract data from an 9x day windows application. It's a jetdb that refuses to load in the first viewers I could find. Made me wish it was sqlite (although it didn't exist at the time..)\", \"url\": \"https://news.ycombinator.com/item?id=18757335\", \"parent_id\": \"18755505\", \"depth\": 1, \"points\": null, \"relevance\": 3.682}, {\"id\": \"18755563\", \"author\": \"tommoor\", \"created_at\": \"2018-12-25T02:49:05.000Z\", \"text\": \"Sketch (https://sketchapp.com) actually used a zipped SQLite database as it's file format until the past year.\", \"url\": \"https://news.ycombinator.com/item?id=18755563\", \"parent_id\": \"18754634\", \"depth\": 0, \"points\": null, \"relevance\": 3.663}, {\"id\": \"18755200\", \"author\": \"saagarjha\", \"created_at\": \"2018-12-25T01:01:04.000Z\", \"text\": \"CoreData has an option to write to a SQLite database, so a lot of data on iOS and macOS apps ends up being written to disk this way.\", \"url\": \"https://news.ycombinator.com/item?id=18755200\", \"parent_id\": \"18754634\", \"depth\": 0, \"points\": null, \"relevance\": null}, {\"id\": \"18755450\", \"author\": \"thechao\", \"created_at\": \"2018-12-25T02:14:59.000Z\", \"text\": \"If you code in c/c++, and have even a modest OS/RTOS available, you should use SQLite as your persistence layer, full stop. I switched to this methodology 5 years ago & never looked back. You know what happens when another engineer gets your on disk format & asks how to look at it? You say “open it in SQLite browser”; all further questions disappear.\", \"url\": \"https://news.ycombinator.com/item?id=18755450\", \"parent_id\": \"18755200\", \"depth\": 1, \"points\": null, \"relevance\": null}, {\"id\": \"18755956\", \"author\": \"romwell\", \"created_at\": \"2018-12-25T04:45:55.000Z\", \"text\": \"Seconding this.\\nOne thing though: last time I did that, I ended up writing my own ORM/serialization library (with templates and all), but I wish I didn't have to.\\nIs there anything freely available out there that would allow one to store object hierarchies with the ease of boost::serialization, but into an SQLite EAV scheme?\", \"url\": \"https://news.ycombinator.com/item?id=18755956\", \"parent_id\": \"18755450\", \"depth\": 2, \"points\": null, \"relevance\": null}, {\"id\": \"18757257\", \"author\": \"thechao\", \"created_at\": \"2018-12-25T13:06:56.000Z\", \"text\": \"I always trace rather than log. That means I have one table per ‘tracing function’, and just record the arguments to each table. Recording an object means recording the function calls that generated the object; regenerating the object is just playing those functions back. I’ll admit that this works far better in C than C++, as C++ tends to treat new types as opaque primitives.\", \"url\": \"https://news.ycombinator.com/item?id=18757257\", \"parent_id\": \"18755956\", \"depth\": 3, \"points\": null, \"relevance\": null}, {\"id\": \"18757529\", \"author\": \"trampi\", \"created_at\": \"2018-12-25T14:27:41.000Z\", \"text\": \"Sounds like https://martinfowler.com/eaaDev/EventSourcing.html\", \"url\": \"https://news.ycombinator.com/item?id=18757529\", \"parent_id\": \"18757257\", \"depth\": 4, \"points\": null, \"relevance\": null}], \"comments_total\": 161, \"comments_relevant\": 20}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 3, \"read_result\": 2}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 22, \"pages_read\": 4, \"calls_without_new_evidence\": 5}}",
+    "{\"result_id\": \"e3d1a9098e73d5e28c1c344e\", \"kind\": \"fetch\", \"fields\": [\"comments\"], \"offset\": 0, \"next_offset\": 25, \"next_offsets\": {\"comments\": 25}, \"truncated\": true, \"data\": {\"comments\": [{\"id\": \"46079326\", \"author\": \"askl\", \"created_at\": \"2025-11-28T15:12:32.000Z\", \"text\": \"Somehow my first thought from the title was using sqlite as a format for applications. So like a replacement for ELF. I think this idea is both fascinating and horrifying.\", \"url\": \"https://news.ycombinator.com/item?id=46079326\", \"parent_id\": \"46076642\", \"depth\": 0, \"points\": null, \"relevance\": 6.122}, {\"id\": \"46082856\", \"author\": \"dchest\", \"created_at\": \"2025-11-28T21:20:30.000Z\", \"text\": \"Not as an application file format discussed in the link, though. Lots of software use it as a database (as intended) it's also a base for Apple's Core Data.\", \"url\": \"https://news.ycombinator.com/item?id=46082856\", \"parent_id\": \"46080567\", \"depth\": 2, \"points\": null, \"relevance\": 4.964}, {\"id\": \"46088542\", \"author\": \"nly\", \"created_at\": \"2025-11-29T16:03:45.000Z\", \"text\": \"SQLCipher + a hard-coded or generated key in your app.\", \"url\": \"https://news.ycombinator.com/item?id=46088542\", \"parent_id\": \"46085096\", \"depth\": 2, \"points\": null, \"relevance\": 4.446}, {\"id\": \"46090549\", \"author\": \"crazygringo\", \"created_at\": \"2025-11-29T20:34:50.000Z\", \"text\": \"You can put tens of thousands of files in a single file lots of ways that are expressly designed for that. You don't need SQLite for that.\\nSo why would you want to use SQLite for that is my question? Mounting a database or a table as a filesystem doesn't make much sense to me. There's a very poor fit between the two paradigms. What does a subdirectory mean in a database? What does a foreign key or set of columns mean in a filesystem?\", \"url\": \"https://news.ycombinator.com/item?id=46090549\", \"parent_id\": \"46089470\", \"depth\": 5, \"points\": null, \"relevance\": 3.709}, {\"id\": \"46088980\", \"author\": \"packetlost\", \"created_at\": \"2025-11-29T16:57:33.000Z\", \"text\": \"I pretty much always store date/times as Unix epoch integers. Also use STRICT tables and set the PRAGMA to enforce foreign key constraints.\", \"url\": \"https://news.ycombinator.com/item?id=46088980\", \"parent_id\": \"46088636\", \"depth\": 5, \"points\": null, \"relevance\": 3.515}, {\"id\": \"46080776\", \"author\": \"packetlost\", \"created_at\": \"2025-11-28T17:35:05.000Z\", \"text\": \"Maybe not as obvious for those without formal education in \\\"\\\"\\\"database normalization\\\"\\\"\\\" but it's pretty trivial to convert from a tree structure to a flat table structure using foreign key relations. Recursive queries aren't even that difficult in SQLite, so self-referential data can be represented cleanly too, if not a bit more difficult to write. IME most applications \\\"tree structures\\\" aren't self-referential and are better formalized as distinct entities with one-to-one relationships (ie. a subtree gets a table).\\nThere's always the lazy approach of storing JSON blobs in TEXT fields, but I …\", \"url\": \"https://news.ycombinator.com/item?id=46080776\", \"parent_id\": \"46080273\", \"depth\": 1, \"points\": null, \"relevance\": 2.225}, {\"id\": \"46088356\", \"author\": \"mort96\", \"created_at\": \"2025-11-29T15:41:46.000Z\", \"text\": \"This seems completely orthogonal? This is an alternative to zip and tar built on SQLite:\\n> An \\\"SQLite Archive\\\" is a file container similar to a ZIP archive or Tarball but based on an SQLite database.\\nYour parent comment said that when you're using SQLite as an application format, the content in the database don't get compressed. These two things have nothing to do with each other.\", \"url\": \"https://news.ycombinator.com/item?id=46088356\", \"parent_id\": \"46080167\", \"depth\": 2, \"points\": null, \"relevance\": 1.525}, {\"id\": \"46079869\", \"author\": \"joelwallis\", \"created_at\": \"2025-11-28T16:09:56.000Z\", \"text\": \"SQLite is abolutely amazing as an app format! I couldn't list how many tools are available to read SQLite data, or how easy and friendly they are. Even its CLI does wonders when you're dealing with data with it. SQLite has been around for 20+ years and is one of the most heavily tested softwares in the world.\\nSQLite is very simple, yet very reliable and powerful. Using SQLite as file format might be the best decision an engineer can take when it comes to future-proofing preservation of data.\", \"url\": \"https://news.ycombinator.com/item?id=46079869\", \"parent_id\": \"46076642\", \"depth\": 0, \"points\": null, \"relevance\": 1.523}, {\"id\": \"46083208\", \"author\": \"out_of_protocol\", \"created_at\": \"2025-11-28T22:09:14.000Z\", \"text\": \"Also, tested .zip vs .tar vs sqlite vs file system. Of this bunch, sqlite was the most compact format with minimal overhead.\", \"url\": \"https://news.ycombinator.com/item?id=46083208\", \"parent_id\": \"46080301\", \"depth\": 1, \"points\": null, \"relevance\": 1.515}, {\"id\": \"46080546\", \"author\": \"euroderf\", \"created_at\": \"2025-11-28T17:12:55.000Z\", \"text\": \"There seems to be no single software solution \\\"out there\\\" for mounting an SQLite DB (or an SQLite archive) as a file system, with or without per-record relative paths.\", \"url\": \"https://news.ycombinator.com/item?id=46080546\", \"parent_id\": \"46076642\", \"depth\": 0, \"points\": null, \"relevance\": 1.48}, {\"id\": \"46079942\", \"author\": \"psnehanshu\", \"created_at\": \"2025-11-28T16:17:03.000Z\", \"text\": \"I see no downside in using sqlite as an application file format.\", \"url\": \"https://news.ycombinator.com/item?id=46079942\", \"parent_id\": \"46076642\", \"depth\": 0, \"points\": null, \"relevance\": 1.383}, {\"id\": \"46080167\", \"author\": \"lateforwork\", \"created_at\": \"2025-11-28T16:37:57.000Z\", \"text\": \"It can be compressed, see https://sqlite.org/sqlar.html\", \"url\": \"https://news.ycombinator.com/item?id=46080167\", \"parent_id\": \"46080130\", \"depth\": 1, \"points\": null, \"relevance\": 1.383}, {\"id\": \"46080273\", \"author\": \"lateforwork\", \"created_at\": \"2025-11-28T16:47:50.000Z\", \"text\": \"Most application's file formats are structured as a tree, not as flat tables. If your application's data is flat tables or name-value pairs then SQLite is an obvious choice. But if it is tree structured then it is less obvious. You can still save your tree in JSON format as a blob in a SQLite table but in this case the benefits are fewer. But if in addition to the JSON you have images or other binary data then once again SQLite offers benefits, because each of those binary files can be additional rows in the SQLite table. This is far easier to handle than storing them in ZIP format.\", \"url\": \"https://news.ycombinator.com/item?id=46080273\", \"parent_id\": \"46076642\", \"depth\": 0, \"points\": null, \"relevance\": 1.363}, {\"id\": \"46088636\", \"author\": \"dardeaup\", \"created_at\": \"2025-11-29T16:14:06.000Z\", \"text\": \"Type safety as a benefit of SQLite? For me type safety is a negative of SQLite. Being able to store a different type that what the column is declared to store is a bug (not a feature). I also find the lack of DATE and DATETIME/TIMESTAMP to be less than ideal.\", \"url\": \"https://news.ycombinator.com/item?id=46088636\", \"parent_id\": \"46084465\", \"depth\": 4, \"points\": null, \"relevance\": 1.355}, {\"id\": \"46080236\", \"author\": \"abhashanand1501\", \"created_at\": \"2025-11-28T16:44:38.000Z\", \"text\": \"We are developing using sqlite to transfer configurations from uat to production environment. Since the configurations are already saved in a postgres table in uat, moving some configs from uat to production an sqlite file is very easy. since it's a binary format, we are also saved from any inadvertent edits by people doing production deployment.\\nAlso, another usecase is to export data from production to uat for testing some scenarios, it can be easily encoded in a sqlite file.\", \"url\": \"https://news.ycombinator.com/item?id=46080236\", \"parent_id\": \"46076642\", \"depth\": 0, \"points\": null, \"relevance\": 1.327}, {\"id\": \"46080419\", \"author\": \"robrenaud\", \"created_at\": \"2025-11-28T17:00:28.000Z\", \"text\": \"I had some json data that I wanted an annotation interface for. So I asked codex to put it into sqlite and make a little annotation webserver. It worked quickly/easily and without hassle. Sqlite supports queries over json-like objects.\\nMaybe a very simple document oriented db would have been better?\\nMy biggest gripe is that the sqlite cli is brutally minimal (makes sense given design), but I probably should have been using a nicer cli.\", \"url\": \"https://news.ycombinator.com/item?id=46080419\", \"parent_id\": \"46080273\", \"depth\": 1, \"points\": null, \"relevance\": 1.309}, {\"id\": \"46081449\", \"author\": \"fauigerzigerk\", \"created_at\": \"2025-11-28T18:39:50.000Z\", \"text\": \"What do you mean by \\\"json-like objects\\\"?\\nMy issue with SQLite's JSON implementation is that it cannot index arrays. SQLite indexes can only contain a single value per row (except for fulltext indexes but that's not what I want most of the time). SQLite has nothing like GIN indexes in Postgres.\", \"url\": \"https://news.ycombinator.com/item?id=46081449\", \"parent_id\": \"46080419\", \"depth\": 2, \"points\": null, \"relevance\": 1.262}, {\"id\": \"46080310\", \"author\": \"elephantum\", \"created_at\": \"2025-11-28T16:50:42.000Z\", \"text\": \"You do know, that you can create more than one table in SQLite and have references from one to another? Even recursive references work\", \"url\": \"https://news.ycombinator.com/item?id=46080310\", \"parent_id\": \"46080273\", \"depth\": 1, \"points\": null, \"relevance\": 1.225}, {\"id\": \"46079841\", \"author\": \"giancarlostoro\", \"created_at\": \"2025-11-28T16:07:20.000Z\", \"text\": \"Forget elf, imagine having a SQLite file that stores elf, exe and DMG binaries. I would not mind working on something like this.\", \"url\": \"https://news.ycombinator.com/item?id=46079841\", \"parent_id\": \"46079326\", \"depth\": 1, \"points\": null, \"relevance\": 1.18}, {\"id\": \"46081009\", \"author\": \"actionfromafar\", \"created_at\": \"2025-11-28T17:58:39.000Z\", \"text\": \"https://docs.devart.com/odbc/sqlite/access.htm\\nhttps://github.com/sam-ludlow/access-linker\", \"url\": \"https://news.ycombinator.com/item?id=46081009\", \"parent_id\": \"46079974\", \"depth\": 2, \"points\": null, \"relevance\": 1.18}, {\"id\": \"46077993\", \"author\": \"stavarotti\", \"created_at\": \"2025-11-28T12:17:22.000Z\", \"text\": \"Previously: https://news.ycombinator.com/item?id=23508923\", \"url\": \"https://news.ycombinator.com/item?id=46077993\", \"parent_id\": \"46076642\", \"depth\": 0, \"points\": null, \"relevance\": null}, {\"id\": \"46078996\", \"author\": \"jrochkind1\", \"created_at\": \"2025-11-28T14:33:41.000Z\", \"text\": \"Searched for this topic:\\n> and is backwards compatible to its inception in 2004 and which promises to continue to be compatible in decades to come.\\nThat is pretty amazing. You could do a lot worse.\", \"url\": \"https://news.ycombinator.com/item?id=46078996\", \"parent_id\": \"46076642\", \"depth\": 0, \"points\": null, \"relevance\": null}, {\"id\": \"46079106\", \"author\": \"dist-epoch\", \"created_at\": \"2025-11-28T14:46:49.000Z\", \"text\": \"Same as .zip, .xml, .json and many others.\\nDoesn't mean that whatever the app stores inside will remain backward compatible which is the harder problem to solve.\", \"url\": \"https://news.ycombinator.com/item?id=46079106\", \"parent_id\": \"46078996\", \"depth\": 1, \"points\": null, \"relevance\": null}, {\"id\": \"46079469\", \"author\": \"QuadrupleA\", \"created_at\": \"2025-11-28T15:28:55.000Z\", \"text\": \"Still helpful!\", \"url\": \"https://news.ycombinator.com/item?id=46079469\", \"parent_id\": \"46079106\", \"depth\": 2, \"points\": null, \"relevance\": null}, {\"id\": \"46088314\", \"author\": \"jrochkind1\", \"created_at\": \"2025-11-29T15:37:37.000Z\", \"text\": \"Right, but none of those are the working use file formats for a relational database.\", \"url\": \"https://news.ycombinator.com/item?id=46088314\", \"parent_id\": \"46079106\", \"depth\": 2, \"points\": null, \"relevance\": null}], \"comments_total\": 92, \"comments_relevant\": 20}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 3, \"read_result\": 3}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 22, \"pages_read\": 4, \"calls_without_new_evidence\": 6}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"ed25a12719f72e2804a5c496\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://sqlite.org/appfileformat.html\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 12, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"ed25a12719f72e2804a5c496\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 4, \"read_result\": 3}, \"new_urls\": 1, \"new_pages_read\": 0, \"seen_urls\": 23, \"pages_read\": 4, \"calls_without_new_evidence\": 0}}"
+  ],
+  "answer": "最相关的 Hacker News 讨论是：\n\n- 2020 年主帖：  \n  https://news.ycombinator.com/item?id=23508923  \n  标题为 **“SQLite as an Application File Format (2014)”**，链接到 SQLite 原文：  \n  https://sqlite.org/appfileformat.html\n\n- 2018 年重复讨论：  \n  https://news.ycombinator.com/item?id=18754634\n\n- 2025 年较新的重复讨论：  \n  https://news.ycombinator.com/item?id=46076642\n\n**讨论共识**\n\nSQLite 很适合作为应用文件格式，尤其当应用数据具备以下特征：\n\n- 需要事务、约束和查询；\n- 数据是关系型或半结构化的；\n- 希望整个应用状态放进一个文件；\n- 希望用户或第三方工具能够读取、检查和修改数据；\n- 希望避免自行设计序列化、迁移和崩溃恢复机制。\n\n支持者强调它的可访问性和长期可维护性。例如 2025 年讨论中，`joelwallis` 写道：\n\n> “SQLite is abolutely amazing as an app format! I couldn't list how many tools are available to read SQLite data, or how easy and friendly they are. Even its CLI does wonders when you're dealing with data with it. SQLite has been around for 20+ years and is one of the most heavily tested softwares in the world.”\n\n原评论：  \nhttps://news.ycombinator.com/item?id=46079869\n\n2018 年讨论中，`thechao` 则从实际工程经验出发：\n\n> “If you code in c/c++, and have even a modest OS/RTOS available, you should use SQLite as your persistence layer, full stop.”\n\n并补充：\n\n> “You know what happens when another engineer gets your on disk format & asks how to look at it? You say ‘open it in SQLite browser’; all further questions disappear.”\n\n原评论：  \nhttps://news.ycombinator.com/item?id=18755450\n\n**实际应用案例**\n\n讨论中提到的实际使用场景包括：\n\n- Firefox 的历史记录和书签；\n- Adobe Lightroom 的目录文件；\n- Apple 的 Core Data；\n- WhatsApp、iMessage、Apple Notes/Calendar；\n- Sketch 曾经使用压缩后的 SQLite 数据库作为文件格式；\n- 桌面应用的状态、配置和缓存；\n- 在测试环境和生产环境之间传输配置或数据。\n\n例如，`sdinsn` 写道：\n\n> “It's funny you use that as an example, since Firefox itself uses SQLite as the application file format for history and bookmarks...”\n\n原评论：  \nhttps://news.ycombinator.com/item?id=23514494\n\n`tommoor` 关于 Sketch 的评论：\n\n> “Sketch (https://sketchapp.com) actually used a zipped SQLite database as it's file format until the past year.”\n\n原评论：  \nhttps://news.ycombinator.com/item?id=18755563\n\n**主要反对意见**\n\n1. **关系表不一定适合树形文档**\n\n`lateforwork` 指出，很多应用文件本质上是树，而不是关系表：\n\n> “Most application's file formats are structured as a tree, not as flat tables. If your application's data is flat tables or name-value pairs then SQLite is an obvious choice. But if it is tree structured then it is less obvious.”\n\n原评论：  \nhttps://news.ycombinator.com/item?id=46080273\n\nSQLite 当然可以把 JSON 放入 `TEXT` 字段，也可以用多张表和外键表示树，但这样会削弱一部分 SQLite 的优势，或者增加建模复杂度。\n\n2. **人类可读性、diff 和故障恢复**\n\n有人认为 JSON、目录树或文本格式更容易手工检查和修复。`networkimprov` 写道：\n\n> “SQLite is a fine single-file application file format, but if you want average users to be able to inspect and perhaps fix application data when things go wrong, a tree of JSON-format files is more friendly.”\n\n原评论：  \nhttps://news.ycombinator.com/item?id=23511645\n\n2018 年讨论中，`9712263` 还提出了数据损坏和版本比较的问题：\n\n> “The problem is data corruption. If a CSV is corrupted, then I could at least parse part of the data. For a corrupted SQL file, I'm done. Also, diff is not working for binary format, and it is more difficult to trace change for SQL format.”\n\n原评论：  \nhttps://news.ycombinator.com/item?id=18756610\n\n3. **WAL 模式可能破坏“单文件”假设**\n\n使用 WAL 时，SQLite 可能产生额外的 `-wal` 和 `-shm` 文件。`kccqzy` 引用了 SQLite 文档：\n\n> “There is an additional quasi-persistent ‘-wal’ file and ‘-shm’ shared memory file associated with each database, which can make SQLite less appealing for use as an application file-format.”\n\n原评论：  \nhttps://news.ycombinator.com/item?id=18755488\n\n另一个评论直接指出：\n\n> “It's not so much that they break things, but if those features are enabled sqlite will be writing multiple files instead of just one, which somewhat nullifies the ‘single file’ benefit of sqlite.”\n\n原评论：  \nhttps://news.ycombinator.com/item?id=18758774\n\n4. **文件格式的独立实现和长期兼容性**\n\n`gwbas1c` 认为，使用 SQLite 意味着依赖 SQLite 的实现：\n\n> “Using SQLite as your application file format locks you into the SQLite source code.”\n\n他同时承认这通常不是严重问题，但指出如果目标是一个真正开放的文件格式，理论上应该允许别人独立实现读取器。\n\n原评论：  \nhttps://news.ycombinator.com/item?id=23512883\n\n5. **不要把不可信 SQLite 文件直接交给解析器**\n\n讨论还涉及打开外部或不可信数据库文件时的安全风险。`skrebbel` 写道：\n\n> “If you're using SQLite as an application file format, isn't opening untrusted files a key use case?”\n\n原评论：  \nhttps://news.ycombinator.com/item?id=23510934\n\n**结论**\n\n这几轮讨论的实际结论比较明确：SQLite 是一种很强的应用文件格式，但它不是所有文档格式的替代品。\n\n适合使用 SQLite 的情况：\n\n- 应用数据本来就是表、实体和关系；\n- 需要事务、索引、约束和增量更新；\n- 希望数据可被 SQLite CLI、浏览器或其他工具读取；\n- 希望获得成熟的崩溃恢复和兼容性支持；\n- 文件主要由应用生成和消费，而不是要求用户直接编辑。\n\n需要谨慎的情况：\n\n- 文件必须天然适合文本 diff 和手工修改；\n- 数据主要是深层树形文档；\n- 文件必须严格保持单文件，不能出现 WAL/SHM 旁文件；\n- 需要在不依赖 SQLite 的情况下实现独立读取器；\n- 文件会频繁来自不可信来源，需要严格的解析沙箱和安全策略。",
+  "observation": {
+    "id": "hn-sqlite",
+    "answer": "最相关的 Hacker News 讨论是：\n\n- 2020 年主帖：  \n  https://news.ycombinator.com/item?id=23508923  \n  标题为 **“SQLite as an Application File Format (2014)”**，链接到 SQLite 原文：  \n  https://sqlite.org/appfileformat.html\n\n- 2018 年重复讨论：  \n  https://news.ycombinator.com/item?id=18754634\n\n- 2025 年较新的重复讨论：  \n  https://news.ycombinator.com/item?id=46076642\n\n**讨论共识**\n\nSQLite 很适合作为应用文件格式，尤其当应用数据具备以下特征：\n\n- 需要事务、约束和查询；\n- 数据是关系型或半结构化的；\n- 希望整个应用状态放进一个文件；\n- 希望用户或第三方工具能够读取、检查和修改数据；\n- 希望避免自行设计序列化、迁移和崩溃恢复机制。\n\n支持者强调它的可访问性和长期可维护性。例如 2025 年讨论中，`joelwallis` 写道：\n\n> “SQLite is abolutely amazing as an app format! I couldn't list how many tools are available to read SQLite data, or how easy and friendly they are. Even its CLI does wonders when you're dealing with data with it. SQLite has been around for 20+ years and is one of the most heavily tested softwares in the world.”\n\n原评论：  \nhttps://news.ycombinator.com/item?id=46079869\n\n2018 年讨论中，`thechao` 则从实际工程经验出发：\n\n> “If you code in c/c++, and have even a modest OS/RTOS available, you should use SQLite as your persistence layer, full stop.”\n\n并补充：\n\n> “You know what happens when another engineer gets your on disk format & asks how to look at it? You say ‘open it in SQLite browser’; all further questions disappear.”\n\n原评论：  \nhttps://news.ycombinator.com/item?id=18755450\n\n**实际应用案例**\n\n讨论中提到的实际使用场景包括：\n\n- Firefox 的历史记录和书签；\n- Adobe Lightroom 的目录文件；\n- Apple 的 Core Data；\n- WhatsApp、iMessage、Apple Notes/Calendar；\n- Sketch 曾经使用压缩后的 SQLite 数据库作为文件格式；\n- 桌面应用的状态、配置和缓存；\n- 在测试环境和生产环境之间传输配置或数据。\n\n例如，`sdinsn` 写道：\n\n> “It's funny you use that as an example, since Firefox itself uses SQLite as the application file format for history and bookmarks...”\n\n原评论：  \nhttps://news.ycombinator.com/item?id=23514494\n\n`tommoor` 关于 Sketch 的评论：\n\n> “Sketch (https://sketchapp.com) actually used a zipped SQLite database as it's file format until the past year.”\n\n原评论：  \nhttps://news.ycombinator.com/item?id=18755563\n\n**主要反对意见**\n\n1. **关系表不一定适合树形文档**\n\n`lateforwork` 指出，很多应用文件本质上是树，而不是关系表：\n\n> “Most application's file formats are structured as a tree, not as flat tables. If your application's data is flat tables or name-value pairs then SQLite is an obvious choice. But if it is tree structured then it is less obvious.”\n\n原评论：  \nhttps://news.ycombinator.com/item?id=46080273\n\nSQLite 当然可以把 JSON 放入 `TEXT` 字段，也可以用多张表和外键表示树，但这样会削弱一部分 SQLite 的优势，或者增加建模复杂度。\n\n2. **人类可读性、diff 和故障恢复**\n\n有人认为 JSON、目录树或文本格式更容易手工检查和修复。`networkimprov` 写道：\n\n> “SQLite is a fine single-file application file format, but if you want average users to be able to inspect and perhaps fix application data when things go wrong, a tree of JSON-format files is more friendly.”\n\n原评论：  \nhttps://news.ycombinator.com/item?id=23511645\n\n2018 年讨论中，`9712263` 还提出了数据损坏和版本比较的问题：\n\n> “The problem is data corruption. If a CSV is corrupted, then I could at least parse part of the data. For a corrupted SQL file, I'm done. Also, diff is not working for binary format, and it is more difficult to trace change for SQL format.”\n\n原评论：  \nhttps://news.ycombinator.com/item?id=18756610\n\n3. **WAL 模式可能破坏“单文件”假设**\n\n使用 WAL 时，SQLite 可能产生额外的 `-wal` 和 `-shm` 文件。`kccqzy` 引用了 SQLite 文档：\n\n> “There is an additional quasi-persistent ‘-wal’ file and ‘-shm’ shared memory file associated with each database, which can make SQLite less appealing for use as an application file-format.”\n\n原评论：  \nhttps://news.ycombinator.com/item?id=18755488\n\n另一个评论直接指出：\n\n> “It's not so much that they break things, but if those features are enabled sqlite will be writing multiple files instead of just one, which somewhat nullifies the ‘single file’ benefit of sqlite.”\n\n原评论：  \nhttps://news.ycombinator.com/item?id=18758774\n\n4. **文件格式的独立实现和长期兼容性**\n\n`gwbas1c` 认为，使用 SQLite 意味着依赖 SQLite 的实现：\n\n> “Using SQLite as your application file format locks you into the SQLite source code.”\n\n他同时承认这通常不是严重问题，但指出如果目标是一个真正开放的文件格式，理论上应该允许别人独立实现读取器。\n\n原评论：  \nhttps://news.ycombinator.com/item?id=23512883\n\n5. **不要把不可信 SQLite 文件直接交给解析器**\n\n讨论还涉及打开外部或不可信数据库文件时的安全风险。`skrebbel` 写道：\n\n> “If you're using SQLite as an application file format, isn't opening untrusted files a key use case?”\n\n原评论：  \nhttps://news.ycombinator.com/item?id=23510934\n\n**结论**\n\n这几轮讨论的实际结论比较明确：SQLite 是一种很强的应用文件格式，但它不是所有文档格式的替代品。\n\n适合使用 SQLite 的情况：\n\n- 应用数据本来就是表、实体和关系；\n- 需要事务、索引、约束和增量更新；\n- 希望数据可被 SQLite CLI、浏览器或其他工具读取；\n- 希望获得成熟的崩溃恢复和兼容性支持；\n- 文件主要由应用生成和消费，而不是要求用户直接编辑。\n\n需要谨慎的情况：\n\n- 文件必须天然适合文本 diff 和手工修改；\n- 数据主要是深层树形文档；\n- 文件必须严格保持单文件，不能出现 WAL/SHM 旁文件；\n- 需要在不依赖 SQLite 的情况下实现独立读取器；\n- 文件会频繁来自不可信来源，需要严格的解析沙箱和安全策略。",
+    "results": [
+      {
+        "url": "https://news.ycombinator.com/item?id=46076642",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=23508923",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50045273",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46079942",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=18754634",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49937540",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=40655974",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=10308691",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50098198",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45132498",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46076642",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=23508923",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50045273",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46079942",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=18754634",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49937540",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=40655974",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=10308691",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50098198",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45132498",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45134010",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45147835",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47046185",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=39797104",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46079326",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49421475",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=13021541",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49766611",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50111944",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50063124",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50040360",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50020838",
+        "title": "",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://news.ycombinator.com/item?id=46076642",
+        "content": "# SQLite as an Application File Format\n\nby gjvc · 2025-11-28T08:15:50.000Z · via hn.algolia.com/api/v1/items\n\nLink: https://sqlite.org/appfileformat.html\n\n## Comments (92 shown of 92)\n\n### [46079326] askl · 2025-11-28T15:12:32.000Z · reply to 46076642\nhttps://news.ycombinator.com/item?id=46079326\n\nSomehow my first thought from the title was using sqlite as a format for applications. So like a replacement for ELF. I think this idea is both fascinating and horrifying.\n\n### [46082856] dchest · 2025-11-28T21:20:30.000Z · reply to 46080567\nhttps://news.ycombinator.com/item?id=46082856\n\nNot as an application file format discussed in the link, though. Lots of software use it as a database (as intended) it's also a base for Apple's Core Data.\n\n### [46088542] nly · 2025-11-29T16:03:45.000Z · reply to 46085096\nhttps://news.ycombinator.com/item?id=46088542\n\nSQLCipher + a hard-coded or generated key in your app.\n\n### [46090549] crazygringo · 2025-11-29T20:34:50.000Z · reply to 46089470\nhttps://new",
+        "errors": []
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=23508923",
+        "content": "# SQLite as an Application File Format (2014)\n\nby afiori · 2020-06-13T12:28:53.000Z · via hn.algolia.com/api/v1/items\n\nLink: https://sqlite.org/appfileformat.html\n\n## Comments (301 shown of 301)\n\n### [23515971] tonyedgecombe · 2020-06-14T08:21:02.000Z · reply to 23512826\nhttps://news.ycombinator.com/item?id=23515971\n\nI think it depends on whether you need a file format or a database. All the benefits of a database are wiped out if you are implementing File->Save for a document based application.\n\n### [23510676] wenc · 2020-06-13T16:41:01.000Z · reply to 23509614\nhttps://news.ycombinator.com/item?id=23510676\n\nThe OpenOffice case study is a fascinating thought experiment.\nWe don't really create too many new file formats these days, and if we did they're highly performance specialized (parquet, arrow).\nJust wondering aloud, what recent file format would have benefited from being based on sqlite?\n\n### [23514797] unspecified · 2020-06-14T03:13:23.000Z · reply to 23510209\nhttps://news.ycombi",
+        "errors": []
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=18754634",
+        "content": "# SQLite as an Application File Format (2014)\n\nby kjeetgill · 2018-12-24T22:29:06.000Z · via hn.algolia.com/api/v1/items\n\nLink: https://www.sqlite.org/appfileformat.html\n\n## Comments (161 shown of 161)\n\n### [18755656] adzm · 2018-12-25T03:17:02.000Z · reply to 18755444\nhttps://news.ycombinator.com/item?id=18755656\n\nWhy would you realistically need wal or shm for an application file format anyway? That's for high concurrency in general.\n\n### [18756861] skrause · 2018-12-25T10:29:43.000Z · reply to 18756012\nhttps://news.ycombinator.com/item?id=18756861\n\nThe worst part about CSV is the locale-specific format used by some programs. For example when exporting to CSV a German Excel will use the comma as the decimal separator in numbers and a semicolon for the value separator. So you need to specify the exact format for each individual file you want to import.\n\n### [18756610] 9712263 · 2018-12-25T08:43:46.000Z · reply to 18755505\nhttps://news.ycombinator.com/item?id=18756610\n\nThe problem is d",
+        "errors": []
+      },
+      {
+        "url": "https://sqlite.org/appfileformat.html",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 12, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…",
+            "retryable": true
+          }
+        ]
+      }
+    ],
+    "comments": [
+      {
+        "id": "46079326",
+        "author": "askl",
+        "text": "Somehow my first thought from the title was using sqlite as a format for applications. So like a replacement for ELF. I think this idea is both fascinating and horrifying.",
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46082856",
+        "author": "dchest",
+        "text": "Not as an application file format discussed in the link, though. Lots of software use it as a database (as intended) it's also a base for Apple's Core Data.",
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "23515971",
+        "author": "tonyedgecombe",
+        "text": "I think it depends on whether you need a file format or a database. All the benefits of a database are wiped out if you are implementing File->Save for a document based application.",
+        "thread_url": "https://news.ycombinator.com/item?id=23508923",
+        "source": "api"
+      },
+      {
+        "id": "23510676",
+        "author": "wenc",
+        "text": "The OpenOffice case study is a fascinating thought experiment.\nWe don't really create too many new file formats these days, and if we did they're highly performance specialized (parquet, arrow).\nJust wondering aloud, what recent file forma…",
+        "thread_url": "https://news.ycombinator.com/item?id=23508923",
+        "source": "api"
+      },
+      {
+        "id": "18755656",
+        "author": "adzm",
+        "text": "Why would you realistically need wal or shm for an application file format anyway? That's for high concurrency in general.",
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18756861",
+        "author": "skrause",
+        "text": "The worst part about CSV is the locale-specific format used by some programs. For example when exporting to CSV a German Excel will use the comma as the decimal separator in numbers and a semicolon for the value separator. So you need to s…",
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "23515971",
+        "author": "tonyedgecombe",
+        "created_at": "2020-06-14T08:21:02.000Z",
+        "text": "I think it depends on whether you need a file format or a database. All the benefits of a database are wiped out if you are implementing File->Save for a document based application.",
+        "url": "https://news.ycombinator.com/item?id=23515971",
+        "parent_id": "23512826",
+        "depth": 2,
+        "points": null,
+        "relevance": 9.676,
+        "thread_url": "https://news.ycombinator.com/item?id=23508923",
+        "source": "api"
+      },
+      {
+        "id": "23510676",
+        "author": "wenc",
+        "created_at": "2020-06-13T16:41:01.000Z",
+        "text": "The OpenOffice case study is a fascinating thought experiment.\nWe don't really create too many new file formats these days, and if we did they're highly performance specialized (parquet, arrow).\nJust wondering aloud, what recent file format would have benefited from being based on sqlite?",
+        "url": "https://news.ycombinator.com/item?id=23510676",
+        "parent_id": "23509614",
+        "depth": 2,
+        "points": null,
+        "relevance": 8.15,
+        "thread_url": "https://news.ycombinator.com/item?id=23508923",
+        "source": "api"
+      },
+      {
+        "id": "23514797",
+        "author": "unspecified",
+        "created_at": "2020-06-14T03:13:23.000Z",
+        "text": "> sqldiff\nYou just blew my mind. Thank you!\nI can't believe the things I find out from random HN comments.",
+        "url": "https://news.ycombinator.com/item?id=23514797",
+        "parent_id": "23510209",
+        "depth": 1,
+        "points": null,
+        "relevance": 6.767,
+        "thread_url": "https://news.ycombinator.com/item?id=23508923",
+        "source": "api"
+      },
+      {
+        "id": "23510934",
+        "author": "skrebbel",
+        "created_at": "2020-06-13T17:15:04.000Z",
+        "text": "Huh? If you're using SQLite as an application file format, isn't opening untrusted files a key use case? What else, never share files with people? That must be a pretty boring application.",
+        "url": "https://news.ycombinator.com/item?id=23510934",
+        "parent_id": "23510632",
+        "depth": 2,
+        "points": null,
+        "relevance": 6.261,
+        "thread_url": "https://news.ycombinator.com/item?id=23508923",
+        "source": "api"
+      },
+      {
+        "id": "23511645",
+        "author": "networkimprov",
+        "created_at": "2020-06-13T18:45:28.000Z",
+        "text": "SQLite is a fine single-file application file format, but if you want average users to be able to inspect and perhaps fix application data when things go wrong, a tree of JSON-format files is more friendly.\nTrue, this requires care to ensure that such files are updated reliably, but that's not quite rocket science.",
+        "url": "https://news.ycombinator.com/item?id=23511645",
+        "parent_id": "23508923",
+        "depth": 0,
+        "points": null,
+        "relevance": 6.171,
+        "thread_url": "https://news.ycombinator.com/item?id=23508923",
+        "source": "api"
+      },
+      {
+        "id": "23509782",
+        "author": "pmilot",
+        "created_at": "2020-06-13T14:51:40.000Z",
+        "text": "The save model at the UX level is completely orthogonal to the application file format. You could implement either model with an SQLite DB file.",
+        "url": "https://news.ycombinator.com/item?id=23509782",
+        "parent_id": "23509677",
+        "depth": 1,
+        "points": null,
+        "relevance": 6.169,
+        "thread_url": "https://news.ycombinator.com/item?id=23508923",
+        "source": "api"
+      },
+      {
+        "id": "23510222",
+        "author": "catalogia",
+        "created_at": "2020-06-13T15:44:02.000Z",
+        "text": "Is there any good way to use SQLite as an application file format while also using it in WAL mode? They seem sort of mutually exclusive; near as I can figure the way to do this would be to execute `PRAGMA journal_mode=DELETE` when the user requests a save file, then copy the DB to the location the user specifies. I think this negates a few of the advantages of using sqlite as an application file format though.",
+        "url": "https://news.ycombinator.com/item?id=23510222",
+        "parent_id": "23508923",
+        "depth": 0,
+        "points": null,
+        "relevance": 6.143,
+        "thread_url": "https://news.ycombinator.com/item?id=23508923",
+        "source": "api"
+      },
+      {
+        "id": "23514494",
+        "author": "sdinsn",
+        "created_at": "2020-06-14T01:56:49.000Z",
+        "text": "It's funny you use that as an example, since Firefox itself uses SQLite as the application file format for history and bookmarks...",
+        "url": "https://news.ycombinator.com/item?id=23514494",
+        "parent_id": "23514128",
+        "depth": 7,
+        "points": null,
+        "relevance": 5.986,
+        "thread_url": "https://news.ycombinator.com/item?id=23508923",
+        "source": "api"
+      },
+      {
+        "id": "23511301",
+        "author": "skrebbel",
+        "created_at": "2020-06-13T18:04:00.000Z",
+        "text": "That translates to \"don't use SQLite\", right?\nHow would an application that uses SQLite as a file format be able to scan for malicious database files that trigger buffer overflows in the SQLite engine? I'm really not sure what you're suggesting.",
+        "url": "https://news.ycombinator.com/item?id=23511301",
+        "parent_id": "23511217",
+        "depth": 4,
+        "points": null,
+        "relevance": 5.942,
+        "thread_url": "https://news.ycombinator.com/item?id=23508923",
+        "source": "api"
+      },
+      {
+        "id": "23510688",
+        "author": "kbumsik",
+        "created_at": "2020-06-13T16:42:46.000Z",
+        "text": "> The sqlite docs. You can improve the performance of sqlite by multiple orders of magnitude by messing with things like https://www.sqlite.org/pragma.html#pragma_synchronous, at the cost of safe atomic updates.\nThanks for the link, but only when the OS or your computer crashes, not even the application itself. Could you introduce any application file format that is safe in that case? Obviously your JSON file format is much more unsafe than that, not to mention the huge overhead of JSON with binary data.",
+        "url": "https://news.ycombinator.com/item?id=23510688",
+        "parent_id": "23510561",
+        "depth": 3,
+        "points": null,
+        "relevance": 5.849,
+        "thread_url": "https://news.ycombinator.com/item?id=23508923",
+        "source": "api"
+      },
+      {
+        "id": "23510209",
+        "author": "TheRealPomax",
+        "created_at": "2020-06-13T15:41:59.000Z",
+        "text": "The great thing about applications that use sqlite as their application file format is that you can write secondary apps and utilities to supplement the applications themselves.\nFor example, Adobe's Lightroom uses sqlite as their application file format, which means that it's almost trivial to write an application to help it do things it's either really bad/exceedingly slow at (like removing images from a catalogue that no longer exist on disk) or literally can't do (like generating a playlist of files-on-disk for a specific collection or tag), without being locked into whatever janky scripti…",
+        "url": "https://news.ycombinator.com/item?id=23510209",
+        "parent_id": "23508923",
+        "depth": 0,
+        "points": null,
+        "relevance": 5.756,
+        "thread_url": "https://news.ycombinator.com/item?id=23508923",
+        "source": "api"
+      },
+      {
+        "id": "23514509",
+        "author": "sdinsn",
+        "created_at": "2020-06-14T01:59:04.000Z",
+        "text": "That doesn't answer the question. You never should have to block the UI thread. That's just poor application design, independent of the file format; you cannot blame that on SQLite.",
+        "url": "https://news.ycombinator.com/item?id=23514509",
+        "parent_id": "23510880",
+        "depth": 5,
+        "points": null,
+        "relevance": 5.68,
+        "thread_url": "https://news.ycombinator.com/item?id=23508923",
+        "source": "api"
+      },
+      {
+        "id": "23510142",
+        "author": "TheRealPomax",
+        "created_at": "2020-06-13T15:34:11.000Z",
+        "text": "That's the thing: this isn't \"a database\" anymore when it's used as an application file format, it's now \"an application file format\" that is conveniently also a sqlite db file so everything in it is trivially accessible.\nStoring huge blobs then becomes a matter of \"is this my data, or is this general data that I'm merely also making use of\". Examples abound of both:\n- Adobe Lightroom (a non-destructive photo editor) goes with \"these are not my images\" and leaves them out of its sqlite \"lrcat\" files, instead maintaining a record of where files can be found on-disk.\n- Clip Studio (a graphics p…",
+        "url": "https://news.ycombinator.com/item?id=23510142",
+        "parent_id": "23509464",
+        "depth": 1,
+        "points": null,
+        "relevance": 5.676,
+        "thread_url": "https://news.ycombinator.com/item?id=23508923",
+        "source": "api"
+      },
+      {
+        "id": "23512190",
+        "author": "waynesonfire",
+        "created_at": "2020-06-13T19:56:04.000Z",
+        "text": "What is an application file format?",
+        "url": "https://news.ycombinator.com/item?id=23512190",
+        "parent_id": "23508923",
+        "depth": 0,
+        "points": null,
+        "relevance": 5.673,
+        "thread_url": "https://news.ycombinator.com/item?id=23508923",
+        "source": "api"
+      },
+      {
+        "id": "23522114",
+        "author": "teleforce",
+        "created_at": "2020-06-14T22:55:08.000Z",
+        "text": "Perhaps SQlite or any SQL engine is not a good idea for application file format [1],[2], or is it just bad for web applications?\n[1]https://news.ycombinator.com/item?id=23517663\n[2]https://support.google.com/chrome/thread/17537877?hl=en",
+        "url": "https://news.ycombinator.com/item?id=23522114",
+        "parent_id": "23510055",
+        "depth": 2,
+        "points": null,
+        "relevance": 5.555,
+        "thread_url": "https://news.ycombinator.com/item?id=23508923",
+        "source": "api"
+      },
+      {
+        "id": "23510889",
+        "author": "ori_b",
+        "created_at": "2020-06-13T17:09:38.000Z",
+        "text": "> Thanks for the link, but only when the OS or your computer crashes, not even the application itself.\nAh, right there are also the journalling knobs that you'd tweak to get to max performance -- either in-memory or no journalling at all make a big impact. There are a bunch of them scattered throughout the docs.\n> Could you introduce any application file format that is safe in that case? Obviously your JSON file format is much more unsafe than that, not to mention the huge overhead of JSON with binary data.\nYes, any format is safe if you write to a temporary file, and then rename(2) it to rep…",
+        "url": "https://news.ycombinator.com/item?id=23510889",
+        "parent_id": "23510688",
+        "depth": 4,
+        "points": null,
+        "relevance": 5.542,
+        "thread_url": "https://news.ycombinator.com/item?id=23508923",
+        "source": "api"
+      },
+      {
+        "id": "23511258",
+        "author": "em500",
+        "created_at": "2020-06-13T17:57:35.000Z",
+        "text": "Your concerns seem pretty theoretical. Several very widely used applications (Whatsapp, iMessage, Apple Notes/Calendar) use sqlite as a file format without much issue.",
+        "url": "https://news.ycombinator.com/item?id=23511258",
+        "parent_id": "23510865",
+        "depth": 5,
+        "points": null,
+        "relevance": 5.539,
+        "thread_url": "https://news.ycombinator.com/item?id=23508923",
+        "source": "api"
+      },
+      {
+        "id": "23510405",
+        "author": "TheRealPomax",
+        "created_at": "2020-06-13T16:07:49.000Z",
+        "text": "I'm not sure how slqite as your application file format has anything to do with open source, honestly. It's certainly super easy for open source projects to use, but a closed source proprietary application using an encrypted sqlite file sounds perfectly sensible to me?\nWe all win when folks decide to leave it accessible, but I'm not going to hold \"encrypting a file format so that people can't easily reverse engineer it\" against folks who are trying to sell software.",
+        "url": "https://news.ycombinator.com/item?id=23510405",
+        "parent_id": "23510336",
+        "depth": 2,
+        "points": null,
+        "relevance": 5.458,
+        "thread_url": "https://news.ycombinator.com/item?id=23508923",
+        "source": "api"
+      },
+      {
+        "id": "23512015",
+        "author": "me551ah",
+        "created_at": "2020-06-13T19:31:49.000Z",
+        "text": "The only thing stopping SQLite from becoming the primary application file format is browsers. Every single other client supports SQLite. Embedded, Mobile, Lightroom, Desktop Apps and Cross platform mobile frameworks have really good support for SQLite.",
+        "url": "https://news.ycombinator.com/item?id=23512015",
+        "parent_id": "23510209",
+        "depth": 1,
+        "points": null,
+        "relevance": 5.38,
+        "thread_url": "https://news.ycombinator.com/item?id=23508923",
+        "source": "api"
+      },
+      {
+        "id": "23512883",
+        "author": "gwbas1c",
+        "created_at": "2020-06-13T21:26:14.000Z",
+        "text": "One minor point that needs to be raised: Using SQLite as your application file format locks you into the SQLite source code.\n(And in most cases that's not a bad thing, it's free and open source.)\nBut, if you truly want an open file format, someone needs to be able to independently write a program that can read your file without relying on third party dependencies. This is why the browser vendors decided not to put SQLite into the HTML and JavaScript standards.\nIt is an awesome product! I've worked with it for over a decade and I'm a fan!",
+        "url": "https://news.ycombinator.com/item?id=23512883",
+        "parent_id": "23508923",
+        "depth": 0,
+        "points": null,
+        "relevance": 5.304,
+        "thread_url": "https://news.ycombinator.com/item?id=23508923",
+        "source": "api"
+      },
+      {
+        "id": "23509287",
+        "author": "juskrey",
+        "created_at": "2020-06-13T13:41:49.000Z",
+        "text": "Years pass, now decades, yet SQLite is still the most pleasant DB to work with.",
+        "url": "https://news.ycombinator.com/item?id=23509287",
+        "parent_id": "23508923",
+        "depth": 0,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=23508923",
+        "source": "api"
+      },
+      {
+        "id": "23509407",
+        "author": "TedDoesntTalk",
+        "created_at": "2020-06-13T14:03:04.000Z",
+        "text": "Agree, but it also side-steps some complex topics like sharding, replication, high-availability, etc. I’m not suggesting those topics should be addressed by SQLite; that simplicity is an asset.\nHas anyone used SQLite remotely over a network?",
+        "url": "https://news.ycombinator.com/item?id=23509407",
+        "parent_id": "23509287",
+        "depth": 1,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=23508923",
+        "source": "api"
+      },
+      {
+        "id": "23509470",
+        "author": "trashburger",
+        "created_at": "2020-06-13T14:13:54.000Z",
+        "text": "I think the main reason SQLite doesn't have them is because it's not a goal for the project. SQLite would be monumentally more complex if it supported networking, sharding, etc. If you need those use cases then perhaps it's a good idea to switch to a more scalable DBMS. My favorite is PostgreSQL. If I'm building something which will have user-generated content then I always pick Postgres. Otherwise, SQLite.",
+        "url": "https://news.ycombinator.com/item?id=23509470",
+        "parent_id": "23509407",
+        "depth": 2,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=23508923",
+        "source": "api"
+      },
+      {
+        "id": "23509477",
+        "author": "easytiger",
+        "created_at": "2020-06-13T14:15:02.000Z",
+        "text": "It lives in your process. It has no network features. It's not a DBMS.\nPeople have built layers over it though",
+        "url": "https://news.ycombinator.com/item?id=23509477",
+        "parent_id": "23509407",
+        "depth": 2,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=23508923",
+        "source": "api"
+      },
+      {
+        "id": "23509541",
+        "author": "rlpb",
+        "created_at": "2020-06-13T14:23:40.000Z",
+        "text": "Dqlite exists - it's SQLite with some of these feature added. https://dqlite.io/",
+        "url": "https://news.ycombinator.com/item?id=23509541",
+        "parent_id": "23509407",
+        "depth": 2,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=23508923",
+        "source": "api"
+      },
+      {
+        "id": "18755656",
+        "author": "adzm",
+        "created_at": "2018-12-25T03:17:02.000Z",
+        "text": "Why would you realistically need wal or shm for an application file format anyway? That's for high concurrency in general.",
+        "url": "https://news.ycombinator.com/item?id=18755656",
+        "parent_id": "18755444",
+        "depth": 1,
+        "points": null,
+        "relevance": 12.488,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18756861",
+        "author": "skrause",
+        "created_at": "2018-12-25T10:29:43.000Z",
+        "text": "The worst part about CSV is the locale-specific format used by some programs. For example when exporting to CSV a German Excel will use the comma as the decimal separator in numbers and a semicolon for the value separator. So you need to specify the exact format for each individual file you want to import.",
+        "url": "https://news.ycombinator.com/item?id=18756861",
+        "parent_id": "18756012",
+        "depth": 3,
+        "points": null,
+        "relevance": 7.608,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18756610",
+        "author": "9712263",
+        "created_at": "2018-12-25T08:43:46.000Z",
+        "text": "The problem is data corruption. If a CSV is corrupted, then I could at least parse part of the data. For a corrupted SQL file, I'm done. Also, diff is not working for binary format, and it is more difficult to trace change for SQL format.\nIn this sense, I prefer a SQL dump file.",
+        "url": "https://news.ycombinator.com/item?id=18756610",
+        "parent_id": "18755505",
+        "depth": 1,
+        "points": null,
+        "relevance": 7.516,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18758774",
+        "author": "darkpuma",
+        "created_at": "2018-12-25T19:12:01.000Z",
+        "text": "It's not so much that they break things, but if those features are enabled sqlite will be writing multiple files instead of just one, which somewhat nullifies the \"single file\" benefit of sqlite.",
+        "url": "https://news.ycombinator.com/item?id=18758774",
+        "parent_id": "18757960",
+        "depth": 2,
+        "points": null,
+        "relevance": 7.105,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18756606",
+        "author": "nabla9",
+        "created_at": "2018-12-25T08:41:40.000Z",
+        "text": "You argue bases on a good principle. But while the principle of open well documented standard is good one, it's just a principle. The goal is portability, consistence and long term stability.\nSQLite is a Recommended Storage Format for datasets according to the US Library of Congress. https://www.loc.gov/preservation/digital/formats/fdd/fdd0004...",
+        "url": "https://news.ycombinator.com/item?id=18756606",
+        "parent_id": "18755904",
+        "depth": 2,
+        "points": null,
+        "relevance": 6.531,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18756697",
+        "author": "quickthrower2",
+        "created_at": "2018-12-25T09:19:37.000Z",
+        "text": "What is the source of the corruption. Unlikely to be disks nowadays but people should take backups of things. Very unlikely to be a SQLite buggy write but again a backup could save you. Worse case I’m sure there are tools to recover a corrupted file.",
+        "url": "https://news.ycombinator.com/item?id=18756697",
+        "parent_id": "18756610",
+        "depth": 2,
+        "points": null,
+        "relevance": 6.521,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18758115",
+        "author": "m_sahaf",
+        "created_at": "2018-12-25T17:14:57.000Z",
+        "text": "I've probably said this around here before, but I wish people trade SQLite files instead of Excel workbooks. Excel (and the like) can operate on top of SQLite. This way we have data portability, data integrity, and ease of data access.",
+        "url": "https://news.ycombinator.com/item?id=18758115",
+        "parent_id": "18757375",
+        "depth": 2,
+        "points": null,
+        "relevance": 6.37,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18755488",
+        "author": "kccqzy",
+        "created_at": "2018-12-25T02:25:56.000Z",
+        "text": "It's mentioned on the WAL docs on https://sqlite.org/wal.html\n> There is an additional quasi-persistent \"-wal\" file and \"-shm\" shared memory file associated with each database, which can make SQLite less appealing for use as an application file-format.",
+        "url": "https://news.ycombinator.com/item?id=18755488",
+        "parent_id": "18755444",
+        "depth": 1,
+        "points": null,
+        "relevance": 6.265,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18757062",
+        "author": "xte",
+        "created_at": "2018-12-25T11:47:01.000Z",
+        "text": "Mh,\n> Simplified Application Development\nIt's depend \"application development\" is a vast area...\n> Single-File Documents\nNot much related to SQlite, can be or cannot be done with nearly any format you like. Also remember as a good advise how worse go Catia v6 R2009 (Catia is the best CAD/CAE/CAM suite in the world, used anywhere from automotive to aerospace&defence, it's sole real competitor are Creo (formerly Pro-e) and Nx) when it start to offer single-file PLMs for \"light usage\"...\n> High-Level Query Language\nDepending on the format you choose you may have the best/highest level query lang…",
+        "url": "https://news.ycombinator.com/item?id=18757062",
+        "parent_id": "18754634",
+        "depth": 0,
+        "points": null,
+        "relevance": 6.181,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18757405",
+        "author": "oconnor663",
+        "created_at": "2018-12-25T13:57:29.000Z",
+        "text": "I'm surprised this is the only comment in the thread that mentions this security issue. It's only a week old!",
+        "url": "https://news.ycombinator.com/item?id=18757405",
+        "parent_id": "18757278",
+        "depth": 1,
+        "points": null,
+        "relevance": 5.215,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18762758",
+        "author": "sly010",
+        "created_at": "2018-12-26T16:03:15.000Z",
+        "text": "> want to load config from environmental variables or centralized config management tools.\nI am not sure I understand this, I have a feeling you are mixing \"configuration\" with \"loading the configuration\" here which is a slippery slope.\n> you miss out on the benefits of your first language, like static typing\nAgain, you are confusing configuration with writing your application. You have a point here if you are your applications only user (e.g. server apps) and you have to recompile anyway.\n> Third, you can do things like merging environment-specific configs into a base config\nAgain, I am not …",
+        "url": "https://news.ycombinator.com/item?id=18762758",
+        "parent_id": "18759216",
+        "depth": 6,
+        "points": null,
+        "relevance": 4.91,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18757402",
+        "author": "hestefisk",
+        "created_at": "2018-12-25T13:56:58.000Z",
+        "text": "I have done this on a large .NET Win32/XAML client / server application in two ways:\n1) Saving application state and config/settings (window layout, ... very easy to marshall XAML stage to an SQLite file)\n2) Caching of common data sets to avoid unnecessary polling to the server of data that is accessed all the time (ie customer master data)\nIt works beautifully.",
+        "url": "https://news.ycombinator.com/item?id=18757402",
+        "parent_id": "18754634",
+        "depth": 0,
+        "points": null,
+        "relevance": 4.468,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18755505",
+        "author": "anonymouzz",
+        "created_at": "2018-12-25T02:29:56.000Z",
+        "text": "I wish more people would publish data as SQLite databases (if the size permits, of course; usually it does). It's so much more reliable than CSVs, which have at least a few dimensions of significant differences (quoted/unquoted, comma vs semicolon vs tab vs space, headers/no headers, comments). Not to mention that initial data exploration can be done right in an SQLite explorer/browser tool.",
+        "url": "https://news.ycombinator.com/item?id=18755505",
+        "parent_id": "18754634",
+        "depth": 0,
+        "points": null,
+        "relevance": 4.448,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18756351",
+        "author": "revskill",
+        "created_at": "2018-12-25T07:01:35.000Z",
+        "text": "It's because my projects are universal application, that's why Javascript. But JS is not the only choice.\nWhat i mean is, we want a programmable config file, not \"static one\"",
+        "url": "https://news.ycombinator.com/item?id=18756351",
+        "parent_id": "18756138",
+        "depth": 4,
+        "points": null,
+        "relevance": 3.977,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18756569",
+        "author": "sjwright",
+        "created_at": "2018-12-25T08:25:46.000Z",
+        "text": "The third great file format (after text and SQLite) is the zip file with custom suffix. That is ideal for BLOB-by-nature data.",
+        "url": "https://news.ycombinator.com/item?id=18756569",
+        "parent_id": "18756495",
+        "depth": 1,
+        "points": null,
+        "relevance": 3.914,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18757052",
+        "author": "flohofwoe",
+        "created_at": "2018-12-25T11:42:35.000Z",
+        "text": "I'd rather have a proper text format which I can inspect without a highly specialized tool. In 50 or 500 years it will be hard to hunt down the right tools to open an SQLite file, build SQLite from sources (if they still exist), or reverse-engineer the file format. For a text file you only need to reverse-engineer the ASCII encoding (or maybe UTF-8).",
+        "url": "https://news.ycombinator.com/item?id=18757052",
+        "parent_id": "18755505",
+        "depth": 1,
+        "points": null,
+        "relevance": 3.826,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18755362",
+        "author": "anonymouzz",
+        "created_at": "2018-12-25T01:44:54.000Z",
+        "text": "Yup, see no reason why not. This is answered in the post:\n> Any application state that can be recorded in a pile-of-files can also be recorded in an SQLite database with a simple key/value schema like this:\n CREATE TABLE files(filename TEXT PRIMARY KEY, content BLOB);\n\n> If the content is compressed, then such an SQLite Archive database is the same size (±1%) as an equivalent ZIP archive, and it has the advantage of being able to update individual \"files\" without rewriting the entire document.\nAlso look at the related post which suggests doing precisely that - storing images inside SQLite blo…",
+        "url": "https://news.ycombinator.com/item?id=18755362",
+        "parent_id": "18755335",
+        "depth": 1,
+        "points": null,
+        "relevance": 3.795,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18756064",
+        "author": "dagenix",
+        "created_at": "2018-12-25T05:22:23.000Z",
+        "text": "1. \"YAML is stupid\" is not constructive. Why is it \"stupid\"?\n2. One place where YAML is nice is if you want to have a user-edited file. JSON can be a pain to edit by hand due to a lack of comments and being so picky about where commas can and cannot go - YAML isn't perfect, but, it does help with issues like that.\n3. There are languages outside of Javascript, and it's not possible to import a javascript file directly from most of those languages.\n4. There is a difference between the file that you use to configure an app - for which JSON or YAML may be a good fit - and the format for which you…",
+        "url": "https://news.ycombinator.com/item?id=18756064",
+        "parent_id": "18755813",
+        "depth": 1,
+        "points": null,
+        "relevance": 3.767,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18757335",
+        "author": "agumonkey",
+        "created_at": "2018-12-25T13:31:54.000Z",
+        "text": "Reminds me I have to extract data from an 9x day windows application. It's a jetdb that refuses to load in the first viewers I could find. Made me wish it was sqlite (although it didn't exist at the time..)",
+        "url": "https://news.ycombinator.com/item?id=18757335",
+        "parent_id": "18755505",
+        "depth": 1,
+        "points": null,
+        "relevance": 3.682,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18755563",
+        "author": "tommoor",
+        "created_at": "2018-12-25T02:49:05.000Z",
+        "text": "Sketch (https://sketchapp.com) actually used a zipped SQLite database as it's file format until the past year.",
+        "url": "https://news.ycombinator.com/item?id=18755563",
+        "parent_id": "18754634",
+        "depth": 0,
+        "points": null,
+        "relevance": 3.663,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18755200",
+        "author": "saagarjha",
+        "created_at": "2018-12-25T01:01:04.000Z",
+        "text": "CoreData has an option to write to a SQLite database, so a lot of data on iOS and macOS apps ends up being written to disk this way.",
+        "url": "https://news.ycombinator.com/item?id=18755200",
+        "parent_id": "18754634",
+        "depth": 0,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18755450",
+        "author": "thechao",
+        "created_at": "2018-12-25T02:14:59.000Z",
+        "text": "If you code in c/c++, and have even a modest OS/RTOS available, you should use SQLite as your persistence layer, full stop. I switched to this methodology 5 years ago & never looked back. You know what happens when another engineer gets your on disk format & asks how to look at it? You say “open it in SQLite browser”; all further questions disappear.",
+        "url": "https://news.ycombinator.com/item?id=18755450",
+        "parent_id": "18755200",
+        "depth": 1,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18755956",
+        "author": "romwell",
+        "created_at": "2018-12-25T04:45:55.000Z",
+        "text": "Seconding this.\nOne thing though: last time I did that, I ended up writing my own ORM/serialization library (with templates and all), but I wish I didn't have to.\nIs there anything freely available out there that would allow one to store object hierarchies with the ease of boost::serialization, but into an SQLite EAV scheme?",
+        "url": "https://news.ycombinator.com/item?id=18755956",
+        "parent_id": "18755450",
+        "depth": 2,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18757257",
+        "author": "thechao",
+        "created_at": "2018-12-25T13:06:56.000Z",
+        "text": "I always trace rather than log. That means I have one table per ‘tracing function’, and just record the arguments to each table. Recording an object means recording the function calls that generated the object; regenerating the object is just playing those functions back. I’ll admit that this works far better in C than C++, as C++ tends to treat new types as opaque primitives.",
+        "url": "https://news.ycombinator.com/item?id=18757257",
+        "parent_id": "18755956",
+        "depth": 3,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "18757529",
+        "author": "trampi",
+        "created_at": "2018-12-25T14:27:41.000Z",
+        "text": "Sounds like https://martinfowler.com/eaaDev/EventSourcing.html",
+        "url": "https://news.ycombinator.com/item?id=18757529",
+        "parent_id": "18757257",
+        "depth": 4,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=18754634",
+        "source": "api"
+      },
+      {
+        "id": "46079326",
+        "author": "askl",
+        "created_at": "2025-11-28T15:12:32.000Z",
+        "text": "Somehow my first thought from the title was using sqlite as a format for applications. So like a replacement for ELF. I think this idea is both fascinating and horrifying.",
+        "url": "https://news.ycombinator.com/item?id=46079326",
+        "parent_id": "46076642",
+        "depth": 0,
+        "points": null,
+        "relevance": 6.122,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46082856",
+        "author": "dchest",
+        "created_at": "2025-11-28T21:20:30.000Z",
+        "text": "Not as an application file format discussed in the link, though. Lots of software use it as a database (as intended) it's also a base for Apple's Core Data.",
+        "url": "https://news.ycombinator.com/item?id=46082856",
+        "parent_id": "46080567",
+        "depth": 2,
+        "points": null,
+        "relevance": 4.964,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46088542",
+        "author": "nly",
+        "created_at": "2025-11-29T16:03:45.000Z",
+        "text": "SQLCipher + a hard-coded or generated key in your app.",
+        "url": "https://news.ycombinator.com/item?id=46088542",
+        "parent_id": "46085096",
+        "depth": 2,
+        "points": null,
+        "relevance": 4.446,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46090549",
+        "author": "crazygringo",
+        "created_at": "2025-11-29T20:34:50.000Z",
+        "text": "You can put tens of thousands of files in a single file lots of ways that are expressly designed for that. You don't need SQLite for that.\nSo why would you want to use SQLite for that is my question? Mounting a database or a table as a filesystem doesn't make much sense to me. There's a very poor fit between the two paradigms. What does a subdirectory mean in a database? What does a foreign key or set of columns mean in a filesystem?",
+        "url": "https://news.ycombinator.com/item?id=46090549",
+        "parent_id": "46089470",
+        "depth": 5,
+        "points": null,
+        "relevance": 3.709,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46088980",
+        "author": "packetlost",
+        "created_at": "2025-11-29T16:57:33.000Z",
+        "text": "I pretty much always store date/times as Unix epoch integers. Also use STRICT tables and set the PRAGMA to enforce foreign key constraints.",
+        "url": "https://news.ycombinator.com/item?id=46088980",
+        "parent_id": "46088636",
+        "depth": 5,
+        "points": null,
+        "relevance": 3.515,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46080776",
+        "author": "packetlost",
+        "created_at": "2025-11-28T17:35:05.000Z",
+        "text": "Maybe not as obvious for those without formal education in \"\"\"database normalization\"\"\" but it's pretty trivial to convert from a tree structure to a flat table structure using foreign key relations. Recursive queries aren't even that difficult in SQLite, so self-referential data can be represented cleanly too, if not a bit more difficult to write. IME most applications \"tree structures\" aren't self-referential and are better formalized as distinct entities with one-to-one relationships (ie. a subtree gets a table).\nThere's always the lazy approach of storing JSON blobs in TEXT fields, but I …",
+        "url": "https://news.ycombinator.com/item?id=46080776",
+        "parent_id": "46080273",
+        "depth": 1,
+        "points": null,
+        "relevance": 2.225,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46088356",
+        "author": "mort96",
+        "created_at": "2025-11-29T15:41:46.000Z",
+        "text": "This seems completely orthogonal? This is an alternative to zip and tar built on SQLite:\n> An \"SQLite Archive\" is a file container similar to a ZIP archive or Tarball but based on an SQLite database.\nYour parent comment said that when you're using SQLite as an application format, the content in the database don't get compressed. These two things have nothing to do with each other.",
+        "url": "https://news.ycombinator.com/item?id=46088356",
+        "parent_id": "46080167",
+        "depth": 2,
+        "points": null,
+        "relevance": 1.525,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46079869",
+        "author": "joelwallis",
+        "created_at": "2025-11-28T16:09:56.000Z",
+        "text": "SQLite is abolutely amazing as an app format! I couldn't list how many tools are available to read SQLite data, or how easy and friendly they are. Even its CLI does wonders when you're dealing with data with it. SQLite has been around for 20+ years and is one of the most heavily tested softwares in the world.\nSQLite is very simple, yet very reliable and powerful. Using SQLite as file format might be the best decision an engineer can take when it comes to future-proofing preservation of data.",
+        "url": "https://news.ycombinator.com/item?id=46079869",
+        "parent_id": "46076642",
+        "depth": 0,
+        "points": null,
+        "relevance": 1.523,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46083208",
+        "author": "out_of_protocol",
+        "created_at": "2025-11-28T22:09:14.000Z",
+        "text": "Also, tested .zip vs .tar vs sqlite vs file system. Of this bunch, sqlite was the most compact format with minimal overhead.",
+        "url": "https://news.ycombinator.com/item?id=46083208",
+        "parent_id": "46080301",
+        "depth": 1,
+        "points": null,
+        "relevance": 1.515,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46080546",
+        "author": "euroderf",
+        "created_at": "2025-11-28T17:12:55.000Z",
+        "text": "There seems to be no single software solution \"out there\" for mounting an SQLite DB (or an SQLite archive) as a file system, with or without per-record relative paths.",
+        "url": "https://news.ycombinator.com/item?id=46080546",
+        "parent_id": "46076642",
+        "depth": 0,
+        "points": null,
+        "relevance": 1.48,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46079942",
+        "author": "psnehanshu",
+        "created_at": "2025-11-28T16:17:03.000Z",
+        "text": "I see no downside in using sqlite as an application file format.",
+        "url": "https://news.ycombinator.com/item?id=46079942",
+        "parent_id": "46076642",
+        "depth": 0,
+        "points": null,
+        "relevance": 1.383,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46080167",
+        "author": "lateforwork",
+        "created_at": "2025-11-28T16:37:57.000Z",
+        "text": "It can be compressed, see https://sqlite.org/sqlar.html",
+        "url": "https://news.ycombinator.com/item?id=46080167",
+        "parent_id": "46080130",
+        "depth": 1,
+        "points": null,
+        "relevance": 1.383,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46080273",
+        "author": "lateforwork",
+        "created_at": "2025-11-28T16:47:50.000Z",
+        "text": "Most application's file formats are structured as a tree, not as flat tables. If your application's data is flat tables or name-value pairs then SQLite is an obvious choice. But if it is tree structured then it is less obvious. You can still save your tree in JSON format as a blob in a SQLite table but in this case the benefits are fewer. But if in addition to the JSON you have images or other binary data then once again SQLite offers benefits, because each of those binary files can be additional rows in the SQLite table. This is far easier to handle than storing them in ZIP format.",
+        "url": "https://news.ycombinator.com/item?id=46080273",
+        "parent_id": "46076642",
+        "depth": 0,
+        "points": null,
+        "relevance": 1.363,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46088636",
+        "author": "dardeaup",
+        "created_at": "2025-11-29T16:14:06.000Z",
+        "text": "Type safety as a benefit of SQLite? For me type safety is a negative of SQLite. Being able to store a different type that what the column is declared to store is a bug (not a feature). I also find the lack of DATE and DATETIME/TIMESTAMP to be less than ideal.",
+        "url": "https://news.ycombinator.com/item?id=46088636",
+        "parent_id": "46084465",
+        "depth": 4,
+        "points": null,
+        "relevance": 1.355,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46080236",
+        "author": "abhashanand1501",
+        "created_at": "2025-11-28T16:44:38.000Z",
+        "text": "We are developing using sqlite to transfer configurations from uat to production environment. Since the configurations are already saved in a postgres table in uat, moving some configs from uat to production an sqlite file is very easy. since it's a binary format, we are also saved from any inadvertent edits by people doing production deployment.\nAlso, another usecase is to export data from production to uat for testing some scenarios, it can be easily encoded in a sqlite file.",
+        "url": "https://news.ycombinator.com/item?id=46080236",
+        "parent_id": "46076642",
+        "depth": 0,
+        "points": null,
+        "relevance": 1.327,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46080419",
+        "author": "robrenaud",
+        "created_at": "2025-11-28T17:00:28.000Z",
+        "text": "I had some json data that I wanted an annotation interface for. So I asked codex to put it into sqlite and make a little annotation webserver. It worked quickly/easily and without hassle. Sqlite supports queries over json-like objects.\nMaybe a very simple document oriented db would have been better?\nMy biggest gripe is that the sqlite cli is brutally minimal (makes sense given design), but I probably should have been using a nicer cli.",
+        "url": "https://news.ycombinator.com/item?id=46080419",
+        "parent_id": "46080273",
+        "depth": 1,
+        "points": null,
+        "relevance": 1.309,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46081449",
+        "author": "fauigerzigerk",
+        "created_at": "2025-11-28T18:39:50.000Z",
+        "text": "What do you mean by \"json-like objects\"?\nMy issue with SQLite's JSON implementation is that it cannot index arrays. SQLite indexes can only contain a single value per row (except for fulltext indexes but that's not what I want most of the time). SQLite has nothing like GIN indexes in Postgres.",
+        "url": "https://news.ycombinator.com/item?id=46081449",
+        "parent_id": "46080419",
+        "depth": 2,
+        "points": null,
+        "relevance": 1.262,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46080310",
+        "author": "elephantum",
+        "created_at": "2025-11-28T16:50:42.000Z",
+        "text": "You do know, that you can create more than one table in SQLite and have references from one to another? Even recursive references work",
+        "url": "https://news.ycombinator.com/item?id=46080310",
+        "parent_id": "46080273",
+        "depth": 1,
+        "points": null,
+        "relevance": 1.225,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46079841",
+        "author": "giancarlostoro",
+        "created_at": "2025-11-28T16:07:20.000Z",
+        "text": "Forget elf, imagine having a SQLite file that stores elf, exe and DMG binaries. I would not mind working on something like this.",
+        "url": "https://news.ycombinator.com/item?id=46079841",
+        "parent_id": "46079326",
+        "depth": 1,
+        "points": null,
+        "relevance": 1.18,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46081009",
+        "author": "actionfromafar",
+        "created_at": "2025-11-28T17:58:39.000Z",
+        "text": "https://docs.devart.com/odbc/sqlite/access.htm\nhttps://github.com/sam-ludlow/access-linker",
+        "url": "https://news.ycombinator.com/item?id=46081009",
+        "parent_id": "46079974",
+        "depth": 2,
+        "points": null,
+        "relevance": 1.18,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46077993",
+        "author": "stavarotti",
+        "created_at": "2025-11-28T12:17:22.000Z",
+        "text": "Previously: https://news.ycombinator.com/item?id=23508923",
+        "url": "https://news.ycombinator.com/item?id=46077993",
+        "parent_id": "46076642",
+        "depth": 0,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46078996",
+        "author": "jrochkind1",
+        "created_at": "2025-11-28T14:33:41.000Z",
+        "text": "Searched for this topic:\n> and is backwards compatible to its inception in 2004 and which promises to continue to be compatible in decades to come.\nThat is pretty amazing. You could do a lot worse.",
+        "url": "https://news.ycombinator.com/item?id=46078996",
+        "parent_id": "46076642",
+        "depth": 0,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46079106",
+        "author": "dist-epoch",
+        "created_at": "2025-11-28T14:46:49.000Z",
+        "text": "Same as .zip, .xml, .json and many others.\nDoesn't mean that whatever the app stores inside will remain backward compatible which is the harder problem to solve.",
+        "url": "https://news.ycombinator.com/item?id=46079106",
+        "parent_id": "46078996",
+        "depth": 1,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46079469",
+        "author": "QuadrupleA",
+        "created_at": "2025-11-28T15:28:55.000Z",
+        "text": "Still helpful!",
+        "url": "https://news.ycombinator.com/item?id=46079469",
+        "parent_id": "46079106",
+        "depth": 2,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46088314",
+        "author": "jrochkind1",
+        "created_at": "2025-11-29T15:37:37.000Z",
+        "text": "Right, but none of those are the working use file formats for a relational database.",
+        "url": "https://news.ycombinator.com/item?id=46088314",
+        "parent_id": "46079106",
+        "depth": 2,
+        "points": null,
+        "relevance": null,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      }
+    ],
+    "executed_at": "2026-10-16T09:33:59.894510+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "hn-sqlite",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "hn-item"
+        ],
+        "required": 1
+      },
+      "synthesis": {
+        "status": "pass",
+        "missing": []
+      }
+    },
+    "task": {
+      "status": "pass",
+      "reasons": []
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": false,
+    "grader": "v2"
+  }
+}

@@ -1,0 +1,808 @@
+{
+  "id": "cross-lang-hn-sqlite",
+  "query": "用中文找 Hacker News 上把 SQLite 当作应用程序文件格式来讨论的英文帖子",
+  "returncode": 0,
+  "elapsed_ms": 137700,
+  "efficiency": {
+    "tool_calls": {
+      "search": 2,
+      "fetch": 2,
+      "read_result": 2
+    },
+    "total_calls": 6,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 2,
+    "errors": 0
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": "news.ycombinator.com",
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:news.ycombinator.com SQLite application file format app file format SQLite",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 19927
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "帖子标题、正文、评论中关于 SQLite 作为应用程序文件格式的原文；请保留英文评论原句和评论者",
+        "fresh": false,
+        "max_chars": 50000,
+        "url": "https://news.ycombinator.com/item?id=46076642"
+      },
+      "is_error": false,
+      "ms": 543
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "帖子标题、正文、评论中关于 SQLite 作为应用程序文件格式的原文；请保留英文评论原句和评论者",
+        "fresh": false,
+        "max_chars": 50000,
+        "url": "https://news.ycombinator.com/item?id=45132498"
+      },
+      "is_error": false,
+      "ms": 512
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": "news.ycombinator.com",
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:news.ycombinator.com/item SQLite \"application file format\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 18792
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": [
+          "content",
+          "comments",
+          "thread"
+        ],
+        "limit": 200000,
+        "max_bytes": 16384,
+        "offset": 0,
+        "result_id": "8263e6740a6fabf49c2b7290"
+      },
+      "is_error": false,
+      "ms": 23
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": [
+          "content",
+          "comments",
+          "thread"
+        ],
+        "limit": 200000,
+        "max_bytes": 16384,
+        "offset": 0,
+        "result_id": "ec6051f4b8f819b25bad2861"
+      },
+      "is_error": false,
+      "ms": 24
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.1\", \"result_id\": \"8a2f75b83e15185b15f0ef83\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:news.ycombinator.com SQLite application file format app file format SQLite\", \"answer\": \"Relevant Hacker News threads on using SQLite as an application file format:\\n\\n1. **SQLite as an Application File Format** (178 points) — Discussion of the official sqlite.org page, including MBTiles at Mapbox, tree vs. table data, and practical benefits.  \\n   https://news.ycombinator.com/item?id=46076642 [[1]](https://news.ycombinator.com/item?id=46076642)\\n\\n2. **What If OpenDocument Used SQLite?** (279 points) — Advice on `secure_delete`, untrusted database files, and whether SQLite treats app-file use as niche.  \\n   https://news.ycombinator.com/item?id=45132498 [[2]](https://news.ycombinator.…\", \"answer_chars\": 2992, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 3, \"primary_citation_count\": 11, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 19917, \"warning_count\": 2, \"warnings\": [\"auto_scrape_truncated\", \"auto_scrape_truncated\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"hackernews\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"site_native\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 19, \"results\": [{\"id\": \"r1\", \"title\": \"1\", \"url\": \"https://news.ycombinator.com/item?id=46076642\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"apsw: Another Python SQLite Wrapper | Hacker News\", \"url\": \"https://news.ycombinator.com/item?id=50045273\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"2\", \"url\": \"https://news.ycombinator.com/item?id=45132498\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"Make Tmux the OS | Hacker News\", \"url\": \"https://news.ycombinator.com/item?id=49937540\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"3\", \"url\": \"https://news.ycombinator.com/item?id=45134010\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r6\", \"title\": \"And I don't understand the obsession with server-based databases for single app…\", \"url\": \"https://news.ycombinator.com/item?id=48332797\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"4\", \"url\": \"https://news.ycombinator.com/item?id=46079942\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"As an expansion on that, as far as I know there's only one implementation of Fo…\", \"url\": \"https://news.ycombinator.com/item?id=49930760\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"5\", \"url\": \"https://news.ycombinator.com/item?id=40655974\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"Is the CGI process opening up the SQLite database for every request...? That wo…\", \"url\": \"https://news.ycombinator.com/item?id=50063124\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://news.ycombinator.com/item?id=46076642\", \"title\": \"1\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://news.ycombinator.com/item?id=50045273\", \"title\": \"apsw: Another Python SQLite Wrapper | Hacker News\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://news.ycombinator.com/item?id=45132498\", \"title\": \"2\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://news.ycombinator.com/item?id=49937540\", \"title\": \"Make Tmux the OS | Hacker News\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://news.ycombinator.com/item?id=45134010\", \"title\": \"3\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://news.ycombinator.com/item?id=48332797\", \"title\": \"And I don't understand the obsession with server-based databases for single app…\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://news.ycombinator.com/item?id=46079942\", \"title\": \"4\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://news.ycombinator.com/item?id=49930760\", \"title\": \"As an expansion on that, as far as I know there's only one implementation of Fo…\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://news.ycombinator.com/item?id=40655974\", \"title\": \"5\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://news.ycombinator.com/item?id=50063124\", \"title\": \"Is the CGI process opening up the SQLite database for every request...? That wo…\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://news.ycombinator.com/item?id=45147835\", \"title\": \"6\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://news.ycombinator.com/item?id=47046185\", \"title\": \"7\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://news.ycombinator.com/item?id=49421475\", \"title\": \"8\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://news.ycombinator.com/item?id=39797104\", \"title\": \"9\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://news.ycombinator.com/item?id=46079326\", \"title\": \"10\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://news.ycombinator.com/item?id=43682006\", \"title\": \"11\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://news.ycombinator.com/item?id=49848955\", \"title\": \"Ask HN: Who's still keeping a DOS machine up because the business depends on it…\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c18\", \"url\": \"https://news.ycombinator.com/item?id=49988641\", \"title\": \"Show HN: Musql, JIT-compiled SQL, up to 300x faster than SQLite, 1000x vs. Turs…\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c19\", \"url\": \"https://news.ycombinator.com/item?id=50052163\", \"title\": \"Postgres isn't slow, your storage is | Hacker News\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"8a2f75b83e15185b15f0ef83\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"Hacker News\", \"satisfied\": true, \"detail\": \"19 content page(s), e.g. https://news.ycombinator.com/item?id=46076642\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 19, \"new_pages_read\": 3, \"seen_urls\": 19, \"pages_read\": 3, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"8263e6740a6fabf49c2b7290\", \"kind\": \"fetch\", \"status\": \"ok\", \"url\": \"https://news.ycombinator.com/item?id=46076642\", \"final_url\": \"https://news.ycombinator.com/item?id=46076642\", \"title\": \"SQLite as an Application File Format\", \"provider\": \"hackernews\", \"content_preview\": \"# SQLite as an Application File Format\\n\\nby gjvc · 2025-11-28T08:15:50.000Z · via hn.algolia.com/api/v1/items\\n\\nLink: https://sqlite.org/appfileformat.html\\n\\n## Comments (92 shown of 92)\\n\\n### [46088356] mort96 · 2025-11-29T15:41:46.000Z · reply to 46080167\\nhttps://news.ycombinator.com/item?id=46088356\\n\\nThis seems completely orthogonal? This is an alternative to zip and tar built on SQLite:\\n> An \\\"SQLite Archive\\\" is a file container similar to a ZIP archive or Tarball but based on an SQLite database.\\nYour parent comment said that when you're using SQLite as an application format, the content in the database don't get compressed. These two things have nothing to do with each other.\\n\\n### [46079869] joelwallis · 2025-11-28T16:09:56.000Z · reply to 46076642\\nhttps://news.ycombinator.com/item?id=46079869\\n\\nSQLite is abolutely amazing as an app format! I couldn't list how many tools are available to read SQLite data, or how easy and friendly they are. Even its CLI does wonders when you're dealing w\", \"content_chars\": 35345, \"truncated\": true, \"errors\": [], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"8263e6740a6fabf49c2b7290\", \"fields\": [\"content\"], \"comment_fields\": [\"comments\"]}, \"thread\": {\"platform\": \"hackernews\", \"url\": \"https://news.ycombinator.com/item?id=46076642\", \"title\": \"SQLite as an Application File Format\", \"status\": \"comments_read\", \"comments_total\": 92, \"comments_read\": 92, \"top_comments\": [{\"id\": \"46088356\", \"author\": \"mort96\", \"text\": \"This seems completely orthogonal? This is an alternative to zip and tar built on SQLite:\\n> An \\\"SQLite Archive\\\" is a file container similar to a ZIP archive or Tarball but based on an SQLite database.\\nYour parent comment said that when you'…\"}, {\"id\": \"46079869\", \"author\": \"joelwallis\", \"text\": \"SQLite is abolutely amazing as an app format! I couldn't list how many tools are available to read SQLite data, or how easy and friendly they are. Even its CLI does wonders when you're dealing with data with it. SQLite has been around for …\"}]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 2, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 19, \"pages_read\": 3, \"calls_without_new_evidence\": 2}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"ec6051f4b8f819b25bad2861\", \"kind\": \"fetch\", \"status\": \"ok\", \"url\": \"https://news.ycombinator.com/item?id=45132498\", \"final_url\": \"https://news.ycombinator.com/item?id=45132498\", \"title\": \"What If OpenDocument Used SQLite?\", \"provider\": \"hackernews\", \"content_preview\": \"# What If OpenDocument Used SQLite?\\n\\nby whatisabcdefgh · 2025-09-04T21:36:50.000Z · via hn.algolia.com/api/v1/items\\n\\nLink: https://www.sqlite.org/affcase1.html\\n\\n## Comments (105 shown of 105)\\n\\n### [45147835] lenkite · 2025-09-06T09:25:24.000Z · reply to 45142959\\nhttps://news.ycombinator.com/item?id=45147835\\n\\n> but most usage of sqlite is not as an application file format,\\nThis is exactly the OTHER way around. Most usages of SQLite are as an application file format. Firefox stores bookmarks, history, cookies in SQLite files in the profiles folder. Messaging apps (WhatsApp, Signal, etc. use SQLite for chat history). macOS and Windows use SQLite in various subsystems, ex: Spotlight metadata, application cache. Mobile apps use SQLite heavily. And probably ten thousand other cases as a file format if I bother to look up more.\\n\\n### [45135218] shlomo_z · 2025-09-05T05:23:44.000Z · reply to 45135186\\nhttps://news.ycombinator.com/item?id=45135218\\n\\nSqlite claims [1] this is a good use case\\n1. htt\", \"content_chars\": 50000, \"truncated\": true, \"errors\": [], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"ec6051f4b8f819b25bad2861\", \"fields\": [\"content\"], \"comment_fields\": [\"comments\"]}, \"thread\": {\"platform\": \"hackernews\", \"url\": \"https://news.ycombinator.com/item?id=45132498\", \"title\": \"What If OpenDocument Used SQLite?\", \"status\": \"comments_read\", \"comments_total\": 105, \"comments_read\": 105, \"top_comments\": [{\"id\": \"45147835\", \"author\": \"lenkite\", \"text\": \"> but most usage of sqlite is not as an application file format,\\nThis is exactly the OTHER way around. Most usages of SQLite are as an application file format. Firefox stores bookmarks, history, cookies in SQLite files in the profiles fold…\"}, {\"id\": \"45135218\", \"author\": \"shlomo_z\", \"text\": \"Sqlite claims [1] this is a good use case\\n1. https://www.sqlite.org/fasterthanfs.html\"}]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 1, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 19, \"pages_read\": 3, \"calls_without_new_evidence\": 1}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"7e3d5d3bbd61880b4ac6c636\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:news.ycombinator.com/item SQLite \\\"application file format\\\"\", \"answer\": \"Relevant Hacker News threads on SQLite as an application file format:\\n\\n1. **SQLite as an Application File Format** (178 points, ~99 comments) — Discussion of the official sqlite.org page. Covers MBTiles at Mapbox, tree vs. table data, WAL/journal pitfalls, and benefits such as migrations and off-the-shelf GUIs.  \\n   https://news.ycombinator.com/item?id=46076642\\n\\n2. **What If OpenDocument Used SQLite?** (279 points) — Includes advice to enable `secure_delete`, harden against untrusted DBs, and notes that SQLite treats opening untrusted files as a niche case. Also debates whether most SQLite us…\", \"answer_chars\": 2741, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 2, \"primary_citation_count\": 13, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 18781, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary_site_restricted\"}, {\"provider\": \"hackernews\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"site_native\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 21, \"results\": [{\"id\": \"r1\", \"title\": \"https://news.ycombinator.com/item?id=46079326\", \"url\": \"https://news.ycombinator.com/item?id=46079326\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"apsw: Another Python SQLite Wrapper | Hacker News\", \"url\": \"https://news.ycombinator.com/item?id=50045273\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://news.ycombinator.com/item?id=49421475\", \"url\": \"https://news.ycombinator.com/item?id=49421475\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"Make Tmux the OS | Hacker News\", \"url\": \"https://news.ycombinator.com/item?id=49937540\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://news.ycombinator.com/item?id=43682006\", \"url\": \"https://news.ycombinator.com/item?id=43682006\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"Hister: A private search engine for the pages you visit and the files you keep …\", \"url\": \"https://news.ycombinator.com/item?id=49743097\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"https://news.ycombinator.com/item?id=47046185\", \"url\": \"https://news.ycombinator.com/item?id=47046185\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"Pi Durable | Hacker News\", \"url\": \"https://news.ycombinator.com/item?id=49925969\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"https://news.ycombinator.com/item?id=46079942\", \"url\": \"https://news.ycombinator.com/item?id=46079942\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"Show HN: Musql, JIT-compiled SQL, up to 300x faster than SQLite, 1000x vs. Turs…\", \"url\": \"https://news.ycombinator.com/item?id=49988641\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://news.ycombinator.com/item?id=46079326\", \"title\": \"https://news.ycombinator.com/item?id=46079326\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://news.ycombinator.com/item?id=50045273\", \"title\": \"apsw: Another Python SQLite Wrapper | Hacker News\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://news.ycombinator.com/item?id=49421475\", \"title\": \"https://news.ycombinator.com/item?id=49421475\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://news.ycombinator.com/item?id=49937540\", \"title\": \"Make Tmux the OS | Hacker News\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://news.ycombinator.com/item?id=43682006\", \"title\": \"https://news.ycombinator.com/item?id=43682006\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://news.ycombinator.com/item?id=49743097\", \"title\": \"Hister: A private search engine for the pages you visit and the files you keep …\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://news.ycombinator.com/item?id=47046185\", \"title\": \"https://news.ycombinator.com/item?id=47046185\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://news.ycombinator.com/item?id=49925969\", \"title\": \"Pi Durable | Hacker News\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://news.ycombinator.com/item?id=46079942\", \"title\": \"https://news.ycombinator.com/item?id=46079942\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://news.ycombinator.com/item?id=49988641\", \"title\": \"Show HN: Musql, JIT-compiled SQL, up to 300x faster than SQLite, 1000x vs. Turs…\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://news.ycombinator.com/item?id=40655974\", \"title\": \"https://news.ycombinator.com/item?id=40655974\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://news.ycombinator.com/item?id=48046007\", \"title\": \"https://news.ycombinator.com/item?id=48046007\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://news.ycombinator.com/item?id=46076642\", \"title\": \"https://news.ycombinator.com/item?id=46076642\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://news.ycombinator.com/item?id=45132498\", \"title\": \"https://news.ycombinator.com/item?id=45132498\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://news.ycombinator.com/item?id=45134010\", \"title\": \"https://news.ycombinator.com/item?id=45134010\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://news.ycombinator.com/item?id=22155311\", \"title\": \"https://news.ycombinator.com/item?id=22155311\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://news.ycombinator.com/item?id=45147835\", \"title\": \"https://news.ycombinator.com/item?id=45147835\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://news.ycombinator.com/item?id=39797104\", \"title\": \"https://news.ycombinator.com/item?id=39797104\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://news.ycombinator.com/item?id=50063124\", \"title\": \"Is the CGI process opening up the SQLite database for every request...? That wo…\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c20\", \"url\": \"https://news.ycombinator.com/item?id=49848955\", \"title\": \"Ask HN: Who's still keeping a DOS machine up because the business depends on it…\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c21\", \"url\": \"https://news.ycombinator.com/item?id=50055593\", \"title\": \"Turn a WiFi 7 Router into a 320Msps Software Defined Radio Receiver | Hacker Ne…\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"7e3d5d3bbd61880b4ac6c636\"}, \"coverage\": {\"status\": \"sufficient\", \"requirements\": [{\"kind\": \"site\", \"target\": \"Hacker News\", \"satisfied\": true, \"detail\": \"21 content page(s), e.g. https://news.ycombinator.com/item?id=46079326\"}], \"requirements_total\": 1}, \"session\": {\"calls\": {\"search\": 2, \"fetch\": 2, \"read_result\": 0}, \"new_urls\": 5, \"new_pages_read\": 2, \"seen_urls\": 24, \"pages_read\": 5, \"calls_without_new_evidence\": 0}}",
+    "{\"result_id\": \"8263e6740a6fabf49c2b7290\", \"kind\": \"fetch\", \"fields\": [\"content\", \"comments\", \"thread\"], \"offset\": 0, \"next_offset\": 10, \"next_offsets\": {\"content\": 2000, \"comments\": 10}, \"truncated\": true, \"data\": {\"content\": \"# SQLite as an Application File Format\\n\\nby gjvc · 2025-11-28T08:15:50.000Z · via hn.algolia.com/api/v1/items\\n\\nLink: https://sqlite.org/appfileformat.html\\n\\n## Comments (92 shown of 92)\\n\\n### [46088356] mort96 · 2025-11-29T15:41:46.000Z · reply to 46080167\\nhttps://news.ycombinator.com/item?id=46088356\\n\\nThis seems completely orthogonal? This is an alternative to zip and tar built on SQLite:\\n> An \\\"SQLite Archive\\\" is a file container similar to a ZIP archive or Tarball but based on an SQLite database.\\nYour parent comment said that when you're using SQLite as an application format, the content in the database don't get compressed. These two things have nothing to do with each other.\\n\\n### [46079869] joelwallis · 2025-11-28T16:09:56.000Z · reply to 46076642\\nhttps://news.ycombinator.com/item?id=46079869\\n\\nSQLite is abolutely amazing as an app format! I couldn't list how many tools are available to read SQLite data, or how easy and friendly they are. Even its CLI does wonders when you're dealing with data with it. SQLite has been around for 20+ years and is one of the most heavily tested softwares in the world.\\nSQLite is very simple, yet very reliable and powerful. Using SQLite as file format might be the best decision an engineer can take when it comes to future-proofing preservation of data.\\n\\n### [46083208] out_of_protocol · 2025-11-28T22:09:14.000Z · reply to 46080301\\nhttps://news.ycombinator.com/item?id=46083208\\n\\nAlso, tested .zip vs .tar vs sqlite vs file system. Of this bunch, sqlite was the most compact format with minimal overhead.\\n\\n### [46080546] euroderf · 2025-11-28T17:12:55.000Z · reply to 46076642\\nhttps://news.ycombinator.com/item?id=46080546\\n\\nThere seems to be no single software solution \\\"out there\\\" for mounting an SQLite DB (or an SQLite archive) as a file system, with or without per-record relative paths.\\n\\n### [46079942] psnehanshu · 2025-11-28T16:17:03.000Z · reply to 46076642\\nhttps://news.ycombinator.com/item?id=46079942\\n\\nI see no downside in using sqlite as a\", \"content_chars\": 35345, \"comments\": [{\"id\": \"46088356\", \"author\": \"mort96\", \"created_at\": \"2025-11-29T15:41:46.000Z\", \"text\": \"This seems completely orthogonal? This is an alternative to zip and tar built on SQLite:\\n> An \\\"SQLite Archive\\\" is a file container similar to a ZIP archive or Tarball but based on an SQLite database.\\nYour parent comment said that when you're using SQLite as an application format, the content in the database don't get compressed. These two things have nothing to do with each other.\", \"url\": \"https://news.ycombinator.com/item?id=46088356\", \"parent_id\": \"46080167\", \"depth\": 2, \"points\": null, \"relevance\": 1.525}, {\"id\": \"46079869\", \"author\": \"joelwallis\", \"created_at\": \"2025-11-28T16:09:56.000Z\", \"text\": \"SQLite is abolutely amazing as an app format! I couldn't list how many tools are available to read SQLite data, or how easy and friendly they are. Even its CLI does wonders when you're dealing with data with it. SQLite has been around for 20+ years and is one of the most heavily tested softwares in the world.\\nSQLite is very simple, yet very reliable and powerful. Using SQLite as file format might be the best decision an engineer can take when it comes to future-proofing preservation of data.\", \"url\": \"https://news.ycombinator.com/item?id=46079869\", \"parent_id\": \"46076642\", \"depth\": 0, \"points\": null, \"relevance\": 1.523}, {\"id\": \"46083208\", \"author\": \"out_of_protocol\", \"created_at\": \"2025-11-28T22:09:14.000Z\", \"text\": \"Also, tested .zip vs .tar vs sqlite vs file system. Of this bunch, sqlite was the most compact format with minimal overhead.\", \"url\": \"https://news.ycombinator.com/item?id=46083208\", \"parent_id\": \"46080301\", \"depth\": 1, \"points\": null, \"relevance\": 1.515}, {\"id\": \"46080546\", \"author\": \"euroderf\", \"created_at\": \"2025-11-28T17:12:55.000Z\", \"text\": \"There seems to be no single software solution \\\"out there\\\" for mounting an SQLite DB (or an SQLite archive) as a file system, with or without per-record relative paths.\", \"url\": \"https://news.ycombinator.com/item?id=46080546\", \"parent_id\": \"46076642\", \"depth\": 0, \"points\": null, \"relevance\": 1.48}, {\"id\": \"46079942\", \"author\": \"psnehanshu\", \"created_at\": \"2025-11-28T16:17:03.000Z\", \"text\": \"I see no downside in using sqlite as an application file format.\", \"url\": \"https://news.ycombinator.com/item?id=46079942\", \"parent_id\": \"46076642\", \"depth\": 0, \"points\": null, \"relevance\": 1.383}, {\"id\": \"46080167\", \"author\": \"lateforwork\", \"created_at\": \"2025-11-28T16:37:57.000Z\", \"text\": \"It can be compressed, see https://sqlite.org/sqlar.html\", \"url\": \"https://news.ycombinator.com/item?id=46080167\", \"parent_id\": \"46080130\", \"depth\": 1, \"points\": null, \"relevance\": 1.383}, {\"id\": \"46080273\", \"author\": \"lateforwork\", \"created_at\": \"2025-11-28T16:47:50.000Z\", \"text\": \"Most application's file formats are structured as a tree, not as flat tables. If your application's data is flat tables or name-value pairs then SQLite is an obvious choice. But if it is tree structured then it is less obvious. You can still save your tree in JSON format as a blob in a SQLite table but in this case the benefits are fewer. But if in addition to the JSON you have images or other binary data then once again SQLite offers benefits, because each of those binary files can be additional rows in the SQLite table. This is far easier to handle than storing them in ZIP format.\", \"url\": \"https://news.ycombinator.com/item?id=46080273\", \"parent_id\": \"46076642\", \"depth\": 0, \"points\": null, \"relevance\": 1.363}, {\"id\": \"46088636\", \"author\": \"dardeaup\", \"created_at\": \"2025-11-29T16:14:06.000Z\", \"text\": \"Type safety as a benefit of SQLite? For me type safety is a negative of SQLite. Being able to store a different type that what the column is declared to store is a bug (not a feature). I also find the lack of DATE and DATETIME/TIMESTAMP to be less than ideal.\", \"url\": \"https://news.ycombinator.com/item?id=46088636\", \"parent_id\": \"46084465\", \"depth\": 4, \"points\": null, \"relevance\": 1.355}, {\"id\": \"46080236\", \"author\": \"abhashanand1501\", \"created_at\": \"2025-11-28T16:44:38.000Z\", \"text\": \"We are developing using sqlite to transfer configurations from uat to production environment. Since the configurations are already saved in a postgres table in uat, moving some configs from uat to production an sqlite file is very easy. since it's a binary format, we are also saved from any inadvertent edits by people doing production deployment.\\nAlso, another usecase is to export data from production to uat for testing some scenarios, it can be easily encoded in a sqlite file.\", \"url\": \"https://news.ycombinator.com/item?id=46080236\", \"parent_id\": \"46076642\", \"depth\": 0, \"points\": null, \"relevance\": 1.327}, {\"id\": \"46080419\", \"author\": \"robrenaud\", \"created_at\": \"2025-11-28T17:00:28.000Z\", \"text\": \"I had some json data that I wanted an annotation interface for. So I asked codex to put it into sqlite and make a little annotation webserver. It worked quickly/easily and without hassle. Sqlite supports queries over json-like objects.\\nMaybe a very simple document oriented db would have been better?\\nMy biggest gripe is that the sqlite cli is brutally minimal (makes sense given design), but I probably should have been using a nicer cli.\", \"url\": \"https://news.ycombinator.com/item?id=46080419\", \"parent_id\": \"46080273\", \"depth\": 1, \"points\": null, \"relevance\": 1.309}], \"comments_total\": 92, \"comments_relevant\": 20, \"thread\": {\"platform\": \"hackernews\", \"url\": \"https://news.ycombinator.com/item?id=46076642\", \"thread_id\": \"46076642\", \"title\": \"SQLite as an Application File Format\", \"author\": \"gjvc\", \"created_at\": \"2025-11-28T08:15:50.000Z\", \"body\": \"Link: https://sqlite.org/appfileformat.html\", \"status\": \"comments_read\", \"comments_total\": 92, \"comments\": [{\"id\": \"46088356\", \"author\": \"mort96\", \"created_at\": \"2025-11-29T15:41:46.000Z\", \"text\": \"This seems completely orthogonal? This is an alternative to zip and tar built on SQLite:\\n> An \\\"SQLite Archive\\\" is a file container similar to a ZIP archive or Tarball but based on an SQLite database.\\nYour parent comment said that when you're using SQLite as an application format, the content in the database don't get compressed. These two things have nothing to do with each other.\", \"url\": \"https://news.ycombinator.com/item?id=46088356\", \"parent_id\": \"46080167\", \"depth\": 2, \"points\": null, \"relevance\": 1.525}, {\"id\": \"46079869\", \"author\": \"joelwallis\", \"created_at\": \"2025-11-28T16:09:56.000Z\", \"text\": \"SQLite is abolutely amazing as an app format! I couldn't list how many tools are available to read SQLite data, or how easy and friendly they are. Even its CLI does wonders when you're dealing with data with it. SQLite has been around for 20+ years and is one of the most heavily tested softwares in the world.\\nSQLite is very simple, yet very reliable and powerful. Using SQLite as file format might be the best decision an engineer can take when it comes to future-proofing preservation of data.\", \"url\": \"https://news.ycombinator.com/item?id=46079869\", \"parent_id\": \"46076642\", \"depth\": 0, \"points\": null, \"relevance\": 1.523}, {\"id\": \"46083208\", \"author\": \"out_of_protocol\", \"created_at\": \"2025-11-28T22:09:14.000Z\", \"text\": \"Also, tested .zip vs .tar vs sqlite vs file system. Of this bunch, sqlite was the most compact format with minimal overhead.\", \"url\": \"https://news.ycombinator.com/item?id=46083208\", \"parent_id\": \"46080301\", \"depth\": 1, \"points\": null, \"relevance\": 1.515}, {\"id\": \"46080546\", \"author\": \"euroderf\", \"created_at\": \"2025-11-28T17:12:55.000Z\", \"text\": \"There seems to be no single software solution \\\"out there\\\" for mounting an SQLite DB (or an SQLite archive) as a file system, with or without per-record relative paths.\", \"url\": \"https://news.ycombinator.com/item?id=46080546\", \"parent_id\": \"46076642\", \"depth\": 0, \"points\": null, \"relevance\": 1.48}, {\"id\": \"46079942\", \"author\": \"psnehanshu\", \"created_at\": \"2025-11-28T16:17:03.000Z\", \"text\": \"I see no downside in using sqlite as an application file format.\", \"url\": \"https://news.ycombinator.com/item?id=46079942\", \"parent_id\": \"46076642\", \"depth\": 0, \"points\": null, \"relevance\": 1.383}, {\"id\": \"46080167\", \"author\": \"lateforwork\", \"created_at\": \"2025-11-28T16:37:57.000Z\", \"text\": \"It can be compressed, see https://sqlite.org/sqlar.html\", \"url\": \"https://news.ycombinator.com/item?id=46080167\", \"parent_id\": \"46080130\", \"depth\": 1, \"points\": null, \"relevance\": 1.383}, {\"id\": \"46080273\", \"author\": \"lateforwork\", \"created_at\": \"2025-11-28T16:47:50.000Z\", \"text\": \"Most application's file formats are structured as a tree, not as flat tables. If your application's data is flat tables or name-value pairs then SQLite is an obvious choice. But if it is tree structured then it is less obvious. You can still save your tree in JSON format as a blob in a SQLite table but in this case the benefits are fewer. But if in addition to the JSON you have images or other binary data then once again SQLite offers benefits, because each of those binary files can be additional rows in the SQLite table. This is far easier to handle than storing them in ZIP format.\", \"url\": \"https://news.ycombinator.com/item?id=46080273\", \"parent_id\": \"46076642\", \"depth\": 0, \"points\": null, \"relevance\": 1.363}, {\"id\": \"46088636\", \"author\": \"dardeaup\", \"created_at\": \"2025-11-29T16:14:06.000Z\", \"text\": \"Type safety as a benefit of SQLite? For me type safety is a negative of SQLite. Being able to store a different type that what the column is declared to store is a bug (not a feature). I also find the lack of DATE and DATETIME/TIMESTAMP to be less than ideal.\", \"url\": \"https://news.ycombinator.com/item?id=46088636\", \"parent_id\": \"46084465\", \"depth\": 4, \"points\": null, \"relevance\": 1.355}, {\"id\": \"46080236\", \"author\": \"abhashanand1501\", \"created_at\": \"2025-11-28T16:44:38.000Z\", \"text\": \"We are developing using sqlite to transfer configurations from uat to production environment. Since the configurations are already saved in a postgres table in uat, moving some configs from uat to production an sqlite file is very easy. since it's a binary format, we are also saved from any inadvertent edits by people doing production deployment.\\nAlso, another usecase is to export data from production to uat for testing some scenarios, it can be easily encoded in a sqlite file.\", \"url\": \"https://news.ycombinator.com/item?id=46080236\", \"parent_id\": \"46076642\", \"depth\": 0, \"points\": null, \"relevance\": 1.327}, {\"id\": \"46080419\", \"author\": \"robrenaud\", \"created_at\": \"2025-11-28T17:00:28.000Z\", \"text\": \"I had some json data that I wanted an annotation interface for. So I asked codex to put it into sqlite and make a little annotation webserver. It worked quickly/easily and without hassle. Sqlite supports queries over json-like objects.\\nMaybe a very simple document oriented db would have been better?\\nMy biggest gripe is that the sqlite cli is brutally minimal (makes sense given design), but I probably should have been using a nicer cli.\", \"url\": \"https://news.ycombinator.com/item?id=46080419\", \"parent_id\": \"46080273\", \"depth\": 1, \"points\": null, \"relevance\": 1.309}, {\"id\": \"46081449\", \"author\": \"fauigerzigerk\", \"created_at\": \"2025-11-28T18:39:50.000Z\", \"text\": \"What do you mean by \\\"json-like objects\\\"?\\nMy issue with SQLite's JSON implementation is that it cannot index arrays. SQLite indexes can only contain a single value per row (except for fulltext indexes but that's not what I want most of the time). SQLite has nothing like GIN indexes in Postgres.\", \"url\": \"https://news.ycombinator.com/item?id=46081449\", \"parent_id\": \"46080419\", \"depth\": 2, \"points\": null, \"relevance\": 1.262}, {\"id\": \"46080310\", \"author\": \"elephantum\", \"created_at\": \"2025-11-28T16:50:42.000Z\", \"text\": \"You do know, that you can create more than one table in SQLite and have references from one to another? Even recursive references work\", \"url\": \"https://news.ycombinator.com/item?id=46080310\", \"parent_id\": \"46080273\", \"depth\": 1, \"points\": null, \"relevance\": 1.225}, {\"id\": \"46079841\", \"author\": \"giancarlostoro\", \"created_at\": \"2025-11-28T16:07:20.000Z\", \"text\": \"Forget elf, imagine having a SQLite file that stores elf, exe and DMG binaries. I would not mind working on something like this.\", \"url\": \"https://news.ycombinator.com/item?id=46079841\", \"parent_id\": \"46079326\", \"depth\": 1, \"points\": null, \"relevance\": 1.18}, {\"id\": \"46081009\", \"author\": \"actionfromafar\", \"created_at\": \"2025-11-28T17:58:39.000Z\", \"text\": \"https://docs.devart.com/odbc/sqlite/access.htm\\nhttps://github.com/sam-ludlow/access-linker\", \"url\": \"https://news.ycombinator.com/item?id=46081009\", \"parent_id\": \"46079974\", \"depth\": 2, \"points\": null, \"relevance\": 1.18}, {\"id\": \"46080804\", \"author\": \"ejstembler\", \"created_at\": \"2025-11-28T17:38:14.000Z\", \"text\": \"The Acorn macOS app uses SQLite in a similar way: https://flyingmeat.com/acorn/docs/technotes/ACTN002.html\", \"url\": \"https://news.ycombinator.com/item?id=46080804\", \"parent_id\": \"46076642\", \"depth\": 0, \"points\": null, \"relevance\": 1.18}, {\"id\": \"46091224\", \"author\": \"yellowapple\", \"created_at\": \"2025-11-29T22:04:48.000Z\", \"text\": \"> There's always the lazy approach of storing JSON blobs in TEXT fields, but I personally shy away from that because you lose out on a huge part of the benefits of using a SQL DB in the first place, most importantly migrations and querying/indexing.\\nSQLite at least provides functions to make the “querying” part of that straightforward: https://sqlite.org/json1.html\", \"url\": \"https://news.ycombinator.com/item?id=46091224\", \"parent_id\": \"46080776\", \"depth\": 2, \"points\": null, \"relevance\": 1.17}, \"… 76 more\"], \"source_api\": \"hn.algolia.com/api/v1/items\", \"error\": null}}, \"session\": {\"calls\": {\"search\": 2, \"fetch\": 2, \"read_result\": 1}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 24, \"pages_read\": 5, \"calls_without_new_evidence\": 1}}",
+    "{\"result_id\": \"ec6051f4b8f819b25bad2861\", \"kind\": \"fetch\", \"fields\": [\"content\", \"comments\", \"thread\"], \"offset\": 0, \"next_offset\": 10, \"next_offsets\": {\"content\": 890, \"comments\": 10}, \"truncated\": true, \"data\": {\"content\": \"# What If OpenDocument Used SQLite?\\n\\nby whatisabcdefgh · 2025-09-04T21:36:50.000Z · via hn.algolia.com/api/v1/items\\n\\nLink: https://www.sqlite.org/affcase1.html\\n\\n## Comments (105 shown of 105)\\n\\n### [45147835] lenkite · 2025-09-06T09:25:24.000Z · reply to 45142959\\nhttps://news.ycombinator.com/item?id=45147835\\n\\n> but most usage of sqlite is not as an application file format,\\nThis is exactly the OTHER way around. Most usages of SQLite are as an application file format. Firefox stores bookmarks, history, cookies in SQLite files in the profiles folder. Messaging apps (WhatsApp, Signal, etc. use SQLite for chat history). macOS and Windows use SQLite in various subsystems, ex: Spotlight metadata, application cache. Mobile apps use SQLite heavily. And probably ten thousand other cases as a file format if I bother to look up more.\\n\\n### [45135218] shlomo_z · 2025-09-05T05:23:44.000Z · rep\", \"content_chars\": 50000, \"comments\": [{\"id\": \"45147835\", \"author\": \"lenkite\", \"created_at\": \"2025-09-06T09:25:24.000Z\", \"text\": \"> but most usage of sqlite is not as an application file format,\\nThis is exactly the OTHER way around. Most usages of SQLite are as an application file format. Firefox stores bookmarks, history, cookies in SQLite files in the profiles folder. Messaging apps (WhatsApp, Signal, etc. use SQLite for chat history). macOS and Windows use SQLite in various subsystems, ex: Spotlight metadata, application cache. Mobile apps use SQLite heavily. And probably ten thousand other cases as a file format if I bother to look up more.\", \"url\": \"https://news.ycombinator.com/item?id=45147835\", \"parent_id\": \"45142959\", \"depth\": 4, \"points\": null, \"relevance\": 1.325}, {\"id\": \"45135218\", \"author\": \"shlomo_z\", \"created_at\": \"2025-09-05T05:23:44.000Z\", \"text\": \"Sqlite claims [1] this is a good use case\\n1. https://www.sqlite.org/fasterthanfs.html\", \"url\": \"https://news.ycombinator.com/item?id=45135218\", \"parent_id\": \"45135186\", \"depth\": 1, \"points\": null, \"relevance\": 1.302}, {\"id\": \"45134010\", \"author\": \"agwa\", \"created_at\": \"2025-09-05T01:06:51.000Z\", \"text\": \"If you're going to use SQLite as an application file format, you should:\\n1. Enable the secure_delete pragma <https://antonz.org/sqlite-secure-delete/> so that when your user deletes something, the data is actually erased. Otherwise, when a user shares one of your application's files with someone else, the recipient could recover information that the sender thought they had deleted.\\n2. Enable the options described at <https://www.sqlite.org/security.html#untrusted_sqlite_databa...> under \\\"Untrusted SQLite Database Files\\\" to make it safer to open files from untrusted sources. No one wants to ge…\", \"url\": \"https://news.ycombinator.com/item?id=45134010\", \"parent_id\": \"45132498\", \"depth\": 0, \"points\": null, \"relevance\": 1.3}, {\"id\": \"45135666\", \"author\": \"jdboyd\", \"created_at\": \"2025-09-05T06:50:46.000Z\", \"text\": \"Part of the problem though with saying SQLite instead of XML is a lot of things would lend themselves to XML in SQLite.\", \"url\": \"https://news.ycombinator.com/item?id=45135666\", \"parent_id\": \"45135099\", \"depth\": 2, \"points\": null, \"relevance\": 1.283}, {\"id\": \"45134731\", \"author\": \"chris_wot\", \"created_at\": \"2025-09-05T03:26:42.000Z\", \"text\": \"\\\"Most applications can use SQLite without having to worry about bugs in obscure SQL inputs.\\\" And then they recommend SQLite as a document interchange format.\", \"url\": \"https://news.ycombinator.com/item?id=45134731\", \"parent_id\": \"45134010\", \"depth\": 1, \"points\": null, \"relevance\": 1.264}, {\"id\": \"45140501\", \"author\": \"liuliu\", \"created_at\": \"2025-09-05T16:34:46.000Z\", \"text\": \"That's right, but it is much easier to just use blob without application logic to worry about chunking. It is the same reason why we use SQLite in the first place, a lot of transaction / rollback logic now is on SQLite layer, not the application layer.\\nAlso, SQLite did provide good support for read / write the blob in streamable fashion, see: https://www.sqlite.org/c3ref/blob_read.html\\nSo the limitation is really a structural issue that Dr. Hipp at some point might resolve (or not), but pretty much has to be resolved by SQLite core team, not outside contributors (of course you can resolve it …\", \"url\": \"https://news.ycombinator.com/item?id=45140501\", \"parent_id\": \"45134101\", \"depth\": 2, \"points\": null, \"relevance\": 1.251}, {\"id\": \"45134841\", \"author\": \"hedora\", \"created_at\": \"2025-09-05T03:52:36.000Z\", \"text\": \"Which network filesystems are still corrupting sqlite files?\\nSqlite on NFSv3 has been rock solid for some NFS servers for a decade.\\nMaybe name and shame?\", \"url\": \"https://news.ycombinator.com/item?id=45134841\", \"parent_id\": \"45134419\", \"depth\": 3, \"points\": null, \"relevance\": 1.246}, {\"id\": \"45136120\", \"author\": \"munch117\", \"created_at\": \"2025-09-05T07:59:41.000Z\", \"text\": \"I'm not that concerned with bugs in sqlite. sqlite is high quality software, and the application that uses it is a more likely source of vulnerabilities.\\nBut I do see a problem if you really need to use a sqlite that's compiled with particular non-default options.\\nSay I design a file format and implement it, and my implementation uses an sqlite library that's compiled with all the right options. Then I evangelize my file format, telling everyone that it's really just an sqlite database and sooo easy to work with.\\nFirst thing that happens is that someone writes a neat little utility for workin…\", \"url\": \"https://news.ycombinator.com/item?id=45136120\", \"parent_id\": \"45135429\", \"depth\": 3, \"points\": null, \"relevance\": 1.217}, {\"id\": \"45133437\", \"author\": \"anon291\", \"created_at\": \"2025-09-04T23:34:51.000Z\", \"text\": \"You can do this today by using the WASM-compiled SQLite module with a custom Javascript VFS that implements the SQLite VFS api appropriately for your backend. I've used it extensively in the past to serve static data sets direct from S3 for low cost.\\nMore industrious people have apparently wrapped this up on NPM: https://www.npmjs.com/package/sqlite-wasm-http\", \"url\": \"https://news.ycombinator.com/item?id=45133437\", \"parent_id\": \"45133233\", \"depth\": 1, \"points\": null, \"relevance\": 1.198}, {\"id\": \"45135122\", \"author\": \"charleslmunger\", \"created_at\": \"2025-09-05T05:00:25.000Z\", \"text\": \">and they seem to get annoyed that people run fuzzers against SQLite, even though application file formats should definitely be fuzzed.\\nI think that's an unfair reading. Sqlite runs fuzzers itself and quickly addresses bugs found by fuzzers externally. There's an entire section in their documentation about their own fuzzers and thanking third party fuzzers, including credit to individual engineers.\\nhttps://www.sqlite.org/testing.html\\nThe tone of the CVE docs are because people freak out about CVEs flagged by automated tools when the CVEs are for issues that have no security impact for typical…\", \"url\": \"https://news.ycombinator.com/item?id=45135122\", \"parent_id\": \"45134010\", \"depth\": 1, \"points\": null, \"relevance\": 1.144}], \"comments_total\": 105, \"comments_relevant\": 20, \"thread\": {\"platform\": \"hackernews\", \"url\": \"https://news.ycombinator.com/item?id=45132498\", \"thread_id\": \"45132498\", \"title\": \"What If OpenDocument Used SQLite?\", \"author\": \"whatisabcdefgh\", \"created_at\": \"2025-09-04T21:36:50.000Z\", \"body\": \"Link: https://www.sqlite.org/affcase1.html\", \"status\": \"comments_read\", \"comments_total\": 105, \"comments\": [{\"id\": \"45147835\", \"author\": \"lenkite\", \"created_at\": \"2025-09-06T09:25:24.000Z\", \"text\": \"> but most usage of sqlite is not as an application file format,\\nThis is exactly the OTHER way around. Most usages of SQLite are as an application file format. Firefox stores bookmarks, history, cookies in SQLite files in the profiles folder. Messaging apps (WhatsApp, Signal, etc. use SQLite for chat history). macOS and Windows use SQLite in various subsystems, ex: Spotlight metadata, application cache. Mobile apps use SQLite heavily. And probably ten thousand other cases as a file format if I bother to look up more.\", \"url\": \"https://news.ycombinator.com/item?id=45147835\", \"parent_id\": \"45142959\", \"depth\": 4, \"points\": null, \"relevance\": 1.325}, {\"id\": \"45135218\", \"author\": \"shlomo_z\", \"created_at\": \"2025-09-05T05:23:44.000Z\", \"text\": \"Sqlite claims [1] this is a good use case\\n1. https://www.sqlite.org/fasterthanfs.html\", \"url\": \"https://news.ycombinator.com/item?id=45135218\", \"parent_id\": \"45135186\", \"depth\": 1, \"points\": null, \"relevance\": 1.302}, {\"id\": \"45134010\", \"author\": \"agwa\", \"created_at\": \"2025-09-05T01:06:51.000Z\", \"text\": \"If you're going to use SQLite as an application file format, you should:\\n1. Enable the secure_delete pragma <https://antonz.org/sqlite-secure-delete/> so that when your user deletes something, the data is actually erased. Otherwise, when a user shares one of your application's files with someone else, the recipient could recover information that the sender thought they had deleted.\\n2. Enable the options described at <https://www.sqlite.org/security.html#untrusted_sqlite_databa...> under \\\"Untrusted SQLite Database Files\\\" to make it safer to open files from untrusted sources. No one wants to ge…\", \"url\": \"https://news.ycombinator.com/item?id=45134010\", \"parent_id\": \"45132498\", \"depth\": 0, \"points\": null, \"relevance\": 1.3}, {\"id\": \"45135666\", \"author\": \"jdboyd\", \"created_at\": \"2025-09-05T06:50:46.000Z\", \"text\": \"Part of the problem though with saying SQLite instead of XML is a lot of things would lend themselves to XML in SQLite.\", \"url\": \"https://news.ycombinator.com/item?id=45135666\", \"parent_id\": \"45135099\", \"depth\": 2, \"points\": null, \"relevance\": 1.283}, {\"id\": \"45134731\", \"author\": \"chris_wot\", \"created_at\": \"2025-09-05T03:26:42.000Z\", \"text\": \"\\\"Most applications can use SQLite without having to worry about bugs in obscure SQL inputs.\\\" And then they recommend SQLite as a document interchange format.\", \"url\": \"https://news.ycombinator.com/item?id=45134731\", \"parent_id\": \"45134010\", \"depth\": 1, \"points\": null, \"relevance\": 1.264}, {\"id\": \"45140501\", \"author\": \"liuliu\", \"created_at\": \"2025-09-05T16:34:46.000Z\", \"text\": \"That's right, but it is much easier to just use blob without application logic to worry about chunking. It is the same reason why we use SQLite in the first place, a lot of transaction / rollback logic now is on SQLite layer, not the application layer.\\nAlso, SQLite did provide good support for read / write the blob in streamable fashion, see: https://www.sqlite.org/c3ref/blob_read.html\\nSo the limitation is really a structural issue that Dr. Hipp at some point might resolve (or not), but pretty much has to be resolved by SQLite core team, not outside contributors (of course you can resolve it …\", \"url\": \"https://news.ycombinator.com/item?id=45140501\", \"parent_id\": \"45134101\", \"depth\": 2, \"points\": null, \"relevance\": 1.251}, {\"id\": \"45134841\", \"author\": \"hedora\", \"created_at\": \"2025-09-05T03:52:36.000Z\", \"text\": \"Which network filesystems are still corrupting sqlite files?\\nSqlite on NFSv3 has been rock solid for some NFS servers for a decade.\\nMaybe name and shame?\", \"url\": \"https://news.ycombinator.com/item?id=45134841\", \"parent_id\": \"45134419\", \"depth\": 3, \"points\": null, \"relevance\": 1.246}, {\"id\": \"45136120\", \"author\": \"munch117\", \"created_at\": \"2025-09-05T07:59:41.000Z\", \"text\": \"I'm not that concerned with bugs in sqlite. sqlite is high quality software, and the application that uses it is a more likely source of vulnerabilities.\\nBut I do see a problem if you really need to use a sqlite that's compiled with particular non-default options.\\nSay I design a file format and implement it, and my implementation uses an sqlite library that's compiled with all the right options. Then I evangelize my file format, telling everyone that it's really just an sqlite database and sooo easy to work with.\\nFirst thing that happens is that someone writes a neat little utility for workin…\", \"url\": \"https://news.ycombinator.com/item?id=45136120\", \"parent_id\": \"45135429\", \"depth\": 3, \"points\": null, \"relevance\": 1.217}, {\"id\": \"45133437\", \"author\": \"anon291\", \"created_at\": \"2025-09-04T23:34:51.000Z\", \"text\": \"You can do this today by using the WASM-compiled SQLite module with a custom Javascript VFS that implements the SQLite VFS api appropriately for your backend. I've used it extensively in the past to serve static data sets direct from S3 for low cost.\\nMore industrious people have apparently wrapped this up on NPM: https://www.npmjs.com/package/sqlite-wasm-http\", \"url\": \"https://news.ycombinator.com/item?id=45133437\", \"parent_id\": \"45133233\", \"depth\": 1, \"points\": null, \"relevance\": 1.198}, {\"id\": \"45135122\", \"author\": \"charleslmunger\", \"created_at\": \"2025-09-05T05:00:25.000Z\", \"text\": \">and they seem to get annoyed that people run fuzzers against SQLite, even though application file formats should definitely be fuzzed.\\nI think that's an unfair reading. Sqlite runs fuzzers itself and quickly addresses bugs found by fuzzers externally. There's an entire section in their documentation about their own fuzzers and thanking third party fuzzers, including credit to individual engineers.\\nhttps://www.sqlite.org/testing.html\\nThe tone of the CVE docs are because people freak out about CVEs flagged by automated tools when the CVEs are for issues that have no security impact for typical…\", \"url\": \"https://news.ycombinator.com/item?id=45135122\", \"parent_id\": \"45134010\", \"depth\": 1, \"points\": null, \"relevance\": 1.144}, {\"id\": \"45134255\", \"author\": \"jll29\", \"created_at\": \"2025-09-05T01:46:03.000Z\", \"text\": \"I love SQLite.\\nAs a document _exchange_/_interchange_ format, what I prefer for durability is a non-binary format (e.g. XML based).\\nFor local use, I agree SQLite might be much faster than ZIP, and of course the ability to query based on SQL has its own flexibility merits.\", \"url\": \"https://news.ycombinator.com/item?id=45134255\", \"parent_id\": \"45132498\", \"depth\": 0, \"points\": null, \"relevance\": 1.14}, {\"id\": \"45133305\", \"author\": \"abtinf\", \"created_at\": \"2025-09-04T23:15:00.000Z\", \"text\": \"With an S3 object lambda, I suppose you could generate the sqlite file on the fly.\", \"url\": \"https://news.ycombinator.com/item?id=45133305\", \"parent_id\": \"45133233\", \"depth\": 1, \"points\": null, \"relevance\": 1.125}, {\"id\": \"45134419\", \"author\": \"lifthrasiir\", \"created_at\": \"2025-09-05T02:24:02.000Z\", \"text\": \"Yeah, but only if SQLite did support that mode in some built-in VFS implementation...\", \"url\": \"https://news.ycombinator.com/item?id=45134419\", \"parent_id\": \"45134413\", \"depth\": 2, \"points\": null, \"relevance\": 1.125}, {\"id\": \"45133655\", \"author\": \"rogerbinns\", \"created_at\": \"2025-09-05T00:08:04.000Z\", \"text\": \"SQLite has a builtin session extension that can be used to record and replay groups of changes, with all the necessary handling. I don't necessarily recommend session as your solution, but it is at least a good idea to see how it compares to others.\\nhttps://sqlite.org/sessionintro.html\\nThat provides a C level API. If you know Python and want to do some prototyping and exploration then you may find my SQLite wrapper useful as it supports the session extension. This is the example giving a feel for what it is like to use:\\nhttps://rogerbinns.github.io/apsw/example-session.html\", \"url\": \"https://news.ycombinator.com/item?id=45133655\", \"parent_id\": \"45133540\", \"depth\": 1, \"points\": null, \"relevance\": 1.116}, {\"id\": \"45134835\", \"author\": \"Seattle3503\", \"created_at\": \"2025-09-05T03:52:06.000Z\", \"text\": \"Hrm, using sqlite as an application format would be a good use case for Limbo.\", \"url\": \"https://news.ycombinator.com/item?id=45134835\", \"parent_id\": \"45134010\", \"depth\": 1, \"points\": null, \"relevance\": 1.111}, {\"id\": \"45136933\", \"author\": \"Retr0id\", \"created_at\": \"2025-09-05T10:16:08.000Z\", \"text\": \"Singular sqlite blobs are streamable too! But for streaming in you need to know the size in advance.\", \"url\": \"https://news.ycombinator.com/item?id=45136933\", \"parent_id\": \"45135219\", \"depth\": 3, \"points\": null, \"relevance\": 1.097}, \"… 89 more\"], \"source_api\": \"hn.algolia.com/api/v1/items\", \"error\": null}}, \"session\": {\"calls\": {\"search\": 2, \"fetch\": 2, \"read_result\": 2}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 24, \"pages_read\": 5, \"calls_without_new_evidence\": 2}}"
+  ],
+  "answer": "找到两篇高度相关的英文 Hacker News 讨论：\n\n## 1. SQLite as an Application File Format\n\n- HN 帖子：[https://news.ycombinator.com/item?id=46076642](https://news.ycombinator.com/item?id=46076642)\n- 原始文章：[https://sqlite.org/appfileformat.html](https://sqlite.org/appfileformat.html)\n- 发布者：`gjvc`\n- 时间：2025-11-28\n\n这是最直接匹配的帖子，主题就是把 SQLite 当作应用程序文件格式，讨论了数据保存、迁移、查询、二进制内容、ZIP 替代方案等。\n\n评论原句：\n\n> “SQLite is abolutely amazing as an app format! I couldn't list how many tools are available to read SQLite data, or how easy and friendly they are. Even its CLI does wonders when you're dealing with data with it. SQLite has been around for 20+ years and is one of the most heavily tested softwares in the world.”  \n> —— `joelwallis`  \n> 评论链接：[https://news.ycombinator.com/item?id=46079869](https://news.ycombinator.com/item?id=46079869)\n\n另一条评论直接表达了赞成态度：\n\n> “I see no downside in using sqlite as an application file format.”  \n> —— `psnehanshu`  \n> 评论链接：[https://news.ycombinator.com/item?id=46079942](https://news.ycombinator.com/item?id=46079942)\n\n也有评论指出适用性取决于数据结构：\n\n> “Most application's file formats are structured as a tree, not as flat tables. If your application's data is flat tables or name-value pairs then SQLite is an obvious choice. But if it is tree structured then it is less obvious.”  \n> —— `lateforwork`  \n> 评论链接：[https://news.ycombinator.com/item?id=46080273](https://news.ycombinator.com/item?id=46080273)\n\n## 2. What If OpenDocument Used SQLite?\n\n- HN 帖子：[https://news.ycombinator.com/item?id=45132498](https://news.ycombinator.com/item?id=45132498)\n- 原始文章：[https://www.sqlite.org/affcase1.html](https://www.sqlite.org/affcase1.html)\n- 发布者：`whatisabcdefgh`\n- 时间：2025-09-04\n\n这篇讨论的是 OpenDocument 是否可以使用 SQLite，但评论大量延伸到 SQLite 作为应用程序文件格式、文档格式和交换格式的优缺点。\n\n评论原句：\n\n> “This is exactly the OTHER way around. Most usages of SQLite are as an application file format. Firefox stores bookmarks, history, cookies in SQLite files in the profiles folder. Messaging apps (WhatsApp, Signal, etc. use SQLite for chat history). macOS and Windows use SQLite in various subsystems, ex: Spotlight metadata, application cache. Mobile apps use SQLite heavily.”  \n> —— `lenkite`  \n> 评论链接：[https://news.ycombinator.com/item?id=45147835](https://news.ycombinator.com/item?id=45147835)\n\n关于安全性，评论建议：\n\n> “If you're going to use SQLite as an application file format, you should:  \n> 1. Enable the secure_delete pragma ...  \n> 2. Enable the options described at ... under ‘Untrusted SQLite Database Files’ ...”  \n> —— `agwa`  \n> 评论链接：[https://news.ycombinator.com/item?id=45134010](https://news.ycombinator.com/item?id=45134010)\n\n另一个评论区分了本地应用文件与文档交换格式：\n\n> “As a document _exchange_/_interchange_ format, what I prefer for durability is a non-binary format (e.g. XML based). For local use, I agree SQLite might be much faster than ZIP, and of course the ability to query based on SQL has its own flexibility merits.”  \n> —— `jll29`  \n> 评论链接：[https://news.ycombinator.com/item?id=45134255](https://news.ycombinator.com/item?id=45134255)\n\n如果只看一篇，优先看第一篇 **SQLite as an Application File Format**；第二篇更适合补充 OpenDocument、文档交换格式和安全方面的争论。",
+  "observation": {
+    "id": "cross-lang-hn-sqlite",
+    "answer": "找到两篇高度相关的英文 Hacker News 讨论：\n\n## 1. SQLite as an Application File Format\n\n- HN 帖子：[https://news.ycombinator.com/item?id=46076642](https://news.ycombinator.com/item?id=46076642)\n- 原始文章：[https://sqlite.org/appfileformat.html](https://sqlite.org/appfileformat.html)\n- 发布者：`gjvc`\n- 时间：2025-11-28\n\n这是最直接匹配的帖子，主题就是把 SQLite 当作应用程序文件格式，讨论了数据保存、迁移、查询、二进制内容、ZIP 替代方案等。\n\n评论原句：\n\n> “SQLite is abolutely amazing as an app format! I couldn't list how many tools are available to read SQLite data, or how easy and friendly they are. Even its CLI does wonders when you're dealing with data with it. SQLite has been around for 20+ years and is one of the most heavily tested softwares in the world.”  \n> —— `joelwallis`  \n> 评论链接：[https://news.ycombinator.com/item?id=46079869](https://news.ycombinator.com/item?id=46079869)\n\n另一条评论直接表达了赞成态度：\n\n> “I see no downside in using sqlite as an application file format.”  \n> —— `psnehanshu`  \n> 评论链接：[https://news.ycombinator.com/item?id=46079942](https://news.ycombinator.com/item?id=46079942)\n\n也有评论指出适用性取决于数据结构：\n\n> “Most application's file formats are structured as a tree, not as flat tables. If your application's data is flat tables or name-value pairs then SQLite is an obvious choice. But if it is tree structured then it is less obvious.”  \n> —— `lateforwork`  \n> 评论链接：[https://news.ycombinator.com/item?id=46080273](https://news.ycombinator.com/item?id=46080273)\n\n## 2. What If OpenDocument Used SQLite?\n\n- HN 帖子：[https://news.ycombinator.com/item?id=45132498](https://news.ycombinator.com/item?id=45132498)\n- 原始文章：[https://www.sqlite.org/affcase1.html](https://www.sqlite.org/affcase1.html)\n- 发布者：`whatisabcdefgh`\n- 时间：2025-09-04\n\n这篇讨论的是 OpenDocument 是否可以使用 SQLite，但评论大量延伸到 SQLite 作为应用程序文件格式、文档格式和交换格式的优缺点。\n\n评论原句：\n\n> “This is exactly the OTHER way around. Most usages of SQLite are as an application file format. Firefox stores bookmarks, history, cookies in SQLite files in the profiles folder. Messaging apps (WhatsApp, Signal, etc. use SQLite for chat history). macOS and Windows use SQLite in various subsystems, ex: Spotlight metadata, application cache. Mobile apps use SQLite heavily.”  \n> —— `lenkite`  \n> 评论链接：[https://news.ycombinator.com/item?id=45147835](https://news.ycombinator.com/item?id=45147835)\n\n关于安全性，评论建议：\n\n> “If you're going to use SQLite as an application file format, you should:  \n> 1. Enable the secure_delete pragma ...  \n> 2. Enable the options described at ... under ‘Untrusted SQLite Database Files’ ...”  \n> —— `agwa`  \n> 评论链接：[https://news.ycombinator.com/item?id=45134010](https://news.ycombinator.com/item?id=45134010)\n\n另一个评论区分了本地应用文件与文档交换格式：\n\n> “As a document _exchange_/_interchange_ format, what I prefer for durability is a non-binary format (e.g. XML based). For local use, I agree SQLite might be much faster than ZIP, and of course the ability to query based on SQL has its own flexibility merits.”  \n> —— `jll29`  \n> 评论链接：[https://news.ycombinator.com/item?id=45134255](https://news.ycombinator.com/item?id=45134255)\n\n如果只看一篇，优先看第一篇 **SQLite as an Application File Format**；第二篇更适合补充 OpenDocument、文档交换格式和安全方面的争论。",
+    "results": [
+      {
+        "url": "https://news.ycombinator.com/item?id=46076642",
+        "title": "1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50045273",
+        "title": "apsw: Another Python SQLite Wrapper | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45132498",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49937540",
+        "title": "Make Tmux the OS | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45134010",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48332797",
+        "title": "And I don't understand the obsession with server-based databases for single app…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46079942",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49930760",
+        "title": "As an expansion on that, as far as I know there's only one implementation of Fo…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=40655974",
+        "title": "5",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50063124",
+        "title": "Is the CGI process opening up the SQLite database for every request...? That wo…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46076642",
+        "title": "1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50045273",
+        "title": "apsw: Another Python SQLite Wrapper | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45132498",
+        "title": "2",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49937540",
+        "title": "Make Tmux the OS | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45134010",
+        "title": "3",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48332797",
+        "title": "And I don't understand the obsession with server-based databases for single app…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46079942",
+        "title": "4",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49930760",
+        "title": "As an expansion on that, as far as I know there's only one implementation of Fo…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=40655974",
+        "title": "5",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50063124",
+        "title": "Is the CGI process opening up the SQLite database for every request...? That wo…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45147835",
+        "title": "6",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47046185",
+        "title": "7",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49421475",
+        "title": "8",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=39797104",
+        "title": "9",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46079326",
+        "title": "10",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=43682006",
+        "title": "11",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49848955",
+        "title": "Ask HN: Who's still keeping a DOS machine up because the business depends on it…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49988641",
+        "title": "Show HN: Musql, JIT-compiled SQL, up to 300x faster than SQLite, 1000x vs. Turs…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50052163",
+        "title": "Postgres isn't slow, your storage is | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46079326",
+        "title": "https://news.ycombinator.com/item?id=46079326",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50045273",
+        "title": "apsw: Another Python SQLite Wrapper | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49421475",
+        "title": "https://news.ycombinator.com/item?id=49421475",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49937540",
+        "title": "Make Tmux the OS | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=43682006",
+        "title": "https://news.ycombinator.com/item?id=43682006",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49743097",
+        "title": "Hister: A private search engine for the pages you visit and the files you keep …",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47046185",
+        "title": "https://news.ycombinator.com/item?id=47046185",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49925969",
+        "title": "Pi Durable | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46079942",
+        "title": "https://news.ycombinator.com/item?id=46079942",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49988641",
+        "title": "Show HN: Musql, JIT-compiled SQL, up to 300x faster than SQLite, 1000x vs. Turs…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46079326",
+        "title": "https://news.ycombinator.com/item?id=46079326",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50045273",
+        "title": "apsw: Another Python SQLite Wrapper | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49421475",
+        "title": "https://news.ycombinator.com/item?id=49421475",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49937540",
+        "title": "Make Tmux the OS | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=43682006",
+        "title": "https://news.ycombinator.com/item?id=43682006",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49743097",
+        "title": "Hister: A private search engine for the pages you visit and the files you keep …",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=47046185",
+        "title": "https://news.ycombinator.com/item?id=47046185",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49925969",
+        "title": "Pi Durable | Hacker News",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46079942",
+        "title": "https://news.ycombinator.com/item?id=46079942",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49988641",
+        "title": "Show HN: Musql, JIT-compiled SQL, up to 300x faster than SQLite, 1000x vs. Turs…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=40655974",
+        "title": "https://news.ycombinator.com/item?id=40655974",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=48046007",
+        "title": "https://news.ycombinator.com/item?id=48046007",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=46076642",
+        "title": "https://news.ycombinator.com/item?id=46076642",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45132498",
+        "title": "https://news.ycombinator.com/item?id=45132498",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45134010",
+        "title": "https://news.ycombinator.com/item?id=45134010",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=22155311",
+        "title": "https://news.ycombinator.com/item?id=22155311",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45147835",
+        "title": "https://news.ycombinator.com/item?id=45147835",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=39797104",
+        "title": "https://news.ycombinator.com/item?id=39797104",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50063124",
+        "title": "Is the CGI process opening up the SQLite database for every request...? That wo…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=49848955",
+        "title": "Ask HN: Who's still keeping a DOS machine up because the business depends on it…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=50055593",
+        "title": "Turn a WiFi 7 Router into a 320Msps Software Defined Radio Receiver | Hacker Ne…",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://news.ycombinator.com/item?id=46076642",
+        "content": "# SQLite as an Application File Format\n\nby gjvc · 2025-11-28T08:15:50.000Z · via hn.algolia.com/api/v1/items\n\nLink: https://sqlite.org/appfileformat.html\n\n## Comments (92 shown of 92)\n\n### [46088356] mort96 · 2025-11-29T15:41:46.000Z · reply to 46080167\nhttps://news.ycombinator.com/item?id=46088356\n\nThis seems completely orthogonal? This is an alternative to zip and tar built on SQLite:\n> An \"SQLite Archive\" is a file container similar to a ZIP archive or Tarball but based on an SQLite database.\nYour parent comment said that when you're using SQLite as an application format, the content in the database don't get compressed. These two things have nothing to do with each other.\n\n### [46079869] joelwallis · 2025-11-28T16:09:56.000Z · reply to 46076642\nhttps://news.ycombinator.com/item?id=46079869\n\nSQLite is abolutely amazing as an app format! I couldn't list how many tools are available to read SQLite data, or how easy and friendly they are. Even its CLI does wonders when you're dealing w# SQLite as an Application File Format\n\nby gjvc · 2025-11-28T08:15:50.000Z · via hn.algolia.com/api/v1/items\n\nLink: https://sqlite.org/appfileformat.html\n\n## Comments (92 shown of 92)\n\n### [46088356] mort96 · 2025-11-29T15:41:46.000Z · reply to 46080167\nhttps://news.ycombinator.com/item?id=46088356\n\nThis seems completely orthogonal? This is an alternative to zip and tar built on SQLite:\n> An \"SQLite Archive\" is a file container similar to a ZIP archive or Tarball but based on an SQLite database.\nYour parent comment said that when you're using SQLite as an application format, the content in the database don't get compressed. These two things have nothing to do with each other.\n\n### [46079869] joelwallis · 2025-11-28T16:09:56.000Z · reply to 46076642\nhttps://news.ycombinator.com/item?id=46079869\n\nSQLite is abolutely amazing as an app format! I couldn't list how many tools are available to read SQLite data, or how easy and friendly they are. Even its CLI does wonders when you're dealing with data with it. SQLite has been around for 20+ years and is one of the most heavily tested softwares in the world.\nSQLite is very simple, yet very reliable and powerful. Using SQLite as file format might be the best decision an engineer can take when it comes to future-proofing preservation of data.\n\n### [46083208] out_of_protocol · 2025-11-28T22:09:14.000Z · reply to 46080301\nhttps://news.ycombinator.com/item?id=46083208\n\nAlso, tested .zip vs .tar vs sqlite vs file system. Of this bunch, sqlite was the most compact format with minimal overhead.\n\n### [46080546] euroderf · 2025-11-28T17:12:55.000Z · reply to 46076642\nhttps://news.ycombinator.com/item?id=46080546\n\nThere seems to be no single software solution \"out there\" for mounting an SQLite DB (or an SQLite archive) as a file system, with or without per-record relative paths.\n\n### [46079942] psnehanshu · 2025-11-28T16:17:03.000Z · reply to 46076642\nhttps://news.ycombinator.com/item?id=46079942\n\nI see no downside in using sqlite as a",
+        "errors": []
+      },
+      {
+        "url": "https://news.ycombinator.com/item?id=45132498",
+        "content": "# What If OpenDocument Used SQLite?\n\nby whatisabcdefgh · 2025-09-04T21:36:50.000Z · via hn.algolia.com/api/v1/items\n\nLink: https://www.sqlite.org/affcase1.html\n\n## Comments (105 shown of 105)\n\n### [45147835] lenkite · 2025-09-06T09:25:24.000Z · reply to 45142959\nhttps://news.ycombinator.com/item?id=45147835\n\n> but most usage of sqlite is not as an application file format,\nThis is exactly the OTHER way around. Most usages of SQLite are as an application file format. Firefox stores bookmarks, history, cookies in SQLite files in the profiles folder. Messaging apps (WhatsApp, Signal, etc. use SQLite for chat history). macOS and Windows use SQLite in various subsystems, ex: Spotlight metadata, application cache. Mobile apps use SQLite heavily. And probably ten thousand other cases as a file format if I bother to look up more.\n\n### [45135218] shlomo_z · 2025-09-05T05:23:44.000Z · reply to 45135186\nhttps://news.ycombinator.com/item?id=45135218\n\nSqlite claims [1] this is a good use case\n1. htt# What If OpenDocument Used SQLite?\n\nby whatisabcdefgh · 2025-09-04T21:36:50.000Z · via hn.algolia.com/api/v1/items\n\nLink: https://www.sqlite.org/affcase1.html\n\n## Comments (105 shown of 105)\n\n### [45147835] lenkite · 2025-09-06T09:25:24.000Z · reply to 45142959\nhttps://news.ycombinator.com/item?id=45147835\n\n> but most usage of sqlite is not as an application file format,\nThis is exactly the OTHER way around. Most usages of SQLite are as an application file format. Firefox stores bookmarks, history, cookies in SQLite files in the profiles folder. Messaging apps (WhatsApp, Signal, etc. use SQLite for chat history). macOS and Windows use SQLite in various subsystems, ex: Spotlight metadata, application cache. Mobile apps use SQLite heavily. And probably ten thousand other cases as a file format if I bother to look up more.\n\n### [45135218] shlomo_z · 2025-09-05T05:23:44.000Z · rep",
+        "errors": []
+      }
+    ],
+    "comments": [
+      {
+        "id": "46088356",
+        "author": "mort96",
+        "text": "This seems completely orthogonal? This is an alternative to zip and tar built on SQLite:\n> An \"SQLite Archive\" is a file container similar to a ZIP archive or Tarball but based on an SQLite database.\nYour parent comment said that when you'…",
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46079869",
+        "author": "joelwallis",
+        "text": "SQLite is abolutely amazing as an app format! I couldn't list how many tools are available to read SQLite data, or how easy and friendly they are. Even its CLI does wonders when you're dealing with data with it. SQLite has been around for …",
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "45147835",
+        "author": "lenkite",
+        "text": "> but most usage of sqlite is not as an application file format,\nThis is exactly the OTHER way around. Most usages of SQLite are as an application file format. Firefox stores bookmarks, history, cookies in SQLite files in the profiles fold…",
+        "thread_url": "https://news.ycombinator.com/item?id=45132498",
+        "source": "api"
+      },
+      {
+        "id": "45135218",
+        "author": "shlomo_z",
+        "text": "Sqlite claims [1] this is a good use case\n1. https://www.sqlite.org/fasterthanfs.html",
+        "thread_url": "https://news.ycombinator.com/item?id=45132498",
+        "source": "api"
+      },
+      {
+        "id": "46088356",
+        "author": "mort96",
+        "created_at": "2025-11-29T15:41:46.000Z",
+        "text": "This seems completely orthogonal? This is an alternative to zip and tar built on SQLite:\n> An \"SQLite Archive\" is a file container similar to a ZIP archive or Tarball but based on an SQLite database.\nYour parent comment said that when you're using SQLite as an application format, the content in the database don't get compressed. These two things have nothing to do with each other.",
+        "url": "https://news.ycombinator.com/item?id=46088356",
+        "parent_id": "46080167",
+        "depth": 2,
+        "points": null,
+        "relevance": 1.525,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46079869",
+        "author": "joelwallis",
+        "created_at": "2025-11-28T16:09:56.000Z",
+        "text": "SQLite is abolutely amazing as an app format! I couldn't list how many tools are available to read SQLite data, or how easy and friendly they are. Even its CLI does wonders when you're dealing with data with it. SQLite has been around for 20+ years and is one of the most heavily tested softwares in the world.\nSQLite is very simple, yet very reliable and powerful. Using SQLite as file format might be the best decision an engineer can take when it comes to future-proofing preservation of data.",
+        "url": "https://news.ycombinator.com/item?id=46079869",
+        "parent_id": "46076642",
+        "depth": 0,
+        "points": null,
+        "relevance": 1.523,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46083208",
+        "author": "out_of_protocol",
+        "created_at": "2025-11-28T22:09:14.000Z",
+        "text": "Also, tested .zip vs .tar vs sqlite vs file system. Of this bunch, sqlite was the most compact format with minimal overhead.",
+        "url": "https://news.ycombinator.com/item?id=46083208",
+        "parent_id": "46080301",
+        "depth": 1,
+        "points": null,
+        "relevance": 1.515,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46080546",
+        "author": "euroderf",
+        "created_at": "2025-11-28T17:12:55.000Z",
+        "text": "There seems to be no single software solution \"out there\" for mounting an SQLite DB (or an SQLite archive) as a file system, with or without per-record relative paths.",
+        "url": "https://news.ycombinator.com/item?id=46080546",
+        "parent_id": "46076642",
+        "depth": 0,
+        "points": null,
+        "relevance": 1.48,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46079942",
+        "author": "psnehanshu",
+        "created_at": "2025-11-28T16:17:03.000Z",
+        "text": "I see no downside in using sqlite as an application file format.",
+        "url": "https://news.ycombinator.com/item?id=46079942",
+        "parent_id": "46076642",
+        "depth": 0,
+        "points": null,
+        "relevance": 1.383,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46080167",
+        "author": "lateforwork",
+        "created_at": "2025-11-28T16:37:57.000Z",
+        "text": "It can be compressed, see https://sqlite.org/sqlar.html",
+        "url": "https://news.ycombinator.com/item?id=46080167",
+        "parent_id": "46080130",
+        "depth": 1,
+        "points": null,
+        "relevance": 1.383,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46080273",
+        "author": "lateforwork",
+        "created_at": "2025-11-28T16:47:50.000Z",
+        "text": "Most application's file formats are structured as a tree, not as flat tables. If your application's data is flat tables or name-value pairs then SQLite is an obvious choice. But if it is tree structured then it is less obvious. You can still save your tree in JSON format as a blob in a SQLite table but in this case the benefits are fewer. But if in addition to the JSON you have images or other binary data then once again SQLite offers benefits, because each of those binary files can be additional rows in the SQLite table. This is far easier to handle than storing them in ZIP format.",
+        "url": "https://news.ycombinator.com/item?id=46080273",
+        "parent_id": "46076642",
+        "depth": 0,
+        "points": null,
+        "relevance": 1.363,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46088636",
+        "author": "dardeaup",
+        "created_at": "2025-11-29T16:14:06.000Z",
+        "text": "Type safety as a benefit of SQLite? For me type safety is a negative of SQLite. Being able to store a different type that what the column is declared to store is a bug (not a feature). I also find the lack of DATE and DATETIME/TIMESTAMP to be less than ideal.",
+        "url": "https://news.ycombinator.com/item?id=46088636",
+        "parent_id": "46084465",
+        "depth": 4,
+        "points": null,
+        "relevance": 1.355,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46080236",
+        "author": "abhashanand1501",
+        "created_at": "2025-11-28T16:44:38.000Z",
+        "text": "We are developing using sqlite to transfer configurations from uat to production environment. Since the configurations are already saved in a postgres table in uat, moving some configs from uat to production an sqlite file is very easy. since it's a binary format, we are also saved from any inadvertent edits by people doing production deployment.\nAlso, another usecase is to export data from production to uat for testing some scenarios, it can be easily encoded in a sqlite file.",
+        "url": "https://news.ycombinator.com/item?id=46080236",
+        "parent_id": "46076642",
+        "depth": 0,
+        "points": null,
+        "relevance": 1.327,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "46080419",
+        "author": "robrenaud",
+        "created_at": "2025-11-28T17:00:28.000Z",
+        "text": "I had some json data that I wanted an annotation interface for. So I asked codex to put it into sqlite and make a little annotation webserver. It worked quickly/easily and without hassle. Sqlite supports queries over json-like objects.\nMaybe a very simple document oriented db would have been better?\nMy biggest gripe is that the sqlite cli is brutally minimal (makes sense given design), but I probably should have been using a nicer cli.",
+        "url": "https://news.ycombinator.com/item?id=46080419",
+        "parent_id": "46080273",
+        "depth": 1,
+        "points": null,
+        "relevance": 1.309,
+        "thread_url": "https://news.ycombinator.com/item?id=46076642",
+        "source": "api"
+      },
+      {
+        "id": "45147835",
+        "author": "lenkite",
+        "created_at": "2025-09-06T09:25:24.000Z",
+        "text": "> but most usage of sqlite is not as an application file format,\nThis is exactly the OTHER way around. Most usages of SQLite are as an application file format. Firefox stores bookmarks, history, cookies in SQLite files in the profiles folder. Messaging apps (WhatsApp, Signal, etc. use SQLite for chat history). macOS and Windows use SQLite in various subsystems, ex: Spotlight metadata, application cache. Mobile apps use SQLite heavily. And probably ten thousand other cases as a file format if I bother to look up more.",
+        "url": "https://news.ycombinator.com/item?id=45147835",
+        "parent_id": "45142959",
+        "depth": 4,
+        "points": null,
+        "relevance": 1.325,
+        "thread_url": "https://news.ycombinator.com/item?id=45132498",
+        "source": "api"
+      },
+      {
+        "id": "45135218",
+        "author": "shlomo_z",
+        "created_at": "2025-09-05T05:23:44.000Z",
+        "text": "Sqlite claims [1] this is a good use case\n1. https://www.sqlite.org/fasterthanfs.html",
+        "url": "https://news.ycombinator.com/item?id=45135218",
+        "parent_id": "45135186",
+        "depth": 1,
+        "points": null,
+        "relevance": 1.302,
+        "thread_url": "https://news.ycombinator.com/item?id=45132498",
+        "source": "api"
+      },
+      {
+        "id": "45134010",
+        "author": "agwa",
+        "created_at": "2025-09-05T01:06:51.000Z",
+        "text": "If you're going to use SQLite as an application file format, you should:\n1. Enable the secure_delete pragma <https://antonz.org/sqlite-secure-delete/> so that when your user deletes something, the data is actually erased. Otherwise, when a user shares one of your application's files with someone else, the recipient could recover information that the sender thought they had deleted.\n2. Enable the options described at <https://www.sqlite.org/security.html#untrusted_sqlite_databa...> under \"Untrusted SQLite Database Files\" to make it safer to open files from untrusted sources. No one wants to ge…",
+        "url": "https://news.ycombinator.com/item?id=45134010",
+        "parent_id": "45132498",
+        "depth": 0,
+        "points": null,
+        "relevance": 1.3,
+        "thread_url": "https://news.ycombinator.com/item?id=45132498",
+        "source": "api"
+      },
+      {
+        "id": "45135666",
+        "author": "jdboyd",
+        "created_at": "2025-09-05T06:50:46.000Z",
+        "text": "Part of the problem though with saying SQLite instead of XML is a lot of things would lend themselves to XML in SQLite.",
+        "url": "https://news.ycombinator.com/item?id=45135666",
+        "parent_id": "45135099",
+        "depth": 2,
+        "points": null,
+        "relevance": 1.283,
+        "thread_url": "https://news.ycombinator.com/item?id=45132498",
+        "source": "api"
+      },
+      {
+        "id": "45134731",
+        "author": "chris_wot",
+        "created_at": "2025-09-05T03:26:42.000Z",
+        "text": "\"Most applications can use SQLite without having to worry about bugs in obscure SQL inputs.\" And then they recommend SQLite as a document interchange format.",
+        "url": "https://news.ycombinator.com/item?id=45134731",
+        "parent_id": "45134010",
+        "depth": 1,
+        "points": null,
+        "relevance": 1.264,
+        "thread_url": "https://news.ycombinator.com/item?id=45132498",
+        "source": "api"
+      },
+      {
+        "id": "45140501",
+        "author": "liuliu",
+        "created_at": "2025-09-05T16:34:46.000Z",
+        "text": "That's right, but it is much easier to just use blob without application logic to worry about chunking. It is the same reason why we use SQLite in the first place, a lot of transaction / rollback logic now is on SQLite layer, not the application layer.\nAlso, SQLite did provide good support for read / write the blob in streamable fashion, see: https://www.sqlite.org/c3ref/blob_read.html\nSo the limitation is really a structural issue that Dr. Hipp at some point might resolve (or not), but pretty much has to be resolved by SQLite core team, not outside contributors (of course you can resolve it …",
+        "url": "https://news.ycombinator.com/item?id=45140501",
+        "parent_id": "45134101",
+        "depth": 2,
+        "points": null,
+        "relevance": 1.251,
+        "thread_url": "https://news.ycombinator.com/item?id=45132498",
+        "source": "api"
+      },
+      {
+        "id": "45134841",
+        "author": "hedora",
+        "created_at": "2025-09-05T03:52:36.000Z",
+        "text": "Which network filesystems are still corrupting sqlite files?\nSqlite on NFSv3 has been rock solid for some NFS servers for a decade.\nMaybe name and shame?",
+        "url": "https://news.ycombinator.com/item?id=45134841",
+        "parent_id": "45134419",
+        "depth": 3,
+        "points": null,
+        "relevance": 1.246,
+        "thread_url": "https://news.ycombinator.com/item?id=45132498",
+        "source": "api"
+      },
+      {
+        "id": "45136120",
+        "author": "munch117",
+        "created_at": "2025-09-05T07:59:41.000Z",
+        "text": "I'm not that concerned with bugs in sqlite. sqlite is high quality software, and the application that uses it is a more likely source of vulnerabilities.\nBut I do see a problem if you really need to use a sqlite that's compiled with particular non-default options.\nSay I design a file format and implement it, and my implementation uses an sqlite library that's compiled with all the right options. Then I evangelize my file format, telling everyone that it's really just an sqlite database and sooo easy to work with.\nFirst thing that happens is that someone writes a neat little utility for workin…",
+        "url": "https://news.ycombinator.com/item?id=45136120",
+        "parent_id": "45135429",
+        "depth": 3,
+        "points": null,
+        "relevance": 1.217,
+        "thread_url": "https://news.ycombinator.com/item?id=45132498",
+        "source": "api"
+      },
+      {
+        "id": "45133437",
+        "author": "anon291",
+        "created_at": "2025-09-04T23:34:51.000Z",
+        "text": "You can do this today by using the WASM-compiled SQLite module with a custom Javascript VFS that implements the SQLite VFS api appropriately for your backend. I've used it extensively in the past to serve static data sets direct from S3 for low cost.\nMore industrious people have apparently wrapped this up on NPM: https://www.npmjs.com/package/sqlite-wasm-http",
+        "url": "https://news.ycombinator.com/item?id=45133437",
+        "parent_id": "45133233",
+        "depth": 1,
+        "points": null,
+        "relevance": 1.198,
+        "thread_url": "https://news.ycombinator.com/item?id=45132498",
+        "source": "api"
+      },
+      {
+        "id": "45135122",
+        "author": "charleslmunger",
+        "created_at": "2025-09-05T05:00:25.000Z",
+        "text": ">and they seem to get annoyed that people run fuzzers against SQLite, even though application file formats should definitely be fuzzed.\nI think that's an unfair reading. Sqlite runs fuzzers itself and quickly addresses bugs found by fuzzers externally. There's an entire section in their documentation about their own fuzzers and thanking third party fuzzers, including credit to individual engineers.\nhttps://www.sqlite.org/testing.html\nThe tone of the CVE docs are because people freak out about CVEs flagged by automated tools when the CVEs are for issues that have no security impact for typical…",
+        "url": "https://news.ycombinator.com/item?id=45135122",
+        "parent_id": "45134010",
+        "depth": 1,
+        "points": null,
+        "relevance": 1.144,
+        "thread_url": "https://news.ycombinator.com/item?id=45132498",
+        "source": "api"
+      }
+    ],
+    "executed_at": "2026-10-16T09:43:05.668874+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "cross-lang-hn-sqlite",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "hn-item-zh"
+        ],
+        "required": 1
+      },
+      "cross_language": {
+        "status": "pass",
+        "matched_hosts": [
+          "news.ycombinator.com"
+        ]
+      }
+    },
+    "task": {
+      "status": "pass",
+      "reasons": []
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": false,
+    "grader": "v2"
+  }
+}

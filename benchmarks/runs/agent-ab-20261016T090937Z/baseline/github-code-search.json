@@ -1,0 +1,481 @@
+{
+  "id": "github-code-search",
+  "query": "CPython source file that defines PyObject_Malloc",
+  "returncode": 124,
+  "elapsed_ms": 240013,
+  "efficiency": {
+    "tool_calls": {
+      "search": 3,
+      "fetch": 1,
+      "read_result": 1
+    },
+    "total_calls": 5,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 0,
+    "errors": 0
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "github.com",
+          "docs.python.org"
+        ],
+        "max_results": 5,
+        "mode": "web",
+        "query": "CPython source file defines PyObject_Malloc definition obmalloc.c github CPython main PyObject_Malloc static source file comments review quote if any a=b=c programming site task benchmark clueとは?",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 45545
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "Find the exact PyObject_Malloc function definition, including its source-file path and nearby function signature. Return the relevant source lines or a precise excerpt.",
+        "fresh": false,
+        "max_chars": 12000,
+        "url": "https://github.com/python/cpython/blob/main/Objects/obmalloc.c"
+      },
+      "is_error": false,
+      "ms": 8333
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "github.com"
+        ],
+        "max_results": 5,
+        "mode": "web",
+        "query": "site:github.com/python/cpython \"PyObject_Malloc(\" \"Objects/obmalloc.c\" definition main CPython source file 2025 2026",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 31275
+    },
+    {
+      "tool": "mcp__allsearch__read_result",
+      "args": {
+        "fields": [
+          "content"
+        ],
+        "limit": 1,
+        "max_bytes": 20000,
+        "offset": 0,
+        "result_id": "b95c0e517e3cb633"
+      },
+      "is_error": false,
+      "ms": 4
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "fast",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "github.com"
+        ],
+        "max_results": 3,
+        "mode": "web",
+        "query": "site:github.com/python/cpython/blob/main/Objects/obmalloc.c \"PyObject_Malloc(size_t size)\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 27125
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.0\", \"result_id\": \"09f20ae932b8a182\", \"kind\": \"search\", \"status\": \"partial\", \"query\": \"CPython source file defines PyObject_Malloc definition obmalloc.c github CPython main PyObject_Malloc static source file comments review quote if any a=b=c programming site task benchmark clueとは?\", \"answer\": \"I'll look up the CPython `PyObject_Malloc` definition in `obmalloc.c` and any related comments.\\n`PyObject_Malloc` on CPython `main` is a public (not `static`) wrapper in `Objects/obmalloc.c`. It does not implement the small-block allocator itself; it bounds the size and calls the current object-domain allocator.\\n\\n1. **Definition (`main`)** — `Objects/obmalloc.c`, under `/* the \\\"object\\\" allocator */`. Body is roughly: if `size > PY_SSIZE_T_MAX` return `NULL`; bump allocation stats; `return _PyObject.malloc(_PyObject.ctx, size)`.  \\n   https://github.com/python/cpython/blob/main/Objects/obmalloc.c\\n\\n2. **Local comment** — only `/* see PyMem_RawMalloc() */`. That refers to the earlier comment on `PyMem_RawMalloc`: limit to `PY_SSIZE_T_MAX` because much of CPython tracks sizes with signed `Py_s…\", \"answer_chars\": 2070, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 1, \"pages_fetched\": 0, \"primary_citation_count\": 18}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 45486, \"warning_count\": 0, \"warnings\": [], \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}, {\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429\", \"retryable\": true}], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"error\", \"reason\": \"post_discovery\"}], \"result_count\": 5, \"citation_count\": 21, \"results\": [{\"id\": \"r1\", \"title\": \"https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c\", \"url\": \"https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"cpython/Objects/obmalloc.c at main · python/cpython · GitHub\", \"url\": \"https://github.com/python/cpython/blob/main/Objects/obmalloc.c\", \"snippet\": \"{\\n\\nreturn mi\\\\_realloc(ptr, size);\\n\\n}\\n\\nvoid\\n\\n\\\\_PyMem\\\\_MiRawFree(void \\\\ctx, void \\\\ptr)\\n\\n{\\n\\nmi\\\\_free(ptr);\\n\\n}\\n\\n#endif // WITH\\\\_MIMALLOC\\n\\n#define MALLOC\\\\_ALLOC {NU…\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://github.com/python/cpython/blob/2.7/Objects/obmalloc.c\", \"url\": \"https://github.com/python/cpython/blob/2.7/Objects/obmalloc.c\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"cpython/Include/objimpl.h at main · python/cpython · GitHub\", \"url\": \"https://github.com/python/cpython/blob/main/Include/objimpl.h\", \"snippet\": \"form of memory management you're using).\\n\\nUnless you have specific memory management requirements, use\\n\\nPyObject\\\\_{New, NewVar, Del}.\\n\\n\\\\/\\n\\n/\\\\\\n\\n\\\\ Raw object mem…\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://github.com/python/cpython/blob/main/Objects/obmalloc.c?plain=1\", \"url\": \"https://github.com/python/cpython/blob/main/Objects/obmalloc.c?plain=1\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c\", \"title\": \"https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://github.com/python/cpython/blob/main/Objects/obmalloc.c\", \"title\": \"cpython/Objects/obmalloc.c at main · python/cpython · GitHub\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://github.com/python/cpython/blob/2.7/Objects/obmalloc.c\", \"title\": \"https://github.com/python/cpython/blob/2.7/Objects/obmalloc.c\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://github.com/python/cpython/blob/main/Include/objimpl.h\", \"title\": \"cpython/Include/objimpl.h at main · python/cpython · GitHub\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://github.com/python/cpython/blob/main/Objects/obmalloc.c?plain=1\", \"title\": \"https://github.com/python/cpython/blob/main/Objects/obmalloc.c?plain=1\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://github.com/python/cpython/pull/4199\", \"title\": \"https://github.com/python/cpython/pull/4199\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://github.com/python/cpython/blob/b18f8bc1a77193c372d79afa79b284028a2842d7/Objects/obmalloc.c\", \"title\": \"https://github.com/python/cpython/blob/b18f8bc1a77193c372d79afa79b284028a2842d7/Objects/obmalloc.c\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://github.com/python/cpython/blob/d36cf5f1d20ce9f111a8fc997104785086e8eee6/Objects/obmalloc.c\", \"title\": \"https://github.com/python/cpython/blob/d36cf5f1d20ce9f111a8fc997104785086e8eee6/Objects/obmalloc.c\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://github.com/python/cpython/pull/101660\", \"title\": \"https://github.com/python/cpython/pull/101660\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://github.com/python/cpython/commit/f5c4b99034fae12ac2b9498dd12b5b3f352b90c8\", \"title\": \"https://github.com/python/cpython/commit/f5c4b99034fae12ac2b9498dd12b5b3f352b90c8\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://docs.python.org/3.5/c-api/memory.html\", \"title\": \"https://docs.python.org/3.5/c-api/memory.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://github.com/python/cpython/issues/115429\", \"title\": \"https://github.com/python/cpython/issues/115429\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1\", \"title\": \"https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://github.com/python/cpython/blob/7aace7a2dc40562ecb7d59b49925948411e9d171/Objects/obmalloc.c\", \"title\": \"https://github.com/python/cpython/blob/7aace7a2dc40562ecb7d59b49925948411e9d171/Objects/obmalloc.c\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://github.com/python/cpython/blob/master/Doc/c-api/memory.rst\", \"title\": \"https://github.com/python/cpython/blob/master/Doc/c-api/memory.rst\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://github.com/python/cpython/issues/114569\", \"title\": \"https://github.com/python/cpython/issues/114569\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://github.com/python/cpython/blob/604e7b9931f9e7881a2941816e538f5f15930db8/Include/objimpl.h\", \"title\": \"https://github.com/python/cpython/blob/604e7b9931f9e7881a2941816e538f5f15930db8/Include/objimpl.h\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://github.com/python/cpython/commit/67807cfc87135fdce4992d38d2ffe3e44747e73b\", \"title\": \"https://github.com/python/cpython/commit/67807cfc87135fdce4992d38d2ffe3e44747e73b\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c19\", \"url\": \"https://github.com/python/cpython/pull/23587\", \"title\": \"https://github.com/python/cpython/pull/23587\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c20\", \"url\": \"https://github.com/python/cpython/issues/51012\", \"title\": \"Crash on mac os x leopard in mimetypes.guess_type (or PyObject_Malloc) · Issue #51012 · python/cpython · GitHub\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c21\", \"url\": \"https://github.com/python/cpython/issues/45233\", \"title\": \"Crash in PyObject_Malloc · Issue #45233 · python/cpython · GitHub\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"09f20ae932b8a182\"}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"b95c0e517e3cb633\", \"kind\": \"fetch\", \"status\": \"ok\", \"url\": \"https://github.com/python/cpython/blob/main/Objects/obmalloc.c\", \"final_url\": \"https://github.com/python/cpython/blob/main/Objects/obmalloc.c\", \"title\": \"cpython/Objects/obmalloc.c at main · python/cpython · GitHub\", \"provider\": \"firecrawl\", \"content_preview\": \"[Skip to content](https://github.com/python/cpython/blob/main/Objects/obmalloc.c#start-of-content)\\n\\nYou signed in with another tab or window. [Reload](https://github.com/python/cpython/blob/main/Objects/obmalloc.c) to refresh your session.You signed out in another tab or window. [Reload](https://github.com/python/cpython/blob/main/Objects/obmalloc.c) to refresh your session.You switched accounts on another tab or window. [Reload](https://github.com/python/cpython/blob/main/Objects/obmalloc.c) to refresh your session.Dismiss alert\\n\\n{{ message }}\\n\\n## Collapse file tree\\n\\n## Files\\n\\nmain\\n\\nSearch this repository(forward slash)` forward slash/`\\n\\n/\\n\\n# obmalloc.c\\n\\nCopy path\\n\\nBlame\\n\\nMore file actions\\n\\nBlame\\n\\nMore file actions\\n\\n## Latest commit\\n\\n[![nascheme](https://avatars.githubusercontent.com/u/690853?v=4&size=40)](https://github.com/nascheme)[nascheme](https://github.com/python/cpython/commits?author=nascheme)\\n\\n[gh-159431](https://github.com/python/cpython/issues/159431) [: Handle immortal ob\", \"content_chars\": 12000, \"truncated\": true, \"errors\": [], \"warning_count\": 0, \"read\": {\"tool\": \"read_result\", \"result_id\": \"b95c0e517e3cb633\", \"fields\": [\"content\"]}}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"a3038a42affb3320\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:github.com/python/cpython \\\"PyObject_Malloc(\\\" \\\"Objects/obmalloc.c\\\" definition main CPython source file 2025 2026\", \"answer\": \"Here are up to five relevant results for `PyObject_Malloc` in CPython’s main `Objects/obmalloc.c`:\\n\\n1. **Definition (main, current)** — `PyObject_Malloc(size_t size)` is defined in `Objects/obmalloc.c` on `main`. It rejects sizes above `PY_SSIZE_T_MAX`, updates allocation stats, and calls `_PyObject.malloc(_PyObject.ctx, size)`. File is about 3874 lines; latest commit noted 12 Jun 2026 (`gh-151297`).  \\n   https://github.com/python/cpython/blob/main/Objects/obmalloc.c\\n\\n2. **Same file, allocator wiring** — On `main`, `obmalloc.c` declares `_PyObject_Malloc` (pymalloc) and, with mimalloc, `_PyObject_MiMalloc`. `PYOBJ_ALLOC` is mimalloc when `Py_GIL_DISABLED`, otherwise pymalloc if `WITH_PYMALLOC`, else raw `malloc`.  \\n   https://github.com/python/cpython/blob/main/Objects/obmalloc.c\\n\\n3. **Pu…\", \"answer_chars\": 1662, \"evidence\": {\"unique_urls\": 5, \"unique_domains\": 1, \"cross_provider_matches\": 1, \"pages_fetched\": 2, \"primary_citation_count\": 9}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 31205, \"warning_count\": 3, \"warnings\": [\"anysearch_unstructured_text\", \"auto_scrape_truncated\", \"primary_insufficient:domains_below_threshold:1<2\"], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}, {\"provider\": \"anysearch\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_vertical\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 5, \"citation_count\": 12, \"results\": [{\"id\": \"r1\", \"title\": \"https://github.com/python/cpython/blob/d36cf5f1d20ce9f111a8fc997104785086e8eee6/Objects/obmalloc.c\", \"url\": \"https://github.com/python/cpython/blob/d36cf5f1d20ce9f111a8fc997104785086e8eee6/Objects/obmalloc.c\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"cpython/Objects/obmalloc.c at d93605de7232da5e6a182fd1d5c220639e900159 · python/cpython · GitHub\", \"url\": \"https://github.com/python/cpython/blob/d93605de7232da5e6a182fd1d5c220639e900159/Objects/obmalloc.c\", \"snippet\": \"Title: cpython/Objects/obmalloc.c at d93605de7232da5e6a182fd1d5c220639e900159 · python/cpython · GitHub\\nstatic void\\\\* \\\\_PyMem\\\\_DebugRawMalloc(void \\\\*ctx, size\\\\…\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1\", \"url\": \"https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r4\", \"title\": \"cpython/Objects/obmalloc.c at main · python/cpython · GitHub\", \"url\": \"https://github.com/python/cpython/blob/main/Objects/obmalloc.c\", \"snippet\": \"void\\\\ \\\\_PyObject\\\\_Malloc(void \\\\ctx, size\\\\_t size);\\n\\nvoid\\\\ \\\\_PyObject\\\\_Calloc(void \\\\ctx, size\\\\_t nelem, size\\\\_t elsize);\\n\\nvoid \\\\_PyObject\\\\_Free(void \\\\ctx, void …\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c\", \"url\": \"https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://github.com/python/cpython/blob/d36cf5f1d20ce9f111a8fc997104785086e8eee6/Objects/obmalloc.c\", \"title\": \"https://github.com/python/cpython/blob/d36cf5f1d20ce9f111a8fc997104785086e8eee6/Objects/obmalloc.c\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://github.com/python/cpython/blob/d93605de7232da5e6a182fd1d5c220639e900159/Objects/obmalloc.c\", \"title\": \"cpython/Objects/obmalloc.c at d93605de7232da5e6a182fd1d5c220639e900159 · python/cpython · GitHub\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1\", \"title\": \"https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://github.com/python/cpython/blob/main/Objects/obmalloc.c\", \"title\": \"cpython/Objects/obmalloc.c at main · python/cpython · GitHub\", \"result_item_id\": \"r4\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c\", \"title\": \"https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://github.com/python/cpython/blob/2.7/Objects/obmalloc.c\", \"title\": \"https://github.com/python/cpython/blob/2.7/Objects/obmalloc.c\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://github.com/python/cpython/blob/main/Doc/c-api/memory.rst?plain=1\", \"title\": \"https://github.com/python/cpython/blob/main/Doc/c-api/memory.rst?plain=1\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://github.com/python/cpython/commits/a73515e7475c7abc7614c9f59d497af5b8709585/Objects/obmalloc.c\", \"title\": \"https://github.com/python/cpython/commits/a73515e7475c7abc7614c9f59d497af5b8709585/Objects/obmalloc.c\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://github.com/python/cpython/blob/604e7b9931f9e7881a2941816e538f5f15930db8/Include/objimpl.h\", \"title\": \"https://github.com/python/cpython/blob/604e7b9931f9e7881a2941816e538f5f15930db8/Include/objimpl.h\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://github.com/python/cpython/commit/f5c4b99034fae12ac2b9498dd12b5b3f352b90c8\", \"title\": \"https://github.com/python/cpython/commit/f5c4b99034fae12ac2b9498dd12b5b3f352b90c8\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c11\", \"url\": \"https://github.com/python/cpython/blob/main/Include/objimpl.h\", \"title\": \"cpython/Include/objimpl.h at main · python/cpython · GitHub\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c12\", \"url\": \"https://github.com/python/cpython/issues/113055\", \"title\": \"Memory leak on executables embedded with 3.13 · Issue #113055 · python/cpython · GitHub\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"a3038a42affb3320\"}}",
+    "{\"result_id\": \"b95c0e517e3cb633\", \"kind\": \"fetch\", \"offset\": 0, \"returned\": 1, \"next_offset\": 1, \"data\": {\"content\": \"[\", \"content_chars\": 12000}, \"truncated\": true}",
+    "{\"schema_version\": \"1.0\", \"result_id\": \"52d8b492ad8b737f\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:github.com/python/cpython/blob/main/Objects/obmalloc.c \\\"PyObject_Malloc(size_t size)\\\"\", \"answer\": \"Relevant results:\\n\\n1. **`Objects/obmalloc.c` (main)** — `PyObject_Malloc` is defined as a wrapper that rejects sizes above `PY_SSIZE_T_MAX`, updates allocation stats, then calls `_PyObject.malloc(_PyObject.ctx, size)`.  \\n   https://github.com/python/cpython/blob/main/Objects/obmalloc.c  \\n   [web:11]\\n\\n2. **Same file, low-level pymalloc hook** — With pymalloc, the object domain uses `_PyObject_Malloc(void *ctx, size_t size)` (not the public `PyObject_Malloc`). GIL-disabled builds route the object domain through mimalloc (`_PyObject_MiMalloc`).  \\n   https://github.com/python/cpython/blob/main/Objects/obmalloc.c  \\n   [web:3]\\n\\n3. **Docs (`Doc/c-api/memory.rst`)** — `PyObject_Malloc` is the `PYMEM_DOMAIN_OBJ` allocator; pymalloc is the default for the `MEM` and `OBJ` domains.  \\n   https://githu…\", \"answer_chars\": 863, \"evidence\": {\"unique_urls\": 3, \"unique_domains\": 1, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 9}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 27054, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"skipped\", \"reason\": \"primary_sufficient\"}, {\"provider\": \"anysearch\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"strong_vertical\"}], \"result_count\": 3, \"citation_count\": 10, \"results\": [{\"id\": \"r1\", \"title\": \"https://github.com/python/cpython/pull/23587\", \"url\": \"https://github.com/python/cpython/pull/23587\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"cpython/Include/objimpl.h at main\", \"url\": \"https://github.com/python/cpython/blob/main/Include/objimpl.h\", \"snippet\": \"the object gets initialized via PyObject_{Init, InitVar} after obtaining. the raw memory. */. PyAPI_FUNC(void *) PyObject_Malloc(size_t size);. #if !defined ...\", \"providers\": [\"anysearch\"]}, {\"id\": \"r3\", \"title\": \"https://github.com/python/cpython/blob/main/Doc/c-api/memory.rst?plain=1\", \"url\": \"https://github.com/python/cpython/blob/main/Doc/c-api/memory.rst?plain=1\", \"snippet\": \"\", \"providers\": [\"xai\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://github.com/python/cpython/pull/23587\", \"title\": \"https://github.com/python/cpython/pull/23587\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://github.com/python/cpython/blob/main/Include/objimpl.h\", \"title\": \"cpython/Include/objimpl.h at main\", \"result_item_id\": \"r2\", \"providers\": [\"anysearch\"]}, {\"id\": \"c3\", \"url\": \"https://github.com/python/cpython/blob/main/Doc/c-api/memory.rst?plain=1\", \"title\": \"https://github.com/python/cpython/blob/main/Doc/c-api/memory.rst?plain=1\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://github.com/python/cpython/blob/a8abe097c1165db25b429ca02a65c4f8acbc062b/Include/pymem.h\", \"title\": \"https://github.com/python/cpython/blob/a8abe097c1165db25b429ca02a65c4f8acbc062b/Include/pymem.h\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c5\", \"url\": \"https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1\", \"title\": \"https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://github.com/python/cpython/blob/8246d588e48f7072c283db3e4eb1795a9a9780bf/Include/internal/pycore_object_alloc.h\", \"title\": \"https://github.com/python/cpython/blob/8246d588e48f7072c283db3e4eb1795a9a9780bf/Include/internal/pycore_object_alloc.h\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c7\", \"url\": \"https://github.com/python/cpython/blob/main/Objects/obmalloc.c\", \"title\": \"https://github.com/python/cpython/blob/main/Objects/obmalloc.c\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c\", \"title\": \"https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c9\", \"url\": \"https://github.com/python/cpython/blob/2.7/Objects/obmalloc.c\", \"title\": \"https://github.com/python/cpython/blob/2.7/Objects/obmalloc.c\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://github.com/python/cpython/blob/d36cf5f1d20ce9f111a8fc997104785086e8eee6/Objects/obmalloc.c\", \"title\": \"https://github.com/python/cpython/blob/d36cf5f1d20ce9f111a8fc997104785086e8eee6/Objects/obmalloc.c\", \"result_item_id\": null, \"providers\": [\"xai\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"52d8b492ad8b737f\"}}"
+  ],
+  "answer": "",
+  "observation": {
+    "id": "github-code-search",
+    "answer": "",
+    "results": [
+      {
+        "url": "https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c",
+        "title": "https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/main/Objects/obmalloc.c",
+        "title": "cpython/Objects/obmalloc.c at main · python/cpython · GitHub",
+        "snippet": "{\n\nreturn mi\\_realloc(ptr, size);\n\n}\n\nvoid\n\n\\_PyMem\\_MiRawFree(void \\ctx, void \\ptr)\n\n{\n\nmi\\_free(ptr);\n\n}\n\n#endif // WITH\\_MIMALLOC\n\n#define MALLOC\\_ALLOC {NU…",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/2.7/Objects/obmalloc.c",
+        "title": "https://github.com/python/cpython/blob/2.7/Objects/obmalloc.c",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/main/Include/objimpl.h",
+        "title": "cpython/Include/objimpl.h at main · python/cpython · GitHub",
+        "snippet": "form of memory management you're using).\n\nUnless you have specific memory management requirements, use\n\nPyObject\\_{New, NewVar, Del}.\n\n\\/\n\n/\\\n\n\\ Raw object mem…",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/main/Objects/obmalloc.c?plain=1",
+        "title": "https://github.com/python/cpython/blob/main/Objects/obmalloc.c?plain=1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c",
+        "title": "https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/main/Objects/obmalloc.c",
+        "title": "cpython/Objects/obmalloc.c at main · python/cpython · GitHub",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/2.7/Objects/obmalloc.c",
+        "title": "https://github.com/python/cpython/blob/2.7/Objects/obmalloc.c",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/main/Include/objimpl.h",
+        "title": "cpython/Include/objimpl.h at main · python/cpython · GitHub",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/main/Objects/obmalloc.c?plain=1",
+        "title": "https://github.com/python/cpython/blob/main/Objects/obmalloc.c?plain=1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/pull/4199",
+        "title": "https://github.com/python/cpython/pull/4199",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/b18f8bc1a77193c372d79afa79b284028a2842d7/Objects/obmalloc.c",
+        "title": "https://github.com/python/cpython/blob/b18f8bc1a77193c372d79afa79b284028a2842d7/Objects/obmalloc.c",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/d36cf5f1d20ce9f111a8fc997104785086e8eee6/Objects/obmalloc.c",
+        "title": "https://github.com/python/cpython/blob/d36cf5f1d20ce9f111a8fc997104785086e8eee6/Objects/obmalloc.c",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/pull/101660",
+        "title": "https://github.com/python/cpython/pull/101660",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/commit/f5c4b99034fae12ac2b9498dd12b5b3f352b90c8",
+        "title": "https://github.com/python/cpython/commit/f5c4b99034fae12ac2b9498dd12b5b3f352b90c8",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://docs.python.org/3.5/c-api/memory.html",
+        "title": "https://docs.python.org/3.5/c-api/memory.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/issues/115429",
+        "title": "https://github.com/python/cpython/issues/115429",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+        "title": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/7aace7a2dc40562ecb7d59b49925948411e9d171/Objects/obmalloc.c",
+        "title": "https://github.com/python/cpython/blob/7aace7a2dc40562ecb7d59b49925948411e9d171/Objects/obmalloc.c",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/master/Doc/c-api/memory.rst",
+        "title": "https://github.com/python/cpython/blob/master/Doc/c-api/memory.rst",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/issues/114569",
+        "title": "https://github.com/python/cpython/issues/114569",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/604e7b9931f9e7881a2941816e538f5f15930db8/Include/objimpl.h",
+        "title": "https://github.com/python/cpython/blob/604e7b9931f9e7881a2941816e538f5f15930db8/Include/objimpl.h",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/commit/67807cfc87135fdce4992d38d2ffe3e44747e73b",
+        "title": "https://github.com/python/cpython/commit/67807cfc87135fdce4992d38d2ffe3e44747e73b",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/pull/23587",
+        "title": "https://github.com/python/cpython/pull/23587",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/issues/51012",
+        "title": "Crash on mac os x leopard in mimetypes.guess_type (or PyObject_Malloc) · Issue #51012 · python/cpython · GitHub",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/issues/45233",
+        "title": "Crash in PyObject_Malloc · Issue #45233 · python/cpython · GitHub",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/d36cf5f1d20ce9f111a8fc997104785086e8eee6/Objects/obmalloc.c",
+        "title": "https://github.com/python/cpython/blob/d36cf5f1d20ce9f111a8fc997104785086e8eee6/Objects/obmalloc.c",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/d93605de7232da5e6a182fd1d5c220639e900159/Objects/obmalloc.c",
+        "title": "cpython/Objects/obmalloc.c at d93605de7232da5e6a182fd1d5c220639e900159 · python/cpython · GitHub",
+        "snippet": "Title: cpython/Objects/obmalloc.c at d93605de7232da5e6a182fd1d5c220639e900159 · python/cpython · GitHub\nstatic void\\* \\_PyMem\\_DebugRawMalloc(void \\*ctx, size\\…",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+        "title": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/main/Objects/obmalloc.c",
+        "title": "cpython/Objects/obmalloc.c at main · python/cpython · GitHub",
+        "snippet": "void\\ \\_PyObject\\_Malloc(void \\ctx, size\\_t size);\n\nvoid\\ \\_PyObject\\_Calloc(void \\ctx, size\\_t nelem, size\\_t elsize);\n\nvoid \\_PyObject\\_Free(void \\ctx, void …",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c",
+        "title": "https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/d36cf5f1d20ce9f111a8fc997104785086e8eee6/Objects/obmalloc.c",
+        "title": "https://github.com/python/cpython/blob/d36cf5f1d20ce9f111a8fc997104785086e8eee6/Objects/obmalloc.c",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/d93605de7232da5e6a182fd1d5c220639e900159/Objects/obmalloc.c",
+        "title": "cpython/Objects/obmalloc.c at d93605de7232da5e6a182fd1d5c220639e900159 · python/cpython · GitHub",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+        "title": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/main/Objects/obmalloc.c",
+        "title": "cpython/Objects/obmalloc.c at main · python/cpython · GitHub",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c",
+        "title": "https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/2.7/Objects/obmalloc.c",
+        "title": "https://github.com/python/cpython/blob/2.7/Objects/obmalloc.c",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/main/Doc/c-api/memory.rst?plain=1",
+        "title": "https://github.com/python/cpython/blob/main/Doc/c-api/memory.rst?plain=1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/commits/a73515e7475c7abc7614c9f59d497af5b8709585/Objects/obmalloc.c",
+        "title": "https://github.com/python/cpython/commits/a73515e7475c7abc7614c9f59d497af5b8709585/Objects/obmalloc.c",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/604e7b9931f9e7881a2941816e538f5f15930db8/Include/objimpl.h",
+        "title": "https://github.com/python/cpython/blob/604e7b9931f9e7881a2941816e538f5f15930db8/Include/objimpl.h",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/commit/f5c4b99034fae12ac2b9498dd12b5b3f352b90c8",
+        "title": "https://github.com/python/cpython/commit/f5c4b99034fae12ac2b9498dd12b5b3f352b90c8",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/main/Include/objimpl.h",
+        "title": "cpython/Include/objimpl.h at main · python/cpython · GitHub",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/issues/113055",
+        "title": "Memory leak on executables embedded with 3.13 · Issue #113055 · python/cpython · GitHub",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/pull/23587",
+        "title": "https://github.com/python/cpython/pull/23587",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/main/Include/objimpl.h",
+        "title": "cpython/Include/objimpl.h at main",
+        "snippet": "the object gets initialized via PyObject_{Init, InitVar} after obtaining. the raw memory. */. PyAPI_FUNC(void *) PyObject_Malloc(size_t size);. #if !defined ...",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/main/Doc/c-api/memory.rst?plain=1",
+        "title": "https://github.com/python/cpython/blob/main/Doc/c-api/memory.rst?plain=1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/pull/23587",
+        "title": "https://github.com/python/cpython/pull/23587",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/main/Include/objimpl.h",
+        "title": "cpython/Include/objimpl.h at main",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/main/Doc/c-api/memory.rst?plain=1",
+        "title": "https://github.com/python/cpython/blob/main/Doc/c-api/memory.rst?plain=1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/a8abe097c1165db25b429ca02a65c4f8acbc062b/Include/pymem.h",
+        "title": "https://github.com/python/cpython/blob/a8abe097c1165db25b429ca02a65c4f8acbc062b/Include/pymem.h",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+        "title": "https://github.com/python/cpython/blob/main/Doc/c-api/allocation.rst?plain=1",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/8246d588e48f7072c283db3e4eb1795a9a9780bf/Include/internal/pycore_object_alloc.h",
+        "title": "https://github.com/python/cpython/blob/8246d588e48f7072c283db3e4eb1795a9a9780bf/Include/internal/pycore_object_alloc.h",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/main/Objects/obmalloc.c",
+        "title": "https://github.com/python/cpython/blob/main/Objects/obmalloc.c",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c",
+        "title": "https://github.com/python/cpython/blob/3.7/Objects/obmalloc.c",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/2.7/Objects/obmalloc.c",
+        "title": "https://github.com/python/cpython/blob/2.7/Objects/obmalloc.c",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://github.com/python/cpython/blob/d36cf5f1d20ce9f111a8fc997104785086e8eee6/Objects/obmalloc.c",
+        "title": "https://github.com/python/cpython/blob/d36cf5f1d20ce9f111a8fc997104785086e8eee6/Objects/obmalloc.c",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://github.com/python/cpython/blob/main/Objects/obmalloc.c",
+        "content": "[Skip to content](https://github.com/python/cpython/blob/main/Objects/obmalloc.c#start-of-content)\n\nYou signed in with another tab or window. [Reload](https://github.com/python/cpython/blob/main/Objects/obmalloc.c) to refresh your session.You signed out in another tab or window. [Reload](https://github.com/python/cpython/blob/main/Objects/obmalloc.c) to refresh your session.You switched accounts on another tab or window. [Reload](https://github.com/python/cpython/blob/main/Objects/obmalloc.c) to refresh your session.Dismiss alert\n\n{{ message }}\n\n## Collapse file tree\n\n## Files\n\nmain\n\nSearch this repository(forward slash)` forward slash/`\n\n/\n\n# obmalloc.c\n\nCopy path\n\nBlame\n\nMore file actions\n\nBlame\n\nMore file actions\n\n## Latest commit\n\n[![nascheme](https://avatars.githubusercontent.com/u/690853?v=4&size=40)](https://github.com/nascheme)[nascheme](https://github.com/python/cpython/commits?author=nascheme)\n\n[gh-159431](https://github.com/python/cpython/issues/159431) [: Handle immortal ob[",
+        "errors": []
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:23:15.276314+00:00",
+    "timed_out": true
+  },
+  "score": {
+    "id": "github-code-search",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "obmalloc"
+        ],
+        "required": 1
+      },
+      "reading": {
+        "status": "fail"
+      }
+    },
+    "task": {
+      "status": "timeout",
+      "reasons": [
+        "reading:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": false,
+    "grader": "v2"
+  }
+}

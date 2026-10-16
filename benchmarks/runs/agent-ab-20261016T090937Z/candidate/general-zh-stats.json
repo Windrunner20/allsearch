@@ -1,0 +1,513 @@
+{
+  "id": "general-zh-stats",
+  "query": "国家统计局网站上对居民消费价格指数 CPI 的指标解释页面",
+  "returncode": 0,
+  "elapsed_ms": 90374,
+  "efficiency": {
+    "tool_calls": {
+      "search": 2,
+      "fetch": 3
+    },
+    "total_calls": 5,
+    "duplicate_calls": 0,
+    "max_calls_without_new_evidence": 3,
+    "errors": 3
+  },
+  "calls": [
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "deep",
+        "exclude_domains": null,
+        "fresh": false,
+        "include_domains": [
+          "stats.gov.cn"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:stats.gov.cn 居民消费价格指数 CPI 指标解释 指标解释页面 国家统计局",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 23799
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "页面标题、居民消费价格指数定义、用途、统计口径、同比环比定基",
+        "fresh": false,
+        "max_chars": 20000,
+        "url": "https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmxxggzs/202409/t20240910_1956353.html"
+      },
+      "is_error": true,
+      "ms": 205
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "页面标题、指标定义、编制方法、同比环比定基指数",
+        "fresh": false,
+        "max_chars": 24000,
+        "url": "https://www.stats.gov.cn/zs/tjws/tjzb/202301/t20230101_1903757.html"
+      },
+      "is_error": true,
+      "ms": 207
+    },
+    {
+      "tool": "mcp__allsearch__fetch",
+      "args": {
+        "focus": "页面标题、居民消费价格指数定义、统计分类、权数、价格采集、指数含义",
+        "fresh": false,
+        "max_chars": 30000,
+        "url": "https://www.stats.gov.cn/zs/tjll/tjzs/202302/t20230224_1918473.html"
+      },
+      "is_error": true,
+      "ms": 208
+    },
+    {
+      "tool": "mcp__allsearch__search",
+      "args": {
+        "depth": "verify",
+        "exclude_domains": null,
+        "fresh": true,
+        "include_domains": [
+          "stats.gov.cn"
+        ],
+        "max_results": 10,
+        "mode": "web",
+        "query": "site:stats.gov.cn/zs/tjws \"居民消费价格指数\" \"指标解释\"",
+        "vertical": null
+      },
+      "is_error": false,
+      "ms": 23527
+    }
+  ],
+  "tool_results": [
+    "{\"schema_version\": \"1.1\", \"result_id\": \"0236ea4c5dd0c13cf42e9e68\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:stats.gov.cn 居民消费价格指数 CPI 指标解释 指标解释页面 国家统计局\", \"answer\": \"国家统计局网站上与**居民消费价格指数（CPI）指标解释**最相关的页面如下（最多10条，来源均为 stats.gov.cn）：\\n\\n1. **什么是居民消费价格指数（CPI）**  \\n   https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmxxggzs/202409/t20240910_1956353.html  \\n   定义：度量一定时期内居民消费商品和服务价格水平总体变动的相对数。用途包括反映通胀（紧缩）程度、GDP核算缩减、计算货币购买力。说明CPI不等于全社会通胀率。[web:0]\\n\\n2. **居民消费价格指数（CPI）是如何编制的**  \\n   https://www.stats.gov.cn/zs/tjws/tjzb/202301/t20230101_1903757.html  \\n   编制流程、主要作用（通胀监测、国民经济核算等），以及环比、同比、定基指数的含义。[web:4]\\n\\n3. **居民消费价格指数**（统计知识）  \\n   https://www.stats.gov.cn/zs/tjll/tjzs/202302/t20230224_1918473.html  \\n   定义、代表规格品与八大类268个基本分类、价格采集频率、权数来源、链式拉氏公式，以及指数大于/等于/小于100的含义。[web:3]\\n\\n4. **统计指标…\", \"answer_chars\": 1881, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 1, \"cross_provider_matches\": 1, \"pages_fetched\": 3, \"primary_citation_count\": 11, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 23790, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"deep_supplement\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}, {\"provider\": \"firecrawl\", \"operation\": \"scrape\", \"outcome\": \"ok\", \"reason\": \"post_discovery\"}], \"result_count\": 10, \"citation_count\": 18, \"results\": [{\"id\": \"r1\", \"title\": \"https://www.stats.gov.cn/zs/tjws/tjzb/202301/t20230101_1903757.html\", \"url\": \"https://www.stats.gov.cn/zs/tjws/tjzb/202301/t20230101_1903757.html\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r2\", \"title\": \"居民消费价格指数 - 国家统计局\", \"url\": \"https://www.stats.gov.cn/zs/tjll/tjzs/202302/t20230224_1918473.html\", \"snippet\": \"\", \"providers\": [\"xai\", \"tavily\", \"firecrawl\"]}, {\"id\": \"r3\", \"title\": \"https://www.stats.gov.cn/english/understanding/201311/t20131118_463792.html\", \"url\": \"https://www.stats.gov.cn/english/understanding/201311/t20131118_463792.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"2026年4月份居民消费价格同比上涨1.2% - 国家统计局\", \"url\": \"https://www.stats.gov.cn/sj/zxfb/202605/t20260511_1963659.html\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://www.stats.gov.cn/sj/zxfb/202412/t20241209_1957689.html\", \"url\": \"https://www.stats.gov.cn/sj/zxfb/202412/t20241209_1957689.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"2026年3月份居民消费价格同比上涨1.0% - 国家统计局\", \"url\": \"https://www.stats.gov.cn/sj/zxfb/202604/t20260410_1963264.html\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912959.html\", \"url\": \"https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912959.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"2026年2月份居民消费价格同比上涨1.3% - 国家统计局\", \"url\": \"https://www.stats.gov.cn/sj/zxfb/202603/t20260309_1962732.html\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"https://www.stats.gov.cn/sj/ndsj/2010/html/zb09.htm\", \"url\": \"https://www.stats.gov.cn/sj/ndsj/2010/html/zb09.htm\", \"snippet\": \"\", \"providers\": [\"xai\", \"firecrawl\"]}, {\"id\": \"r10\", \"title\": \"2026年5月份居民消费价格同比上涨1.2% - 国家统计局\", \"url\": \"https://www.stats.gov.cn/sj/zxfb/202606/t20260610_1963923.html\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.stats.gov.cn/zs/tjws/tjzb/202301/t20230101_1903757.html\", \"title\": \"https://www.stats.gov.cn/zs/tjws/tjzb/202301/t20230101_1903757.html\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.stats.gov.cn/zs/tjll/tjzs/202302/t20230224_1918473.html\", \"title\": \"居民消费价格指数 - 国家统计局\", \"result_item_id\": \"r2\", \"providers\": [\"xai\", \"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://www.stats.gov.cn/english/understanding/201311/t20131118_463792.html\", \"title\": \"https://www.stats.gov.cn/english/understanding/201311/t20131118_463792.html\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://www.stats.gov.cn/sj/zxfb/202605/t20260511_1963659.html\", \"title\": \"2026年4月份居民消费价格同比上涨1.2% - 国家统计局\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://www.stats.gov.cn/sj/zxfb/202412/t20241209_1957689.html\", \"title\": \"https://www.stats.gov.cn/sj/zxfb/202412/t20241209_1957689.html\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://www.stats.gov.cn/sj/zxfb/202604/t20260410_1963264.html\", \"title\": \"2026年3月份居民消费价格同比上涨1.0% - 国家统计局\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912959.html\", \"title\": \"https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912959.html\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://www.stats.gov.cn/sj/zxfb/202603/t20260309_1962732.html\", \"title\": \"2026年2月份居民消费价格同比上涨1.3% - 国家统计局\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://www.stats.gov.cn/sj/ndsj/2010/html/zb09.htm\", \"title\": \"https://www.stats.gov.cn/sj/ndsj/2010/html/zb09.htm\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.stats.gov.cn/sj/zxfb/202606/t20260610_1963923.html\", \"title\": \"2026年5月份居民消费价格同比上涨1.2% - 国家统计局\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://jszd.stats.gov.cn/TrueCMS/gjtjjjsdczd/zbjs/content/0095acca-acbd-4dc4-8ecc-d10b7a59e739.html\", \"title\": \"https://jszd.stats.gov.cn/TrueCMS/gjtjjjsdczd/zbjs/content/0095acca-acbd-4dc4-8…\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmxxggzs/202409/t20240910_1956353.html\", \"title\": \"https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmxxggzs/202409/t20240910_1956353.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912948.html\", \"title\": \"https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912948.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://www.stats.gov.cn/sj/ndsj/2015/html/zb05.htm\", \"title\": \"https://www.stats.gov.cn/sj/ndsj/2015/html/zb05.htm\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://www.stats.gov.cn/sj/sjjd/202602/t20260211_1962589.html\", \"title\": \"https://www.stats.gov.cn/sj/sjjd/202602/t20260211_1962589.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://www.stats.gov.cn/sj/zxfb/202607/t20260709_1964084.html\", \"title\": \"2026年6月份居民消费价格同比上涨1.0% - 国家统计局\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c17\", \"url\": \"https://www.stats.gov.cn/sj/zxfb/202608/t20260809_1965008.html\", \"title\": \"2026年7月份居民消费价格同比上涨0.5% - 国家统计局\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c18\", \"url\": \"https://www.stats.gov.cn/sj/zxfbhjd/202512/t20251210_1962015.html\", \"title\": \"2025年11月份居民消费价格同比上涨0.7% - 国家统计局\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"0236ea4c5dd0c13cf42e9e68\"}, \"coverage\": {\"status\": \"not_applicable\", \"requirements\": [], \"requirements_total\": 0}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 0, \"read_result\": 0}, \"new_urls\": 18, \"new_pages_read\": 3, \"seen_urls\": 18, \"pages_read\": 3, \"calls_without_new_evidence\": 0}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"22f269af8e27f5276c58954d\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmxxggzs/202409/t20240910_1956353.html\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 14, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"22f269af8e27f5276c58954d\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 1, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 18, \"pages_read\": 3, \"calls_without_new_evidence\": 1}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"45be7905974fe1a268c9f276\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://www.stats.gov.cn/zs/tjws/tjzb/202301/t20230101_1903757.html\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 15, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"45be7905974fe1a268c9f276\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 2, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 18, \"pages_read\": 3, \"calls_without_new_evidence\": 2}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"8e26579d9fdc310302356ec7\", \"kind\": \"fetch\", \"status\": \"error\", \"url\": \"https://www.stats.gov.cn/zs/tjll/tjzs/202302/t20230224_1918473.html\", \"final_url\": \"\", \"title\": \"\", \"provider\": null, \"content_preview\": \"\", \"content_chars\": 0, \"truncated\": false, \"errors\": [{\"provider\": \"firecrawl\", \"code\": \"transport_error\", \"message\": \"provider HTTP 429: {\\\"success\\\":false,\\\"error\\\":\\\"Rate limit exceeded. Consumed (req/min): 16, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…\", \"retryable\": true}], \"warning_count\": 0, \"warnings\": [], \"read\": {\"tool\": \"read_result\", \"result_id\": \"8e26579d9fdc310302356ec7\", \"fields\": [\"content\"]}, \"session\": {\"calls\": {\"search\": 1, \"fetch\": 3, \"read_result\": 0}, \"new_urls\": 0, \"new_pages_read\": 0, \"seen_urls\": 18, \"pages_read\": 3, \"calls_without_new_evidence\": 3, \"advice\": \"The last calls found no new URLs or pages. Answer with the evidence already found and say what is missing, or change the site, language, or wording.\"}}",
+    "{\"schema_version\": \"1.1\", \"result_id\": \"8cacb92d96786ceb5d533f20\", \"kind\": \"search\", \"status\": \"ok\", \"query\": \"site:stats.gov.cn/zs/tjws \\\"居民消费价格指数\\\" \\\"指标解释\\\"\", \"answer\": \"Relevant results from the National Bureau of Statistics (国家统计局) on the consumer price index (居民消费价格指数 / CPI) and its indicator explanations. Paths under `/zs/tjws` are prioritized.\\n\\n1. **什么是居民消费价格指数（CPI）**  \\n   https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmxxggzs/202409/t20240910_1956353.html  \\n   CPI is the relative measure of the overall change in prices of goods and services consumed by residents over a period, showing trend and degree of change. Uses include partial reflection of inflation/deflation, deflating GDP aggregates, and deriving purchasing-power indexes. [web:0]\\n\\n2. **居民消费价格指数（CPI…\", \"answer_chars\": 3639, \"evidence\": {\"unique_urls\": 10, \"unique_domains\": 2, \"cross_provider_matches\": 0, \"pages_fetched\": 0, \"primary_citation_count\": 12, \"threads_read\": 0, \"comments_read\": 0}, \"cache\": {\"hit\": false, \"age_seconds\": 0}, \"timing_ms\": 23522, \"warning_count\": 0, \"warnings\": [], \"errors\": [], \"route\": [{\"provider\": \"xai\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"primary\"}, {\"provider\": \"tavily\", \"operation\": \"search\", \"outcome\": \"ok\", \"reason\": \"verify_supplement\"}], \"result_count\": 10, \"citation_count\": 20, \"results\": [{\"id\": \"r1\", \"title\": \"https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmxxggzs/202409/t20240910_1956353.html\", \"url\": \"https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmxxggzs/202409/t20240910_1956353.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r2\", \"title\": \"2026年4月份居民消费价格同比上涨1.2% - 国家统计局\", \"url\": \"https://www.stats.gov.cn/sj/zxfb/202605/t20260511_1963659.html\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r3\", \"title\": \"https://www.stats.gov.cn/sj/ndsj/2015/html/zb05.htm\", \"url\": \"https://www.stats.gov.cn/sj/ndsj/2015/html/zb05.htm\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r4\", \"title\": \"2026年6月份居民消费价格同比上涨1.0% - 国家统计局\", \"url\": \"https://www.stats.gov.cn/sj/zxfb/202607/t20260709_1964084.html\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r5\", \"title\": \"https://www.stats.gov.cn/sj/ndsj/2010/html/zb09.htm\", \"url\": \"https://www.stats.gov.cn/sj/ndsj/2010/html/zb09.htm\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r6\", \"title\": \"2026年5月份居民消费价格同比上涨1.2% - 国家统计局\", \"url\": \"https://www.stats.gov.cn/sj/zxfb/202606/t20260610_1963923.html\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r7\", \"title\": \"https://www.stats.gov.cn/sj/ndsj/2021/html/zb05.htm\", \"url\": \"https://www.stats.gov.cn/sj/ndsj/2021/html/zb05.htm\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r8\", \"title\": \"2026年9月份居民消费价格同比上涨0.9% - 国家统计局\", \"url\": \"https://www.stats.gov.cn/sj/zxfb/202610/t20261014_1965477.html\", \"snippet\": \"\", \"providers\": [\"tavily\"]}, {\"id\": \"r9\", \"title\": \"https://jszd.stats.gov.cn/TrueCMS/gjtjjjsdczd/zbjs/content/0095acca-acbd-4dc4-8…\", \"url\": \"https://jszd.stats.gov.cn/TrueCMS/gjtjjjsdczd/zbjs/content/0095acca-acbd-4dc4-8ecc-d10b7a59e739.html\", \"snippet\": \"\", \"providers\": [\"xai\"]}, {\"id\": \"r10\", \"title\": \"2026年2月份居民消费价格同比上涨1.3% - 国家统计局\", \"url\": \"https://www.stats.gov.cn/sj/zxfb/202603/t20260309_1962732.html\", \"snippet\": \"\", \"providers\": [\"tavily\"]}], \"citations\": [{\"id\": \"c1\", \"url\": \"https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmxxggzs/202409/t20240910_1956353.html\", \"title\": \"https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmxxggzs/202409/t20240910_1956353.html\", \"result_item_id\": \"r1\", \"providers\": [\"xai\"]}, {\"id\": \"c2\", \"url\": \"https://www.stats.gov.cn/sj/zxfb/202605/t20260511_1963659.html\", \"title\": \"2026年4月份居民消费价格同比上涨1.2% - 国家统计局\", \"result_item_id\": \"r2\", \"providers\": [\"tavily\"]}, {\"id\": \"c3\", \"url\": \"https://www.stats.gov.cn/sj/ndsj/2015/html/zb05.htm\", \"title\": \"https://www.stats.gov.cn/sj/ndsj/2015/html/zb05.htm\", \"result_item_id\": \"r3\", \"providers\": [\"xai\"]}, {\"id\": \"c4\", \"url\": \"https://www.stats.gov.cn/sj/zxfb/202607/t20260709_1964084.html\", \"title\": \"2026年6月份居民消费价格同比上涨1.0% - 国家统计局\", \"result_item_id\": \"r4\", \"providers\": [\"tavily\"]}, {\"id\": \"c5\", \"url\": \"https://www.stats.gov.cn/sj/ndsj/2010/html/zb09.htm\", \"title\": \"https://www.stats.gov.cn/sj/ndsj/2010/html/zb09.htm\", \"result_item_id\": \"r5\", \"providers\": [\"xai\"]}, {\"id\": \"c6\", \"url\": \"https://www.stats.gov.cn/sj/zxfb/202606/t20260610_1963923.html\", \"title\": \"2026年5月份居民消费价格同比上涨1.2% - 国家统计局\", \"result_item_id\": \"r6\", \"providers\": [\"tavily\"]}, {\"id\": \"c7\", \"url\": \"https://www.stats.gov.cn/sj/ndsj/2021/html/zb05.htm\", \"title\": \"https://www.stats.gov.cn/sj/ndsj/2021/html/zb05.htm\", \"result_item_id\": \"r7\", \"providers\": [\"xai\"]}, {\"id\": \"c8\", \"url\": \"https://www.stats.gov.cn/sj/zxfb/202610/t20261014_1965477.html\", \"title\": \"2026年9月份居民消费价格同比上涨0.9% - 国家统计局\", \"result_item_id\": \"r8\", \"providers\": [\"tavily\"]}, {\"id\": \"c9\", \"url\": \"https://jszd.stats.gov.cn/TrueCMS/gjtjjjsdczd/zbjs/content/0095acca-acbd-4dc4-8ecc-d10b7a59e739.html\", \"title\": \"https://jszd.stats.gov.cn/TrueCMS/gjtjjjsdczd/zbjs/content/0095acca-acbd-4dc4-8…\", \"result_item_id\": \"r9\", \"providers\": [\"xai\"]}, {\"id\": \"c10\", \"url\": \"https://www.stats.gov.cn/sj/zxfb/202603/t20260309_1962732.html\", \"title\": \"2026年2月份居民消费价格同比上涨1.3% - 国家统计局\", \"result_item_id\": \"r10\", \"providers\": [\"tavily\"]}, {\"id\": \"c11\", \"url\": \"https://www.stats.gov.cn/sj/sjjd/202602/t20260211_1962589.html\", \"title\": \"https://www.stats.gov.cn/sj/sjjd/202602/t20260211_1962589.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c12\", \"url\": \"https://www.stats.gov.cn/sj/zxfb/202407/t20240710_1955508.html\", \"title\": \"https://www.stats.gov.cn/sj/zxfb/202407/t20240710_1955508.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c13\", \"url\": \"https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202407/t20240710_1955508.html\", \"title\": \"https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202407/t20240710_1955508.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c14\", \"url\": \"https://www.stats.gov.cn/zs/tjws/tjzb/202301/t20230101_1903757.html\", \"title\": \"https://www.stats.gov.cn/zs/tjws/tjzb/202301/t20230101_1903757.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c15\", \"url\": \"https://www.stats.gov.cn/zs/tjll/tjzs/202302/t20230224_1918473.html\", \"title\": \"https://www.stats.gov.cn/zs/tjll/tjzs/202302/t20230224_1918473.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c16\", \"url\": \"https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912959.html\", \"title\": \"https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912959.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c17\", \"url\": \"https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912948.html\", \"title\": \"https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912948.html\", \"result_item_id\": null, \"providers\": [\"xai\"]}, {\"id\": \"c18\", \"url\": \"https://www.stats.gov.cn/sj/zxfb/202601/t20260109_1962273.html\", \"title\": \"2025年12月份居民消费价格同比上涨0.8% - 国家统计局\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c19\", \"url\": \"https://www.stats.gov.cn/sj/zxfb/202608/t20260809_1965008.html\", \"title\": \"2026年7月份居民消费价格同比上涨0.5% - 国家统计局\", \"result_item_id\": null, \"providers\": [\"tavily\"]}, {\"id\": \"c20\", \"url\": \"https://www.stats.gov.cn/sj/zxfbhjd/202512/t20251210_1962015.html\", \"title\": \"2025年11月份居民消费价格同比上涨0.7% - 国家统计局\", \"result_item_id\": null, \"providers\": [\"tavily\"]}], \"read\": {\"tool\": \"read_result\", \"result_id\": \"8cacb92d96786ceb5d533f20\"}, \"coverage\": {\"status\": \"not_applicable\", \"requirements\": [], \"requirements_total\": 0}, \"session\": {\"calls\": {\"search\": 2, \"fetch\": 3, \"read_result\": 0}, \"new_urls\": 5, \"new_pages_read\": 0, \"seen_urls\": 23, \"pages_read\": 3, \"calls_without_new_evidence\": 0}}"
+  ],
+  "answer": "国家统计局网站上关于居民消费价格指数（CPI）的指标解释页面是：\n\n**什么是居民消费价格指数（CPI）**  \nhttps://www.stats.gov.cn/zs/tjws/zytjzbqs/jmxxggzs/202409/t20240910_1956353.html\n\n页面说明：CPI 是度量一定时期内居民消费商品和服务价格水平总体变动的相对数，可用于反映通货膨胀或紧缩程度、GDP 核算中的价格缩减，以及货币购买力变化。\n\n相关页面：\n\n- **居民消费价格指数（CPI）是如何编制的**  \n  https://www.stats.gov.cn/zs/tjws/tjzb/202301/t20230101_1903757.html\n- **居民消费价格指数**  \n  https://www.stats.gov.cn/zs/tjll/tjzs/202302/t20230224_1918473.html",
+  "observation": {
+    "id": "general-zh-stats",
+    "answer": "国家统计局网站上关于居民消费价格指数（CPI）的指标解释页面是：\n\n**什么是居民消费价格指数（CPI）**  \nhttps://www.stats.gov.cn/zs/tjws/zytjzbqs/jmxxggzs/202409/t20240910_1956353.html\n\n页面说明：CPI 是度量一定时期内居民消费商品和服务价格水平总体变动的相对数，可用于反映通货膨胀或紧缩程度、GDP 核算中的价格缩减，以及货币购买力变化。\n\n相关页面：\n\n- **居民消费价格指数（CPI）是如何编制的**  \n  https://www.stats.gov.cn/zs/tjws/tjzb/202301/t20230101_1903757.html\n- **居民消费价格指数**  \n  https://www.stats.gov.cn/zs/tjll/tjzs/202302/t20230224_1918473.html",
+    "results": [
+      {
+        "url": "https://www.stats.gov.cn/zs/tjws/tjzb/202301/t20230101_1903757.html",
+        "title": "https://www.stats.gov.cn/zs/tjws/tjzb/202301/t20230101_1903757.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/zs/tjll/tjzs/202302/t20230224_1918473.html",
+        "title": "居民消费价格指数 - 国家统计局",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/english/understanding/201311/t20131118_463792.html",
+        "title": "https://www.stats.gov.cn/english/understanding/201311/t20131118_463792.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/zxfb/202605/t20260511_1963659.html",
+        "title": "2026年4月份居民消费价格同比上涨1.2% - 国家统计局",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/zxfb/202412/t20241209_1957689.html",
+        "title": "https://www.stats.gov.cn/sj/zxfb/202412/t20241209_1957689.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/zxfb/202604/t20260410_1963264.html",
+        "title": "2026年3月份居民消费价格同比上涨1.0% - 国家统计局",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912959.html",
+        "title": "https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912959.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/zxfb/202603/t20260309_1962732.html",
+        "title": "2026年2月份居民消费价格同比上涨1.3% - 国家统计局",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/ndsj/2010/html/zb09.htm",
+        "title": "https://www.stats.gov.cn/sj/ndsj/2010/html/zb09.htm",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/zxfb/202606/t20260610_1963923.html",
+        "title": "2026年5月份居民消费价格同比上涨1.2% - 国家统计局",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/zs/tjws/tjzb/202301/t20230101_1903757.html",
+        "title": "https://www.stats.gov.cn/zs/tjws/tjzb/202301/t20230101_1903757.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/zs/tjll/tjzs/202302/t20230224_1918473.html",
+        "title": "居民消费价格指数 - 国家统计局",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/english/understanding/201311/t20131118_463792.html",
+        "title": "https://www.stats.gov.cn/english/understanding/201311/t20131118_463792.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/zxfb/202605/t20260511_1963659.html",
+        "title": "2026年4月份居民消费价格同比上涨1.2% - 国家统计局",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/zxfb/202412/t20241209_1957689.html",
+        "title": "https://www.stats.gov.cn/sj/zxfb/202412/t20241209_1957689.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/zxfb/202604/t20260410_1963264.html",
+        "title": "2026年3月份居民消费价格同比上涨1.0% - 国家统计局",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912959.html",
+        "title": "https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912959.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/zxfb/202603/t20260309_1962732.html",
+        "title": "2026年2月份居民消费价格同比上涨1.3% - 国家统计局",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/ndsj/2010/html/zb09.htm",
+        "title": "https://www.stats.gov.cn/sj/ndsj/2010/html/zb09.htm",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/zxfb/202606/t20260610_1963923.html",
+        "title": "2026年5月份居民消费价格同比上涨1.2% - 国家统计局",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://jszd.stats.gov.cn/TrueCMS/gjtjjjsdczd/zbjs/content/0095acca-acbd-4dc4-8ecc-d10b7a59e739.html",
+        "title": "https://jszd.stats.gov.cn/TrueCMS/gjtjjjsdczd/zbjs/content/0095acca-acbd-4dc4-8…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmxxggzs/202409/t20240910_1956353.html",
+        "title": "https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmxxggzs/202409/t20240910_1956353.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912948.html",
+        "title": "https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912948.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/ndsj/2015/html/zb05.htm",
+        "title": "https://www.stats.gov.cn/sj/ndsj/2015/html/zb05.htm",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/sjjd/202602/t20260211_1962589.html",
+        "title": "https://www.stats.gov.cn/sj/sjjd/202602/t20260211_1962589.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/zxfb/202607/t20260709_1964084.html",
+        "title": "2026年6月份居民消费价格同比上涨1.0% - 国家统计局",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/zxfb/202608/t20260809_1965008.html",
+        "title": "2026年7月份居民消费价格同比上涨0.5% - 国家统计局",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/zxfbhjd/202512/t20251210_1962015.html",
+        "title": "2025年11月份居民消费价格同比上涨0.7% - 国家统计局",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmxxggzs/202409/t20240910_1956353.html",
+        "title": "https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmxxggzs/202409/t20240910_1956353.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/zxfb/202605/t20260511_1963659.html",
+        "title": "2026年4月份居民消费价格同比上涨1.2% - 国家统计局",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/ndsj/2015/html/zb05.htm",
+        "title": "https://www.stats.gov.cn/sj/ndsj/2015/html/zb05.htm",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/zxfb/202607/t20260709_1964084.html",
+        "title": "2026年6月份居民消费价格同比上涨1.0% - 国家统计局",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/ndsj/2010/html/zb09.htm",
+        "title": "https://www.stats.gov.cn/sj/ndsj/2010/html/zb09.htm",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/zxfb/202606/t20260610_1963923.html",
+        "title": "2026年5月份居民消费价格同比上涨1.2% - 国家统计局",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/ndsj/2021/html/zb05.htm",
+        "title": "https://www.stats.gov.cn/sj/ndsj/2021/html/zb05.htm",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/zxfb/202610/t20261014_1965477.html",
+        "title": "2026年9月份居民消费价格同比上涨0.9% - 国家统计局",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://jszd.stats.gov.cn/TrueCMS/gjtjjjsdczd/zbjs/content/0095acca-acbd-4dc4-8ecc-d10b7a59e739.html",
+        "title": "https://jszd.stats.gov.cn/TrueCMS/gjtjjjsdczd/zbjs/content/0095acca-acbd-4dc4-8…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/zxfb/202603/t20260309_1962732.html",
+        "title": "2026年2月份居民消费价格同比上涨1.3% - 国家统计局",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmxxggzs/202409/t20240910_1956353.html",
+        "title": "https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmxxggzs/202409/t20240910_1956353.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/zxfb/202605/t20260511_1963659.html",
+        "title": "2026年4月份居民消费价格同比上涨1.2% - 国家统计局",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/ndsj/2015/html/zb05.htm",
+        "title": "https://www.stats.gov.cn/sj/ndsj/2015/html/zb05.htm",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/zxfb/202607/t20260709_1964084.html",
+        "title": "2026年6月份居民消费价格同比上涨1.0% - 国家统计局",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/ndsj/2010/html/zb09.htm",
+        "title": "https://www.stats.gov.cn/sj/ndsj/2010/html/zb09.htm",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/zxfb/202606/t20260610_1963923.html",
+        "title": "2026年5月份居民消费价格同比上涨1.2% - 国家统计局",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/ndsj/2021/html/zb05.htm",
+        "title": "https://www.stats.gov.cn/sj/ndsj/2021/html/zb05.htm",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/zxfb/202610/t20261014_1965477.html",
+        "title": "2026年9月份居民消费价格同比上涨0.9% - 国家统计局",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://jszd.stats.gov.cn/TrueCMS/gjtjjjsdczd/zbjs/content/0095acca-acbd-4dc4-8ecc-d10b7a59e739.html",
+        "title": "https://jszd.stats.gov.cn/TrueCMS/gjtjjjsdczd/zbjs/content/0095acca-acbd-4dc4-8…",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/zxfb/202603/t20260309_1962732.html",
+        "title": "2026年2月份居民消费价格同比上涨1.3% - 国家统计局",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/sjjd/202602/t20260211_1962589.html",
+        "title": "https://www.stats.gov.cn/sj/sjjd/202602/t20260211_1962589.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/zxfb/202407/t20240710_1955508.html",
+        "title": "https://www.stats.gov.cn/sj/zxfb/202407/t20240710_1955508.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202407/t20240710_1955508.html",
+        "title": "https://www.stats.gov.cn/xxgk/sjfb/zxfb2020/202407/t20240710_1955508.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/zs/tjws/tjzb/202301/t20230101_1903757.html",
+        "title": "https://www.stats.gov.cn/zs/tjws/tjzb/202301/t20230101_1903757.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/zs/tjll/tjzs/202302/t20230224_1918473.html",
+        "title": "https://www.stats.gov.cn/zs/tjll/tjzs/202302/t20230224_1918473.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912959.html",
+        "title": "https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912959.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912948.html",
+        "title": "https://www.stats.gov.cn/zs/tjws/tjbk/202301/t20230101_1912948.html",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/zxfb/202601/t20260109_1962273.html",
+        "title": "2025年12月份居民消费价格同比上涨0.8% - 国家统计局",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/zxfb/202608/t20260809_1965008.html",
+        "title": "2026年7月份居民消费价格同比上涨0.5% - 国家统计局",
+        "snippet": "",
+        "published_at": null
+      },
+      {
+        "url": "https://www.stats.gov.cn/sj/zxfbhjd/202512/t20251210_1962015.html",
+        "title": "2025年11月份居民消费价格同比上涨0.7% - 国家统计局",
+        "snippet": "",
+        "published_at": null
+      }
+    ],
+    "fetched": [
+      {
+        "url": "https://www.stats.gov.cn/zs/tjws/zytjzbqs/jmxxggzs/202409/t20240910_1956353.html",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 14, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://www.stats.gov.cn/zs/tjws/tjzb/202301/t20230101_1903757.html",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 15, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…",
+            "retryable": true
+          }
+        ]
+      },
+      {
+        "url": "https://www.stats.gov.cn/zs/tjll/tjzs/202302/t20230224_1918473.html",
+        "content": "",
+        "errors": [
+          {
+            "provider": "firecrawl",
+            "code": "transport_error",
+            "message": "provider HTTP 429: {\"success\":false,\"error\":\"Rate limit exceeded. Consumed (req/min): 16, Remaining (req/min): 0. Upgrade your plan at https://firecrawl.dev/pricing for increased rate limits or pleas…",
+            "retryable": true
+          }
+        ]
+      }
+    ],
+    "comments": [],
+    "executed_at": "2026-10-16T09:34:48.235451+00:00",
+    "timed_out": false
+  },
+  "score": {
+    "id": "general-zh-stats",
+    "scores": {
+      "discovery": {
+        "status": "pass",
+        "matched_targets": [
+          "stats-cpi"
+        ],
+        "required": 1
+      },
+      "reading": {
+        "status": "fail"
+      }
+    },
+    "task": {
+      "status": "fail",
+      "reasons": [
+        "reading:fail"
+      ]
+    },
+    "expected_access": "public",
+    "observed_failure": null,
+    "algorithm_miss": true,
+    "grader": "v2"
+  }
+}
