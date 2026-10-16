@@ -400,11 +400,18 @@ def _list_source(response: dict[str, Any], field: str) -> list[Any]:
         thread = response.get("thread")
         if isinstance(thread, dict) and isinstance(thread.get("comments"), list):
             return thread["comments"]
-        out: list[Any] = []
+        # Search records: comments that matched the request (relevance > 0),
+        # across all threads and best first, then the rest in thread order.
+        # Agents otherwise page through hundreds of comments to find them.
+        matched: list[Any] = []
+        rest: list[Any] = []
         for thread in _dicts(response.get("threads")):
             for comment in _dicts(thread.get("comments")):
-                out.append({**comment, "thread_url": thread.get("url")})
-        return out
+                item = {**comment, "thread_url": thread.get("url")}
+                score = comment.get("relevance")
+                (matched if isinstance(score, (int, float)) and score > 0 else rest).append(item)
+        matched.sort(key=lambda c: -float(c.get("relevance") or 0))
+        return matched + rest
     value = response.get(field)
     return value if isinstance(value, list) else []
 
@@ -457,6 +464,10 @@ def project_record(
             page = items[offset : offset + item_cap]
             data[field] = [_render_item(field, item, item_text_len) for item in page]
             data[f"{field}_total"] = len(items)
+            if field == "comments":
+                data["comments_relevant"] = sum(
+                    1 for c in items if isinstance(c, dict) and isinstance(c.get("relevance"), (int, float)) and c["relevance"] > 0
+                )
             next_offsets[field] = offset + len(page) if offset + len(page) < len(items) else None
         for field in other_fields:
             data[field] = shrink(response.get(field), max_str=item_text_len or 120, max_items=16, depth=3)

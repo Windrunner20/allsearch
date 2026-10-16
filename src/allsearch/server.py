@@ -337,8 +337,14 @@ def build_mcp(config: AllSearchConfig | None = None) -> tuple[Orchestrator, Fast
             state = sessions.get(session_key)
             seen = sessions.note_read(state, dumps([result_id, page["fields"], page["offset"], page.get("next_offset")]))
             block = sessions.observe(state, "read_result", repeat=seen > 1)
+            pages = sessions.note_read(state, f"pages:{result_id}")
             if seen > 1:
                 block["advice"] = f"This page was already returned {seen - 1} time(s) in this session."
+            elif pages >= 4 and page.get("next_offset") is not None:
+                block["advice"] = (
+                    f"{pages} pages of this result read. Matching items come first; "
+                    "later pages rarely add evidence. Answer now unless something specific is missing."
+                )
             page["session"] = block
             return _result(page)
 

@@ -239,7 +239,14 @@ def _next_steps(
     """Concrete follow-ups for the client, derived only from unmet requirements."""
     steps: list[dict[str, Any]] = []
     if any(t.comments for t in threads):
-        steps.append({"tool": "read_result", "fields": ["comments"], "why": "comments read through the platform API are stored with ids, authors and timestamps"})
+        relevant = sum(1 for t in threads for c in t.comments if (c.relevance or 0) > 0)
+        why = (
+            f"{relevant} comment(s) matched the request and come first on page 1 (relevance > 0); "
+            "later pages hold the remaining comments in thread order"
+            if relevant
+            else "comments read through the platform API, with ids, authors and timestamps"
+        )
+        steps.append({"tool": "read_result", "fields": ["comments"], "why": why})
     for thread in threads:
         if thread.status == "found":
             steps.append({"tool": "fetch", "url": thread.url, "why": f"comments not readable via API ({thread.error}); fetch reads the page if it is public"})

@@ -198,3 +198,16 @@ def test_comments_field_flattens_threads_with_source_url():
 def test_size_of_matches_wire_text():
     payload = {"a": CJK, "b": [1, 2, {"c": "😀"}]}
     assert size_of(payload) == len(json.dumps(payload, ensure_ascii=False, separators=(",", ":")).encode())
+
+
+def test_search_comments_page_puts_matching_comments_first():
+    response = {
+        "threads": [
+            {"url": "https://news.ycombinator.com/item?id=1", "comments": [{"id": str(i), "text": "x"} for i in range(30)]},
+            {"url": "https://news.ycombinator.com/item?id=2", "comments": [{"id": "hit2", "text": "y", "relevance": 2.0}, {"id": "hit5", "text": "z", "relevance": 5.0}]},
+        ]
+    }
+    record = {"result_id": "a" * 24, "kind": "search", "response": response}
+    page = project_record(record, fields=["comments"], offset=0, limit=5, max_bytes=4096)
+    assert [c["id"] for c in page["data"]["comments"]][:2] == ["hit5", "hit2"]
+    assert page["data"]["comments_relevant"] == 2 and page["data"]["comments_total"] == 32
