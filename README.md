@@ -18,10 +18,10 @@
 需要 Python 3.11+。
 
 ```bash
-# 作为命令行工具安装（推荐）
-uv tool install git+https://github.com/Windrunner20/allsearch@dev/universal-mcp
+# 作为命令行工具安装（推荐；@v0.3.0 为正式版本）
+uv tool install git+https://github.com/Windrunner20/allsearch@v0.3.0
 # 或
-pipx install git+https://github.com/Windrunner20/allsearch@dev/universal-mcp
+pipx install git+https://github.com/Windrunner20/allsearch@v0.3.0
 
 # 或从源码
 git clone https://github.com/Windrunner20/allsearch.git && cd allsearch
