@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.3.0 (unreleased, branch `dev/universal-mcp`)
+## 0.3.0 (2026-10-16)
 
 ### Changed (may affect existing setups)
 

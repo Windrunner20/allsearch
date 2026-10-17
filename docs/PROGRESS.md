@@ -4,9 +4,9 @@ No credentials belong in this file. Keys live only in the untracked `.env`.
 
 ## Where things stand
 
-Branch `dev/universal-mcp`, based on tag `baseline-1244cf5` (= GitHub `main`
-at takeover). Phase: **verification and release preparation**. No new
-features or large refactors in this phase.
+Released as tag `v0.3.0` (commit 3a5308b), fast-forwarded into `main` from
+`dev/universal-mcp`, which was based on tag `baseline-1244cf5` (= GitHub
+`main` at takeover). No GitHub Release object has been created yet.
 
 ## Done and verified
 
@@ -21,7 +21,8 @@ features or large refactors in this phase.
 | Grader v2 + audit of 2026-10-15 runs | `benchmarks/audit.py`, `benchmarks/runs/audit-20261016/` |
 | Clients | MCP SDK stdio + HTTP, MCP Inspector CLI, Claude Code (stdio + HTTP), Pi native MCP |
 
-Offline suite: 350 passed, 1 skipped on Python 3.14 and 3.11 (commit 834194e).
+Offline suite at 3a5308b: 350 passed, 1 skipped locally (Python 3.14) and on
+Linux/macOS CI; 349 passed, 2 skipped on Windows CI (POSIX file-mode test).
 
 ## Live results (grader v2; raw data in benchmarks/runs, analysis in docs/REPORT-0.3.md)
 
@@ -55,14 +56,15 @@ Offline suite: 350 passed, 1 skipped on Python 3.14 and 3.11 (commit 834194e).
 
 ## CI
 
-Branch pushed 2026-10-16. GitHub Actions run 38885741984 (commit 1acd0da):
-all 10 jobs green — Linux, macOS, Windows × Python 3.11/3.12/3.13 and the
-package job (wheel install + Docker build). The first run failed only on
-Windows in the legacy Pi bridge (cp1252 stdout), fixed in 1acd0da.
+Branch pushed 2026-10-16. First run (81135c9) failed only on Windows in the
+legacy Pi bridge (cp1252 stdout), fixed in 1acd0da. Commit 3a5308b is green
+on all 10 jobs (Linux, macOS, Windows × Python 3.11/3.12/3.13 and the package
+job: wheel install + Docker build) in three runs: `dev/universal-mcp`
+38885972155, `main` 38886480767, tag `v0.3.0` 38887977835.
 
 ## Next steps (in order)
 
-1. Owner review; decide on merging `dev/universal-mcp` into `main` and tagging v0.3.0.
+1. Optional: create the GitHub Release for `v0.3.0` from the CHANGELOG.
 2. Optional: one interleaved agent A/B after the post-run fixes (741d4be,
    include_domains fix); Reddit OAuth check if credentials are provided.
 
