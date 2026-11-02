@@ -111,3 +111,19 @@ def test_sufficiency_exclude_reduces_counts(base_config):
     # Excluded domain no longer counts toward evidence.
     assert result.citation_count == 2
     assert result.unique_domains == 2
+
+
+def test_urls_only_in_answer_text_are_not_evidence(base_config):
+    primary = ProviderSearchResult(
+        provider="xai",
+        query="q",
+        answer="ok",
+        results=[
+            ProviderResultItem(title=name, url=f"https://{name}.com/1", provider="xai", metadata={"from_answer": True})
+            for name in ("a", "b", "c")
+        ],
+        citations=[],
+    )
+    result = evaluate_primary_sufficiency(primary, base_config, depth="balanced")
+    assert result.sufficient is False
+    assert result.citation_count == 0

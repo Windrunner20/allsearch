@@ -241,9 +241,9 @@ async def test_bare_citations_get_title_and_snippet_from_the_answer(base_config)
     assert "全局解释器锁" in first.snippet
     assert first.metadata["snippet_source"] == "answer_context"
     second = next(r for r in resp.results if r.url.endswith("BV2xyz"))
-    assert second.title.startswith("https://") and "threads" in second.snippet
+    assert second.title == "www.bilibili.com" and "threads" in second.snippet
     third = next(r for r in resp.results if r.url.endswith("BV3num"))
-    assert third.title.startswith("https://") and "GIL" in third.snippet
+    assert third.title == "www.bilibili.com" and "GIL" in third.snippet
 
 
 async def test_capped_primary_falls_back_to_tavily_answer_and_clean_wikipedia_query(base_config, monkeypatch):
@@ -278,3 +278,30 @@ async def test_include_domains_on_known_site_uses_native_search(base_config):
     orch.native = native
     await orch.search(SearchRequest(query="SQLite application file format", include_domains=["news.ycombinator.com"], fresh=True))
     assert native.searches == [("hackernews", "SQLite application file format")]
+
+
+async def test_placeholder_titles_become_link_text_or_hostname(base_config):
+    primary = ProviderSearchResult(
+        provider="xai",
+        query="q",
+        answer="1. Wowhead says October 13. [web:1](https://www.wowhead.com/news/a)\n\n2. [Blizzard notes](https://news.blizzard.com/b) list it.",
+        results=[
+            ProviderResultItem(title="web:1", url="https://www.wowhead.com/news/a", provider="xai"),
+            ProviderResultItem(title="https://news.blizzard.com/b", url="https://news.blizzard.com/b", provider="xai"),
+            ProviderResultItem(title="https://unnamed.example/c", url="https://unnamed.example/c", provider="xai"),
+        ],
+        citations=[
+            {"title": "web:1", "url": "https://www.wowhead.com/news/a"},
+            {"title": "https://news.blizzard.com/b", "url": "https://news.blizzard.com/b"},
+            {"title": "https://unnamed.example/c", "url": "https://unnamed.example/c"},
+        ],
+    )
+    orch = make_orchestrator(base_config, xai=FakeXAI(primary), tavily=FakeTavily())
+    resp = await orch.search(SearchRequest(query="stable query about cats", fresh=True))
+    by_url = {r.url: r for r in resp.results}
+    assert by_url["https://www.wowhead.com/news/a"].title == "www.wowhead.com"
+    assert by_url["https://www.wowhead.com/news/a"].snippet.startswith("Wowhead says")
+    assert by_url["https://news.blizzard.com/b"].title == "Blizzard notes"
+    assert by_url["https://unnamed.example/c"].title == "unnamed.example"
+    assert by_url["https://unnamed.example/c"].snippet == ""
+    assert {c.title for c in resp.citations} == {"www.wowhead.com", "Blizzard notes", "unnamed.example"}

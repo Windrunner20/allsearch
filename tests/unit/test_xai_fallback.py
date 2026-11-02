@@ -262,3 +262,22 @@ async def test_fallback_payload_uses_endpoint_reasoning_effort():
     # fallback (chat) payload should NOT carry reasoning_effort (endpoint default None)
     fallback_payload = transport.calls[1][1]
     assert "reasoning_effort" not in fallback_payload
+
+
+def test_responses_searched_needs_a_search_trace():
+    from allsearch.providers.xai import XAIProvider
+
+    message = {"type": "message", "content": [{"type": "output_text", "text": "I searched the web.", "annotations": []}]}
+    assert XAIProvider.responses_searched({"output": [message]}, []) is False
+    assert XAIProvider.responses_searched({"output": [{"type": "web_search_call"}, message]}, []) is True
+    assert XAIProvider.responses_searched({"output": [message]}, [{"title": "a", "url": "https://a.example"}]) is True
+
+
+def test_chat_searched_ignores_urls_in_prose():
+    from allsearch.providers.xai import XAIProvider
+
+    prose = {"choices": [{"message": {"content": "See https://made-up.example/notes"}}]}
+    assert XAIProvider.chat_searched(prose) is False
+    annotated = {"choices": [{"message": {"content": "x", "annotations": [{"type": "url_citation"}]}}]}
+    assert XAIProvider.chat_searched(annotated) is True
+    assert XAIProvider.chat_searched({"search_sources": [{"url": "https://a.example"}], "choices": []}) is True

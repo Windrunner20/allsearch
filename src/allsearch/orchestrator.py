@@ -82,6 +82,7 @@ class _StageResult:
     output_key: str | None = None
 
 
+_CITATION_MARKER = re.compile(r"\w+:\d+")
 _ANSWER_LINK = re.compile(r"\[([^\]]{1,200})\]\((https?://[^)\s]+)\)|(?<![(\[])(https?://[^\s<>\"'`)\]]+)")
 
 
@@ -94,17 +95,24 @@ def _answer_contexts(answer: str) -> dict[str, tuple[str, str]]:
         plain = re.sub(r"https?://\S+", "", plain)
         plain = re.sub(r"[*_`#>|]+|\[\w+:\d+\]", " ", plain)
         plain = " ".join(plain.split()).strip(" -–—:：·")
+        plain = re.sub(r"^\d+[.)]\s+", "", plain)
         for match in _ANSWER_LINK.finditer(block):
             url = (match.group(2) or match.group(3) or "").rstrip(".,;:!?*)]}>\u3002\uff0c")
             if not url.startswith(("http://", "https://")):
                 continue
             label = " ".join((match.group(1) or "").replace("*", "").split())
-            if not re.search(r"[^\W\d_]{2}", label):
+            if not re.search(r"[^\W\d_]{2}", label) or _CITATION_MARKER.fullmatch(label):
                 label = ""  # citation markers such as [1] or [web:3] are not titles
             key = canonicalize_url(url)
             if key not in out or (label and not out[key][0]):
                 out[key] = (label, plain[:300])
     return out
+
+
+def _is_placeholder_title(title: str | None) -> bool:
+    """Grok often repeats the URL or a citation marker in the title field."""
+    text = (title or "").strip()
+    return not text or text.startswith("http") or bool(_CITATION_MARKER.fullmatch(text))
 
 
 def _with_answer_links(primary: ProviderSearchResult) -> ProviderSearchResult:
@@ -114,11 +122,11 @@ def _with_answer_links(primary: ProviderSearchResult) -> ProviderSearchResult:
     ("https://x.com/OpenAI/status/…") while its citation list holds the pages
     it searched. Cited results get a title and snippet from the answer block
     that names them; URLs that appear only in the answer are appended. Both are
-    marked in metadata so they can be told apart from engine snippets.
+    marked in metadata so they can be told apart from engine snippets. A result
+    with no usable title falls back to its hostname. Snippets stay empty when
+    the answer does not name the URL: nothing here has read that page.
     """
     contexts = _answer_contexts(primary.answer or "")
-    if not contexts:
-        return primary
     results: list[ProviderResultItem] = []
     known: set[str] = set()
     for item in primary.results:
@@ -126,15 +134,22 @@ def _with_answer_links(primary: ProviderSearchResult) -> ProviderSearchResult:
         known.add(key)
         label, context = contexts.get(key, ("", ""))
         update: dict[str, Any] = {}
-        if label and (not item.title or item.title.startswith("http")):
-            update["title"] = label
+        if _is_placeholder_title(item.title):
+            update["title"] = label or hostname_of(item.url or "")
         if context and not item.snippet:
             update["snippet"] = context
-        if update:
             update["metadata"] = {**(item.metadata or {}), "snippet_source": "answer_context"}
+        if update:
             item = item.model_copy(update=update)
         results.append(item)
-    known |= {canonicalize_url(c.get("url") or "") for c in primary.citations}
+    citations: list[dict[str, str]] = []
+    for citation in primary.citations:
+        url = citation.get("url") or ""
+        key = canonicalize_url(url)
+        known.add(key)
+        if _is_placeholder_title(citation.get("title")):
+            citation = {**citation, "title": contexts.get(key, ("", ""))[0] or hostname_of(url)}
+        citations.append(citation)
     added = 0
     for key, (label, context) in contexts.items():
         if key in known or added >= 10:
@@ -143,14 +158,23 @@ def _with_answer_links(primary: ProviderSearchResult) -> ProviderSearchResult:
         added += 1
         results.append(
             ProviderResultItem(
-                title=label,
+                title=label or hostname_of(key),
                 url=key,
                 snippet=context,
                 provider=primary.provider,
                 metadata={"from_answer": True, "snippet_source": "answer_context"},
             )
         )
-    return primary.model_copy(update={"results": results})
+    return primary.model_copy(update={"results": results, "citations": citations})
+
+
+def _without_unsearched_answer(primary: ProviderSearchResult) -> ProviderSearchResult:
+    """Drop an answer the provider reports it wrote without searching.
+
+    It comes from model memory, and any URLs in it are unverified, so none of
+    it may reach the caller or count as evidence.
+    """
+    return primary.model_copy(update={"answer": "", "results": [], "citations": []})
 
 
 @dataclass(slots=True)
@@ -630,7 +654,18 @@ class Orchestrator:
 
         primary = provider_outputs.get("xai")
         if primary is not None:
-            primary = _with_answer_links(primary)
+            if primary.tool_usage.get("searched") is False:
+                primary = _without_unsearched_answer(primary)
+                errors.append(
+                    ErrorItem(
+                        provider="xai",
+                        code="primary_not_searched",
+                        message="the model answered without running web search; its answer was discarded",
+                        retryable=True,
+                    )
+                )
+            else:
+                primary = _with_answer_links(primary)
             provider_outputs["xai"] = primary
 
         if timed_out:
@@ -1190,13 +1225,19 @@ class Orchestrator:
         if primary is not None:
             answer = primary.answer or ""
         primary_capped = any(e.code == "primary_timeout" for e in errors)
-        if not answer and (degraded or primary_capped):
-            # Grok is down (degraded) or was stopped at its time cap: fall back
-            # to the Tavily answer when a Tavily stage produced one.
+        primary_unsearched = any(e.code == "primary_not_searched" for e in errors)
+        if not answer and (degraded or primary_capped or primary_unsearched):
+            # Grok is down (degraded), was stopped at its time cap, or did not
+            # search: fall back to the Tavily answer when a Tavily stage produced one.
             tav = next((r for r in provider_outputs.values() if r.provider == "tavily" and r.answer), None)
             if tav is not None:
                 answer = tav.answer
-                warnings.append("degraded_answer_from_tavily" if degraded else "answer_from_tavily_primary_timeout")
+                if degraded:
+                    warnings.append("degraded_answer_from_tavily")
+                elif primary_capped:
+                    warnings.append("answer_from_tavily_primary_timeout")
+                else:
+                    warnings.append("answer_from_tavily_primary_not_searched")
             elif degraded:
                 warnings.append("degraded_empty_answer")
         if threads and intent is not None and intent.comments:

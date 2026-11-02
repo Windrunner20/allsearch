@@ -35,7 +35,8 @@ def evaluate_primary_sufficiency(
     citations = [c for c in primary.citations if c.get("url")]
     urls = [c.get("url", "") for c in citations]
     if not urls:
-        urls = [r.url for r in primary.results if r.url]
+        # URLs that appear only in the answer text are claims, not evidence.
+        urls = [r.url for r in primary.results if r.url and not (r.metadata or {}).get("from_answer")]
     # Apply the same final domain filter used for structured results.
     urls = [
         u

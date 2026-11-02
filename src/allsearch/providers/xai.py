@@ -218,6 +218,32 @@ class XAIProvider:
         return normalized
 
     @staticmethod
+    def responses_searched(payload: dict[str, Any], citations: list[dict[str, str]]) -> bool:
+        """True when a Responses payload shows the web_search tool actually ran.
+
+        Relays can accept the tool and answer from model memory: HTTP 200, a
+        confident answer, no ``web_search_call`` and no annotations.
+        """
+        if citations or payload.get("server_side_tool_usage") or payload.get("tool_usage"):
+            return True
+        return any(
+            isinstance(item, dict) and item.get("type") == "web_search_call"
+            for item in payload.get("output") or []
+        )
+
+    @staticmethod
+    def chat_searched(payload: dict[str, Any]) -> bool:
+        """True when a chat payload carries structured sources, not just URLs in prose."""
+        if payload.get("search_sources"):
+            return True
+        return any(
+            isinstance(choice, dict)
+            and isinstance(choice.get("message"), dict)
+            and choice["message"].get("annotations")
+            for choice in payload.get("choices") or []
+        )
+
+    @staticmethod
     def extract_chat_citations(payload: dict[str, Any]) -> list[dict[str, str]]:
         """Extract citations from an OpenAI chat-completions web_search response.
 
@@ -449,6 +475,7 @@ class XAIProvider:
                         "primary_model": self.config.model,
                         "fallback_used": index > 0,
                         "endpoint": "primary",
+                        "searched": self.responses_searched(response, citations),
                         "reasoning_effort": self.config.reasoning_effort if index == 0 else None,
                         "max_tool_calls": self.config.max_tool_calls,
                         "attempted_models": attempted_models,
@@ -536,6 +563,7 @@ class XAIProvider:
                 "primary_model": self.config.model,
                 "fallback_used": True,
                 "endpoint": "fallback",
+                "searched": self.chat_searched(response),
                 "reasoning_effort": fb.reasoning_effort,
                 "max_tool_calls": self.config.max_tool_calls,
                 "attempted_models": [fb.model],

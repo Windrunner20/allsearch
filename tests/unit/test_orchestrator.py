@@ -840,3 +840,63 @@ def test_fetch_dns_policy_follows_firecrawl_location(base_config):
         assert cfg.resolve_fetch_dns() is True, internal
     assert replace(base_config, fetch_dns_check="always").resolve_fetch_dns() is True
     assert replace(base_config, fetch_dns_check="never").resolve_fetch_dns() is False
+
+
+def _unsearched_primary(**tool_usage) -> ProviderSearchResult:
+    return ProviderSearchResult(
+        provider="xai",
+        query="q",
+        answer="Patch 12.1.5 does not exist. See [notes](https://made-up.example/notes).",
+        results=[],
+        citations=[],
+        tool_usage={"searched": False, **tool_usage},
+    )
+
+
+@pytest.mark.asyncio
+async def test_unsearched_primary_answer_is_replaced_by_tavily(base_config):
+    tavily = FakeTavily()
+    orch = make_orchestrator(base_config, xai=FakeXAI(_unsearched_primary()), tavily=tavily)
+    resp = await orch.search(SearchRequest(query="stable query about cats", depth="balanced"))
+    assert tavily.calls
+    assert resp.status == "partial"
+    assert [e.code for e in resp.errors] == ["primary_not_searched"]
+    assert "does not exist" not in resp.answer
+    assert "answer_from_tavily_primary_not_searched" in resp.warnings
+    assert all("made-up.example" not in r.url for r in resp.results)
+    assert resp.evidence.primary_citation_count == 0
+
+
+@pytest.mark.asyncio
+async def test_unsearched_primary_without_supplement_is_an_error(base_config):
+    class EmptyTavily(FakeTavily):
+        async def search(self, *args, **kwargs):
+            raise ProviderUnavailableError("tavily down")
+
+    orch = make_orchestrator(base_config, xai=FakeXAI(_unsearched_primary()), tavily=EmptyTavily())
+    resp = await orch.search(SearchRequest(query="stable query about cats", depth="balanced"))
+    assert resp.status == "error"
+    assert resp.answer == ""
+    assert resp.results == []
+
+
+@pytest.mark.asyncio
+async def test_searched_primary_keeps_its_answer(base_config):
+    primary = ProviderSearchResult(
+        provider="xai",
+        query="q",
+        answer="Grounded answer.",
+        results=[],
+        citations=[
+            {"title": "a", "url": "https://a.example/1"},
+            {"title": "b", "url": "https://b.example/2"},
+            {"title": "c", "url": "https://c.example/3"},
+        ],
+        tool_usage={"searched": True},
+    )
+    tavily = FakeTavily()
+    orch = make_orchestrator(base_config, xai=FakeXAI(primary), tavily=tavily)
+    resp = await orch.search(SearchRequest(query="stable query about cats", depth="balanced"))
+    assert resp.status == "ok"
+    assert resp.answer.startswith("Grounded answer.")
+    assert not tavily.calls

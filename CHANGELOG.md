@@ -1,5 +1,19 @@
 # Changelog
 
+## Unreleased
+
+### Fixed
+
+- A Grok answer written without running web search is discarded: `search`
+  reports `primary_not_searched`, falls back to Tavily, and no longer returns
+  `status: "ok"` for an answer from model memory. Relays can accept the
+  `web_search` tool and ignore it.
+- URLs that appear only in the answer text no longer count as primary
+  citations when deciding whether Grok's evidence is sufficient.
+- Result and citation titles no longer show `web:3` markers or a bare URL;
+  they use the answer's link text, then the hostname. Snippets taken from the
+  answer lose their list number.
+
 ## 0.3.0 (2026-10-16)
 
 ### Changed (may affect existing setups)
